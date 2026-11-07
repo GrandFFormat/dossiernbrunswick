@@ -108,6 +108,19 @@ export const normaliserChemin = (href) => String(href ?? '').split("\\").join('/
  * @param {import('cheerio').CheerioAPI} $
  * @param {any} el  l'élément .member-card
  */
+/**
+ * Qui dirige un parti. Les fiches de l'Assemblée distinguent deux choses qu'un simple
+ * « leader » confondrait : le CHEF d'un parti (« Leader of the Official Opposition »,
+ * « Leader of the Third Party ») et le LEADER PARLEMENTAIRE, qui organise les travaux de
+ * son groupe en Chambre (« Government House Leader »). Seul le premier compte.
+ *
+ * La règle vit ici parce que deux endroits s'en servent : le scraper des portraits, pour
+ * savoir qui en a besoin, et la construction du site, pour savoir qui a une page.
+ */
+export const estChefDeParti = (roles) => (roles || []).some(
+  (r) => /\bleader\b/i.test(r) && !/house leader/i.test(r),
+);
+
 /** Les titres professionnels que l'Assemblée intercale dans un nom. */
 const TITRES = /^(K\.C\.|Q\.C\.|C\.M\.|O\.C\.|M\.D\.|Ph\.D\.|LL\.D\.|Dr\.?)$/i;
 
