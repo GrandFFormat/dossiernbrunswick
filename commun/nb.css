@@ -1400,3 +1400,88 @@ html[data-theme='dark'] .nb-famille.votes { color: #5fcf8a; border-color: #5fcf8
 }
 .nb-fin-ligne b { font-variant-numeric: tabular-nums; }
 .nb-fin-note { margin: 10px 0 0; font-size: 11px; line-height: 1.5; color: var(--ink3); }
+
+/* ─── La page des projets de loi, dans la forme de DossierQuébec ────────── */
+
+.nb-bande-chemin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 14px 18px;
+  background: var(--w);
+  border-left: 5px solid var(--nb-jaune);
+  box-shadow: var(--shadow-sm);
+  font: 600 11px var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+.nb-bande-chemin span {
+  padding: 4px 10px;
+  color: var(--tintink);
+  background: var(--tint);
+}
+.nb-bande-chemin i { font-style: normal; color: var(--ink3); }
+.nb-bande-chemin a { margin-left: auto; color: var(--nb-rouge); text-decoration: none; }
+
+.nb-filtres { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.nb-filtres button {
+  padding: 8px 16px;
+  font: 600 12px var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  background: var(--w);
+  border: 1px solid var(--color-divider);
+  cursor: pointer;
+}
+.nb-filtres button:hover { border-color: var(--acc); color: var(--acc); }
+.nb-filtres button[aria-pressed='true'] { color: #fff; background: var(--acc); border-color: var(--acc); }
+
+.nb-pdls { display: grid; gap: 8px; margin-top: 14px; }
+.nb-pdl {
+  background: var(--w);
+  border-left: 6px solid transparent;
+  box-shadow: var(--shadow-sm);
+}
+.nb-pdl:hover { border-left-color: var(--hl); box-shadow: var(--shadow-md); }
+.nb-pdl[open] { border-left-color: var(--nb-bleu); box-shadow: var(--shadow-md); }
+.nb-pdl > summary {
+  display: grid;
+  grid-template-columns: 86px 1fr auto 28px;
+  gap: 18px;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+}
+.nb-pdl > summary::-webkit-details-marker { display: none; }
+.nb-pdl-num { font: 600 22px var(--font-heading); color: var(--acc); white-space: nowrap; }
+.nb-pdl-titre b { display: block; font-size: 16px; font-weight: 500; line-height: 1.35; }
+.nb-pdl-titre small { display: block; margin-top: 4px; font-size: 12px; color: var(--ink3); }
+.nb-pdl .nb-projet-fleche { transition: transform 0.15s ease; }
+.nb-pdl[open] .nb-projet-fleche { transform: rotate(90deg); }
+@media (prefers-reduced-motion: reduce) { .nb-pdl .nb-projet-fleche { transition: none; } }
+
+/* Colonnes 60/40, comme DQ : le détail à gauche, la boîte à droite. */
+.nb-pdl-corps {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+  padding: 0 20px 20px 20px;
+  border-top: 1px solid var(--color-divider);
+  padding-top: 18px;
+}
+.nb-pdl-boite { padding: 16px 18px; background: var(--p); }
+.nb-pdl-boite .nb-btn { margin-top: 12px; width: 100%; text-align: center; }
+.nb-pdl-docs { margin: 12px 0 0; font-size: 12px; color: var(--ink3); }
+.nb-pdl .nb-chemin li { flex-basis: 120px; padding: 10px 12px; }
+.nb-pdl .nb-chemin span { font-size: 11px; }
+
+@media (max-width: 800px) {
+  .nb-pdl > summary { grid-template-columns: 1fr auto; gap: 10px; }
+  .nb-pdl-num { grid-column: 1; }
+  .nb-pdl-corps { grid-template-columns: 1fr; }
+}

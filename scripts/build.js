@@ -203,6 +203,12 @@ const T = {
     session: 'L\u00e9gislature et session',
     lexiqueFamilles: { chemin: 'Le chemin d\u2019un projet', votes: 'Votes', documents: 'Documents', textes: 'Sortes de projets', gens: 'Personnes et droits' },
     wikiTitre: (nom) => `\u00c0 propos de ${nom} sur Wikip\u00e9dia`,
+    cheminTitreCourt: 'Le chemin d\u2019un projet de loi :',
+    cherchePdlLabel: 'Chercher un projet de loi',
+    cherchePdlPlaceholder: 'Num\u00e9ro, titre, parrain, \u00e9tape\u2026',
+    filtresLabel: 'Filtrer les projets de loi',
+    filtreTous: 'Tous', filtreEnCours: 'En cours', filtreAdoptes: 'Sanctionn\u00e9s',
+    comptePdl: (n, total) => (n === total ? `${total} projet${total > 1 ? 's' : ''} de loi` : `${n} sur ${total} projets de loi`),
     ficheEtiquetteMinistre: 'Ministre du Nouveau-Brunswick',
     ficheEtiquetteChef: 'Chef de parti',
     ficheEtiquetteDepute: 'D\u00e9put\u00e9\u00b7e \u00e0 l\u2019Assembl\u00e9e',
@@ -410,6 +416,12 @@ const T = {
     session: 'Legislature and session',
     lexiqueFamilles: { chemin: 'A bill\u2019s path', votes: 'Votes', documents: 'Documents', textes: 'Kinds of bills', gens: 'People and rights' },
     wikiTitre: (nom) => `About ${nom} on Wikipedia`,
+    cheminTitreCourt: 'A bill\u2019s path:',
+    cherchePdlLabel: 'Find a bill',
+    cherchePdlPlaceholder: 'Number, title, sponsor, stage\u2026',
+    filtresLabel: 'Filter the bills',
+    filtreTous: 'All', filtreEnCours: 'In progress', filtreAdoptes: 'Assented to',
+    comptePdl: (n, total) => (n === total ? `${total} bill${total > 1 ? 's' : ''}` : `${n} of ${total} bills`),
     ficheEtiquetteMinistre: 'Minister of New Brunswick',
     ficheEtiquetteChef: 'Party leader',
     ficheEtiquetteDepute: 'Member of the Assembly',
@@ -1042,22 +1054,31 @@ const teteDeSection = (surtitre, titre, note) => `  <section class="nb-section">
     ${note ? `<p class="nb-section-note">${note}</p>` : ''}
   </section>`;
 
-/** La page de tous les projets de loi, avec leurs étapes datées. */
+/**
+ * La page des projets de loi, dans la forme de DossierQuébec : une bande qui rappelle le
+ * chemin d'un projet, une recherche, des filtres rapides, puis des cartes qui s'ouvrent.
+ *
+ * CE QU'ON NE REPREND PAS DE DQ, et pourquoi : le bouton « challenger » et le suivi par
+ * courriel (il n'y a pas de compte ici), le bouton café (le site est gratuit et non
+ * commercial), le filtre omnibus (le N.-B. ne publie pas cette information). Le reste suit
+ * DQ : même ordre, mêmes boutons, mêmes colonnes 60/40.
+ */
 function pageProjets(langue) {
   const t = T[langue];
+  const racine = langue === 'en' ? '/en/' : '/';
+  const dossier = langue === 'en' ? 'bills' : 'projets-de-loi';
   const projets = [...projetsFichier.projets].sort((a, b) => b.numero - a.numero);
 
   const cartes = projets.map((p) => {
     const titre = p.titre[langue] || p.titre.en;
+    const type = langue === 'fr' ? p.typeFr : p.type;
+    const statut = statutLisible(p, langue);
+    const rejete = /defeated|rejet/i.test(p.statut || '');
+    const depot = (p.etapes || []).find((e) => e.date);
+    const dernier = [...(p.etapes || [])].reverse().find((e) => e.date);
     const parrain = p.parrain;
-    const etapes = (p.etapes || []).map((e) => {
-      const nom = langue === 'fr' ? (e.nomFr || e.nom) : e.nom;
-      const sort = langue === 'fr' ? e.resultatFr : (e.resultat ? e.resultat.en : null);
-      const quand = e.date ? dateLisible(e.date, langue) : null;
-      return `        <li class="${e.date ? 'faite' : 'a-venir'}">`
-        + `<span>${echapper(nom)}</span>`
-        + `<span>${quand ? `${sort ? `${echapper(sort)} · ` : ''}${quand}` : '—'}</span></li>`;
-    }).join('\n');
+    const vote = dernierVoteDe(p.numero);
+    const slug = slugProjet(p);
 
     const docs = [];
     if (p.documents?.htmlFr) docs.push(`<a href="${echapper(p.documents.htmlFr)}" rel="noopener">${t.texteFr}</a>`);
@@ -1067,40 +1088,76 @@ function pageProjets(langue) {
       docs.push(`<a href="${echapper(a)}" rel="noopener">${t.amendement}</a>`);
     }
 
-    return `      <article class="nb-fiche">
-        <header>
-          <span class="nb-projet-num">${langue === 'en' ? 'No.' : 'Nᵒ'} ${p.numero}</span>
-          <h2>${echapper(titre)}</h2>
-          ${(langue === 'fr' ? p.typeFr : p.type) ? `<p class="nb-fiche-type">${echapper(langue === 'fr' ? p.typeFr : p.type)}</p>` : ''}
-        </header>
-        ${parrain?.nom ? `<p class="nb-fiche-parrain">${t.parrainePar} <b>${echapper(parrain.nom)}</b>`
-          + `${parrain.parti ? ` · <span class="nb-parti"${parrain.couleurParti ? ` style="--parti:${echapper(parrain.couleurParti)}"` : ''}>${echapper(parrain.parti)}</span>` : ''}`
-          + `${parrain.circonscription ? ` · ${echapper(parrain.circonscription)}` : ''}</p>` : ''}
-        <ol class="nb-etapes">
-${etapes}
-        </ol>
-        ${(() => {
-          const votes = blocVotes(p, t, langue);
-          return votes ? `<div class="nb-fiche-votes">
-        <p class="nb-fiche-votes-titre">${t.projetVotes}</p>
-${votes}
-        </div>` : '';
-        })()}
-        ${docs.length ? `<p class="nb-fiche-docs">${t.documents} ${docs.join(' · ')}</p>` : ''}
-        <p class="nb-fiche-source"><a href="${langue === 'en' ? '/en/bills/' : '/projets-de-loi/'}${slugProjet(p)}">${t.ouvrirFiche}</a>
-          · <a href="${echapper(p.source?.[langue] || p.source?.en || '#')}" rel="noopener">${t.voirOfficiel}</a></p>
-      </article>`;
+    // Ce qui rend une carte trouvable : son numéro sous toutes ses écritures, son titre,
+    // son type, son étape, et le nom et le parti de son parrain.
+    const mots = [
+      titre, type, statut, parrain?.nom, parrain?.parti, parrain?.circonscription,
+      `${t.abrevProjet} ${p.numero}`, `pl ${p.numero}`, `bill ${p.numero}`, String(p.numero),
+    ].filter(Boolean).join(' ').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
+    const etat = /sanction|assent/i.test(statut || '') ? 'adopte' : rejete ? 'rejete' : 'encours';
+
+    return `      <details class="nb-pdl" data-nb-pdl="${p.numero}" data-nb-etat="${etat}" data-nb-chercher="${echapper(mots)}">
+        <summary>
+          <span class="nb-pdl-num">${t.abrevProjet} ${p.numero}</span>
+          <span class="nb-pdl-titre">
+            <b>${echapper(titre)}</b>
+            <small>${parrain?.nom ? `${t.parrainePar} ${echapper(parrain.nom)}` : ''}${depot ? ` · ${t.deposeLe} ${dateLisible(depot.date, langue)}` : ''}</small>
+          </span>
+          ${statut ? `<span class="nb-etape${rejete ? ' rejete' : ''}">${echapper(statut)}</span>` : '<span></span>'}
+          <span class="nb-projet-fleche">${CHEVRON}</span>
+        </summary>
+        <div class="nb-pdl-corps">
+          <div>
+${cheminEtapes(p, t, langue)}
+            ${type ? `<p class="nb-fiche-type">${echapper(type)}</p>` : ''}
+            ${parrain?.nom ? `<p class="nb-fiche-parrain">${t.parrainePar} <b>${lienPersonne(
+              (deputesFichier?.deputes || []).find((d) => normaliserNom(d.nomAffiche) === normaliserNom(parrain.nom))
+                || { nomAffiche: parrain.nom }, t, langue)}</b>`
+              + `${parrain.parti ? ` · <span class="nb-parti"${parrain.couleurParti ? ` style="--parti:${echapper(parrain.couleurParti)}"` : ''}>${echapper(parrain.parti)}</span>` : ''}</p>` : ''}
+          </div>
+          <aside class="nb-pdl-boite">
+            <p class="nb-boite-ligne"><span>${t.dernierActe}</span><b>${dernier ? dateLisible(dernier.date, langue) : '—'}</b></p>
+            ${vote ? `<p class="nb-boite-ligne"><span>${t.dernierVote}</span><b>${vote.pour.total} ${t.pour} · ${vote.contre.total} ${t.contre}</b></p>` : ''}
+            <a class="nb-btn nb-btn-jaune" href="${racine}${dossier}/${slug}">${t.ouvrirFiche}</a>
+            ${docs.length ? `<p class="nb-pdl-docs">${t.documents} ${docs.join(' · ')}</p>` : ''}
+          </aside>
+        </div>
+      </details>`;
   }).join('\n');
 
   return coquille({
     langue,
-    vers: langue === 'en' ? 'bills' : 'projets-de-loi',
+    vers: dossier,
     versAutre: langue === 'en' ? 'projets-de-loi' : 'bills',
     titre: `${t.projetsTitre} — DossierNBrunswick`,
     description: t.projetsDescription,
-    corps: `${teteDeSection(t.surtitreSession(projetsFichier.legislature, projetsFichier.session), t.projetsTitre, t.projetsNote)}
-  <section class="nb-section nb-fiches">
+    corps: `  <section class="nb-section">
+    <p class="nb-bande-chemin">${t.cheminTitreCourt}
+      ${(projetsFichier.projets[0]?.etapes || []).map((e) => `<span>${echapper(langue === 'fr' ? (e.nomFr || e.nom) : e.nom)}</span>`).join('<i aria-hidden="true">→</i>')}
+      <a href="${racine}${langue === 'en' ? 'glossary' : 'lexique'}">${t.cheminLexique}</a></p>
+  </section>
+${teteDeSection(t.surtitreSession(projetsFichier.legislature, projetsFichier.session), t.projetsTitre, t.projetsNote)}
+  <section class="nb-section">
+    <form class="nb-cherche" role="search" data-nb-cherche hidden>
+      <label class="nb-invisible" for="nb-cherche-pdl">${t.cherchePdlLabel}</label>
+      <span class="nb-cherche-loupe" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      </span>
+      <input id="nb-cherche-pdl" type="search" autocomplete="off" placeholder="${echapper(t.cherchePdlPlaceholder)}">
+      <button type="reset">${t.chercheEffacer}</button>
+    </form>
+    <div class="nb-filtres" role="group" aria-label="${echapper(t.filtresLabel)}">
+      <button type="button" data-nb-filtre="tous" aria-pressed="true">${t.filtreTous}</button>
+      <button type="button" data-nb-filtre="encours" aria-pressed="false">${t.filtreEnCours}</button>
+      <button type="button" data-nb-filtre="adopte" aria-pressed="false">${t.filtreAdoptes}</button>
+    </div>
+    <p class="nb-section-note" data-nb-compte-pdl></p>
+    <p class="nb-vide" data-nb-cherche-rien="${echapper(t.chercheRien)}" hidden></p>
+    <div class="nb-pdls">
 ${cartes}
+    </div>
+    <p class="nb-source-officielle">${t.sourceOfficielle}</p>
   </section>`,
   });
 }
