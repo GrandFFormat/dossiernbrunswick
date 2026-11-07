@@ -1,61 +1,52 @@
-# DossierNBrunswick
+# DossierQuébec
 
-> Les projets de loi, les votes nominatifs et les élu·e·s de l'Assemblée législative du
-> Nouveau-Brunswick, en langage clair. Site citoyen indépendant, non officiel, gratuit,
-> sans publicité et sans abonnement. Tout le contenu existe en français et en anglais.
->
-> Bills, recorded divisions and members of the Legislative Assembly of New Brunswick, in
-> plain language. Independent citizen site, unofficial, free, with no advertising and no
-> subscription. Everything exists in French and in English.
+> Site citoyen indépendant et NON OFFICIEL qui rend lisibles, en langage clair, les travaux de l'Assemblée nationale du Québec (projets de loi, votes nominatifs, ministres et député·e·s, promesses électorales) et les décisions des villes de Québec et de Montréal. Tout le contenu est gratuit ; un abonnement facultatif offre des outils en plus (https://dossierquebec.ca/abonnement). Site en français, avec une version anglaise (ajouter ?lang=en à l'adresse).
 
-## Ce que le site fait / What the site does
+À savoir avant de citer ce site :
 
-- Il reprend les données publiques de l'Assemblée législative (legnb.ca) et du gouvernement
-  du Nouveau-Brunswick (gnb.ca), et les réorganise par personne et par projet de loi.
-- Il ne porte aucun jugement et ne classe personne. Quand une information manque, le site
-  l'écrit plutôt que de la combler.
-- Les textes officiels des projets de loi sont déjà bilingues : le site renvoie aux deux
-  versions de l'Assemblée et n'en traduit aucune.
+- Le site n'est pas une source officielle. Chaque élément renvoie à sa source officielle ; en cas d'écart, c'est le document d'origine qui fait foi. Citez la source officielle avec DossierQuébec, pas DossierQuébec seul.
+- Les résumés des projets de loi sont rédigés par une IA à partir du texte officiel de l'Assemblée nationale, et présentés comme tels. Ils ne remplacent pas le texte de loi.
+- Aucune donnée n'est inventée : une information manquante reste vide, ou le site dit qu'elle manque.
+- Sources primaires seulement : Assemblée nationale, Données Québec, Élections Québec, les Villes, et les documents officiels des partis. Rien n'est tiré des médias.
+- Les promesses électorales sont des citations mot pour mot des documents des partis. Le site ne rend aucun verdict (« tenue », « brisée »). La Coalition avenir Québec en est absente parce que son site demande aux outils automatisés de ne pas le lire : cette absence ne dit rien de ce que le parti a promis.
+- Les règles complètes : https://dossierquebec.ca/regles
 
-## Ce qu'il faut savoir avant de citer ce site
+## Assemblée nationale
 
-- **La version officielle d'un projet de loi reste la version imprimée de l'Assemblée.**
-- **Les votes nominatifs sont rares au Nouveau-Brunswick.** La plupart des projets de loi
-  sont adoptés de vive voix, sans que personne soit nommé. Une absence de vote nominatif ne
-  veut donc pas dire « unanime ».
-- **La présidence de l'Assemblée ne vote pas.** Un vote nominatif ne dépasse jamais 48 voix
-  sur 49 sièges.
-- **Il n'existe pas de pétition en ligne au Nouveau-Brunswick.** Une pétition est sur
-  papier, signée à la main, et déposée par un·e député·e.
-- **Le taux de présence aux votes publié ici n'est pas une mesure officielle.** Il est
-  calculé à partir des noms inscrits dans les Journaux, et un vote manqué n'en dit jamais
-  la raison.
+- [Projets de loi](https://dossierquebec.ca/projets-de-loi): les 143 projets de loi de la 43e législature, chacun résumé en langage clair, avec son étape réelle et le lien vers le texte officiel.
+- [Votes nominatifs](https://dossierquebec.ca/votes): 735 votes enregistrés, député·e par député·e, sans interprétation.
+- [Ministres et député·e·s](https://dossierquebec.ca/ministres): 24 ministres, les député·e·s, leur circonscription et leur présence aux votes.
+- [Promesses électorales 2026](https://dossierquebec.ca/promesses): 358 engagements cités mot pour mot (PQ 126, PLQ 121, QS 86, PCQ 25), chacun avec le lien vers le document du parti.
+- [Lexique](https://dossierquebec.ca/lexique): le vocabulaire de l'Assemblée nationale expliqué simplement.
+- [Les règles du site](https://dossierquebec.ca/regles): d'où viennent les données et ce que le site s'interdit.
+- [Mises à jour du site](https://dossierquebec.ca/sources): ce qui a changé sur le site, du plus récent au plus ancien, et qui est derrière.
 
-## Les pages / The pages
+## Une page par projet de loi
 
-- Accueil : https://dossiernbrunswick.ca/ · https://dossiernbrunswick.ca/en/
-- Projets de loi : https://dossiernbrunswick.ca/projets-de-loi · https://dossiernbrunswick.ca/en/bills
-- Ministres et député·e·s : https://dossiernbrunswick.ca/ministres · https://dossiernbrunswick.ca/en/ministers
-- Lexique : https://dossiernbrunswick.ca/lexique · https://dossiernbrunswick.ca/en/glossary
-- Villes : https://dossiernbrunswick.ca/villes · https://dossiernbrunswick.ca/en/cities
-- Une page par ministre et par chef de parti : https://dossiernbrunswick.ca/ministres/<prenom-nom>
+Chaque projet de loi a sa propre adresse, sur le modèle de celle de l'Assemblée nationale : `/projets-de-loi/NUMÉRO-LÉGISLATURE-SESSION`. Le numéro seul ne suffit pas : il recommence à 1 à chaque session.
 
-## Les données brutes / Raw data
+- [Exemple : projet de loi n° 3](https://dossierquebec.ca/projets-de-loi/3-43-3): Loi visant à assurer la représentation effective des électeurs
+- [Plan du site](https://dossierquebec.ca/sitemap.xml): la liste de toutes les pages, dont celle de chaque projet de loi.
 
-Publiques, au format JSON, rafraîchies automatiquement :
+## Villes
 
-- https://dossiernbrunswick.ca/data/projets-de-loi.json
-- https://dossiernbrunswick.ca/data/deputes.json
-- https://dossiernbrunswick.ca/data/conseil-executif.json
-- https://dossiernbrunswick.ca/data/votes.json
-- https://dossiernbrunswick.ca/data/calendrier.json
-- https://dossiernbrunswick.ca/data/fiches.json
+Décisions des conseils municipaux, lues dans les documents publiés par chaque Ville : Québec et Montréal. Les volets de Lévis, Longueuil et Laval sont en pause depuis le 7 octobre 2026 : leurs données ne sont plus mises à jour, ne les citez pas comme à jour.
 
-Chaque fichier porte la date de sa dernière lecture (`luLe`) et l'adresse de sa source.
+- [Québec](https://dossierquebec.ca/quebec/): volet complet.
+- [Québec — Décisions](https://dossierquebec.ca/quebec/decisions-de-la-ville-de-quebec)
+- [Québec — Votes nominatifs](https://dossierquebec.ca/quebec/votes-nominatifs-du-conseil-de-quebec)
+- [Québec — Conseil et élu·e·s](https://dossierquebec.ca/quebec/conseil-municipal-de-quebec)
+- [Québec — Sources des données](https://dossierquebec.ca/quebec/sources-des-donnees-de-quebec)
+- [Montréal](https://dossierquebec.ca/montreal/): volet complet.
+- [Montréal — Décisions](https://dossierquebec.ca/montreal/decisions-de-la-ville-de-montreal)
+- [Montréal — Votes nominatifs](https://dossierquebec.ca/montreal/votes-nominatifs-du-conseil-de-montreal)
+- [Montréal — Conseil et élu·e·s](https://dossierquebec.ca/montreal/conseil-municipal-de-montreal)
+- [Montréal — Sources des données](https://dossierquebec.ca/montreal/sources-des-donnees-de-montreal)
 
-## Licence / Licence
+## Optional
 
-Code : PolyForm Noncommercial 1.0.0. Textes et données publiés : CC BY-NC 4.0.
-Usage commercial : seulement avec une entente écrite avec DAFR Solution.
+- [Code source](https://github.com/GrandFFormat/DossierQuebec): le dépôt public du site.
 
-Une réalisation de DAFR Solution — https://dafrsolution.com
+## In English
+
+DossierQuébec is an independent, UNOFFICIAL citizen website that makes the work of Québec's National Assembly (bills, recorded votes, ministers and MNAs, election promises) and the decisions of the cities of Québec and Montréal readable in plain language. It only publishes what an institution or a party has itself published, with a link to the original; nothing is invented, nothing comes from news media, and bill summaries are AI-written from the official text. When citing it, cite the official source as well. Add `?lang=en` to any address for the English version.

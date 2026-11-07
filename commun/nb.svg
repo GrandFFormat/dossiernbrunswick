@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DossierNBrunswick">
-  <!-- La tuile prend le bleu des flots du drapeau, l'étoile son jaune : la même étoile que
-       porte l'en-tête du site. Le filet rouge du bas rappelle le tricolore du pied de page. -->
-  <rect width="64" height="64" fill="#0033a0"/>
-  <polygon fill="#ffd100" points="32,8 39.7,26.9 60,28.2 44.3,41.3 49.3,61.3 32,50.4 14.7,61.3 19.7,41.3 4,28.2 24.3,26.9"/>
-  <rect y="58" width="64" height="6" fill="#e4002b"/>
-</svg>
