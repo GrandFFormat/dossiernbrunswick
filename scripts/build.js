@@ -88,7 +88,8 @@ const T = {
       { num: '01', nom: 'Aperçu', vers: '' },
       { num: '02', nom: 'Ministres', vers: 'ministres' },
       { num: '03', nom: 'Projets de loi', vers: 'projets-de-loi' },
-      { num: '04', nom: 'Député·e·s', vers: 'deputes' },
+      // Les député·e·s vivent sur la page des ministres, à la suite, comme sur DossierQuébec.
+      { num: '04', nom: 'Député·e·s', vers: 'ministres#assemblee' },
       { num: '05', nom: 'Lexique', vers: 'lexique' },
     ],
     monDossier: 'Mon dossier', monDossierVers: 'mon-dossier',
@@ -156,6 +157,11 @@ const T = {
     deputesDescription: 'Les 49 député·e·s de l\'Assemblée législative du Nouveau-Brunswick, par parti et par circonscription.',
     ministresTitre: 'Le Conseil exécutif',
     ministresSurtitre: (n) => `${n} ministres`,
+    ministreCirconscription: 'Circonscription', ministreProjets: 'Projets de loi déposés',
+    ministreFiche: 'Fiche officielle →', ministrePortefeuilles: 'Portefeuilles',
+    suivreMinistre: (n) => `Suivre ${n}`,
+    monDossierProjets: 'Projets de loi suivis', monDossierMinistres: 'Ministres suivis',
+    monDossierDeputes: 'Député·e·s suivi·e·s',
     ministresNote: 'La liste tenue par l\'Assemblée législative. La page du gouvernement a déjà été en retard sur celle-ci : en cas de divergence, c\'est celle-ci qui fait foi ici.',
     ministresDescription: 'Les ministres du Nouveau-Brunswick et leurs portefeuilles, selon l\'Assemblée législative.',
     lexiqueTitre: 'Le lexique',
@@ -223,7 +229,7 @@ const T = {
       { num: '01', nom: 'Overview', vers: '' },
       { num: '02', nom: 'Ministers', vers: 'ministers' },
       { num: '03', nom: 'Bills', vers: 'bills' },
-      { num: '04', nom: 'Members', vers: 'members' },
+      { num: '04', nom: 'Members', vers: 'ministers#assemblee' },
       { num: '05', nom: 'Glossary', vers: 'glossary' },
     ],
     monDossier: 'My file', monDossierVers: 'my-file',
@@ -286,6 +292,11 @@ const T = {
     deputesDescription: 'The 49 members of the Legislative Assembly of New Brunswick, by party and riding.',
     ministresTitre: 'The Executive Council',
     ministresSurtitre: (n) => `${n} ministers`,
+    ministreCirconscription: 'Riding', ministreProjets: 'Bills introduced',
+    ministreFiche: 'Official page →', ministrePortefeuilles: 'Portfolios',
+    suivreMinistre: (n) => `Follow ${n}`,
+    monDossierProjets: 'Bills you follow', monDossierMinistres: 'Ministers you follow',
+    monDossierDeputes: 'Members you follow',
     ministresNote: 'The list kept by the Legislative Assembly. The government\'s own page has lagged behind it before: where the two differ, this site follows the Assembly.',
     ministresDescription: 'New Brunswick\'s ministers and their portfolios, as listed by the Legislative Assembly.',
     lexiqueTitre: 'The glossary',
@@ -458,7 +469,7 @@ function affiche(t, chiffres, leg, ses) {
       <p class="nb-chapo">${t.chapo}</p>
       <div class="nb-actions">
         <a class="nb-btn nb-btn-rouge" href="#projets">${t.explorer}</a>
-        <a class="nb-btn nb-btn-ligne" href="${t.langue === 'en' ? '/en/members' : '/deputes'}">${t.deputesBtn}</a>
+        <a class="nb-btn nb-btn-ligne" href="${t.langue === 'en' ? '/en/ministers#assemblee' : '/ministres#assemblee'}">${t.deputesBtn}</a>
       </div>
     </div>
     <div class="nb-chiffres">
@@ -882,61 +893,89 @@ ${cartes}
   });
 }
 
-/** La page des député·e·s, groupés par parti. */
-function pageDeputes(langue) {
+
+/**
+ * Les noms ne s'écrivent pas pareil d'une page à l'autre de l'Assemblée : « Hon. Robert
+ * MCKEE, K.C. » au bas d'un projet de loi, « Robert McKee » dans la liste des ministres.
+ * On compare donc les noms réduits à leurs lettres, sans titre, sans accent et sans casse.
+ */
+const normaliserNom = (nom) => String(nom ?? '')
+  .replace(/^(Hon\.|Mr\.|Ms\.|Mrs\.|Dr\.)\s+/i, '')
+  .replace(/,\s*(K\.C\.|Q\.C\.)\.?$/i, '')
+  .normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .toLowerCase().replace(/[^a-z]+/g, ' ').trim();
+
+/** Combien de projets de loi chaque personne a déposés cette session. */
+const PROJETS_PAR_PARRAIN = (() => {
+  const compte = new Map();
+  for (const p of projetsFichier.projets) {
+    const nom = p.parrain?.nom;
+    if (!nom) continue;
+    const cle = normaliserNom(nom);
+    compte.set(cle, (compte.get(cle) || 0) + 1);
+  }
+  return compte;
+})();
+
+/** L'identifiant d'un ministre : celui que l'Assemblée emploie dans l'adresse de sa fiche. */
+const identifiantMinistre = (m) => (m.fiche ? m.fiche.split('/').filter(Boolean).pop() : normaliserNom(m.nomAffiche).replace(/ /g, '-'));
+
+/**
+ * Une carte de ministre, dans la forme de DossierQuébec : la pastille du parti, le nom,
+ * les portefeuilles, puis les chiffres de la personne. Ce qui n'existe pas au
+ * Nouveau-Brunswick n'y figure pas — pas de présence en Chambre, pas de courriel (l'Assemblée
+ * le protège derrière un mécanisme anti-robots, et on ne le contourne pas).
+ */
+function carteMinistre(m, t, langue, { genre = 'ministre' } = {}) {
+  const id = identifiantMinistre(m);
+  const projets = PROJETS_PAR_PARRAIN.get(normaliserNom(m.nomAffiche)) || 0;
+
+  return `      <article class="nb-carte-ministre" data-nb-${genre}="${echapper(id)}"${m.couleurParti ? ` style="--parti:${echapper(m.couleurParti)}"` : ''}>
+        <div class="nb-carte-tete">
+          ${m.parti ? `<span class="nb-pastille-parti">${echapper(m.parti)}</span>` : '<span></span>'}
+          <button class="nb-suivre" type="button" data-nb-suivre="${echapper(id)}" data-nb-suivre-genre="${genre}"
+            data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
+            aria-pressed="false" title="${echapper(t.suivreMinistre(m.nomAffiche))}">${t.suivre}</button>
+        </div>
+        <h2>${echapper(m.nomAffiche)}</h2>
+        ${(m.roles || []).length ? `<p class="nb-roles">${m.roles.map((r) => echapper(r)).join(' · ')}</p>` : ''}
+        <dl class="nb-carte-donnees">
+          <div><dt>${t.ministreCirconscription}</dt><dd>${echapper(m.circonscription || '—')}</dd></div>
+          <div><dt>${t.ministreProjets}</dt><dd>${projets}</dd></div>
+        </dl>
+        ${m.fiche ? `<p class="nb-carte-pied"><a href="${echapper(m.fiche)}" rel="noopener">${t.ministreFiche}</a></p>` : ''}
+      </article>`;
+}
+
+/**
+ * Le Conseil exécutif, puis toute l'Assemblée — une seule page, comme sur DossierQuébec.
+ * Les ministres sont aussi des député·e·s : ils reparaissent plus bas, dans leur parti.
+ */
+function pageMinistres(langue) {
   const t = T[langue];
+  const membres = conseilFichier?.membres || [];
   const deputes = deputesFichier?.deputes || [];
+
+  // Le parti le plus nombreux en premier : c'est l'ordre que l'Assemblée elle-même annonce.
   const parPartis = new Map();
   for (const d of deputes) {
     if (!parPartis.has(d.parti)) parPartis.set(d.parti, []);
     parPartis.get(d.parti).push(d);
   }
-  // Le parti le plus nombreux en premier : c'est l'ordre que l'Assemblée elle-même annonce.
   const groupes = [...parPartis.entries()].sort((a, b) => b[1].length - a[1].length);
 
-  const corps = groupes.map(([parti, membres]) => {
-    const couleur = membres[0]?.couleurParti;
+  const assemblee = groupes.map(([parti, gens]) => {
+    const couleur = gens[0]?.couleurParti;
     return `  <section class="nb-section">
     <div class="nb-section-tete"${couleur ? ` style="border-bottom-color:${echapper(couleur)}"` : ''}>
-      <h2>${echapper(parti)}</h2>
-      <span class="nb-compte">${membres.length}</span>
+      <h3>${echapper(parti)}</h3>
+      <span class="nb-compte">${gens.length}</span>
     </div>
-    <ul class="nb-personnes">
-${membres.map((d) => `      <li>
-        <a href="${echapper(d.fiche || '#')}" rel="noopener">
-          <b>${echapper(d.nomAffiche)}</b>
-          <span>${echapper(d.circonscription || '')}</span>
-        </a>
-      </li>`).join('\n')}
-    </ul>
+    <div class="nb-grille-ministres">
+${gens.map((d) => carteMinistre(d, t, langue, { genre: 'depute' })).join('\n')}
+    </div>
   </section>`;
   }).join('\n');
-
-  return coquille({
-    langue,
-    vers: langue === 'en' ? 'members' : 'deputes',
-    versAutre: langue === 'en' ? 'deputes' : 'members',
-    titre: `${t.deputesTitre} — DossierNBrunswick`,
-    description: t.deputesDescription,
-    corps: `${teteDeSection(t.deputesSurtitre(deputesFichier?.sieges ?? deputes.length), t.deputesTitre, t.deputesNote)}
-${corps}`,
-  });
-}
-
-/** La page du Conseil exécutif. */
-function pageMinistres(langue) {
-  const t = T[langue];
-  const membres = conseilFichier?.membres || [];
-  const cartes = membres.map((m) => `      <article class="nb-fiche">
-        <header>
-          <h2>${echapper(m.nomAffiche)}</h2>
-          <p class="nb-fiche-type">${echapper(m.circonscription || '')}</p>
-        </header>
-        <ul class="nb-portefeuilles">
-${(m.roles || []).map((r) => `          <li>${echapper(r)}</li>`).join('\n')}
-        </ul>
-        ${m.fiche ? `<p class="nb-fiche-source"><a href="${echapper(m.fiche)}" rel="noopener">${t.voirOfficiel}</a></p>` : ''}
-      </article>`).join('\n');
 
   return coquille({
     langue,
@@ -945,9 +984,17 @@ ${(m.roles || []).map((r) => `          <li>${echapper(r)}</li>`).join('\n')}
     titre: `${t.ministresTitre} — DossierNBrunswick`,
     description: t.ministresDescription,
     corps: `${teteDeSection(t.ministresSurtitre(membres.length), t.ministresTitre, t.ministresNote)}
-  <section class="nb-section nb-fiches">
-${cartes}
-  </section>`,
+  <section class="nb-section">
+    <div class="nb-grille-ministres">
+${membres.map((m) => carteMinistre(m, t, langue)).join('\n')}
+    </div>
+  </section>
+  <section class="nb-section" id="assemblee">
+    <p class="nb-surtitre nb-surtitre-rouge">${t.deputesSurtitre(deputesFichier?.sieges ?? deputes.length)}</p>
+    <div class="nb-section-tete"><h2>${t.deputesTitre}</h2></div>
+    <p class="nb-section-note">${t.deputesNote}</p>
+  </section>
+${assemblee}`,
   });
 }
 
@@ -982,8 +1029,10 @@ ${entrees}
 function pageMonDossier(langue) {
   const t = T[langue];
   const projets = [...projetsFichier.projets].sort((a, b) => b.numero - a.numero);
+  const membres = conseilFichier?.membres || [];
   const racine = langue === 'en' ? '/en/' : '/';
   const vers = langue === 'en' ? 'bills' : 'projets-de-loi';
+  const versMinistres = langue === 'en' ? 'ministers' : 'ministres';
 
   return coquille({
     langue,
@@ -997,10 +1046,27 @@ function pageMonDossier(langue) {
     corps: `${teteDeSection(t.monDossierSurtitre, t.monDossierTitre, t.monDossierNote)}
   <section class="nb-section">
     <p class="nb-vide" data-nb-dossier-vide hidden>${t.monDossierVide}</p>
-    <div class="nb-projets" data-nb-dossier>
+  </section>
+  <section class="nb-section" data-nb-bloc-dossier="projet" hidden>
+    <div class="nb-section-tete"><h2>${t.monDossierProjets}</h2></div>
+    <div class="nb-projets" data-nb-dossier="projet">
 ${projets.map((p) => rangeeProjet(p, t, langue)).join('\n')}
     </div>
-    <p class="nb-fiche-source"><a href="${racine}${vers}">${t.monDossierTous}</a></p>
+    <p class="nb-carte-pied"><a href="${racine}${vers}">${t.monDossierTous}</a></p>
+  </section>
+  <section class="nb-section" data-nb-bloc-dossier="ministre" hidden>
+    <div class="nb-section-tete"><h2>${t.monDossierMinistres}</h2></div>
+    <div class="nb-grille-ministres" data-nb-dossier="ministre">
+${membres.map((m) => carteMinistre(m, t, langue)).join('\n')}
+    </div>
+    <p class="nb-carte-pied"><a href="${racine}${versMinistres}">${t.ministresTitre} →</a></p>
+  </section>
+  <section class="nb-section" data-nb-bloc-dossier="depute" hidden>
+    <div class="nb-section-tete"><h2>${t.monDossierDeputes}</h2></div>
+    <div class="nb-grille-ministres" data-nb-dossier="depute">
+${(deputesFichier?.deputes || []).map((d) => carteMinistre(d, t, langue, { genre: 'depute' })).join('\n')}
+    </div>
+    <p class="nb-carte-pied"><a href="${racine}${versMinistres}#assemblee">${t.deputesTitre} →</a></p>
   </section>`,
   });
 }
@@ -1015,7 +1081,6 @@ mkdirSync('en', { recursive: true });
 const PAGES = [
   { fr: 'index.html', en: 'en/index.html', faire: page },
   { fr: 'projets-de-loi.html', en: 'en/bills.html', faire: pageProjets },
-  { fr: 'deputes.html', en: 'en/members.html', faire: pageDeputes },
   { fr: 'ministres.html', en: 'en/ministers.html', faire: pageMinistres },
   { fr: 'lexique.html', en: 'en/glossary.html', faire: pageLexique },
   { fr: 'mon-dossier.html', en: 'en/my-file.html', faire: pageMonDossier, horsSitemap: true },

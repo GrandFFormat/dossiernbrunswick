@@ -64,6 +64,10 @@ html[data-theme='dark'] {
 
 * { box-sizing: border-box; }
 
+/* Un display: grid ou flex l'emporte sur l'attribut [hidden] : sans cette règle,
+   « Mon dossier » montrerait tout au lieu de ce qu'on suit. */
+[hidden] { display: none !important; }
+
 /* Un texte réservé aux lecteurs d'écran : présent dans le document, invisible à l'œil. */
 .nb-invisible {
   position: absolute;
@@ -716,9 +720,7 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
 
 /* ─── Le bouton « Suivre », au bout d'une rangée ────────────────────────── */
 
-/* display:grid l'emporterait sur [hidden] : sans cette ligne, « Mon dossier »
-   montrerait tous les projets de loi au lieu des seuls projets suivis. */
-.nb-rangee[hidden] { display: none; }
+
 .nb-rangee { display: grid; grid-template-columns: 1fr auto; align-items: stretch; gap: 8px; }
 .nb-suivre {
   padding: 0 16px;
@@ -800,4 +802,86 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
   .nb-rangee { grid-template-columns: 1fr; }
   .nb-suivre { padding: 10px 16px; }
   .nb-appel { padding: 22px; }
+}
+
+/* ═══ Les cartes de personne, dans la forme de DossierQuébec ════════════════
+   La structure est celle de DQ : pastille du parti, nom souligné, portefeuilles,
+   puis les chiffres de la personne. Le style reste celui du Nouveau-Brunswick.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+.nb-grille-ministres {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+.nb-carte-ministre {
+  display: flex;
+  flex-direction: column;
+  background: var(--w);
+  border: 1px solid var(--color-divider);
+  box-shadow: var(--shadow-sm);
+}
+.nb-carte-ministre:hover { box-shadow: var(--shadow-md); }
+.nb-carte-tete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-divider);
+}
+.nb-pastille-parti {
+  font: 600 11px var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--parti, var(--nb-bleu));
+  padding: 3px 9px;
+}
+.nb-carte-ministre h2 {
+  margin: 16px 16px 0;
+  padding-bottom: 8px;
+  font: 600 22px/1.05 var(--font-heading);
+  text-transform: uppercase;
+  /* Le filet sous le nom ne va pas jusqu'au bout : c'est la signature de la carte. */
+  border-bottom: 3px solid var(--parti, var(--nb-bleu));
+  align-self: flex-start;
+  max-width: calc(100% - 32px);
+}
+.nb-roles {
+  margin: 12px 16px 0;
+  font: 600 11px/1.5 var(--font-heading);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--acc);
+}
+.nb-carte-donnees {
+  margin: auto 16px 0;
+  padding: 14px 0 0;
+  font-size: 13px;
+}
+.nb-carte-donnees > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-top: 1px solid var(--color-divider);
+}
+.nb-carte-donnees dt {
+  font: 600 11px var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+.nb-carte-donnees dd { margin: 0; font-weight: 600; text-align: right; }
+.nb-carte-pied { margin: 14px 16px 16px; font-size: 13px; }
+.nb-carte-pied a { color: var(--acc); text-decoration: none; font-weight: 600; }
+.nb-carte-pied a:hover { color: var(--nb-rouge); }
+
+@media (max-width: 1100px) {
+  .nb-grille-ministres { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .nb-grille-ministres { grid-template-columns: 1fr; }
 }
