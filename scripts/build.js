@@ -158,6 +158,11 @@ const T = {
     ministresTitre: 'Le Conseil exécutif',
     ministresSurtitre: (n) => `${n} ministres`,
     abrevProjets: () => 'PL',
+    assembleeTitre: 'Le Conseil exécutif et toute l\'Assemblée',
+    assembleeSurtitre: (s, m) => `${s} sièges · ${m} ministres`,
+    compositionTitre: (n) => `Composition — ${n} sièges`,
+    compositionSurtitre: 'Selon la liste des député·e·s tenue par l\'Assemblée législative',
+    ministresSousTitre: 'Les ministres',
     presenceTitreBoite: 'Lire la présence aux votes',
     presenceLexique: 'Définition complète → Lexique',
     presenceDef: (m, n) => `<b>${m} %</b> : sur les ${n} votes par appel nominal tenus depuis le début de la session, la personne a voté à ${m} % d'entre eux — pour ou contre, peu importe le sens.`,
@@ -310,6 +315,11 @@ const T = {
     ministresTitre: 'The Executive Council',
     ministresSurtitre: (n) => `${n} ministers`,
     abrevProjets: (n) => (n === 1 ? 'bill' : 'bills'),
+    assembleeTitre: 'The Executive Council and the whole Assembly',
+    assembleeSurtitre: (s, m) => `${s} seats · ${m} ministers`,
+    compositionTitre: (n) => `Composition — ${n} seats`,
+    compositionSurtitre: 'From the list of members kept by the Legislative Assembly',
+    ministresSousTitre: 'The ministers',
     presenceTitreBoite: 'Reading the vote attendance',
     presenceLexique: 'Full definition → Glossary',
     presenceDef: (m, n) => `<b>${m} %</b>: of the ${n} recorded divisions held since the session opened, this person voted in ${m} % of them — yea or nay, whichever way.`,
@@ -1078,6 +1088,27 @@ function ligneDepute(d, t, langue) {
 }
 
 /**
+ * La composition de l'Assemblée : une barre à l'échelle des sièges, puis la pastille de
+ * chaque parti avec son compte. Rien n'est arrondi — les largeurs sont le nombre de sièges
+ * sur le total, et les comptes sont ceux de la liste officielle.
+ */
+function sectionComposition(t, groupes, sieges) {
+  if (!groupes.length) return '';
+  const total = groupes.reduce((n, [, gens]) => n + gens.length, 0) || 1;
+
+  return `  <section class="nb-section">
+    <p class="nb-surtitre nb-surtitre-rouge">${t.compositionSurtitre}</p>
+    <div class="nb-section-tete"><h2>${t.compositionTitre(sieges)}</h2></div>
+    <div class="nb-barre-sieges" role="img" aria-label="${echapper(groupes.map(([p, g]) => `${p} ${g.length}`).join(', '))}">
+${groupes.map(([parti, gens]) => `      <i style="width:${(gens.length / total) * 100}%;background:${echapper(gens[0]?.couleurParti || 'var(--ink3)')}" title="${echapper(parti)} — ${gens.length}"></i>`).join('\n')}
+    </div>
+    <ul class="nb-legende-partis">
+${groupes.map(([parti, gens]) => `      <li><i style="background:${echapper(gens[0]?.couleurParti || 'var(--ink3)')}"></i>${echapper(parti)} — <b>${gens.length}</b></li>`).join('\n')}
+    </ul>
+  </section>`;
+}
+
+/**
  * L'encadré qui explique le taux, en haut de l'Assemblée — comme sur DossierQuébec. Il porte
  * les vrais chiffres de la session, et dit franchement ce que le taux ne mesure pas.
  */
@@ -1146,8 +1177,18 @@ ${gens.map((d) => ligneDepute(d, t, langue)).join('\n')}
     versAutre: langue === 'en' ? 'ministres' : 'ministers',
     titre: `${t.ministresTitre} — DossierNBrunswick`,
     description: t.ministresDescription,
-    corps: `${teteDeSection(t.ministresSurtitre(membres.length), t.ministresTitre, t.ministresNote)}
+    // Les deux tableaux de lecture ouvrent la page, avant les personnes : la composition
+    // de l'Assemblée, puis ce que vaut le taux de présence. C'est l'ordre de DossierQuébec,
+    // et il tient — on lit la règle avant de lire les chiffres qu'elle explique.
+    corps: `${teteDeSection(
+      t.assembleeSurtitre(deputesFichier?.sieges ?? deputes.length, membres.length),
+      t.assembleeTitre,
+      t.ministresNote,
+    )}
+${sectionComposition(t, groupes, deputesFichier?.sieges ?? deputes.length)}
+${encadrePresence(t)}
   <section class="nb-section">
+    <div class="nb-section-tete"><h2>${t.ministresSousTitre}</h2><span class="nb-compte">${membres.length}</span></div>
     <div class="nb-grille-ministres">
 ${membres.map((m) => carteMinistre(m, t, langue)).join('\n')}
     </div>
@@ -1157,7 +1198,6 @@ ${membres.map((m) => carteMinistre(m, t, langue)).join('\n')}
     <div class="nb-section-tete"><h2>${t.deputesTitre}</h2></div>
     <p class="nb-section-note">${t.deputesNote}</p>
   </section>
-${encadrePresence(t)}
 ${assemblee}`,
   });
 }
