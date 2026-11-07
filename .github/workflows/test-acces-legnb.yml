@@ -1,0 +1,38 @@
+# Étape 0 du site du Nouveau-Brunswick : vérifier que legnb.ca nous répond depuis GitHub.
+#
+# Le site de l'Assemblée autorise tout dans son robots.txt, mais il est derrière
+# Cloudflare. Les lectures passent depuis le poste de Martin ; ce workflow dit si elles
+# passent aussi depuis les serveurs de GitHub, qui feront le rafraîchissement quotidien.
+#
+# Tant que ce test n'est pas vert, on ne construit pas de flux de données sur ce site.
+# Il est volontairement lent : 10 secondes entre deux requêtes, le délai demandé par
+# legnb.ca. Une exécution prend donc environ deux minutes.
+
+name: Étape 0 — accès à legnb.ca
+
+on:
+  workflow_dispatch: {} # bouton « Run workflow »
+  schedule:
+    # Une fois par semaine, le lundi : Cloudflare peut durcir ses règles du jour au
+    # lendemain. Si l'accès tombe un jour, on veut l'apprendre par ce test et non par
+    # des données qui cessent silencieusement d'être à jour.
+    - cron: '20 9 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  acces:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v5
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Lire dix pages de legnb.ca
+        run: node scripts/test-acces-legnb.js
