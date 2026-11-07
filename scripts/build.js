@@ -157,6 +157,22 @@ const T = {
     deputesDescription: 'Les 49 député·e·s de l\'Assemblée législative du Nouveau-Brunswick, par parti et par circonscription.',
     ministresTitre: 'Le Conseil exécutif',
     ministresSurtitre: (n) => `${n} ministres`,
+    abrevProjets: () => 'PL',
+    presenceTitreBoite: 'Lire la présence aux votes',
+    presenceLexique: 'Définition complète → Lexique',
+    presenceDef: (m, n) => `<b>${m} %</b> : sur les ${n} votes par appel nominal tenus depuis le début de la session, la personne a voté à ${m} % d'entre eux — pour ou contre, peu importe le sens.`,
+    presenceVert: 'Vert', presenceJaune: 'Jaune', presenceAucune: 'Sans couleur', presenceND: 'n/d',
+    presenceVertTexte: (n, m) => `(${n}) — ${m} % et plus, la médiane de l'Assemblée.`,
+    presenceJauneTexte: (n, bas, haut) => `(${n}) — de ${bas} % à ${haut} %, sous la médiane.`,
+    presenceAucuneTexte: (n, bas) => `(${n}) — moins de ${bas} %.`,
+    presenceNDTexte: (n) => `(${n}) — aucun vote nominatif enregistré pour cette personne. Ce n'est pas une absence : on n'en sait rien.`,
+    presencePortee: (n, j, c, bas, haut) => `Chez les ${c} personnes comptées : de ${bas} % à ${haut} %. Le calcul porte sur <b>${n} votes nominatifs</b>, tenus sur ${j} jour${j > 1 ? 's' : ''} de séance.`,
+    presenceAvis: [
+      '<b>Les votes nominatifs sont rares au Nouveau-Brunswick.</b> La plupart des projets de loi sont adoptés de vive voix, sans que personne soit nommé. Tant que la session en compte peu, ce taux ne mesure presque rien — il se précisera à mesure que les votes s\'accumulent.',
+      '<b>La présidence de l\'Assemblée ne vote pas.</b> Elle dirige les débats et reste neutre : son nom ne figure dans aucun vote nominatif, et c\'est normal.',
+      '<b>Ce n\'est pas une mesure officielle.</b> L\'Assemblée ne publie aucun taux d\'assiduité. Celui-ci est calculé ici, à partir des noms inscrits dans les Journaux, et un vote manqué n\'en dit jamais la raison.',
+    ],
+    presenceTitre: (n, total) => `${n} vote${n > 1 ? 's' : ''} sur ${total}`,
     ministreCirconscription: 'Circonscription', ministreProjets: 'Projets de loi déposés',
     ministreFiche: 'Fiche officielle →', ministrePortefeuilles: 'Portefeuilles',
     suivreMinistre: (n) => `Suivre ${n}`,
@@ -184,6 +200,7 @@ const T = {
       ['Pétition', 'Au Nouveau-Brunswick, une pétition est <b>sur papier</b>, signée à la main, et ne peut être déposée que par un·e député·e. Il n\'existe pas de pétition en ligne. Le ministre doit répondre par écrit dans les deux semaines, mais cette réponse n\'est pas publiée.'],
       ['Présidence de l\'Assemblée', 'La personne qui préside les séances. Elle <b>ne vote pas</b> : un vote nominatif ne dépasse donc jamais 48 voix sur 49 sièges.'],
       ['Session', 'Une période de travaux. Chaque nouvelle session renumérote les projets de loi à partir de 1 — un même numéro désigne donc des projets différents d\'une session à l\'autre.'],
+      ['Présence aux votes', 'La part des votes nominatifs de la session où le nom d\'une personne est inscrit au Journal, pour ou contre. Ce <b>n\'est pas une mesure officielle</b> : l\'Assemblée n\'en publie aucune, et celle-ci est calculée ici. Elle dit peu de chose tant que la session compte peu de votes nominatifs — et comme ils sont rares au Nouveau-Brunswick, c\'est souvent le cas. « n/d » veut dire qu\'aucun vote nominatif n\'a enregistré cette personne : ce n\'est pas une absence, c\'est une absence d\'information. La présidence de l\'Assemblée, elle, ne vote jamais.'],
     ],
     theme: 'Thème clair ou sombre', texteMoins: 'Réduire le texte', textePlus: 'Agrandir le texte',
     deposeLe: 'Dépôt', dernierActe: 'Dernier acte', pour: 'pour', contre: 'contre',
@@ -292,6 +309,22 @@ const T = {
     deputesDescription: 'The 49 members of the Legislative Assembly of New Brunswick, by party and riding.',
     ministresTitre: 'The Executive Council',
     ministresSurtitre: (n) => `${n} ministers`,
+    abrevProjets: (n) => (n === 1 ? 'bill' : 'bills'),
+    presenceTitreBoite: 'Reading the vote attendance',
+    presenceLexique: 'Full definition → Glossary',
+    presenceDef: (m, n) => `<b>${m} %</b>: of the ${n} recorded divisions held since the session opened, this person voted in ${m} % of them — yea or nay, whichever way.`,
+    presenceVert: 'Green', presenceJaune: 'Yellow', presenceAucune: 'No colour', presenceND: 'n/a',
+    presenceVertTexte: (n, m) => `(${n}) — ${m} % and above, the Assembly's median.`,
+    presenceJauneTexte: (n, bas, haut) => `(${n}) — from ${bas} % to ${haut} %, below the median.`,
+    presenceAucuneTexte: (n, bas) => `(${n}) — under ${bas} %.`,
+    presenceNDTexte: (n) => `(${n}) — no recorded division on file for this person. That is not an absence: we simply do not know.`,
+    presencePortee: (n, j, c, bas, haut) => `Among the ${c} people counted: from ${bas} % to ${haut} %. The figure rests on <b>${n} recorded divisions</b>, held over ${j} sitting day${j > 1 ? 's' : ''}.`,
+    presenceAvis: [
+      '<b>Recorded divisions are rare in New Brunswick.</b> Most bills pass on a voice vote, with nobody named. While a session holds only a few, this rate measures almost nothing — it sharpens as divisions pile up.',
+      '<b>The Speaker does not vote.</b> The Speaker chairs the House and stays neutral: that name appears in no recorded division, and that is as it should be.',
+      '<b>This is not an official measure.</b> The Assembly publishes no attendance rate. This one is worked out here, from the names printed in the Journals, and a missed vote never says why.',
+    ],
+    presenceTitre: (n, total) => `${n} of ${total} divisions`,
     ministreCirconscription: 'Riding', ministreProjets: 'Bills introduced',
     ministreFiche: 'Official page →', ministrePortefeuilles: 'Portfolios',
     suivreMinistre: (n) => `Follow ${n}`,
@@ -319,6 +352,7 @@ const T = {
       ['Petition', 'In New Brunswick a petition is <b>on paper</b>, signed by hand, and can only be presented by a member. There is no online petition system. A minister must reply in writing within two weeks, but that reply is not published.'],
       ['Speaker', 'The member who presides over sittings. The Speaker <b>does not vote</b>: a recorded division therefore never exceeds 48 of the 49 seats.'],
       ['Session', 'A period of business. Every new session renumbers bills from 1 — the same number means different bills in different sessions.'],
+      ['Vote attendance', 'The share of the session\'s recorded divisions in which a person\'s name is entered in the Journal, yea or nay. It is <b>not an official measure</b>: the Assembly publishes none, and this one is worked out here. It says little while a session holds few recorded divisions — and since they are rare in New Brunswick, that is often the case. "n/a" means no recorded division has this person on file: that is missing information, not an absence. The Speaker never votes.'],
     ],
     theme: 'Light or dark theme', texteMoins: 'Smaller text', textePlus: 'Larger text',
     deposeLe: 'Tabled', dernierActe: 'Latest act', pour: 'yeas', contre: 'nays',
@@ -917,6 +951,77 @@ const PROJETS_PAR_PARRAIN = (() => {
   return compte;
 })();
 
+/**
+ * La présence aux votes nominatifs, personne par personne.
+ *
+ * LE PROBLÈME : les Journaux du Nouveau-Brunswick n'inscrivent que le nom de famille —
+ * « Ms. S. Wilson », « Mr. J. LeBlanc ». Quatre noms de famille sont portés par deux
+ * député·e·s (Chiasson, Johnson, LeBlanc, Wilson), et c'est l'initiale du Journal qui les
+ * départage. Quand elle ne suffirait pas, on n'attribue RIEN : un vote mal attribué ferait
+ * dire à quelqu'un le contraire de ce qu'il a fait. Le build échoue alors, pour que ça se voie.
+ *
+ * CE QUE LE TAUX NE DIT PAS : les votes nominatifs sont rares ici. La plupart des projets
+ * de loi passent de vive voix, sans que personne soit nommé. Une personne qui n'apparaît
+ * dans aucun vote n'est donc pas « absente » : on n'en sait rien, et la page écrit « n/d ».
+ * La présidence de l'Assemblée, elle, ne vote jamais.
+ */
+const PRESENCE_AUX_VOTES = (() => {
+  const votes = votesFichier?.votes || [];
+  const deputes = deputesFichier?.deputes || [];
+  const total = votes.length;
+
+  const sansAccent = (s) => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  const famille = (d) => sansAccent((d.nomOfficiel || '').split(',')[0] || d.nomAffiche.split(' ').pop()).replace(/[^a-z]/g, '');
+  const prenom = (d) => sansAccent((d.nomOfficiel || '').split(',')[1] || d.nomAffiche.split(' ')[0]).trim();
+
+  const presents = new Map();
+  for (const vote of votes) {
+    for (const brut of [...(vote.pour?.noms || []), ...(vote.contre?.noms || [])]) {
+      const m = brut.match(/^(?:Hon\.\s+)?(?:Mr|Ms|Mrs)\.\s+(?:([A-ZÀ-Ÿ])\.\s+)?(.+)$/);
+      if (!m) throw new Error(`vote du ${vote.date} : « ${brut} » n'a pas la forme d'un nom de votant.`);
+      const initiale = m[1] ? sansAccent(m[1]) : null;
+      const nom = sansAccent(m[2]).replace(/[^a-z]/g, '');
+      let candidats = deputes.filter((d) => famille(d) === nom);
+      if (initiale) candidats = candidats.filter((d) => prenom(d).startsWith(initiale));
+      if (candidats.length !== 1) {
+        throw new Error(
+          `vote du ${vote.date} : « ${brut} » correspond à ${candidats.length} député·e·s. `
+          + 'Rien n\'est publié : un vote attribué au hasard ferait dire à quelqu\'un le contraire '
+          + 'de ce qu\'il a voté.'
+        );
+      }
+      const cle = candidats[0].nomAffiche;
+      presents.set(cle, (presents.get(cle) || 0) + 1);
+    }
+  }
+
+  const taux = [...presents.values()].map((n) => Math.round((n / total) * 100)).sort((a, b) => a - b);
+  const mediane = taux.length
+    ? (taux.length % 2 ? taux[(taux.length - 1) / 2] : Math.round((taux[taux.length / 2 - 1] + taux[taux.length / 2]) / 2))
+    : null;
+
+  const couleur = (t) => (t >= mediane ? 'vert' : t >= mediane - 6 ? 'jaune' : 'aucune');
+  const compte = { vert: 0, jaune: 0, aucune: 0 };
+  for (const t of taux) compte[couleur(t)] += 1;
+
+  return {
+    total,
+    seances: new Set(votes.map((v) => v.date)).size,
+    mediane,
+    plancher: taux[0] ?? null,
+    plafond: taux[taux.length - 1] ?? null,
+    comptes: taux.length,
+    sansDonnee: deputes.length - presents.size,
+    compte,
+    de(depute) {
+      const n = presents.get(depute.nomAffiche);
+      if (n === undefined || !total) return null;
+      const t = Math.round((n / total) * 100);
+      return { votes: n, total, taux: t, couleur: couleur(t) };
+    },
+  };
+})();
+
 /** L'identifiant d'un ministre : celui que l'Assemblée emploie dans l'adresse de sa fiche. */
 const identifiantMinistre = (m) => (m.fiche ? m.fiche.split('/').filter(Boolean).pop() : normaliserNom(m.nomAffiche).replace(/ /g, '-'));
 
@@ -948,6 +1053,64 @@ function carteMinistre(m, t, langue, { genre = 'ministre' } = {}) {
 }
 
 /**
+ * Une ligne de député·e. Les ministres ont des boîtes, l'Assemblée a des lignes : c'est la
+ * forme de DossierQuébec, et elle tient : 49 cartes feraient défiler une page entière.
+ */
+function ligneDepute(d, t, langue) {
+  const id = identifiantMinistre(d);
+  const projets = PROJETS_PAR_PARRAIN.get(normaliserNom(d.nomAffiche)) || 0;
+  const presence = PRESENCE_AUX_VOTES.de(d);
+
+  return `      <div class="nb-ligne-depute" data-nb-depute="${echapper(id)}"${d.couleurParti ? ` style="--parti:${echapper(d.couleurParti)}"` : ''}>
+        <p class="nb-ligne-nom"><b>${echapper(d.nomAffiche)}</b>
+          <span>${echapper(d.circonscription || '')}</span></p>
+        <p class="nb-ligne-chiffres">
+          ${presence
+            ? `<span class="nb-taux ${presence.couleur}" title="${echapper(t.presenceTitre(presence.votes, presence.total))}">${presence.taux} %</span>`
+            : `<span class="nb-taux nd">${t.presenceND}</span>`}
+          <span class="nb-ligne-pl">${projets} ${t.abrevProjets(projets)}</span>
+        </p>
+        <p class="nb-ligne-liens"><a href="${echapper(d.fiche || '#')}" rel="noopener">${t.ministreFiche}</a></p>
+        <button class="nb-suivre" type="button" data-nb-suivre="${echapper(id)}" data-nb-suivre-genre="depute"
+          data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
+          aria-pressed="false" title="${echapper(t.suivreMinistre(d.nomAffiche))}">${t.suivre}</button>
+      </div>`;
+}
+
+/**
+ * L'encadré qui explique le taux, en haut de l'Assemblée — comme sur DossierQuébec. Il porte
+ * les vrais chiffres de la session, et dit franchement ce que le taux ne mesure pas.
+ */
+function encadrePresence(t) {
+  const p = PRESENCE_AUX_VOTES;
+  if (!p.total) return '';
+  const mediane = p.mediane ?? 0;
+  return `  <section class="nb-section">
+    <div class="nb-encadre">
+      <div class="nb-encadre-tete">
+        <h3>${t.presenceTitreBoite}</h3>
+        <a class="nb-voir-tout" href="${t.langue === 'en' ? '/en/glossary' : '/lexique'}">${t.presenceLexique}</a>
+      </div>
+      <p class="nb-encadre-def">${t.presenceDef(mediane, p.total)}</p>
+      <div class="nb-echelle" aria-hidden="true">
+        <span class="nb-echelle-barre"><i style="width:${mediane}%"></i></span>
+        <span class="nb-echelle-bornes"><span>0 %</span><span>100 %</span></span>
+      </div>
+      <ul class="nb-legende">
+        <li><span class="nb-taux vert">${t.presenceVert}</span> ${t.presenceVertTexte(p.compte.vert, mediane)}</li>
+        <li><span class="nb-taux jaune">${t.presenceJaune}</span> ${t.presenceJauneTexte(p.compte.jaune, Math.max(0, mediane - 6), mediane - 1)}</li>
+        <li><span class="nb-taux">${t.presenceAucune}</span> ${t.presenceAucuneTexte(p.compte.aucune, Math.max(0, mediane - 6))}</li>
+        <li><span class="nb-taux nd">${t.presenceND}</span> ${t.presenceNDTexte(p.sansDonnee)}</li>
+      </ul>
+      <p class="nb-encadre-portee">${t.presencePortee(p.total, p.seances, p.comptes, p.plancher ?? 0, p.plafond ?? 0)}</p>
+      <ul class="nb-encadre-avis">
+${t.presenceAvis.map((a) => `        <li>${a}</li>`).join('\n')}
+      </ul>
+    </div>
+  </section>`;
+}
+
+/**
  * Le Conseil exécutif, puis toute l'Assemblée — une seule page, comme sur DossierQuébec.
  * Les ministres sont aussi des député·e·s : ils reparaissent plus bas, dans leur parti.
  */
@@ -971,8 +1134,8 @@ function pageMinistres(langue) {
       <h3>${echapper(parti)}</h3>
       <span class="nb-compte">${gens.length}</span>
     </div>
-    <div class="nb-grille-ministres">
-${gens.map((d) => carteMinistre(d, t, langue, { genre: 'depute' })).join('\n')}
+    <div class="nb-lignes-deputes">
+${gens.map((d) => ligneDepute(d, t, langue)).join('\n')}
     </div>
   </section>`;
   }).join('\n');
@@ -994,6 +1157,7 @@ ${membres.map((m) => carteMinistre(m, t, langue)).join('\n')}
     <div class="nb-section-tete"><h2>${t.deputesTitre}</h2></div>
     <p class="nb-section-note">${t.deputesNote}</p>
   </section>
+${encadrePresence(t)}
 ${assemblee}`,
   });
 }
@@ -1063,8 +1227,8 @@ ${membres.map((m) => carteMinistre(m, t, langue)).join('\n')}
   </section>
   <section class="nb-section" data-nb-bloc-dossier="depute" hidden>
     <div class="nb-section-tete"><h2>${t.monDossierDeputes}</h2></div>
-    <div class="nb-grille-ministres" data-nb-dossier="depute">
-${(deputesFichier?.deputes || []).map((d) => carteMinistre(d, t, langue, { genre: 'depute' })).join('\n')}
+    <div class="nb-lignes-deputes" data-nb-dossier="depute">
+${(deputesFichier?.deputes || []).map((d) => ligneDepute(d, t, langue)).join('\n')}
     </div>
     <p class="nb-carte-pied"><a href="${racine}${versMinistres}#assemblee">${t.deputesTitre} →</a></p>
   </section>`,

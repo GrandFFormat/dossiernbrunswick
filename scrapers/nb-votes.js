@@ -78,8 +78,18 @@ function extraireTexte(octets, nom) {
 /** Le début d'un nom de votant : « Mr. », « Ms. », « Hon. Mr. »… */
 const DEBUT_DE_NOM = /(?:Hon\.\s+)?(?:Mr|Ms|Mrs)\.\s+/g;
 
-/** Les en-têtes de page des Journaux, à ne pas confondre avec du contenu. */
-const EN_TETE = /\d+\s+\d+-\d+\s+Charles\s+III|Journal of Assembly/g;
+/**
+ * Les en-têtes de page des Journaux, à ne pas confondre avec du contenu.
+ *
+ * On enlève la LIGNE entière, pas seulement les mots « Journal of Assembly ». Un en-tête
+ * tombe au milieu d'une liste de votants — « Ms. Wilcott / October 29 Journal of Assembly 5 /
+ * NAYS - 16 » —, et n'en retirer que le milieu laissait « Ms. Wilcott October » : un nom de
+ * député avec un mois collé dessus.
+ */
+const EN_TETE = /\n?[^\n]*(?:Journal of Assembly|Journal de l'Assemblée)[^\n]*\n?|\d+\s+\d+-\d+\s+Charles\s+III/g;
+
+/** Ce qui suit un titre sans être un votant : la présidence, le greffe. */
+const PAS_UN_VOTANT = /^(?:Hon\.\s+)?(?:Mr|Ms|Mrs)\.\s+(?:Deputy|Speaker|Clerk|Madam)\b/;
 
 /**
  * Découpe un bloc de noms. Les Journaux les disposent sur trois colonnes ; l'extraction du
@@ -103,15 +113,20 @@ function lireNoms(bloc) {
       .replace(/\s+/g, ' ')
       .replace(/[,;.]?\s*$/, '')
       .trim();
-    // Après le dernier nom vient le récit du Journal : on s'arrête au premier mot en
-    // minuscule, qui ne peut pas faire partie d'un nom de famille ici.
-    const coupe = nom.match(/^((?:Hon\.\s+)?(?:Mr|Ms|Mrs)\.(?:\s+[A-ZÀ-Ÿ][\p{L}'’-]*\.?)*)/u);
+    // « Mr. Deputy Speaker put the question… », « Madam Speaker resumed the chair » : le
+    // récit qui suit la liste commence par une fonction, pas par un votant. La présidence
+    // ne vote pas, et le greffe non plus.
+    if (PAS_UN_VOTANT.test(nom)) continue;
+    // Un nom de votant, c'est le titre, une initiale au besoin, et UN nom de famille :
+    // « Ms. S. Wilson », « Hon. Mr. D'Amours », « Ms. Scott-Wallace ». Pas davantage.
+    //
+    // La borne compte : le dernier nom d'une liste est suivi du récit du Journal, et une
+    // forme gourmande avalait les mots capitalisés qui suivent. « Ms. S. Wilson Madam
+    // Speaker » se faisait ainsi jeter comme présidence, et le compteur allait chercher un
+    // nom plus bas pour compléter — il attribuait à quelqu'un un vote qu'il n'avait pas pris.
+    const coupe = nom.match(/^((?:Hon\.\s+)?(?:Mr|Ms|Mrs)\.\s+(?:[A-ZÀ-Ÿ]\.\s+)?[A-ZÀ-Ÿ][\p{L}'’-]*)/u);
     if (!coupe || coupe[1].length <= 4) continue;
-    const propose = coupe[1].trim();
-    // « Mr. Deputy Speaker put the question… » : le récit qui suit la liste commence par une
-    // fonction, pas par un votant. La présidence ne vote pas, et le greffier non plus.
-    if (/\b(Speaker|Clerk)\b/.test(propose)) continue;
-    noms.push(propose);
+    noms.push(coupe[1].replace(/\s+/g, ' ').trim());
   }
   return noms;
 }
@@ -143,7 +158,11 @@ function lireVotes(texteDuJournal, journal) {
     const nPour = Number(m[1]);
 
     // Le bloc du vote va de « YEAS » jusqu'à la reprise du récit. « NAYS - n » le coupe en deux.
-    const suite = texteDuJournal.slice(debut + m[0].length, debut + 4000);
+    // Il s'arrête au vote suivant : sans cette borne, une liste à qui il manque un nom irait
+    // le chercher dans la division d'après, et le compteur ne verrait rien passer.
+    const brut = texteDuJournal.slice(debut + m[0].length, debut + 4000);
+    const prochain = brut.search(/YEAS\s*-\s*\d+/);
+    const suite = prochain > 0 ? brut.slice(0, prochain) : brut;
     const mNays = suite.match(/NAYS\s*-\s*(\d+)/);
     const blocPour = mNays ? suite.slice(0, mNays.index) : suite;
     const nContre = mNays ? Number(mNays[1]) : 0;

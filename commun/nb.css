@@ -885,3 +885,83 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
 @media (max-width: 700px) {
   .nb-grille-ministres { grid-template-columns: 1fr; }
 }
+
+/* ─── L'Assemblée en lignes, et la présence aux votes ───────────────────── */
+
+.nb-lignes-deputes { display: grid; gap: 6px; margin-top: 12px; }
+.nb-ligne-depute {
+  display: grid;
+  grid-template-columns: 2fr auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 12px 18px;
+  background: var(--w);
+  border-left: 5px solid var(--parti, var(--color-divider));
+  box-shadow: var(--shadow-sm);
+}
+.nb-ligne-depute:hover { box-shadow: var(--shadow-md); }
+.nb-ligne-nom { margin: 0; display: flex; flex-direction: column; gap: 2px; }
+.nb-ligne-nom b { font: 600 16px var(--font-heading); letter-spacing: 0.01em; }
+.nb-ligne-nom span { font-size: 12px; color: var(--ink3); }
+.nb-ligne-chiffres { margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12px; }
+.nb-ligne-pl { color: var(--ink3); white-space: nowrap; }
+.nb-ligne-liens { margin: 0; font-size: 12px; text-align: right; }
+.nb-ligne-liens a { color: var(--acc); text-decoration: none; font-weight: 600; }
+.nb-ligne-liens a:hover { color: var(--nb-rouge); }
+
+/* Le taux : un chiffre, et une couleur qui dit seulement où il tombe par rapport
+   à la médiane. Pas une note — l'encadré au-dessus explique ce qu'elle vaut. */
+.nb-taux {
+  display: inline-block;
+  padding: 2px 7px;
+  font: 600 12px var(--font-heading);
+  font-variant-numeric: tabular-nums;
+  border: 1px solid var(--color-divider);
+  white-space: nowrap;
+}
+.nb-taux.vert { background: #1f7a3f; border-color: #1f7a3f; color: #fff; }
+.nb-taux.jaune { background: var(--nb-jaune); border-color: #d6af00; color: #3a2f00; }
+.nb-taux.nd { color: var(--ink3); border-style: dashed; }
+
+.nb-encadre {
+  padding: 24px 26px;
+  background: var(--w);
+  border: 1px solid var(--color-divider);
+  border-top: 4px solid var(--nb-bleu);
+  box-shadow: var(--shadow-sm);
+}
+.nb-encadre-tete { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.nb-encadre h3 {
+  margin: 0;
+  font: 600 18px var(--font-heading);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.nb-encadre-def { margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: var(--ink2); }
+.nb-echelle { margin: 18px 0 0; max-width: 460px; }
+.nb-echelle-barre {
+  display: block;
+  height: 14px;
+  background: var(--color-divider);
+  position: relative;
+}
+/* Le filet vert va de 0 à la médiane : on voit d'un coup où elle tombe. */
+.nb-echelle-barre i { display: block; height: 100%; background: #1f7a3f; }
+.nb-echelle-bornes { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink3); margin-top: 4px; }
+.nb-legende { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 8px; font-size: 13px; color: var(--ink2); }
+.nb-legende li { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.nb-encadre-portee { margin: 16px 0 0; font-size: 13px; color: var(--ink2); }
+.nb-encadre-avis {
+  margin: 16px 0 0;
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink3);
+  display: grid;
+  gap: 6px;
+}
+
+@media (max-width: 800px) {
+  .nb-ligne-depute { grid-template-columns: 1fr auto; gap: 10px; }
+  .nb-ligne-liens { grid-column: 1; text-align: left; }
+}
