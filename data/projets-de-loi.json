@@ -1,7 +1,7 @@
 {
   "legislature": 61,
   "session": 3,
-  "luLe": "2026-11-07T05:37:22.312Z",
+  "luLe": "2026-11-07T07:31:26.183Z",
   "source": "https://www.legnb.ca/en/legislation/bills/61/3",
   "avis": "La version imprimée reste la version officielle (avis de l'Assemblée législative du N.-B.).",
   "projets": [
@@ -16,40 +16,50 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-11-04"
+          "date": "2026-11-04",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-06"
+          "date": "2026-11-06",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Étude en comité",
+          "resultatFr": null
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "3e lecture",
+          "resultatFr": null
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -82,22 +92,26 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-11-03"
+          "date": "2026-11-03",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-04"
+          "date": "2026-11-04",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
@@ -106,22 +120,28 @@
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-04"
+          "date": "2026-11-04",
+          "nomFr": "Étude en comité",
+          "resultatFr": "Adoption"
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-06"
+          "date": "2026-11-06",
+          "nomFr": "3e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -154,40 +174,50 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-11-03"
+          "date": "2026-11-03",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-06"
+          "date": "2026-11-06",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Étude en comité",
+          "resultatFr": null
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "3e lecture",
+          "resultatFr": null
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -220,40 +250,50 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-11-03"
+          "date": "2026-11-03",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-04"
+          "date": "2026-11-04",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Étude en comité",
+          "resultatFr": null
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "3e lecture",
+          "resultatFr": null
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -286,40 +326,50 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-10-28"
+          "date": "2026-10-28",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-03"
+          "date": "2026-11-03",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Étude en comité",
+          "resultatFr": null
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "3e lecture",
+          "resultatFr": null
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -352,40 +402,50 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-10-27"
+          "date": "2026-10-27",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-03"
+          "date": "2026-11-03",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Étude en comité",
+          "resultatFr": null
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "3e lecture",
+          "resultatFr": null
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -418,40 +478,50 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-10-27"
+          "date": "2026-10-27",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-03"
+          "date": "2026-11-03",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Étude en comité",
+          "resultatFr": null
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "3e lecture",
+          "resultatFr": null
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -484,40 +554,50 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-10-27"
+          "date": "2026-10-27",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-10-28"
+          "date": "2026-10-28",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Étude en comité",
+          "resultatFr": null
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "3e lecture",
+          "resultatFr": null
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -550,22 +630,26 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-10-27"
+          "date": "2026-10-27",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-10-28"
+          "date": "2026-10-28",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
@@ -574,19 +658,25 @@
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-06"
+          "date": "2026-11-06",
+          "nomFr": "Étude en comité",
+          "resultatFr": "Adoption"
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "3e lecture",
+          "resultatFr": null
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -621,22 +711,26 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-10-27"
+          "date": "2026-10-27",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-10-28"
+          "date": "2026-10-28",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
@@ -645,22 +739,28 @@
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-04"
+          "date": "2026-11-04",
+          "nomFr": "Étude en comité",
+          "resultatFr": "Adoption"
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-06"
+          "date": "2026-11-06",
+          "nomFr": "3e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -693,22 +793,26 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-10-27"
+          "date": "2026-10-27",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-10-28"
+          "date": "2026-10-28",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
@@ -717,22 +821,28 @@
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-04"
+          "date": "2026-11-04",
+          "nomFr": "Étude en comité",
+          "resultatFr": "Adoption"
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-06"
+          "date": "2026-11-06",
+          "nomFr": "3e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -765,22 +875,26 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-10-21"
+          "date": "2026-10-21",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-10-27"
+          "date": "2026-10-27",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
@@ -789,22 +903,28 @@
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-04"
+          "date": "2026-11-04",
+          "nomFr": "Étude en comité",
+          "resultatFr": "Adoption"
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-06"
+          "date": "2026-11-06",
+          "nomFr": "3e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -837,22 +957,26 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-10-21"
+          "date": "2026-10-21",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-10-27"
+          "date": "2026-10-27",
+          "nomFr": "2e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Committee",
@@ -861,22 +985,28 @@
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-04"
+          "date": "2026-11-04",
+          "nomFr": "Étude en comité",
+          "resultatFr": "Adoption"
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": true,
           "resultat": {
             "fr": "adopté",
             "en": "passed"
           },
-          "date": "2026-11-06"
+          "date": "2026-11-06",
+          "nomFr": "3e lecture",
+          "resultatFr": "Adoption"
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
@@ -909,37 +1039,47 @@
       },
       "etapes": [
         {
-          "nom": "1 Reading",
+          "nom": "1st Reading",
           "franchie": true,
           "resultat": {
             "fr": "déposé",
             "en": "introduced"
           },
-          "date": "2026-10-20"
+          "date": "2026-10-20",
+          "nomFr": "1re lecture",
+          "resultatFr": "Dépôt"
         },
         {
-          "nom": "2 Reading",
+          "nom": "2nd Reading",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "2e lecture",
+          "resultatFr": null
         },
         {
           "nom": "Committee",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Étude en comité",
+          "resultatFr": null
         },
         {
-          "nom": "3 Reading",
+          "nom": "3rd Reading",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "3e lecture",
+          "resultatFr": null
         },
         {
           "nom": "Royal Assent",
           "franchie": false,
           "resultat": null,
-          "date": null
+          "date": null,
+          "nomFr": "Sanction royale",
+          "resultatFr": null
         }
       ],
       "type": "Government Bill",
