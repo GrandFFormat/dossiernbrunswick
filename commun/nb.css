@@ -1151,3 +1151,8 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
   .nb-ariane { padding: 14px 20px 0; }
   .nb-fiche-tete h1 { font-size: 34px; }
 }
+
+/* Le total des frais ferme le tableau : un filet plus marqué, et des chiffres plus gros. */
+.nb-finances .nb-total { border-top-width: 2px; border-top-color: var(--acc); }
+.nb-finances .nb-total dt, .nb-finances .nb-total dd { color: var(--ink); font-size: 15px; }
+.nb-finances dd { font-variant-numeric: tabular-nums; }

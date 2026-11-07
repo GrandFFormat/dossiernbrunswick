@@ -1,0 +1,744 @@
+{
+  "luLe": "2026-11-07T11:10:51.473Z",
+  "exercice": "2025-2026",
+  "source": "https://www.legnb.ca/en/members/expenses",
+  "documents": {
+    "frais": "https://www.legnb.ca/content/members/expenses/2025-2026/2025-26_MembersExpensesFraisDeputes.pdf",
+    "bureaux": "https://www.legnb.ca/content/members/expenses/2025-2026/2025-26_ConstituencyCirconscription.pdf"
+  },
+  "colonnes": [
+    {
+      "cle": "session",
+      "fr": "Indemnité de session",
+      "en": "Sessional allowance"
+    },
+    {
+      "cle": "kilometrage",
+      "fr": "Indemnité de kilométrage",
+      "en": "Kilometric allowance"
+    },
+    {
+      "cle": "avion",
+      "fr": "Tarifs aériens",
+      "en": "Air fare"
+    },
+    {
+      "cle": "comitesIndemnite",
+      "fr": "Indemnité des membres de comités",
+      "en": "Committee allowance"
+    },
+    {
+      "cle": "comitesAllocation",
+      "fr": "Allocation des membres de comités",
+      "en": "Committee indemnity"
+    },
+    {
+      "cle": "conferences",
+      "fr": "Frais de conférence et autres frais",
+      "en": "Conference and other expenses"
+    },
+    {
+      "cle": "deplacements",
+      "fr": "Indemnité de déplacement",
+      "en": "Travel trip allowance"
+    },
+    {
+      "cle": "orientation",
+      "fr": "Services d'orientation professionnelle et recyclage",
+      "en": "Career counselling and training"
+    }
+  ],
+  "personnes": [
+    {
+      "nomDuTableau": "Ames, Richard",
+      "siege": "Richard Ames",
+      "frais": {
+        "session": 2192,
+        "kilometrage": 1643,
+        "avion": 0,
+        "comitesIndemnite": 212,
+        "comitesAllocation": 2000,
+        "conferences": 0,
+        "deplacements": 279,
+        "orientation": 0
+      },
+      "total": 6326,
+      "bureau": 71863
+    },
+    {
+      "nomDuTableau": "Arseneau, Kevin",
+      "siege": null,
+      "frais": {
+        "session": 0,
+        "kilometrage": 0,
+        "avion": 0,
+        "comitesIndemnite": 0,
+        "comitesAllocation": 0,
+        "conferences": 0,
+        "deplacements": 0,
+        "orientation": 2655
+      },
+      "total": 2655,
+      "bureau": null
+    },
+    {
+      "nomDuTableau": "Arseneault, Guy",
+      "siege": "Guy Arseneault",
+      "frais": {
+        "session": 7148,
+        "kilometrage": 8599,
+        "avion": 846,
+        "comitesIndemnite": 2623,
+        "comitesAllocation": 2875,
+        "conferences": 4564,
+        "deplacements": 1501,
+        "orientation": 0
+      },
+      "total": 28157,
+      "bureau": 73044
+    },
+    {
+      "nomDuTableau": "Austin, Kris",
+      "siege": "Kris Austin",
+      "frais": {
+        "session": 4513,
+        "kilometrage": 3004,
+        "avion": 0,
+        "comitesIndemnite": 293,
+        "comitesAllocation": 2375,
+        "conferences": 0,
+        "deplacements": 1823,
+        "orientation": 0
+      },
+      "total": 12009,
+      "bureau": 58728
+    },
+    {
+      "nomDuTableau": "Bockus, Kathy",
+      "siege": "Kathy Bockus",
+      "frais": {
+        "session": 7018,
+        "kilometrage": 2887,
+        "avion": 0,
+        "comitesIndemnite": 1487,
+        "comitesAllocation": 1625,
+        "conferences": 0,
+        "deplacements": 117,
+        "orientation": 0
+      },
+      "total": 13133,
+      "bureau": 65200
+    },
+    {
+      "nomDuTableau": "Boudreau, Hon./l'hon. Lyne Chantal",
+      "siege": "Lyne Chantal Boudreau",
+      "frais": null,
+      "total": null,
+      "bureau": 72421
+    },
+    {
+      "nomDuTableau": "Bourque, Benoît",
+      "siege": "Benoît Bourque",
+      "frais": {
+        "session": 8418,
+        "kilometrage": 14275,
+        "avion": 677,
+        "comitesIndemnite": 4939,
+        "comitesAllocation": 6000,
+        "conferences": 3204,
+        "deplacements": 9199,
+        "orientation": 0
+      },
+      "total": 46711,
+      "bureau": 72247
+    },
+    {
+      "nomDuTableau": "Cardy, Dominic",
+      "siege": null,
+      "frais": {
+        "session": 0,
+        "kilometrage": 0,
+        "avion": 0,
+        "comitesIndemnite": 0,
+        "comitesAllocation": 0,
+        "conferences": 0,
+        "deplacements": 0,
+        "orientation": 5000
+      },
+      "total": 5000,
+      "bureau": null
+    },
+    {
+      "nomDuTableau": "Chiasson, Hon./l'hon. Chuck",
+      "siege": "Chuck Chiasson",
+      "frais": null,
+      "total": null,
+      "bureau": 71357
+    },
+    {
+      "nomDuTableau": "Chiasson, Hon./l'hon. Keith",
+      "siege": "Keith Chiasson",
+      "frais": null,
+      "total": null,
+      "bureau": 72348
+    },
+    {
+      "nomDuTableau": "Conroy, Michelle",
+      "siege": "Michelle Conroy",
+      "frais": {
+        "session": 8820,
+        "kilometrage": 4927,
+        "avion": 0,
+        "comitesIndemnite": 1268,
+        "comitesAllocation": 1875,
+        "conferences": 0,
+        "deplacements": 828,
+        "orientation": 0
+      },
+      "total": 17718,
+      "bureau": 65415
+    },
+    {
+      "nomDuTableau": "Coon, David",
+      "siege": "David Coon",
+      "frais": {
+        "session": 0,
+        "kilometrage": 619,
+        "avion": 0,
+        "comitesIndemnite": 0,
+        "comitesAllocation": 5125,
+        "conferences": 0,
+        "deplacements": 85,
+        "orientation": 0
+      },
+      "total": 5829,
+      "bureau": 73863
+    },
+    {
+      "nomDuTableau": "Cullins, Ryan",
+      "siege": "Ryan Cullins",
+      "frais": {
+        "session": 2334,
+        "kilometrage": 0,
+        "avion": 0,
+        "comitesIndemnite": 199,
+        "comitesAllocation": 1250,
+        "conferences": 0,
+        "deplacements": 174,
+        "orientation": 0
+      },
+      "total": 3956,
+      "bureau": 64518
+    },
+    {
+      "nomDuTableau": "D'Amours, Hon./l'hon. Jean-Claude",
+      "siege": "Jean-Claude D'Amours",
+      "frais": null,
+      "total": null,
+      "bureau": 73071
+    },
+    {
+      "nomDuTableau": "Dawson, Mike",
+      "siege": null,
+      "frais": null,
+      "total": null,
+      "bureau": 1031
+    },
+    {
+      "nomDuTableau": "Dornan, Hon./l'hon. John",
+      "siege": "John Dornan",
+      "frais": null,
+      "total": null,
+      "bureau": 53994
+    },
+    {
+      "nomDuTableau": "Doucet, Alexandre Cédric",
+      "siege": "Alexandre Cédric Doucet",
+      "frais": {
+        "session": 7747,
+        "kilometrage": 7656,
+        "avion": 0,
+        "comitesIndemnite": 5369,
+        "comitesAllocation": 5600,
+        "conferences": 2234,
+        "deplacements": 4402,
+        "orientation": 0
+      },
+      "total": 33008,
+      "bureau": 75000
+    },
+    {
+      "nomDuTableau": "Finnigan, Hon./l'hon. Pat",
+      "siege": "Pat Finnigan",
+      "frais": null,
+      "total": null,
+      "bureau": 66517
+    },
+    {
+      "nomDuTableau": "Fitch, Bruce",
+      "siege": null,
+      "frais": {
+        "session": 0,
+        "kilometrage": 0,
+        "avion": 0,
+        "comitesIndemnite": 0,
+        "comitesAllocation": 0,
+        "conferences": 0,
+        "deplacements": 0,
+        "orientation": 3100
+      },
+      "total": 3100,
+      "bureau": null
+    },
+    {
+      "nomDuTableau": "Gauvin, Hon./l'hon. Robert",
+      "siege": "Robert Gauvin",
+      "frais": null,
+      "total": null,
+      "bureau": 45810
+    },
+    {
+      "nomDuTableau": "Herron, Hon./l'hon. John",
+      "siege": "John Herron",
+      "frais": null,
+      "total": null,
+      "bureau": 72197
+    },
+    {
+      "nomDuTableau": "Hickey, Hon./l'hon. David",
+      "siege": "David Hickey",
+      "frais": null,
+      "total": null,
+      "bureau": 59556
+    },
+    {
+      "nomDuTableau": "Hogan, Bill",
+      "siege": "Bill Hogan",
+      "frais": {
+        "session": 6072,
+        "kilometrage": 2413,
+        "avion": 0,
+        "comitesIndemnite": 245,
+        "comitesAllocation": 1000,
+        "conferences": 0,
+        "deplacements": 670,
+        "orientation": 0
+      },
+      "total": 10399,
+      "bureau": 61657
+    },
+    {
+      "nomDuTableau": "Holt, Hon./l'hon. Susan",
+      "siege": "Susan Holt",
+      "frais": null,
+      "total": null,
+      "bureau": 60338
+    },
+    {
+      "nomDuTableau": "Johnson, Hon./l'hon. Claire",
+      "siege": "Claire Johnson",
+      "frais": null,
+      "total": null,
+      "bureau": 65848
+    },
+    {
+      "nomDuTableau": "Johnson, Margaret",
+      "siege": "Margaret Johnson",
+      "frais": {
+        "session": 4915,
+        "kilometrage": 4968,
+        "avion": 0,
+        "comitesIndemnite": 0,
+        "comitesAllocation": 625,
+        "conferences": 805,
+        "deplacements": 138,
+        "orientation": 0
+      },
+      "total": 11451,
+      "bureau": 73945
+    },
+    {
+      "nomDuTableau": "Johnston, Sam",
+      "siege": "Sam Johnston",
+      "frais": {
+        "session": 5383,
+        "kilometrage": 6991,
+        "avion": 0,
+        "comitesIndemnite": 4385,
+        "comitesAllocation": 5500,
+        "conferences": 0,
+        "deplacements": 1248,
+        "orientation": 0
+      },
+      "total": 23507,
+      "bureau": 55778
+    },
+    {
+      "nomDuTableau": "Kennedy, Hon./l'hon. Aaron",
+      "siege": "Aaron Kennedy",
+      "frais": null,
+      "total": null,
+      "bureau": 60703
+    },
+    {
+      "nomDuTableau": "Landry, Hon./l'hon. Francine",
+      "siege": "Francine Landry",
+      "frais": null,
+      "total": null,
+      "bureau": 39017
+    },
+    {
+      "nomDuTableau": "LeBlanc, Jacques",
+      "siege": "Jacques LeBlanc",
+      "frais": {
+        "session": 8961,
+        "kilometrage": 8995,
+        "avion": 0,
+        "comitesIndemnite": 5902,
+        "comitesAllocation": 7350,
+        "conferences": 0,
+        "deplacements": 7186,
+        "orientation": 0
+      },
+      "total": 38395,
+      "bureau": 74597
+    },
+    {
+      "nomDuTableau": "LeBlanc, Marco",
+      "siege": "Marco LeBlanc",
+      "frais": {
+        "session": 8966,
+        "kilometrage": 17137,
+        "avion": 0,
+        "comitesIndemnite": 4484,
+        "comitesAllocation": 4500,
+        "conferences": 2416,
+        "deplacements": 8523,
+        "orientation": 0
+      },
+      "total": 46025,
+      "bureau": 75000
+    },
+    {
+      "nomDuTableau": "Lee, Ian",
+      "siege": "Ian Lee",
+      "frais": {
+        "session": 6761,
+        "kilometrage": 3859,
+        "avion": 0,
+        "comitesIndemnite": 2252,
+        "comitesAllocation": 2500,
+        "conferences": 546,
+        "deplacements": 1447,
+        "orientation": 0
+      },
+      "total": 17366,
+      "bureau": 57388
+    },
+    {
+      "nomDuTableau": "Legacy, Hon./l'hon. René",
+      "siege": "René Legacy",
+      "frais": null,
+      "total": null,
+      "bureau": 74601
+    },
+    {
+      "nomDuTableau": "LePage, Hon./l'hon. Gilles",
+      "siege": "Gilles LePage",
+      "frais": null,
+      "total": null,
+      "bureau": 72172
+    },
+    {
+      "nomDuTableau": "Mallet, Eric",
+      "siege": "Eric Mallet",
+      "frais": {
+        "session": 8464,
+        "kilometrage": 9009,
+        "avion": 0,
+        "comitesIndemnite": 5684,
+        "comitesAllocation": 5750,
+        "conferences": 0,
+        "deplacements": 2790,
+        "orientation": 0
+      },
+      "total": 31696,
+      "bureau": 68208
+    },
+    {
+      "nomDuTableau": "McKee, Hon./l'hon. Rob",
+      "siege": "Robert McKee",
+      "frais": null,
+      "total": null,
+      "bureau": 66790
+    },
+    {
+      "nomDuTableau": "Miles, Hon./l'hon. Cindy",
+      "siege": "Cindy Miles",
+      "frais": null,
+      "total": null,
+      "bureau": 50266
+    },
+    {
+      "nomDuTableau": "Mitton, Megan",
+      "siege": "Megan Mitton",
+      "frais": {
+        "session": 8945,
+        "kilometrage": 4738,
+        "avion": 0,
+        "comitesIndemnite": 1877,
+        "comitesAllocation": 4000,
+        "conferences": 2731,
+        "deplacements": 1523,
+        "orientation": 0
+      },
+      "total": 23814,
+      "bureau": 60130
+    },
+    {
+      "nomDuTableau": "Monahan, Don",
+      "siege": "Don Monahan",
+      "frais": {
+        "session": 8979,
+        "kilometrage": 4153,
+        "avion": 0,
+        "comitesIndemnite": 2601,
+        "comitesAllocation": 1875,
+        "conferences": 0,
+        "deplacements": 2387,
+        "orientation": 0
+      },
+      "total": 19994,
+      "bureau": 74958
+    },
+    {
+      "nomDuTableau": "Oliver, Bill",
+      "siege": "Bill Oliver",
+      "frais": {
+        "session": 8936,
+        "kilometrage": 2161,
+        "avion": 0,
+        "comitesIndemnite": 563,
+        "comitesAllocation": 1125,
+        "conferences": 0,
+        "deplacements": 792,
+        "orientation": 0
+      },
+      "total": 13576,
+      "bureau": 58693
+    },
+    {
+      "nomDuTableau": "Randall, Hon./l'hon. Luke",
+      "siege": "Luke Randall",
+      "frais": null,
+      "total": null,
+      "bureau": 66685
+    },
+    {
+      "nomDuTableau": "Robichaud, Luc",
+      "siege": "Luc Robichaud",
+      "frais": {
+        "session": 8797,
+        "kilometrage": 12573,
+        "avion": 863,
+        "comitesIndemnite": 6274,
+        "comitesAllocation": 8000,
+        "conferences": 1344,
+        "deplacements": 6024,
+        "orientation": 0
+      },
+      "total": 43875,
+      "bureau": 74933
+    },
+    {
+      "nomDuTableau": "Russell, Kevin",
+      "siege": "Kevin Russell",
+      "frais": {
+        "session": 6128,
+        "kilometrage": 1842,
+        "avion": 0,
+        "comitesIndemnite": 42,
+        "comitesAllocation": 250,
+        "conferences": 0,
+        "deplacements": 656,
+        "orientation": 0
+      },
+      "total": 8918,
+      "bureau": 33213
+    },
+    {
+      "nomDuTableau": "Savoie, Glen",
+      "siege": "Glen Savoie",
+      "frais": {
+        "session": 2915,
+        "kilometrage": 7356,
+        "avion": 0,
+        "comitesIndemnite": 53,
+        "comitesAllocation": 500,
+        "conferences": 0,
+        "deplacements": 286,
+        "orientation": 0
+      },
+      "total": 11110,
+      "bureau": 61918
+    },
+    {
+      "nomDuTableau": "Scott-Wallace, Tammy",
+      "siege": "Tammy Scott-Wallace",
+      "frais": {
+        "session": 8936,
+        "kilometrage": 3936,
+        "avion": 734,
+        "comitesIndemnite": 3361,
+        "comitesAllocation": 6050,
+        "conferences": 1308,
+        "deplacements": 3009,
+        "orientation": 0
+      },
+      "total": 27335,
+      "bureau": 72660
+    },
+    {
+      "nomDuTableau": "Shephard, Dorothy",
+      "siege": null,
+      "frais": {
+        "session": 0,
+        "kilometrage": 0,
+        "avion": 0,
+        "comitesIndemnite": 0,
+        "comitesAllocation": 0,
+        "conferences": 0,
+        "deplacements": 0,
+        "orientation": 4998
+      },
+      "total": 4998,
+      "bureau": null
+    },
+    {
+      "nomDuTableau": "Sodhi, Tania",
+      "siege": "Tania Sodhi",
+      "frais": {
+        "session": 2264,
+        "kilometrage": 8358,
+        "avion": 0,
+        "comitesIndemnite": 580,
+        "comitesAllocation": 3250,
+        "conferences": 0,
+        "deplacements": 283,
+        "orientation": 0
+      },
+      "total": 14735,
+      "bureau": 57475
+    },
+    {
+      "nomDuTableau": "Steeves, Ernie",
+      "siege": null,
+      "frais": {
+        "session": 0,
+        "kilometrage": 0,
+        "avion": 0,
+        "comitesIndemnite": 0,
+        "comitesAllocation": 0,
+        "conferences": 0,
+        "deplacements": 0,
+        "orientation": 1831
+      },
+      "total": 1831,
+      "bureau": null
+    },
+    {
+      "nomDuTableau": "Thériault, Hon./l'hon. Isabelle",
+      "siege": "Isabelle Thériault",
+      "frais": null,
+      "total": null,
+      "bureau": 72666
+    },
+    {
+      "nomDuTableau": "Townsend, Hon./l'hon. Alyson",
+      "siege": "Alyson Townsend",
+      "frais": null,
+      "total": null,
+      "bureau": 51423
+    },
+    {
+      "nomDuTableau": "Vautour, Natacha",
+      "siege": "Natacha Vautour",
+      "frais": {
+        "session": 6503,
+        "kilometrage": 7106,
+        "avion": 1015,
+        "comitesIndemnite": 5547,
+        "comitesAllocation": 7350,
+        "conferences": 1734,
+        "deplacements": 2212,
+        "orientation": 0
+      },
+      "total": 31467,
+      "bureau": 55819
+    },
+    {
+      "nomDuTableau": "Weir, Rob",
+      "siege": "Rob Weir",
+      "frais": {
+        "session": 9114,
+        "kilometrage": 11079,
+        "avion": 0,
+        "comitesIndemnite": 4102,
+        "comitesAllocation": 3750,
+        "conferences": 2503,
+        "deplacements": 8323,
+        "orientation": 0
+      },
+      "total": 38871,
+      "bureau": 68295
+    },
+    {
+      "nomDuTableau": "Wilcott, Kate",
+      "siege": "Kate Wilcott",
+      "frais": {
+        "session": 5685,
+        "kilometrage": 4138,
+        "avion": 0,
+        "comitesIndemnite": 682,
+        "comitesAllocation": 4950,
+        "conferences": 524,
+        "deplacements": 1691,
+        "orientation": 0
+      },
+      "total": 17669,
+      "bureau": 59380
+    },
+    {
+      "nomDuTableau": "Wilson, Mary",
+      "siege": "Mary Wilson",
+      "frais": {
+        "session": 1675,
+        "kilometrage": 0,
+        "avion": 0,
+        "comitesIndemnite": 15,
+        "comitesAllocation": 750,
+        "conferences": 0,
+        "deplacements": 207,
+        "orientation": 0
+      },
+      "total": 2647,
+      "bureau": 72790
+    },
+    {
+      "nomDuTableau": "Wilson, Sherry",
+      "siege": "Sherry Wilson",
+      "frais": {
+        "session": 6082,
+        "kilometrage": 3121,
+        "avion": 0,
+        "comitesIndemnite": 2187,
+        "comitesAllocation": 1625,
+        "conferences": 0,
+        "deplacements": 700,
+        "orientation": 0
+      },
+      "total": 13714,
+      "bureau": 48381
+    }
+  ]
+}

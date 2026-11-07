@@ -29,6 +29,8 @@ const votesFichier = lireJson('data/votes.json');
 // Les fiches individuelles donnent les fonctions dans les deux langues. Elles sont lues
 // une fois par semaine : sans elles, le site se bâtit quand même, en moins riche.
 const fichesFichier = lireJson('data/fiches.json');
+// Les dépenses payées aux député·e·s, lues dans les tableaux PDF de l'Assemblée.
+const financesFichier = lireJson('data/finances.json');
 
 if (!projetsFichier) throw new Error('data/projets-de-loi.json manque — lancer les scrapers avant le build');
 
@@ -189,6 +191,16 @@ const T = {
       return `${nom} est ${quoi}${circ ? `, et repr\u00e9sente la circonscription de ${circ}` : ''}`
         + `${parti ? ` ${/^Parti\b/.test(parti) ? `pour le ${parti}` : `pour ${parti}`}` : ''}.`;
     },
+    financesTitre: 'Finances publiques',
+    financesExercice: (e) => `Exercice ${e}`,
+    financesTotal: 'Total des frais',
+    financesBureau: 'Budget du bureau de circonscription',
+    financesNote: 'Ce ne sont pas des salaires. L\u2019indemnit\u00e9 de session fait partie de la r\u00e9mun\u00e9ration ; le reste rembourse des frais \u2014 kilom\u00e9trage, avion, comit\u00e9s, d\u00e9placements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.',
+    financesSansFrais: 'Les membres du Conseil ex\u00e9cutif ne figurent pas au tableau des frais de l\u2019Assembl\u00e9e. Seul leur budget de bureau de circonscription y est publi\u00e9.',
+    financesAucune: 'L\u2019Assembl\u00e9e ne publie aucun montant pour cette personne \u00e0 cet exercice.',
+    financesSource: 'Les tableaux de l\u2019Assembl\u00e9e (PDF bilingues) :',
+    financesFrais: 'frais des d\u00e9put\u00e9s', financesCirconscription: 'bureaux de circonscription',
+    financesExerciceNote: 'Un exercice commence le 1er avril : celui-ci peut contenir des sommes vers\u00e9es avant la l\u00e9gislature en cours.',
     ficheEtiquetteMinistre: 'Ministre du Nouveau-Brunswick',
     ficheEtiquetteChef: 'Chef de parti',
     ficheEtiquetteDepute: 'D\u00e9put\u00e9\u00b7e \u00e0 l\u2019Assembl\u00e9e',
@@ -386,6 +398,16 @@ const T = {
       const quoi = roles.length ? roles.join(', ') : 'a member';
       return `${nom} is ${quoi}${circ ? `, and represents the riding of ${circ}` : ''}${parti ? ` for the ${parti}` : ''}.`;
     },
+    financesTitre: 'Public finances',
+    financesExercice: (e) => `Fiscal year ${e}`,
+    financesTotal: 'Total expenses',
+    financesBureau: 'Constituency office budget',
+    financesNote: 'These are not salaries. The sessional allowance is part of the pay; the rest reimburses costs \u2014 mileage, air fare, committees, travel. The constituency office budget pays for an office and its staff, not the person.',
+    financesSansFrais: 'Members of the Executive Council do not appear in the Assembly\u2019s expense table. Only their constituency office budget is published there.',
+    financesAucune: 'The Assembly publishes no amount for this person in this fiscal year.',
+    financesSource: 'The Assembly\u2019s tables (bilingual PDFs):',
+    financesFrais: 'members\u2019 expenses', financesCirconscription: 'constituency offices',
+    financesExerciceNote: 'A fiscal year starts on 1 April: this one may hold amounts paid before the current legislature.',
     ficheEtiquetteMinistre: 'Minister of New Brunswick',
     ficheEtiquetteChef: 'Party leader',
     ficheEtiquetteDepute: 'Member of the Assembly',
@@ -1624,6 +1646,49 @@ const slugPersonne = (nom) => String(nom ?? '')
   .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 /**
+ * Ce que l'Assemblée a payé à une personne pendant l'exercice. Ce ne sont pas des salaires :
+ * une partie rembourse des frais, et le budget de bureau de circonscription paie un local et
+ * son personnel. La section le dit, parce qu'un chiffre d'argent sous le nom de quelqu'un se
+ * lit vite de travers.
+ */
+function blocFinances(personne, t, langue) {
+  const f = financesFichier;
+  if (!f?.personnes?.length) return '';
+
+  const ligne = f.personnes.find((p) => p.siege
+    && normaliserNom(p.siege) === normaliserNom(personne.nomAffiche));
+  if (!ligne) return '';
+
+  const sous = (n) => new Intl.NumberFormat(langue === 'en' ? 'en-CA' : 'fr-CA',
+    { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 }).format(n);
+
+  const rangees = [];
+  if (ligne.frais) {
+    for (const col of f.colonnes) {
+      const valeur = ligne.frais[col.cle];
+      if (!valeur) continue;   // une colonne à zéro n'apprend rien
+      rangees.push(`      <div><dt>${echapper(langue === 'en' ? col.en : col.fr)}</dt><dd>${sous(valeur)}</dd></div>`);
+    }
+    rangees.push(`      <div class="nb-total"><dt>${t.financesTotal}</dt><dd>${sous(ligne.total)}</dd></div>`);
+  }
+  if (ligne.bureau != null) {
+    rangees.push(`      <div><dt>${t.financesBureau}</dt><dd>${sous(ligne.bureau)}</dd></div>`);
+  }
+  if (!rangees.length) return '';
+
+  return `  <section class="nb-section">
+    <div class="nb-section-tete"><h2>${t.financesTitre}</h2><span class="nb-compte">${echapper(t.financesExercice(f.exercice))}</span></div>
+    <dl class="nb-carte-donnees nb-donnees-large nb-finances">
+${rangees.join('\n')}
+    </dl>
+    <p class="nb-section-note">${t.financesNote}${ligne.frais ? '' : ` ${t.financesSansFrais}`} ${t.financesExerciceNote}</p>
+    <p class="nb-carte-pied">${t.financesSource}
+      <a href="${echapper(f.documents.frais)}" rel="noopener">${t.financesFrais}</a> ·
+      <a href="${echapper(f.documents.bureaux)}" rel="noopener">${t.financesCirconscription}</a></p>
+  </section>`;
+}
+
+/**
  * Le portrait d'une personne, tel qu'on le sert. L'Assemblée publie ces photos pour un
  * usage public non commercial : on les reprend créditées, avec un lien vers la fiche
  * officielle. Pas de fichier téléchargé, pas d'image — jamais un cadre vide.
@@ -1727,6 +1792,7 @@ ${projets.map((p) => rangeeProjet(p, t, langue)).join('\n')}
         : `<span class="nb-taux nd">${t.presenceND}</span> <span>${t.fichePresenceAucune}</span>`}</p>
     <p class="nb-section-note">${t.fichePresenceAvis}</p>
   </section>
+${blocFinances(personne, t, langue)}
   <section class="nb-section">
     <div class="nb-section-tete"><h2>${t.ficheCoordonnees}</h2></div>
     <p class="nb-texte">${t.ficheCoordonneesTexte}</p>
