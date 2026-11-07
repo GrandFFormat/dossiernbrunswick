@@ -31,8 +31,6 @@ const votesFichier = lireJson('data/votes.json');
 const fichesFichier = lireJson('data/fiches.json');
 // Les dépenses payées aux député·e·s, lues dans les tableaux PDF de l'Assemblée.
 const financesFichier = lireJson('data/finances.json');
-// Les sept charges indépendantes de l'Assemblée, nommées dans le lexique.
-const officiersFichier = lireJson('data/officiers.json');
 
 if (!projetsFichier) throw new Error('data/projets-de-loi.json manque — lancer les scrapers avant le build');
 
@@ -212,11 +210,6 @@ const T = {
     projetDescription: (n, titre, statut) => `Projet de loi n\u1d52 ${n} \u00e0 l\u2019Assembl\u00e9e l\u00e9gislative du Nouveau-Brunswick : ${titre}.${statut ? ` \u00c9tape : ${statut}.` : ''} Son chemin, son parrain, ses votes nominatifs et ses textes officiels.`,
     session: 'L\u00e9gislature et session',
     lexiqueFamilles: { chemin: 'Le chemin d\u2019un projet', votes: 'Votes', documents: 'Documents', textes: 'Sortes de projets', gens: 'Personnes et droits' },
-    officiersSurtitre: 'Ind\u00e9pendants du gouvernement et des partis',
-    officiersTitre: 'Qui veille sur l\u2019Assembl\u00e9e',
-    officiersSite: 'Son site \u2192',
-    officiersNote: '<b>Ces personnes ne sont pas des d\u00e9put\u00e9\u00b7e\u00b7s.</b> Elles ne si\u00e8gent pas, ne votent pas et ne sont pas \u00e9lues : le lieutenant-gouverneur en conseil les nomme sur la recommandation de l\u2019Assembl\u00e9e, pour un mandat fixe de sept \u00e0 dix ans, et elles r\u00e9pondent \u00e0 l\u2019Assembl\u00e9e plut\u00f4t qu\u2019au gouvernement. L\u2019Assembl\u00e9e ne publie pas le nom des personnes en poste sur cette page : on nomme la charge, pas la personne. Le commissaire \u00e0 l\u2019int\u00e9grit\u00e9 tient le registre des lobbyistes du Nouveau-Brunswick.',
-    officiersSource: 'La page des hauts fonctionnaires sur legnb.ca \u2192',
     ficheEtiquetteMinistre: 'Ministre du Nouveau-Brunswick',
     ficheEtiquetteChef: 'Chef de parti',
     ficheEtiquetteDepute: 'D\u00e9put\u00e9\u00b7e \u00e0 l\u2019Assembl\u00e9e',
@@ -433,11 +426,6 @@ const T = {
     projetDescription: (n, titre, statut) => `Bill ${n} in the Legislative Assembly of New Brunswick: ${titre}.${statut ? ` Stage: ${statut}.` : ''} Its path, its sponsor, its recorded divisions and its official texts.`,
     session: 'Legislature and session',
     lexiqueFamilles: { chemin: 'A bill\u2019s path', votes: 'Votes', documents: 'Documents', textes: 'Kinds of bills', gens: 'People and rights' },
-    officiersSurtitre: 'Independent of government and of the parties',
-    officiersTitre: 'Who watches over the Assembly',
-    officiersSite: 'Their site \u2192',
-    officiersNote: '<b>These officers are not members of the Assembly.</b> They do not sit, they do not vote, and they are not elected: the Lieutenant-Governor in Council appoints them on the Assembly\u2019s recommendation, for a fixed term of seven to ten years, and they answer to the Assembly rather than to the government. The Assembly does not publish the names of the people holding these offices on that page: we name the office, not the person. The Integrity Commissioner keeps New Brunswick\u2019s lobbyists\u2019 registry.',
-    officiersSource: 'The legislative officers page on legnb.ca \u2192',
     ficheEtiquetteMinistre: 'Minister of New Brunswick',
     ficheEtiquetteChef: 'Party leader',
     ficheEtiquetteDepute: 'Member of the Assembly',
@@ -1516,20 +1504,6 @@ function pageLexique(langue) {
         <p>${definition}</p>
       </article>`).join('\n');
 
-  const o = officiersFichier;
-  const officiers = o?.officiers?.length ? `  <section class="nb-section">
-    <p class="nb-surtitre nb-surtitre-rouge">${t.officiersSurtitre}</p>
-    <div class="nb-section-tete"><h2>${t.officiersTitre}</h2><span class="nb-compte">${o.officiers.length}</span></div>
-    <p class="nb-texte">${echapper(o.intro[langue] || o.intro.en)}</p>
-    <ul class="nb-officiers">
-${o.officiers.map((x) => `      <li>
-        <b>${echapper(x.nom[langue] || x.nom.en)}</b>
-        <a href="${echapper(x.site[langue] || x.site.en)}" rel="noopener">${t.officiersSite}</a>
-      </li>`).join('\n')}
-    </ul>
-    <p class="nb-section-note">${t.officiersNote}</p>
-    <p class="nb-carte-pied"><a href="${echapper(o.source[langue] || o.source.en)}" rel="noopener">${t.officiersSource}</a></p>
-  </section>` : '';
 
   return coquille({
     langue,
@@ -1542,8 +1516,7 @@ ${o.officiers.map((x) => `      <li>
     <div class="nb-lexique-grille">
 ${cartes}
     </div>
-  </section>
-${officiers}`,
+  </section>`,
   });
 }
 
