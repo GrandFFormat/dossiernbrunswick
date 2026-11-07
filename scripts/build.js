@@ -31,6 +31,8 @@ const votesFichier = lireJson('data/votes.json');
 const fichesFichier = lireJson('data/fiches.json');
 // Les dépenses payées aux député·e·s, lues dans les tableaux PDF de l'Assemblée.
 const financesFichier = lireJson('data/finances.json');
+// Les résumés en langage clair, écrits par un modèle à partir du texte officiel.
+const resumesFichier = lireJson('data/resumes.json');
 // Les pages Wikipédia vérifiées, une par personne et par langue.
 const wikipediaFichier = lireJson('data/wikipedia.json');
 
@@ -209,6 +211,10 @@ const T = {
     filtresLabel: 'Filtrer les projets de loi',
     filtreTous: 'Tous', filtreEnCours: 'En cours', filtreAdoptes: 'Sanctionn\u00e9s',
     comptePdl: (n, total) => (n === total ? `${total} projet${total > 1 ? 's' : ''} de loi` : `${n} sur ${total} projets de loi`),
+    enClair: 'En clair',
+    enClairAvis: (modele) => `R\u00e9sum\u00e9 \u00e9crit par un mod\u00e8le de langage (${modele}) \u00e0 partir du texte officiel de l\u2019Assembl\u00e9e. Il n\u2019est pas officiel : en cas de doute, c\u2019est le texte qui fait foi.`,
+    enClairTronque: 'Le texte de ce projet d\u00e9passait la taille lue : le r\u00e9sum\u00e9 ne porte que sur son d\u00e9but.',
+    enClairSansContenu: 'Ce texte est trop court ou trop technique pour \u00eatre r\u00e9sum\u00e9 honn\u00eatement. Rien n\u2019est affich\u00e9 ici plut\u00f4t qu\u2019une phrase creuse.',
     cafeAria: 'Offrez-nous un caf\u00e9 (s\u2019ouvre dans un nouvel onglet)',
     ficheEtiquetteMinistre: 'Ministre du Nouveau-Brunswick',
     ficheEtiquetteChef: 'Chef de parti',
@@ -423,6 +429,10 @@ const T = {
     filtresLabel: 'Filter the bills',
     filtreTous: 'All', filtreEnCours: 'In progress', filtreAdoptes: 'Assented to',
     comptePdl: (n, total) => (n === total ? `${total} bill${total > 1 ? 's' : ''}` : `${n} of ${total} bills`),
+    enClair: 'In plain words',
+    enClairAvis: (modele) => `Summary written by a language model (${modele}) from the Assembly\u2019s official text. It is not official: where they differ, the text prevails.`,
+    enClairTronque: 'This bill\u2019s text was longer than what was read: the summary covers only its beginning.',
+    enClairSansContenu: 'This text is too short or too technical to summarise honestly. Nothing is shown here rather than a hollow sentence.',
     cafeAria: 'Buy us a coffee (opens in a new tab)',
     ficheEtiquetteMinistre: 'Minister of New Brunswick',
     ficheEtiquetteChef: 'Party leader',
@@ -1111,6 +1121,7 @@ function pageProjets(langue) {
         </summary>
         <div class="nb-pdl-corps">
           <div>
+${blocEnClair(p, t, langue)}
 ${cheminEtapes(p, t, langue)}
             ${type ? `<p class="nb-fiche-type">${echapper(type)}</p>` : ''}
             ${parrain?.nom ? `<p class="nb-fiche-parrain">${t.parrainePar} <b>${lienPersonne(
@@ -1634,6 +1645,27 @@ ${(deputesFichier?.deputes || []).map((d) => ligneDepute(d, t, langue)).join('\n
 }
 
 
+/**
+ * Le résumé en clair d'un projet de loi. Il porte toujours son avertissement : qui l'a
+ * écrit, à partir de quoi, et qu'il n'est pas officiel. Quand le modèle a jugé le texte
+ * trop mince pour un résumé honnête, on affiche ce constat plutôt que du remplissage.
+ */
+function blocEnClair(projet, t, langue) {
+  const r = resumesFichier?.resumes?.[`${projet.numero}-${langue}`];
+  if (!r) return '';
+  const avis = `<p class="nb-clair-avis">${echapper(t.enClairAvis(r.modele))}${r.tronque ? ` ${echapper(t.enClairTronque)}` : ''}</p>`;
+  if (r.sansContenu || !r.puces.length) {
+    return `<div class="nb-clair">
+      <p class="nb-clair-titre">${t.enClair}</p>
+      <p class="nb-clair-vide">${t.enClairSansContenu}</p>
+    </div>`;
+  }
+  return `<div class="nb-clair">
+      <p class="nb-clair-titre">${t.enClair}</p>
+      <ul>${r.puces.map((p) => `<li>${echapper(p)}</li>`).join('')}</ul>
+      ${avis}
+    </div>`;
+}
 /* ─── Le bouton café, importé de DossierQuébec ───────────────────────────── */
 
 // Un lien de don Stripe, rien d'autre : pas de compte, pas de formulaire, pas de script
@@ -1804,6 +1836,9 @@ function pageProjet(projet, t, langue) {
 ${barrePartage(`${t.abrevProjet} ${projet.numero} — ${titre}`, adresse, t)}
 ${boutonCafe(t, langue)}
     </aside>
+  </section>
+  <section class="nb-section">
+${blocEnClair(projet, t, langue)}
   </section>
   <section class="nb-section">
     <div class="nb-section-tete"><h2>${t.cheminTitre}</h2>
