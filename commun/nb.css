@@ -1319,15 +1319,14 @@ html[data-theme='dark'] .nb-famille.votes { color: #5fcf8a; border-color: #5fcf8
   border-top: 3px solid var(--nb-bleu);
   box-shadow: var(--shadow-md);
 }
-.nb-villes-menu p { margin: 0 0 10px; font-size: 12px; color: var(--ink3); }
+/* Une seule entrée : pas de filet au-dessus, rien à séparer. */
 .nb-villes-menu a {
   display: block;
-  padding: 7px 0;
+  padding: 2px 0;
   font-size: 14px;
   font-weight: 600;
   color: var(--acc);
   text-decoration: none;
-  border-top: 1px solid var(--color-divider);
 }
 .nb-villes-menu a:hover { color: var(--nb-rouge); }
 

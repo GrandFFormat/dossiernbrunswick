@@ -99,10 +99,8 @@ const T = {
     ],
     monDossier: 'Mon dossier', monDossierVers: 'mon-dossier',
     villesPastille: 'Villes',
-    villesAucune: 'Aucune ville couverte pour l\u2019instant.',
     villesRepresenter: '+ Repr\u00e9sentez votre ville',
     villesRepresenterVers: 'https://dossierquebec.ca/represente-ta-ville',
-    villesCommanditer: 'Commanditez votre ville',
 
 
     /* Suivre un projet de loi, sans compte. */
@@ -315,10 +313,8 @@ const T = {
     ],
     monDossier: 'My file', monDossierVers: 'my-file',
     villesPastille: 'Cities',
-    villesAucune: 'No city is covered yet.',
     villesRepresenter: '+ Represent your city',
     villesRepresenterVers: 'https://dossierquebec.ca/represente-ta-ville?lang=en',
-    villesCommanditer: 'Sponsor your city',
 
 
     suivre: 'Follow', suivi: 'Following', suivreTitre: (n) => `Follow Bill ${n}`,
@@ -585,8 +581,6 @@ function entete(t, racine, page, autreChemin = '') {
     <details class="nb-villes">
       <summary>${t.villesPastille}<svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
       <div class="nb-villes-menu">
-        <p>${t.villesAucune}</p>
-        <a href="${racine}#commandite">${t.villesCommanditer}</a>
         <a href="${t.villesRepresenterVers}" rel="noopener">${t.villesRepresenter}</a>
       </div>
     </details>
