@@ -180,7 +180,24 @@ const T = {
     cherchePlaceholder: 'Nom, circonscription, parti…',
     chercheRien: 'Personne ne correspond à « {q} ».',
     chercheEffacer: 'Effacer',
-    fichePersonneRetour: '← Le Conseil exécutif et toute l\'Assemblée',
+    ariane: 'Fil d\u2019Ariane', arianeAccueil: 'Accueil',
+    ficheResume: (nom, roles, circ, parti) => {
+      // Une phrase, faite de ce qu'on sait : ses fonctions, sa circonscription, son parti.
+      const quoi = roles.length ? roles.join(', ') : 'd\u00e9put\u00e9\u00b7e';
+      // \u00ab du Parti lib\u00e9ral \u00bb : les trois partis du N.-B. s'\u00e9crivent \u00ab Parti\u2026 \u00bb en fran\u00e7ais,
+      // donc l'article ne pose pas de probl\u00e8me d'accord.
+      return `${nom} est ${quoi}${circ ? `, et repr\u00e9sente la circonscription de ${circ}` : ''}`
+        + `${parti ? ` ${/^Parti\b/.test(parti) ? `pour le ${parti}` : `pour ${parti}`}` : ''}.`;
+    },
+    ficheEtiquetteMinistre: 'Ministre du Nouveau-Brunswick',
+    ficheEtiquetteChef: 'Chef de parti',
+    ficheEtiquetteDepute: 'D\u00e9put\u00e9\u00b7e \u00e0 l\u2019Assembl\u00e9e',
+    photoCredit: 'Photo : Assembl\u00e9e l\u00e9gislative du Nouveau-Brunswick',
+    ficheAucuneFonction: 'Aucune fonction publi\u00e9e par l\u2019Assembl\u00e9e pour cette personne.',
+    ficheCoordonnees: 'Coordonn\u00e9es officielles',
+    ficheCoordonneesTexte: 'Les adresses courriel des d\u00e9put\u00e9\u00b7e\u00b7s ne sont pas reprises ici : l\u2019Assembl\u00e9e les prot\u00e8ge derri\u00e8re un m\u00e9canisme anti-robots, et on ne le contourne pas. Sa fiche officielle porte l\u2019adresse.',
+    fichePresenceAucune: 'Cette personne n\u2019appara\u00eet dans aucun vote nominatif de la session.',
+    fichePresenceAvis: 'Un taux bas ne veut pas dire absent par choix : la distance, la maladie ou une fonction officielle expliquent beaucoup d\u2019absences, et le Journal n\u2019en dit jamais la raison. Les votes nominatifs sont rares au Nouveau-Brunswick, et ce taux n\u2019est pas une mesure officielle.',
     ficheRoles: 'Fonctions', ficheParti: 'Parti', ficheProjets: 'Projets de loi déposés cette session',
     projetVotes: 'Votes nominatifs sur ce projet de loi', voteJournal: 'Le Journal de cette séance (PDF) →', ficheAucunProjet: 'Aucun projet de loi déposé cette session.',
     ficheAucunVote: 'Cette personne n\'apparaît dans aucun vote nominatif de la session. Ce n\'est pas une absence : les votes nominatifs sont rares, et la plupart des projets de loi passent de vive voix.',
@@ -364,7 +381,20 @@ const T = {
     cherchePlaceholder: 'Name, riding, party…',
     chercheRien: 'Nobody matches “{q}”.',
     chercheEffacer: 'Clear',
-    fichePersonneRetour: '← The Executive Council and the whole Assembly',
+    ariane: 'Breadcrumb', arianeAccueil: 'Home',
+    ficheResume: (nom, roles, circ, parti) => {
+      const quoi = roles.length ? roles.join(', ') : 'a member';
+      return `${nom} is ${quoi}${circ ? `, and represents the riding of ${circ}` : ''}${parti ? ` for the ${parti}` : ''}.`;
+    },
+    ficheEtiquetteMinistre: 'Minister of New Brunswick',
+    ficheEtiquetteChef: 'Party leader',
+    ficheEtiquetteDepute: 'Member of the Assembly',
+    photoCredit: 'Photo: Legislative Assembly of New Brunswick',
+    ficheAucuneFonction: 'The Assembly publishes no office for this person.',
+    ficheCoordonnees: 'Official contact',
+    ficheCoordonneesTexte: 'Members\u2019 email addresses are not repeated here: the Assembly protects them behind an anti-robot mechanism, and we do not work around it. Their official page carries the address.',
+    fichePresenceAucune: 'This person appears in no recorded division of the session.',
+    fichePresenceAvis: 'A low rate does not mean absent by choice: distance, illness or an official duty account for many absences, and the Journal never says why. Recorded divisions are rare in New Brunswick, and this rate is not an official measure.',
     ficheRoles: 'Offices', ficheParti: 'Party', ficheProjets: 'Bills introduced this session',
     projetVotes: 'Recorded divisions on this bill', voteJournal: 'The Journal of that sitting (PDF) →', ficheAucunProjet: 'No bill introduced this session.',
     ficheAucunVote: 'This person appears in no recorded division of the session. That is not an absence: recorded divisions are rare, and most bills pass on a voice vote.',
@@ -1594,6 +1624,23 @@ const slugPersonne = (nom) => String(nom ?? '')
   .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 /**
+ * Le portrait d'une personne, tel qu'on le sert. L'Assemblée publie ces photos pour un
+ * usage public non commercial : on les reprend créditées, avec un lien vers la fiche
+ * officielle. Pas de fichier téléchargé, pas d'image — jamais un cadre vide.
+ */
+function portraitLocal(personne) {
+  const slug = slugPersonne(personne.nomAffiche);
+  if (!existsSync(`photos/${slug}.webp`)) return null;
+  return {
+    src: `/photos/${slug}.webp`,
+    // L'écran à haute densité prend le double ; les autres n'ont rien de plus à charger.
+    srcset: existsSync(`photos/${slug}@2x.webp`)
+      ? `/photos/${slug}.webp 1x, /photos/${slug}@2x.webp 2x`
+      : null,
+  };
+}
+
+/**
  * La page d'une personne : ses fonctions, les projets de loi qu'elle a déposés, et la
  * façon dont elle a voté à chaque vote nominatif de la session.
  *
@@ -1608,46 +1655,82 @@ function pagePersonne(personne, t, langue) {
   const autreDossier = langue === 'en' ? 'ministres' : 'ministers';
 
   const roles = personne.roles?.[langue] || personne.roles?.en || personne.roles || [];
+  const rolesOfficiels = personne.roles?.en || personne.roles || [];
   const parti = personne.parti?.[langue] || personne.parti || null;
   const circonscription = personne.circonscription?.[langue] || personne.circonscription || null;
   const fiche = personne.fiche?.[langue] || personne.fiche?.en || personne.fiche || null;
   const presence = PRESENCE_AUX_VOTES.de(personne);
+  const estDuConseil = (conseilFichier?.membres || [])
+    .some((m) => normaliserNom(m.nomAffiche) === normaliserNom(personne.nomAffiche));
 
   const projets = projetsFichier.projets
     .filter((p) => normaliserNom(p.parrain?.nom) === normaliserNom(personne.nomAffiche))
     .sort((a, b) => b.numero - a.numero);
 
   const premierRole = roles[0] || t.ficheSansFonction;
+  const etiquette = estDuConseil ? t.ficheEtiquetteMinistre
+    : estChefDeParti(rolesOfficiels) ? t.ficheEtiquetteChef
+      : t.ficheEtiquetteDepute;
+
+  // La photo vient de l'Assemblée, qui la publie pour un usage public non commercial.
+  // Elle est créditée et renvoie à la fiche officielle. Pas de photo, pas de cadre vide.
+  const photo = portraitLocal(personne);
 
   return coquille({
     langue,
     vers: `${dossier}/${slug}`,
     versAutre: `${autreDossier}/${slug}`,
-    titre: `${personne.nomAffiche} — ${premierRole} — DossierNBrunswick`,
+    titre: `${personne.nomAffiche}, ${premierRole} — DossierNBrunswick`,
     description: t.ficheDescription(personne.nomAffiche, premierRole, circonscription),
-    corps: `  <section class="nb-section">
-    <p class="nb-fil-ariane"><a href="${racine}${dossier}">${t.fichePersonneRetour}</a></p>
-    <p class="nb-surtitre nb-surtitre-rouge">${echapper(parti || '')}</p>
-    <div class="nb-section-tete"${personne.couleurParti ? ` style="border-bottom-color:${echapper(personne.couleurParti)}"` : ''}>
+    corps: `  <nav class="nb-ariane" aria-label="${t.ariane}">
+    <a href="${racine}">${t.arianeAccueil}</a> <span aria-hidden="true">›</span>
+    <a href="${racine}${dossier}">${t.assembleeTitre}</a> <span aria-hidden="true">›</span>
+    <span aria-current="page">${echapper(personne.nomAffiche)}</span>
+  </nav>
+  <section class="nb-section nb-fiche-personne">
+    <div class="nb-portrait">
+      ${photo ? `<img src="${echapper(photo.src)}"${photo.srcset ? ` srcset="${echapper(photo.srcset)}"` : ''} width="200" alt="${echapper(personne.nomAffiche)}" loading="lazy">` : ''}
+      <p class="nb-credit">${t.photoCredit}${fiche ? ` · <a href="${echapper(fiche)}" rel="noopener">legnb.ca</a>` : ''}</p>
+    </div>
+    <div class="nb-fiche-tete">
+      <p class="nb-etiquette"${personne.couleurParti ? ` style="--parti:${echapper(personne.couleurParti)}"` : ''}>${etiquette}</p>
       <h1>${echapper(personne.nomAffiche)}${personne.titre ? `<span class="nb-titre">${echapper(personne.titre)}</span>` : ''}</h1>
-      <button class="nb-suivre" type="button" data-nb-suivre="${echapper(identifiantMinistre(personne))}" data-nb-suivre-genre="${roles.length ? 'ministre' : 'depute'}"
+      <p class="nb-resume">${t.ficheResume(personne.nomAffiche, roles, circonscription, parti)}</p>
+      <button class="nb-suivre" type="button" data-nb-suivre="${echapper(identifiantMinistre(personne))}" data-nb-suivre-genre="${estDuConseil ? 'ministre' : 'depute'}"
         data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
         aria-pressed="false" title="${echapper(t.suivreMinistre(personne.nomAffiche))}">${t.suivre}</button>
     </div>
+  </section>
+  <section class="nb-section">
+    <div class="nb-section-tete"><h2>${t.ficheRoles}</h2></div>
+    ${roles.length ? `<ul class="nb-liste-simple">${roles.map((r) => `<li>${echapper(r)}</li>`).join('')}</ul>`
+      : `<p class="nb-section-note">${t.ficheAucuneFonction}</p>`}
     <dl class="nb-carte-donnees nb-donnees-large">
-      ${roles.length ? `<div><dt>${t.ficheRoles}</dt><dd>${roles.map((r) => echapper(r)).join(' · ')}</dd></div>` : ''}
+      <div><dt>${t.ficheParti}</dt><dd>${echapper(parti || '—')}</dd></div>
       <div><dt>${t.ministreCirconscription}</dt><dd>${echapper(circonscription || '—')}</dd></div>
-      <div><dt>${t.ministrePresence}</dt><dd>${presence
-        ? `<span class="nb-taux ${presence.couleur}">${presence.taux} %</span> <span class="nb-ligne-pl">${t.presenceTitre(presence.votes, presence.total)}</span>`
-        : `<span class="nb-taux nd">${t.presenceND}</span>`}</dd></div>
     </dl>
-    ${fiche ? `<p class="nb-carte-pied"><a href="${echapper(fiche)}" rel="noopener">${t.voirOfficiel}</a></p>` : ''}
   </section>
   <section class="nb-section">
     <div class="nb-section-tete"><h2>${t.ficheProjets}</h2><span class="nb-compte">${projets.length}</span></div>
     ${projets.length
-      ? `<div class="nb-projets">\n${projets.map((p) => rangeeProjet(p, t, langue)).join('\n')}\n    </div>`
+      ? `<div class="nb-projets">
+${projets.map((p) => rangeeProjet(p, t, langue)).join('\n')}
+    </div>`
       : `<p class="nb-section-note">${t.ficheAucunProjet}</p>`}
+  </section>
+  <section class="nb-section">
+    <div class="nb-section-tete"><h2>${t.ministrePresence}</h2></div>
+    <p class="nb-presence-ligne">${presence
+      ? `<span class="nb-taux ${presence.couleur}">${presence.taux} %</span> <span>${t.presenceTitre(presence.votes, presence.total)}</span>`
+      : estPresidence(rolesOfficiels)
+        ? `<span class="nb-taux preside">${t.presidenceNeVotePas}</span> <span>${t.presidenceInfo}</span>`
+        : `<span class="nb-taux nd">${t.presenceND}</span> <span>${t.fichePresenceAucune}</span>`}</p>
+    <p class="nb-section-note">${t.fichePresenceAvis}</p>
+  </section>
+  <section class="nb-section">
+    <div class="nb-section-tete"><h2>${t.ficheCoordonnees}</h2></div>
+    <p class="nb-texte">${t.ficheCoordonneesTexte}</p>
+    ${fiche ? `<p class="nb-carte-pied"><a href="${echapper(fiche)}" rel="noopener">${t.voirOfficiel}</a></p>` : ''}
   </section>`,
   });
 }

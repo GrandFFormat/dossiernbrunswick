@@ -15,10 +15,12 @@
     "scrape:conseil": "node scrapers/nb-conseil-executif.js",
     "scrape:calendrier": "node scrapers/nb-calendrier.js",
     "scrape:votes": "node scrapers/nb-votes.js",
-    "fiches": "node scrapers/nb-fiches.js"
+    "fiches": "node scrapers/nb-fiches.js",
+    "portraits": "node scrapers/nb-portraits.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0",
-    "pdf-parse": "^1.1.1"
+    "pdf-parse": "^1.1.1",
+    "sharp": "^0.35.5"
   }
 }

@@ -40,6 +40,9 @@ jobs:
       - name: Lire les fiches, dans les deux langues
         run: node scrapers/nb-fiches.js
 
+      - name: Télécharger et réduire les portraits
+        run: node scrapers/nb-portraits.js
+
       - name: Reconstruire les pages
         run: node scripts/build.js
 
@@ -52,7 +55,7 @@ jobs:
             echo 'Rien n’a changé depuis la semaine dernière.'
             exit 0
           fi
-          git commit -m 'Fiches des député·e·s : fonctions et pages personnelles'
+          git commit -m 'Fiches des député·e·s : fonctions, portraits et pages personnelles'
           # Une autre tâche a pu pousser entre-temps : on rejoue par-dessus.
           for essai in 1 2 3; do
             git pull --rebase origin master && git push origin master && exit 0
