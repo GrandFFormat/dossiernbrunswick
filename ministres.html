@@ -54,11 +54,51 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     <span class="nb-bande-note">Conseils municipaux : aucune ville couverte pour l'instant</span>
   </div>
   <section class="nb-section">
-    <p class="nb-surtitre nb-surtitre-rouge">19 ministres</p>
-    <div class="nb-section-tete"><h1>Le Conseil exécutif</h1></div>
+    <p class="nb-surtitre nb-surtitre-rouge">49 sièges · 19 ministres</p>
+    <div class="nb-section-tete"><h1>Le Conseil exécutif et toute l'Assemblée</h1></div>
     <p class="nb-section-note">La liste tenue par l'Assemblée législative. La page du gouvernement a déjà été en retard sur celle-ci : en cas de divergence, c'est celle-ci qui fait foi ici.</p>
   </section>
   <section class="nb-section">
+    <p class="nb-surtitre nb-surtitre-rouge">Selon la liste des député·e·s tenue par l'Assemblée législative</p>
+    <div class="nb-section-tete"><h2>Composition — 49 sièges</h2></div>
+    <div class="nb-barre-sieges" role="img" aria-label="Liberal Party 31, Progressive Conservative Party 16, Green Party 2">
+      <i style="width:63.26530612244898%;background:#C0161D" title="Liberal Party — 31"></i>
+      <i style="width:32.6530612244898%;background:#005DAC" title="Progressive Conservative Party — 16"></i>
+      <i style="width:4.081632653061225%;background:#3D9B35" title="Green Party — 2"></i>
+    </div>
+    <ul class="nb-legende-partis">
+      <li><i style="background:#C0161D"></i>Liberal Party — <b>31</b></li>
+      <li><i style="background:#005DAC"></i>Progressive Conservative Party — <b>16</b></li>
+      <li><i style="background:#3D9B35"></i>Green Party — <b>2</b></li>
+    </ul>
+  </section>
+  <section class="nb-section">
+    <div class="nb-encadre">
+      <div class="nb-encadre-tete">
+        <h3>Lire la présence aux votes</h3>
+        <a class="nb-voir-tout" href="/lexique">Définition complète → Lexique</a>
+      </div>
+      <p class="nb-encadre-def"><b>100 %</b> : sur les 3 votes par appel nominal tenus depuis le début de la session, la personne a voté à 100 % d'entre eux — pour ou contre, peu importe le sens.</p>
+      <div class="nb-echelle" aria-hidden="true">
+        <span class="nb-echelle-barre"><i style="width:100%"></i></span>
+        <span class="nb-echelle-bornes"><span>0 %</span><span>100 %</span></span>
+      </div>
+      <ul class="nb-legende">
+        <li><span class="nb-taux vert">Vert</span> (39) — 100 % et plus, la médiane de l'Assemblée.</li>
+        <li><span class="nb-taux jaune">Jaune</span> (0) — de 94 % à 99 %, sous la médiane.</li>
+        <li><span class="nb-taux">Sans couleur</span> (0) — moins de 94 %.</li>
+        <li><span class="nb-taux nd">n/d</span> (10) — aucun vote nominatif enregistré pour cette personne. Ce n'est pas une absence : on n'en sait rien.</li>
+      </ul>
+      <p class="nb-encadre-portee">Chez les 39 personnes comptées : de 100 % à 100 %. Le calcul porte sur <b>3 votes nominatifs</b>, tenus sur 1 jour de séance.</p>
+      <ul class="nb-encadre-avis">
+        <li><b>Les votes nominatifs sont rares au Nouveau-Brunswick.</b> La plupart des projets de loi sont adoptés de vive voix, sans que personne soit nommé. Tant que la session en compte peu, ce taux ne mesure presque rien — il se précisera à mesure que les votes s'accumulent.</li>
+        <li><b>La présidence de l'Assemblée ne vote pas.</b> Elle dirige les débats et reste neutre : son nom ne figure dans aucun vote nominatif, et c'est normal.</li>
+        <li><b>Ce n'est pas une mesure officielle.</b> L'Assemblée ne publie aucun taux d'assiduité. Celui-ci est calculé ici, à partir des noms inscrits dans les Journaux, et un vote manqué n'en dit jamais la raison.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="nb-section">
+    <div class="nb-section-tete"><h2>Les ministres</h2><span class="nb-compte">19</span></div>
     <div class="nb-grille-ministres">
       <article class="nb-carte-ministre" data-nb-ministre="holt-susan" style="--parti:#C0161D">
         <div class="nb-carte-tete">
@@ -351,31 +391,6 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     <p class="nb-surtitre nb-surtitre-rouge">49 sièges</p>
     <div class="nb-section-tete"><h2>Les député·e·s</h2></div>
     <p class="nb-section-note">Classés par parti, du plus nombreux au moins nombreux. Les courriels ne sont pas repris ici : l'Assemblée les protège derrière un mécanisme anti-robots, et on ne le contourne pas. Chaque nom mène à sa fiche officielle, qui porte l'adresse.</p>
-  </section>
-  <section class="nb-section">
-    <div class="nb-encadre">
-      <div class="nb-encadre-tete">
-        <h3>Lire la présence aux votes</h3>
-        <a class="nb-voir-tout" href="/lexique">Définition complète → Lexique</a>
-      </div>
-      <p class="nb-encadre-def"><b>100 %</b> : sur les 3 votes par appel nominal tenus depuis le début de la session, la personne a voté à 100 % d'entre eux — pour ou contre, peu importe le sens.</p>
-      <div class="nb-echelle" aria-hidden="true">
-        <span class="nb-echelle-barre"><i style="width:100%"></i></span>
-        <span class="nb-echelle-bornes"><span>0 %</span><span>100 %</span></span>
-      </div>
-      <ul class="nb-legende">
-        <li><span class="nb-taux vert">Vert</span> (39) — 100 % et plus, la médiane de l'Assemblée.</li>
-        <li><span class="nb-taux jaune">Jaune</span> (0) — de 94 % à 99 %, sous la médiane.</li>
-        <li><span class="nb-taux">Sans couleur</span> (0) — moins de 94 %.</li>
-        <li><span class="nb-taux nd">n/d</span> (10) — aucun vote nominatif enregistré pour cette personne. Ce n'est pas une absence : on n'en sait rien.</li>
-      </ul>
-      <p class="nb-encadre-portee">Chez les 39 personnes comptées : de 100 % à 100 %. Le calcul porte sur <b>3 votes nominatifs</b>, tenus sur 1 jour de séance.</p>
-      <ul class="nb-encadre-avis">
-        <li><b>Les votes nominatifs sont rares au Nouveau-Brunswick.</b> La plupart des projets de loi sont adoptés de vive voix, sans que personne soit nommé. Tant que la session en compte peu, ce taux ne mesure presque rien — il se précisera à mesure que les votes s'accumulent.</li>
-        <li><b>La présidence de l'Assemblée ne vote pas.</b> Elle dirige les débats et reste neutre : son nom ne figure dans aucun vote nominatif, et c'est normal.</li>
-        <li><b>Ce n'est pas une mesure officielle.</b> L'Assemblée ne publie aucun taux d'assiduité. Celui-ci est calculé ici, à partir des noms inscrits dans les Journaux, et un vote manqué n'en dit jamais la raison.</li>
-      </ul>
-    </div>
   </section>
   <section class="nb-section">
     <div class="nb-section-tete" style="border-bottom-color:#C0161D">

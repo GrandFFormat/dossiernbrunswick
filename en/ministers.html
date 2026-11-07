@@ -54,11 +54,51 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     <span class="nb-bande-note">City councils: no city is covered yet</span>
   </div>
   <section class="nb-section">
-    <p class="nb-surtitre nb-surtitre-rouge">19 ministers</p>
-    <div class="nb-section-tete"><h1>The Executive Council</h1></div>
+    <p class="nb-surtitre nb-surtitre-rouge">49 seats · 19 ministers</p>
+    <div class="nb-section-tete"><h1>The Executive Council and the whole Assembly</h1></div>
     <p class="nb-section-note">The list kept by the Legislative Assembly. The government's own page has lagged behind it before: where the two differ, this site follows the Assembly.</p>
   </section>
   <section class="nb-section">
+    <p class="nb-surtitre nb-surtitre-rouge">From the list of members kept by the Legislative Assembly</p>
+    <div class="nb-section-tete"><h2>Composition — 49 seats</h2></div>
+    <div class="nb-barre-sieges" role="img" aria-label="Liberal Party 31, Progressive Conservative Party 16, Green Party 2">
+      <i style="width:63.26530612244898%;background:#C0161D" title="Liberal Party — 31"></i>
+      <i style="width:32.6530612244898%;background:#005DAC" title="Progressive Conservative Party — 16"></i>
+      <i style="width:4.081632653061225%;background:#3D9B35" title="Green Party — 2"></i>
+    </div>
+    <ul class="nb-legende-partis">
+      <li><i style="background:#C0161D"></i>Liberal Party — <b>31</b></li>
+      <li><i style="background:#005DAC"></i>Progressive Conservative Party — <b>16</b></li>
+      <li><i style="background:#3D9B35"></i>Green Party — <b>2</b></li>
+    </ul>
+  </section>
+  <section class="nb-section">
+    <div class="nb-encadre">
+      <div class="nb-encadre-tete">
+        <h3>Reading the vote attendance</h3>
+        <a class="nb-voir-tout" href="/en/glossary">Full definition → Glossary</a>
+      </div>
+      <p class="nb-encadre-def"><b>100 %</b>: of the 3 recorded divisions held since the session opened, this person voted in 100 % of them — yea or nay, whichever way.</p>
+      <div class="nb-echelle" aria-hidden="true">
+        <span class="nb-echelle-barre"><i style="width:100%"></i></span>
+        <span class="nb-echelle-bornes"><span>0 %</span><span>100 %</span></span>
+      </div>
+      <ul class="nb-legende">
+        <li><span class="nb-taux vert">Green</span> (39) — 100 % and above, the Assembly's median.</li>
+        <li><span class="nb-taux jaune">Yellow</span> (0) — from 94 % to 99 %, below the median.</li>
+        <li><span class="nb-taux">No colour</span> (0) — under 94 %.</li>
+        <li><span class="nb-taux nd">n/a</span> (10) — no recorded division on file for this person. That is not an absence: we simply do not know.</li>
+      </ul>
+      <p class="nb-encadre-portee">Among the 39 people counted: from 100 % to 100 %. The figure rests on <b>3 recorded divisions</b>, held over 1 sitting day.</p>
+      <ul class="nb-encadre-avis">
+        <li><b>Recorded divisions are rare in New Brunswick.</b> Most bills pass on a voice vote, with nobody named. While a session holds only a few, this rate measures almost nothing — it sharpens as divisions pile up.</li>
+        <li><b>The Speaker does not vote.</b> The Speaker chairs the House and stays neutral: that name appears in no recorded division, and that is as it should be.</li>
+        <li><b>This is not an official measure.</b> The Assembly publishes no attendance rate. This one is worked out here, from the names printed in the Journals, and a missed vote never says why.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="nb-section">
+    <div class="nb-section-tete"><h2>The ministers</h2><span class="nb-compte">19</span></div>
     <div class="nb-grille-ministres">
       <article class="nb-carte-ministre" data-nb-ministre="holt-susan" style="--parti:#C0161D">
         <div class="nb-carte-tete">
@@ -351,31 +391,6 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     <p class="nb-surtitre nb-surtitre-rouge">49 seats</p>
     <div class="nb-section-tete"><h2>The members</h2></div>
     <p class="nb-section-note">Grouped by party, largest first. Email addresses are not repeated here: the Assembly protects them behind an anti-robot mechanism, and we do not work around it. Each name links to the official page, which carries the address.</p>
-  </section>
-  <section class="nb-section">
-    <div class="nb-encadre">
-      <div class="nb-encadre-tete">
-        <h3>Reading the vote attendance</h3>
-        <a class="nb-voir-tout" href="/en/glossary">Full definition → Glossary</a>
-      </div>
-      <p class="nb-encadre-def"><b>100 %</b>: of the 3 recorded divisions held since the session opened, this person voted in 100 % of them — yea or nay, whichever way.</p>
-      <div class="nb-echelle" aria-hidden="true">
-        <span class="nb-echelle-barre"><i style="width:100%"></i></span>
-        <span class="nb-echelle-bornes"><span>0 %</span><span>100 %</span></span>
-      </div>
-      <ul class="nb-legende">
-        <li><span class="nb-taux vert">Green</span> (39) — 100 % and above, the Assembly's median.</li>
-        <li><span class="nb-taux jaune">Yellow</span> (0) — from 94 % to 99 %, below the median.</li>
-        <li><span class="nb-taux">No colour</span> (0) — under 94 %.</li>
-        <li><span class="nb-taux nd">n/a</span> (10) — no recorded division on file for this person. That is not an absence: we simply do not know.</li>
-      </ul>
-      <p class="nb-encadre-portee">Among the 39 people counted: from 100 % to 100 %. The figure rests on <b>3 recorded divisions</b>, held over 1 sitting day.</p>
-      <ul class="nb-encadre-avis">
-        <li><b>Recorded divisions are rare in New Brunswick.</b> Most bills pass on a voice vote, with nobody named. While a session holds only a few, this rate measures almost nothing — it sharpens as divisions pile up.</li>
-        <li><b>The Speaker does not vote.</b> The Speaker chairs the House and stays neutral: that name appears in no recorded division, and that is as it should be.</li>
-        <li><b>This is not an official measure.</b> The Assembly publishes no attendance rate. This one is worked out here, from the names printed in the Journals, and a missed vote never says why.</li>
-      </ul>
-    </div>
   </section>
   <section class="nb-section">
     <div class="nb-section-tete" style="border-bottom-color:#C0161D">

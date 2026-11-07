@@ -125,8 +125,10 @@ html[data-theme='dark'] a { color: #9db4ff; }
 .nb-entete {
   display: flex;
   align-items: center;
-  gap: 22px;
-  padding: 18px 48px;
+  /* Un onglet de plus (Mon dossier) faisait passer la barre sur deux rangées : on
+     resserre plutôt que de retirer un onglet. */
+  gap: 14px;
+  padding: 18px 36px;
   border-bottom: 1px solid var(--color-divider);
   flex-wrap: wrap;
 }
@@ -965,3 +967,20 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
   .nb-ligne-depute { grid-template-columns: 1fr auto; gap: 10px; }
   .nb-ligne-liens { grid-column: 1; text-align: left; }
 }
+
+/* ─── La composition de l'Assemblée ─────────────────────────────────────── */
+
+.nb-barre-sieges { display: flex; height: 38px; margin-top: 14px; }
+.nb-barre-sieges i { display: block; }
+.nb-barre-sieges i + i { border-left: 2px solid var(--p); }
+.nb-legende-partis {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  font-size: 13px;
+}
+.nb-legende-partis li { display: flex; align-items: center; gap: 8px; }
+.nb-legende-partis i { width: 12px; height: 12px; display: inline-block; }
