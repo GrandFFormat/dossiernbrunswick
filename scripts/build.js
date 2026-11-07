@@ -1280,7 +1280,7 @@ function carteMinistre(brut, t, langue, { genre = 'ministre' } = {}) {
   return `      <article class="nb-carte-ministre" id="${slugPersonne(m.nomAffiche)}" data-nb-${genre}="${echapper(id)}" data-nb-chercher="${echapper(motsDeRecherche(m))}"${m.couleurParti ? ` style="--parti:${echapper(m.couleurParti)}"` : ''}>
         <div class="nb-carte-tete">
           ${parti ? `<span class="nb-pastille-parti">${echapper(parti)}</span>` : '<span></span>'}
-          <span class="nb-outils">${boutonCopier(m, t, langue)}${lienWikipedia(m, t, langue)}</span>
+          <span class="nb-outils">${boutonCopier(m, t, langue)}${lienWikipedia(m, t, langue)}${boutonFinances(m, t, langue)}</span>
           <button class="nb-suivre" type="button" data-nb-suivre="${echapper(id)}" data-nb-suivre-genre="${genre}"
             data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
             aria-pressed="false" title="${echapper(t.suivreMinistre(m.nomAffiche))}">${t.suivre}</button>
@@ -1326,7 +1326,7 @@ function ligneDepute(brut, t, langue) {
           <span class="nb-ligne-pl">${projets} ${t.abrevProjets(projets)}</span>
         </p>
         <p class="nb-ligne-liens"><a href="${echapper(ficheOfficielle || '#')}" rel="noopener">${t.ministreFiche}</a></p>
-        <span class="nb-outils">${boutonCopier(d, t, langue)}${lienWikipedia(d, t, langue)}</span>
+        <span class="nb-outils">${boutonCopier(d, t, langue)}${lienWikipedia(d, t, langue)}${boutonFinances(d, t, langue)}</span>
         <button class="nb-suivre" type="button" data-nb-suivre="${echapper(id)}" data-nb-suivre-genre="depute"
           data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
           aria-pressed="false" title="${echapper(t.suivreMinistre(d.nomAffiche))}">${t.suivre}</button>
@@ -1857,6 +1857,35 @@ function adressePersonne(personne, langue) {
 /** Le bouton qui copie l’adresse d’une personne, comme le bouton Partager de DQ. */
 function boutonCopier(personne, t, langue) {
   return `<button class="nb-reseau nb-copier" type="button" data-nb-copier="${echapper(adressePersonne(personne, langue))}" data-nb-copie-faite="${echapper(t.partageCopie)}" title="${echapper(t.partageCopier)}" aria-label="${echapper(t.partageCopier)}"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>`;
+}
+
+/**
+ * Le bouton $ d'une personne : ce que l'Assemblée lui a payé pendant l'exercice, ouvert
+ * sur place. Pas de chiffre, pas de bouton — et la note rappelle que ce ne sont pas
+ * des salaires, parce qu’un montant sous un nom se lit vite de travers.
+ */
+function boutonFinances(personne, t, langue) {
+  const f = financesFichier;
+  const ligne = (f?.personnes || []).find((p) => p.siege
+    && normaliserNom(p.siege) === normaliserNom(personne.nomAffiche));
+  if (!ligne) return '';
+
+  const sous = (n) => new Intl.NumberFormat(langue === 'en' ? 'en-CA' : 'fr-CA',
+    { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 }).format(n);
+
+  const rangees = [];
+  if (ligne.total != null) rangees.push([t.financesTotal, sous(ligne.total)]);
+  if (ligne.bureau != null) rangees.push([t.financesBureau, sous(ligne.bureau)]);
+  if (!rangees.length) return '';
+
+  return `<details class="nb-fin">
+      <summary class="nb-reseau" data-nb-reseau="finances" title="${echapper(t.financesTitre)}" aria-label="${echapper(t.financesTitre)}">$</summary>
+      <div class="nb-fin-menu">
+        <p class="nb-fin-tete">${t.financesTitre} · ${echapper(t.financesExercice(f.exercice))}</p>
+        ${rangees.map(([quoi, combien]) => `<p class="nb-fin-ligne"><span>${quoi}</span><b>${combien}</b></p>`).join('')}
+        <p class="nb-fin-note">${t.financesNote}</p>
+      </div>
+    </details>`;
 }
 
 /**
