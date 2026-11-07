@@ -31,6 +31,8 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     <a class="nb-onglet" href="/en/bills"><span class="nb-num">03</span>Bills</a>
     <a class="nb-onglet" href="/en/members"><span class="nb-num">04</span>Members</a>
     <a class="nb-onglet" href="/en/glossary"><span class="nb-num">05</span>Glossary</a>
+    <a class="nb-onglet nb-onglet-etoile" href="/en/my-file">
+      <span class="nb-etoile-petite" aria-hidden="true">★</span>My file<span class="nb-compteur-suivis" data-nb-compteur hidden></span></a>
     <button class="nb-bouton-carre" type="button" data-nb-theme aria-pressed="false" title="Light or dark theme">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
       <span class="nb-invisible">Light or dark theme</span>
@@ -42,6 +44,15 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     </div>
     <a class="nb-onglet" data-nb-autre-langue="fr" href="/" hreflang="fr" rel="alternate">Français</a>
   </header>
+  <div class="nb-bande-villes">
+    <span class="nb-bande-titre">Cities</span>
+    <span>Moncton</span>
+    <span>Saint John</span>
+    <span>Fredericton</span>
+    <span>Dieppe</span>
+    <span>Bathurst</span>
+    <span class="nb-bande-note">City councils: no city is covered yet</span>
+  </div>
   <section class="nb-affiche">
     <div class="nb-affiche-titre">
       <span class="nb-etoile-fond"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon fill="var(--nb-jaune)" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg></span>
@@ -53,7 +64,7 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
       <p class="nb-chapo">The Legislative Assembly of New Brunswick, reorganized <b>by person</b> and translated <b>into plain language</b> — no scores, no verdicts. Independent citizen site, real public data, in French and English.</p>
       <div class="nb-actions">
         <a class="nb-btn nb-btn-rouge" href="#projets">The bills →</a>
-        <a class="nb-btn nb-btn-ligne" href="#deputes">The members</a>
+        <a class="nb-btn nb-btn-ligne" href="/en/members">The members</a>
       </div>
     </div>
     <div class="nb-chiffres">
@@ -66,95 +77,92 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
   <section class="nb-section" id="projets">
     <div class="nb-section-tete">
       <h2>Bills of this session</h2>
-      <a class="nb-voir-tout" href="https://www.legnb.ca/en/legislation/bills/61/3" rel="noopener">All bills →</a>
+      <a class="nb-voir-tout" href="/en/bills">All bills → (14)</a>
     </div>
     <p class="nb-section-note">Every bill links to its official text, in French and in English. Stages and dates are those published by the Assembly.</p>
     <div class="nb-projets">
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/14/an-act-respecting-property-tax-reform-measure" rel="noopener">
-          <span class="nb-projet-num">No. 14</span>
-          <span class="nb-projet-titre">An Act Respecting Property Tax Reform Measures</span>
-          <span class="nb-etape">Second Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/13/an-act-to-amend-the-universite-de-moncton-act" rel="noopener">
-          <span class="nb-projet-num">No. 13</span>
-          <span class="nb-projet-titre">An Act to Amend the Université de Moncton Act</span>
-          <span class="nb-etape">Third Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/12/an-act-respecting-young-persons-digital-marke" rel="noopener">
-          <span class="nb-projet-num">No. 12</span>
-          <span class="nb-projet-titre">An Act Respecting Young Persons, Digital Markets and Technology Use</span>
-          <span class="nb-etape">Second Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/11/addiction-treatment-services-licensing-act" rel="noopener">
-          <span class="nb-projet-num">No. 11</span>
-          <span class="nb-projet-titre">Addiction Treatment Services Licensing Act</span>
-          <span class="nb-etape">Second Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/10/an-act-to-amend-the-education-act" rel="noopener">
-          <span class="nb-projet-num">No. 10</span>
-          <span class="nb-projet-titre">An Act to Amend the Education Act</span>
-          <span class="nb-etape">Second Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/9/an-act-to-amend-the-electricity-act" rel="noopener">
-          <span class="nb-projet-num">No. 9</span>
-          <span class="nb-projet-titre">An Act to Amend the Electricity Act</span>
-          <span class="nb-etape">Second Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/8/an-act-to-amend-the-gaming-control-act" rel="noopener">
-          <span class="nb-projet-num">No. 8</span>
-          <span class="nb-projet-titre">An Act to Amend the Gaming Control Act</span>
-          <span class="nb-etape">Second Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/7/an-act-to-amend-the-salvage-dealers-licensing" rel="noopener">
-          <span class="nb-projet-num">No. 7</span>
-          <span class="nb-projet-titre">An Act to Amend the Salvage Dealers Licensing Act</span>
-          <span class="nb-etape">Second Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/6/an-act-to-amend-the-employment-standards-act" rel="noopener">
-          <span class="nb-projet-num">No. 6</span>
-          <span class="nb-projet-titre">An Act to Amend the Employment Standards Act</span>
-          <span class="nb-etape">Committee (Passed)</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/5/non-disclosure-agreements-act" rel="noopener">
-          <span class="nb-projet-num">No. 5</span>
-          <span class="nb-projet-titre">Non-disclosure Agreements Act</span>
-          <span class="nb-etape">Third Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/4/an-act-to-amend-the-provincial-court-act" rel="noopener">
-          <span class="nb-projet-num">No. 4</span>
-          <span class="nb-projet-titre">An Act to Amend the Provincial Court Act</span>
-          <span class="nb-etape">Third Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/3/an-act-respecting-the-child-youth-senior-and" rel="noopener">
-          <span class="nb-projet-num">No. 3</span>
-          <span class="nb-projet-titre">An Act Respecting the Child, Youth, Senior and Mental Health Advocate</span>
-          <span class="nb-etape">Third Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/2/an-act-to-amend-the-opioid-damages-and-health" rel="noopener">
-          <span class="nb-projet-num">No. 2</span>
-          <span class="nb-projet-titre">An Act to Amend the Opioid Damages and Health Care Costs Recovery Act</span>
-          <span class="nb-etape">Third Reading Passed</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/1/an-act-to-perpetuate-a-certain-ancient-right" rel="noopener">
-          <span class="nb-projet-num">No. 1</span>
-          <span class="nb-projet-titre">An Act to Perpetuate a Certain Ancient Right</span>
-          <span class="nb-etape">First Reading</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
+        <div class="nb-rangee" data-nb-projet="14">
+          <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/14/an-act-respecting-property-tax-reform-measure" rel="noopener">
+            <span class="nb-projet-num">No. 14</span>
+            <span class="nb-projet-titre">An Act Respecting Property Tax Reform Measures</span>
+            <span class="nb-etape">Second Reading Passed</span>
+            <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
+          </a>
+          <button class="nb-suivre" type="button" data-nb-suivre="14"
+            data-nb-suivre-mots="Follow|Following"
+            aria-pressed="false" title="Follow Bill 14">Follow</button>
+        </div>
+        <div class="nb-rangee" data-nb-projet="13">
+          <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/13/an-act-to-amend-the-universite-de-moncton-act" rel="noopener">
+            <span class="nb-projet-num">No. 13</span>
+            <span class="nb-projet-titre">An Act to Amend the Université de Moncton Act</span>
+            <span class="nb-etape">Third Reading Passed</span>
+            <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
+          </a>
+          <button class="nb-suivre" type="button" data-nb-suivre="13"
+            data-nb-suivre-mots="Follow|Following"
+            aria-pressed="false" title="Follow Bill 13">Follow</button>
+        </div>
+        <div class="nb-rangee" data-nb-projet="12">
+          <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/12/an-act-respecting-young-persons-digital-marke" rel="noopener">
+            <span class="nb-projet-num">No. 12</span>
+            <span class="nb-projet-titre">An Act Respecting Young Persons, Digital Markets and Technology Use</span>
+            <span class="nb-etape">Second Reading Passed</span>
+            <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
+          </a>
+          <button class="nb-suivre" type="button" data-nb-suivre="12"
+            data-nb-suivre-mots="Follow|Following"
+            aria-pressed="false" title="Follow Bill 12">Follow</button>
+        </div>
+        <div class="nb-rangee" data-nb-projet="11">
+          <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/11/addiction-treatment-services-licensing-act" rel="noopener">
+            <span class="nb-projet-num">No. 11</span>
+            <span class="nb-projet-titre">Addiction Treatment Services Licensing Act</span>
+            <span class="nb-etape">Second Reading Passed</span>
+            <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
+          </a>
+          <button class="nb-suivre" type="button" data-nb-suivre="11"
+            data-nb-suivre-mots="Follow|Following"
+            aria-pressed="false" title="Follow Bill 11">Follow</button>
+        </div>
     </div>
+  </section>
+  <section class="nb-section nb-agir">
+    <p class="nb-surtitre nb-surtitre-rouge">Acting on a bill</p>
+    <div class="nb-section-tete rouge"><h2>There is no online petition in New Brunswick</h2></div>
+    <p class="nb-agir-intro">The Assembly only accepts petitions <b>on paper</b>, signed by hand and presented by a member. No button, here or anywhere else, carries official weight. These three routes do.</p>
+    <div class="nb-chemins">
+      <article class="nb-chemin">
+        <h3>Write to your member</h3>
+        <p>The one route that always works. Every member has an address at the Assembly.</p>
+        <a href="https://www.legnb.ca/en/members/current" rel="noopener">The official list →</a>
+      </article>
+      <article class="nb-chemin">
+        <h3>Have a paper petition presented</h3>
+        <p>Signed by hand, then handed to your member, who presents it in the House. A minister must reply in writing within two weeks — but that reply is not published.</p>
+        <a href="/en/glossary">What the glossary says →</a>
+      </article>
+      <article class="nb-chemin">
+        <h3>Be heard in committee</h3>
+        <p>Some committees hold public hearings. Their notices and dates go through this page.</p>
+        <a href="https://www.legnb.ca/en/committees" rel="noopener">The committees →</a>
+      </article>
+    </div>
+    <p class="nb-section-note">A citizen counter is not open yet. It needs a database, and it will not appear before it has real numbers to show.</p>
+  </section>
+  <section class="nb-section nb-duo">
+    <article class="nb-appel nb-appel-bleu">
+      <p class="nb-surtitre">No account</p>
+      <h2>Follow the bills that affect you</h2>
+      <p>Nothing to create, no email, no password: the <b>Follow</b> button on a bill keeps your choice in this browser only. Nothing is sent to the site, and this site has no account to offer.</p>
+      <a class="nb-btn nb-btn-jaune" href="/en/my-file">Open my file</a>
+    </article>
+    <article class="nb-appel nb-appel-papier">
+      <p class="nb-surtitre nb-surtitre-rouge">Sponsorship</p>
+      <h2>Sponsor your city</h2>
+      <p>Following a city council — agendas, votes and resolutions in plain language — takes reading work for each city. A local sponsorship would pay for one city for a year.</p>
+      <p class="nb-appel-avis">No city is covered, and no price is set for New Brunswick. There is nothing to sell today: this is an intention, not an offer.</p>
+    </article>
   </section>
   <section class="nb-neuf">
     <div>

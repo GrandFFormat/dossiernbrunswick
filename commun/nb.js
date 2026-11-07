@@ -111,4 +111,70 @@
     });
   }
   appliquerZoom();
+
+  /* ─── Les projets de loi suivis ───────────────────────────────────────── */
+
+  // Suivre un projet de loi ne demande pas de compte : la liste reste dans ce navigateur.
+  // Le site n'en sait rien, et n'a donc rien à perdre ni à revendre. En échange, la liste
+  // ne suit pas d'un appareil à l'autre — la page « Mon dossier » le dit en clair.
+  const CLE_SUIVIS = 'dnb:suivis';
+
+  function lireSuivis() {
+    try {
+      const brut = JSON.parse(memoire.lire(CLE_SUIVIS) || '[]');
+      return Array.isArray(brut) ? brut.map(Number).filter(Number.isFinite) : [];
+    } catch { return []; }
+  }
+
+  let suivis = lireSuivis();
+
+  function ecrireSuivis() {
+    memoire.ecrire(CLE_SUIVIS, JSON.stringify(suivis));
+  }
+
+  const listeDossier = document.querySelector('[data-nb-dossier]');
+  const avisVide = document.querySelector('[data-nb-dossier-vide]');
+
+  function rafraichir() {
+    // Le compteur de l'en-tête : caché quand il n'y a rien à compter.
+    for (const c of document.querySelectorAll('[data-nb-compteur]')) {
+      c.textContent = String(suivis.length);
+      c.hidden = suivis.length === 0;
+    }
+
+    for (const b of document.querySelectorAll('[data-nb-suivre]')) {
+      const numero = Number(b.getAttribute('data-nb-suivre'));
+      const actif = suivis.includes(numero);
+      const [motSuivre, motSuivi] = (b.getAttribute('data-nb-suivre-mots') || 'Suivre|Suivi').split('|');
+      b.setAttribute('aria-pressed', String(actif));
+      b.textContent = actif ? motSuivi : motSuivre;
+      b.setAttribute('data-nb-pret', '');
+    }
+
+    // Sur « Mon dossier », on ne garde que les rangées suivies.
+    if (listeDossier) {
+      for (const rangee of listeDossier.querySelectorAll('[data-nb-projet]')) {
+        rangee.hidden = !suivis.includes(Number(rangee.getAttribute('data-nb-projet')));
+      }
+      if (avisVide) avisVide.hidden = suivis.length !== 0;
+    }
+  }
+
+  for (const b of document.querySelectorAll('[data-nb-suivre]')) {
+    b.addEventListener('click', () => {
+      const numero = Number(b.getAttribute('data-nb-suivre'));
+      suivis = suivis.includes(numero) ? suivis.filter((n) => n !== numero) : [...suivis, numero];
+      ecrireSuivis();
+      rafraichir();
+    });
+  }
+
+  // Deux onglets ouverts sur le site doivent dire la même chose.
+  window.addEventListener('storage', (e) => {
+    if (e.key !== CLE_SUIVIS) return;
+    suivis = lireSuivis();
+    rafraichir();
+  });
+
+  rafraichir();
 })();

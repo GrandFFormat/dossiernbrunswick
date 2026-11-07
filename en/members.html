@@ -31,6 +31,8 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     <a class="nb-onglet" href="/en/bills"><span class="nb-num">03</span>Bills</a>
     <a class="nb-onglet" href="/en/members" aria-current="page"><span class="nb-num">04</span>Members</a>
     <a class="nb-onglet" href="/en/glossary"><span class="nb-num">05</span>Glossary</a>
+    <a class="nb-onglet nb-onglet-etoile" href="/en/my-file">
+      <span class="nb-etoile-petite" aria-hidden="true">★</span>My file<span class="nb-compteur-suivis" data-nb-compteur hidden></span></a>
     <button class="nb-bouton-carre" type="button" data-nb-theme aria-pressed="false" title="Light or dark theme">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
       <span class="nb-invisible">Light or dark theme</span>
@@ -42,6 +44,15 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     </div>
     <a class="nb-onglet" data-nb-autre-langue="fr" href="/deputes" hreflang="fr" rel="alternate">Français</a>
   </header>
+  <div class="nb-bande-villes">
+    <span class="nb-bande-titre">Cities</span>
+    <span>Moncton</span>
+    <span>Saint John</span>
+    <span>Fredericton</span>
+    <span>Dieppe</span>
+    <span>Bathurst</span>
+    <span class="nb-bande-note">City councils: no city is covered yet</span>
+  </div>
   <section class="nb-section">
     <p class="nb-surtitre nb-surtitre-rouge">49 seats</p>
     <div class="nb-section-tete"><h1>The members</h1></div>
