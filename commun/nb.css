@@ -1048,19 +1048,6 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
 .nb-donnees-large { margin: 14px 0 0; max-width: none; }
 .nb-donnees-large > div { padding: 12px 0; }
 .nb-donnees-large dd { max-width: 70%; }
-
-.nb-positions { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; }
-.nb-positions li {
-  display: grid;
-  grid-template-columns: 110px 130px 1fr;
-  gap: 16px;
-  align-items: center;
-  padding: 12px 18px;
-  background: var(--w);
-  box-shadow: var(--shadow-sm);
-  font-size: 14px;
-}
-.nb-positions time { color: var(--ink3); font-variant-numeric: tabular-nums; font-size: 13px; }
 .nb-sens {
   font: 600 11px var(--font-heading);
   letter-spacing: 0.06em;
@@ -1077,6 +1064,55 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
 .nb-ligne-nom em { font-style: normal; color: var(--acc); font-weight: 600; }
 
 @media (max-width: 700px) {
-  .nb-positions li { grid-template-columns: 1fr; gap: 6px; }
   .nb-sens { justify-self: start; }
+}
+
+/* ─── Les votes nominatifs, dans le projet de loi ───────────────────────── */
+
+.nb-fiche-votes { margin-top: 18px; border-top: 1px solid var(--color-divider); padding-top: 16px; }
+.nb-fiche-votes-titre {
+  margin: 0 0 12px;
+  font: 600 12px var(--font-heading);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+.nb-vote { background: var(--p); padding: 16px 18px; }
+.nb-vote + .nb-vote { margin-top: 10px; }
+.nb-vote-tete {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 0 0 14px;
+  font-size: 14px;
+}
+.nb-vote-tete time { color: var(--ink3); font-variant-numeric: tabular-nums; font-size: 13px; }
+.nb-vote-score { margin-left: auto; font-size: 13px; color: var(--ink3); white-space: nowrap; }
+.nb-vote-score b { font: 600 18px var(--font-heading); }
+.nb-vote-score b.pour { color: #1f7a3f; }
+.nb-vote-score b.contre { color: var(--nb-rouge); }
+
+.nb-camps { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.nb-camp { background: var(--w); padding: 12px 14px; border-top: 3px solid; }
+.nb-camp.pour { border-top-color: #1f7a3f; }
+.nb-camp.contre { border-top-color: var(--nb-rouge); }
+.nb-camp > p {
+  margin: 0 0 8px;
+  font: 600 11px var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.nb-camp.pour > p { color: #1f7a3f; }
+.nb-camp.contre > p { color: var(--nb-rouge); }
+.nb-camp ul { list-style: none; margin: 0; padding: 0; columns: 2; font-size: 13px; line-height: 1.65; }
+.nb-camp li { break-inside: avoid; }
+.nb-camp a { color: var(--ink); text-decoration: none; }
+.nb-camp a:hover { color: var(--nb-rouge); text-decoration: underline; }
+.nb-vote-source { margin: 12px 0 0; font-size: 12px; }
+.nb-vote-source a { color: var(--acc); text-decoration: none; font-weight: 600; }
+
+@media (max-width: 800px) {
+  .nb-camps { grid-template-columns: 1fr; }
+  .nb-camp ul { columns: 1; }
 }
