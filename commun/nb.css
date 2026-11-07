@@ -1356,3 +1356,47 @@ html[data-theme='dark'] .nb-famille.votes { color: #5fcf8a; border-color: #5fcf8
 .nb-carte-tete { gap: 8px; }
 .nb-carte-tete .nb-outils { margin-left: auto; }
 .nb-ligne-depute { grid-template-columns: 2fr auto 1fr auto auto; }
+
+/* ─── Le bouton $ : les finances, ouvertes sur place ────────────────────── */
+
+.nb-fin { position: relative; display: inline-flex; }
+.nb-fin > summary {
+  list-style: none;
+  font: 700 14px var(--font-heading);
+  color: var(--nb-bleu-nuit);
+  background: var(--nb-jaune);
+  border-color: var(--nb-jaune);
+}
+.nb-fin > summary::-webkit-details-marker { display: none; }
+.nb-fin[open] > summary { background: #ffdd45; }
+.nb-fin-menu {
+  position: absolute;
+  z-index: 25;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 270px;
+  padding: 14px 16px;
+  text-align: left;
+  background: var(--w);
+  border: 1px solid var(--color-divider);
+  border-top: 3px solid var(--nb-jaune);
+  box-shadow: var(--shadow-md);
+}
+.nb-fin-tete {
+  margin: 0 0 10px;
+  font: 600 11px var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+.nb-fin-ligne {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  padding: 7px 0;
+  border-top: 1px solid var(--color-divider);
+  font-size: 13px;
+}
+.nb-fin-ligne b { font-variant-numeric: tabular-nums; }
+.nb-fin-note { margin: 10px 0 0; font-size: 11px; line-height: 1.5; color: var(--ink3); }
