@@ -1,5 +1,5 @@
 {
-  "luLe": "2026-11-07T05:39:43.641Z",
+  "luLe": "2026-11-07T10:07:53.891Z",
   "source": "https://www.legnb.ca/en/members/current",
   "sieges": 49,
   "composition": {
@@ -18,7 +18,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/165/ames-richard",
       "roles": [],
       "nomOfficiel": "Ames, Richard",
-      "nomAffiche": "Richard Ames"
+      "nomAffiche": "Richard Ames",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -28,7 +29,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/4/arseneault-guy",
       "roles": [],
       "nomOfficiel": "Arseneault, Guy",
-      "nomAffiche": "Guy Arseneault"
+      "nomAffiche": "Guy Arseneault",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -38,7 +40,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/16/austin-kris",
       "roles": [],
       "nomOfficiel": "Austin, Kris",
-      "nomAffiche": "Kris Austin"
+      "nomAffiche": "Kris Austin",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -48,7 +51,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/162/bockus-kathy",
       "roles": [],
       "nomOfficiel": "Bockus, Kathy",
-      "nomAffiche": "Kathy Bockus"
+      "nomAffiche": "Kathy Bockus",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -58,7 +62,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/208/boudreau-lyne-chantal",
       "roles": [],
       "nomOfficiel": "Boudreau, Lyne Chantal",
-      "nomAffiche": "Lyne Chantal Boudreau"
+      "nomAffiche": "Lyne Chantal Boudreau",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -68,7 +73,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/23/bourque-benoit",
       "roles": [],
       "nomOfficiel": "Bourque, Benoît",
-      "nomAffiche": "Benoît Bourque"
+      "nomAffiche": "Benoît Bourque",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -78,7 +84,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/11/chiasson-chuck",
       "roles": [],
       "nomOfficiel": "Chiasson, Chuck",
-      "nomAffiche": "Chuck Chiasson"
+      "nomAffiche": "Chuck Chiasson",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -88,7 +95,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/49/chiasson-keith",
       "roles": [],
       "nomOfficiel": "Chiasson, Keith",
-      "nomAffiche": "Keith Chiasson"
+      "nomAffiche": "Keith Chiasson",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -98,7 +106,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/29/conroy-michelle",
       "roles": [],
       "nomOfficiel": "Conroy, Michelle",
-      "nomAffiche": "Michelle Conroy"
+      "nomAffiche": "Michelle Conroy",
+      "titre": null
     },
     {
       "parti": "Green Party",
@@ -108,7 +117,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/14/coon-david",
       "roles": [],
       "nomOfficiel": "Coon, David",
-      "nomAffiche": "David Coon"
+      "nomAffiche": "David Coon",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -118,7 +128,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/164/cullins-ryan",
       "roles": [],
       "nomOfficiel": "Cullins, Ryan",
-      "nomAffiche": "Ryan Cullins"
+      "nomAffiche": "Ryan Cullins",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -128,7 +139,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/9/damours-jean-claude",
       "roles": [],
       "nomOfficiel": "D'Amours, Jean-Claude",
-      "nomAffiche": "Jean-Claude D'Amours"
+      "nomAffiche": "Jean-Claude D'Amours",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -138,7 +150,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/202/dornan-john",
       "roles": [],
       "nomOfficiel": "Dornan, John",
-      "nomAffiche": "John Dornan"
+      "nomAffiche": "John Dornan",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -148,7 +161,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/196/doucet-alexandre-cedric",
       "roles": [],
       "nomOfficiel": "Doucet, Alexandre Cédric",
-      "nomAffiche": "Alexandre Cédric Doucet"
+      "nomAffiche": "Alexandre Cédric Doucet",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -158,7 +172,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/192/finnigan-pat",
       "roles": [],
       "nomOfficiel": "Finnigan, Pat",
-      "nomAffiche": "Pat Finnigan"
+      "nomAffiche": "Pat Finnigan",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -168,7 +183,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/46/gauvin-robert",
       "roles": [],
       "nomOfficiel": "Gauvin, Robert",
-      "nomAffiche": "Robert Gauvin"
+      "nomAffiche": "Robert Gauvin",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -178,7 +194,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/199/herron-john",
       "roles": [],
       "nomOfficiel": "Herron, John",
-      "nomAffiche": "John Herron"
+      "nomAffiche": "John Herron",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -188,7 +205,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/203/hickey-david",
       "roles": [],
       "nomOfficiel": "Hickey, David",
-      "nomAffiche": "David Hickey"
+      "nomAffiche": "David Hickey",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -198,7 +216,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/166/hogan-bill",
       "roles": [],
       "nomOfficiel": "Hogan, Bill",
-      "nomAffiche": "Bill Hogan"
+      "nomAffiche": "Bill Hogan",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -208,7 +227,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/182/holt-susan",
       "roles": [],
       "nomOfficiel": "Holt, Susan",
-      "nomAffiche": "Susan Holt"
+      "nomAffiche": "Susan Holt",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -218,7 +238,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/194/johnson-claire",
       "roles": [],
       "nomOfficiel": "Johnson, Claire",
-      "nomAffiche": "Claire Johnson"
+      "nomAffiche": "Claire Johnson",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -228,7 +249,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/167/johnson-margaret",
       "roles": [],
       "nomOfficiel": "Johnson, Margaret",
-      "nomAffiche": "Margaret Johnson"
+      "nomAffiche": "Margaret Johnson",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -238,7 +260,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/191/johnston-sam",
       "roles": [],
       "nomOfficiel": "Johnston, Sam",
-      "nomAffiche": "Sam Johnston"
+      "nomAffiche": "Sam Johnston",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -248,7 +271,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/200/kennedy-aaron",
       "roles": [],
       "nomOfficiel": "Kennedy, Aaron",
-      "nomAffiche": "Aaron Kennedy"
+      "nomAffiche": "Aaron Kennedy",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -258,7 +282,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/26/landry-francine",
       "roles": [],
       "nomOfficiel": "Landry, Francine",
-      "nomAffiche": "Francine Landry"
+      "nomAffiche": "Francine Landry",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -268,7 +293,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/45/leblanc-jacques",
       "roles": [],
       "nomOfficiel": "LeBlanc, Jacques",
-      "nomAffiche": "Jacques LeBlanc"
+      "nomAffiche": "Jacques LeBlanc",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -278,7 +304,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/180/leblanc-marco",
       "roles": [],
       "nomOfficiel": "LeBlanc, Marco",
-      "nomAffiche": "Marco LeBlanc"
+      "nomAffiche": "Marco LeBlanc",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -288,7 +315,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/205/lee-ian",
       "roles": [],
       "nomOfficiel": "Lee, Ian",
-      "nomAffiche": "Ian Lee"
+      "nomAffiche": "Ian Lee",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -298,7 +326,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/157/legacy-rene",
       "roles": [],
       "nomOfficiel": "Legacy, René",
-      "nomAffiche": "René Legacy"
+      "nomAffiche": "René Legacy",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -308,7 +337,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/37/lepage-gilles",
       "roles": [],
       "nomOfficiel": "LePage, Gilles",
-      "nomAffiche": "Gilles LePage"
+      "nomAffiche": "Gilles LePage",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -318,7 +348,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/158/mallet-eric",
       "roles": [],
       "nomOfficiel": "Mallet, Eric",
-      "nomAffiche": "Eric Mallet"
+      "nomAffiche": "Eric Mallet",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -328,7 +359,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/30/mckee-robert",
       "roles": [],
       "nomOfficiel": "McKee, K.C., Robert",
-      "nomAffiche": "K.C., Robert McKee"
+      "nomAffiche": "Robert McKee",
+      "titre": "K.C."
     },
     {
       "parti": "Liberal Party",
@@ -338,7 +370,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/207/miles-cindy",
       "roles": [],
       "nomOfficiel": "Miles, Cindy",
-      "nomAffiche": "Cindy Miles"
+      "nomAffiche": "Cindy Miles",
+      "titre": null
     },
     {
       "parti": "Green Party",
@@ -348,7 +381,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/27/mitton-megan",
       "roles": [],
       "nomOfficiel": "Mitton, Megan",
-      "nomAffiche": "Megan Mitton"
+      "nomAffiche": "Megan Mitton",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -358,7 +392,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/198/monahan-don",
       "roles": [],
       "nomOfficiel": "Monahan, Don",
-      "nomAffiche": "Don Monahan"
+      "nomAffiche": "Don Monahan",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -368,7 +403,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/24/oliver-bill",
       "roles": [],
       "nomOfficiel": "Oliver, Bill",
-      "nomAffiche": "Bill Oliver"
+      "nomAffiche": "Bill Oliver",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -378,7 +414,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/206/randall-luke",
       "roles": [],
       "nomOfficiel": "Randall, Luke",
-      "nomAffiche": "Luke Randall"
+      "nomAffiche": "Luke Randall",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -388,7 +425,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/190/robichaud-luc",
       "roles": [],
       "nomOfficiel": "Robichaud, Luc",
-      "nomAffiche": "Luc Robichaud"
+      "nomAffiche": "Luc Robichaud",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -398,7 +436,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/209/russell-kevin",
       "roles": [],
       "nomOfficiel": "Russell, Kevin",
-      "nomAffiche": "Kevin Russell"
+      "nomAffiche": "Kevin Russell",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -408,7 +447,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/21/savoie-glen",
       "roles": [],
       "nomOfficiel": "Savoie, Glen",
-      "nomAffiche": "Glen Savoie"
+      "nomAffiche": "Glen Savoie",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -418,7 +458,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/161/scott-wallace-tammy",
       "roles": [],
       "nomOfficiel": "Scott-Wallace, Tammy",
-      "nomAffiche": "Tammy Scott-Wallace"
+      "nomAffiche": "Tammy Scott-Wallace",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -428,7 +469,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/195/sodhi-tania",
       "roles": [],
       "nomOfficiel": "Sodhi, Tania",
-      "nomAffiche": "Tania Sodhi"
+      "nomAffiche": "Tania Sodhi",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -438,7 +480,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/5/theriault-isabelle",
       "roles": [],
       "nomOfficiel": "Thériault, Isabelle",
-      "nomAffiche": "Isabelle Thériault"
+      "nomAffiche": "Isabelle Thériault",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -448,7 +491,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/201/townsend-alyson",
       "roles": [],
       "nomOfficiel": "Townsend, Alyson",
-      "nomAffiche": "Alyson Townsend"
+      "nomAffiche": "Alyson Townsend",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -458,7 +502,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/193/vautour-natacha",
       "roles": [],
       "nomOfficiel": "Vautour, Natacha",
-      "nomAffiche": "Natacha Vautour"
+      "nomAffiche": "Natacha Vautour",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -468,7 +513,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/197/weir-rob",
       "roles": [],
       "nomOfficiel": "Weir, Rob",
-      "nomAffiche": "Rob Weir"
+      "nomAffiche": "Rob Weir",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -478,7 +524,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/204/wilcott-kate",
       "roles": [],
       "nomOfficiel": "Wilcott, Kate",
-      "nomAffiche": "Kate Wilcott"
+      "nomAffiche": "Kate Wilcott",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -488,7 +535,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/35/wilson-mary",
       "roles": [],
       "nomOfficiel": "Wilson, Mary",
-      "nomAffiche": "Mary Wilson"
+      "nomAffiche": "Mary Wilson",
+      "titre": null
     },
     {
       "parti": "Progressive Conservative Party",
@@ -498,7 +546,8 @@
       "fiche": "https://www.legnb.ca/en/members/current/33/wilson-sherry",
       "roles": [],
       "nomOfficiel": "Wilson, Sherry",
-      "nomAffiche": "Sherry Wilson"
+      "nomAffiche": "Sherry Wilson",
+      "titre": null
     }
   ]
 }

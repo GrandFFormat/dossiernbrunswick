@@ -13,7 +13,7 @@
 //   node scrapers/nb-conseil-executif.js
 
 import { load } from 'cheerio';
-import { lire, texte, lireCarteMembre, ecrireJson, HOTE } from './nb-commun.js';
+import { lire, texte, lireCarteMembre, separerNom, ecrireJson, HOTE } from './nb-commun.js';
 
 const SORTIE = 'data/conseil-executif.json';
 const PAGE = '/en/members/executive-council';
@@ -46,9 +46,10 @@ async function main() {
   if (!premiere) throw new Error('la première ministre ne figure pas dans la liste lue — page ou gabarit inattendu');
 
   for (const m of membres) {
-    const nom = m.nom.match(/^([^,]+),\s*(.+)$/);
+    const { nomAffiche, titre } = separerNom(m.nom);
     m.nomOfficiel = m.nom;
-    m.nomAffiche = nom ? `${nom[2]} ${nom[1]}` : m.nom;
+    m.nomAffiche = nomAffiche;
+    m.titre = titre;
     delete m.nom;
   }
 

@@ -108,6 +108,31 @@ export const normaliserChemin = (href) => String(href ?? '').split("\\").join('/
  * @param {import('cheerio').CheerioAPI} $
  * @param {any} el  l'élément .member-card
  */
+/** Les titres professionnels que l'Assemblée intercale dans un nom. */
+const TITRES = /^(K\.C\.|Q\.C\.|C\.M\.|O\.C\.|M\.D\.|Ph\.D\.|LL\.D\.|Dr\.?)$/i;
+
+/**
+ * Sépare un nom officiel en ses morceaux. L'Assemblée écrit « Famille, Prénom », mais
+ * aussi « McKee, K.C., Robert » : le titre professionnel se glisse ENTRE les deux. Couper
+ * à la première virgule donnait « K.C., Robert McKee » sur la page des député·e·s.
+ *
+ * @returns {{ nomAffiche: string, titre: string|null }}
+ */
+export function separerNom(nomOfficiel) {
+  const morceaux = String(nomOfficiel ?? '').split(',').map((s) => s.trim()).filter(Boolean);
+  if (morceaux.length < 2) return { nomAffiche: String(nomOfficiel ?? '').trim(), titre: null };
+
+  const famille = morceaux[0];
+  const titres = morceaux.slice(1).filter((m) => TITRES.test(m));
+  const reste = morceaux.slice(1).filter((m) => !TITRES.test(m));
+  const prenom = reste.join(' ').trim();
+
+  return {
+    nomAffiche: prenom ? `${prenom} ${famille}` : famille,
+    titre: titres.length ? titres.join(', ') : null,
+  };
+}
+
 export function lireCarteMembre($, el) {
   const $c = $(el);
   const $parti = $c.find('.member-card-description-party').clone();

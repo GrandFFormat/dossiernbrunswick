@@ -19,7 +19,7 @@
 //   node scrapers/nb-deputes.js
 
 import { load } from 'cheerio';
-import { lire, texte, lireCarteMembre, ecrireJson, HOTE } from './nb-commun.js';
+import { lire, texte, lireCarteMembre, separerNom, ecrireJson, HOTE } from './nb-commun.js';
 
 const SORTIE = 'data/deputes.json';
 const LISTE = '/en/members/current';
@@ -65,9 +65,10 @@ async function main() {
   // Les noms de la liste s'écrivent « Famille, Prénom ». On garde la forme officielle et on
   // ajoute la forme courante, celle qu'on affiche.
   for (const d of deputes) {
-    const m = d.nom.match(/^([^,]+),\s*(.+)$/);
+    const { nomAffiche, titre } = separerNom(d.nom);
     d.nomOfficiel = d.nom;
-    d.nomAffiche = m ? `${m[2]} ${m[1]}` : d.nom;
+    d.nomAffiche = nomAffiche;
+    d.titre = titre;
     delete d.nom;
   }
 

@@ -984,3 +984,13 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
 }
 .nb-legende-partis li { display: flex; align-items: center; gap: 8px; }
 .nb-legende-partis i { width: 12px; height: 12px; display: inline-block; }
+
+/* Le titre professionnel que l'Assemblée inscrit dans le nom (« K.C. »). */
+.nb-titre {
+  margin-left: 7px;
+  font: 600 11px var(--font-heading);
+  letter-spacing: 0.06em;
+  color: var(--ink3);
+  text-transform: none;
+}
+.nb-carte-donnees dd .nb-taux { font-size: 11px; }
