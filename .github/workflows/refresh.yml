@@ -12,12 +12,14 @@
 # pdf-parse mais lu par pdftotext — et il contient deux votes nominatifs. Sans ce paquet, le
 # scraper des votes déclarerait le Journal illisible et finirait en erreur.
 
-name: Rafraîchissement quotidien des données
+name: Rafraîchissement des données (lundi)
 
 on:
   schedule:
-    # 09:20 UTC ≈ 05:20 à Fredericton, après la mise en ligne des documents de la veille.
-    - cron: '20 9 * * *'
+    # Le lundi à 09:20 UTC ≈ 05:20 à Fredericton. Le guide de la famille règle les sites
+    # provinciaux au lundi (DossierOntario et DossierSaskatchewan y sont passés le
+    # 24 oct. 2026) : on s'y tient.
+    - cron: '20 9 * * 1'
   workflow_dispatch: {}
 
 permissions:
