@@ -130,11 +130,11 @@ const T = {
     ],
 
     /* Le bloc commandite. */
-    commanditeSurtitre: 'Commandite',
-    commanditeTitre: 'Commanditez votre ville',
-    commanditeTexte: 'Le suivi d\'un conseil municipal — ordres du jour, votes et résolutions en langage clair — demande du travail de lecture par ville. Une commandite locale en financerait une pendant un an.',
-    commanditeAvis: 'Aucune ville n\'est couverte, et aucun prix n\'est fixé pour le Nouveau-Brunswick. Il n\'y a donc rien à vendre aujourd\'hui : c\'est une intention, pas une offre.',
-    commanditeBtn: null,
+    commanditeSurtitre: 'Volets de ville',
+    commanditeTitre: 'Repr\u00e9sentez votre ville',
+    commanditeTexte: 'Un volet de ville suit un conseil municipal \u2014 ordres du jour, votes et r\u00e9solutions en langage clair. Il est tenu par quelqu\u2019un de la place, sous l\u2019enseigne Dossier, avec les m\u00eames r\u00e8gles que ce site : des sources officielles, aucun jugement, aucune donn\u00e9e invent\u00e9e.',
+    commanditeAvis: 'Aucune ville du Nouveau-Brunswick n\u2019est couverte aujourd\u2019hui. Le formulaire est sur DossierQu\u00e9bec, qui prend Montr\u00e9al en exemple.',
+    commanditeBtn: '+ Repr\u00e9sentez votre ville',
     neufSurtitre: 'Quoi de neuf', neufTitre: 'Dernières activités réelles à l\'Assemblée',
     neufIntro: 'Fil chronologique, du plus récent au plus ancien. Chaque ligne est un acte inscrit au registre de l\'Assemblée.',
     missionSurtitre: 'Notre mission',
@@ -340,11 +340,11 @@ const T = {
       ['Be heard in committee', 'Some committees hold public hearings. Their notices and dates go through this page.', 'https://www.legnb.ca/en/committees', 'The committees →'],
     ],
 
-    commanditeSurtitre: 'Sponsorship',
-    commanditeTitre: 'Sponsor your city',
-    commanditeTexte: 'Following a city council — agendas, votes and resolutions in plain language — takes reading work for each city. A local sponsorship would pay for one city for a year.',
-    commanditeAvis: 'No city is covered, and no price is set for New Brunswick. There is nothing to sell today: this is an intention, not an offer.',
-    commanditeBtn: null,
+    commanditeSurtitre: 'City sections',
+    commanditeTitre: 'Represent your city',
+    commanditeTexte: 'A city section follows a municipal council \u2014 agendas, votes and resolutions in plain language. Someone local keeps it, under the Dossier banner, by the same rules as this site: official sources, no verdicts, no invented data.',
+    commanditeAvis: 'No New Brunswick city is covered today. The form lives on DossierQu\u00e9bec, which uses Montr\u00e9al as its example.',
+    commanditeBtn: '+ Represent your city',
     neufSurtitre: 'What\'s new', neufTitre: 'Latest real activity in the House',
     neufIntro: 'A timeline, most recent first. Every line is an act entered in the Assembly\'s record.',
     missionSurtitre: 'Our mission',
@@ -743,11 +743,12 @@ function cartesAppel(t, langue) {
       <p>${t.compteTexte}</p>
       <a class="nb-btn nb-btn-jaune" href="${racine}${t.monDossierVers}">${t.compteBtn}</a>
     </article>
-    <article class="nb-appel nb-appel-rouge" id="commandite">
+    <article class="nb-appel nb-appel-rouge" id="villes">
       <p class="nb-surtitre">${t.commanditeSurtitre}</p>
       <h2>${t.commanditeTitre}</h2>
       <p>${t.commanditeTexte}</p>
       <p class="nb-appel-avis">${t.commanditeAvis}</p>
+      <a class="nb-btn nb-btn-jaune" href="${t.villesRepresenterVers}" rel="noopener">${t.commanditeBtn}</a>
     </article>`;
 }
 
