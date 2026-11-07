@@ -1099,3 +1099,12 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
 .nb-liste-simple { margin: 14px 0 0; padding-left: 20px; font-size: 15px; line-height: 1.7; color: var(--ink2); }
 .nb-texte { margin: 14px 0 0; max-width: 72ch; font-size: 15px; line-height: 1.7; color: var(--ink2); }
 .nb-duo-seul .nb-appel { max-width: 560px; }
+
+/* La présidence ne vote pas : ce n'est pas une donnée manquante, c'est la règle. */
+.nb-taux.preside {
+  color: var(--tintink);
+  background: var(--tint);
+  border-color: var(--tint);
+  text-transform: none;
+  letter-spacing: 0;
+}

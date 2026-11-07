@@ -1,0 +1,61 @@
+# DossierNBrunswick
+
+> Les projets de loi, les votes nominatifs et les élu·e·s de l'Assemblée législative du
+> Nouveau-Brunswick, en langage clair. Site citoyen indépendant, non officiel, gratuit,
+> sans publicité et sans abonnement. Tout le contenu existe en français et en anglais.
+>
+> Bills, recorded divisions and members of the Legislative Assembly of New Brunswick, in
+> plain language. Independent citizen site, unofficial, free, with no advertising and no
+> subscription. Everything exists in French and in English.
+
+## Ce que le site fait / What the site does
+
+- Il reprend les données publiques de l'Assemblée législative (legnb.ca) et du gouvernement
+  du Nouveau-Brunswick (gnb.ca), et les réorganise par personne et par projet de loi.
+- Il ne porte aucun jugement et ne classe personne. Quand une information manque, le site
+  l'écrit plutôt que de la combler.
+- Les textes officiels des projets de loi sont déjà bilingues : le site renvoie aux deux
+  versions de l'Assemblée et n'en traduit aucune.
+
+## Ce qu'il faut savoir avant de citer ce site
+
+- **La version officielle d'un projet de loi reste la version imprimée de l'Assemblée.**
+- **Les votes nominatifs sont rares au Nouveau-Brunswick.** La plupart des projets de loi
+  sont adoptés de vive voix, sans que personne soit nommé. Une absence de vote nominatif ne
+  veut donc pas dire « unanime ».
+- **La présidence de l'Assemblée ne vote pas.** Un vote nominatif ne dépasse jamais 48 voix
+  sur 49 sièges.
+- **Il n'existe pas de pétition en ligne au Nouveau-Brunswick.** Une pétition est sur
+  papier, signée à la main, et déposée par un·e député·e.
+- **Le taux de présence aux votes publié ici n'est pas une mesure officielle.** Il est
+  calculé à partir des noms inscrits dans les Journaux, et un vote manqué n'en dit jamais
+  la raison.
+
+## Les pages / The pages
+
+- Accueil : https://dossiernbrunswick.ca/ · https://dossiernbrunswick.ca/en/
+- Projets de loi : https://dossiernbrunswick.ca/projets-de-loi · https://dossiernbrunswick.ca/en/bills
+- Ministres et député·e·s : https://dossiernbrunswick.ca/ministres · https://dossiernbrunswick.ca/en/ministers
+- Lexique : https://dossiernbrunswick.ca/lexique · https://dossiernbrunswick.ca/en/glossary
+- Villes : https://dossiernbrunswick.ca/villes · https://dossiernbrunswick.ca/en/cities
+- Une page par ministre et par chef de parti : https://dossiernbrunswick.ca/ministres/<prenom-nom>
+
+## Les données brutes / Raw data
+
+Publiques, au format JSON, rafraîchies automatiquement :
+
+- https://dossiernbrunswick.ca/data/projets-de-loi.json
+- https://dossiernbrunswick.ca/data/deputes.json
+- https://dossiernbrunswick.ca/data/conseil-executif.json
+- https://dossiernbrunswick.ca/data/votes.json
+- https://dossiernbrunswick.ca/data/calendrier.json
+- https://dossiernbrunswick.ca/data/fiches.json
+
+Chaque fichier porte la date de sa dernière lecture (`luLe`) et l'adresse de sa source.
+
+## Licence / Licence
+
+Code : PolyForm Noncommercial 1.0.0. Textes et données publiés : CC BY-NC 4.0.
+Usage commercial : seulement avec une entente écrite avec DAFR Solution.
+
+Une réalisation de DAFR Solution — https://dafrsolution.com

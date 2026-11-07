@@ -85,6 +85,7 @@ const T = {
     ],
     piedSources: 'Données publiques de l\'Assemblée législative du Nouveau-Brunswick (legnb.ca) et du gouvernement du Nouveau-Brunswick (gnb.ca).',
     piedNonOfficiel: 'Site non officiel',
+    signature: 'Une réalisation de DAFR Solution',
     piedAvis: 'La version imprimée des projets de loi reste la version officielle.',
     luLe: (d) => `Données lues le ${d}.`,
     onglets: [
@@ -201,6 +202,9 @@ const T = {
       '<b>Ce n\'est pas une mesure officielle.</b> L\'Assemblée ne publie aucun taux d\'assiduité. Celui-ci est calculé ici, à partir des noms inscrits dans les Journaux, et un vote manqué n\'en dit jamais la raison.',
     ],
     presenceTitre: (n, total) => `${n} vote${n > 1 ? 's' : ''} sur ${total}`,
+    presidenceNeVotePas: 'ne vote pas',
+    presidenceInfo: 'La présidence de l\'Assemblée ne vote pas : elle dirige les débats et reste neutre.',
+    presidenceLegende: (nom) => `— la présidence de l'Assemblée${nom ? ` (${nom})` : ''} dirige les débats et reste neutre. Son nom ne figure dans aucun vote nominatif, et c'est la règle.`,
     ministreCirconscription: 'Circonscription', ministreProjets: 'Projets de loi déposés',
     ministrePresence: 'Présence aux votes',
     ministreFiche: 'Fiche officielle →', ministrePortefeuilles: 'Portefeuilles',
@@ -269,6 +273,7 @@ const T = {
     ],
     piedSources: 'Public data from the Legislative Assembly of New Brunswick (legnb.ca) and the Government of New Brunswick (gnb.ca).',
     piedNonOfficiel: 'Unofficial site',
+    signature: 'A project by DAFR Solution',
     piedAvis: 'The printed version of a bill remains the official version.',
     luLe: (d) => `Data read on ${d}.`,
     onglets: [
@@ -380,6 +385,9 @@ const T = {
       '<b>This is not an official measure.</b> The Assembly publishes no attendance rate. This one is worked out here, from the names printed in the Journals, and a missed vote never says why.',
     ],
     presenceTitre: (n, total) => `${n} of ${total} divisions`,
+    presidenceNeVotePas: 'does not vote',
+    presidenceInfo: 'The Speaker does not vote: the Speaker chairs the House and stays neutral.',
+    presidenceLegende: (nom) => `— the Speaker of the House${nom ? ` (${nom})` : ''} chairs the sittings and stays neutral. That name appears in no recorded division, and that is the rule.`,
     ministreCirconscription: 'Riding', ministreProjets: 'Bills introduced',
     ministrePresence: 'Vote attendance',
     ministreFiche: 'Official page →', ministrePortefeuilles: 'Portfolios',
@@ -866,6 +874,7 @@ function pied(t, langue, racine, versAutre = '') {
   <div class="nb-pied-liens">
     <span>${t.piedNonOfficiel} — ${t.piedSources}</span>
     ${liens}
+    <a href="https://dafrsolution.com" rel="noopener">${t.signature}</a>
     <a data-nb-autre-langue="${t.autre}" href="${racineAutre}${versAutre}" hreflang="${t.autre}" rel="alternate">${t.autreNom}</a>
   </div>`;
 }
@@ -1204,7 +1213,9 @@ function carteMinistre(brut, t, langue, { genre = 'ministre' } = {}) {
           <div><dt>${t.ministreProjets}</dt><dd>${projets}</dd></div>
           <div><dt>${t.ministrePresence}</dt><dd>${presence
             ? `<span class="nb-taux ${presence.couleur}" title="${echapper(t.presenceTitre(presence.votes, presence.total))}">${presence.taux} %</span>`
-            : `<span class="nb-taux nd">${t.presenceND}</span>`}</dd></div>
+            : estPresidence(roles)
+              ? `<span class="nb-taux preside" title="${echapper(t.presidenceInfo)}">${t.presidenceNeVotePas}</span>`
+              : `<span class="nb-taux nd">${t.presenceND}</span>`}</dd></div>
         </dl>
         ${ficheOfficielle ? `<p class="nb-carte-pied"><a href="${echapper(ficheOfficielle)}" rel="noopener">${t.ministreFiche}</a></p>` : ''}
       </article>`;
@@ -1228,7 +1239,9 @@ function ligneDepute(brut, t, langue) {
         <p class="nb-ligne-chiffres">
           ${presence
             ? `<span class="nb-taux ${presence.couleur}" title="${echapper(t.presenceTitre(presence.votes, presence.total))}">${presence.taux} %</span>`
-            : `<span class="nb-taux nd">${t.presenceND}</span>`}
+            : estPresidence(roles)
+              ? `<span class="nb-taux preside" title="${echapper(t.presidenceInfo)}">${t.presidenceNeVotePas}</span>`
+              : `<span class="nb-taux nd">${t.presenceND}</span>`}
           <span class="nb-ligne-pl">${projets} ${t.abrevProjets(projets)}</span>
         </p>
         <p class="nb-ligne-liens"><a href="${echapper(d.fiche || '#')}" rel="noopener">${t.ministreFiche}</a></p>
@@ -1282,7 +1295,8 @@ function encadrePresence(t) {
         <li><span class="nb-taux vert">${t.presenceVert}</span> ${t.presenceVertTexte(p.compte.vert, mediane)}</li>
         <li><span class="nb-taux jaune">${t.presenceJaune}</span> ${t.presenceJauneTexte(p.compte.jaune, Math.max(0, mediane - 6), mediane - 1)}</li>
         <li><span class="nb-taux">${t.presenceAucune}</span> ${t.presenceAucuneTexte(p.compte.aucune, Math.max(0, mediane - 6))}</li>
-        <li><span class="nb-taux nd">${t.presenceND}</span> ${t.presenceNDTexte(p.sansDonnee)}</li>
+        <li><span class="nb-taux nd">${t.presenceND}</span> ${t.presenceNDTexte(p.sansDonnee - (PRESIDENCE ? 1 : 0))}</li>
+        ${PRESIDENCE ? `<li><span class="nb-taux preside">${t.presidenceNeVotePas}</span> ${t.presidenceLegende(PRESIDENCE.nomAffiche)}</li>` : ''}
       </ul>
       <p class="nb-encadre-portee">${t.presencePortee(p.total, p.seances, p.comptes, p.plancher ?? 0, p.plafond ?? 0)}</p>
       <ul class="nb-encadre-avis">
@@ -1507,6 +1521,22 @@ const FICHES_PAR_NOM = new Map((fichesFichier?.fiches || []).map((f) => [normali
  * sa circonscription dans les deux langues. Sans fiche lue, la personne est rendue telle
  * quelle — le site se bâtit, en moins riche, plutôt que d'échouer.
  */
+/**
+ * Qui préside l'Assemblée. La présidence NE VOTE PAS : son absence de tous les votes
+ * nominatifs n'est pas une donnée manquante, c'est la règle. Sa ligne doit le dire, sinon
+ * un « n/d » laisse croire qu'on n'a pas su.
+ *
+ * Les vice-présidences, elles, votent comme tout le monde quand elles ne président pas :
+ * « Deputy Speaker » ne compte pas ici.
+ */
+function estPresidence(roles) {
+  return (roles || []).some((r) => /^speaker\b/i.test(String(r).trim())
+    || /^(président|présidente) de l'assemblée/i.test(String(r).trim()));
+}
+
+/** La présidence en exercice, si les fiches l'ont dit. */
+const PRESIDENCE = (fichesFichier?.fiches || []).find((f) => estPresidence(f.roles?.en)) || null;
+
 function enrichir(p) {
   const f = FICHES_PAR_NOM.get(normaliserNom(p.nomAffiche));
   if (!f) return p;

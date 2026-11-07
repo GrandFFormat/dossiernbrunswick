@@ -59,9 +59,19 @@ async function main() {
 
     // Un garde-fou : les deux fiches doivent parler de la même personne. Les adresses se
     // ressemblent trop pour qu'une erreur de lien se voie autrement.
+    //
+    // Les honorifiques se traduisent, eux aussi : « Hon. Robert McKee, K.C. » devient
+    // « l'hon. Robert McKee, c.r. » — conseiller du roi. On les retire des deux côtés avant
+    // de comparer, sinon le garde-fou crie au loup sur une fiche parfaitement bonne.
     const memeNom = (a, b) => {
       const net = (s) => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '')
-        .toLowerCase().replace(/\b(hon|l'hon|mr|ms|mrs|dr)\b\.?/g, '').replace(/[^a-z]+/g, '');
+        .toLowerCase().trim()
+        // L'honorifique est EN TÊTE : « l'hon. », « hon. », « m. », « mme ». On ne l'enlève
+        // que là, pour ne pas croquer une initiale au milieu d'un nom.
+        .replace(/^(l'hon\.?|hon\.?|mme|mlle|m\.|mr\.?|ms\.?|mrs\.?|dr\.?)\s+/, '')
+        // Le titre professionnel est EN QUEUE, après une virgule : « , K.C. », « , c.r. ».
+        .replace(/,\s*[a-z.\s]{1,6}$/, '')
+        .replace(/[^a-z]+/g, '');
       return net(a) === net(b);
     };
     if (!memeNom(en.nom, fr.nom)) {
