@@ -880,7 +880,7 @@ function pied(t, langue, racine, versAutre = '') {
  * @param {string} o.description
  * @param {string} o.corps     le HTML des sections
  */
-function coquille({ langue, vers, versAutre, titre, description, corps, horsIndex = false }) {
+function coquille({ langue, vers, versAutre, titre, description, corps, horsIndex = false, bandeVillesVisible = true }) {
   const t = T[langue];
   const racine = langue === 'en' ? '/en/' : '/';
   const racineAutre = langue === 'en' ? '/' : '/en/';
@@ -915,7 +915,7 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
 <div class="nb-page">
 ${ticker}
 ${entete(t, racine, vers, versAutre)}
-${bandeVilles(t)}
+${bandeVillesVisible ? bandeVilles(t) : ''}
 ${corps}
 ${pied(t, langue, racine, versAutre)}
 </div>
@@ -945,6 +945,9 @@ function page(langue) {
     versAutre: '',
     titre: t.titreOnglet,
     description: t.description,
+    // Pas de bande des villes sur l'accueil (choix de Martin, 7 novembre 2026) : elle
+    // n'annonce que ce qui n'existe pas encore.
+    bandeVillesVisible: false,
     corps: [
       affiche(t, chiffres, leg, ses),
       avisSeance(t, langue),
