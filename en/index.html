@@ -74,20 +74,53 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     </div>
   </section>
   <p class="nb-avis"><b>Next sitting on Nov. 17, 2026, at 1:00 p.m.</b> Bills tabled in Fredericton appear here at the next refresh.</p>
-  <section class="nb-section" id="projets">
-    <div class="nb-section-tete">
-      <h2>Bills of this session</h2>
-      <a class="nb-voir-tout" href="/en/bills">All bills → (14)</a>
+  <section class="nb-section nb-agir">
+    <p class="nb-surtitre nb-surtitre-rouge">Acting on a bill</p>
+    <div class="nb-section-tete rouge"><h2>There is no online petition in New Brunswick</h2></div>
+    <p class="nb-agir-intro">The Assembly only accepts petitions <b>on paper</b>, signed by hand and presented by a member. No button, here or anywhere else, carries official weight. These three routes do.</p>
+    <div class="nb-chemins">
+      <article class="nb-chemin">
+        <h3>Write to your member</h3>
+        <p>The one route that always works. Every member has an address at the Assembly.</p>
+        <a href="https://www.legnb.ca/en/members/current" rel="noopener">The official list →</a>
+      </article>
+      <article class="nb-chemin">
+        <h3>Have a paper petition presented</h3>
+        <p>Signed by hand, then handed to your member, who presents it in the House. A minister must reply in writing within two weeks — but that reply is not published.</p>
+        <a href="/en/glossary">What the glossary says →</a>
+      </article>
+      <article class="nb-chemin">
+        <h3>Be heard in committee</h3>
+        <p>Some committees hold public hearings. Their notices and dates go through this page.</p>
+        <a href="https://www.legnb.ca/en/committees" rel="noopener">The committees →</a>
+      </article>
     </div>
-    <p class="nb-section-note">Every bill links to its official text, in French and in English. Stages and dates are those published by the Assembly.</p>
-    <div class="nb-projets">
+    <p class="nb-section-note">A citizen counter is not open yet. It needs a database, and it will not appear before it has real numbers to show.</p>
+  </section>
+  <section class="nb-section nb-recents" id="projets">
+    <div>
+      <div class="nb-section-tete">
+        <h2>Recently active bills</h2>
+        <a class="nb-voir-tout" href="/en/bills">All bills → (14)</a>
+      </div>
+      <p class="nb-section-note">The last four bills to have moved. The first is open: when it was tabled, its latest recorded vote where there is one, and who introduced it.</p>
+      <div class="nb-projets">
         <div class="nb-rangee" data-nb-projet="14">
+          <div class="nb-projet-ouvert">
           <a class="nb-projet" href="https://www.legnb.ca/en/legislation/bills/61/3/14/an-act-respecting-property-tax-reform-measure" rel="noopener">
             <span class="nb-projet-num">No. 14</span>
             <span class="nb-projet-titre">An Act Respecting Property Tax Reform Measures</span>
             <span class="nb-etape">Second Reading Passed</span>
             <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
           </a>
+            <div class="nb-projet-detail">
+              <div>
+                <p>Sponsored by <b>Hon. Aaron KENNEDY</b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span> · Quispamsis.</p>
+              </div>
+              <p class="nb-projet-chiffres"><b>Tabled</b> · Nov. 4, 2026
+                <br><a href="https://www.legnb.ca/en/legislation/bills/61/3/14/an-act-respecting-property-tax-reform-measure" rel="noopener">Open the bill →</a></p>
+            </div>
+          </div>
           <button class="nb-suivre" type="button" data-nb-suivre="14"
             data-nb-suivre-mots="Follow|Following"
             aria-pressed="false" title="Follow Bill 14">Follow</button>
@@ -125,44 +158,23 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
             data-nb-suivre-mots="Follow|Following"
             aria-pressed="false" title="Follow Bill 11">Follow</button>
         </div>
+      </div>
+      <p class="nb-source-officielle">Official source: legnb.ca</p>
     </div>
-  </section>
-  <section class="nb-section nb-agir">
-    <p class="nb-surtitre nb-surtitre-rouge">Acting on a bill</p>
-    <div class="nb-section-tete rouge"><h2>There is no online petition in New Brunswick</h2></div>
-    <p class="nb-agir-intro">The Assembly only accepts petitions <b>on paper</b>, signed by hand and presented by a member. No button, here or anywhere else, carries official weight. These three routes do.</p>
-    <div class="nb-chemins">
-      <article class="nb-chemin">
-        <h3>Write to your member</h3>
-        <p>The one route that always works. Every member has an address at the Assembly.</p>
-        <a href="https://www.legnb.ca/en/members/current" rel="noopener">The official list →</a>
-      </article>
-      <article class="nb-chemin">
-        <h3>Have a paper petition presented</h3>
-        <p>Signed by hand, then handed to your member, who presents it in the House. A minister must reply in writing within two weeks — but that reply is not published.</p>
-        <a href="/en/glossary">What the glossary says →</a>
-      </article>
-      <article class="nb-chemin">
-        <h3>Be heard in committee</h3>
-        <p>Some committees hold public hearings. Their notices and dates go through this page.</p>
-        <a href="https://www.legnb.ca/en/committees" rel="noopener">The committees →</a>
-      </article>
-    </div>
-    <p class="nb-section-note">A citizen counter is not open yet. It needs a database, and it will not appear before it has real numbers to show.</p>
-  </section>
-  <section class="nb-section nb-duo">
+    <aside class="nb-colonne-appels">
     <article class="nb-appel nb-appel-bleu">
       <p class="nb-surtitre">No account</p>
       <h2>Follow the bills that affect you</h2>
       <p>Nothing to create, no email, no password: the <b>Follow</b> button on a bill keeps your choice in this browser only. Nothing is sent to the site, and this site has no account to offer.</p>
       <a class="nb-btn nb-btn-jaune" href="/en/my-file">Open my file</a>
     </article>
-    <article class="nb-appel nb-appel-papier">
-      <p class="nb-surtitre nb-surtitre-rouge">Sponsorship</p>
+    <article class="nb-appel nb-appel-rouge">
+      <p class="nb-surtitre">Sponsorship</p>
       <h2>Sponsor your city</h2>
       <p>Following a city council — agendas, votes and resolutions in plain language — takes reading work for each city. A local sponsorship would pay for one city for a year.</p>
       <p class="nb-appel-avis">No city is covered, and no price is set for New Brunswick. There is nothing to sell today: this is an intention, not an offer.</p>
     </article>
+    </aside>
   </section>
   <section class="nb-neuf">
     <div>

@@ -65,6 +65,10 @@ const T = {
     prochaineSeance: (d, h) => `<b>Prochaine séance le ${d}${h ? `, à ${h}` : ''}.</b> Les projets de loi déposés à Fredericton apparaissent ici au rafraîchissement suivant.`,
     pasDeSeance: '<b>Aucune séance annoncée pour l\'instant.</b> Le calendrier de l\'Assemblée ne publie pas de prochaine séance à la date de cette lecture.',
     projetsTitre: 'Projets de loi de la session', projetsVoir: 'Voir tous les projets →',
+    recentsTitre: 'Projets de loi récemment actifs',
+    recentsNote: 'Les quatre derniers projets à avoir bougé. Le premier est ouvert : son dépôt, son dernier vote nominatif quand il y en a un, et qui l\'a déposé.',
+    sourceOfficielle: 'Source officielle : legnb.ca',
+    ouvrirFiche: 'Ouvrir la fiche →', dernierVote: 'Dernier vote',
     projetsNote: 'Chaque projet renvoie au texte officiel, en français et en anglais. Les étapes et leurs dates sont celles publiées par l\'Assemblée.',
     activiteTitre: 'Derniers actes à l\'Assemblée',
     votesTitre: 'Votes nominatifs',
@@ -196,6 +200,10 @@ const T = {
     prochaineSeance: (d, h) => `<b>Next sitting on ${d}${h ? `, at ${h}` : '.'}</b> Bills tabled in Fredericton appear here at the next refresh.`,
     pasDeSeance: '<b>No sitting announced yet.</b> The Assembly\'s calendar listed no upcoming sitting when this page was built.',
     projetsTitre: 'Bills of this session', projetsVoir: 'All bills →',
+    recentsTitre: 'Recently active bills',
+    recentsNote: 'The last four bills to have moved. The first is open: when it was tabled, its latest recorded vote where there is one, and who introduced it.',
+    sourceOfficielle: 'Official source: legnb.ca',
+    ouvrirFiche: 'Open the bill →', dernierVote: 'Latest vote',
     projetsNote: 'Every bill links to its official text, in French and in English. Stages and dates are those published by the Assembly.',
     activiteTitre: 'Latest acts in the House',
     votesTitre: 'Recorded votes',
@@ -466,21 +474,25 @@ function avisSeance(t, langue) {
   return `  <p class="nb-avis">${t.prochaineSeance(d, heureLisible(prochaine.heure, langue))}</p>`;
 }
 
-function rangeeProjet(projet, t, langue) {
+function rangeeProjet(projet, t, langue, { nue = false } = {}) {
   const titre = projet.titre[langue] || projet.titre.en || projet.titre.fr;
   const etape = derniereEtape(projet);
   const statut = statutLisible(projet, langue)
     || (etape ? etapeLisible(etape.nom, langue) : null);
   const rejete = /defeated|rejet/i.test(projet.statut || '');
   const lien = projet.source?.[langue] || projet.source?.en || '#';
-  // La rangée porte son numéro de projet : c'est par là que « Mon dossier » la retrouve.
-  return `        <div class="nb-rangee" data-nb-projet="${projet.numero}">
-          <a class="nb-projet" href="${echapper(lien)}" rel="noopener">
+  const corps = `          <a class="nb-projet" href="${echapper(lien)}" rel="noopener">
             <span class="nb-projet-num">${langue === 'en' ? 'No.' : 'Nᵒ'} ${projet.numero}</span>
             <span class="nb-projet-titre">${echapper(titre)}</span>
             ${statut ? `<span class="nb-etape${rejete ? ' rejete' : ''}">${echapper(statut)}</span>` : '<span></span>'}
             <span class="nb-projet-fleche">${CHEVRON}</span>
-          </a>
+          </a>`;
+  // Dans un projet déjà ouvert, la rangée n'est que l'en-tête du bloc : elle n'a ni son
+  // enveloppe ni son bouton, que le bloc porte lui-même.
+  if (nue) return corps;
+  // La rangée porte son numéro de projet : c'est par là que « Mon dossier » la retrouve.
+  return `        <div class="nb-rangee" data-nb-projet="${projet.numero}">
+${corps}
           <button class="nb-suivre" type="button" data-nb-suivre="${projet.numero}"
             data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
             aria-pressed="false" title="${echapper(t.suivreTitre(projet.numero))}">${t.suivre}</button>
@@ -538,25 +550,87 @@ ${cartes}
 }
 
 /**
- * Les deux cartes de la maquette, côte à côte : suivre des projets, et commanditer une
- * ville. Chacune dit exactement ce qu'elle fait — la première marche, la seconde annonce
- * qu'il n'y a rien à vendre aujourd'hui.
+ * Les deux cartes de la maquette : suivre des projets, et commanditer une ville. Chacune
+ * dit exactement ce qu'elle fait — la première marche, la seconde annonce qu'il n'y a
+ * rien à vendre aujourd'hui.
  */
-function sectionDuo(t, langue) {
+function cartesAppel(t, langue) {
   const racine = langue === 'en' ? '/en/' : '/';
-  return `  <section class="nb-section nb-duo">
-    <article class="nb-appel nb-appel-bleu">
+  return `    <article class="nb-appel nb-appel-bleu">
       <p class="nb-surtitre">${t.compteSurtitre}</p>
       <h2>${t.compteTitre}</h2>
       <p>${t.compteTexte}</p>
       <a class="nb-btn nb-btn-jaune" href="${racine}${t.monDossierVers}">${t.compteBtn}</a>
     </article>
-    <article class="nb-appel nb-appel-papier">
-      <p class="nb-surtitre nb-surtitre-rouge">${t.commanditeSurtitre}</p>
+    <article class="nb-appel nb-appel-rouge">
+      <p class="nb-surtitre">${t.commanditeSurtitre}</p>
       <h2>${t.commanditeTitre}</h2>
       <p>${t.commanditeTexte}</p>
       <p class="nb-appel-avis">${t.commanditeAvis}</p>
-    </article>
+    </article>`;
+}
+
+/** Le dernier vote nominatif consigné sur un projet de loi, s'il y en a un. */
+function dernierVoteDe(numero) {
+  const votes = (votesFichier?.votes || [])
+    .filter((v) => v.objet?.genre === 'bill' && Number(v.objet.numero) === Number(numero));
+  return votes.sort((a, b) => (a.date < b.date ? 1 : -1))[0] || null;
+}
+
+/**
+ * Les projets de loi récemment actifs, avec le premier déjà ouvert : son dépôt, son
+ * dernier vote nominatif quand il y en a un, et qui l'a déposé. À droite, les deux cartes.
+ * Pas de résumé « en clair » tant qu'il n'y en a pas de vrai à montrer.
+ */
+function sectionRecents(t, langue) {
+  const racine = langue === 'en' ? '/en/' : '/';
+  const vers = langue === 'en' ? 'bills' : 'projets-de-loi';
+  const tous = [...projetsFichier.projets].sort((a, b) => b.numero - a.numero);
+  const recents = tous.slice(0, 4);
+  const [premier, ...suite] = recents;
+
+  const depot = (premier.etapes || []).find((e) => e.date);
+  const vote = dernierVoteDe(premier.numero);
+  const parrain = premier.parrain;
+  const chiffres = [
+    depot ? `<b>${t.deposeLe}</b> · ${dateLisible(depot.date, langue)}` : null,
+    vote ? `<b>${t.dernierVote}</b> · ${vote.pour.total} ${t.pour} · ${vote.contre.total} ${t.contre}` : null,
+  ].filter(Boolean);
+
+  const ouvert = `        <div class="nb-rangee" data-nb-projet="${premier.numero}">
+          <div class="nb-projet-ouvert">
+${rangeeProjet(premier, t, langue, { nue: true })}
+            <div class="nb-projet-detail">
+              <div>
+                ${parrain?.nom ? `<p>${t.parrainePar} <b>${echapper(parrain.nom)}</b>`
+                  + `${parrain.parti ? ` · <span class="nb-parti"${parrain.couleurParti ? ` style="--parti:${echapper(parrain.couleurParti)}"` : ''}>${echapper(parrain.parti)}</span>` : ''}`
+                  + `${parrain.circonscription ? ` · ${echapper(parrain.circonscription)}` : ''}.</p>` : ''}
+              </div>
+              <p class="nb-projet-chiffres">${chiffres.join('<br>')}
+                ${chiffres.length ? '<br>' : ''}<a href="${echapper(premier.source?.[langue] || premier.source?.en || '#')}" rel="noopener">${t.ouvrirFiche}</a></p>
+            </div>
+          </div>
+          <button class="nb-suivre" type="button" data-nb-suivre="${premier.numero}"
+            data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
+            aria-pressed="false" title="${echapper(t.suivreTitre(premier.numero))}">${t.suivre}</button>
+        </div>`;
+
+  return `  <section class="nb-section nb-recents" id="projets">
+    <div>
+      <div class="nb-section-tete">
+        <h2>${t.recentsTitre}</h2>
+        <a class="nb-voir-tout" href="${racine}${vers}">${t.projetsVoir} (${tous.length})</a>
+      </div>
+      <p class="nb-section-note">${t.recentsNote}</p>
+      <div class="nb-projets">
+${ouvert}
+${suite.map((p) => rangeeProjet(p, t, langue)).join('\n')}
+      </div>
+      <p class="nb-source-officielle">${t.sourceOfficielle}</p>
+    </div>
+    <aside class="nb-colonne-appels">
+${cartesAppel(t, langue)}
+    </aside>
   </section>`;
 }
 
@@ -731,11 +805,10 @@ function page(langue) {
     corps: [
       affiche(t, chiffres, leg, ses),
       avisSeance(t, langue),
+      sectionAgir(t, langue),
       // Quatre projets au plus sur l'accueil (choix de Martin, 7 novembre 2026) : la page
       // des projets de loi les montre tous.
-      sectionProjets(t, langue, 4),
-      sectionAgir(t, langue),
-      sectionDuo(t, langue),
+      sectionRecents(t, langue),
       sectionActivite(t, langue),
       sectionMission(t),
     ].join('\n'),

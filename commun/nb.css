@@ -740,18 +740,21 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
 
 /* ─── Les deux appels : suivre, et commanditer ──────────────────────────── */
 
-.nb-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+/* Les projets récents à gauche, les deux cartes à droite, comme la maquette. */
+.nb-recents { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; align-items: start; }
+.nb-colonne-appels { display: grid; gap: 14px; }
+.nb-source-officielle { margin: 14px 0 0; font-size: 12px; color: var(--ink3); }
 .nb-appel { padding: 32px; box-shadow: var(--shadow-sm); }
 .nb-appel h2 { margin: 6px 0 14px; font: 600 26px/1.05 var(--font-heading); text-transform: uppercase; }
 .nb-appel p { margin: 0 0 16px; font-size: 14px; line-height: 1.6; }
 .nb-appel-bleu { background: var(--nb-bleu); color: #fff; }
 .nb-appel-bleu .nb-surtitre { color: var(--nb-jaune); opacity: 1; }
-.nb-appel-papier { background: var(--w); color: var(--ink); }
-.nb-appel-papier p { color: var(--ink2); }
+.nb-appel-rouge { background: var(--nb-rouge); color: #fff; }
+.nb-appel-rouge .nb-surtitre { color: var(--nb-jaune); opacity: 1; }
 .nb-appel-avis {
   padding: 12px 14px;
-  background: var(--tint);
-  color: var(--tintink);
+  background: rgba(255, 255, 255, 0.16);
+  color: inherit;
   font-size: 13px;
   margin: 0;
 }
@@ -771,7 +774,7 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
 }
 
 @media (max-width: 900px) {
-  .nb-chemins, .nb-duo { grid-template-columns: 1fr; }
+  .nb-chemins, .nb-recents { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .nb-bande-villes { padding: 10px 20px; font-size: 12px; gap: 12px; }
