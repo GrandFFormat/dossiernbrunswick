@@ -18,9 +18,11 @@
     "fiches": "node scrapers/nb-fiches.js",
     "portraits": "node scrapers/nb-portraits.js",
     "finances": "node scrapers/nb-finances.js",
-    "wikipedia": "node scrapers/nb-wikipedia.js"
+    "wikipedia": "node scrapers/nb-wikipedia.js",
+    "resumes": "node scrapers/nb-resumes.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.6.0",
     "cheerio": "^1.0.0",
     "pdf-parse": "^1.1.1",
     "sharp": "^0.35.5"
