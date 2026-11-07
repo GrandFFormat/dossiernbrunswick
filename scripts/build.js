@@ -1277,9 +1277,10 @@ function carteMinistre(brut, t, langue, { genre = 'ministre' } = {}) {
   const presence = PRESENCE_AUX_VOTES.de(m);
   const ficheOfficielle = m.fiche?.[langue] || m.fiche?.en || m.fiche || null;
 
-  return `      <article class="nb-carte-ministre" data-nb-${genre}="${echapper(id)}" data-nb-chercher="${echapper(motsDeRecherche(m))}"${m.couleurParti ? ` style="--parti:${echapper(m.couleurParti)}"` : ''}>
+  return `      <article class="nb-carte-ministre" id="${slugPersonne(m.nomAffiche)}" data-nb-${genre}="${echapper(id)}" data-nb-chercher="${echapper(motsDeRecherche(m))}"${m.couleurParti ? ` style="--parti:${echapper(m.couleurParti)}"` : ''}>
         <div class="nb-carte-tete">
           ${parti ? `<span class="nb-pastille-parti">${echapper(parti)}</span>` : '<span></span>'}
+          <span class="nb-outils">${boutonCopier(m, t, langue)}${lienWikipedia(m, t, langue)}</span>
           <button class="nb-suivre" type="button" data-nb-suivre="${echapper(id)}" data-nb-suivre-genre="${genre}"
             data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
             aria-pressed="false" title="${echapper(t.suivreMinistre(m.nomAffiche))}">${t.suivre}</button>
@@ -1311,8 +1312,9 @@ function ligneDepute(brut, t, langue) {
   const id = identifiantMinistre(brut);
   const projets = PROJETS_PAR_PARRAIN.get(normaliserNom(d.nomAffiche)) || 0;
   const presence = PRESENCE_AUX_VOTES.de(d);
+  const ficheOfficielle = d.fiche?.[langue] || d.fiche?.en || d.fiche || null;
 
-  return `      <div class="nb-ligne-depute" data-nb-depute="${echapper(id)}" data-nb-chercher="${echapper(motsDeRecherche(d))}"${d.couleurParti ? ` style="--parti:${echapper(d.couleurParti)}"` : ''}>
+  return `      <div class="nb-ligne-depute" id="${slugPersonne(d.nomAffiche)}" data-nb-depute="${echapper(id)}" data-nb-chercher="${echapper(motsDeRecherche(d))}"${d.couleurParti ? ` style="--parti:${echapper(d.couleurParti)}"` : ''}>
         <p class="nb-ligne-nom"><b>${lienPersonne(d, t, langue)}${d.titre ? `<span class="nb-titre">${echapper(d.titre)}</span>` : ''}</b>
           <span>${echapper(circonscription || '')}${roles.length ? ` · <em>${echapper(roles.join(' · '))}</em>` : ''}</span></p>
         <p class="nb-ligne-chiffres">
@@ -1323,7 +1325,8 @@ function ligneDepute(brut, t, langue) {
               : `<span class="nb-taux nd">${t.presenceND}</span>`}
           <span class="nb-ligne-pl">${projets} ${t.abrevProjets(projets)}</span>
         </p>
-        <p class="nb-ligne-liens"><a href="${echapper(d.fiche || '#')}" rel="noopener">${t.ministreFiche}</a></p>
+        <p class="nb-ligne-liens"><a href="${echapper(ficheOfficielle || '#')}" rel="noopener">${t.ministreFiche}</a></p>
+        <span class="nb-outils">${boutonCopier(d, t, langue)}${lienWikipedia(d, t, langue)}</span>
         <button class="nb-suivre" type="button" data-nb-suivre="${echapper(id)}" data-nb-suivre-genre="depute"
           data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
           aria-pressed="false" title="${echapper(t.suivreMinistre(d.nomAffiche))}">${t.suivre}</button>
@@ -1410,6 +1413,15 @@ function pageMinistres(langue) {
   // d'une liste qui se classerait sur ce qu'elle montre.
   const sieges = new Map();
   for (const d of deputes) sieges.set(d.parti, (sieges.get(d.parti) || 0) + 1);
+
+  // La composition de l'Assemblée se compte sur les 49 sièges, ministres compris — pas sur
+  // les lignes qui restent une fois les ministres partis dans leurs boîtes.
+  const parPartisComplet = new Map();
+  for (const d of deputes) {
+    if (!parPartisComplet.has(d.parti)) parPartisComplet.set(d.parti, []);
+    parPartisComplet.get(d.parti).push(d);
+  }
+  const composition = [...parPartisComplet.entries()].sort((a, b) => b[1].length - a[1].length);
   const groupes = [...parPartis.entries()]
     .sort((a, b) => (sieges.get(b[0]) || 0) - (sieges.get(a[0]) || 0));
 
@@ -1462,7 +1474,7 @@ ${gens.map((d) => ligneDepute(d, t, langue)).join('\n')}
     </form>
     <p class="nb-vide" data-nb-cherche-rien="${echapper(t.chercheRien)}" hidden></p>
   </section>
-${sectionComposition(t, groupes, deputesFichier?.sieges ?? deputes.length)}
+${sectionComposition(t, composition, deputesFichier?.sieges ?? deputes.length)}
 ${encadrePresence(t)}
   <section class="nb-section" data-nb-groupe>
     <div class="nb-section-tete"><h2>${t.ministresSousTitre}</h2><span class="nb-compte" data-nb-compte-groupe>${membres.length}</span></div>
@@ -1830,6 +1842,24 @@ function lienWikipedia(personne, t, langue) {
 }
 
 /**
+ * L'adresse publique d'une personne : sa fiche quand elle en a une, sinon sa ligne sur la
+ * liste. Les deux mènent à elle, et aucune ne pointe dans le vide.
+ */
+function adressePersonne(personne, langue) {
+  const racine = langue === 'en' ? '/en/' : '/';
+  const dossier = langue === 'en' ? 'ministers' : 'ministres';
+  const slug = slugPersonne(personne.nomAffiche);
+  return A_UNE_PAGE.has(normaliserNom(personne.nomAffiche))
+    ? `${SITE}${racine}${dossier}/${slug}`
+    : `${SITE}${racine}${dossier}#${slug}`;
+}
+
+/** Le bouton qui copie l’adresse d’une personne, comme le bouton Partager de DQ. */
+function boutonCopier(personne, t, langue) {
+  return `<button class="nb-reseau nb-copier" type="button" data-nb-copier="${echapper(adressePersonne(personne, langue))}" data-nb-copie-faite="${echapper(t.partageCopie)}" title="${echapper(t.partageCopier)}" aria-label="${echapper(t.partageCopier)}"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>`;
+}
+
+/**
  * Le portrait d'une personne, tel qu'on le sert. L'Assemblée publie ces photos pour un
  * usage public non commercial : on les reprend créditées, avec un lien vers la fiche
  * officielle. Pas de fichier téléchargé, pas d'image — jamais un cadre vide.
@@ -1897,7 +1927,6 @@ function pagePersonne(personne, t, langue) {
     <div class="nb-portrait">
       ${photo ? `<img src="${echapper(photo.src)}"${photo.srcset ? ` srcset="${echapper(photo.srcset)}"` : ''} width="200" alt="${echapper(personne.nomAffiche)}" loading="lazy">` : ''}
       <p class="nb-credit">${t.photoCredit}${fiche ? ` · <a href="${echapper(fiche)}" rel="noopener">legnb.ca</a>` : ''}</p>
-${barrePartage(`${personne.nomAffiche}${premierRole ? ` — ${premierRole}` : ''}`, `${SITE}${racine}${dossier}/${slug}`, t, lienWikipedia(personne, t, langue))}
     </div>
     <div class="nb-fiche-tete">
       <p class="nb-etiquette"${personne.couleurParti ? ` style="--parti:${echapper(personne.couleurParti)}"` : ''}>${etiquette}</p>

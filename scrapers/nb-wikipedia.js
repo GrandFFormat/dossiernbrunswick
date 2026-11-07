@@ -86,11 +86,11 @@ async function main() {
   const roles = new Map(fiches.fiches.map((f) => [cle(f.nomAffiche), f.roles?.en || []]));
   const dansLeConseil = new Set(conseil.membres.map((m) => cle(m.nomAffiche)));
 
-  // Les mêmes personnes que celles qui ont une fiche.
+  // TOUTES les personnes qui siègent : le bouton W est sur la liste des ministres et des
+  // député·e·s, pas seulement sur les fiches, donc les 49 en ont besoin.
   const voulues = [
     ...conseil.membres,
-    ...deputes.deputes.filter((d) => !dansLeConseil.has(cle(d.nomAffiche))
-      && estChefDeParti(roles.get(cle(d.nomAffiche)))),
+    ...deputes.deputes.filter((d) => !dansLeConseil.has(cle(d.nomAffiche))),
   ];
 
   console.log(`Wikipédia — ${voulues.length} personnes, deux langues chacune`);
