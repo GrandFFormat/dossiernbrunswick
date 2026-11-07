@@ -64,6 +64,16 @@ html[data-theme='dark'] {
 
 * { box-sizing: border-box; }
 
+/* Un texte réservé aux lecteurs d'écran : présent dans le document, invisible à l'œil. */
+.nb-invisible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 body {
   margin: 0;
   background: var(--color-surface, #e9e9ea);
@@ -137,7 +147,6 @@ html[data-theme='dark'] a { color: #9db4ff; }
   text-transform: uppercase;
 }
 .nb-onglet[aria-current='page'] { color: var(--acc); }
-.nb-onglet .nb-num { color: var(--nb-rouge); font-size: 11px; margin-right: 4px; }
 .nb-onglet:hover { color: var(--nb-rouge); }
 
 .nb-bouton-carre {
@@ -336,15 +345,6 @@ html[data-theme='dark'] .nb-etape.rejete { color: #ffc9d2; }
 .nb-journal { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
 .nb-journal li { display: grid; grid-template-columns: 92px 1fr; gap: 14px; font-size: 14px; line-height: 1.5; }
 .nb-journal time { color: var(--ink3); font-variant-numeric: tabular-nums; }
-.nb-etiquette {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--nb-jaune);
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-html[data-theme='light'] .nb-etiquette, :root:not([data-theme='dark']) .nb-etiquette { color: var(--nb-rouge); }
 
 /* ─── La mission ────────────────────────────────────────────────────────── */
 
