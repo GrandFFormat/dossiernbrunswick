@@ -50,72 +50,157 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     <p class="nb-section-note">Les mots que l'Assemblée emploie, expliqués simplement. Rien ici n'a de valeur officielle : c'est une aide à la lecture.</p>
   </section>
   <section class="nb-section">
-    <dl class="nb-lexique">
-      <div class="nb-terme">
-        <dt>Première lecture</dt>
-        <dd>Le dépôt. Le projet de loi est présenté à la Chambre et imprimé. Il n'est pas encore débattu, et personne ne vote sur son contenu.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Deuxième lecture</dt>
-        <dd>Le débat sur le principe. On discute de l'idée du projet, pas encore du détail de ses articles. C'est l'étape où un projet peut être rejeté d'un coup.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Étude en comité</dt>
-        <dd>L'examen article par article, par un comité de député·e·s. C'est là que le texte peut être amendé. Au Nouveau-Brunswick, un projet d'intérêt privé passe en comité <b>avant</b> sa deuxième lecture : l'ordre n'est pas toujours le même.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Troisième lecture</dt>
-        <dd>Le dernier vote de la Chambre. Après, le texte ne change plus.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Sanction royale</dt>
-        <dd>La signature de la lieutenante-gouverneure, qui fait du projet une loi. <b>Attention :</b> une loi sanctionnée n'est pas forcément en vigueur — beaucoup attendent une proclamation, parfois des mois plus tard.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Projet de loi d'initiative ministérielle</dt>
-        <dd>Un projet déposé par un ou une ministre, au nom du gouvernement. C'est la grande majorité des projets adoptés.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Projet de loi d'intérêt public et d'initiative parlementaire</dt>
-        <dd>Un projet déposé par un·e député·e qui n'est pas ministre. Il aboutit rarement.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Projet de loi d'intérêt privé</dt>
-        <dd>Un projet qui vise une personne, une entreprise ou un organisme précis — par exemple modifier la loi constitutive d'une université ou d'un ordre professionnel.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Vote nominatif</dt>
-        <dd>Un vote où le nom de chaque député·e est inscrit au Journal. Ils sont <b>rares</b> : la plupart des projets de loi sont adoptés de vive voix, sans que les positions individuelles soient consignées. L'absence de vote nominatif ne veut donc pas dire « unanime ».</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Journal</dt>
-        <dd>Le compte rendu officiel des décisions de la Chambre, publié chaque jour de séance. C'est le seul endroit où figurent les votes nominatifs du Nouveau-Brunswick.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Hansard</dt>
-        <dd>Le compte rendu des débats, mot à mot. Il paraît plusieurs mois après la séance.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Feuilleton</dt>
-        <dd>L'ordre du jour de la Chambre : ce qui est à l'étude et dans quel ordre.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Pétition</dt>
-        <dd>Au Nouveau-Brunswick, une pétition est <b>sur papier</b>, signée à la main, et ne peut être déposée que par un·e député·e. Il n'existe pas de pétition en ligne. Le ministre doit répondre par écrit dans les deux semaines, mais cette réponse n'est pas publiée.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Présidence de l'Assemblée</dt>
-        <dd>La personne qui préside les séances. Elle <b>ne vote pas</b> : un vote nominatif ne dépasse donc jamais 48 voix sur 49 sièges.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Session</dt>
-        <dd>Une période de travaux. Chaque nouvelle session renumérote les projets de loi à partir de 1 — un même numéro désigne donc des projets différents d'une session à l'autre.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Présence aux votes</dt>
-        <dd>La part des votes nominatifs de la session où le nom d'une personne est inscrit au Journal, pour ou contre. Ce <b>n'est pas une mesure officielle</b> : l'Assemblée n'en publie aucune, et celle-ci est calculée ici. Elle dit peu de chose tant que la session compte peu de votes nominatifs — et comme ils sont rares au Nouveau-Brunswick, c'est souvent le cas. « n/d » veut dire qu'aucun vote nominatif n'a enregistré cette personne : ce n'est pas une absence, c'est une absence d'information. La présidence de l'Assemblée, elle, ne vote jamais.</dd>
-      </div>
-    </dl>
+    <div class="nb-lexique-grille">
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Première lecture</h2>
+          <span class="nb-famille chemin">Le chemin d’un projet</span>
+        </header>
+        <p>Le dépôt. Le projet de loi est présenté à la Chambre et imprimé. Il n'est pas encore débattu, et personne ne vote sur son contenu.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Deuxième lecture</h2>
+          <span class="nb-famille chemin">Le chemin d’un projet</span>
+        </header>
+        <p>Le débat sur le principe. On discute de l'idée du projet, pas encore du détail de ses articles. C'est l'étape où un projet peut être rejeté d'un coup.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Étude en comité</h2>
+          <span class="nb-famille chemin">Le chemin d’un projet</span>
+        </header>
+        <p>L'examen article par article, par un comité de député·e·s. C'est là que le texte peut être amendé. Au Nouveau-Brunswick, un projet d'intérêt privé passe en comité <b>avant</b> sa deuxième lecture : l'ordre n'est pas toujours le même.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Troisième lecture</h2>
+          <span class="nb-famille chemin">Le chemin d’un projet</span>
+        </header>
+        <p>Le dernier vote de la Chambre. Après, le texte ne change plus.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Sanction royale</h2>
+          <span class="nb-famille chemin">Le chemin d’un projet</span>
+        </header>
+        <p>La signature de la lieutenante-gouverneure, qui fait du projet une loi. <b>Attention :</b> une loi sanctionnée n'est pas forcément en vigueur — beaucoup attendent une proclamation, parfois des mois plus tard.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Projet de loi d'initiative ministérielle</h2>
+          <span class="nb-famille textes">Sortes de projets</span>
+        </header>
+        <p>Un projet déposé par un ou une ministre, au nom du gouvernement. C'est la grande majorité des projets adoptés.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Projet de loi d'intérêt public et d'initiative parlementaire</h2>
+          <span class="nb-famille textes">Sortes de projets</span>
+        </header>
+        <p>Un projet déposé par un·e député·e qui n'est pas ministre. Il aboutit rarement.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Projet de loi d'intérêt privé</h2>
+          <span class="nb-famille textes">Sortes de projets</span>
+        </header>
+        <p>Un projet qui vise une personne, une entreprise ou un organisme précis — par exemple modifier la loi constitutive d'une université ou d'un ordre professionnel.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Vote nominatif</h2>
+          <span class="nb-famille votes">Votes</span>
+        </header>
+        <p>Un vote où le nom de chaque député·e est inscrit au Journal. Ils sont <b>rares</b> : la plupart des projets de loi sont adoptés de vive voix, sans que les positions individuelles soient consignées. L'absence de vote nominatif ne veut donc pas dire « unanime ».</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Journal</h2>
+          <span class="nb-famille documents">Documents</span>
+        </header>
+        <p>Le compte rendu officiel des décisions de la Chambre, publié chaque jour de séance. C'est le seul endroit où figurent les votes nominatifs du Nouveau-Brunswick.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Hansard</h2>
+          <span class="nb-famille documents">Documents</span>
+        </header>
+        <p>Le compte rendu des débats, mot à mot. Il paraît plusieurs mois après la séance.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Feuilleton</h2>
+          <span class="nb-famille documents">Documents</span>
+        </header>
+        <p>L'ordre du jour de la Chambre : ce qui est à l'étude et dans quel ordre.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Pétition</h2>
+          <span class="nb-famille gens">Personnes et droits</span>
+        </header>
+        <p>Au Nouveau-Brunswick, une pétition est <b>sur papier</b>, signée à la main, et ne peut être déposée que par un·e député·e. Il n'existe pas de pétition en ligne. Le ministre doit répondre par écrit dans les deux semaines, mais cette réponse n'est pas publiée.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Présidence de l'Assemblée</h2>
+          <span class="nb-famille gens">Personnes et droits</span>
+        </header>
+        <p>La personne qui préside les séances. Elle <b>ne vote pas</b> : un vote nominatif ne dépasse donc jamais 48 voix sur 49 sièges.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Session</h2>
+          <span class="nb-famille chemin">Le chemin d’un projet</span>
+        </header>
+        <p>Une période de travaux. Chaque nouvelle session renumérote les projets de loi à partir de 1 — un même numéro désigne donc des projets différents d'une session à l'autre.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Présence aux votes</h2>
+          <span class="nb-famille votes">Votes</span>
+        </header>
+        <p>La part des votes nominatifs de la session où le nom d'une personne est inscrit au Journal, pour ou contre. Ce <b>n'est pas une mesure officielle</b> : l'Assemblée n'en publie aucune, et celle-ci est calculée ici. Elle dit peu de chose tant que la session compte peu de votes nominatifs — et comme ils sont rares au Nouveau-Brunswick, c'est souvent le cas. « n/d » veut dire qu'aucun vote nominatif n'a enregistré cette personne : ce n'est pas une absence, c'est une absence d'information. La présidence de l'Assemblée, elle, ne vote jamais.</p>
+      </article>
+    </div>
+  </section>
+  <section class="nb-section">
+    <p class="nb-surtitre nb-surtitre-rouge">Indépendants du gouvernement et des partis</p>
+    <div class="nb-section-tete"><h2>Qui veille sur l’Assemblée</h2><span class="nb-compte">7</span></div>
+    <p class="nb-texte"></p>
+    <ul class="nb-officiers">
+      <li>
+        <b>Vérificateur général</b>
+        <a href="https://www.agnb-vgnb.ca/" rel="noopener">Son site →</a>
+      </li>
+      <li>
+        <b>Directeur général des élections</b>
+        <a href="https://www.electionsnb.ca/content/enb/fr.html" rel="noopener">Son site →</a>
+      </li>
+      <li>
+        <b>Défenseur des enfants, des jeunes et des aînés</b>
+        <a href="https://fr.defenseur-nb-advocate.ca/" rel="noopener">Son site →</a>
+      </li>
+      <li>
+        <b>Commissaire aux langues officielles</b>
+        <a href="https://officiallanguages.nb.ca/" rel="noopener">Son site →</a>
+      </li>
+      <li>
+        <b>Défenseur du consommateur en matière d’assurances</b>
+        <a href="https://www.insurance-assurance.ca/index" rel="noopener">Son site →</a>
+      </li>
+      <li>
+        <b>Commissaire à l’intégrité</b>
+        <a href="https://oic-bci.ca/" rel="noopener">Son site →</a>
+      </li>
+      <li>
+        <b>Ombud N.-B.</b>
+        <a href="https://ombudnb.ca/" rel="noopener">Son site →</a>
+      </li>
+    </ul>
+    <p class="nb-section-note">L’Assemblée ne publie pas le nom des personnes en poste sur cette page : on nomme la charge, pas la personne. Le commissaire à l’intégrité tient le registre des lobbyistes du Nouveau-Brunswick.</p>
+    <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/hauts-fonctionnaires-de-assemblée" rel="noopener">La page des hauts fonctionnaires sur legnb.ca →</a></p>
   </section>
   <footer class="nb-pied">
     <p><strong>Site non officiel.</strong> Données publiques de l'Assemblée législative du Nouveau-Brunswick (legnb.ca) et du gouvernement du Nouveau-Brunswick (gnb.ca). La version imprimée des projets de loi reste la version officielle.</p>

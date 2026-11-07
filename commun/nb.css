@@ -1244,3 +1244,61 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
   .nb-projet-haut { grid-template-columns: 1fr; }
   .nb-projet-haut h1 { font-size: 28px; }
 }
+
+/* ─── Le lexique, en cartes ─────────────────────────────────────────────── */
+
+.nb-lexique-grille { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+.nb-terme-carte {
+  padding: 20px;
+  background: var(--w);
+  border: 1px solid var(--color-divider);
+  box-shadow: var(--shadow-sm);
+}
+.nb-terme-carte header { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
+.nb-terme-carte h2 {
+  margin: 0;
+  font: 600 18px/1.1 var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.nb-terme-carte p { margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: var(--ink2); }
+
+/* La famille d'un terme : une couleur par domaine, et jamais un jugement. */
+.nb-famille {
+  flex: none;
+  padding: 3px 8px;
+  font: 600 10px var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 1px solid;
+}
+.nb-famille.chemin { color: var(--nb-bleu); border-color: var(--nb-bleu); }
+.nb-famille.votes { color: #1f7a3f; border-color: #1f7a3f; }
+.nb-famille.documents { color: var(--ink3); border-color: var(--ink3); }
+.nb-famille.textes { color: var(--nb-rouge); border-color: var(--nb-rouge); }
+.nb-famille.gens { color: #8a6a00; border-color: #8a6a00; }
+html[data-theme='dark'] .nb-famille.chemin { color: #9db4ff; border-color: #9db4ff; }
+html[data-theme='dark'] .nb-famille.gens { color: var(--nb-jaune); border-color: var(--nb-jaune); }
+html[data-theme='dark'] .nb-famille.votes { color: #5fcf8a; border-color: #5fcf8a; }
+
+/* ─── Les charges indépendantes ─────────────────────────────────────────── */
+
+.nb-officiers { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.nb-officiers li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 16px;
+  background: var(--w);
+  border-left: 4px solid var(--nb-jaune);
+  box-shadow: var(--shadow-sm);
+  font-size: 14px;
+}
+.nb-officiers a { font-size: 12px; color: var(--acc); text-decoration: none; font-weight: 600; white-space: nowrap; }
+.nb-officiers a:hover { color: var(--nb-rouge); }
+
+@media (max-width: 800px) {
+  .nb-lexique-grille, .nb-officiers { grid-template-columns: 1fr; }
+}

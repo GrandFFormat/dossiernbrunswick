@@ -1,0 +1,83 @@
+{
+  "luLe": "2026-11-07T11:56:12.022Z",
+  "source": {
+    "en": "https://www.legnb.ca/en/legislative-officers",
+    "fr": "https://www.legnb.ca/fr/hauts-fonctionnaires-de-assemblée"
+  },
+  "intro": {
+    "en": "",
+    "fr": ""
+  },
+  "officiers": [
+    {
+      "nom": {
+        "en": "Auditor General",
+        "fr": "Vérificateur général"
+      },
+      "site": {
+        "en": "https://www.agnb-vgnb.ca/",
+        "fr": "https://www.agnb-vgnb.ca/"
+      }
+    },
+    {
+      "nom": {
+        "en": "Chief Electoral Officer",
+        "fr": "Directeur général des élections"
+      },
+      "site": {
+        "en": "https://www.electionsnb.ca/content/enb/en.html",
+        "fr": "https://www.electionsnb.ca/content/enb/fr.html"
+      }
+    },
+    {
+      "nom": {
+        "en": "Child, Youth and Senior Advocate",
+        "fr": "Défenseur des enfants, des jeunes et des aînés"
+      },
+      "site": {
+        "en": "https://www.defenseur-nb-advocate.ca/",
+        "fr": "https://fr.defenseur-nb-advocate.ca/"
+      }
+    },
+    {
+      "nom": {
+        "en": "Commissioner of Official Languages",
+        "fr": "Commissaire aux langues officielles"
+      },
+      "site": {
+        "en": "https://officiallanguages.nb.ca/",
+        "fr": "https://officiallanguages.nb.ca/"
+      }
+    },
+    {
+      "nom": {
+        "en": "Consumer Advocate for Insurance",
+        "fr": "Défenseur du consommateur en matière d’assurances"
+      },
+      "site": {
+        "en": "https://www.insurance-assurance.ca/index",
+        "fr": "https://www.insurance-assurance.ca/index"
+      }
+    },
+    {
+      "nom": {
+        "en": "Integrity Commissioner",
+        "fr": "Commissaire à l’intégrité"
+      },
+      "site": {
+        "en": "https://oic-bci.ca/",
+        "fr": "https://oic-bci.ca/"
+      }
+    },
+    {
+      "nom": {
+        "en": "Ombud",
+        "fr": "Ombud N.-B."
+      },
+      "site": {
+        "en": "https://ombudnb.ca/",
+        "fr": "https://ombudnb.ca/"
+      }
+    }
+  ]
+}

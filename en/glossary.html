@@ -50,72 +50,157 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     <p class="nb-section-note">The words the Assembly uses, explained simply. Nothing here is official: it is a reading aid.</p>
   </section>
   <section class="nb-section">
-    <dl class="nb-lexique">
-      <div class="nb-terme">
-        <dt>First reading</dt>
-        <dd>The tabling. The bill is introduced and printed. It is not debated yet, and nobody votes on its content.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Second reading</dt>
-        <dd>The debate on the principle. The House discusses the idea of the bill, not yet its clauses. This is the stage where a bill can be defeated outright.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Committee</dt>
-        <dd>Clause-by-clause study by a committee of members. This is where the text can be amended. In New Brunswick a private bill goes to committee <b>before</b> its second reading: the order is not always the same.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Third reading</dt>
-        <dd>The House's final vote. After it, the text no longer changes.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Royal assent</dt>
-        <dd>The Lieutenant-Governor's signature, which turns a bill into an Act. <b>Careful:</b> an Act that has received assent is not necessarily in force — many wait on a proclamation, sometimes months later.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Government bill</dt>
-        <dd>A bill introduced by a minister, on behalf of the government. These are the vast majority of bills that pass.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Private member's public bill</dt>
-        <dd>A bill introduced by a member who is not a minister. It rarely becomes law.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Private bill</dt>
-        <dd>A bill aimed at one person, company or body — amending a university's founding Act, for instance, or a professional association's.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Recorded division</dt>
-        <dd>A vote where every member's name is entered in the Journal. They are <b>rare</b>: most bills pass on a voice vote, with no individual positions recorded. No recorded vote therefore does not mean "unanimous".</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Journal</dt>
-        <dd>The official record of the decisions of the House, published each sitting day. It is the only place New Brunswick's recorded votes appear.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Hansard</dt>
-        <dd>The word-for-word record of debate. It appears several months after the sitting.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Order paper</dt>
-        <dd>The agenda of the House: what is before it, and in what order.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Petition</dt>
-        <dd>In New Brunswick a petition is <b>on paper</b>, signed by hand, and can only be presented by a member. There is no online petition system. A minister must reply in writing within two weeks, but that reply is not published.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Speaker</dt>
-        <dd>The member who presides over sittings. The Speaker <b>does not vote</b>: a recorded division therefore never exceeds 48 of the 49 seats.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Session</dt>
-        <dd>A period of business. Every new session renumbers bills from 1 — the same number means different bills in different sessions.</dd>
-      </div>
-      <div class="nb-terme">
-        <dt>Vote attendance</dt>
-        <dd>The share of the session's recorded divisions in which a person's name is entered in the Journal, yea or nay. It is <b>not an official measure</b>: the Assembly publishes none, and this one is worked out here. It says little while a session holds few recorded divisions — and since they are rare in New Brunswick, that is often the case. "n/a" means no recorded division has this person on file: that is missing information, not an absence. The Speaker never votes.</dd>
-      </div>
-    </dl>
+    <div class="nb-lexique-grille">
+      <article class="nb-terme-carte">
+        <header>
+          <h2>First reading</h2>
+          <span class="nb-famille chemin">A bill’s path</span>
+        </header>
+        <p>The tabling. The bill is introduced and printed. It is not debated yet, and nobody votes on its content.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Second reading</h2>
+          <span class="nb-famille chemin">A bill’s path</span>
+        </header>
+        <p>The debate on the principle. The House discusses the idea of the bill, not yet its clauses. This is the stage where a bill can be defeated outright.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Committee</h2>
+          <span class="nb-famille chemin">A bill’s path</span>
+        </header>
+        <p>Clause-by-clause study by a committee of members. This is where the text can be amended. In New Brunswick a private bill goes to committee <b>before</b> its second reading: the order is not always the same.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Third reading</h2>
+          <span class="nb-famille chemin">A bill’s path</span>
+        </header>
+        <p>The House's final vote. After it, the text no longer changes.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Royal assent</h2>
+          <span class="nb-famille chemin">A bill’s path</span>
+        </header>
+        <p>The Lieutenant-Governor's signature, which turns a bill into an Act. <b>Careful:</b> an Act that has received assent is not necessarily in force — many wait on a proclamation, sometimes months later.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Government bill</h2>
+          <span class="nb-famille textes">Kinds of bills</span>
+        </header>
+        <p>A bill introduced by a minister, on behalf of the government. These are the vast majority of bills that pass.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Private member's public bill</h2>
+          <span class="nb-famille textes">Kinds of bills</span>
+        </header>
+        <p>A bill introduced by a member who is not a minister. It rarely becomes law.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Private bill</h2>
+          <span class="nb-famille textes">Kinds of bills</span>
+        </header>
+        <p>A bill aimed at one person, company or body — amending a university's founding Act, for instance, or a professional association's.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Recorded division</h2>
+          <span class="nb-famille votes">Votes</span>
+        </header>
+        <p>A vote where every member's name is entered in the Journal. They are <b>rare</b>: most bills pass on a voice vote, with no individual positions recorded. No recorded vote therefore does not mean "unanimous".</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Journal</h2>
+          <span class="nb-famille documents">Documents</span>
+        </header>
+        <p>The official record of the decisions of the House, published each sitting day. It is the only place New Brunswick's recorded votes appear.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Hansard</h2>
+          <span class="nb-famille documents">Documents</span>
+        </header>
+        <p>The word-for-word record of debate. It appears several months after the sitting.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Order paper</h2>
+          <span class="nb-famille documents">Documents</span>
+        </header>
+        <p>The agenda of the House: what is before it, and in what order.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Petition</h2>
+          <span class="nb-famille gens">People and rights</span>
+        </header>
+        <p>In New Brunswick a petition is <b>on paper</b>, signed by hand, and can only be presented by a member. There is no online petition system. A minister must reply in writing within two weeks, but that reply is not published.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Speaker</h2>
+          <span class="nb-famille gens">People and rights</span>
+        </header>
+        <p>The member who presides over sittings. The Speaker <b>does not vote</b>: a recorded division therefore never exceeds 48 of the 49 seats.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Session</h2>
+          <span class="nb-famille chemin">A bill’s path</span>
+        </header>
+        <p>A period of business. Every new session renumbers bills from 1 — the same number means different bills in different sessions.</p>
+      </article>
+      <article class="nb-terme-carte">
+        <header>
+          <h2>Vote attendance</h2>
+          <span class="nb-famille votes">Votes</span>
+        </header>
+        <p>The share of the session's recorded divisions in which a person's name is entered in the Journal, yea or nay. It is <b>not an official measure</b>: the Assembly publishes none, and this one is worked out here. It says little while a session holds few recorded divisions — and since they are rare in New Brunswick, that is often the case. "n/a" means no recorded division has this person on file: that is missing information, not an absence. The Speaker never votes.</p>
+      </article>
+    </div>
+  </section>
+  <section class="nb-section">
+    <p class="nb-surtitre nb-surtitre-rouge">Independent of government and of the parties</p>
+    <div class="nb-section-tete"><h2>Who watches over the Assembly</h2><span class="nb-compte">7</span></div>
+    <p class="nb-texte"></p>
+    <ul class="nb-officiers">
+      <li>
+        <b>Auditor General</b>
+        <a href="https://www.agnb-vgnb.ca/" rel="noopener">Their site →</a>
+      </li>
+      <li>
+        <b>Chief Electoral Officer</b>
+        <a href="https://www.electionsnb.ca/content/enb/en.html" rel="noopener">Their site →</a>
+      </li>
+      <li>
+        <b>Child, Youth and Senior Advocate</b>
+        <a href="https://www.defenseur-nb-advocate.ca/" rel="noopener">Their site →</a>
+      </li>
+      <li>
+        <b>Commissioner of Official Languages</b>
+        <a href="https://officiallanguages.nb.ca/" rel="noopener">Their site →</a>
+      </li>
+      <li>
+        <b>Consumer Advocate for Insurance</b>
+        <a href="https://www.insurance-assurance.ca/index" rel="noopener">Their site →</a>
+      </li>
+      <li>
+        <b>Integrity Commissioner</b>
+        <a href="https://oic-bci.ca/" rel="noopener">Their site →</a>
+      </li>
+      <li>
+        <b>Ombud</b>
+        <a href="https://ombudnb.ca/" rel="noopener">Their site →</a>
+      </li>
+    </ul>
+    <p class="nb-section-note">The Assembly does not publish the names of the people holding these offices on that page: we name the office, not the person. The Integrity Commissioner keeps New Brunswick’s lobbyists’ registry.</p>
+    <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/legislative-officers" rel="noopener">The legislative officers page on legnb.ca →</a></p>
   </section>
   <footer class="nb-pied">
     <p><strong>Unofficial site.</strong> Public data from the Legislative Assembly of New Brunswick (legnb.ca) and the Government of New Brunswick (gnb.ca). The printed version of a bill remains the official version.</p>
