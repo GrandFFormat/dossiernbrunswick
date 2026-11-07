@@ -46,6 +46,9 @@ jobs:
       - name: Télécharger et réduire les portraits
         run: node scrapers/nb-portraits.js
 
+      - name: Chercher les pages Wikipédia
+        run: node scrapers/nb-wikipedia.js
+
       - name: Reconstruire les pages
         run: node scripts/build.js
 

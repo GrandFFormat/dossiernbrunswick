@@ -31,6 +31,8 @@ const votesFichier = lireJson('data/votes.json');
 const fichesFichier = lireJson('data/fiches.json');
 // Les dépenses payées aux député·e·s, lues dans les tableaux PDF de l'Assemblée.
 const financesFichier = lireJson('data/finances.json');
+// Les pages Wikipédia vérifiées, une par personne et par langue.
+const wikipediaFichier = lireJson('data/wikipedia.json');
 
 if (!projetsFichier) throw new Error('data/projets-de-loi.json manque — lancer les scrapers avant le build');
 
@@ -200,6 +202,7 @@ const T = {
     projetDescription: (n, titre, statut) => `Projet de loi n\u1d52 ${n} \u00e0 l\u2019Assembl\u00e9e l\u00e9gislative du Nouveau-Brunswick : ${titre}.${statut ? ` \u00c9tape : ${statut}.` : ''} Son chemin, son parrain, ses votes nominatifs et ses textes officiels.`,
     session: 'L\u00e9gislature et session',
     lexiqueFamilles: { chemin: 'Le chemin d\u2019un projet', votes: 'Votes', documents: 'Documents', textes: 'Sortes de projets', gens: 'Personnes et droits' },
+    wikiTitre: (nom) => `\u00c0 propos de ${nom} sur Wikip\u00e9dia`,
     ficheEtiquetteMinistre: 'Ministre du Nouveau-Brunswick',
     ficheEtiquetteChef: 'Chef de parti',
     ficheEtiquetteDepute: 'D\u00e9put\u00e9\u00b7e \u00e0 l\u2019Assembl\u00e9e',
@@ -406,6 +409,7 @@ const T = {
     projetDescription: (n, titre, statut) => `Bill ${n} in the Legislative Assembly of New Brunswick: ${titre}.${statut ? ` Stage: ${statut}.` : ''} Its path, its sponsor, its recorded divisions and its official texts.`,
     session: 'Legislature and session',
     lexiqueFamilles: { chemin: 'A bill\u2019s path', votes: 'Votes', documents: 'Documents', textes: 'Kinds of bills', gens: 'People and rights' },
+    wikiTitre: (nom) => `About ${nom} on Wikipedia`,
     ficheEtiquetteMinistre: 'Minister of New Brunswick',
     ficheEtiquetteChef: 'Party leader',
     ficheEtiquetteDepute: 'Member of the Assembly',
@@ -1578,7 +1582,7 @@ const RESEAUX = [
  * JavaScript : les liens marchent même si le script ne se charge pas, et le bouton « copier »
  * est le seul morceau qui en a besoin.
  */
-function barrePartage(titre, adresse, t) {
+function barrePartage(titre, adresse, t, enPlus = '') {
   const u = encodeURIComponent(adresse);
   const txt = encodeURIComponent(titre);
   const liens = RESEAUX.map(([nom, gabarit, chemin]) => {
@@ -1589,7 +1593,7 @@ function barrePartage(titre, adresse, t) {
 
   return `    <div class="nb-partage">
       <span class="nb-partage-titre">${t.partager}</span>
-${liens}
+${enPlus ? `      ${enPlus}\n` : ''}${liens}
       <button class="nb-reseau nb-copier" type="button" data-nb-copier="${echapper(adresse)}"
         data-nb-copie-faite="${echapper(t.partageCopie)}" title="${echapper(t.partageCopier)}" aria-label="${echapper(t.partageCopier)}">
         <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
@@ -1812,6 +1816,20 @@ ${rangees.join('\n')}
 }
 
 /**
+ * Le bouton W d'une personne : sa page Wikipédia dans la langue du site, et seulement
+ * quand elle a été vérifiée. Une page qui parle de quelqu’un d’autre vaut moins que pas
+ * de bouton du tout, alors le scraper ne garde que ce qui nomme la personne, le
+ * Nouveau-Brunswick et la politique.
+ */
+function lienWikipedia(personne, t, langue) {
+  const ligne = (wikipediaFichier?.personnes || [])
+    .find((p) => normaliserNom(p.nomAffiche) === normaliserNom(personne.nomAffiche));
+  const adresse = ligne?.[langue] || null;
+  if (!adresse) return '';
+  return `<a class="nb-reseau nb-wiki" href="${echapper(adresse)}" rel="noopener" title="${echapper(t.wikiTitre(personne.nomAffiche))}" aria-label="${echapper(t.wikiTitre(personne.nomAffiche))}">W</a>`;
+}
+
+/**
  * Le portrait d'une personne, tel qu'on le sert. L'Assemblée publie ces photos pour un
  * usage public non commercial : on les reprend créditées, avec un lien vers la fiche
  * officielle. Pas de fichier téléchargé, pas d'image — jamais un cadre vide.
@@ -1879,6 +1897,7 @@ function pagePersonne(personne, t, langue) {
     <div class="nb-portrait">
       ${photo ? `<img src="${echapper(photo.src)}"${photo.srcset ? ` srcset="${echapper(photo.srcset)}"` : ''} width="200" alt="${echapper(personne.nomAffiche)}" loading="lazy">` : ''}
       <p class="nb-credit">${t.photoCredit}${fiche ? ` · <a href="${echapper(fiche)}" rel="noopener">legnb.ca</a>` : ''}</p>
+${barrePartage(`${personne.nomAffiche}${premierRole ? ` — ${premierRole}` : ''}`, `${SITE}${racine}${dossier}/${slug}`, t, lienWikipedia(personne, t, langue))}
     </div>
     <div class="nb-fiche-tete">
       <p class="nb-etiquette"${personne.couleurParti ? ` style="--parti:${echapper(personne.couleurParti)}"` : ''}>${etiquette}</p>

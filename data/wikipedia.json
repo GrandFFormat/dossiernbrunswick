@@ -1,0 +1,111 @@
+{
+  "luLe": "2026-11-07T12:17:07.720Z",
+  "regle": "une page n'est gardée que si son résumé nomme la personne, le Nouveau-Brunswick et la politique",
+  "personnes": [
+    {
+      "nomAffiche": "Susan Holt",
+      "fr": "https://fr.wikipedia.org/wiki/Susan_Holt",
+      "en": "https://en.wikipedia.org/wiki/Susan_Holt"
+    },
+    {
+      "nomAffiche": "Lyne Chantal Boudreau",
+      "fr": "https://fr.wikipedia.org/wiki/Lyne_Chantal_Boudreau",
+      "en": "https://en.wikipedia.org/wiki/Lyne_Chantal_Boudreau"
+    },
+    {
+      "nomAffiche": "Chuck Chiasson",
+      "fr": "https://fr.wikipedia.org/wiki/Chuck_Chiasson",
+      "en": "https://en.wikipedia.org/wiki/Chuck_Chiasson"
+    },
+    {
+      "nomAffiche": "Keith Chiasson",
+      "fr": "https://fr.wikipedia.org/wiki/Keith_Chiasson",
+      "en": "https://en.wikipedia.org/wiki/Keith_Chiasson"
+    },
+    {
+      "nomAffiche": "Jean-Claude D'Amours",
+      "fr": "https://fr.wikipedia.org/wiki/Jean-Claude_D'Amours",
+      "en": "https://en.wikipedia.org/wiki/Jean-Claude_D'Amours"
+    },
+    {
+      "nomAffiche": "John Dornan",
+      "fr": "https://fr.wikipedia.org/wiki/John_Dornan",
+      "en": "https://en.wikipedia.org/wiki/John_Dornan_(politician)"
+    },
+    {
+      "nomAffiche": "Pat Finnigan",
+      "fr": "https://fr.wikipedia.org/wiki/Pat_Finnigan",
+      "en": "https://en.wikipedia.org/wiki/Pat_Finnigan"
+    },
+    {
+      "nomAffiche": "Robert Gauvin",
+      "fr": "https://fr.wikipedia.org/wiki/Robert_Gauvin",
+      "en": "https://en.wikipedia.org/wiki/Robert_Gauvin"
+    },
+    {
+      "nomAffiche": "John Herron",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/John_Herron_(New_Brunswick_politician)"
+    },
+    {
+      "nomAffiche": "David Hickey",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/David_Hickey_(politician)"
+    },
+    {
+      "nomAffiche": "Claire Johnson",
+      "fr": "https://fr.wikipedia.org/wiki/Claire_Johnson",
+      "en": "https://en.wikipedia.org/wiki/Claire_Johnson"
+    },
+    {
+      "nomAffiche": "Aaron Kennedy",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Aaron_Kennedy"
+    },
+    {
+      "nomAffiche": "René Legacy",
+      "fr": "https://fr.wikipedia.org/wiki/Ren%C3%A9_Legacy",
+      "en": "https://en.wikipedia.org/wiki/Ren%C3%A9_Legacy"
+    },
+    {
+      "nomAffiche": "Gilles LePage",
+      "fr": "https://fr.wikipedia.org/wiki/Gilles_LePage",
+      "en": "https://en.wikipedia.org/wiki/Gilles_LePage"
+    },
+    {
+      "nomAffiche": "Robert McKee",
+      "fr": "https://fr.wikipedia.org/wiki/Rob_McKee",
+      "en": "https://en.wikipedia.org/wiki/Rob_McKee"
+    },
+    {
+      "nomAffiche": "Cindy Miles",
+      "fr": "https://fr.wikipedia.org/wiki/Cindy_Miles",
+      "en": "https://en.wikipedia.org/wiki/Cindy_Miles"
+    },
+    {
+      "nomAffiche": "Luke Randall",
+      "fr": "https://fr.wikipedia.org/wiki/Jill_Green",
+      "en": "https://en.wikipedia.org/wiki/Luke_Randall"
+    },
+    {
+      "nomAffiche": "Isabelle Thériault",
+      "fr": "https://fr.wikipedia.org/wiki/Isabelle_Th%C3%A9riault",
+      "en": "https://en.wikipedia.org/wiki/Isabelle_Th%C3%A9riault"
+    },
+    {
+      "nomAffiche": "Alyson Townsend",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Alyson_Townsend"
+    },
+    {
+      "nomAffiche": "David Coon",
+      "fr": "https://fr.wikipedia.org/wiki/David_Coon",
+      "en": "https://en.wikipedia.org/wiki/David_Coon"
+    },
+    {
+      "nomAffiche": "Margaret Johnson",
+      "fr": "https://fr.wikipedia.org/wiki/Margaret_Johnson_(femme_politique)",
+      "en": "https://en.wikipedia.org/wiki/Margaret_Johnson"
+    }
+  ]
+}

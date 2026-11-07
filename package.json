@@ -17,7 +17,8 @@
     "scrape:votes": "node scrapers/nb-votes.js",
     "fiches": "node scrapers/nb-fiches.js",
     "portraits": "node scrapers/nb-portraits.js",
-    "finances": "node scrapers/nb-finances.js"
+    "finances": "node scrapers/nb-finances.js",
+    "wikipedia": "node scrapers/nb-wikipedia.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0",
