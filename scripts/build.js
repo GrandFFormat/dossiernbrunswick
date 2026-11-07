@@ -165,9 +165,10 @@ const T = {
     voirOfficiel: 'Voir la fiche officielle sur legnb.ca →',
     deputesTitre: 'Les député·e·s',
     deputesSurtitre: (n) => `${n} sièges`,
-    deputesNote: 'Classés par parti, du plus nombreux au moins nombreux. Les courriels ne sont pas repris ici : l\'Assemblée les protège derrière un mécanisme anti-robots, et on ne le contourne pas. Chaque nom mène à sa fiche officielle, qui porte l\'adresse.',
+    deputesNote: '<b>Les 49 sièges, ministres compris.</b> Une personne qui siège au Conseil exécutif est d\'abord une députée : elle paraît plus haut avec ses portefeuilles, et ici dans son parti, avec sa circonscription. Classés par parti, du plus nombreux au moins nombreux. Les courriels ne sont pas repris ici : l\'Assemblée les protège derrière un mécanisme anti-robots, et on ne le contourne pas. Chaque nom mène à sa fiche officielle, qui porte l\'adresse.',
     deputesDescription: 'Les 49 député·e·s de l\'Assemblée législative du Nouveau-Brunswick, par parti et par circonscription.',
     ministresTitre: 'Le Conseil exécutif',
+    ministresSousNote: (m, s) => `${m} des ${s} député·e·s. Chacun·e reparaît plus bas dans son parti.`,
     ministresSurtitre: (n) => `${n} ministres`,
     abrevProjets: () => 'PL',
     assembleeTitre: 'Le Conseil exécutif et toute l\'Assemblée',
@@ -348,9 +349,10 @@ const T = {
     voirOfficiel: 'See the official page on legnb.ca →',
     deputesTitre: 'The members',
     deputesSurtitre: (n) => `${n} seats`,
-    deputesNote: 'Grouped by party, largest first. Email addresses are not repeated here: the Assembly protects them behind an anti-robot mechanism, and we do not work around it. Each name links to the official page, which carries the address.',
+    deputesNote: '<b>All 49 seats, ministers included.</b> Someone who sits in the Executive Council is first a member: they appear above with their portfolios, and here in their party, with their riding. Grouped by party, largest first. Email addresses are not repeated here: the Assembly protects them behind an anti-robot mechanism, and we do not work around it. Each name links to the official page, which carries the address.',
     deputesDescription: 'The 49 members of the Legislative Assembly of New Brunswick, by party and riding.',
     ministresTitre: 'The Executive Council',
+    ministresSousNote: (m, s) => `${m} of the ${s} members. Each one appears again below, in their party.`,
     ministresSurtitre: (n) => `${n} ministers`,
     abrevProjets: (n) => (n === 1 ? 'bill' : 'bills'),
     assembleeTitre: 'The Executive Council and the whole Assembly',
@@ -1392,6 +1394,7 @@ ${sectionComposition(t, groupes, deputesFichier?.sieges ?? deputes.length)}
 ${encadrePresence(t)}
   <section class="nb-section" data-nb-groupe>
     <div class="nb-section-tete"><h2>${t.ministresSousTitre}</h2><span class="nb-compte" data-nb-compte-groupe>${membres.length}</span></div>
+    <p class="nb-section-note">${t.ministresSousNote(membres.length, deputesFichier?.sieges ?? deputes.length)}</p>
     <div class="nb-grille-ministres">
 ${membres.map((m) => carteMinistre(m, t, langue)).join('\n')}
     </div>
