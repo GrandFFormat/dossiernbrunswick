@@ -209,6 +209,7 @@ const T = {
     filtresLabel: 'Filtrer les projets de loi',
     filtreTous: 'Tous', filtreEnCours: 'En cours', filtreAdoptes: 'Sanctionn\u00e9s',
     comptePdl: (n, total) => (n === total ? `${total} projet${total > 1 ? 's' : ''} de loi` : `${n} sur ${total} projets de loi`),
+    cafeAria: 'Offrez-nous un caf\u00e9 (s\u2019ouvre dans un nouvel onglet)',
     ficheEtiquetteMinistre: 'Ministre du Nouveau-Brunswick',
     ficheEtiquetteChef: 'Chef de parti',
     ficheEtiquetteDepute: 'D\u00e9put\u00e9\u00b7e \u00e0 l\u2019Assembl\u00e9e',
@@ -422,6 +423,7 @@ const T = {
     filtresLabel: 'Filter the bills',
     filtreTous: 'All', filtreEnCours: 'In progress', filtreAdoptes: 'Assented to',
     comptePdl: (n, total) => (n === total ? `${total} bill${total > 1 ? 's' : ''}` : `${n} of ${total} bills`),
+    cafeAria: 'Buy us a coffee (opens in a new tab)',
     ficheEtiquetteMinistre: 'Minister of New Brunswick',
     ficheEtiquetteChef: 'Party leader',
     ficheEtiquetteDepute: 'Member of the Assembly',
@@ -1121,6 +1123,8 @@ ${cheminEtapes(p, t, langue)}
             ${vote ? `<p class="nb-boite-ligne"><span>${t.dernierVote}</span><b>${vote.pour.total} ${t.pour} · ${vote.contre.total} ${t.contre}</b></p>` : ''}
             <a class="nb-btn nb-btn-jaune" href="${racine}${dossier}/${slug}">${t.ouvrirFiche}</a>
             ${docs.length ? `<p class="nb-pdl-docs">${t.documents} ${docs.join(' · ')}</p>` : ''}
+${barrePartage(`${t.abrevProjet} ${p.numero} — ${titre}`, `${SITE}${racine}${dossier}/${slug}`, t)}
+${boutonCafe(t, langue)}
           </aside>
         </div>
       </details>`;
@@ -1630,6 +1634,49 @@ ${(deputesFichier?.deputes || []).map((d) => ligneDepute(d, t, langue)).join('\n
 }
 
 
+/* ─── Le bouton café, importé de DossierQuébec ───────────────────────────── */
+
+// Un lien de don Stripe, rien d'autre : pas de compte, pas de formulaire, pas de script
+// tiers. C'est le MÊME lien que DossierQuébec — la famille de sites partage sa cagnotte.
+const LIEN_CAFE = 'https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00';
+
+// Les libellés et les icônes de DQ, dans le même ordre. Chaque bouton de la page prend le
+// suivant, pour que deux boutons voisins ne disent pas la même chose.
+const LIBELLES_CAFE = [
+['Soutenez-nous !', 'Support us!'],
+  ['Aidez DQ à rester gratuit !', 'Help keep DQ free!'],
+  ['Gardez DQ vivant !', 'Keep DQ alive!'],
+  ['Vive DQ libre !', 'Long live a free DQ!'],
+  ['Contribuez au site !', 'Contribute to the site!'],
+  ['Vive l’information publique !', 'Long live public information!'],
+  ['Donnez un coup de pouce !', 'Give us a hand!'],
+  ['Soutenez la cause !', 'Support the cause!'],
+  ['Un café pour l’équipe ?', 'A coffee for the team?'],
+  ['Cappuccino ou espresso ?', 'Cappuccino or espresso?'],
+  ['Appuyez-nous !', 'Back us!'],
+  ['La démocratie, lisible !', 'Democracy, readable!'],
+  ['Un petit geste !', 'A small gesture!'],
+  ['Appuyez la cause !', 'Back the cause!'],
+  ['Croyez au projet !', 'Believe in the project!'],
+  ['Allongé ou serré ?', 'Long or short?'],
+  ['Latté ou espresso ?', 'Latte or espresso?'],
+  ['Un double, peut-être ?', 'A double, maybe?'],
+];
+const ICONES_CAFE = ['cafe-croissant', 'cafe-carafe', 'cafe-moulin', 'cafe-filtre', 'cafe-coeur',
+  'cafe-machine4', 'cafe-terrasse', 'cafe-tasse-or', 'cafe-latte', 'cafe-the', 'cafe-pastille']
+  .map((n) => `/commun/${n}.png`);
+
+let _rangCafe = 0;
+
+/** Le bouton café, sous le partage. Il tourne d'un libellé et d'une icône à l'autre. */
+function boutonCafe(t, langue) {
+  const [fr, en] = LIBELLES_CAFE[_rangCafe % LIBELLES_CAFE.length];
+  const icone = ICONES_CAFE[_rangCafe % ICONES_CAFE.length];
+  _rangCafe += 1;
+  return `    <a class="nb-cafe" href="${LIEN_CAFE}" target="_blank" rel="noopener"
+      aria-label="${echapper(t.cafeAria)}"><img src="${icone}" width="24" height="24" alt="">${langue === 'en' ? en : fr}</a>`;
+}
+
 /* ─── Partager ────────────────────────────────────────────────────────── */
 
 /**
@@ -1755,6 +1802,7 @@ function pageProjet(projet, t, langue) {
       <p class="nb-boite-ligne"><span>${t.session}</span><b>${projetsFichier.legislature}<sup>${langue === 'en' ? 'th' : 'e'}</sup> · ${projetsFichier.session}</b></p>
       <a class="nb-btn nb-btn-jaune" href="${echapper(lien)}" rel="noopener">${t.voirOfficiel}</a>
 ${barrePartage(`${t.abrevProjet} ${projet.numero} — ${titre}`, adresse, t)}
+${boutonCafe(t, langue)}
     </aside>
   </section>
   <section class="nb-section">
