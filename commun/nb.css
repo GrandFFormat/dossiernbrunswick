@@ -85,13 +85,12 @@ body {
 a { color: var(--tintink); }
 html[data-theme='dark'] a { color: #9db4ff; }
 
-/* La page vit dans une colonne, sur le gris du cahier. */
+/* La page prend toute la largeur de la fenêtre : les bandes bleues — le bandeau, « Quoi
+   de neuf », le pied — doivent toucher les deux bords. Une colonne centrée laissait deux
+   barres de fond nues sur les côtés. */
 .nb-page {
-  max-width: 1200px;
-  margin: 0 auto;
   background: var(--p);
   color: var(--ink);
-  box-shadow: var(--shadow-sm);
 }
 
 /* ─── Le bandeau défilant ───────────────────────────────────────────────── */
