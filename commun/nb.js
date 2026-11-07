@@ -191,4 +191,58 @@
   });
 
   rafraichir();
+
+  /* ─── Chercher une personne ───────────────────────────────────────────── */
+
+  // Une seule recherche pour les ministres et pour l'Assemblée : on tape un nom, une
+  // circonscription, un parti ou un portefeuille, et tout le reste s'efface. Le formulaire
+  // n'apparaît que s'il peut marcher — sans JavaScript, la page garde ses 49 personnes,
+  // ce qui vaut mieux qu'un champ qui ne répond pas.
+  const formulaire = document.querySelector('[data-nb-cherche]');
+  const champ = formulaire && formulaire.querySelector('input');
+  const rien = document.querySelector('[data-nb-cherche-rien]');
+
+  if (formulaire && champ) {
+    formulaire.hidden = false;
+    const fiches = [...document.querySelectorAll('[data-nb-chercher]')];
+    const groupes = [...document.querySelectorAll('[data-nb-groupe]')];
+
+    const sansAccent = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+
+    function chercher() {
+      const q = sansAccent(champ.value);
+      // Chaque mot doit se retrouver : « coon fredericton » marche, dans l'ordre qu'on veut.
+      const mots = q.split(/\s+/).filter(Boolean);
+      let trouves = 0;
+
+      for (const fiche of fiches) {
+        const texte = fiche.getAttribute('data-nb-chercher') || '';
+        const garde = mots.every((m) => texte.includes(m));
+        fiche.hidden = !garde;
+        if (garde) trouves += 1;
+      }
+
+      // Un parti dont personne ne ressort disparaît, et les comptes suivent ce qu'on voit.
+      for (const groupe of groupes) {
+        const dedans = [...groupe.querySelectorAll('[data-nb-chercher]')];
+        const visibles = dedans.filter((f) => !f.hidden).length;
+        groupe.hidden = mots.length > 0 && visibles === 0;
+        const compte = groupe.querySelector('[data-nb-compte-groupe]');
+        if (compte) compte.textContent = String(mots.length ? visibles : dedans.length);
+      }
+
+      if (rien) {
+        rien.hidden = !(mots.length && trouves === 0);
+        if (!rien.hidden) {
+          rien.textContent = (rien.getAttribute('data-nb-cherche-rien') || '{q}').replace('{q}', champ.value.trim());
+        }
+      }
+    }
+
+    champ.addEventListener('input', chercher);
+    // Entrée ne doit pas recharger la page : la recherche se fait à la frappe.
+    formulaire.addEventListener('submit', (e) => { e.preventDefault(); chercher(); });
+    formulaire.addEventListener('reset', () => { setTimeout(chercher, 0); });
+    chercher();
+  }
 })();

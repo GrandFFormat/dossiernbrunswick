@@ -994,3 +994,48 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
   text-transform: none;
 }
 .nb-carte-donnees dd .nb-taux { font-size: 11px; }
+
+/* ─── Chercher une personne ─────────────────────────────────────────────── */
+
+.nb-cherche {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  max-width: 560px;
+  margin-top: 14px;
+  background: var(--w);
+  border: 1px solid var(--color-divider);
+  box-shadow: var(--shadow-sm);
+}
+.nb-cherche:focus-within { border-color: var(--acc); }
+.nb-cherche-loupe {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  color: var(--nb-bleu-nuit);
+  background: var(--nb-jaune);
+}
+.nb-cherche input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: transparent;
+}
+.nb-cherche input:focus { outline: none; }
+.nb-cherche input::placeholder { color: var(--ink3); }
+.nb-cherche button {
+  border: 0;
+  border-left: 1px solid var(--color-divider);
+  padding: 0 16px;
+  font: 600 12px var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  background: transparent;
+  cursor: pointer;
+}
+.nb-cherche button:hover { color: var(--nb-rouge); }
