@@ -40,6 +40,9 @@ jobs:
       - name: Lire les fiches, dans les deux langues
         run: node scrapers/nb-fiches.js
 
+      - name: Lire les dépenses payées aux député·e·s
+        run: node scrapers/nb-finances.js
+
       - name: Télécharger et réduire les portraits
         run: node scrapers/nb-portraits.js
 
