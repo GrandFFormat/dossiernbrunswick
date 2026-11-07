@@ -179,6 +179,7 @@ const T = {
     ],
     presenceTitre: (n, total) => `${n} vote${n > 1 ? 's' : ''} sur ${total}`,
     ministreCirconscription: 'Circonscription', ministreProjets: 'Projets de loi déposés',
+    ministrePresence: 'Présence aux votes',
     ministreFiche: 'Fiche officielle →', ministrePortefeuilles: 'Portefeuilles',
     suivreMinistre: (n) => `Suivre ${n}`,
     monDossierProjets: 'Projets de loi suivis', monDossierMinistres: 'Ministres suivis',
@@ -336,6 +337,7 @@ const T = {
     ],
     presenceTitre: (n, total) => `${n} of ${total} divisions`,
     ministreCirconscription: 'Riding', ministreProjets: 'Bills introduced',
+    ministrePresence: 'Vote attendance',
     ministreFiche: 'Official page →', ministrePortefeuilles: 'Portfolios',
     suivreMinistre: (n) => `Follow ${n}`,
     monDossierProjets: 'Bills you follow', monDossierMinistres: 'Ministers you follow',
@@ -1000,7 +1002,7 @@ const PRESENCE_AUX_VOTES = (() => {
           + 'de ce qu\'il a voté.'
         );
       }
-      const cle = candidats[0].nomAffiche;
+      const cle = sansAccent(candidats[0].nomAffiche).replace(/[^a-z]/g, '');
       presents.set(cle, (presents.get(cle) || 0) + 1);
     }
   }
@@ -1023,8 +1025,10 @@ const PRESENCE_AUX_VOTES = (() => {
     comptes: taux.length,
     sansDonnee: deputes.length - presents.size,
     compte,
-    de(depute) {
-      const n = presents.get(depute.nomAffiche);
+    // La clé est le nom réduit à ses lettres : la page du Conseil exécutif et celle des
+    // député·e·s n'écrivent pas toujours un nom pareil, et un ministre est un·e député·e.
+    de(personne) {
+      const n = presents.get(sansAccent(personne.nomAffiche).replace(/[^a-z]/g, ''));
       if (n === undefined || !total) return null;
       const t = Math.round((n / total) * 100);
       return { votes: n, total, taux: t, couleur: couleur(t) };
@@ -1044,6 +1048,7 @@ const identifiantMinistre = (m) => (m.fiche ? m.fiche.split('/').filter(Boolean)
 function carteMinistre(m, t, langue, { genre = 'ministre' } = {}) {
   const id = identifiantMinistre(m);
   const projets = PROJETS_PAR_PARRAIN.get(normaliserNom(m.nomAffiche)) || 0;
+  const presence = PRESENCE_AUX_VOTES.de(m);
 
   return `      <article class="nb-carte-ministre" data-nb-${genre}="${echapper(id)}"${m.couleurParti ? ` style="--parti:${echapper(m.couleurParti)}"` : ''}>
         <div class="nb-carte-tete">
@@ -1052,11 +1057,14 @@ function carteMinistre(m, t, langue, { genre = 'ministre' } = {}) {
             data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
             aria-pressed="false" title="${echapper(t.suivreMinistre(m.nomAffiche))}">${t.suivre}</button>
         </div>
-        <h2>${echapper(m.nomAffiche)}</h2>
+        <h2>${echapper(m.nomAffiche)}${m.titre ? `<span class="nb-titre">${echapper(m.titre)}</span>` : ''}</h2>
         ${(m.roles || []).length ? `<p class="nb-roles">${m.roles.map((r) => echapper(r)).join(' · ')}</p>` : ''}
         <dl class="nb-carte-donnees">
           <div><dt>${t.ministreCirconscription}</dt><dd>${echapper(m.circonscription || '—')}</dd></div>
           <div><dt>${t.ministreProjets}</dt><dd>${projets}</dd></div>
+          <div><dt>${t.ministrePresence}</dt><dd>${presence
+            ? `<span class="nb-taux ${presence.couleur}" title="${echapper(t.presenceTitre(presence.votes, presence.total))}">${presence.taux} %</span>`
+            : `<span class="nb-taux nd">${t.presenceND}</span>`}</dd></div>
         </dl>
         ${m.fiche ? `<p class="nb-carte-pied"><a href="${echapper(m.fiche)}" rel="noopener">${t.ministreFiche}</a></p>` : ''}
       </article>`;
@@ -1072,7 +1080,7 @@ function ligneDepute(d, t, langue) {
   const presence = PRESENCE_AUX_VOTES.de(d);
 
   return `      <div class="nb-ligne-depute" data-nb-depute="${echapper(id)}"${d.couleurParti ? ` style="--parti:${echapper(d.couleurParti)}"` : ''}>
-        <p class="nb-ligne-nom"><b>${echapper(d.nomAffiche)}</b>
+        <p class="nb-ligne-nom"><b>${echapper(d.nomAffiche)}${d.titre ? `<span class="nb-titre">${echapper(d.titre)}</span>` : ''}</b>
           <span>${echapper(d.circonscription || '')}</span></p>
         <p class="nb-ligne-chiffres">
           ${presence

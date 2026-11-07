@@ -1,5 +1,5 @@
 {
-  "luLe": "2026-11-07T05:40:38.400Z",
+  "luLe": "2026-11-07T10:07:54.831Z",
   "source": "https://www.legnb.ca/en/members/executive-council",
   "sourceFr": "https://www.legnb.ca/fr/parlementaires/conseil-executif",
   "avertissement": "Liste tenue par l'Assemblée législative. La page du gouvernement (gnb.ca) a déjà été en retard sur celle-ci : en cas de divergence, c'est cette page-ci qui a fait foi.",
@@ -16,7 +16,8 @@
         "Minister responsible for Official Languages"
       ],
       "nomOfficiel": "Holt, Susan",
-      "nomAffiche": "Susan Holt"
+      "nomAffiche": "Susan Holt",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -29,7 +30,8 @@
         "Minister responsible for Women and Gender Equity"
       ],
       "nomOfficiel": "Boudreau, Lyne Chantal",
-      "nomAffiche": "Lyne Chantal Boudreau"
+      "nomAffiche": "Lyne Chantal Boudreau",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -41,7 +43,8 @@
         "Minister of Transportation and Infrastructure"
       ],
       "nomOfficiel": "Chiasson, Chuck",
-      "nomAffiche": "Chuck Chiasson"
+      "nomAffiche": "Chuck Chiasson",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -53,7 +56,8 @@
         "Minister of Indigenous Affairs"
       ],
       "nomOfficiel": "Chiasson, Keith",
-      "nomAffiche": "Keith Chiasson"
+      "nomAffiche": "Keith Chiasson",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -69,7 +73,8 @@
         "Minister responsible for the Research and Productivity Council"
       ],
       "nomOfficiel": "D'Amours, Jean-Claude",
-      "nomAffiche": "Jean-Claude D'Amours"
+      "nomAffiche": "Jean-Claude D'Amours",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -81,7 +86,8 @@
         "Minister of Health"
       ],
       "nomOfficiel": "Dornan, John",
-      "nomAffiche": "John Dornan"
+      "nomAffiche": "John Dornan",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -93,7 +99,8 @@
         "Minister of Agriculture, Aquaculture and Fisheries"
       ],
       "nomOfficiel": "Finnigan, Pat",
-      "nomAffiche": "Pat Finnigan"
+      "nomAffiche": "Pat Finnigan",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -106,7 +113,8 @@
         "Minister responsible for La Francophonie"
       ],
       "nomOfficiel": "Gauvin, Robert",
-      "nomAffiche": "Robert Gauvin"
+      "nomAffiche": "Robert Gauvin",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -118,7 +126,8 @@
         "Minister of Natural Resources"
       ],
       "nomOfficiel": "Herron, John",
-      "nomAffiche": "John Herron"
+      "nomAffiche": "John Herron",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -130,7 +139,8 @@
         "Minister responsible for the New Brunswick Housing Corporation"
       ],
       "nomOfficiel": "Hickey, David",
-      "nomAffiche": "David Hickey"
+      "nomAffiche": "David Hickey",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -142,7 +152,8 @@
         "Minister of Education and Early Childhood Development"
       ],
       "nomOfficiel": "Johnson, Claire",
-      "nomAffiche": "Claire Johnson"
+      "nomAffiche": "Claire Johnson",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -155,7 +166,8 @@
         "Minister responsible for Service New Brunswick"
       ],
       "nomOfficiel": "Kennedy, Aaron",
-      "nomAffiche": "Aaron Kennedy"
+      "nomAffiche": "Aaron Kennedy",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -170,7 +182,8 @@
         "Minister responsible for the Right to Information and Protection of Privacy Act"
       ],
       "nomOfficiel": "Legacy, René",
-      "nomAffiche": "René Legacy"
+      "nomAffiche": "René Legacy",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -183,7 +196,8 @@
         "Minister responsible for the Regional Development Corporation"
       ],
       "nomOfficiel": "LePage, Gilles",
-      "nomAffiche": "Gilles LePage"
+      "nomAffiche": "Gilles LePage",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -197,7 +211,8 @@
         "Minister responsible for Addictions and Mental Health Services"
       ],
       "nomOfficiel": "McKee, Robert",
-      "nomAffiche": "Robert McKee"
+      "nomAffiche": "Robert McKee",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -210,7 +225,8 @@
         "Minister responsible for the Economic and Social Inclusion Corporation"
       ],
       "nomOfficiel": "Miles, Cindy",
-      "nomAffiche": "Cindy Miles"
+      "nomAffiche": "Cindy Miles",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -225,7 +241,8 @@
         "Minister responsible for the Regulatory Accountability and Reporting Act"
       ],
       "nomOfficiel": "Randall, Luke",
-      "nomAffiche": "Luke Randall"
+      "nomAffiche": "Luke Randall",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -237,7 +254,8 @@
         "Minister of Tourism, Heritage and Culture"
       ],
       "nomOfficiel": "Thériault, Isabelle",
-      "nomAffiche": "Isabelle Thériault"
+      "nomAffiche": "Isabelle Thériault",
+      "titre": null
     },
     {
       "parti": "Liberal Party",
@@ -249,7 +267,8 @@
         "Minister responsible for Labour"
       ],
       "nomOfficiel": "Townsend, Alyson",
-      "nomAffiche": "Alyson Townsend"
+      "nomAffiche": "Alyson Townsend",
+      "titre": null
     }
   ]
 }
