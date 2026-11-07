@@ -139,10 +139,12 @@ function lireFiche(html) {
   // Chaque propriété est un <span class="property-label">Étiquette</span> suivi de sa valeur,
   // en simple nœud texte, dans le même conteneur. On lit par l'étiquette et non par la
   // position : la liste des propriétés varie d'un projet à l'autre.
-  const valeurDe = (etiquette) => {
+  // La page française porte ses propres étiquettes : on accepte les deux jeux, pour que la
+  // même fonction lise la fiche dans l'une ou l'autre langue.
+  const valeurDe = (...etiquettes) => {
     let v = null;
     $('span.property-label').each((_, el) => {
-      if (texte($(el).html()) !== etiquette) return;
+      if (!etiquettes.includes(texte($(el).html()))) return;
       const $parent = $(el).parent().clone();
       $parent.find('span.property-label').remove();
       const t = texte($parent.html());
@@ -150,8 +152,8 @@ function lireFiche(html) {
     });
     return v;
   };
-  fiche.type = valeurDe('Bill Type');
-  fiche.statut = valeurDe('Status');
+  fiche.type = valeurDe('Bill Type', 'Type de projet de loi');
+  fiche.statut = valeurDe('Status', 'Étape', 'Statut');
 
   // Le parrain vit dans une carte de député·e, qui porte aussi la couleur officielle de son
   // parti (en bordure gauche) : on la prend ici plutôt que d'aller la chercher ailleurs.
@@ -232,12 +234,23 @@ async function main() {
     p.statut = fiche.statut;
     p.parrain = fiche.parrain;
     p.documents = fiche.documents;
-    p.source = {
-      en: HOTE + p.cheminFiche,
-      fr: `${HOTE}/fr/l%C3%A9gislation/projets-de-loi/${leg}/${ses}/${p.numero}/x`,
-    };
+
+    // La fiche anglaise ne liste que le texte anglais et le PDF bilingue ; le texte
+    // FRANÇAIS n'est listé que sur la fiche française. On pourrait deviner son adresse
+    // (« -e.htm » → « -f.htm »), mais une adresse devinée est une adresse qui finit un
+    // jour en 404 sur le site : on lit la page qui la publie.
+    const cheminFr = `/fr/l%C3%A9gislation/projets-de-loi/${leg}/${ses}/${p.numero}/x`;
+    const ficheFr = lireFiche(await lire(cheminFr));
+    if (ficheFr.documents.htmlFr) p.documents.htmlFr = ficheFr.documents.htmlFr;
+    if (ficheFr.documents.htmlEn && !p.documents.htmlEn) p.documents.htmlEn = ficheFr.documents.htmlEn;
+    p.typeFr = ficheFr.type || null;
+    p.statutFr = ficheFr.statut || null;
+
+    p.source = { en: HOTE + p.cheminFiche, fr: HOTE + cheminFr };
     delete p.cheminFiche;
-    console.log(`  no ${String(p.numero).padStart(2)} ${p.statut || '—'} · ${p.parrain?.nom || 'sans parrain'}`);
+    const textes = [p.documents.htmlFr && 'FR', p.documents.htmlEn && 'EN', p.documents.pdfBilingue && 'PDF']
+      .filter(Boolean).join('+') || 'aucun texte';
+    console.log(`  no ${String(p.numero).padStart(2)} ${p.statut || '—'} · ${p.parrain?.nom || 'sans parrain'} · ${textes}`);
   }
 
   ecrireJson(SORTIE, {
