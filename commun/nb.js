@@ -118,53 +118,67 @@
   // Le site n'en sait rien, et n'a donc rien à perdre ni à revendre. En échange, la liste
   // ne suit pas d'un appareil à l'autre — la page « Mon dossier » le dit en clair.
   const CLE_SUIVIS = 'dnb:suivis';
+  const GENRES = ['projet', 'ministre', 'depute'];
 
   function lireSuivis() {
+    const vide = { projet: [], ministre: [], depute: [] };
     try {
-      const brut = JSON.parse(memoire.lire(CLE_SUIVIS) || '[]');
-      return Array.isArray(brut) ? brut.map(Number).filter(Number.isFinite) : [];
-    } catch { return []; }
+      const brut = JSON.parse(memoire.lire(CLE_SUIVIS) || 'null');
+      // La première version ne gardait qu'une liste de numéros de projets de loi.
+      if (Array.isArray(brut)) return { ...vide, projet: brut.map(String) };
+      if (!brut || typeof brut !== 'object') return vide;
+      for (const genre of GENRES) {
+        if (Array.isArray(brut[genre])) vide[genre] = brut[genre].map(String);
+      }
+      return vide;
+    } catch { return vide; }
   }
 
   let suivis = lireSuivis();
+  const combien = () => GENRES.reduce((n, genre) => n + suivis[genre].length, 0);
 
-  function ecrireSuivis() {
-    memoire.ecrire(CLE_SUIVIS, JSON.stringify(suivis));
-  }
-
-  const listeDossier = document.querySelector('[data-nb-dossier]');
   const avisVide = document.querySelector('[data-nb-dossier-vide]');
 
   function rafraichir() {
+    const total = combien();
+
     // Le compteur de l'en-tête : caché quand il n'y a rien à compter.
     for (const c of document.querySelectorAll('[data-nb-compteur]')) {
-      c.textContent = String(suivis.length);
-      c.hidden = suivis.length === 0;
+      c.textContent = String(total);
+      c.hidden = total === 0;
     }
 
     for (const b of document.querySelectorAll('[data-nb-suivre]')) {
-      const numero = Number(b.getAttribute('data-nb-suivre'));
-      const actif = suivis.includes(numero);
+      const genre = b.getAttribute('data-nb-suivre-genre') || 'projet';
+      const actif = suivis[genre].includes(b.getAttribute('data-nb-suivre'));
       const [motSuivre, motSuivi] = (b.getAttribute('data-nb-suivre-mots') || 'Suivre|Suivi').split('|');
       b.setAttribute('aria-pressed', String(actif));
       b.textContent = actif ? motSuivi : motSuivre;
       b.setAttribute('data-nb-pret', '');
     }
 
-    // Sur « Mon dossier », on ne garde que les rangées suivies.
-    if (listeDossier) {
-      for (const rangee of listeDossier.querySelectorAll('[data-nb-projet]')) {
-        rangee.hidden = !suivis.includes(Number(rangee.getAttribute('data-nb-projet')));
+    // Sur « Mon dossier », on ne garde que ce qui est suivi, et un bloc sans rien
+    // suivi ne s'affiche pas du tout.
+    for (const genre of GENRES) {
+      const liste = document.querySelector(`[data-nb-dossier="${genre}"]`);
+      if (!liste) continue;
+      for (const carte of liste.querySelectorAll(`[data-nb-${genre}]`)) {
+        carte.hidden = !suivis[genre].includes(carte.getAttribute(`data-nb-${genre}`));
       }
-      if (avisVide) avisVide.hidden = suivis.length !== 0;
+      const bloc = document.querySelector(`[data-nb-bloc-dossier="${genre}"]`);
+      if (bloc) bloc.hidden = suivis[genre].length === 0;
     }
+    if (avisVide) avisVide.hidden = total !== 0;
   }
 
   for (const b of document.querySelectorAll('[data-nb-suivre]')) {
     b.addEventListener('click', () => {
-      const numero = Number(b.getAttribute('data-nb-suivre'));
-      suivis = suivis.includes(numero) ? suivis.filter((n) => n !== numero) : [...suivis, numero];
-      ecrireSuivis();
+      const genre = b.getAttribute('data-nb-suivre-genre') || 'projet';
+      const id = b.getAttribute('data-nb-suivre');
+      suivis[genre] = suivis[genre].includes(id)
+        ? suivis[genre].filter((x) => x !== id)
+        : [...suivis[genre], id];
+      memoire.ecrire(CLE_SUIVIS, JSON.stringify(suivis));
       rafraichir();
     });
   }

@@ -30,7 +30,7 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     <a class="nb-onglet" href="/"><span class="nb-num">01</span>Aperçu</a>
     <a class="nb-onglet" href="/ministres"><span class="nb-num">02</span>Ministres</a>
     <a class="nb-onglet" href="/projets-de-loi"><span class="nb-num">03</span>Projets de loi</a>
-    <a class="nb-onglet" href="/deputes"><span class="nb-num">04</span>Député·e·s</a>
+    <a class="nb-onglet" href="/ministres#assemblee"><span class="nb-num">04</span>Député·e·s</a>
     <a class="nb-onglet" href="/lexique"><span class="nb-num">05</span>Lexique</a>
     <a class="nb-onglet nb-onglet-etoile" href="/mon-dossier" aria-current="page">
       <span class="nb-etoile-petite" aria-hidden="true">★</span>Mon dossier<span class="nb-compteur-suivis" data-nb-compteur hidden></span></a>
@@ -61,7 +61,10 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
   </section>
   <section class="nb-section">
     <p class="nb-vide" data-nb-dossier-vide hidden>Vous ne suivez encore aucun projet de loi. Le bouton <b>Suivre</b>, sur chaque projet, l'ajoute ici.</p>
-    <div class="nb-projets" data-nb-dossier>
+  </section>
+  <section class="nb-section" data-nb-bloc-dossier="projet" hidden>
+    <div class="nb-section-tete"><h2>Projets de loi suivis</h2></div>
+    <div class="nb-projets" data-nb-dossier="projet">
         <div class="nb-rangee" data-nb-projet="14">
           <details class="nb-projet-bloc">
             <summary class="nb-projet">
@@ -343,7 +346,1039 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
             aria-pressed="false" title="Suivre le projet de loi nᵒ 1">Suivre</button>
         </div>
     </div>
-    <p class="nb-fiche-source"><a href="/projets-de-loi">Voir tous les projets de loi →</a></p>
+    <p class="nb-carte-pied"><a href="/projets-de-loi">Voir tous les projets de loi →</a></p>
+  </section>
+  <section class="nb-section" data-nb-bloc-dossier="ministre" hidden>
+    <div class="nb-section-tete"><h2>Ministres suivis</h2></div>
+    <div class="nb-grille-ministres" data-nb-dossier="ministre">
+      <article class="nb-carte-ministre" data-nb-ministre="holt-susan" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="holt-susan" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Susan Holt">Suivre</button>
+        </div>
+        <h2>Susan Holt</h2>
+        <p class="nb-roles">Premier · President of the Executive Council · Minister responsible for Official Languages</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Fredericton South-Silverwood</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/182/holt-susan" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="boudreau-lyne-chantal" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="boudreau-lyne-chantal" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Lyne Chantal Boudreau">Suivre</button>
+        </div>
+        <h2>Lyne Chantal Boudreau</h2>
+        <p class="nb-roles">Minister of Seniors · Minister responsible for Women and Gender Equity</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Champdoré-Irishtown</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/208/boudreau-lyne-chantal" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="chiasson-chuck" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="chiasson-chuck" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Chuck Chiasson">Suivre</button>
+        </div>
+        <h2>Chuck Chiasson</h2>
+        <p class="nb-roles">Minister of Transportation and Infrastructure</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Grand Falls-Vallée-des-Rivières-Saint-Quentin</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/11/chiasson-chuck" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="chiasson-keith" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="chiasson-keith" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Keith Chiasson">Suivre</button>
+        </div>
+        <h2>Keith Chiasson</h2>
+        <p class="nb-roles">Minister of Indigenous Affairs</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Tracadie</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/49/chiasson-keith" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="damours-jean-claude" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="damours-jean-claude" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Jean-Claude D'Amours">Suivre</button>
+        </div>
+        <h2>Jean-Claude D'Amours</h2>
+        <p class="nb-roles">Minister of Post-Secondary Education, Training and Labour · Minister of Intergovernmental Affairs · Minister responsible for Immigration · Minister responsible for Military Affairs · Minister responsible for the Research and Productivity Council</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Edmundston-Vallée-des-Rivières</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/9/damours-jean-claude" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="dornan-john" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="dornan-john" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre John Dornan">Suivre</button>
+        </div>
+        <h2>John Dornan</h2>
+        <p class="nb-roles">Minister of Health</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Saint John Portland-Simonds</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/202/dornan-john" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="finnigan-pat" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="finnigan-pat" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Pat Finnigan">Suivre</button>
+        </div>
+        <h2>Pat Finnigan</h2>
+        <p class="nb-roles">Minister of Agriculture, Aquaculture and Fisheries</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Kent North</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/192/finnigan-pat" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="gauvin-robert" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="gauvin-robert" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Robert Gauvin">Suivre</button>
+        </div>
+        <h2>Robert Gauvin</h2>
+        <p class="nb-roles">Minister of Public Safety · Minister responsible for La Francophonie</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Shediac Bay-Dieppe</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/46/gauvin-robert" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="herron-john" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="herron-john" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre John Herron">Suivre</button>
+        </div>
+        <h2>John Herron</h2>
+        <p class="nb-roles">Minister of Natural Resources</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Hampton-Fundy-St. Martins</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/199/herron-john" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="hickey-david" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="hickey-david" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre David Hickey">Suivre</button>
+        </div>
+        <h2>David Hickey</h2>
+        <p class="nb-roles">Minister responsible for the New Brunswick Housing Corporation</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Saint John Harbour</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/203/hickey-david" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="johnson-claire" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="johnson-claire" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Claire Johnson">Suivre</button>
+        </div>
+        <h2>Claire Johnson</h2>
+        <p class="nb-roles">Minister of Education and Early Childhood Development</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Moncton South</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/194/johnson-claire" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="kennedy-aaron" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="kennedy-aaron" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Aaron Kennedy">Suivre</button>
+        </div>
+        <h2>Aaron Kennedy</h2>
+        <p class="nb-roles">Minister of Local Government · Minister responsible for Service New Brunswick</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Quispamsis</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/200/kennedy-aaron" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="legacy-rene" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="legacy-rene" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre René Legacy">Suivre</button>
+        </div>
+        <h2>René Legacy</h2>
+        <p class="nb-roles">Deputy Premier · Minister of Finance and Treasury Board · Minister of Energy · Minister responsible for the Right to Information and Protection of Privacy Act</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Bathurst</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>2</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/157/legacy-rene" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="lepage-gilles" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="lepage-gilles" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Gilles LePage">Suivre</button>
+        </div>
+        <h2>Gilles LePage</h2>
+        <p class="nb-roles">Minister of Environment and Climate Change · Minister responsible for the Regional Development Corporation</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Restigouche West</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/37/lepage-gilles" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="mckee-robert" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="mckee-robert" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Robert McKee">Suivre</button>
+        </div>
+        <h2>Robert McKee</h2>
+        <p class="nb-roles">Minister of Justice · Attorney General · Minister responsible for Addictions and Mental Health Services</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Moncton Centre</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>5</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/30/mckee-robert" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="miles-cindy" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="miles-cindy" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Cindy Miles">Suivre</button>
+        </div>
+        <h2>Cindy Miles</h2>
+        <p class="nb-roles">Minister of Social Development · Minister responsible for the Economic and Social Inclusion Corporation</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Hanwell-New Maryland</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/207/miles-cindy" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="randall-luke" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="randall-luke" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Luke Randall">Suivre</button>
+        </div>
+        <h2>Luke Randall</h2>
+        <p class="nb-roles">Minister responsible for Opportunities NB · Minister responsible for Economic Development and Small Business · Minister responsible for NB Liquor and Cannabis NB · Minister responsible for the Regulatory Accountability and Reporting Act</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Fredericton North</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/206/randall-luke" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="theriault-isabelle" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="theriault-isabelle" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Isabelle Thériault">Suivre</button>
+        </div>
+        <h2>Isabelle Thériault</h2>
+        <p class="nb-roles">Minister of Tourism, Heritage and Culture</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Caraquet</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/5/theriault-isabelle" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-ministre="townsend-alyson" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="townsend-alyson" data-nb-suivre-genre="ministre"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Alyson Townsend">Suivre</button>
+        </div>
+        <h2>Alyson Townsend</h2>
+        <p class="nb-roles">Minister responsible for Labour</p>
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Rothesay</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/201/townsend-alyson" rel="noopener">Fiche officielle →</a></p>
+      </article>
+    </div>
+    <p class="nb-carte-pied"><a href="/ministres">Le Conseil exécutif →</a></p>
+  </section>
+  <section class="nb-section" data-nb-bloc-dossier="depute" hidden>
+    <div class="nb-section-tete"><h2>Député·e·s suivi·e·s</h2></div>
+    <div class="nb-grille-ministres" data-nb-dossier="depute">
+      <article class="nb-carte-ministre" data-nb-depute="ames-richard" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="ames-richard" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Richard Ames">Suivre</button>
+        </div>
+        <h2>Richard Ames</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Carleton-York</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/165/ames-richard" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="arseneault-guy" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="arseneault-guy" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Guy Arseneault">Suivre</button>
+        </div>
+        <h2>Guy Arseneault</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Restigouche East</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/4/arseneault-guy" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="austin-kris" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="austin-kris" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Kris Austin">Suivre</button>
+        </div>
+        <h2>Kris Austin</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Fredericton-Grand Lake</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/16/austin-kris" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="bockus-kathy" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="bockus-kathy" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Kathy Bockus">Suivre</button>
+        </div>
+        <h2>Kathy Bockus</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Saint Croix</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/162/bockus-kathy" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="boudreau-lyne-chantal" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="boudreau-lyne-chantal" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Lyne Chantal Boudreau">Suivre</button>
+        </div>
+        <h2>Lyne Chantal Boudreau</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Champdoré-Irishtown</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/208/boudreau-lyne-chantal" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="bourque-benoit" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="bourque-benoit" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Benoît Bourque">Suivre</button>
+        </div>
+        <h2>Benoît Bourque</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Beausoleil-Grand-Bouctouche-Kent</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/23/bourque-benoit" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="chiasson-chuck" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="chiasson-chuck" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Chuck Chiasson">Suivre</button>
+        </div>
+        <h2>Chuck Chiasson</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Grand Falls-Vallée-des-Rivières-Saint-Quentin</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/11/chiasson-chuck" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="chiasson-keith" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="chiasson-keith" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Keith Chiasson">Suivre</button>
+        </div>
+        <h2>Keith Chiasson</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Tracadie</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/49/chiasson-keith" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="conroy-michelle" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="conroy-michelle" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Michelle Conroy">Suivre</button>
+        </div>
+        <h2>Michelle Conroy</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Miramichi East</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/29/conroy-michelle" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="coon-david" style="--parti:#3D9B35">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Green Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="coon-david" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre David Coon">Suivre</button>
+        </div>
+        <h2>David Coon</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Fredericton Lincoln</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/14/coon-david" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="cullins-ryan" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="cullins-ryan" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Ryan Cullins">Suivre</button>
+        </div>
+        <h2>Ryan Cullins</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Fredericton-York</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/164/cullins-ryan" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="damours-jean-claude" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="damours-jean-claude" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Jean-Claude D'Amours">Suivre</button>
+        </div>
+        <h2>Jean-Claude D'Amours</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Edmundston-Vallée-des-Rivières</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/9/damours-jean-claude" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="dornan-john" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="dornan-john" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre John Dornan">Suivre</button>
+        </div>
+        <h2>John Dornan</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Saint John Portland-Simonds</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/202/dornan-john" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="doucet-alexandre-cedric" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="doucet-alexandre-cedric" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Alexandre Cédric Doucet">Suivre</button>
+        </div>
+        <h2>Alexandre Cédric Doucet</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Moncton East</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/196/doucet-alexandre-cedric" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="finnigan-pat" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="finnigan-pat" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Pat Finnigan">Suivre</button>
+        </div>
+        <h2>Pat Finnigan</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Kent North</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/192/finnigan-pat" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="gauvin-robert" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="gauvin-robert" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Robert Gauvin">Suivre</button>
+        </div>
+        <h2>Robert Gauvin</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Shediac Bay-Dieppe</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/46/gauvin-robert" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="herron-john" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="herron-john" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre John Herron">Suivre</button>
+        </div>
+        <h2>John Herron</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Hampton-Fundy-St. Martins</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/199/herron-john" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="hickey-david" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="hickey-david" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre David Hickey">Suivre</button>
+        </div>
+        <h2>David Hickey</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Saint John Harbour</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/203/hickey-david" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="hogan-bill" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="hogan-bill" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Bill Hogan">Suivre</button>
+        </div>
+        <h2>Bill Hogan</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Woodstock-Hartland</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/166/hogan-bill" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="holt-susan" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="holt-susan" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Susan Holt">Suivre</button>
+        </div>
+        <h2>Susan Holt</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Fredericton South-Silverwood</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/182/holt-susan" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="johnson-claire" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="johnson-claire" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Claire Johnson">Suivre</button>
+        </div>
+        <h2>Claire Johnson</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Moncton South</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/194/johnson-claire" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="johnson-margaret" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="johnson-margaret" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Margaret Johnson">Suivre</button>
+        </div>
+        <h2>Margaret Johnson</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Carleton-Victoria</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/167/johnson-margaret" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="johnston-sam" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="johnston-sam" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Sam Johnston">Suivre</button>
+        </div>
+        <h2>Sam Johnston</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Miramichi Bay-Neguac</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/191/johnston-sam" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="kennedy-aaron" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="kennedy-aaron" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Aaron Kennedy">Suivre</button>
+        </div>
+        <h2>Aaron Kennedy</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Quispamsis</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/200/kennedy-aaron" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="landry-francine" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="landry-francine" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Francine Landry">Suivre</button>
+        </div>
+        <h2>Francine Landry</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Madawaska Les Lacs-Edmundston</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/26/landry-francine" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="leblanc-jacques" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="leblanc-jacques" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Jacques LeBlanc">Suivre</button>
+        </div>
+        <h2>Jacques LeBlanc</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Shediac-Cap-Acadie</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/45/leblanc-jacques" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="leblanc-marco" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="leblanc-marco" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Marco LeBlanc">Suivre</button>
+        </div>
+        <h2>Marco LeBlanc</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Belle-Baie-Belledune</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/180/leblanc-marco" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="lee-ian" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="lee-ian" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Ian Lee">Suivre</button>
+        </div>
+        <h2>Ian Lee</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Fundy-The Isles-Saint John Lorneville</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/205/lee-ian" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="legacy-rene" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="legacy-rene" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre René Legacy">Suivre</button>
+        </div>
+        <h2>René Legacy</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Bathurst</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>2</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/157/legacy-rene" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="lepage-gilles" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="lepage-gilles" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Gilles LePage">Suivre</button>
+        </div>
+        <h2>Gilles LePage</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Restigouche West</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/37/lepage-gilles" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="mallet-eric" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="mallet-eric" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Eric Mallet">Suivre</button>
+        </div>
+        <h2>Eric Mallet</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Shippagan-Les-Îles</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/158/mallet-eric" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="mckee-robert" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="mckee-robert" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre K.C., Robert McKee">Suivre</button>
+        </div>
+        <h2>K.C., Robert McKee</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Moncton Centre</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/30/mckee-robert" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="miles-cindy" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="miles-cindy" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Cindy Miles">Suivre</button>
+        </div>
+        <h2>Cindy Miles</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Hanwell-New Maryland</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/207/miles-cindy" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="mitton-megan" style="--parti:#3D9B35">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Green Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="mitton-megan" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Megan Mitton">Suivre</button>
+        </div>
+        <h2>Megan Mitton</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Tantramar</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/27/mitton-megan" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="monahan-don" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="monahan-don" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Don Monahan">Suivre</button>
+        </div>
+        <h2>Don Monahan</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Arcadia-Butternut Valley-Maple Hills</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/198/monahan-don" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="oliver-bill" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="oliver-bill" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Bill Oliver">Suivre</button>
+        </div>
+        <h2>Bill Oliver</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Kings Centre</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/24/oliver-bill" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="randall-luke" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="randall-luke" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Luke Randall">Suivre</button>
+        </div>
+        <h2>Luke Randall</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Fredericton North</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/206/randall-luke" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="robichaud-luc" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="robichaud-luc" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Luc Robichaud">Suivre</button>
+        </div>
+        <h2>Luc Robichaud</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Hautes-Terres-Nepisiguit</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/190/robichaud-luc" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="russell-kevin" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="russell-kevin" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Kevin Russell">Suivre</button>
+        </div>
+        <h2>Kevin Russell</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Miramichi West</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/209/russell-kevin" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="savoie-glen" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="savoie-glen" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Glen Savoie">Suivre</button>
+        </div>
+        <h2>Glen Savoie</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Saint John East</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/21/savoie-glen" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="scott-wallace-tammy" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="scott-wallace-tammy" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Tammy Scott-Wallace">Suivre</button>
+        </div>
+        <h2>Tammy Scott-Wallace</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Sussex-Three Rivers</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/161/scott-wallace-tammy" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="sodhi-tania" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="sodhi-tania" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Tania Sodhi">Suivre</button>
+        </div>
+        <h2>Tania Sodhi</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Moncton Northwest</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/195/sodhi-tania" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="theriault-isabelle" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="theriault-isabelle" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Isabelle Thériault">Suivre</button>
+        </div>
+        <h2>Isabelle Thériault</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Caraquet</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/5/theriault-isabelle" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="townsend-alyson" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="townsend-alyson" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Alyson Townsend">Suivre</button>
+        </div>
+        <h2>Alyson Townsend</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Rothesay</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/201/townsend-alyson" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="vautour-natacha" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="vautour-natacha" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Natacha Vautour">Suivre</button>
+        </div>
+        <h2>Natacha Vautour</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Dieppe-Memramcook</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/193/vautour-natacha" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="weir-rob" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="weir-rob" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Rob Weir">Suivre</button>
+        </div>
+        <h2>Rob Weir</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Riverview</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/197/weir-rob" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="wilcott-kate" style="--parti:#C0161D">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Liberal Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="wilcott-kate" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Kate Wilcott">Suivre</button>
+        </div>
+        <h2>Kate Wilcott</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Saint John West-Lancaster</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/204/wilcott-kate" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="wilson-mary" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="wilson-mary" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Mary Wilson">Suivre</button>
+        </div>
+        <h2>Mary Wilson</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Oromocto-Sunbury</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/35/wilson-mary" rel="noopener">Fiche officielle →</a></p>
+      </article>
+      <article class="nb-carte-ministre" data-nb-depute="wilson-sherry" style="--parti:#005DAC">
+        <div class="nb-carte-tete">
+          <span class="nb-pastille-parti">Progressive Conservative Party</span>
+          <button class="nb-suivre" type="button" data-nb-suivre="wilson-sherry" data-nb-suivre-genre="depute"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre Sherry Wilson">Suivre</button>
+        </div>
+        <h2>Sherry Wilson</h2>
+        
+        <dl class="nb-carte-donnees">
+          <div><dt>Circonscription</dt><dd>Albert-Riverview</dd></div>
+          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
+        </dl>
+        <p class="nb-carte-pied"><a href="https://www.legnb.ca/en/members/current/33/wilson-sherry" rel="noopener">Fiche officielle →</a></p>
+      </article>
+    </div>
+    <p class="nb-carte-pied"><a href="/ministres#assemblee">Les député·e·s →</a></p>
   </section>
   <footer class="nb-pied">
     <p><strong>Site non officiel.</strong> Données publiques de l'Assemblée législative du Nouveau-Brunswick (legnb.ca) et du gouvernement du Nouveau-Brunswick (gnb.ca). La version imprimée des projets de loi reste la version officielle.</p>
