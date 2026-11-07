@@ -163,6 +163,10 @@ const T = {
     compositionTitre: (n) => `Composition — ${n} sièges`,
     compositionSurtitre: 'Selon la liste des député·e·s tenue par l\'Assemblée législative',
     ministresSousTitre: 'Les ministres',
+    chercheLabel: 'Chercher une personne',
+    cherchePlaceholder: 'Nom, circonscription, parti…',
+    chercheRien: 'Personne ne correspond à « {q} ».',
+    chercheEffacer: 'Effacer',
     presenceTitreBoite: 'Lire la présence aux votes',
     presenceLexique: 'Définition complète → Lexique',
     presenceDef: (m, n) => `<b>${m} %</b> : sur les ${n} votes par appel nominal tenus depuis le début de la session, la personne a voté à ${m} % d'entre eux — pour ou contre, peu importe le sens.`,
@@ -321,6 +325,10 @@ const T = {
     compositionTitre: (n) => `Composition — ${n} seats`,
     compositionSurtitre: 'From the list of members kept by the Legislative Assembly',
     ministresSousTitre: 'The ministers',
+    chercheLabel: 'Find a person',
+    cherchePlaceholder: 'Name, riding, party…',
+    chercheRien: 'Nobody matches “{q}”.',
+    chercheEffacer: 'Clear',
     presenceTitreBoite: 'Reading the vote attendance',
     presenceLexique: 'Full definition → Glossary',
     presenceDef: (m, n) => `<b>${m} %</b>: of the ${n} recorded divisions held since the session opened, this person voted in ${m} % of them — yea or nay, whichever way.`,
@@ -1036,6 +1044,17 @@ const PRESENCE_AUX_VOTES = (() => {
   };
 })();
 
+/**
+ * Ce sur quoi la recherche d'une personne porte : son nom, sa circonscription, son parti
+ * et ses portefeuilles. Sans accents ni majuscules — on cherche « theriault » et on trouve
+ * « Thériault ». Les étiquettes de la page n'y sont pas : chercher « présence » ne doit pas
+ * ramener les 49 personnes.
+ */
+const motsDeRecherche = (p) => [p.nomAffiche, p.circonscription, p.parti, ...(p.roles || [])]
+  .filter(Boolean).join(' ')
+  .normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .toLowerCase();
+
 /** L'identifiant d'un ministre : celui que l'Assemblée emploie dans l'adresse de sa fiche. */
 const identifiantMinistre = (m) => (m.fiche ? m.fiche.split('/').filter(Boolean).pop() : normaliserNom(m.nomAffiche).replace(/ /g, '-'));
 
@@ -1050,7 +1069,7 @@ function carteMinistre(m, t, langue, { genre = 'ministre' } = {}) {
   const projets = PROJETS_PAR_PARRAIN.get(normaliserNom(m.nomAffiche)) || 0;
   const presence = PRESENCE_AUX_VOTES.de(m);
 
-  return `      <article class="nb-carte-ministre" data-nb-${genre}="${echapper(id)}"${m.couleurParti ? ` style="--parti:${echapper(m.couleurParti)}"` : ''}>
+  return `      <article class="nb-carte-ministre" data-nb-${genre}="${echapper(id)}" data-nb-chercher="${echapper(motsDeRecherche(m))}"${m.couleurParti ? ` style="--parti:${echapper(m.couleurParti)}"` : ''}>
         <div class="nb-carte-tete">
           ${m.parti ? `<span class="nb-pastille-parti">${echapper(m.parti)}</span>` : '<span></span>'}
           <button class="nb-suivre" type="button" data-nb-suivre="${echapper(id)}" data-nb-suivre-genre="${genre}"
@@ -1079,7 +1098,7 @@ function ligneDepute(d, t, langue) {
   const projets = PROJETS_PAR_PARRAIN.get(normaliserNom(d.nomAffiche)) || 0;
   const presence = PRESENCE_AUX_VOTES.de(d);
 
-  return `      <div class="nb-ligne-depute" data-nb-depute="${echapper(id)}"${d.couleurParti ? ` style="--parti:${echapper(d.couleurParti)}"` : ''}>
+  return `      <div class="nb-ligne-depute" data-nb-depute="${echapper(id)}" data-nb-chercher="${echapper(motsDeRecherche(d))}"${d.couleurParti ? ` style="--parti:${echapper(d.couleurParti)}"` : ''}>
         <p class="nb-ligne-nom"><b>${echapper(d.nomAffiche)}${d.titre ? `<span class="nb-titre">${echapper(d.titre)}</span>` : ''}</b>
           <span>${echapper(d.circonscription || '')}</span></p>
         <p class="nb-ligne-chiffres">
@@ -1168,10 +1187,10 @@ function pageMinistres(langue) {
 
   const assemblee = groupes.map(([parti, gens]) => {
     const couleur = gens[0]?.couleurParti;
-    return `  <section class="nb-section">
+    return `  <section class="nb-section" data-nb-groupe>
     <div class="nb-section-tete"${couleur ? ` style="border-bottom-color:${echapper(couleur)}"` : ''}>
       <h3>${echapper(parti)}</h3>
-      <span class="nb-compte">${gens.length}</span>
+      <span class="nb-compte" data-nb-compte-groupe>${gens.length}</span>
     </div>
     <div class="nb-lignes-deputes">
 ${gens.map((d) => ligneDepute(d, t, langue)).join('\n')}
@@ -1193,10 +1212,21 @@ ${gens.map((d) => ligneDepute(d, t, langue)).join('\n')}
       t.assembleeTitre,
       t.ministresNote,
     )}
+  <section class="nb-section">
+    <form class="nb-cherche" role="search" data-nb-cherche hidden>
+      <label class="nb-invisible" for="nb-cherche-champ">${t.chercheLabel}</label>
+      <span class="nb-cherche-loupe" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      </span>
+      <input id="nb-cherche-champ" type="search" autocomplete="off" placeholder="${echapper(t.cherchePlaceholder)}">
+      <button type="reset">${t.chercheEffacer}</button>
+    </form>
+    <p class="nb-vide" data-nb-cherche-rien="${echapper(t.chercheRien)}" hidden></p>
+  </section>
 ${sectionComposition(t, groupes, deputesFichier?.sieges ?? deputes.length)}
 ${encadrePresence(t)}
-  <section class="nb-section">
-    <div class="nb-section-tete"><h2>${t.ministresSousTitre}</h2><span class="nb-compte">${membres.length}</span></div>
+  <section class="nb-section" data-nb-groupe>
+    <div class="nb-section-tete"><h2>${t.ministresSousTitre}</h2><span class="nb-compte" data-nb-compte-groupe>${membres.length}</span></div>
     <div class="nb-grille-ministres">
 ${membres.map((m) => carteMinistre(m, t, langue)).join('\n')}
     </div>
