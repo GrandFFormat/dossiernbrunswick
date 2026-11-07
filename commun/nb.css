@@ -1039,3 +1039,44 @@ html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
   cursor: pointer;
 }
 .nb-cherche button:hover { color: var(--nb-rouge); }
+
+/* ─── La page d'une personne ────────────────────────────────────────────── */
+
+.nb-fil-ariane { margin: 0 0 14px; font-size: 13px; }
+.nb-fil-ariane a { color: var(--acc); text-decoration: none; font-weight: 600; }
+.nb-fil-ariane a:hover { color: var(--nb-rouge); }
+.nb-donnees-large { margin: 14px 0 0; max-width: none; }
+.nb-donnees-large > div { padding: 12px 0; }
+.nb-donnees-large dd { max-width: 70%; }
+
+.nb-positions { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; }
+.nb-positions li {
+  display: grid;
+  grid-template-columns: 110px 130px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 18px;
+  background: var(--w);
+  box-shadow: var(--shadow-sm);
+  font-size: 14px;
+}
+.nb-positions time { color: var(--ink3); font-variant-numeric: tabular-nums; font-size: 13px; }
+.nb-sens {
+  font: 600 11px var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  text-align: center;
+}
+.nb-sens.pour { background: #1f7a3f; color: #fff; }
+.nb-sens.contre { background: var(--nb-rouge); color: #fff; }
+
+/* Le nom d'une personne qui a sa page. */
+.nb-carte-ministre h2 a, .nb-ligne-nom b a { color: inherit; text-decoration: none; }
+.nb-carte-ministre h2 a:hover, .nb-ligne-nom b a:hover { color: var(--nb-rouge); }
+.nb-ligne-nom em { font-style: normal; color: var(--acc); font-weight: 600; }
+
+@media (max-width: 700px) {
+  .nb-positions li { grid-template-columns: 1fr; gap: 6px; }
+  .nb-sens { justify-self: start; }
+}
