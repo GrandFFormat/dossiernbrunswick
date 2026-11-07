@@ -26,6 +26,9 @@ const deputesFichier = lireJson('data/deputes.json');
 const conseilFichier = lireJson('data/conseil-executif.json');
 const calendrierFichier = lireJson('data/calendrier.json');
 const votesFichier = lireJson('data/votes.json');
+// Les fiches individuelles donnent les fonctions dans les deux langues. Elles sont lues
+// une fois par semaine : sans elles, le site se bâtit quand même, en moins riche.
+const fichesFichier = lireJson('data/fiches.json');
 
 if (!projetsFichier) throw new Error('data/projets-de-loi.json manque — lancer les scrapers avant le build');
 
@@ -167,6 +170,14 @@ const T = {
     cherchePlaceholder: 'Nom, circonscription, parti…',
     chercheRien: 'Personne ne correspond à « {q} ».',
     chercheEffacer: 'Effacer',
+    fichePersonneRetour: '← Le Conseil exécutif et toute l\'Assemblée',
+    ficheRoles: 'Fonctions', ficheParti: 'Parti', ficheProjets: 'Projets de loi déposés cette session',
+    ficheVotes: 'Ses votes nominatifs', ficheAucunProjet: 'Aucun projet de loi déposé cette session.',
+    ficheAucunVote: 'Cette personne n\'apparaît dans aucun vote nominatif de la session. Ce n\'est pas une absence : les votes nominatifs sont rares, et la plupart des projets de loi passent de vive voix.',
+    ficheVotePour: 'A voté pour', ficheVoteContre: 'A voté contre',
+    ficheDescription: (nom, r, c) => `${nom}, ${r}${c ? `, circonscription de ${c}` : ''} : fonctions, projets de loi déposés et votes nominatifs à l'Assemblée législative du Nouveau-Brunswick.`,
+    ficheSansFonction: 'Député·e',
+    ficheObjet: (v, langue) => objetLisible(v, langue),
     presenceTitreBoite: 'Lire la présence aux votes',
     presenceLexique: 'Définition complète → Lexique',
     presenceDef: (m, n) => `<b>${m} %</b> : sur les ${n} votes par appel nominal tenus depuis le début de la session, la personne a voté à ${m} % d'entre eux — pour ou contre, peu importe le sens.`,
@@ -329,6 +340,14 @@ const T = {
     cherchePlaceholder: 'Name, riding, party…',
     chercheRien: 'Nobody matches “{q}”.',
     chercheEffacer: 'Clear',
+    fichePersonneRetour: '← The Executive Council and the whole Assembly',
+    ficheRoles: 'Offices', ficheParti: 'Party', ficheProjets: 'Bills introduced this session',
+    ficheVotes: 'Their recorded votes', ficheAucunProjet: 'No bill introduced this session.',
+    ficheAucunVote: 'This person appears in no recorded division of the session. That is not an absence: recorded divisions are rare, and most bills pass on a voice vote.',
+    ficheVotePour: 'Voted yea', ficheVoteContre: 'Voted nay',
+    ficheDescription: (nom, r, c) => `${nom}, ${r}${c ? `, riding of ${c}` : ''}: offices, bills introduced and recorded votes in the Legislative Assembly of New Brunswick.`,
+    ficheSansFonction: 'Member',
+    ficheObjet: (v, langue) => objetLisible(v, langue),
     presenceTitreBoite: 'Reading the vote attendance',
     presenceLexique: 'Full definition → Glossary',
     presenceDef: (m, n) => `<b>${m} %</b>: of the ${n} recorded divisions held since the session opened, this person voted in ${m} % of them — yea or nay, whichever way.`,
@@ -660,6 +679,20 @@ function cartesAppel(t, langue) {
       <p>${t.commanditeTexte}</p>
       <p class="nb-appel-avis">${t.commanditeAvis}</p>
     </article>`;
+}
+
+/** Ce sur quoi portait un vote, en une phrase. */
+function objetLisible(vote, langue) {
+  const o = vote.objet || {};
+  const quoi = o.genre === 'bill'
+    ? (langue === 'en' ? `Bill ${o.numero}` : `le projet de loi nᵒ ${o.numero}`)
+    : o.genre === 'motion'
+      ? (langue === 'en' ? `Motion ${o.numero}` : `la motion nᵒ ${o.numero}`)
+      : (langue === 'en' ? 'a question before the House' : 'une question soumise à la Chambre');
+  const amend = o.surAmendement
+    ? (langue === 'en' ? ' (on an amendment)' : ' (sur un amendement)')
+    : '';
+  return `${quoi}${amend}`;
 }
 
 /** Le dernier vote nominatif consigné sur un projet de loi, s'il y en a un. */
@@ -995,8 +1028,10 @@ const PRESENCE_AUX_VOTES = (() => {
   const prenom = (d) => sansAccent((d.nomOfficiel || '').split(',')[1] || d.nomAffiche.split(' ')[0]).trim();
 
   const presents = new Map();
+  const positions = new Map();   // qui a voté quoi, division par division
   for (const vote of votes) {
-    for (const brut of [...(vote.pour?.noms || []), ...(vote.contre?.noms || [])]) {
+    for (const [sens, noms] of [['pour', vote.pour?.noms || []], ['contre', vote.contre?.noms || []]]) {
+    for (const brut of noms) {
       const m = brut.match(/^(?:Hon\.\s+)?(?:Mr|Ms|Mrs)\.\s+(?:([A-ZÀ-Ÿ])\.\s+)?(.+)$/);
       if (!m) throw new Error(`vote du ${vote.date} : « ${brut} » n'a pas la forme d'un nom de votant.`);
       const initiale = m[1] ? sansAccent(m[1]) : null;
@@ -1012,6 +1047,9 @@ const PRESENCE_AUX_VOTES = (() => {
       }
       const cle = sansAccent(candidats[0].nomAffiche).replace(/[^a-z]/g, '');
       presents.set(cle, (presents.get(cle) || 0) + 1);
+      if (!positions.has(cle)) positions.set(cle, []);
+      positions.get(cle).push({ vote, sens });
+    }
     }
   }
 
@@ -1041,6 +1079,10 @@ const PRESENCE_AUX_VOTES = (() => {
       const t = Math.round((n / total) * 100);
       return { votes: n, total, taux: t, couleur: couleur(t) };
     },
+    /** Division par division : ce que cette personne a voté, et quand. */
+    positionsDe(personne) {
+      return positions.get(sansAccent(personne.nomAffiche).replace(/[^a-z]/g, '')) || [];
+    },
   };
 })();
 
@@ -1050,6 +1092,17 @@ const PRESENCE_AUX_VOTES = (() => {
  * « Thériault ». Les étiquettes de la page n'y sont pas : chercher « présence » ne doit pas
  * ramener les 49 personnes.
  */
+/**
+ * Le nom d'une personne : un lien vers sa page quand elle en a une, du texte sinon. On ne
+ * fabrique pas de lien vers une page qui n'existe pas — c'est la règle du site.
+ */
+function lienPersonne(p, t, langue) {
+  const nom = echapper(p.nomAffiche);
+  if (!A_UNE_PAGE.has(normaliserNom(p.nomAffiche))) return nom;
+  const racine = langue === 'en' ? '/en/ministers/' : '/ministres/';
+  return `<a href="${racine}${slugPersonne(p.nomAffiche)}">${nom}</a>`;
+}
+
 const motsDeRecherche = (p) => [p.nomAffiche, p.circonscription, p.parti, ...(p.roles || [])]
   .filter(Boolean).join(' ')
   .normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -1064,28 +1117,33 @@ const identifiantMinistre = (m) => (m.fiche ? m.fiche.split('/').filter(Boolean)
  * Nouveau-Brunswick n'y figure pas — pas de présence en Chambre, pas de courriel (l'Assemblée
  * le protège derrière un mécanisme anti-robots, et on ne le contourne pas).
  */
-function carteMinistre(m, t, langue, { genre = 'ministre' } = {}) {
-  const id = identifiantMinistre(m);
+function carteMinistre(brut, t, langue, { genre = 'ministre' } = {}) {
+  const m = enrichir(brut);
+  const roles = m.roles?.[langue] || m.roles?.en || m.roles || [];
+  const parti = m.parti?.[langue] || m.parti || null;
+  const circonscription = m.circonscription?.[langue] || m.circonscription || null;
+  const id = identifiantMinistre(brut);
   const projets = PROJETS_PAR_PARRAIN.get(normaliserNom(m.nomAffiche)) || 0;
   const presence = PRESENCE_AUX_VOTES.de(m);
+  const ficheOfficielle = m.fiche?.[langue] || m.fiche?.en || m.fiche || null;
 
   return `      <article class="nb-carte-ministre" data-nb-${genre}="${echapper(id)}" data-nb-chercher="${echapper(motsDeRecherche(m))}"${m.couleurParti ? ` style="--parti:${echapper(m.couleurParti)}"` : ''}>
         <div class="nb-carte-tete">
-          ${m.parti ? `<span class="nb-pastille-parti">${echapper(m.parti)}</span>` : '<span></span>'}
+          ${parti ? `<span class="nb-pastille-parti">${echapper(parti)}</span>` : '<span></span>'}
           <button class="nb-suivre" type="button" data-nb-suivre="${echapper(id)}" data-nb-suivre-genre="${genre}"
             data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
             aria-pressed="false" title="${echapper(t.suivreMinistre(m.nomAffiche))}">${t.suivre}</button>
         </div>
-        <h2>${echapper(m.nomAffiche)}${m.titre ? `<span class="nb-titre">${echapper(m.titre)}</span>` : ''}</h2>
-        ${(m.roles || []).length ? `<p class="nb-roles">${m.roles.map((r) => echapper(r)).join(' · ')}</p>` : ''}
+        <h2>${lienPersonne(m, t, langue)}${m.titre ? `<span class="nb-titre">${echapper(m.titre)}</span>` : ''}</h2>
+        ${roles.length ? `<p class="nb-roles">${roles.map((r) => echapper(r)).join(' · ')}</p>` : ''}
         <dl class="nb-carte-donnees">
-          <div><dt>${t.ministreCirconscription}</dt><dd>${echapper(m.circonscription || '—')}</dd></div>
+          <div><dt>${t.ministreCirconscription}</dt><dd>${echapper(circonscription || '—')}</dd></div>
           <div><dt>${t.ministreProjets}</dt><dd>${projets}</dd></div>
           <div><dt>${t.ministrePresence}</dt><dd>${presence
             ? `<span class="nb-taux ${presence.couleur}" title="${echapper(t.presenceTitre(presence.votes, presence.total))}">${presence.taux} %</span>`
             : `<span class="nb-taux nd">${t.presenceND}</span>`}</dd></div>
         </dl>
-        ${m.fiche ? `<p class="nb-carte-pied"><a href="${echapper(m.fiche)}" rel="noopener">${t.ministreFiche}</a></p>` : ''}
+        ${ficheOfficielle ? `<p class="nb-carte-pied"><a href="${echapper(ficheOfficielle)}" rel="noopener">${t.ministreFiche}</a></p>` : ''}
       </article>`;
 }
 
@@ -1093,14 +1151,17 @@ function carteMinistre(m, t, langue, { genre = 'ministre' } = {}) {
  * Une ligne de député·e. Les ministres ont des boîtes, l'Assemblée a des lignes : c'est la
  * forme de DossierQuébec, et elle tient : 49 cartes feraient défiler une page entière.
  */
-function ligneDepute(d, t, langue) {
-  const id = identifiantMinistre(d);
+function ligneDepute(brut, t, langue) {
+  const d = enrichir(brut);
+  const roles = d.roles?.[langue] || d.roles?.en || d.roles || [];
+  const circonscription = d.circonscription?.[langue] || d.circonscription || null;
+  const id = identifiantMinistre(brut);
   const projets = PROJETS_PAR_PARRAIN.get(normaliserNom(d.nomAffiche)) || 0;
   const presence = PRESENCE_AUX_VOTES.de(d);
 
   return `      <div class="nb-ligne-depute" data-nb-depute="${echapper(id)}" data-nb-chercher="${echapper(motsDeRecherche(d))}"${d.couleurParti ? ` style="--parti:${echapper(d.couleurParti)}"` : ''}>
-        <p class="nb-ligne-nom"><b>${echapper(d.nomAffiche)}${d.titre ? `<span class="nb-titre">${echapper(d.titre)}</span>` : ''}</b>
-          <span>${echapper(d.circonscription || '')}</span></p>
+        <p class="nb-ligne-nom"><b>${lienPersonne(d, t, langue)}${d.titre ? `<span class="nb-titre">${echapper(d.titre)}</span>` : ''}</b>
+          <span>${echapper(circonscription || '')}${roles.length ? ` · <em>${echapper(roles.join(' · '))}</em>` : ''}</span></p>
         <p class="nb-ligne-chiffres">
           ${presence
             ? `<span class="nb-taux ${presence.couleur}" title="${echapper(t.presenceTitre(presence.votes, presence.total))}">${presence.taux} %</span>`
@@ -1184,6 +1245,17 @@ function pageMinistres(langue) {
     parPartis.get(d.parti).push(d);
   }
   const groupes = [...parPartis.entries()].sort((a, b) => b[1].length - a[1].length);
+
+  // Dans chaque parti, la personne qui le dirige passe en tête : la première ministre chez
+  // les libéraux, le chef de l'opposition chez les conservateurs, et ainsi de suite. Le
+  // reste garde l'ordre de l'Assemblée, qui est alphabétique.
+  const rang = (d) => {
+    const roles = enrichir(d).roles?.en || [];
+    if (roles.some((r) => /^premier\b/i.test(r))) return 0;
+    if (estChefDeParti(roles)) return 1;
+    return 2;
+  };
+  for (const [, gens] of groupes) gens.sort((a, b) => rang(a) - rang(b));
 
   const assemblee = groupes.map(([parti, gens]) => {
     const couleur = gens[0]?.couleurParti;
@@ -1313,6 +1385,128 @@ ${(deputesFichier?.deputes || []).map((d) => ligneDepute(d, t, langue)).join('\n
   });
 }
 
+/* ─── Une page par personne ──────────────────────────────────────────────── */
+
+/**
+ * Qui dirige un parti. Les fiches de l'Assemblée distinguent deux choses qu'un simple
+ * « leader » confondrait : le CHEF d'un parti (« Leader of the Official Opposition »,
+ * « Leader of the Green Party ») et le LEADER PARLEMENTAIRE, qui organise les travaux de
+ * son groupe en Chambre (« Government House Leader »). Seul le premier nous intéresse ici.
+ */
+const estChefDeParti = (roles) => (roles || []).some(
+  (r) => /\bleader\b/i.test(r) && !/house leader/i.test(r),
+);
+
+/**
+ * Les personnes qui ont leur propre page : les membres du Conseil exécutif, et les chefs
+ * de parti qui n'en font pas partie. Les fiches individuelles donnent les fonctions dans
+ * les deux langues ; sans elles, on s'en tient au Conseil exécutif.
+ */
+const FICHES_PAR_NOM = new Map((fichesFichier?.fiches || []).map((f) => [normaliserNom(f.nomAffiche), f]));
+
+/**
+ * Ajoute à une personne ce que sa fiche individuelle apporte : ses fonctions, son parti et
+ * sa circonscription dans les deux langues. Sans fiche lue, la personne est rendue telle
+ * quelle — le site se bâtit, en moins riche, plutôt que d'échouer.
+ */
+function enrichir(p) {
+  const f = FICHES_PAR_NOM.get(normaliserNom(p.nomAffiche));
+  if (!f) return p;
+  return { ...p, roles: f.roles, parti: f.parti, circonscription: f.circonscription, fiche: f.fiche };
+}
+
+const PERSONNES = (() => {
+  const ministres = (conseilFichier?.membres || []).map(enrichir);
+  const dejaLa = new Set(ministres.map((m) => normaliserNom(m.nomAffiche)));
+
+  const chefs = (deputesFichier?.deputes || [])
+    .map(enrichir)
+    .filter((d) => !dejaLa.has(normaliserNom(d.nomAffiche)) && estChefDeParti(d.roles?.en));
+
+  return [...ministres, ...chefs];
+})();
+
+/** Le nom des personnes qui ont une page, pour y renvoyer depuis les listes. */
+const A_UNE_PAGE = new Set(PERSONNES.map((p) => normaliserNom(p.nomAffiche)));
+
+/** L'adresse d'une personne : son nom, sans accent ni ponctuation. */
+const slugPersonne = (nom) => String(nom ?? '')
+  .normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+/**
+ * La page d'une personne : ses fonctions, les projets de loi qu'elle a déposés, et la
+ * façon dont elle a voté à chaque vote nominatif de la session.
+ *
+ * ON NE RECOPIE PAS SA BIOGRAPHIE. Le texte de présentation appartient à l'Assemblée ; la
+ * page renvoie à sa fiche officielle. Ce qu'on publie ici, ce sont des faits — qui a déposé
+ * quoi, qui a voté comment — rassemblés d'une façon que legnb.ca ne propose pas.
+ */
+function pagePersonne(personne, t, langue) {
+  const slug = slugPersonne(personne.nomAffiche);
+  const racine = langue === 'en' ? '/en/' : '/';
+  const dossier = langue === 'en' ? 'ministers' : 'ministres';
+  const autreDossier = langue === 'en' ? 'ministres' : 'ministers';
+
+  const roles = personne.roles?.[langue] || personne.roles?.en || personne.roles || [];
+  const parti = personne.parti?.[langue] || personne.parti || null;
+  const circonscription = personne.circonscription?.[langue] || personne.circonscription || null;
+  const fiche = personne.fiche?.[langue] || personne.fiche?.en || personne.fiche || null;
+  const presence = PRESENCE_AUX_VOTES.de(personne);
+  const positions = PRESENCE_AUX_VOTES.positionsDe(personne);
+
+  const projets = projetsFichier.projets
+    .filter((p) => normaliserNom(p.parrain?.nom) === normaliserNom(personne.nomAffiche))
+    .sort((a, b) => b.numero - a.numero);
+
+  const premierRole = roles[0] || t.ficheSansFonction;
+
+  return coquille({
+    langue,
+    vers: `${dossier}/${slug}`,
+    versAutre: `${autreDossier}/${slug}`,
+    titre: `${personne.nomAffiche} — ${premierRole} — DossierNBrunswick`,
+    description: t.ficheDescription(personne.nomAffiche, premierRole, circonscription),
+    corps: `  <section class="nb-section">
+    <p class="nb-fil-ariane"><a href="${racine}${dossier}">${t.fichePersonneRetour}</a></p>
+    <p class="nb-surtitre nb-surtitre-rouge">${echapper(parti || '')}</p>
+    <div class="nb-section-tete"${personne.couleurParti ? ` style="border-bottom-color:${echapper(personne.couleurParti)}"` : ''}>
+      <h1>${echapper(personne.nomAffiche)}${personne.titre ? `<span class="nb-titre">${echapper(personne.titre)}</span>` : ''}</h1>
+      <button class="nb-suivre" type="button" data-nb-suivre="${echapper(identifiantMinistre(personne))}" data-nb-suivre-genre="${roles.length ? 'ministre' : 'depute'}"
+        data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
+        aria-pressed="false" title="${echapper(t.suivreMinistre(personne.nomAffiche))}">${t.suivre}</button>
+    </div>
+    <dl class="nb-carte-donnees nb-donnees-large">
+      ${roles.length ? `<div><dt>${t.ficheRoles}</dt><dd>${roles.map((r) => echapper(r)).join(' · ')}</dd></div>` : ''}
+      <div><dt>${t.ministreCirconscription}</dt><dd>${echapper(circonscription || '—')}</dd></div>
+      <div><dt>${t.ministrePresence}</dt><dd>${presence
+        ? `<span class="nb-taux ${presence.couleur}">${presence.taux} %</span> <span class="nb-ligne-pl">${t.presenceTitre(presence.votes, presence.total)}</span>`
+        : `<span class="nb-taux nd">${t.presenceND}</span>`}</dd></div>
+    </dl>
+    ${fiche ? `<p class="nb-carte-pied"><a href="${echapper(fiche)}" rel="noopener">${t.voirOfficiel}</a></p>` : ''}
+  </section>
+  <section class="nb-section">
+    <div class="nb-section-tete"><h2>${t.ficheProjets}</h2><span class="nb-compte">${projets.length}</span></div>
+    ${projets.length
+      ? `<div class="nb-projets">\n${projets.map((p) => rangeeProjet(p, t, langue)).join('\n')}\n    </div>`
+      : `<p class="nb-section-note">${t.ficheAucunProjet}</p>`}
+  </section>
+  <section class="nb-section">
+    <div class="nb-section-tete"><h2>${t.ficheVotes}</h2><span class="nb-compte">${positions.length}</span></div>
+    ${positions.length
+      ? `<ul class="nb-positions">\n${positions
+        .sort((a, b) => (a.vote.date < b.vote.date ? 1 : -1))
+        .map(({ vote, sens }) => `      <li>
+        <time datetime="${vote.date}">${dateLisible(vote.date, langue)}</time>
+        <span class="nb-sens ${sens}">${sens === 'pour' ? t.ficheVotePour : t.ficheVoteContre}</span>
+        <span>${objetLisible(vote, langue)} — ${vote.pour.total} ${t.pour}, ${vote.contre.total} ${t.contre}</span>
+      </li>`).join('\n')}
+    </ul>`
+      : `<p class="nb-section-note">${t.ficheAucunVote}</p>`}
+  </section>`,
+  });
+}
+
 /* ─── Écriture ────────────────────────────────────────────────────────────── */
 
 mkdirSync('en', { recursive: true });
@@ -1331,6 +1525,22 @@ const PAGES = [
 for (const { fr, en, faire } of PAGES) {
   writeFileSync(fr, faire('fr'), 'utf8');
   writeFileSync(en, faire('en'), 'utf8');
+}
+
+// Une page par personne, pour celles qui portent une fonction : les membres du Conseil
+// exécutif, et les chefs de parti qui n'en font pas partie. Chacune rassemble ce que
+// legnb.ca éparpille — fonctions, projets déposés, et le détail de ses votes nominatifs.
+if (PERSONNES.length) {
+  mkdirSync('ministres', { recursive: true });
+  mkdirSync('en/ministers', { recursive: true });
+  for (const personne of PERSONNES) {
+    const slug = slugPersonne(personne.nomAffiche);
+    const fr = `ministres/${slug}.html`;
+    const en = `en/ministers/${slug}.html`;
+    writeFileSync(fr, pagePersonne(personne, T.fr, 'fr'), 'utf8');
+    writeFileSync(en, pagePersonne(personne, T.en, 'en'), 'utf8');
+    PAGES.push({ fr, en });
+  }
 }
 
 // Le sitemap que robots.txt annonce. Chaque adresse déclare ses deux langues : c'est comme

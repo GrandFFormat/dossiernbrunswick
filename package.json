@@ -14,7 +14,8 @@
     "scrape:deputes": "node scrapers/nb-deputes.js",
     "scrape:conseil": "node scrapers/nb-conseil-executif.js",
     "scrape:calendrier": "node scrapers/nb-calendrier.js",
-    "scrape:votes": "node scrapers/nb-votes.js"
+    "scrape:votes": "node scrapers/nb-votes.js",
+    "fiches": "node scrapers/nb-fiches.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0",
