@@ -1332,3 +1332,12 @@ html[data-theme='dark'] .nb-famille.votes { color: #5fcf8a; border-color: #5fcf8
 
 /* La marque ne pousse plus seule : c'est la pastille qui tient la place. */
 .nb-entete .nb-marque { margin-right: 0; }
+
+/* Le bouton W : la page Wikipédia d'une personne, dans la langue du site. */
+.nb-wiki {
+  font: 700 15px var(--font-heading);
+  letter-spacing: 0;
+  text-decoration: none;
+}
+.nb-portrait .nb-partage { margin-top: 12px; gap: 5px; }
+.nb-portrait .nb-reseau { width: 27px; height: 27px; }
