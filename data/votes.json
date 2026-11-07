@@ -1,10 +1,12 @@
 {
   "legislature": 61,
   "session": 3,
-  "luLe": "2026-11-07T05:46:41.557Z",
+  "luLe": "2026-11-07T07:34:44.627Z",
   "source": "https://www.legnb.ca/en/house-business/journals/61/3",
   "note": "Les votes nominatifs sont rares au Nouveau-Brunswick : la plupart des projets de loi sont adoptés de vive voix, sans que les positions individuelles soient consignées. L'absence de vote nominatif ne veut donc pas dire « unanime ».",
   "noms": "Les noms sont écrits comme le Journal les écrit, initiale comprise (plusieurs député·e·s partagent un nom de famille).",
+  "journauxLus": 7,
+  "journauxIllisibles": [],
   "votes": [
     {
       "legislature": 61,

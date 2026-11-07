@@ -29,6 +29,23 @@ const votesFichier = lireJson('data/votes.json');
 
 if (!projetsFichier) throw new Error('data/projets-de-loi.json manque — lancer les scrapers avant le build');
 
+// Les fichiers de data/ sont écrits par des scrapers lancés séparément : rien ne garantit
+// qu'ils parlent tous de la même session. Un fichier de votes resté sur la session
+// précédente afficherait ses 24 votes sous le titre « cette session » — une donnée fausse,
+// sans rien de cassé pour la signaler. On vérifie donc avant de construire.
+const session = `${projetsFichier.legislature}-${projetsFichier.session}`;
+for (const [nom, fichier] of [['data/votes.json', votesFichier]]) {
+  if (!fichier?.legislature) continue;
+  const sienne = `${fichier.legislature}-${fichier.session}`;
+  if (sienne !== session) {
+    throw new Error(
+      `${nom} porte sur la session ${sienne}, les projets de loi sur ${session}. `
+      + 'Relancer ce scraper sur la session en cours avant de construire : les pages diraient '
+      + 'autrement « cette session » en montrant celle d\'avant.'
+    );
+  }
+}
+
 /* ─── Textes ──────────────────────────────────────────────────────────────── */
 
 const T = {
@@ -157,13 +174,21 @@ function etapeLisible(nom, langue) {
   return ETAPES_FR.get(nom) || nom;
 }
 
-function statutLisible(statut, langue) {
-  if (!statut) return null;
-  if (langue === 'en') return statut;
-  let fr = statut;
-  for (const [en, trad] of ETAPES_FR) fr = fr.replace(en, trad);
-  for (const [en, trad] of RESULTATS_FR) fr = fr.replace(en, trad);
-  return fr.replace(/\(([^)]+)\)/, (m, dedans) => `(${RESULTATS_FR.get(dedans) || dedans})`);
+/**
+ * Où en est un projet de loi, dans la langue de la page.
+ *
+ * En anglais, c'est le statut que la fiche affiche (« Second Reading Passed »). En français,
+ * on ne le traduit PAS : on reprend le libellé que l'Assemblée écrit elle-même sur sa page
+ * française, « 2e lecture · Adoption ». Traduire à la main donnait « 2e lecture adopté », avec
+ * une faute d'accord — et dans la seule province officiellement bilingue, le vocabulaire de
+ * procédure a déjà sa forme française officielle.
+ */
+function statutLisible(projet, langue) {
+  if (langue === 'en') return projet.statut || null;
+  const etape = derniereEtape(projet);
+  if (etape?.nomFr) return etape.resultatFr ? `${etape.nomFr} · ${etape.resultatFr}` : etape.nomFr;
+  // Pas de libellé français publié pour cette étape : on reste muet plutôt que d'improviser.
+  return null;
 }
 
 /** La dernière étape franchie d'un projet, celle qui dit où il en est vraiment. */
@@ -228,7 +253,7 @@ function avisSeance(t, langue) {
 function rangeeProjet(projet, t, langue) {
   const titre = projet.titre[langue] || projet.titre.en || projet.titre.fr;
   const etape = derniereEtape(projet);
-  const statut = statutLisible(projet.statut, langue)
+  const statut = statutLisible(projet, langue)
     || (etape ? etapeLisible(etape.nom, langue) : null);
   const rejete = /defeated|rejet/i.test(projet.statut || '');
   const lien = projet.source?.[langue] || projet.source?.en || '#';
@@ -261,8 +286,8 @@ function sectionActivite(t, langue) {
     for (const e of p.etapes || []) {
       if (!e.date) continue;
       const titre = p.titre[langue] || p.titre.en;
-      const quoi = etapeLisible(e.nom, langue);
-      const sort = e.resultat ? e.resultat[langue] || e.resultat.en : null;
+      const quoi = langue === 'fr' ? (e.nomFr || e.nom) : e.nom;
+      const sort = langue === 'fr' ? e.resultatFr : (e.resultat ? e.resultat.en : null);
       actes.push({ date: e.date, texte: `${langue === 'en' ? 'Bill' : 'Projet'} ${p.numero} — ${titre} · ${quoi}${sort ? ` (${sort})` : ''}` });
     }
   }

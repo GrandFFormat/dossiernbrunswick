@@ -66,7 +66,10 @@ export function lire(chemin, options = {}) {
 /** Texte lisible d'un bout de HTML : une seule espace, entités résolues, rien d'autre. */
 export function texte(html) {
   return String(html ?? '')
-    .replace(/<sup>[\s\S]*?<\/sup>/g, '')     // les « st » et « rd » de 1st Reading
+    // Les ordinaux du site sont en exposant : « 1<sup>st</sup> Reading ». On aplatit la
+    // balise sans jeter son contenu, sinon il resterait « 1 Reading » — et l'exposant
+    // collé au chiffre doit le rester, d'où le retrait de la balise plutôt qu'une espace.
+    .replace(/<sup>([\s\S]*?)<\/sup>/g, '$1')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')

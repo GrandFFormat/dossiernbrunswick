@@ -93,14 +93,35 @@ function lireListe($, leg, ses) {
   return projets;
 }
 
-/** Les titres français, pris sur la page française de la même session. */
-function lireTitresFrancais($) {
+/**
+ * Ce que la page FRANÇAISE de la même session nous apprend : le titre officiel français, et
+ * le libellé français de chaque étape.
+ *
+ * ON NE TRADUIT PAS CE QUE L'ASSEMBLÉE ÉCRIT DÉJÀ. Traduire « Second Reading Passed » à la
+ * main donnait « 2e lecture adopté », avec une faute d'accord ; l'Assemblée écrit elle-même
+ * « 2e lecture · Adoption ». Dans la seule province officiellement bilingue, le vocabulaire
+ * de procédure existe dans les deux langues et c'est le sien qui fait foi.
+ *
+ * Les étapes sont appariées par POSITION : la page française liste les mêmes étapes, dans le
+ * même ordre, pour un même projet. On vérifie que le compte correspond avant d'apparier.
+ */
+function lirePageFrancaise($) {
   const parNumero = new Map();
   $('li.bill-item').each((_, el) => {
     const $el = $(el);
     const numero = Number(texte($el.find('.bill-item-number').html()));
-    const titre = texte($el.find('.bill-item-title a').first().html());
-    if (numero && titre) parNumero.set(numero, titre);
+    if (!numero) return;
+    const etapes = $el.find('.bill-steps .step')
+      .map((__, pas) => {
+        const spans = $(pas).find('span').map((___, s) => texte($(s).html())).get();
+        return { nom: spans[0] || null, brut: spans[1] || '' };
+      })
+      .get()
+      .filter((e) => e.nom);
+    parNumero.set(numero, {
+      titre: texte($el.find('.bill-item-title a').first().html()) || null,
+      etapes,
+    });
   });
   return parNumero;
 }
@@ -182,8 +203,25 @@ async function main() {
   }
   console.log(`${projets.length} projets de loi, conformes au total annoncé par le site`);
 
-  const titresFr = lireTitresFrancais(load(await lire(`/fr/l%C3%A9gislation/projets-de-loi/${leg}/${ses}`)));
-  for (const p of projets) p.titre.fr = titresFr.get(p.numero) || null;
+  const pageFr = lirePageFrancaise(load(await lire(`/fr/l%C3%A9gislation/projets-de-loi/${leg}/${ses}`)));
+  for (const p of projets) {
+    const fr = pageFr.get(p.numero);
+    p.titre.fr = fr?.titre || null;
+    if (!fr) continue;
+    if (fr.etapes.length === p.etapes.length) {
+      // Même ordre des deux côtés : on apparie par position. On prend le libellé français
+      // de l'étape ET celui de son sort (« Dépôt », « Adoption », « Rejet »), qui est le
+      // premier mot de la mention datée — la date française, elle, ne se lit pas.
+      p.etapes.forEach((e, i) => {
+        e.nomFr = fr.etapes[i].nom;
+        e.resultatFr = (fr.etapes[i].brut.match(/^([^:0-9]+?)\s*:/) || [])[1]?.trim() || null;
+      });
+    } else {
+      // Les deux pages ne décrivent pas le même chemin : on préfère ne rien dire en
+      // français plutôt que de coller un libellé à la mauvaise étape.
+      console.warn(`projet ${p.numero} : ${p.etapes.length} étapes en anglais, ${fr.etapes.length} en français — libellés français laissés vides`);
+    }
+  }
   const sansFr = projets.filter((p) => !p.titre.fr).map((p) => p.numero);
   if (sansFr.length) console.warn(`sans titre français : ${sansFr.join(', ')}`);
 
