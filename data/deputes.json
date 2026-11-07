@@ -1,0 +1,504 @@
+{
+  "luLe": "2026-11-07T05:39:43.641Z",
+  "source": "https://www.legnb.ca/en/members/current",
+  "sieges": 49,
+  "composition": {
+    "Liberal Party": 31,
+    "Progressive Conservative Party": 16,
+    "Green Party": 2
+  },
+  "note": "La présidence de l'Assemblée ne vote pas : un vote nominatif ne peut donc pas dépasser 48 voix sur 49 sièges.",
+  "courriels": "Non publiés ici : legnb.ca les masque derrière la protection de Cloudflare, et on ne la contourne pas. Voir la fiche officielle de chaque député·e.",
+  "deputes": [
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Carleton-York",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Richard_Ames_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/165/ames-richard",
+      "roles": [],
+      "nomOfficiel": "Ames, Richard",
+      "nomAffiche": "Richard Ames"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Restigouche East",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Guy_Arseneault_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/4/arseneault-guy",
+      "roles": [],
+      "nomOfficiel": "Arseneault, Guy",
+      "nomAffiche": "Guy Arseneault"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Fredericton-Grand Lake",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Kris_Austin_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/16/austin-kris",
+      "roles": [],
+      "nomOfficiel": "Austin, Kris",
+      "nomAffiche": "Kris Austin"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Saint Croix",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Kathy_Bockus_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/162/bockus-kathy",
+      "roles": [],
+      "nomOfficiel": "Bockus, Kathy",
+      "nomAffiche": "Kathy Bockus"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Champdoré-Irishtown",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Lyne_Chantal_Boudreau_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/208/boudreau-lyne-chantal",
+      "roles": [],
+      "nomOfficiel": "Boudreau, Lyne Chantal",
+      "nomAffiche": "Lyne Chantal Boudreau"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Beausoleil-Grand-Bouctouche-Kent",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Benoit_Bourque_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/23/bourque-benoit",
+      "roles": [],
+      "nomOfficiel": "Bourque, Benoît",
+      "nomAffiche": "Benoît Bourque"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Grand Falls-Vallée-des-Rivières-Saint-Quentin",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Chuck_Chiasson_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/11/chiasson-chuck",
+      "roles": [],
+      "nomOfficiel": "Chiasson, Chuck",
+      "nomAffiche": "Chuck Chiasson"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Tracadie",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Keith_Chiasson_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/49/chiasson-keith",
+      "roles": [],
+      "nomOfficiel": "Chiasson, Keith",
+      "nomAffiche": "Keith Chiasson"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Miramichi East",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Michelle_Conroy_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/29/conroy-michelle",
+      "roles": [],
+      "nomOfficiel": "Conroy, Michelle",
+      "nomAffiche": "Michelle Conroy"
+    },
+    {
+      "parti": "Green Party",
+      "couleurParti": "#3D9B35",
+      "circonscription": "Fredericton Lincoln",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/David_Coon_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/14/coon-david",
+      "roles": [],
+      "nomOfficiel": "Coon, David",
+      "nomAffiche": "David Coon"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Fredericton-York",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Ryan_Cullins_lg.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/164/cullins-ryan",
+      "roles": [],
+      "nomOfficiel": "Cullins, Ryan",
+      "nomAffiche": "Ryan Cullins"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Edmundston-Vallée-des-Rivières",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/JC_DAmours_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/9/damours-jean-claude",
+      "roles": [],
+      "nomOfficiel": "D'Amours, Jean-Claude",
+      "nomAffiche": "Jean-Claude D'Amours"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Saint John Portland-Simonds",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/John_Dornan_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/202/dornan-john",
+      "roles": [],
+      "nomOfficiel": "Dornan, John",
+      "nomAffiche": "John Dornan"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Moncton East",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Alexandre_Cedric_Doucet_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/196/doucet-alexandre-cedric",
+      "roles": [],
+      "nomOfficiel": "Doucet, Alexandre Cédric",
+      "nomAffiche": "Alexandre Cédric Doucet"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Kent North",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Pat_Finnigan_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/192/finnigan-pat",
+      "roles": [],
+      "nomOfficiel": "Finnigan, Pat",
+      "nomAffiche": "Pat Finnigan"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Shediac Bay-Dieppe",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Robert_Gauvin_lg.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/46/gauvin-robert",
+      "roles": [],
+      "nomOfficiel": "Gauvin, Robert",
+      "nomAffiche": "Robert Gauvin"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Hampton-Fundy-St. Martins",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/john_herron_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/199/herron-john",
+      "roles": [],
+      "nomOfficiel": "Herron, John",
+      "nomAffiche": "John Herron"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Saint John Harbour",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/DAVID_HICKEY_sm2.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/203/hickey-david",
+      "roles": [],
+      "nomOfficiel": "Hickey, David",
+      "nomAffiche": "David Hickey"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Woodstock-Hartland",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Bill_Hogan_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/166/hogan-bill",
+      "roles": [],
+      "nomOfficiel": "Hogan, Bill",
+      "nomAffiche": "Bill Hogan"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Fredericton South-Silverwood",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Susan_Holt__lg.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/182/holt-susan",
+      "roles": [],
+      "nomOfficiel": "Holt, Susan",
+      "nomAffiche": "Susan Holt"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Moncton South",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Claire_Johnson_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/194/johnson-claire",
+      "roles": [],
+      "nomOfficiel": "Johnson, Claire",
+      "nomAffiche": "Claire Johnson"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Carleton-Victoria",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Margaret_Johnson_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/167/johnson-margaret",
+      "roles": [],
+      "nomOfficiel": "Johnson, Margaret",
+      "nomAffiche": "Margaret Johnson"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Miramichi Bay-Neguac",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Sam_Johnston_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/191/johnston-sam",
+      "roles": [],
+      "nomOfficiel": "Johnston, Sam",
+      "nomAffiche": "Sam Johnston"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Quispamsis",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Aaron_Kennedy_lg.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/200/kennedy-aaron",
+      "roles": [],
+      "nomOfficiel": "Kennedy, Aaron",
+      "nomAffiche": "Aaron Kennedy"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Madawaska Les Lacs-Edmundston",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Francine_Landry_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/26/landry-francine",
+      "roles": [],
+      "nomOfficiel": "Landry, Francine",
+      "nomAffiche": "Francine Landry"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Shediac-Cap-Acadie",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Jacques_LeBlanc_lg.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/45/leblanc-jacques",
+      "roles": [],
+      "nomOfficiel": "LeBlanc, Jacques",
+      "nomAffiche": "Jacques LeBlanc"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Belle-Baie-Belledune",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Marco_LeBlanc_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/180/leblanc-marco",
+      "roles": [],
+      "nomOfficiel": "LeBlanc, Marco",
+      "nomAffiche": "Marco LeBlanc"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Fundy-The Isles-Saint John Lorneville",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Ian_Lee_lg.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/205/lee-ian",
+      "roles": [],
+      "nomOfficiel": "Lee, Ian",
+      "nomAffiche": "Ian Lee"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Bathurst",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/RENE_LEGACY_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/157/legacy-rene",
+      "roles": [],
+      "nomOfficiel": "Legacy, René",
+      "nomAffiche": "René Legacy"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Restigouche West",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Gilles_LePage_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/37/lepage-gilles",
+      "roles": [],
+      "nomOfficiel": "LePage, Gilles",
+      "nomAffiche": "Gilles LePage"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Shippagan-Les-Îles",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Eric_Mallet_lg.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/158/mallet-eric",
+      "roles": [],
+      "nomOfficiel": "Mallet, Eric",
+      "nomAffiche": "Eric Mallet"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Moncton Centre",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Rob_McKee_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/30/mckee-robert",
+      "roles": [],
+      "nomOfficiel": "McKee, K.C., Robert",
+      "nomAffiche": "K.C., Robert McKee"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Hanwell-New Maryland",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Cindy_Miles_lg.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/207/miles-cindy",
+      "roles": [],
+      "nomOfficiel": "Miles, Cindy",
+      "nomAffiche": "Cindy Miles"
+    },
+    {
+      "parti": "Green Party",
+      "couleurParti": "#3D9B35",
+      "circonscription": "Tantramar",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Megan_Mitton_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/27/mitton-megan",
+      "roles": [],
+      "nomOfficiel": "Mitton, Megan",
+      "nomAffiche": "Megan Mitton"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Arcadia-Butternut Valley-Maple Hills",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Don_Monahan_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/198/monahan-don",
+      "roles": [],
+      "nomOfficiel": "Monahan, Don",
+      "nomAffiche": "Don Monahan"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Kings Centre",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Bill_Oliver_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/24/oliver-bill",
+      "roles": [],
+      "nomOfficiel": "Oliver, Bill",
+      "nomAffiche": "Bill Oliver"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Fredericton North",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Luke_Randall_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/206/randall-luke",
+      "roles": [],
+      "nomOfficiel": "Randall, Luke",
+      "nomAffiche": "Luke Randall"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Hautes-Terres-Nepisiguit",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Luc_Robichaud_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/190/robichaud-luc",
+      "roles": [],
+      "nomOfficiel": "Robichaud, Luc",
+      "nomAffiche": "Luc Robichaud"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Miramichi West",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Kevin_Russel_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/209/russell-kevin",
+      "roles": [],
+      "nomOfficiel": "Russell, Kevin",
+      "nomAffiche": "Kevin Russell"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Saint John East",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Glen_Savoie_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/21/savoie-glen",
+      "roles": [],
+      "nomOfficiel": "Savoie, Glen",
+      "nomAffiche": "Glen Savoie"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Sussex-Three Rivers",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Tammy_Scott-Wallace_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/161/scott-wallace-tammy",
+      "roles": [],
+      "nomOfficiel": "Scott-Wallace, Tammy",
+      "nomAffiche": "Tammy Scott-Wallace"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Moncton Northwest",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Tanya_Sodhi_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/195/sodhi-tania",
+      "roles": [],
+      "nomOfficiel": "Sodhi, Tania",
+      "nomAffiche": "Tania Sodhi"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Caraquet",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Isabelle_Theriault_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/5/theriault-isabelle",
+      "roles": [],
+      "nomOfficiel": "Thériault, Isabelle",
+      "nomAffiche": "Isabelle Thériault"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Rothesay",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Alyson_Townsend_lg.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/201/townsend-alyson",
+      "roles": [],
+      "nomOfficiel": "Townsend, Alyson",
+      "nomAffiche": "Alyson Townsend"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Dieppe-Memramcook",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Natacha_Vautour_lg.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/193/vautour-natacha",
+      "roles": [],
+      "nomOfficiel": "Vautour, Natacha",
+      "nomAffiche": "Natacha Vautour"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Riverview",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Rob_Weir_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/197/weir-rob",
+      "roles": [],
+      "nomOfficiel": "Weir, Rob",
+      "nomAffiche": "Rob Weir"
+    },
+    {
+      "parti": "Liberal Party",
+      "couleurParti": "#C0161D",
+      "circonscription": "Saint John West-Lancaster",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Kate_Wilcott_lg.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/204/wilcott-kate",
+      "roles": [],
+      "nomOfficiel": "Wilcott, Kate",
+      "nomAffiche": "Kate Wilcott"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Oromocto-Sunbury",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Mary_Wilson_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/35/wilson-mary",
+      "roles": [],
+      "nomOfficiel": "Wilson, Mary",
+      "nomAffiche": "Mary Wilson"
+    },
+    {
+      "parti": "Progressive Conservative Party",
+      "couleurParti": "#005DAC",
+      "circonscription": "Albert-Riverview",
+      "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Sherry_Wilson_sm.jpg",
+      "fiche": "https://www.legnb.ca/en/members/current/33/wilson-sherry",
+      "roles": [],
+      "nomOfficiel": "Wilson, Sherry",
+      "nomAffiche": "Sherry Wilson"
+    }
+  ]
+}

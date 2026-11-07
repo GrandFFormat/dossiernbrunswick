@@ -1,10 +1,11 @@
 User-agent: *
 Allow: /
 
-# Tout le site est ouvert aux moteurs de recherche, volets municipaux compris (/quebec/, /montreal/,
-# /levis/, /longueuil/, /laval/) depuis le 21 septembre 2026. Les pages de compte (mes-dossiers,
-# mon-dossier) portent leur propre balise noindex, et /api/ un en-tête X-Robots-Tag (vercel.json) :
-# on ne les bloque pas ici, parce qu'un robot à qui l'on interdit de lire une page ne voit jamais
-# le noindex qu'elle contient.
+# Tout le site est ouvert aux moteurs. Il n'y a ni page de compte ni section privée : le site
+# est gratuit, sans abonnement, et ne demande rien à personne.
+#
+# Les deux langues sont deux arborescences de vraies pages — le français à la racine,
+# l'anglais sous /en/ — reliées par des balises hreflang. Aucune n'est bloquée : dans une
+# province officiellement bilingue, les deux versions doivent être indexables.
 
-Sitemap: https://dossierquebec.ca/sitemap.xml
+Sitemap: https://dossiernbrunswick.ca/sitemap.xml

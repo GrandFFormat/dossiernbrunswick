@@ -1,0 +1,72 @@
+{
+  "luLe": "2026-11-07T05:41:12.863Z",
+  "lueLeJour": "2026-11-07",
+  "source": "https://www.legnb.ca/en/calendar",
+  "prochaineSeance": {
+    "date": "2026-11-17",
+    "heure": "1:00 PM",
+    "titre": "Legislature 61-3 Daily Sitting 13",
+    "lieu": "Legislative Assembly Chamber",
+    "genre": "House Daily Sitting",
+    "seance": {
+      "legislature": 61,
+      "session": 3,
+      "seance": 13
+    },
+    "source": "https://www.legnb.ca/en/calendar/events/685"
+  },
+  "evenements": [
+    {
+      "date": "2026-11-17",
+      "heure": "1:00 PM",
+      "titre": "Legislature 61-3 Daily Sitting 13",
+      "lieu": "Legislative Assembly Chamber",
+      "genre": "House Daily Sitting",
+      "seance": {
+        "legislature": 61,
+        "session": 3,
+        "seance": 13
+      },
+      "source": "https://www.legnb.ca/en/calendar/events/685"
+    },
+    {
+      "date": "2026-11-18",
+      "heure": "10:00 AM",
+      "titre": "Legislature 61-3 Daily Sitting 14",
+      "lieu": "Legislative Assembly Chamber",
+      "genre": "House Daily Sitting",
+      "seance": {
+        "legislature": 61,
+        "session": 3,
+        "seance": 14
+      },
+      "source": "https://www.legnb.ca/en/calendar/events/686"
+    },
+    {
+      "date": "2026-11-19",
+      "heure": "1:00 PM",
+      "titre": "Legislature 61-3 Daily Sitting 15",
+      "lieu": "Legislative Assembly Chamber",
+      "genre": "House Daily Sitting",
+      "seance": {
+        "legislature": 61,
+        "session": 3,
+        "seance": 15
+      },
+      "source": "https://www.legnb.ca/en/calendar/events/687"
+    },
+    {
+      "date": "2026-11-20",
+      "heure": "9:00 AM",
+      "titre": "Legislature 61-3 Daily Sitting 16",
+      "lieu": "Legislative Assembly Chamber",
+      "genre": "House Daily Sitting",
+      "seance": {
+        "legislature": 61,
+        "session": 3,
+        "seance": 16
+      },
+      "source": "https://www.legnb.ca/en/calendar/events/688"
+    }
+  ]
+}

@@ -1,0 +1,965 @@
+{
+  "legislature": 61,
+  "session": 3,
+  "luLe": "2026-11-07T05:37:22.312Z",
+  "source": "https://www.legnb.ca/en/legislation/bills/61/3",
+  "avis": "La version imprimée reste la version officielle (avis de l'Assemblée législative du N.-B.).",
+  "projets": [
+    {
+      "cle": "61-3-14",
+      "legislature": 61,
+      "session": 3,
+      "numero": 14,
+      "titre": {
+        "fr": "Loi concernant les mesures de réforme de l’impôt foncier",
+        "en": "An Act Respecting Property Tax Reform Measures"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-11-04"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-06"
+        },
+        {
+          "nom": "Committee",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Second Reading Passed",
+      "parrain": {
+        "nom": "Hon. Aaron KENNEDY",
+        "parti": "Liberal Party",
+        "circonscription": "Quispamsis",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Aaron_Kennedy_lg.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-14.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-14-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/14/an-act-respecting-property-tax-reform-measure",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/14/x"
+      }
+    },
+    {
+      "cle": "61-3-13",
+      "legislature": 61,
+      "session": 3,
+      "numero": 13,
+      "titre": {
+        "fr": "Loi modifiant la Loi sur l’Université de Moncton",
+        "en": "An Act to Amend the Université de Moncton Act"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-11-03"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-04"
+        },
+        {
+          "nom": "Committee",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-04"
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-06"
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Third Reading Passed",
+      "parrain": {
+        "nom": "Hon. Jean-Claude D'AMOURS",
+        "parti": "Liberal Party",
+        "circonscription": "Edmundston-Vallée-des-Rivières",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/JC_DAmours_sm.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-13.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-13-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/13/an-act-to-amend-the-universite-de-moncton-act",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/13/x"
+      }
+    },
+    {
+      "cle": "61-3-12",
+      "legislature": 61,
+      "session": 3,
+      "numero": 12,
+      "titre": {
+        "fr": "Loi concernant les jeunes, les marchés numériques et l’utilisation de la technologie",
+        "en": "An Act Respecting Young Persons, Digital Markets and Technology Use"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-11-03"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-06"
+        },
+        {
+          "nom": "Committee",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Second Reading Passed",
+      "parrain": {
+        "nom": "Hon. Robert MCKEE, K.C.",
+        "parti": "Liberal Party",
+        "circonscription": "Moncton Centre",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Rob_McKee_sm.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-12.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-12-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/12/an-act-respecting-young-persons-digital-marke",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/12/x"
+      }
+    },
+    {
+      "cle": "61-3-11",
+      "legislature": 61,
+      "session": 3,
+      "numero": 11,
+      "titre": {
+        "fr": "Loi sur les permis visant les services de traitement des dépendances",
+        "en": "Addiction Treatment Services Licensing Act"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-11-03"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-04"
+        },
+        {
+          "nom": "Committee",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Second Reading Passed",
+      "parrain": {
+        "nom": "Hon. Robert MCKEE, K.C.",
+        "parti": "Liberal Party",
+        "circonscription": "Moncton Centre",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Rob_McKee_sm.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-11.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-11-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/11/addiction-treatment-services-licensing-act",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/11/x"
+      }
+    },
+    {
+      "cle": "61-3-10",
+      "legislature": 61,
+      "session": 3,
+      "numero": 10,
+      "titre": {
+        "fr": "Loi modifiant la Loi sur l’éducation",
+        "en": "An Act to Amend the Education Act"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-10-28"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-03"
+        },
+        {
+          "nom": "Committee",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Second Reading Passed",
+      "parrain": {
+        "nom": "Hon. Claire JOHNSON",
+        "parti": "Liberal Party",
+        "circonscription": "Moncton South",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Claire_Johnson_sm.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-10.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-10-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/10/an-act-to-amend-the-education-act",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/10/x"
+      }
+    },
+    {
+      "cle": "61-3-9",
+      "legislature": 61,
+      "session": 3,
+      "numero": 9,
+      "titre": {
+        "fr": "Loi modifiant la Loi sur l’électricité",
+        "en": "An Act to Amend the Electricity Act"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-10-27"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-03"
+        },
+        {
+          "nom": "Committee",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Second Reading Passed",
+      "parrain": {
+        "nom": "Hon. René LEGACY",
+        "parti": "Liberal Party",
+        "circonscription": "Bathurst",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/RENE_LEGACY_sm.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-9.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-9-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/9/an-act-to-amend-the-electricity-act",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/9/x"
+      }
+    },
+    {
+      "cle": "61-3-8",
+      "legislature": 61,
+      "session": 3,
+      "numero": 8,
+      "titre": {
+        "fr": "Loi modifiant la Loi sur la réglementation des jeux",
+        "en": "An Act to Amend the Gaming Control Act"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-10-27"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-03"
+        },
+        {
+          "nom": "Committee",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Second Reading Passed",
+      "parrain": {
+        "nom": "Hon. René LEGACY",
+        "parti": "Liberal Party",
+        "circonscription": "Bathurst",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/RENE_LEGACY_sm.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-8.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-8-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/8/an-act-to-amend-the-gaming-control-act",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/8/x"
+      }
+    },
+    {
+      "cle": "61-3-7",
+      "legislature": 61,
+      "session": 3,
+      "numero": 7,
+      "titre": {
+        "fr": "Loi modifiant la Loi sur les licences de brocanteurs",
+        "en": "An Act to Amend the Salvage Dealers Licensing Act"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-10-27"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-10-28"
+        },
+        {
+          "nom": "Committee",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Second Reading Passed",
+      "parrain": {
+        "nom": "Hon. Robert GAUVIN",
+        "parti": "Liberal Party",
+        "circonscription": "Shediac Bay-Dieppe",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Robert_Gauvin_lg.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-7.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-7-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/7/an-act-to-amend-the-salvage-dealers-licensing",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/7/x"
+      }
+    },
+    {
+      "cle": "61-3-6",
+      "legislature": 61,
+      "session": 3,
+      "numero": 6,
+      "titre": {
+        "fr": "Loi modifiant la Loi sur les normes d’emploi",
+        "en": "An Act to Amend the Employment Standards Act"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-10-27"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-10-28"
+        },
+        {
+          "nom": "Committee",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-06"
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Committee (Passed)",
+      "parrain": {
+        "nom": "Hon. Alyson TOWNSEND",
+        "parti": "Liberal Party",
+        "circonscription": "Rothesay",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Alyson_Townsend_lg.jpg"
+      },
+      "documents": {
+        "amendements": [
+          "https://www.legnb.ca/content/house_business/61/3/bills/Bill-6-SectionArticle3.pdf"
+        ],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-6-SectionArticle3.1.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-6-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/6/an-act-to-amend-the-employment-standards-act",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/6/x"
+      }
+    },
+    {
+      "cle": "61-3-5",
+      "legislature": 61,
+      "session": 3,
+      "numero": 5,
+      "titre": {
+        "fr": "Loi sur les accords de non-divulgation",
+        "en": "Non-disclosure Agreements Act"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-10-27"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-10-28"
+        },
+        {
+          "nom": "Committee",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-04"
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-06"
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Third Reading Passed",
+      "parrain": {
+        "nom": "Hon. Robert MCKEE, K.C.",
+        "parti": "Liberal Party",
+        "circonscription": "Moncton Centre",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Rob_McKee_sm.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-5.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-5-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/5/non-disclosure-agreements-act",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/5/x"
+      }
+    },
+    {
+      "cle": "61-3-4",
+      "legislature": 61,
+      "session": 3,
+      "numero": 4,
+      "titre": {
+        "fr": "Loi modifiant la Loi sur la Cour provinciale",
+        "en": "An Act to Amend the Provincial Court Act"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-10-27"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-10-28"
+        },
+        {
+          "nom": "Committee",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-04"
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-06"
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Third Reading Passed",
+      "parrain": {
+        "nom": "Hon. Robert MCKEE, K.C.",
+        "parti": "Liberal Party",
+        "circonscription": "Moncton Centre",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Rob_McKee_sm.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-4.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-4-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/4/an-act-to-amend-the-provincial-court-act",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/4/x"
+      }
+    },
+    {
+      "cle": "61-3-3",
+      "legislature": 61,
+      "session": 3,
+      "numero": 3,
+      "titre": {
+        "fr": "Loi concernant le défenseur des enfants, des jeunes, des aînés et de la santé mentale",
+        "en": "An Act Respecting the Child, Youth, Senior and Mental Health Advocate"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-10-21"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-10-27"
+        },
+        {
+          "nom": "Committee",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-04"
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-06"
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Third Reading Passed",
+      "parrain": {
+        "nom": "Hon. Robert MCKEE, K.C.",
+        "parti": "Liberal Party",
+        "circonscription": "Moncton Centre",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Rob_McKee_sm.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-3.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-3-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/3/an-act-respecting-the-child-youth-senior-and",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/3/x"
+      }
+    },
+    {
+      "cle": "61-3-2",
+      "legislature": 61,
+      "session": 3,
+      "numero": 2,
+      "titre": {
+        "fr": "Loi modifiant la Loi sur le recouvrement des dommages-intérêts et des coûts des soins de santé imputables aux opioïdes",
+        "en": "An Act to Amend the Opioid Damages and Health Care Costs Recovery Act"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-10-21"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-10-27"
+        },
+        {
+          "nom": "Committee",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-04"
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "adopté",
+            "en": "passed"
+          },
+          "date": "2026-11-06"
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "Third Reading Passed",
+      "parrain": {
+        "nom": "Hon. John DORNAN",
+        "parti": "Liberal Party",
+        "circonscription": "Saint John Portland-Simonds",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/John_Dornan_sm.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-2.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-2-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/2/an-act-to-amend-the-opioid-damages-and-health",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/2/x"
+      }
+    },
+    {
+      "cle": "61-3-1",
+      "legislature": 61,
+      "session": 3,
+      "numero": 1,
+      "titre": {
+        "fr": "Loi perpétuant un droit traditionnel spécifique",
+        "en": "An Act to Perpetuate a Certain Ancient Right"
+      },
+      "etapes": [
+        {
+          "nom": "1 Reading",
+          "franchie": true,
+          "resultat": {
+            "fr": "déposé",
+            "en": "introduced"
+          },
+          "date": "2026-10-20"
+        },
+        {
+          "nom": "2 Reading",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "Committee",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "3 Reading",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        },
+        {
+          "nom": "Royal Assent",
+          "franchie": false,
+          "resultat": null,
+          "date": null
+        }
+      ],
+      "type": "Government Bill",
+      "statut": "First Reading",
+      "parrain": {
+        "nom": "Hon. Susan HOLT",
+        "parti": "Liberal Party",
+        "circonscription": "Fredericton South-Silverwood",
+        "couleurParti": "#C0161D",
+        "portrait": "https://www.legnb.ca/content/members/portraits/61-1/Susan_Holt__lg.jpg"
+      },
+      "documents": {
+        "amendements": [],
+        "pdfBilingue": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-1.pdf",
+        "htmlEn": "https://www.legnb.ca/content/house_business/61/3/bills/Bill-1-e.htm"
+      },
+      "source": {
+        "en": "https://www.legnb.ca/en/legislation/bills/61/3/1/an-act-to-perpetuate-a-certain-ancient-right",
+        "fr": "https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/1/x"
+      }
+    }
+  ]
+}

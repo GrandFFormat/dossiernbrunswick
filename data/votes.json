@@ -1,0 +1,199 @@
+{
+  "legislature": 61,
+  "session": 3,
+  "luLe": "2026-11-07T05:46:41.557Z",
+  "source": "https://www.legnb.ca/en/house-business/journals/61/3",
+  "note": "Les votes nominatifs sont rares au Nouveau-Brunswick : la plupart des projets de loi sont adoptés de vive voix, sans que les positions individuelles soient consignées. L'absence de vote nominatif ne veut donc pas dire « unanime ».",
+  "noms": "Les noms sont écrits comme le Journal les écrit, initiale comprise (plusieurs député·e·s partagent un nom de famille).",
+  "votes": [
+    {
+      "legislature": 61,
+      "session": 3,
+      "seance": 7,
+      "date": "2026-10-29",
+      "journal": "https://www.legnb.ca/content/house_business/61/3/journal/07261029e.pdf",
+      "objet": {
+        "genre": null,
+        "numero": null,
+        "surAmendement": true,
+        "phrase": "nt of order. At 4.04 p.m. the House recessed. At 4.18 p.m. the House resumed. Mr. Deputy Speaker ruled the sub-amendment to be in order. And the debate being ended, and the question being put, the sub-amendment was defeated on the following recorded division:"
+      },
+      "pour": {
+        "total": 16,
+        "noms": [
+          "Mr. Hogan",
+          "Mr. Ames",
+          "Mr. Cullins",
+          "Mr. Savoie",
+          "Ms. M. Wilson",
+          "Ms. Bockus",
+          "Ms. M. Johnson",
+          "Ms. Conroy",
+          "Mr. Lee",
+          "Ms. Scott-Wallace",
+          "Mr. Oliver",
+          "Ms. Mitton",
+          "Mr. Monahan",
+          "Mr. Russell",
+          "Mr. Austin",
+          "Ms. S. Wilson"
+        ]
+      },
+      "contre": {
+        "total": 23,
+        "noms": [
+          "Hon. Mr. Gauvin",
+          "Hon. Mr. McKee",
+          "Mr. Mallet",
+          "Mr. M. LeBlanc",
+          "Hon. Ms. Thériault",
+          "Mr. Bourque",
+          "Hon. Mr. Legacy",
+          "Hon. Mr. Herron",
+          "Mr. J. LeBlanc",
+          "Hon. Ms. Miles",
+          "Hon. Ms. Townsend",
+          "Mr. Doucet",
+          "Hon. Mr. Dornan",
+          "Hon. Mr. Randall",
+          "Ms. Vautour",
+          "Hon. Ms. C. Johnson",
+          "Hon. Mr. Kennedy",
+          "Ms. Sodhi",
+          "Hon. Mr. LePage",
+          "Hon. Mr. Hickey",
+          "Mr. Robichaud",
+          "Hon. Mr. D’Amours",
+          "Ms. Wilcott"
+        ]
+      },
+      "votants": 39
+    },
+    {
+      "legislature": 61,
+      "session": 3,
+      "seance": 7,
+      "date": "2026-10-29",
+      "journal": "https://www.legnb.ca/content/house_business/61/3/journal/07261029e.pdf",
+      "objet": {
+        "genre": null,
+        "numero": null,
+        "surAmendement": false,
+        "phrase": ". Hickey Mr. Robichaud Hon. Mr. D’Amours Ms. Wilcott Mr. Deputy Speaker put the question on the amendment and it was adopted on the following recorded division after leave was granted to dispense with the ten-minute time allotted for the ringing of the bells:"
+      },
+      "pour": {
+        "total": 23,
+        "noms": [
+          "Hon. Mr. Gauvin",
+          "Hon. Mr. McKee",
+          "Mr. Mallet",
+          "Mr. M. LeBlanc",
+          "Hon. Ms. Thériault",
+          "Mr. Bourque",
+          "Hon. Mr. Legacy",
+          "Hon. Mr. Herron",
+          "Mr. J. LeBlanc",
+          "Hon. Ms. Miles",
+          "Hon. Ms. Townsend",
+          "Mr. Doucet",
+          "Hon. Mr. Dornan",
+          "Hon. Mr. Randall",
+          "Ms. Vautour",
+          "Hon. Ms. C. Johnson",
+          "Hon. Mr. Kennedy",
+          "Ms. Sodhi",
+          "Hon. Mr. LePage",
+          "Hon. Mr. Hickey",
+          "Mr. Robichaud",
+          "Hon. Mr. D’Amours",
+          "Ms. Wilcott October"
+        ]
+      },
+      "contre": {
+        "total": 16,
+        "noms": [
+          "Mr. Hogan",
+          "Mr. Ames",
+          "Mr. Cullins",
+          "Mr. Savoie",
+          "Ms. M. Wilson",
+          "Ms. Bockus",
+          "Ms. M. Johnson",
+          "Ms. Conroy",
+          "Mr. Lee",
+          "Ms. Scott-Wallace",
+          "Mr. Oliver",
+          "Ms. Mitton",
+          "Mr. Monahan",
+          "Mr. Russell",
+          "Mr. Austin",
+          "Ms. S. Wilson"
+        ]
+      },
+      "votants": 39
+    },
+    {
+      "legislature": 61,
+      "session": 3,
+      "seance": 7,
+      "date": "2026-10-29",
+      "journal": "https://www.legnb.ca/content/house_business/61/3/journal/07261029e.pdf",
+      "objet": {
+        "genre": "motion",
+        "numero": 4,
+        "surAmendement": false,
+        "phrase": "nts. And the question being put, Motion 4 as amended was resolved in the affirmative on the following recorded division after leave was granted to dispense with the ten-minute time allotted for the ringing of the bells: 6 5-6 Charles III, 2026-2027 October 29"
+      },
+      "pour": {
+        "total": 23,
+        "noms": [
+          "Hon. Mr. Gauvin",
+          "Hon. Mr. McKee",
+          "Mr. Mallet",
+          "Mr. M. LeBlanc",
+          "Hon. Ms. Thériault",
+          "Mr. Bourque",
+          "Hon. Mr. Legacy",
+          "Hon. Mr. Herron",
+          "Mr. J. LeBlanc",
+          "Hon. Ms. Miles",
+          "Hon. Ms. Townsend",
+          "Mr. Doucet",
+          "Hon. Mr. Dornan",
+          "Hon. Mr. Randall",
+          "Ms. Vautour",
+          "Hon. Ms. C. Johnson",
+          "Hon. Mr. Kennedy",
+          "Ms. Sodhi",
+          "Hon. Mr. LePage",
+          "Hon. Mr. Hickey",
+          "Mr. Robichaud",
+          "Hon. Mr. D’Amours",
+          "Ms. Wilcott"
+        ]
+      },
+      "contre": {
+        "total": 16,
+        "noms": [
+          "Mr. Hogan",
+          "Mr. Ames",
+          "Mr. Cullins",
+          "Mr. Savoie",
+          "Ms. M. Wilson",
+          "Ms. Bockus",
+          "Ms. M. Johnson",
+          "Ms. Conroy",
+          "Mr. Lee",
+          "Ms. Scott-Wallace",
+          "Mr. Oliver",
+          "Ms. Mitton",
+          "Mr. Monahan",
+          "Mr. Russell",
+          "Mr. Austin",
+          "Mr. M. LeBlanc"
+        ]
+      },
+      "votants": 39
+    }
+  ]
+}
