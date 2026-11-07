@@ -1286,3 +1286,50 @@ html[data-theme='dark'] .nb-famille.votes { color: #5fcf8a; border-color: #5fcf8
 @media (max-width: 800px) {
   .nb-lexique-grille { grid-template-columns: 1fr; }
 }
+
+/* ─── La pastille des villes, à côté de la marque ───────────────────────── */
+
+.nb-villes { position: relative; margin-right: auto; }
+.nb-villes summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  font: 600 12px var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tintink);
+  background: var(--tint);
+  cursor: pointer;
+  list-style: none;
+  white-space: nowrap;
+}
+.nb-villes summary::-webkit-details-marker { display: none; }
+.nb-villes[open] summary { color: #fff; background: var(--nb-bleu); }
+.nb-villes[open] summary svg { transform: rotate(180deg); }
+.nb-villes-menu {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 250px;
+  padding: 14px 16px;
+  background: var(--w);
+  border: 1px solid var(--color-divider);
+  border-top: 3px solid var(--nb-bleu);
+  box-shadow: var(--shadow-md);
+}
+.nb-villes-menu p { margin: 0 0 10px; font-size: 12px; color: var(--ink3); }
+.nb-villes-menu a {
+  display: block;
+  padding: 7px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--acc);
+  text-decoration: none;
+  border-top: 1px solid var(--color-divider);
+}
+.nb-villes-menu a:hover { color: var(--nb-rouge); }
+
+/* La marque ne pousse plus seule : c'est la pastille qui tient la place. */
+.nb-entete .nb-marque { margin-right: 0; }

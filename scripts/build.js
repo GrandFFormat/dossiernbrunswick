@@ -98,19 +98,11 @@ const T = {
       { num: '04', nom: 'Lexique', vers: 'lexique' },
     ],
     monDossier: 'Mon dossier', monDossierVers: 'mon-dossier',
-    villesOnglet: 'Villes', villesVers: 'villes',
-    villesTitre: 'Les villes',
-    villesSurtitre: 'Aucune ville couverte',
-    villesNote: 'Ce site lit l\'Assemblée législative, pas les conseils municipaux. Rien de ce qui se décide dans un hôtel de ville du Nouveau-Brunswick n\'est publié ici aujourd\'hui.',
-    villesDescription: 'Les conseils municipaux du Nouveau-Brunswick ne sont pas suivis par DossierNBrunswick. Ce que contiendrait un volet municipal, et à quelle condition.',
-    villesContenuTitre: 'Ce que contiendrait un volet municipal',
-    villesContenu: [
-      'L\'ordre du jour de chaque séance du conseil, en langage clair.',
-      'Qui a voté quoi, quand le procès-verbal le dit.',
-      'Les règlements à l\'étude, et l\'étape où ils sont rendus.',
-    ],
-    villesConditionTitre: 'À une condition',
-    villesCondition: 'La même que pour l\'Assemblée : que la ville publie ses documents d\'une façon lisible honnêtement et rafraîchissable automatiquement. Une ville derrière un mur anti-robots ne sera pas couverte — on ne contourne pas une protection, même quand les documents sont publics.',
+    villesPastille: 'Villes',
+    villesAucune: 'Aucune ville couverte pour l\u2019instant.',
+    villesRepresenter: '+ Repr\u00e9sentez votre ville',
+    villesRepresenterVers: 'https://dossierquebec.ca/represente-ta-ville',
+    villesCommanditer: 'Commanditez votre ville',
 
 
     /* Suivre un projet de loi, sans compte. */
@@ -322,19 +314,11 @@ const T = {
       { num: '04', nom: 'Glossary', vers: 'glossary' },
     ],
     monDossier: 'My file', monDossierVers: 'my-file',
-    villesOnglet: 'Cities', villesVers: 'cities',
-    villesTitre: 'The cities',
-    villesSurtitre: 'No city is covered',
-    villesNote: 'This site reads the Legislative Assembly, not city councils. Nothing decided in a New Brunswick city hall is published here today.',
-    villesDescription: 'New Brunswick city councils are not followed by DossierNBrunswick. What a municipal section would hold, and on what condition.',
-    villesContenuTitre: 'What a municipal section would hold',
-    villesContenu: [
-      'The agenda of every council sitting, in plain language.',
-      'Who voted how, where the minutes say so.',
-      'The by-laws under study, and the stage they have reached.',
-    ],
-    villesConditionTitre: 'On one condition',
-    villesCondition: 'The same one as for the Assembly: that the city publish its documents in a way that can be read honestly and refreshed automatically. A city behind an anti-robot wall will not be covered — we do not work around a protection, even when the documents are public.',
+    villesPastille: 'Cities',
+    villesAucune: 'No city is covered yet.',
+    villesRepresenter: '+ Represent your city',
+    villesRepresenterVers: 'https://dossierquebec.ca/represente-ta-ville?lang=en',
+    villesCommanditer: 'Sponsor your city',
 
 
     suivre: 'Follow', suivi: 'Following', suivreTitre: (n) => `Follow Bill ${n}`,
@@ -598,10 +582,17 @@ function entete(t, racine, page, autreChemin = '') {
       <span style="width:22px;height:22px;display:inline-flex">${ETOILE('var(--nb-jaune)')}</span>
       Dossier<em>NBrunswick</em>
     </a>
+    <details class="nb-villes">
+      <summary>${t.villesPastille}<svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="nb-villes-menu">
+        <p>${t.villesAucune}</p>
+        <a href="${racine}#commandite">${t.villesCommanditer}</a>
+        <a href="${t.villesRepresenterVers}" rel="noopener">${t.villesRepresenter}</a>
+      </div>
+    </details>
 ${onglets}
     <a class="nb-onglet nb-onglet-etoile" href="${racine}${t.monDossierVers}"${(page || '') === t.monDossierVers ? ' aria-current="page"' : ''}>
       <span class="nb-etoile-petite" aria-hidden="true">★</span>${t.monDossier}<span class="nb-compteur-suivis" data-nb-compteur hidden></span></a>
-    <a class="nb-onglet" href="${racine}${t.villesVers}"${(page || '') === t.villesVers ? ' aria-current="page"' : ''}>${t.villesOnglet}</a>
     <button class="nb-bouton-carre" type="button" data-nb-theme aria-pressed="false" title="${t.theme}">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
       <span class="nb-invisible">${t.theme}</span>
@@ -758,7 +749,7 @@ function cartesAppel(t, langue) {
       <p>${t.compteTexte}</p>
       <a class="nb-btn nb-btn-jaune" href="${racine}${t.monDossierVers}">${t.compteBtn}</a>
     </article>
-    <article class="nb-appel nb-appel-rouge">
+    <article class="nb-appel nb-appel-rouge" id="commandite">
       <p class="nb-surtitre">${t.commanditeSurtitre}</p>
       <h2>${t.commanditeTitre}</h2>
       <p>${t.commanditeTexte}</p>
@@ -1570,40 +1561,6 @@ ${(deputesFichier?.deputes || []).map((d) => ligneDepute(d, t, langue)).join('\n
   });
 }
 
-/**
- * La page des villes. Elle ne couvre rien, et le dit d'entrée. Elle existe parce que
- * l'onglet mène quelque part, et parce qu'une ville qui se demande ce qu'un volet lui
- * apporterait doit pouvoir le lire — avec la condition qui va avec.
- */
-function pageVilles(langue) {
-  const t = T[langue];
-  return coquille({
-    langue,
-    vers: t.villesVers,
-    versAutre: T[t.autre].villesVers,
-    titre: `${t.villesTitre} — DossierNBrunswick`,
-    description: t.villesDescription,
-    corps: `${teteDeSection(t.villesSurtitre, t.villesTitre, t.villesNote)}
-  <section class="nb-section">
-    <div class="nb-section-tete"><h2>${t.villesContenuTitre}</h2></div>
-    <ul class="nb-liste-simple">
-${t.villesContenu.map((l) => `      <li>${l}</li>`).join('\n')}
-    </ul>
-  </section>
-  <section class="nb-section">
-    <div class="nb-section-tete"><h2>${t.villesConditionTitre}</h2></div>
-    <p class="nb-texte">${t.villesCondition}</p>
-  </section>
-  <section class="nb-section nb-duo-seul">
-    <article class="nb-appel nb-appel-rouge">
-      <p class="nb-surtitre">${t.commanditeSurtitre}</p>
-      <h2>${t.commanditeTitre}</h2>
-      <p>${t.commanditeTexte}</p>
-      <p class="nb-appel-avis">${t.commanditeAvis}</p>
-    </article>
-  </section>`,
-  });
-}
 
 /* ─── Partager ────────────────────────────────────────────────────────── */
 
@@ -1984,7 +1941,6 @@ const PAGES = [
   { fr: 'projets-de-loi.html', en: 'en/bills.html', faire: pageProjets },
   { fr: 'ministres.html', en: 'en/ministers.html', faire: pageMinistres },
   { fr: 'lexique.html', en: 'en/glossary.html', faire: pageLexique },
-  { fr: 'villes.html', en: 'en/cities.html', faire: pageVilles },
   { fr: 'mon-dossier.html', en: 'en/my-file.html', faire: pageMonDossier, horsSitemap: true },
 ];
 
