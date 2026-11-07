@@ -1,0 +1,13 @@
+.env
+api.env
+node_modules/
+.claude/settings.local.json
+
+# Écritures en deux temps (fichier voisin, puis renommage) : un .tmp resté là après un run
+# interrompu ne doit pas être ramassé par le « git add » des workflows.
+data/*.tmp
+
+# Textes des projets de loi et Journaux téléchargés pour les résumés et les votes :
+# régénérables depuis legnb.ca, et lourds. Seules les données extraites sont versionnées.
+data/textes/
+data/journaux/
