@@ -12,6 +12,12 @@ name: Étape 0 — accès à legnb.ca
 
 on:
   workflow_dispatch: {} # bouton « Run workflow »
+  push:
+    # Quand le test lui-même change, on le relance : c'est le seul moment où son
+    # résultat peut bouger pour une raison qui vient de nous et non de Cloudflare.
+    paths:
+      - 'scripts/test-acces-legnb.js'
+      - '.github/workflows/test-acces-legnb.yml'
   schedule:
     # Une fois par semaine, le lundi : Cloudflare peut durcir ses règles du jour au
     # lendemain. Si l'accès tombe un jour, on veut l'apprendre par ce test et non par
