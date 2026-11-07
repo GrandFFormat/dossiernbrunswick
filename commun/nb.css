@@ -651,3 +651,130 @@ html[data-theme='dark'] .nb-surtitre-rouge { color: var(--nb-jaune); }
   .nb-section-tete h1 { font-size: 28px; }
   .nb-etapes li { grid-template-columns: 1fr; gap: 2px; }
 }
+
+/* ═══ Les blocs de la maquette remis en place (7 novembre 2026) ══════════════
+   Les quatre blocs de la maquette d'origine, sans leurs chiffres de démonstration :
+   la bande des villes, le suivi des projets de loi, les chemins pour agir, et l'appel
+   à la commandite. Chacun dit ce qu'il fait vraiment.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* ─── La bande des villes, sous l'en-tête ───────────────────────────────── */
+
+.nb-bande-villes {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 10px 48px;
+  background: var(--tint);
+  color: var(--tintink);
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-divider);
+}
+.nb-bande-titre {
+  font: 600 12px var(--font-heading);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+/* Les noms de villes ne sont pas des liens : rien n'est couvert, et la note le dit. */
+.nb-bande-note { margin-left: auto; font-size: 12px; font-weight: 400; opacity: 0.8; }
+
+/* ─── L'étoile « Mon dossier » dans l'en-tête ───────────────────────────── */
+
+.nb-onglet-etoile { display: inline-flex; align-items: center; gap: 6px; }
+.nb-etoile-petite { color: var(--nb-jaune); font-size: 13px; }
+html[data-theme='light'] .nb-etoile-petite { color: #d6af00; }
+.nb-compteur-suivis {
+  min-width: 18px;
+  padding: 1px 5px;
+  font: 600 11px var(--font-heading);
+  color: #fff;
+  background: var(--nb-rouge);
+  text-align: center;
+}
+
+/* ─── Le bouton « Suivre », au bout d'une rangée ────────────────────────── */
+
+/* display:grid l'emporterait sur [hidden] : sans cette ligne, « Mon dossier »
+   montrerait tous les projets de loi au lieu des seuls projets suivis. */
+.nb-rangee[hidden] { display: none; }
+.nb-rangee { display: grid; grid-template-columns: 1fr auto; align-items: stretch; gap: 8px; }
+.nb-suivre {
+  padding: 0 16px;
+  font: 600 12px var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--acc);
+  background: var(--w);
+  border: 1px solid var(--color-divider);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.nb-suivre:hover { border-color: var(--acc); }
+.nb-suivre[aria-pressed='true'] { color: #fff; background: var(--acc); border-color: var(--acc); }
+/* Sans JavaScript le bouton ne ferait rien : il ne s'affiche qu'une fois branché. */
+.nb-suivre:not([data-nb-pret]) { display: none; }
+
+/* ─── Agir sur un projet de loi ─────────────────────────────────────────── */
+
+.nb-agir-intro { max-width: 70ch; font-size: 15px; line-height: 1.6; color: var(--ink2); margin: 0 0 20px; }
+.nb-chemins { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.nb-chemin {
+  padding: 20px;
+  background: var(--w);
+  border-top: 3px solid var(--nb-rouge);
+  box-shadow: var(--shadow-sm);
+}
+.nb-chemin h3 {
+  margin: 0 0 10px;
+  font: 600 17px/1.15 var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.nb-chemin p { margin: 0 0 14px; font-size: 14px; line-height: 1.55; color: var(--ink2); }
+.nb-chemin a { font-size: 13px; font-weight: 600; color: var(--acc); text-decoration: none; }
+.nb-chemin a:hover { color: var(--nb-rouge); }
+
+/* ─── Les deux appels : suivre, et commanditer ──────────────────────────── */
+
+.nb-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.nb-appel { padding: 32px; box-shadow: var(--shadow-sm); }
+.nb-appel h2 { margin: 6px 0 14px; font: 600 26px/1.05 var(--font-heading); text-transform: uppercase; }
+.nb-appel p { margin: 0 0 16px; font-size: 14px; line-height: 1.6; }
+.nb-appel-bleu { background: var(--nb-bleu); color: #fff; }
+.nb-appel-bleu .nb-surtitre { color: var(--nb-jaune); opacity: 1; }
+.nb-appel-papier { background: var(--w); color: var(--ink); }
+.nb-appel-papier p { color: var(--ink2); }
+.nb-appel-avis {
+  padding: 12px 14px;
+  background: var(--tint);
+  color: var(--tintink);
+  font-size: 13px;
+  margin: 0;
+}
+.nb-btn-jaune { color: var(--nb-bleu-nuit); background: var(--nb-jaune); }
+.nb-btn-jaune:hover { background: #ffdd45; }
+
+/* ─── Mon dossier ───────────────────────────────────────────────────────── */
+
+.nb-vide {
+  padding: 24px;
+  background: var(--w);
+  border-left: 6px solid var(--nb-jaune);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink2);
+  margin: 0 0 14px;
+}
+
+@media (max-width: 900px) {
+  .nb-chemins, .nb-duo { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .nb-bande-villes { padding: 10px 20px; font-size: 12px; gap: 12px; }
+  .nb-bande-note { margin-left: 0; width: 100%; }
+  .nb-rangee { grid-template-columns: 1fr; }
+  .nb-suivre { padding: 10px 16px; }
+  .nb-appel { padding: 22px; }
+}

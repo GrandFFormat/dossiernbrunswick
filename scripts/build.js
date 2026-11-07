@@ -87,6 +87,45 @@ const T = {
       { num: '04', nom: 'Député·e·s', vers: 'deputes' },
       { num: '05', nom: 'Lexique', vers: 'lexique' },
     ],
+    monDossier: 'Mon dossier', monDossierVers: 'mon-dossier',
+
+    /* La bande des villes, sous l'en-tête. */
+    bandeVilles: 'Villes',
+    bandeVillesNote: 'Conseils municipaux : aucune ville couverte pour l\'instant',
+    villes: ['Moncton', 'Saint John', 'Fredericton', 'Dieppe', 'Bathurst'],
+
+    /* Suivre un projet de loi, sans compte. */
+    suivre: 'Suivre', suivi: 'Suivi', suivreTitre: (n) => `Suivre le projet de loi nᵒ ${n}`,
+
+    /* La carte « Mon dossier ». */
+    compteSurtitre: 'Sans compte',
+    compteTitre: 'Suivez les projets qui vous touchent',
+    compteTexte: 'Rien à créer, aucun courriel, aucun mot de passe : le bouton <b>Suivre</b> d\'un projet de loi garde votre choix dans ce navigateur seulement. Rien n\'est envoyé au site, et ce site n\'a pas de compte à offrir.',
+    compteBtn: 'Ouvrir mon dossier',
+    monDossierTitre: 'Mon dossier',
+    monDossierSurtitre: 'Gardé dans ce navigateur',
+    monDossierNote: 'Les projets de loi que vous suivez. La liste vit dans ce navigateur, sur cet appareil : elle ne part pas sur un serveur, et elle disparaît si vous effacez les données du site. Un autre appareil ne la verra pas.',
+    monDossierVide: 'Vous ne suivez encore aucun projet de loi. Le bouton <b>Suivre</b>, sur chaque projet, l\'ajoute ici.',
+    monDossierDescription: 'Les projets de loi de l\'Assemblée législative du Nouveau-Brunswick que vous suivez, gardés dans votre navigateur, sans compte.',
+    monDossierTous: 'Voir tous les projets de loi →',
+
+    /* Le bloc « signaler un projet ». */
+    agirSurtitre: 'Agir sur un projet de loi',
+    agirTitre: 'Pas de pétition en ligne au Nouveau-Brunswick',
+    agirIntro: 'L\'Assemblée n\'accepte que les pétitions <b>sur papier</b>, signées à la main et déposées par un·e député·e. Aucun bouton, ici ou ailleurs, n\'a de valeur officielle. Voici les trois chemins qui en ont.',
+    agirCompteur: 'Compteur citoyen : pas encore ouvert. Il demandera une base de données, et il ne s\'affichera pas avant d\'avoir de vrais chiffres à montrer.',
+    agirChemins: [
+      ['Écrire à votre député·e', 'C\'est le seul chemin qui marche toujours. Chaque député·e a une adresse à l\'Assemblée.', 'https://www.legnb.ca/fr/parlementaires/actuel', 'La liste officielle →'],
+      ['Faire déposer une pétition papier', 'Signée à la main, puis remise à votre député·e, qui la dépose à la Chambre. Le ministre doit répondre par écrit dans les deux semaines — mais cette réponse n\'est pas publiée.', 'lexique', 'Ce que dit le lexique →'],
+      ['Se faire entendre en comité', 'Certains comités tiennent des audiences publiques. Leurs avis et leurs dates passent par cette page.', 'https://www.legnb.ca/fr/comit%C3%A9s', 'Les comités →'],
+    ],
+
+    /* Le bloc commandite. */
+    commanditeSurtitre: 'Commandite',
+    commanditeTitre: 'Commanditez votre ville',
+    commanditeTexte: 'Le suivi d\'un conseil municipal — ordres du jour, votes et résolutions en langage clair — demande du travail de lecture par ville. Une commandite locale en financerait une pendant un an.',
+    commanditeAvis: 'Aucune ville n\'est couverte, et aucun prix n\'est fixé pour le Nouveau-Brunswick. Il n\'y a donc rien à vendre aujourd\'hui : c\'est une intention, pas une offre.',
+    commanditeBtn: null,
     neufSurtitre: 'Quoi de neuf', neufTitre: 'Dernières activités réelles à l\'Assemblée',
     neufIntro: 'Fil chronologique, du plus récent au plus ancien. Chaque ligne est un acte inscrit au registre de l\'Assemblée.',
     missionSurtitre: 'Notre mission',
@@ -179,6 +218,40 @@ const T = {
       { num: '04', nom: 'Members', vers: 'members' },
       { num: '05', nom: 'Glossary', vers: 'glossary' },
     ],
+    monDossier: 'My file', monDossierVers: 'my-file',
+
+    bandeVilles: 'Cities',
+    bandeVillesNote: 'City councils: no city is covered yet',
+    villes: ['Moncton', 'Saint John', 'Fredericton', 'Dieppe', 'Bathurst'],
+
+    suivre: 'Follow', suivi: 'Following', suivreTitre: (n) => `Follow Bill ${n}`,
+
+    compteSurtitre: 'No account',
+    compteTitre: 'Follow the bills that affect you',
+    compteTexte: 'Nothing to create, no email, no password: the <b>Follow</b> button on a bill keeps your choice in this browser only. Nothing is sent to the site, and this site has no account to offer.',
+    compteBtn: 'Open my file',
+    monDossierTitre: 'My file',
+    monDossierSurtitre: 'Kept in this browser',
+    monDossierNote: 'The bills you follow. The list lives in this browser, on this device: it is never sent to a server, and it disappears if you clear the site\'s data. Another device will not see it.',
+    monDossierVide: 'You are not following any bill yet. The <b>Follow</b> button on each bill adds it here.',
+    monDossierDescription: 'The bills of the Legislative Assembly of New Brunswick you follow, kept in your browser, with no account.',
+    monDossierTous: 'See every bill →',
+
+    agirSurtitre: 'Acting on a bill',
+    agirTitre: 'There is no online petition in New Brunswick',
+    agirIntro: 'The Assembly only accepts petitions <b>on paper</b>, signed by hand and presented by a member. No button, here or anywhere else, carries official weight. These three routes do.',
+    agirCompteur: 'A citizen counter is not open yet. It needs a database, and it will not appear before it has real numbers to show.',
+    agirChemins: [
+      ['Write to your member', 'The one route that always works. Every member has an address at the Assembly.', 'https://www.legnb.ca/en/members/current', 'The official list →'],
+      ['Have a paper petition presented', 'Signed by hand, then handed to your member, who presents it in the House. A minister must reply in writing within two weeks — but that reply is not published.', 'glossary', 'What the glossary says →'],
+      ['Be heard in committee', 'Some committees hold public hearings. Their notices and dates go through this page.', 'https://www.legnb.ca/en/committees', 'The committees →'],
+    ],
+
+    commanditeSurtitre: 'Sponsorship',
+    commanditeTitre: 'Sponsor your city',
+    commanditeTexte: 'Following a city council — agendas, votes and resolutions in plain language — takes reading work for each city. A local sponsorship would pay for one city for a year.',
+    commanditeAvis: 'No city is covered, and no price is set for New Brunswick. There is nothing to sell today: this is an intention, not an offer.',
+    commanditeBtn: null,
     neufSurtitre: 'What\'s new', neufTitre: 'Latest real activity in the House',
     neufIntro: 'A timeline, most recent first. Every line is an act entered in the Assembly\'s record.',
     missionSurtitre: 'Our mission',
@@ -337,6 +410,8 @@ function entete(t, racine, page, autreChemin = '') {
       Dossier<em>NBrunswick</em>
     </a>
 ${onglets}
+    <a class="nb-onglet nb-onglet-etoile" href="${racine}${t.monDossierVers}"${(page || '') === t.monDossierVers ? ' aria-current="page"' : ''}>
+      <span class="nb-etoile-petite" aria-hidden="true">★</span>${t.monDossier}<span class="nb-compteur-suivis" data-nb-compteur hidden></span></a>
     <button class="nb-bouton-carre" type="button" data-nb-theme aria-pressed="false" title="${t.theme}">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
       <span class="nb-invisible">${t.theme}</span>
@@ -348,6 +423,19 @@ ${onglets}
     </div>
     <a class="nb-onglet" data-nb-autre-langue="${t.autre}" href="${t.autre === 'en' ? '/en/' : '/'}${autreChemin}" hreflang="${t.autre}" rel="alternate">${t.autreNom}</a>
   </header>`;
+}
+
+/**
+ * La bande des villes de la maquette, sous l'en-tête. Les noms ne sont pas des liens :
+ * aucun conseil municipal n'est lu, et un lien qui ne mène nulle part vaudrait moins
+ * que du texte qui dit la vérité. La bande annonce elle-même qu'elle ne couvre rien.
+ */
+function bandeVilles(t) {
+  return `  <div class="nb-bande-villes">
+    <span class="nb-bande-titre">${t.bandeVilles}</span>
+    ${t.villes.map((v) => `<span>${echapper(v)}</span>`).join('\n    ')}
+    <span class="nb-bande-note">${t.bandeVillesNote}</span>
+  </div>`;
 }
 
 function affiche(t, chiffres, leg, ses) {
@@ -362,7 +450,7 @@ function affiche(t, chiffres, leg, ses) {
       <p class="nb-chapo">${t.chapo}</p>
       <div class="nb-actions">
         <a class="nb-btn nb-btn-rouge" href="#projets">${t.explorer}</a>
-        <a class="nb-btn nb-btn-ligne" href="#deputes">${t.deputesBtn}</a>
+        <a class="nb-btn nb-btn-ligne" href="${t.langue === 'en' ? '/en/members' : '/deputes'}">${t.deputesBtn}</a>
       </div>
     </div>
     <div class="nb-chiffres">
@@ -385,25 +473,90 @@ function rangeeProjet(projet, t, langue) {
     || (etape ? etapeLisible(etape.nom, langue) : null);
   const rejete = /defeated|rejet/i.test(projet.statut || '');
   const lien = projet.source?.[langue] || projet.source?.en || '#';
-  return `        <a class="nb-projet" href="${echapper(lien)}" rel="noopener">
-          <span class="nb-projet-num">${langue === 'en' ? 'No.' : 'Nᵒ'} ${projet.numero}</span>
-          <span class="nb-projet-titre">${echapper(titre)}</span>
-          ${statut ? `<span class="nb-etape${rejete ? ' rejete' : ''}">${echapper(statut)}</span>` : '<span></span>'}
-          <span class="nb-projet-fleche">${CHEVRON}</span>
-        </a>`;
+  // La rangée porte son numéro de projet : c'est par là que « Mon dossier » la retrouve.
+  return `        <div class="nb-rangee" data-nb-projet="${projet.numero}">
+          <a class="nb-projet" href="${echapper(lien)}" rel="noopener">
+            <span class="nb-projet-num">${langue === 'en' ? 'No.' : 'Nᵒ'} ${projet.numero}</span>
+            <span class="nb-projet-titre">${echapper(titre)}</span>
+            ${statut ? `<span class="nb-etape${rejete ? ' rejete' : ''}">${echapper(statut)}</span>` : '<span></span>'}
+            <span class="nb-projet-fleche">${CHEVRON}</span>
+          </a>
+          <button class="nb-suivre" type="button" data-nb-suivre="${projet.numero}"
+            data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
+            aria-pressed="false" title="${echapper(t.suivreTitre(projet.numero))}">${t.suivre}</button>
+        </div>`;
 }
 
-function sectionProjets(t, langue) {
-  const projets = [...projetsFichier.projets].sort((a, b) => b.numero - a.numero);
+/**
+ * Les projets de loi, en rangées. L'accueil n'en montre que quelques-uns (choix de Martin,
+ * 7 novembre 2026) ; la page complète les montre tous.
+ */
+function sectionProjets(t, langue, limite = null) {
+  const tous = [...projetsFichier.projets].sort((a, b) => b.numero - a.numero);
+  const projets = limite ? tous.slice(0, limite) : tous;
+  const reste = tous.length - projets.length;
+  const racine = langue === 'en' ? '/en/' : '/';
+  const vers = langue === 'en' ? 'bills' : 'projets-de-loi';
   return `  <section class="nb-section" id="projets">
     <div class="nb-section-tete">
       <h2>${t.projetsTitre}</h2>
-      <a class="nb-voir-tout" href="${projetsFichier.source}" rel="noopener">${t.projetsVoir}</a>
+      <a class="nb-voir-tout" href="${racine}${vers}">${t.projetsVoir}${reste > 0 ? ` (${tous.length})` : ''}</a>
     </div>
     <p class="nb-section-note">${t.projetsNote}</p>
     <div class="nb-projets">
 ${projets.map((p) => rangeeProjet(p, t, langue)).join('\n')}
     </div>
+  </section>`;
+}
+
+/**
+ * Agir sur un projet de loi. Le bloc de la maquette, sans son compteur : un compteur
+ * citoyen demande une base de données, et des chiffres inventés ne valent rien. Ce qui
+ * reste est ce qui sert vraiment — les trois chemins qui ont une valeur officielle.
+ */
+function sectionAgir(t, langue) {
+  const racine = langue === 'en' ? '/en/' : '/';
+  const cartes = t.agirChemins.map(([titre, texte, lien, libelle]) => {
+    const externe = lien.startsWith('http');
+    const adresse = externe ? lien : `${racine}${lien}`;
+    return `      <article class="nb-chemin">
+        <h3>${titre}</h3>
+        <p>${texte}</p>
+        <a href="${echapper(adresse)}"${externe ? ' rel="noopener"' : ''}>${libelle}</a>
+      </article>`;
+  }).join('\n');
+
+  return `  <section class="nb-section nb-agir">
+    <p class="nb-surtitre nb-surtitre-rouge">${t.agirSurtitre}</p>
+    <div class="nb-section-tete rouge"><h2>${t.agirTitre}</h2></div>
+    <p class="nb-agir-intro">${t.agirIntro}</p>
+    <div class="nb-chemins">
+${cartes}
+    </div>
+    <p class="nb-section-note">${t.agirCompteur}</p>
+  </section>`;
+}
+
+/**
+ * Les deux cartes de la maquette, côte à côte : suivre des projets, et commanditer une
+ * ville. Chacune dit exactement ce qu'elle fait — la première marche, la seconde annonce
+ * qu'il n'y a rien à vendre aujourd'hui.
+ */
+function sectionDuo(t, langue) {
+  const racine = langue === 'en' ? '/en/' : '/';
+  return `  <section class="nb-section nb-duo">
+    <article class="nb-appel nb-appel-bleu">
+      <p class="nb-surtitre">${t.compteSurtitre}</p>
+      <h2>${t.compteTitre}</h2>
+      <p>${t.compteTexte}</p>
+      <a class="nb-btn nb-btn-jaune" href="${racine}${t.monDossierVers}">${t.compteBtn}</a>
+    </article>
+    <article class="nb-appel nb-appel-papier">
+      <p class="nb-surtitre nb-surtitre-rouge">${t.commanditeSurtitre}</p>
+      <h2>${t.commanditeTitre}</h2>
+      <p>${t.commanditeTexte}</p>
+      <p class="nb-appel-avis">${t.commanditeAvis}</p>
+    </article>
   </section>`;
 }
 
@@ -510,7 +663,7 @@ function pied(t, langue, racine, versAutre = '') {
  * @param {string} o.description
  * @param {string} o.corps     le HTML des sections
  */
-function coquille({ langue, vers, versAutre, titre, description, corps }) {
+function coquille({ langue, vers, versAutre, titre, description, corps, horsIndex = false }) {
   const t = T[langue];
   const racine = langue === 'en' ? '/en/' : '/';
   const racineAutre = langue === 'en' ? '/' : '/en/';
@@ -528,7 +681,7 @@ function coquille({ langue, vers, versAutre, titre, description, corps }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${echapper(titre)}</title>
 <meta name="description" content="${echapper(description)}">
-<meta name="theme-color" content="#0033a0">
+${horsIndex ? '<meta name="robots" content="noindex,follow">\n' : ''}<meta name="theme-color" content="#0033a0">
 <link rel="canonical" href="${canonique}">
 <link rel="alternate" hreflang="${t.autre}" href="${autre}">
 <link rel="alternate" hreflang="${langue}" href="${canonique}">
@@ -545,6 +698,7 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
 <div class="nb-page">
 ${ticker}
 ${entete(t, racine, vers, versAutre)}
+${bandeVilles(t)}
 ${corps}
 ${pied(t, langue, racine, versAutre)}
 </div>
@@ -577,7 +731,11 @@ function page(langue) {
     corps: [
       affiche(t, chiffres, leg, ses),
       avisSeance(t, langue),
-      sectionProjets(t, langue),
+      // Quatre projets au plus sur l'accueil (choix de Martin, 7 novembre 2026) : la page
+      // des projets de loi les montre tous.
+      sectionProjets(t, langue, 4),
+      sectionAgir(t, langue),
+      sectionDuo(t, langue),
       sectionActivite(t, langue),
       sectionMission(t),
     ].join('\n'),
@@ -740,6 +898,37 @@ ${entrees}
   });
 }
 
+/**
+ * Mon dossier : les projets de loi suivis. Sans compte et sans serveur — la page porte
+ * les rangées de tous les projets, et le navigateur masque celles que vous ne suivez pas.
+ * Le site ne sait donc rien de ce que vous suivez, et n'a rien à perdre ou à revendre.
+ */
+function pageMonDossier(langue) {
+  const t = T[langue];
+  const projets = [...projetsFichier.projets].sort((a, b) => b.numero - a.numero);
+  const racine = langue === 'en' ? '/en/' : '/';
+  const vers = langue === 'en' ? 'bills' : 'projets-de-loi';
+
+  return coquille({
+    langue,
+    vers: t.monDossierVers,
+    versAutre: T[t.autre].monDossierVers,
+    titre: `${t.monDossierTitre} — DossierNBrunswick`,
+    description: t.monDossierDescription,
+    // Une page personnelle, qui ne montre rien à qui n'a rien suivi : elle n'a pas sa
+    // place dans l'index d'un moteur, et elle reprendrait la liste des projets de loi.
+    horsIndex: true,
+    corps: `${teteDeSection(t.monDossierSurtitre, t.monDossierTitre, t.monDossierNote)}
+  <section class="nb-section">
+    <p class="nb-vide" data-nb-dossier-vide hidden>${t.monDossierVide}</p>
+    <div class="nb-projets" data-nb-dossier>
+${projets.map((p) => rangeeProjet(p, t, langue)).join('\n')}
+    </div>
+    <p class="nb-fiche-source"><a href="${racine}${vers}">${t.monDossierTous}</a></p>
+  </section>`,
+  });
+}
+
 /* ─── Écriture ────────────────────────────────────────────────────────────── */
 
 mkdirSync('en', { recursive: true });
@@ -753,6 +942,7 @@ const PAGES = [
   { fr: 'deputes.html', en: 'en/members.html', faire: pageDeputes },
   { fr: 'ministres.html', en: 'en/ministers.html', faire: pageMinistres },
   { fr: 'lexique.html', en: 'en/glossary.html', faire: pageLexique },
+  { fr: 'mon-dossier.html', en: 'en/my-file.html', faire: pageMonDossier, horsSitemap: true },
 ];
 
 for (const { fr, en, faire } of PAGES) {
@@ -769,7 +959,8 @@ const adresse = (fichier) => `${SITE}/${fichier.replace(/index\.html$/, '').repl
 const jour = new Date().toISOString().slice(0, 10);
 const entrees = [];
 
-for (const { fr, en } of PAGES) {
+for (const { fr, en, horsSitemap } of PAGES) {
+  if (horsSitemap) continue;
   // Les deux langues d'une même page se déclarent mutuellement : c'est ainsi qu'un moteur
   // sait que /en/bills n'est pas une page concurrente de /projets-de-loi, mais la même
   // page dans l'autre langue officielle.

@@ -31,6 +31,8 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     <a class="nb-onglet" href="/projets-de-loi"><span class="nb-num">03</span>Projets de loi</a>
     <a class="nb-onglet" href="/deputes"><span class="nb-num">04</span>Député·e·s</a>
     <a class="nb-onglet" href="/lexique"><span class="nb-num">05</span>Lexique</a>
+    <a class="nb-onglet nb-onglet-etoile" href="/mon-dossier">
+      <span class="nb-etoile-petite" aria-hidden="true">★</span>Mon dossier<span class="nb-compteur-suivis" data-nb-compteur hidden></span></a>
     <button class="nb-bouton-carre" type="button" data-nb-theme aria-pressed="false" title="Thème clair ou sombre">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
       <span class="nb-invisible">Thème clair ou sombre</span>
@@ -42,6 +44,15 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     </div>
     <a class="nb-onglet" data-nb-autre-langue="en" href="/en/" hreflang="en" rel="alternate">English</a>
   </header>
+  <div class="nb-bande-villes">
+    <span class="nb-bande-titre">Villes</span>
+    <span>Moncton</span>
+    <span>Saint John</span>
+    <span>Fredericton</span>
+    <span>Dieppe</span>
+    <span>Bathurst</span>
+    <span class="nb-bande-note">Conseils municipaux : aucune ville couverte pour l'instant</span>
+  </div>
   <section class="nb-affiche">
     <div class="nb-affiche-titre">
       <span class="nb-etoile-fond"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon fill="var(--nb-jaune)" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg></span>
@@ -53,7 +64,7 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
       <p class="nb-chapo">L'Assemblée législative du Nouveau-Brunswick, réorganisée <b>par personne</b> et traduite <b>en langage clair</b> — sans jugement ni verdict. Site citoyen indépendant, vraies données publiques, en français et en anglais.</p>
       <div class="nb-actions">
         <a class="nb-btn nb-btn-rouge" href="#projets">Les projets de loi →</a>
-        <a class="nb-btn nb-btn-ligne" href="#deputes">Les député·e·s</a>
+        <a class="nb-btn nb-btn-ligne" href="/deputes">Les député·e·s</a>
       </div>
     </div>
     <div class="nb-chiffres">
@@ -66,95 +77,92 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
   <section class="nb-section" id="projets">
     <div class="nb-section-tete">
       <h2>Projets de loi de la session</h2>
-      <a class="nb-voir-tout" href="https://www.legnb.ca/en/legislation/bills/61/3" rel="noopener">Voir tous les projets →</a>
+      <a class="nb-voir-tout" href="/projets-de-loi">Voir tous les projets → (14)</a>
     </div>
     <p class="nb-section-note">Chaque projet renvoie au texte officiel, en français et en anglais. Les étapes et leurs dates sont celles publiées par l'Assemblée.</p>
     <div class="nb-projets">
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/14/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 14</span>
-          <span class="nb-projet-titre">Loi concernant les mesures de réforme de l’impôt foncier</span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/13/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 13</span>
-          <span class="nb-projet-titre">Loi modifiant la Loi sur l’Université de Moncton</span>
-          <span class="nb-etape">Étape de la troisième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/12/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 12</span>
-          <span class="nb-projet-titre">Loi concernant les jeunes, les marchés numériques et l’utilisation de la technologie</span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/11/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 11</span>
-          <span class="nb-projet-titre">Loi sur les permis visant les services de traitement des dépendances</span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/10/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 10</span>
-          <span class="nb-projet-titre">Loi modifiant la Loi sur l’éducation</span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/9/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 9</span>
-          <span class="nb-projet-titre">Loi modifiant la Loi sur l’électricité</span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/8/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 8</span>
-          <span class="nb-projet-titre">Loi modifiant la Loi sur la réglementation des jeux</span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/7/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 7</span>
-          <span class="nb-projet-titre">Loi modifiant la Loi sur les licences de brocanteurs</span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/6/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 6</span>
-          <span class="nb-projet-titre">Loi modifiant la Loi sur les normes d’emploi</span>
-          <span class="nb-etape">comité (adoption)</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/5/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 5</span>
-          <span class="nb-projet-titre">Loi sur les accords de non-divulgation</span>
-          <span class="nb-etape">Étape de la troisième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/4/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 4</span>
-          <span class="nb-projet-titre">Loi modifiant la Loi sur la Cour provinciale</span>
-          <span class="nb-etape">Étape de la troisième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/3/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 3</span>
-          <span class="nb-projet-titre">Loi concernant le défenseur des enfants, des jeunes, des aînés et de la santé mentale</span>
-          <span class="nb-etape">Étape de la troisième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/2/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 2</span>
-          <span class="nb-projet-titre">Loi modifiant la Loi sur le recouvrement des dommages-intérêts et des coûts des soins de santé imputables aux opioïdes</span>
-          <span class="nb-etape">Étape de la troisième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
-        <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/1/x" rel="noopener">
-          <span class="nb-projet-num">Nᵒ 1</span>
-          <span class="nb-projet-titre">Loi perpétuant un droit traditionnel spécifique</span>
-          <span class="nb-etape">Première lecture</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </a>
+        <div class="nb-rangee" data-nb-projet="14">
+          <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/14/x" rel="noopener">
+            <span class="nb-projet-num">Nᵒ 14</span>
+            <span class="nb-projet-titre">Loi concernant les mesures de réforme de l’impôt foncier</span>
+            <span class="nb-etape">Étape de la deuxième lecture franchie</span>
+            <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
+          </a>
+          <button class="nb-suivre" type="button" data-nb-suivre="14"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre le projet de loi nᵒ 14">Suivre</button>
+        </div>
+        <div class="nb-rangee" data-nb-projet="13">
+          <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/13/x" rel="noopener">
+            <span class="nb-projet-num">Nᵒ 13</span>
+            <span class="nb-projet-titre">Loi modifiant la Loi sur l’Université de Moncton</span>
+            <span class="nb-etape">Étape de la troisième lecture franchie</span>
+            <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
+          </a>
+          <button class="nb-suivre" type="button" data-nb-suivre="13"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre le projet de loi nᵒ 13">Suivre</button>
+        </div>
+        <div class="nb-rangee" data-nb-projet="12">
+          <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/12/x" rel="noopener">
+            <span class="nb-projet-num">Nᵒ 12</span>
+            <span class="nb-projet-titre">Loi concernant les jeunes, les marchés numériques et l’utilisation de la technologie</span>
+            <span class="nb-etape">Étape de la deuxième lecture franchie</span>
+            <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
+          </a>
+          <button class="nb-suivre" type="button" data-nb-suivre="12"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre le projet de loi nᵒ 12">Suivre</button>
+        </div>
+        <div class="nb-rangee" data-nb-projet="11">
+          <a class="nb-projet" href="https://www.legnb.ca/fr/l%C3%A9gislation/projets-de-loi/61/3/11/x" rel="noopener">
+            <span class="nb-projet-num">Nᵒ 11</span>
+            <span class="nb-projet-titre">Loi sur les permis visant les services de traitement des dépendances</span>
+            <span class="nb-etape">Étape de la deuxième lecture franchie</span>
+            <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
+          </a>
+          <button class="nb-suivre" type="button" data-nb-suivre="11"
+            data-nb-suivre-mots="Suivre|Suivi"
+            aria-pressed="false" title="Suivre le projet de loi nᵒ 11">Suivre</button>
+        </div>
     </div>
+  </section>
+  <section class="nb-section nb-agir">
+    <p class="nb-surtitre nb-surtitre-rouge">Agir sur un projet de loi</p>
+    <div class="nb-section-tete rouge"><h2>Pas de pétition en ligne au Nouveau-Brunswick</h2></div>
+    <p class="nb-agir-intro">L'Assemblée n'accepte que les pétitions <b>sur papier</b>, signées à la main et déposées par un·e député·e. Aucun bouton, ici ou ailleurs, n'a de valeur officielle. Voici les trois chemins qui en ont.</p>
+    <div class="nb-chemins">
+      <article class="nb-chemin">
+        <h3>Écrire à votre député·e</h3>
+        <p>C'est le seul chemin qui marche toujours. Chaque député·e a une adresse à l'Assemblée.</p>
+        <a href="https://www.legnb.ca/fr/parlementaires/actuel" rel="noopener">La liste officielle →</a>
+      </article>
+      <article class="nb-chemin">
+        <h3>Faire déposer une pétition papier</h3>
+        <p>Signée à la main, puis remise à votre député·e, qui la dépose à la Chambre. Le ministre doit répondre par écrit dans les deux semaines — mais cette réponse n'est pas publiée.</p>
+        <a href="/lexique">Ce que dit le lexique →</a>
+      </article>
+      <article class="nb-chemin">
+        <h3>Se faire entendre en comité</h3>
+        <p>Certains comités tiennent des audiences publiques. Leurs avis et leurs dates passent par cette page.</p>
+        <a href="https://www.legnb.ca/fr/comit%C3%A9s" rel="noopener">Les comités →</a>
+      </article>
+    </div>
+    <p class="nb-section-note">Compteur citoyen : pas encore ouvert. Il demandera une base de données, et il ne s'affichera pas avant d'avoir de vrais chiffres à montrer.</p>
+  </section>
+  <section class="nb-section nb-duo">
+    <article class="nb-appel nb-appel-bleu">
+      <p class="nb-surtitre">Sans compte</p>
+      <h2>Suivez les projets qui vous touchent</h2>
+      <p>Rien à créer, aucun courriel, aucun mot de passe : le bouton <b>Suivre</b> d'un projet de loi garde votre choix dans ce navigateur seulement. Rien n'est envoyé au site, et ce site n'a pas de compte à offrir.</p>
+      <a class="nb-btn nb-btn-jaune" href="/mon-dossier">Ouvrir mon dossier</a>
+    </article>
+    <article class="nb-appel nb-appel-papier">
+      <p class="nb-surtitre nb-surtitre-rouge">Commandite</p>
+      <h2>Commanditez votre ville</h2>
+      <p>Le suivi d'un conseil municipal — ordres du jour, votes et résolutions en langage clair — demande du travail de lecture par ville. Une commandite locale en financerait une pendant un an.</p>
+      <p class="nb-appel-avis">Aucune ville n'est couverte, et aucun prix n'est fixé pour le Nouveau-Brunswick. Il n'y a donc rien à vendre aujourd'hui : c'est une intention, pas une offre.</p>
+    </article>
   </section>
   <section class="nb-neuf">
     <div>
