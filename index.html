@@ -26,6 +26,11 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
       <span style="width:22px;height:22px;display:inline-flex"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon fill="var(--nb-jaune)" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg></span>
       Dossier<em>NBrunswick</em>
     </a>
+    <a class="nb-onglet" href="/" aria-current="page"><span class="nb-num">01</span>Aperçu</a>
+    <a class="nb-onglet" href="/ministres"><span class="nb-num">02</span>Ministres</a>
+    <a class="nb-onglet" href="/projets-de-loi"><span class="nb-num">03</span>Projets de loi</a>
+    <a class="nb-onglet" href="/deputes"><span class="nb-num">04</span>Député·e·s</a>
+    <a class="nb-onglet" href="/lexique"><span class="nb-num">05</span>Lexique</a>
     <button class="nb-bouton-carre" type="button" data-nb-theme aria-pressed="false" title="Thème clair ou sombre">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
       <span class="nb-invisible">Thème clair ou sombre</span>
@@ -151,38 +156,42 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
         </a>
     </div>
   </section>
-  <section class="nb-section nb-deux-colonnes">
+  <section class="nb-neuf">
     <div>
-      <div class="nb-section-tete rouge"><h2>Derniers actes à l'Assemblée</h2></div>
-      <ul class="nb-journal">
-        <li><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 2 — Loi modifiant la Loi sur le recouvrement des dommages-intérêts et des coûts des soins de santé imputables aux opioïdes · 3e lecture (Adoption)</span></li>
-        <li><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 3 — Loi concernant le défenseur des enfants, des jeunes, des aînés et de la santé mentale · 3e lecture (Adoption)</span></li>
-        <li><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 4 — Loi modifiant la Loi sur la Cour provinciale · 3e lecture (Adoption)</span></li>
-        <li><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 5 — Loi sur les accords de non-divulgation · 3e lecture (Adoption)</span></li>
-        <li><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 6 — Loi modifiant la Loi sur les normes d’emploi · Étude en comité (Adoption)</span></li>
-        <li><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 12 — Loi concernant les jeunes, les marchés numériques et l’utilisation de la technologie · 2e lecture (Adoption)</span></li>
-        <li><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 13 — Loi modifiant la Loi sur l’Université de Moncton · 3e lecture (Adoption)</span></li>
-        <li><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 14 — Loi concernant les mesures de réforme de l’impôt foncier · 2e lecture (Adoption)</span></li>
-      </ul>
+      <p class="nb-surtitre">Quoi de neuf</p>
+      <h2>Dernières activités réelles à l'Assemblée</h2>
+      <p class="nb-neuf-intro">Fil chronologique, du plus récent au plus ancien. Chaque ligne est un acte inscrit au registre de l'Assemblée.</p>
     </div>
-    <div>
-      <div class="nb-section-tete"><h2>Votes nominatifs</h2></div>
-      <ul class="nb-journal">
-        <li><time datetime="2026-10-29">29 oct. 2026</time><span>Vote nominatif (amendement) · <b>16 pour · 23 contre</b></span></li>
-        <li><time datetime="2026-10-29">29 oct. 2026</time><span>Vote nominatif · <b>23 pour · 16 contre</b></span></li>
-        <li><time datetime="2026-10-29">29 oct. 2026</time><span>Motion 4 · <b>23 pour · 16 contre</b></span></li>
-      </ul>
-      <p class="nb-section-note">Les votes nominatifs sont rares : la plupart des projets de loi sont adoptés de vive voix, sans que les positions individuelles soient inscrites au Journal. Une absence de vote nominatif ne veut donc pas dire « unanime ».</p>
+    <div class="nb-fil">
+      <div><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 2 — Loi modifiant la Loi sur le recouvrement des dommages-intérêts et des coûts des soins de santé imputables aux opioïdes · 3e lecture (Adoption)</span></div>
+      <div><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 3 — Loi concernant le défenseur des enfants, des jeunes, des aînés et de la santé mentale · 3e lecture (Adoption)</span></div>
+      <div><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 4 — Loi modifiant la Loi sur la Cour provinciale · 3e lecture (Adoption)</span></div>
+      <div><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 5 — Loi sur les accords de non-divulgation · 3e lecture (Adoption)</span></div>
+      <div><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 6 — Loi modifiant la Loi sur les normes d’emploi · Étude en comité (Adoption)</span></div>
+      <div><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 12 — Loi concernant les jeunes, les marchés numériques et l’utilisation de la technologie · 2e lecture (Adoption)</span></div>
+      <div><time datetime="2026-11-06">6 nov. 2026</time><span>Projet 13 — Loi modifiant la Loi sur l’Université de Moncton · 3e lecture (Adoption)</span></div>
     </div>
   </section>
-  <section class="nb-section nb-mission" id="deputes">
+  <section class="nb-mission3">
     <div>
+      <p class="nb-surtitre">Notre mission</p>
       <h2>Le site officiel est la source. Celui-ci la rend plus facile à suivre.</h2>
     </div>
     <div>
-      <p>Tout ce que vous lisez ici vient de legnb.ca, le site de l'Assemblée législative, et de gnb.ca. Chaque page nomme sa source et la date de sa dernière lecture.</p>
-      <p>Aucun verdict : les faits sont mis côte à côte, et le jugement reste au lecteur. Aucune donnée inventée : quand une information manque, le site l'écrit.</p>
-      <p>Site non officiel, indépendant, sans publicité ni abonnement. L'Assemblée publie ses informations pour un usage non commercial : ce site s'y tient.</p>
+      <p class="nb-colonne-titre officiel">legnb.ca fait</p>
+      <ul>
+        <li>Organise tout par document officiel</li>
+        <li>La source légale et complète de tout</li>
+        <li>Neutre — ne compare ni ne résume jamais</li>
+      </ul>
+    </div>
+    <div>
+      <p class="nb-colonne-titre nous">Ce site essaie de faire</p>
+      <ul>
+        <li>Organise tout par personne : une fiche, tous ses dossiers</li>
+        <li>Traduit le jargon en langage clair (voir le Lexique)</li>
+        <li>Vous laisse suivre ce qui vous touche, sans jugement ni verdict</li>
+      </ul>
     </div>
   </section>
   <footer class="nb-pied">
@@ -190,6 +199,12 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
     <p>Données lues le 7 nov. 2026.</p>
   </footer>
   <div class="nb-tricolore" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="nb-pied-liens">
+    <span>Site non officiel — Données publiques de l'Assemblée législative du Nouveau-Brunswick (legnb.ca) et du gouvernement du Nouveau-Brunswick (gnb.ca).</span>
+    <a href="/regles">Les règles</a>
+    <a href="/sources">Sources</a>
+    <a data-nb-autre-langue="en" href="/en/" hreflang="en" rel="alternate">English</a>
+  </div>
 </div>
 <script src="/commun/nb.js" defer></script>
 </body>

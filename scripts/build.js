@@ -80,6 +80,28 @@ const T = {
     piedNonOfficiel: 'Site non officiel',
     piedAvis: 'La version imprimée des projets de loi reste la version officielle.',
     luLe: (d) => `Données lues le ${d}.`,
+    onglets: [
+      { num: '01', nom: 'Aperçu', vers: '' },
+      { num: '02', nom: 'Ministres', vers: 'ministres' },
+      { num: '03', nom: 'Projets de loi', vers: 'projets-de-loi' },
+      { num: '04', nom: 'Député·e·s', vers: 'deputes' },
+      { num: '05', nom: 'Lexique', vers: 'lexique' },
+    ],
+    neufSurtitre: 'Quoi de neuf', neufTitre: 'Dernières activités réelles à l\'Assemblée',
+    neufIntro: 'Fil chronologique, du plus récent au plus ancien. Chaque ligne est un acte inscrit au registre de l\'Assemblée.',
+    missionSurtitre: 'Notre mission',
+    missionOfficiel: 'legnb.ca fait', missionNous: 'Ce site essaie de faire',
+    missionListeOfficiel: [
+      'Organise tout par document officiel',
+      'La source légale et complète de tout',
+      'Neutre — ne compare ni ne résume jamais',
+    ],
+    missionListeNous: [
+      'Organise tout par personne : une fiche, tous ses dossiers',
+      'Traduit le jargon en langage clair (voir le Lexique)',
+      'Vous laisse suivre ce qui vous touche, sans jugement ni verdict',
+    ],
+    piedLiens: [['Les règles', 'regles'], ['Sources', 'sources']],
     theme: 'Thème clair ou sombre', texteMoins: 'Réduire le texte', textePlus: 'Agrandir le texte',
     deposeLe: 'Dépôt', dernierActe: 'Dernier acte', pour: 'pour', contre: 'contre',
     parrainePar: 'Déposé par',
@@ -116,6 +138,28 @@ const T = {
     piedNonOfficiel: 'Unofficial site',
     piedAvis: 'The printed version of a bill remains the official version.',
     luLe: (d) => `Data read on ${d}.`,
+    onglets: [
+      { num: '01', nom: 'Overview', vers: '' },
+      { num: '02', nom: 'Ministers', vers: 'ministers' },
+      { num: '03', nom: 'Bills', vers: 'bills' },
+      { num: '04', nom: 'Members', vers: 'members' },
+      { num: '05', nom: 'Glossary', vers: 'glossary' },
+    ],
+    neufSurtitre: 'What\'s new', neufTitre: 'Latest real activity in the House',
+    neufIntro: 'A timeline, most recent first. Every line is an act entered in the Assembly\'s record.',
+    missionSurtitre: 'Our mission',
+    missionOfficiel: 'legnb.ca does', missionNous: 'This site tries to do',
+    missionListeOfficiel: [
+      'Organizes everything by official document',
+      'The complete, legal source for all of it',
+      'Neutral — never compares, never summarizes',
+    ],
+    missionListeNous: [
+      'Organizes everything by person: one page, all their files',
+      'Turns the jargon into plain language (see the Glossary)',
+      'Lets you follow what affects you, with no scores and no verdicts',
+    ],
+    piedLiens: [['The rules', 'rules'], ['Sources', 'sources']],
     theme: 'Light or dark theme', texteMoins: 'Smaller text', textePlus: 'Larger text',
     deposeLe: 'Tabled', dernierActe: 'Latest act', pour: 'yeas', contre: 'nays',
     parrainePar: 'Sponsored by',
@@ -203,12 +247,24 @@ function derniereEtape(projet) {
 const ETOILE = (couleur) => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon fill="${couleur}" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg>`;
 const CHEVRON = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg>';
 
-function entete(t, racine) {
+function entete(t, racine, page) {
+  // Les onglets de la maquette, numérotés. Chacun mène à une page qui existe : un onglet
+  // qui promet une section vide vaut moins que pas d'onglet du tout.
+  const onglets = t.onglets
+    .map(({ num, nom, vers }) => {
+      const adresse = vers === '' ? racine : `${racine}${vers}`;
+      const courant = (page || '') === vers;
+      return `    <a class="nb-onglet" href="${adresse}"${courant ? ' aria-current="page"' : ''}>`
+        + `<span class="nb-num">${num}</span>${nom}</a>`;
+    })
+    .join('\n');
+
   return `  <header class="nb-entete">
     <a class="nb-marque" href="${racine || '/'}">
       <span style="width:22px;height:22px;display:inline-flex">${ETOILE('var(--nb-jaune)')}</span>
       Dossier<em>NBrunswick</em>
     </a>
+${onglets}
     <button class="nb-bouton-carre" type="button" data-nb-theme aria-pressed="false" title="${t.theme}">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
       <span class="nb-invisible">${t.theme}</span>
@@ -291,55 +347,79 @@ function sectionActivite(t, langue) {
       actes.push({ date: e.date, texte: `${langue === 'en' ? 'Bill' : 'Projet'} ${p.numero} — ${titre} · ${quoi}${sort ? ` (${sort})` : ''}` });
     }
   }
-  actes.sort((a, b) => (a.date < b.date ? 1 : -1));
-  const derniers = actes.slice(0, 8);
+  // Les votes nominatifs sont des actes de la Chambre comme les autres : ils entrent dans
+  // le même fil, à leur date, plutôt que dans une colonne à part.
+  for (const v of votesFichier?.votes || []) {
+    const quoi = v.objet.genre === 'bill'
+      ? `${langue === 'en' ? 'Bill' : 'le projet de loi n°'} ${v.objet.numero}`
+      : v.objet.genre === 'motion'
+        ? `${langue === 'en' ? 'Motion' : 'la motion'} ${v.objet.numero}`
+        : (langue === 'en' ? 'a question before the House' : 'une question soumise à la Chambre');
+    const amend = v.objet.surAmendement
+      ? (langue === 'en' ? ' (on an amendment)' : ' (sur un amendement)')
+      : '';
+    const phrase = langue === 'en'
+      ? `Recorded vote on ${quoi}${amend}: ${v.pour.total} yeas, ${v.contre.total} nays.`
+      : `Vote nominatif sur ${quoi}${amend} : ${v.pour.total} pour, ${v.contre.total} contre.`;
+    actes.push({ date: v.date, texte: phrase });
+  }
 
-  const votes = votesFichier?.votes || [];
-  return `  <section class="nb-section nb-deux-colonnes">
+  actes.sort((a, b) => (a.date < b.date ? 1 : -1));
+  const derniers = actes.slice(0, 7);
+
+  return `  <section class="nb-neuf">
     <div>
-      <div class="nb-section-tete rouge"><h2>${t.activiteTitre}</h2></div>
-      <ul class="nb-journal">
-${derniers.map((a) => `        <li><time datetime="${a.date}">${dateLisible(a.date, langue)}</time><span>${echapper(a.texte)}</span></li>`).join('\n')}
-      </ul>
+      <p class="nb-surtitre">${t.neufSurtitre}</p>
+      <h2>${t.neufTitre}</h2>
+      <p class="nb-neuf-intro">${t.neufIntro}</p>
     </div>
-    <div>
-      <div class="nb-section-tete"><h2>${t.votesTitre}</h2></div>
-      ${votes.length
-        ? `<ul class="nb-journal">
-${votes.slice(0, 5).map((v) => {
-          const quoi = v.objet.genre === 'bill'
-            ? `${langue === 'en' ? 'Bill' : 'Projet'} ${v.objet.numero}`
-            : v.objet.genre === 'motion'
-              ? `${langue === 'en' ? 'Motion' : 'Motion'} ${v.objet.numero}`
-              : (langue === 'en' ? 'Recorded division' : 'Vote nominatif');
-          const amend = v.objet.surAmendement ? (langue === 'en' ? ' (amendment)' : ' (amendement)') : '';
-          return `        <li><time datetime="${v.date}">${dateLisible(v.date, langue)}</time><span>${echapper(quoi + amend)} · <b>${v.pour.total} ${t.pour} · ${v.contre.total} ${t.contre}</b></span></li>`;
-        }).join('\n')}
-      </ul>`
-        : `<p class="nb-section-note">${t.votesVides}</p>`}
-      <p class="nb-section-note">${t.votesNote}</p>
+    <div class="nb-fil">
+${derniers.map((a) => `      <div><time datetime="${a.date}">${dateLisible(a.date, langue)}</time><span>${echapper(a.texte)}</span></div>`).join('\n')}
     </div>
   </section>`;
 }
 
+/**
+ * La mission, en trois colonnes : ce que fait le site officiel, et ce que celui-ci essaie
+ * de faire. Les deux côte à côte, sans dire que l'un vaut mieux que l'autre — legnb.ca
+ * reste la source, et le dire franchement est la première preuve de sérieux.
+ */
 function sectionMission(t) {
-  return `  <section class="nb-section nb-mission" id="deputes">
+  return `  <section class="nb-mission3">
     <div>
+      <p class="nb-surtitre">${t.missionSurtitre}</p>
       <h2>${t.missionTitre}</h2>
     </div>
     <div>
-${t.mission.map((p) => `      <p>${p}</p>`).join('\n')}
+      <p class="nb-colonne-titre officiel">${t.missionOfficiel}</p>
+      <ul>
+${t.missionListeOfficiel.map((l) => `        <li>${l}</li>`).join('\n')}
+      </ul>
+    </div>
+    <div>
+      <p class="nb-colonne-titre nous">${t.missionNous}</p>
+      <ul>
+${t.missionListeNous.map((l) => `        <li>${l}</li>`).join('\n')}
+      </ul>
     </div>
   </section>`;
 }
 
-function pied(t, langue) {
+function pied(t, langue, racine) {
   const lu = dateLisible((projetsFichier.luLe || '').slice(0, 10), langue);
+  const liens = t.piedLiens
+    .map(([nom, vers]) => `<a href="${racine}${vers}">${nom}</a>`)
+    .join('\n    ');
   return `  <footer class="nb-pied">
     <p><strong>${t.piedNonOfficiel}.</strong> ${t.piedSources} ${t.piedAvis}</p>
     <p>${lu ? t.luLe(lu) : ''}</p>
   </footer>
-  <div class="nb-tricolore" aria-hidden="true"><i></i><i></i><i></i></div>`;
+  <div class="nb-tricolore" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="nb-pied-liens">
+    <span>${t.piedNonOfficiel} — ${t.piedSources}</span>
+    ${liens}
+    <a data-nb-autre-langue="${t.autre}" href="${t.autre === 'en' ? '/en/' : '/'}" hreflang="${t.autre}" rel="alternate">${t.autreNom}</a>
+  </div>`;
 }
 
 /* ─── La page ─────────────────────────────────────────────────────────────── */
@@ -385,13 +465,13 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
 <body>
 <div class="nb-page">
 ${ticker}
-${entete(t, racine)}
+${entete(t, racine, '')}
 ${affiche(t, chiffres, leg, ses)}
 ${avisSeance(t, langue)}
 ${sectionProjets(t, langue)}
 ${sectionActivite(t, langue)}
 ${sectionMission(t)}
-${pied(t, langue)}
+${pied(t, langue, racine)}
 </div>
 <script src="/commun/nb.js" defer></script>
 </body>
