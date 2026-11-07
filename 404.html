@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page introuvable — DossierNBrunswick</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0033a0">
+<link rel="icon" href="/commun/nb.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/commun/industry.css">
+<link rel="stylesheet" href="/commun/nb.css">
+<script>
+try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
+</script>
+<style>
+  /* La page 404 n'a ni en-tête ni pied : une porte close, et le chemin du retour. */
+  .nb-404 { padding: 96px 36px; max-width: 760px; }
+  .nb-404 h1 { font: 600 64px/0.95 var(--font-heading); text-transform: uppercase; margin: 10px 0 0; }
+  .nb-404 p { font-size: 17px; line-height: 1.6; color: var(--ink2); margin: 18px 0 0; }
+  .nb-404 .nb-actions { margin-top: 28px; }
+  [lang=en] { display: none; }
+</style>
+</head>
+<body>
+<div class="nb-page">
+  <div class="nb-404">
+    <div lang="fr">
+      <p class="nb-surtitre nb-surtitre-rouge">Erreur 404</p>
+      <h1>Cette page est morte au Feuilleton</h1>
+      <p>L'adresse demandée n'existe pas sur ce site. Elle a peut-être changé, ou elle n'a jamais été déposée.</p>
+      <div class="nb-actions">
+        <a class="nb-btn nb-btn-rouge" href="/">Retour à l'accueil</a>
+        <a class="nb-btn nb-btn-ligne" href="/projets-de-loi">Les projets de loi</a>
+      </div>
+    </div>
+    <div lang="en">
+      <p class="nb-surtitre nb-surtitre-rouge">Error 404</p>
+      <h1>This page has been prorogued</h1>
+      <p>The address you asked for does not exist on this site. It may have changed, or it was never tabled.</p>
+      <div class="nb-actions">
+        <a class="nb-btn nb-btn-rouge" href="/en/">Back to the home page</a>
+        <a class="nb-btn nb-btn-ligne" href="/en/bills">The bills</a>
+      </div>
+    </div>
+  </div>
+  <div class="nb-tricolore" aria-hidden="true"><i></i><i></i><i></i></div>
+</div>
+<script>
+// La langue de la page perdue : son adresse d'abord, le choix mémorisé ensuite, le
+// navigateur en dernier. Sans JavaScript, le français s'affiche — c'est le réglage du HTML.
+(function () {
+  var langue = 'fr';
+  if (/^\/en(\/|$)/.test(location.pathname)) langue = 'en';
+  else {
+    var choisi = null;
+    try { choisi = localStorage.getItem('dnb:langue'); } catch (e) {}
+    if (choisi === 'fr' || choisi === 'en') langue = choisi;
+    else if (/^en/i.test((navigator.languages && navigator.languages[0]) || navigator.language || '')) langue = 'en';
+  }
+  document.documentElement.lang = langue;
+  document.title = langue === 'en'
+    ? 'Page not found — DossierNBrunswick'
+    : 'Page introuvable — DossierNBrunswick';
+  var montre = document.querySelector('[lang=' + langue + ']');
+  var cache = document.querySelector('[lang=' + (langue === 'en' ? 'fr' : 'en') + ']');
+  if (montre) montre.style.display = 'block';
+  if (cache) cache.style.display = 'none';
+})();
+</script>
+</body>
+</html>
