@@ -172,10 +172,10 @@ const T = {
     chercheEffacer: 'Effacer',
     fichePersonneRetour: '← Le Conseil exécutif et toute l\'Assemblée',
     ficheRoles: 'Fonctions', ficheParti: 'Parti', ficheProjets: 'Projets de loi déposés cette session',
-    ficheVotes: 'Ses votes nominatifs', ficheAucunProjet: 'Aucun projet de loi déposé cette session.',
+    projetVotes: 'Votes nominatifs sur ce projet de loi', voteJournal: 'Le Journal de cette séance (PDF) →', ficheAucunProjet: 'Aucun projet de loi déposé cette session.',
     ficheAucunVote: 'Cette personne n\'apparaît dans aucun vote nominatif de la session. Ce n\'est pas une absence : les votes nominatifs sont rares, et la plupart des projets de loi passent de vive voix.',
     ficheVotePour: 'A voté pour', ficheVoteContre: 'A voté contre',
-    ficheDescription: (nom, r, c) => `${nom}, ${r}${c ? `, circonscription de ${c}` : ''} : fonctions, projets de loi déposés et votes nominatifs à l'Assemblée législative du Nouveau-Brunswick.`,
+    ficheDescription: (nom, r, c) => `${nom}, ${r}${c ? `, circonscription de ${c}` : ''} : fonctions, circonscription, présence aux votes et projets de loi déposés à l'Assemblée législative du Nouveau-Brunswick.`,
     ficheSansFonction: 'Député·e',
     ficheObjet: (v, langue) => objetLisible(v, langue),
     presenceTitreBoite: 'Lire la présence aux votes',
@@ -342,10 +342,10 @@ const T = {
     chercheEffacer: 'Clear',
     fichePersonneRetour: '← The Executive Council and the whole Assembly',
     ficheRoles: 'Offices', ficheParti: 'Party', ficheProjets: 'Bills introduced this session',
-    ficheVotes: 'Their recorded votes', ficheAucunProjet: 'No bill introduced this session.',
+    projetVotes: 'Recorded divisions on this bill', voteJournal: 'The Journal of that sitting (PDF) →', ficheAucunProjet: 'No bill introduced this session.',
     ficheAucunVote: 'This person appears in no recorded division of the session. That is not an absence: recorded divisions are rare, and most bills pass on a voice vote.',
     ficheVotePour: 'Voted yea', ficheVoteContre: 'Voted nay',
-    ficheDescription: (nom, r, c) => `${nom}, ${r}${c ? `, riding of ${c}` : ''}: offices, bills introduced and recorded votes in the Legislative Assembly of New Brunswick.`,
+    ficheDescription: (nom, r, c) => `${nom}, ${r}${c ? `, riding of ${c}` : ''}: offices, riding, vote attendance and bills introduced in the Legislative Assembly of New Brunswick.`,
     ficheSansFonction: 'Member',
     ficheObjet: (v, langue) => objetLisible(v, langue),
     presenceTitreBoite: 'Reading the vote attendance',
@@ -695,11 +695,53 @@ function objetLisible(vote, langue) {
   return `${quoi}${amend}`;
 }
 
+/** Tous les votes nominatifs tenus sur un projet de loi, du plus récent au plus ancien. */
+function votesDuProjet(numero) {
+  return (votesFichier?.votes || [])
+    .filter((v) => v.objet?.genre === 'bill' && Number(v.objet.numero) === Number(numero))
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
 /** Le dernier vote nominatif consigné sur un projet de loi, s'il y en a un. */
 function dernierVoteDe(numero) {
-  const votes = (votesFichier?.votes || [])
-    .filter((v) => v.objet?.genre === 'bill' && Number(v.objet.numero) === Number(numero));
-  return votes.sort((a, b) => (a.date < b.date ? 1 : -1))[0] || null;
+  return votesDuProjet(numero)[0] || null;
+}
+
+/**
+ * Qui a voté quoi sur un projet de loi. C'est la place de cette information : un vote
+ * appartient au texte sur lequel il porte, pas à la fiche de chaque personne.
+ *
+ * Les Journaux n'écrivent qu'un nom de famille — « Ms. S. Wilson ». On montre le nom
+ * complet quand le rapprochement est sûr, et la graphie du Journal sinon : jamais une
+ * personne nommée au hasard.
+ */
+function blocVotes(projet, t, langue) {
+  const votes = votesDuProjet(projet.numero);
+  if (!votes.length) return '';
+
+  const nomComplet = (brut) => {
+    const d = PRESENCE_AUX_VOTES.personneDuJournal(brut);
+    return d ? lienPersonne(d, t, langue) : echapper(brut);
+  };
+
+  return votes.map((v) => `        <div class="nb-vote">
+          <p class="nb-vote-tete">
+            <time datetime="${v.date}">${dateLisible(v.date, langue)}</time>
+            <span>${objetLisible(v, langue)}</span>
+            <span class="nb-vote-score"><b class="pour">${v.pour.total}</b> ${t.pour} · <b class="contre">${v.contre.total}</b> ${t.contre}</span>
+          </p>
+          <div class="nb-camps">
+            <div class="nb-camp pour">
+              <p>${t.ficheVotePour}</p>
+              <ul>${(v.pour.noms || []).map((n) => `<li>${nomComplet(n)}</li>`).join('')}</ul>
+            </div>
+            <div class="nb-camp contre">
+              <p>${t.ficheVoteContre}</p>
+              <ul>${(v.contre.noms || []).map((n) => `<li>${nomComplet(n)}</li>`).join('')}</ul>
+            </div>
+          </div>
+          <p class="nb-vote-source"><a href="${echapper(v.journal)}" rel="noopener">${t.voteJournal}</a></p>
+        </div>`).join('\n');
 }
 
 /**
@@ -962,6 +1004,13 @@ function pageProjets(langue) {
         <ol class="nb-etapes">
 ${etapes}
         </ol>
+        ${(() => {
+          const votes = blocVotes(p, t, langue);
+          return votes ? `<div class="nb-fiche-votes">
+        <p class="nb-fiche-votes-titre">${t.projetVotes}</p>
+${votes}
+        </div>` : '';
+        })()}
         ${docs.length ? `<p class="nb-fiche-docs">${t.documents} ${docs.join(' · ')}</p>` : ''}
         <p class="nb-fiche-source"><a href="${echapper(p.source?.[langue] || p.source?.en || '#')}" rel="noopener">${t.voirOfficiel}</a></p>
       </article>`;
@@ -1082,6 +1131,16 @@ const PRESENCE_AUX_VOTES = (() => {
     /** Division par division : ce que cette personne a voté, et quand. */
     positionsDe(personne) {
       return positions.get(sansAccent(personne.nomAffiche).replace(/[^a-z]/g, '')) || [];
+    },
+    /** La personne derrière un nom de Journal (« Ms. S. Wilson »), ou rien si c'est douteux. */
+    personneDuJournal(brut) {
+      const m = String(brut).match(/^(?:Hon\.\s+)?(?:Mr|Ms|Mrs)\.\s+(?:([A-ZÀ-Ÿ])\.\s+)?(.+)$/);
+      if (!m) return null;
+      const initiale = m[1] ? sansAccent(m[1]) : null;
+      const nom = sansAccent(m[2]).replace(/[^a-z]/g, '');
+      let candidats = deputes.filter((d) => famille(d) === nom);
+      if (initiale) candidats = candidats.filter((d) => prenom(d).startsWith(initiale));
+      return candidats.length === 1 ? candidats[0] : null;
     },
   };
 })();
@@ -1453,7 +1512,6 @@ function pagePersonne(personne, t, langue) {
   const circonscription = personne.circonscription?.[langue] || personne.circonscription || null;
   const fiche = personne.fiche?.[langue] || personne.fiche?.en || personne.fiche || null;
   const presence = PRESENCE_AUX_VOTES.de(personne);
-  const positions = PRESENCE_AUX_VOTES.positionsDe(personne);
 
   const projets = projetsFichier.projets
     .filter((p) => normaliserNom(p.parrain?.nom) === normaliserNom(personne.nomAffiche))
@@ -1490,19 +1548,6 @@ function pagePersonne(personne, t, langue) {
     ${projets.length
       ? `<div class="nb-projets">\n${projets.map((p) => rangeeProjet(p, t, langue)).join('\n')}\n    </div>`
       : `<p class="nb-section-note">${t.ficheAucunProjet}</p>`}
-  </section>
-  <section class="nb-section">
-    <div class="nb-section-tete"><h2>${t.ficheVotes}</h2><span class="nb-compte">${positions.length}</span></div>
-    ${positions.length
-      ? `<ul class="nb-positions">\n${positions
-        .sort((a, b) => (a.vote.date < b.vote.date ? 1 : -1))
-        .map(({ vote, sens }) => `      <li>
-        <time datetime="${vote.date}">${dateLisible(vote.date, langue)}</time>
-        <span class="nb-sens ${sens}">${sens === 'pour' ? t.ficheVotePour : t.ficheVoteContre}</span>
-        <span>${objetLisible(vote, langue)} — ${vote.pour.total} ${t.pour}, ${vote.contre.total} ${t.contre}</span>
-      </li>`).join('\n')}
-    </ul>`
-      : `<p class="nb-section-note">${t.ficheAucunVote}</p>`}
   </section>`,
   });
 }
