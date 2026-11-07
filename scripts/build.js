@@ -164,11 +164,11 @@ const T = {
     textePdf: 'PDF bilingue', amendement: 'amendement (PDF)',
     voirOfficiel: 'Voir la fiche officielle sur legnb.ca →',
     deputesTitre: 'Les député·e·s',
-    deputesSurtitre: (n) => `${n} sièges`,
-    deputesNote: '<b>Les 49 sièges, ministres compris.</b> Une personne qui siège au Conseil exécutif est d\'abord une députée : elle paraît plus haut avec ses portefeuilles, et ici dans son parti, avec sa circonscription. Classés par parti, du plus nombreux au moins nombreux. Les courriels ne sont pas repris ici : l\'Assemblée les protège derrière un mécanisme anti-robots, et on ne le contourne pas. Chaque nom mène à sa fiche officielle, qui porte l\'adresse.',
+    deputesSurtitre: (n) => `${n} député·e·s`,
+    deputesNote: '<b>Les député·e·s qui ne sont pas ministres.</b> Les membres du Conseil exécutif sont plus haut, avec leurs portefeuilles. Classés par parti, du plus nombreux au moins nombreux. Les courriels ne sont pas repris ici : l\'Assemblée les protège derrière un mécanisme anti-robots, et on ne le contourne pas. Chaque nom mène à sa fiche officielle, qui porte l\'adresse.',
     deputesDescription: 'Les 49 député·e·s de l\'Assemblée législative du Nouveau-Brunswick, par parti et par circonscription.',
     ministresTitre: 'Le Conseil exécutif',
-    ministresSousNote: (m, s) => `${m} des ${s} député·e·s. Chacun·e reparaît plus bas dans son parti.`,
+    ministresSousNote: (m, s) => `${m} des ${s} sièges de l'Assemblée. Les ${s - m} autres sont plus bas.`,
     ministresSurtitre: (n) => `${n} ministres`,
     abrevProjets: () => 'PL',
     assembleeTitre: 'Le Conseil exécutif et toute l\'Assemblée',
@@ -348,11 +348,11 @@ const T = {
     textePdf: 'bilingual PDF', amendement: 'amendment (PDF)',
     voirOfficiel: 'See the official page on legnb.ca →',
     deputesTitre: 'The members',
-    deputesSurtitre: (n) => `${n} seats`,
-    deputesNote: '<b>All 49 seats, ministers included.</b> Someone who sits in the Executive Council is first a member: they appear above with their portfolios, and here in their party, with their riding. Grouped by party, largest first. Email addresses are not repeated here: the Assembly protects them behind an anti-robot mechanism, and we do not work around it. Each name links to the official page, which carries the address.',
+    deputesSurtitre: (n) => `${n} members`,
+    deputesNote: '<b>The members who are not ministers.</b> Members of the Executive Council are above, with their portfolios. Grouped by party, largest first. Email addresses are not repeated here: the Assembly protects them behind an anti-robot mechanism, and we do not work around it. Each name links to the official page, which carries the address.',
     deputesDescription: 'The 49 members of the Legislative Assembly of New Brunswick, by party and riding.',
     ministresTitre: 'The Executive Council',
-    ministresSousNote: (m, s) => `${m} of the ${s} members. Each one appears again below, in their party.`,
+    ministresSousNote: (m, s) => `${m} of the Assembly's ${s} seats. The other ${s - m} are below.`,
     ministresSurtitre: (n) => `${n} ministers`,
     abrevProjets: (n) => (n === 1 ? 'bill' : 'bills'),
     assembleeTitre: 'The Executive Council and the whole Assembly',
@@ -1333,13 +1333,24 @@ function pageMinistres(langue) {
   const membres = conseilFichier?.membres || [];
   const deputes = deputesFichier?.deputes || [];
 
+  // Un ministre a sa boîte plus haut : il ne revient pas dans la liste. Les deux blocs se
+  // partagent les 49 sièges, ils ne les répètent pas.
+  const estMinistre = new Set(membres.map((m) => normaliserNom(m.nomAffiche)));
+  const autres = deputes.filter((d) => !estMinistre.has(normaliserNom(d.nomAffiche)));
+
   // Le parti le plus nombreux en premier : c'est l'ordre que l'Assemblée elle-même annonce.
   const parPartis = new Map();
-  for (const d of deputes) {
+  for (const d of autres) {
     if (!parPartis.has(d.parti)) parPartis.set(d.parti, []);
     parPartis.get(d.parti).push(d);
   }
-  const groupes = [...parPartis.entries()].sort((a, b) => b[1].length - a[1].length);
+  // L'ordre des partis suit leurs SIÈGES, pas le nombre de lignes listées : le parti au
+  // pouvoir a le plus de ministres, donc le moins de lignes ici, et il resterait en bas
+  // d'une liste qui se classerait sur ce qu'elle montre.
+  const sieges = new Map();
+  for (const d of deputes) sieges.set(d.parti, (sieges.get(d.parti) || 0) + 1);
+  const groupes = [...parPartis.entries()]
+    .sort((a, b) => (sieges.get(b[0]) || 0) - (sieges.get(a[0]) || 0));
 
   // Dans chaque parti, la personne qui le dirige passe en tête : la première ministre chez
   // les libéraux, le chef de l'opposition chez les conservateurs, et ainsi de suite. Le
@@ -1400,7 +1411,7 @@ ${membres.map((m) => carteMinistre(m, t, langue)).join('\n')}
     </div>
   </section>
   <section class="nb-section" id="assemblee">
-    <p class="nb-surtitre nb-surtitre-rouge">${t.deputesSurtitre(deputesFichier?.sieges ?? deputes.length)}</p>
+    <p class="nb-surtitre nb-surtitre-rouge">${t.deputesSurtitre(autres.length)}</p>
     <div class="nb-section-tete"><h2>${t.deputesTitre}</h2></div>
     <p class="nb-section-note">${t.deputesNote}</p>
   </section>
