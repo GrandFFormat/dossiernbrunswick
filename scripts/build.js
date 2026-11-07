@@ -1175,13 +1175,25 @@ function lienPersonne(p, t, langue) {
   return `<a href="${racine}${slugPersonne(p.nomAffiche)}">${nom}</a>`;
 }
 
-const motsDeRecherche = (p) => [p.nomAffiche, p.circonscription, p.parti, ...(p.roles || [])]
-  .filter(Boolean).join(' ')
-  .normalize('NFD').replace(/[̀-ͯ]/g, '')
-  .toLowerCase();
+const motsDeRecherche = (p) => {
+  // Une personne enrichie porte ses libellés dans les deux langues ({ fr, en }) ; une
+  // personne brute n'en a qu'un. On cherche dans tout ce qui existe : quelqu'un qui tape
+  // « justice » doit trouver le ministre, que la page soit en français ou en anglais.
+  const plat = (v) => (v == null ? [] : Array.isArray(v) ? v.flatMap(plat) : typeof v === 'object' ? Object.values(v).flatMap(plat) : [String(v)]);
+  return [p.nomAffiche, ...plat(p.circonscription), ...plat(p.parti), ...plat(p.roles)]
+    .filter(Boolean).join(' ')
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase();
+};
 
 /** L'identifiant d'un ministre : celui que l'Assemblée emploie dans l'adresse de sa fiche. */
-const identifiantMinistre = (m) => (m.fiche ? m.fiche.split('/').filter(Boolean).pop() : normaliserNom(m.nomAffiche).replace(/ /g, '-'));
+const identifiantMinistre = (m) => {
+  // Une personne enrichie porte sa fiche dans les deux langues ; une personne brute n'a
+  // que l'anglaise. L'identifiant suit toujours l'adresse anglaise, pour qu'un suivi
+  // gardé en français se retrouve en anglais.
+  const fiche = typeof m.fiche === 'string' ? m.fiche : m.fiche?.en || m.fiche?.fr || null;
+  return fiche ? fiche.split('/').filter(Boolean).pop() : normaliserNom(m.nomAffiche).replace(/ /g, '-');
+};
 
 /**
  * Une carte de ministre, dans la forme de DossierQuébec : la pastille du parti, le nom,
@@ -1192,6 +1204,9 @@ const identifiantMinistre = (m) => (m.fiche ? m.fiche.split('/').filter(Boolean)
 function carteMinistre(brut, t, langue, { genre = 'ministre' } = {}) {
   const m = enrichir(brut);
   const roles = m.roles?.[langue] || m.roles?.en || m.roles || [];
+  // Le test de la présidence porte sur l'anglais : il ne bouge pas, et il évite de
+  // dépendre d'une apostrophe typographique côté français.
+  const rolesOfficiels = m.roles?.en || m.roles || [];
   const parti = m.parti?.[langue] || m.parti || null;
   const circonscription = m.circonscription?.[langue] || m.circonscription || null;
   const id = identifiantMinistre(brut);
@@ -1213,7 +1228,7 @@ function carteMinistre(brut, t, langue, { genre = 'ministre' } = {}) {
           <div><dt>${t.ministreProjets}</dt><dd>${projets}</dd></div>
           <div><dt>${t.ministrePresence}</dt><dd>${presence
             ? `<span class="nb-taux ${presence.couleur}" title="${echapper(t.presenceTitre(presence.votes, presence.total))}">${presence.taux} %</span>`
-            : estPresidence(roles)
+            : estPresidence(rolesOfficiels)
               ? `<span class="nb-taux preside" title="${echapper(t.presidenceInfo)}">${t.presidenceNeVotePas}</span>`
               : `<span class="nb-taux nd">${t.presenceND}</span>`}</dd></div>
         </dl>
@@ -1228,6 +1243,7 @@ function carteMinistre(brut, t, langue, { genre = 'ministre' } = {}) {
 function ligneDepute(brut, t, langue) {
   const d = enrichir(brut);
   const roles = d.roles?.[langue] || d.roles?.en || d.roles || [];
+  const rolesOfficiels = d.roles?.en || d.roles || [];
   const circonscription = d.circonscription?.[langue] || d.circonscription || null;
   const id = identifiantMinistre(brut);
   const projets = PROJETS_PAR_PARRAIN.get(normaliserNom(d.nomAffiche)) || 0;
@@ -1239,7 +1255,7 @@ function ligneDepute(brut, t, langue) {
         <p class="nb-ligne-chiffres">
           ${presence
             ? `<span class="nb-taux ${presence.couleur}" title="${echapper(t.presenceTitre(presence.votes, presence.total))}">${presence.taux} %</span>`
-            : estPresidence(roles)
+            : estPresidence(rolesOfficiels)
               ? `<span class="nb-taux preside" title="${echapper(t.presidenceInfo)}">${t.presidenceNeVotePas}</span>`
               : `<span class="nb-taux nd">${t.presenceND}</span>`}
           <span class="nb-ligne-pl">${projets} ${t.abrevProjets(projets)}</span>
@@ -1529,9 +1545,10 @@ const FICHES_PAR_NOM = new Map((fichesFichier?.fiches || []).map((f) => [normali
  * Les vice-présidences, elles, votent comme tout le monde quand elles ne président pas :
  * « Deputy Speaker » ne compte pas ici.
  */
-function estPresidence(roles) {
-  return (roles || []).some((r) => /^speaker\b/i.test(String(r).trim())
-    || /^(président|présidente) de l'assemblée/i.test(String(r).trim()));
+function estPresidence(rolesOfficiels) {
+  // Le libellé anglais de l'Assemblée, et rien d'autre : « Speaker of the Legislative
+  // Assembly ». « Deputy Speaker » commence par Deputy, donc ne passe pas.
+  return (rolesOfficiels || []).some((r) => /^speaker\b/i.test(String(r).trim()));
 }
 
 /** La présidence en exercice, si les fiches l'ont dit. */
