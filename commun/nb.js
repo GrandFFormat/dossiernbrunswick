@@ -209,6 +209,71 @@
     });
   }
 
+  /* ─── Les projets de loi : chercher et filtrer ────────────────────────── */
+
+  // La forme de DossierQuébec : une recherche, trois filtres, et un compte qui dit ce qui
+  // est à l'écran. Sans JavaScript, la page garde ses projets et ses cartes s'ouvrent
+  // quand même — c'est du <details> natif.
+  const listePdl = document.querySelector('.nb-pdls');
+  if (listePdl) {
+    const cartes = [...listePdl.querySelectorAll('[data-nb-pdl]')];
+    const champPdl = document.querySelector('#nb-cherche-pdl');
+    const formPdl = champPdl && champPdl.closest('form');
+    const compte = document.querySelector('[data-nb-compte-pdl]');
+    const rienPdl = document.querySelector('[data-nb-cherche-rien]');
+    const filtres = [...document.querySelectorAll('[data-nb-filtre]')];
+    let filtre = 'tous';
+
+    const sansAccent = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+
+    function filtrerPdl() {
+      const q = sansAccent(champPdl ? champPdl.value : '');
+      // « 3 », « pl 3 », « projet de loi n° 3 » désignent le projet NUMÉRO 3, et rien
+      // d'autre : sans cette règle, « 1 » ramène tout ce qui contient un 1.
+      const numero = (q.match(/^(?:pl|bill|projet de loi)?\s*(?:n[°ºo]?\s*)?(\d+)$/) || [])[1] ?? null;
+      const mots = q.split(/\s+/).filter(Boolean);
+      let vus = 0;
+
+      for (const carte of cartes) {
+        const texte = carte.getAttribute('data-nb-chercher') || '';
+        const etat = carte.getAttribute('data-nb-etat');
+        const okFiltre = filtre === 'tous' || etat === filtre;
+        const okMots = numero !== null
+          ? carte.getAttribute('data-nb-pdl') === numero
+          : mots.every((m) => texte.includes(m));
+        const garde = okFiltre && okMots;
+        carte.hidden = !garde;
+        if (!garde) carte.open = false;
+        if (garde) vus += 1;
+      }
+
+      if (compte) compte.textContent = compte.getAttribute('data-nb-mots')
+        ? '' : (vus === cartes.length ? `${cartes.length}` : `${vus} / ${cartes.length}`);
+      if (rienPdl) {
+        rienPdl.hidden = vus !== 0;
+        if (!rienPdl.hidden) {
+          rienPdl.textContent = (rienPdl.getAttribute('data-nb-cherche-rien') || '{q}')
+            .replace('{q}', champPdl ? champPdl.value.trim() : '');
+        }
+      }
+    }
+
+    if (formPdl) {
+      formPdl.hidden = false;
+      champPdl.addEventListener('input', filtrerPdl);
+      formPdl.addEventListener('submit', (e) => { e.preventDefault(); filtrerPdl(); });
+      formPdl.addEventListener('reset', () => setTimeout(filtrerPdl, 0));
+    }
+    for (const b of filtres) {
+      b.addEventListener('click', () => {
+        filtre = b.getAttribute('data-nb-filtre');
+        for (const autre of filtres) autre.setAttribute('aria-pressed', String(autre === b));
+        filtrerPdl();
+      });
+    }
+    filtrerPdl();
+  }
+
   /* ─── Chercher une personne ───────────────────────────────────────────── */
 
   // Une seule recherche pour les ministres et pour l'Assemblée : on tape un nom, une
