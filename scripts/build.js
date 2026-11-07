@@ -101,7 +101,41 @@ const T = {
       'Traduit le jargon en langage clair (voir le Lexique)',
       'Vous laisse suivre ce qui vous touche, sans jugement ni verdict',
     ],
-    piedLiens: [['Les règles', 'regles'], ['Sources', 'sources']],
+    piedLiens: [],
+    surtitreSession: (l, s) => `${l}ᵉ législature · ${s}ᵉ session`,
+    projetsDescription: 'Tous les projets de loi de la session en cours à l\'Assemblée législative du Nouveau-Brunswick, avec leurs étapes datées et leurs textes officiels.',
+    documents: 'Textes officiels :', texteFr: 'français (HTML)', texteEn: 'anglais (HTML)',
+    textePdf: 'PDF bilingue', amendement: 'amendement (PDF)',
+    voirOfficiel: 'Voir la fiche officielle sur legnb.ca →',
+    deputesTitre: 'Les député·e·s',
+    deputesSurtitre: (n) => `${n} sièges`,
+    deputesNote: 'Classés par parti, du plus nombreux au moins nombreux. Les courriels ne sont pas repris ici : l\'Assemblée les protège derrière un mécanisme anti-robots, et on ne le contourne pas. Chaque nom mène à sa fiche officielle, qui porte l\'adresse.',
+    deputesDescription: 'Les 49 député·e·s de l\'Assemblée législative du Nouveau-Brunswick, par parti et par circonscription.',
+    ministresTitre: 'Le Conseil exécutif',
+    ministresSurtitre: (n) => `${n} ministres`,
+    ministresNote: 'La liste tenue par l\'Assemblée législative. La page du gouvernement a déjà été en retard sur celle-ci : en cas de divergence, c\'est celle-ci qui fait foi ici.',
+    ministresDescription: 'Les ministres du Nouveau-Brunswick et leurs portefeuilles, selon l\'Assemblée législative.',
+    lexiqueTitre: 'Le lexique',
+    lexiqueSurtitre: 'Le jargon, en clair',
+    lexiqueNote: 'Les mots que l\'Assemblée emploie, expliqués simplement. Rien ici n\'a de valeur officielle : c\'est une aide à la lecture.',
+    lexiqueDescription: 'Le vocabulaire de l\'Assemblée législative du Nouveau-Brunswick expliqué en langage clair.',
+    lexique: [
+      ['Première lecture', 'Le dépôt. Le projet de loi est présenté à la Chambre et imprimé. Il n\'est pas encore débattu, et personne ne vote sur son contenu.'],
+      ['Deuxième lecture', 'Le débat sur le principe. On discute de l\'idée du projet, pas encore du détail de ses articles. C\'est l\'étape où un projet peut être rejeté d\'un coup.'],
+      ['Étude en comité', 'L\'examen article par article, par un comité de député·e·s. C\'est là que le texte peut être amendé. Au Nouveau-Brunswick, un projet d\'intérêt privé passe en comité <b>avant</b> sa deuxième lecture : l\'ordre n\'est pas toujours le même.'],
+      ['Troisième lecture', 'Le dernier vote de la Chambre. Après, le texte ne change plus.'],
+      ['Sanction royale', 'La signature de la lieutenante-gouverneure, qui fait du projet une loi. <b>Attention :</b> une loi sanctionnée n\'est pas forcément en vigueur — beaucoup attendent une proclamation, parfois des mois plus tard.'],
+      ['Projet de loi d\'initiative ministérielle', 'Un projet déposé par un ou une ministre, au nom du gouvernement. C\'est la grande majorité des projets adoptés.'],
+      ['Projet de loi d\'intérêt public et d\'initiative parlementaire', 'Un projet déposé par un·e député·e qui n\'est pas ministre. Il aboutit rarement.'],
+      ['Projet de loi d\'intérêt privé', 'Un projet qui vise une personne, une entreprise ou un organisme précis — par exemple modifier la loi constitutive d\'une université ou d\'un ordre professionnel.'],
+      ['Vote nominatif', 'Un vote où le nom de chaque député·e est inscrit au Journal. Ils sont <b>rares</b> : la plupart des projets de loi sont adoptés de vive voix, sans que les positions individuelles soient consignées. L\'absence de vote nominatif ne veut donc pas dire « unanime ».'],
+      ['Journal', 'Le compte rendu officiel des décisions de la Chambre, publié chaque jour de séance. C\'est le seul endroit où figurent les votes nominatifs du Nouveau-Brunswick.'],
+      ['Hansard', 'Le compte rendu des débats, mot à mot. Il paraît plusieurs mois après la séance.'],
+      ['Feuilleton', 'L\'ordre du jour de la Chambre : ce qui est à l\'étude et dans quel ordre.'],
+      ['Pétition', 'Au Nouveau-Brunswick, une pétition est <b>sur papier</b>, signée à la main, et ne peut être déposée que par un·e député·e. Il n\'existe pas de pétition en ligne. Le ministre doit répondre par écrit dans les deux semaines, mais cette réponse n\'est pas publiée.'],
+      ['Présidence de l\'Assemblée', 'La personne qui préside les séances. Elle <b>ne vote pas</b> : un vote nominatif ne dépasse donc jamais 48 voix sur 49 sièges.'],
+      ['Session', 'Une période de travaux. Chaque nouvelle session renumérote les projets de loi à partir de 1 — un même numéro désigne donc des projets différents d\'une session à l\'autre.'],
+    ],
     theme: 'Thème clair ou sombre', texteMoins: 'Réduire le texte', textePlus: 'Agrandir le texte',
     deposeLe: 'Dépôt', dernierActe: 'Dernier acte', pour: 'pour', contre: 'contre',
     parrainePar: 'Déposé par',
@@ -159,7 +193,41 @@ const T = {
       'Turns the jargon into plain language (see the Glossary)',
       'Lets you follow what affects you, with no scores and no verdicts',
     ],
-    piedLiens: [['The rules', 'rules'], ['Sources', 'sources']],
+    piedLiens: [],
+    surtitreSession: (l, s) => `Legislature ${l} · Session ${s}`,
+    projetsDescription: 'Every bill of the current session of the Legislative Assembly of New Brunswick, with dated stages and official texts.',
+    documents: 'Official texts:', texteFr: 'French (HTML)', texteEn: 'English (HTML)',
+    textePdf: 'bilingual PDF', amendement: 'amendment (PDF)',
+    voirOfficiel: 'See the official page on legnb.ca →',
+    deputesTitre: 'The members',
+    deputesSurtitre: (n) => `${n} seats`,
+    deputesNote: 'Grouped by party, largest first. Email addresses are not repeated here: the Assembly protects them behind an anti-robot mechanism, and we do not work around it. Each name links to the official page, which carries the address.',
+    deputesDescription: 'The 49 members of the Legislative Assembly of New Brunswick, by party and riding.',
+    ministresTitre: 'The Executive Council',
+    ministresSurtitre: (n) => `${n} ministers`,
+    ministresNote: 'The list kept by the Legislative Assembly. The government\'s own page has lagged behind it before: where the two differ, this site follows the Assembly.',
+    ministresDescription: 'New Brunswick\'s ministers and their portfolios, as listed by the Legislative Assembly.',
+    lexiqueTitre: 'The glossary',
+    lexiqueSurtitre: 'The jargon, in plain words',
+    lexiqueDescription: 'The vocabulary of the Legislative Assembly of New Brunswick, explained in plain language.',
+    lexiqueNote: 'The words the Assembly uses, explained simply. Nothing here is official: it is a reading aid.',
+    lexique: [
+      ['First reading', 'The tabling. The bill is introduced and printed. It is not debated yet, and nobody votes on its content.'],
+      ['Second reading', 'The debate on the principle. The House discusses the idea of the bill, not yet its clauses. This is the stage where a bill can be defeated outright.'],
+      ['Committee', 'Clause-by-clause study by a committee of members. This is where the text can be amended. In New Brunswick a private bill goes to committee <b>before</b> its second reading: the order is not always the same.'],
+      ['Third reading', 'The House\'s final vote. After it, the text no longer changes.'],
+      ['Royal assent', 'The Lieutenant-Governor\'s signature, which turns a bill into an Act. <b>Careful:</b> an Act that has received assent is not necessarily in force — many wait on a proclamation, sometimes months later.'],
+      ['Government bill', 'A bill introduced by a minister, on behalf of the government. These are the vast majority of bills that pass.'],
+      ['Private member\'s public bill', 'A bill introduced by a member who is not a minister. It rarely becomes law.'],
+      ['Private bill', 'A bill aimed at one person, company or body — amending a university\'s founding Act, for instance, or a professional association\'s.'],
+      ['Recorded division', 'A vote where every member\'s name is entered in the Journal. They are <b>rare</b>: most bills pass on a voice vote, with no individual positions recorded. No recorded vote therefore does not mean "unanimous".'],
+      ['Journal', 'The official record of the decisions of the House, published each sitting day. It is the only place New Brunswick\'s recorded votes appear.'],
+      ['Hansard', 'The word-for-word record of debate. It appears several months after the sitting.'],
+      ['Order paper', 'The agenda of the House: what is before it, and in what order.'],
+      ['Petition', 'In New Brunswick a petition is <b>on paper</b>, signed by hand, and can only be presented by a member. There is no online petition system. A minister must reply in writing within two weeks, but that reply is not published.'],
+      ['Speaker', 'The member who presides over sittings. The Speaker <b>does not vote</b>: a recorded division therefore never exceeds 48 of the 49 seats.'],
+      ['Session', 'A period of business. Every new session renumbers bills from 1 — the same number means different bills in different sessions.'],
+    ],
     theme: 'Light or dark theme', texteMoins: 'Smaller text', textePlus: 'Larger text',
     deposeLe: 'Tabled', dernierActe: 'Latest act', pour: 'yeas', contre: 'nays',
     parrainePar: 'Sponsored by',
@@ -229,9 +297,13 @@ function etapeLisible(nom, langue) {
  */
 function statutLisible(projet, langue) {
   if (langue === 'en') return projet.statut || null;
+  // Le mieux : le statut que l'Assemblée écrit elle-même en français sur la fiche du projet
+  // (« Étape de la deuxième lecture franchie »).
+  if (projet.statutFr) return projet.statutFr;
+  // À défaut, l'étape et son sort, pris eux aussi sur la page française.
   const etape = derniereEtape(projet);
   if (etape?.nomFr) return etape.resultatFr ? `${etape.nomFr} · ${etape.resultatFr}` : etape.nomFr;
-  // Pas de libellé français publié pour cette étape : on reste muet plutôt que d'improviser.
+  // Rien de publié en français : on reste muet plutôt que d'improviser une traduction.
   return null;
 }
 
@@ -247,7 +319,7 @@ function derniereEtape(projet) {
 const ETOILE = (couleur) => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon fill="${couleur}" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg>`;
 const CHEVRON = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg>';
 
-function entete(t, racine, page) {
+function entete(t, racine, page, autreChemin = '') {
   // Les onglets de la maquette, numérotés. Chacun mène à une page qui existe : un onglet
   // qui promet une section vide vaut moins que pas d'onglet du tout.
   const onglets = t.onglets
@@ -274,7 +346,7 @@ ${onglets}
       <output data-nb-zoom-valeur>100%</output>
       <button type="button" data-nb-zoom="plus" title="${t.textePlus}">A+</button>
     </div>
-    <a class="nb-onglet" data-nb-autre-langue="${t.autre}" href="${t.autre === 'en' ? '/en/' : '/'}" hreflang="${t.autre}" rel="alternate">${t.autreNom}</a>
+    <a class="nb-onglet" data-nb-autre-langue="${t.autre}" href="${t.autre === 'en' ? '/en/' : '/'}${autreChemin}" hreflang="${t.autre}" rel="alternate">${t.autreNom}</a>
   </header>`;
 }
 
@@ -405,8 +477,9 @@ ${t.missionListeNous.map((l) => `        <li>${l}</li>`).join('\n')}
   </section>`;
 }
 
-function pied(t, langue, racine) {
+function pied(t, langue, racine, versAutre = '') {
   const lu = dateLisible((projetsFichier.luLe || '').slice(0, 10), langue);
+  const racineAutre = langue === 'en' ? '/' : '/en/';
   const liens = t.piedLiens
     .map(([nom, vers]) => `<a href="${racine}${vers}">${nom}</a>`)
     .join('\n    ');
@@ -418,25 +491,31 @@ function pied(t, langue, racine) {
   <div class="nb-pied-liens">
     <span>${t.piedNonOfficiel} — ${t.piedSources}</span>
     ${liens}
-    <a data-nb-autre-langue="${t.autre}" href="${t.autre === 'en' ? '/en/' : '/'}" hreflang="${t.autre}" rel="alternate">${t.autreNom}</a>
+    <a data-nb-autre-langue="${t.autre}" href="${racineAutre}${versAutre}" hreflang="${t.autre}" rel="alternate">${t.autreNom}</a>
   </div>`;
 }
 
-/* ─── La page ─────────────────────────────────────────────────────────────── */
+/* ─── La coquille, commune à toutes les pages ─────────────────────────────── */
 
-function page(langue) {
+/**
+ * L'enveloppe d'une page : le bandeau, l'en-tête, le pied, et les balises de langue.
+ * Toutes les pages du site passent par ici, pour que l'en-tête et le pied ne divergent
+ * jamais d'une page à l'autre.
+ *
+ * @param {object} o
+ * @param {'fr'|'en'} o.langue
+ * @param {string} o.vers      le chemin de la page sans la racine (« » pour l'accueil)
+ * @param {string} o.versAutre le même chemin dans l'autre langue
+ * @param {string} o.titre     le titre de l'onglet du navigateur
+ * @param {string} o.description
+ * @param {string} o.corps     le HTML des sections
+ */
+function coquille({ langue, vers, versAutre, titre, description, corps }) {
   const t = T[langue];
-  const leg = projetsFichier.legislature;
-  const ses = projetsFichier.session;
   const racine = langue === 'en' ? '/en/' : '/';
-  const canonique = langue === 'en' ? `${SITE}/en/` : `${SITE}/`;
-  const autre = langue === 'en' ? `${SITE}/` : `${SITE}/en/`;
-
-  const chiffres = [
-    { valeur: deputesFichier?.sieges ?? '—', libelle: t.chiffreDeputes },
-    { valeur: projetsFichier.projets.length, libelle: t.chiffreProjets },
-    { valeur: votesFichier?.votes?.length ?? 0, libelle: t.chiffreVotes },
-  ];
+  const racineAutre = langue === 'en' ? '/' : '/en/';
+  const canonique = `${SITE}${racine}${vers}`;
+  const autre = `${SITE}${racineAutre}${versAutre}`;
 
   const ticker = `  <div class="nb-ticker" aria-hidden="true"><div class="nb-ticker-piste">`
     + `<span><span class="nb-etoile">★</span> ${t.ticker}</span>`.repeat(3)
@@ -447,13 +526,13 @@ function page(langue) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${echapper(t.titreOnglet)}</title>
-<meta name="description" content="${echapper(t.description)}">
+<title>${echapper(titre)}</title>
+<meta name="description" content="${echapper(description)}">
 <meta name="theme-color" content="#0033a0">
 <link rel="canonical" href="${canonique}">
 <link rel="alternate" hreflang="${t.autre}" href="${autre}">
 <link rel="alternate" hreflang="${langue}" href="${canonique}">
-<link rel="alternate" hreflang="x-default" href="${SITE}/">
+<link rel="alternate" hreflang="x-default" href="${SITE}/${vers}">
 <link rel="icon" href="/commun/nb.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/commun/industry.css">
 <link rel="stylesheet" href="/commun/nb.css">
@@ -465,13 +544,9 @@ try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.docu
 <body>
 <div class="nb-page">
 ${ticker}
-${entete(t, racine, '')}
-${affiche(t, chiffres, leg, ses)}
-${avisSeance(t, langue)}
-${sectionProjets(t, langue)}
-${sectionActivite(t, langue)}
-${sectionMission(t)}
-${pied(t, langue, racine)}
+${entete(t, racine, vers, versAutre)}
+${corps}
+${pied(t, langue, racine, versAutre)}
 </div>
 <script src="/commun/nb.js" defer></script>
 </body>
@@ -479,37 +554,248 @@ ${pied(t, langue, racine)}
 `;
 }
 
+/* ─── L'accueil ───────────────────────────────────────────────────────────── */
+
+function page(langue) {
+  const t = T[langue];
+  const leg = projetsFichier.legislature;
+  const ses = projetsFichier.session;
+  const racine = langue === 'en' ? '/en/' : '/';
+
+  const chiffres = [
+    { valeur: deputesFichier?.sieges ?? '—', libelle: t.chiffreDeputes },
+    { valeur: projetsFichier.projets.length, libelle: t.chiffreProjets },
+    { valeur: votesFichier?.votes?.length ?? 0, libelle: t.chiffreVotes },
+  ];
+
+  return coquille({
+    langue,
+    vers: '',
+    versAutre: '',
+    titre: t.titreOnglet,
+    description: t.description,
+    corps: [
+      affiche(t, chiffres, leg, ses),
+      avisSeance(t, langue),
+      sectionProjets(t, langue),
+      sectionActivite(t, langue),
+      sectionMission(t),
+    ].join('\n'),
+  });
+}
+
+/* ─── Les pages de section ────────────────────────────────────────────────── */
+
+/** Une tête de section, avec son surtitre rouge et son titre en capitales. */
+const teteDeSection = (surtitre, titre, note) => `  <section class="nb-section">
+    <p class="nb-surtitre nb-surtitre-rouge">${surtitre}</p>
+    <div class="nb-section-tete"><h1>${titre}</h1></div>
+    ${note ? `<p class="nb-section-note">${note}</p>` : ''}
+  </section>`;
+
+/** La page de tous les projets de loi, avec leurs étapes datées. */
+function pageProjets(langue) {
+  const t = T[langue];
+  const projets = [...projetsFichier.projets].sort((a, b) => b.numero - a.numero);
+
+  const cartes = projets.map((p) => {
+    const titre = p.titre[langue] || p.titre.en;
+    const parrain = p.parrain;
+    const etapes = (p.etapes || []).map((e) => {
+      const nom = langue === 'fr' ? (e.nomFr || e.nom) : e.nom;
+      const sort = langue === 'fr' ? e.resultatFr : (e.resultat ? e.resultat.en : null);
+      const quand = e.date ? dateLisible(e.date, langue) : null;
+      return `        <li class="${e.date ? 'faite' : 'a-venir'}">`
+        + `<span>${echapper(nom)}</span>`
+        + `<span>${quand ? `${sort ? `${echapper(sort)} · ` : ''}${quand}` : '—'}</span></li>`;
+    }).join('\n');
+
+    const docs = [];
+    if (p.documents?.htmlFr) docs.push(`<a href="${echapper(p.documents.htmlFr)}" rel="noopener">${t.texteFr}</a>`);
+    if (p.documents?.htmlEn) docs.push(`<a href="${echapper(p.documents.htmlEn)}" rel="noopener">${t.texteEn}</a>`);
+    if (p.documents?.pdfBilingue) docs.push(`<a href="${echapper(p.documents.pdfBilingue)}" rel="noopener">${t.textePdf}</a>`);
+    for (const a of p.documents?.amendements || []) {
+      docs.push(`<a href="${echapper(a)}" rel="noopener">${t.amendement}</a>`);
+    }
+
+    return `      <article class="nb-fiche">
+        <header>
+          <span class="nb-projet-num">${langue === 'en' ? 'No.' : 'Nᵒ'} ${p.numero}</span>
+          <h2>${echapper(titre)}</h2>
+          ${(langue === 'fr' ? p.typeFr : p.type) ? `<p class="nb-fiche-type">${echapper(langue === 'fr' ? p.typeFr : p.type)}</p>` : ''}
+        </header>
+        ${parrain?.nom ? `<p class="nb-fiche-parrain">${t.parrainePar} <b>${echapper(parrain.nom)}</b>`
+          + `${parrain.parti ? ` · <span class="nb-parti"${parrain.couleurParti ? ` style="--parti:${echapper(parrain.couleurParti)}"` : ''}>${echapper(parrain.parti)}</span>` : ''}`
+          + `${parrain.circonscription ? ` · ${echapper(parrain.circonscription)}` : ''}</p>` : ''}
+        <ol class="nb-etapes">
+${etapes}
+        </ol>
+        ${docs.length ? `<p class="nb-fiche-docs">${t.documents} ${docs.join(' · ')}</p>` : ''}
+        <p class="nb-fiche-source"><a href="${echapper(p.source?.[langue] || p.source?.en || '#')}" rel="noopener">${t.voirOfficiel}</a></p>
+      </article>`;
+  }).join('\n');
+
+  return coquille({
+    langue,
+    vers: langue === 'en' ? 'bills' : 'projets-de-loi',
+    versAutre: langue === 'en' ? 'projets-de-loi' : 'bills',
+    titre: `${t.projetsTitre} — DossierNBrunswick`,
+    description: t.projetsDescription,
+    corps: `${teteDeSection(t.surtitreSession(projetsFichier.legislature, projetsFichier.session), t.projetsTitre, t.projetsNote)}
+  <section class="nb-section nb-fiches">
+${cartes}
+  </section>`,
+  });
+}
+
+/** La page des député·e·s, groupés par parti. */
+function pageDeputes(langue) {
+  const t = T[langue];
+  const deputes = deputesFichier?.deputes || [];
+  const parPartis = new Map();
+  for (const d of deputes) {
+    if (!parPartis.has(d.parti)) parPartis.set(d.parti, []);
+    parPartis.get(d.parti).push(d);
+  }
+  // Le parti le plus nombreux en premier : c'est l'ordre que l'Assemblée elle-même annonce.
+  const groupes = [...parPartis.entries()].sort((a, b) => b[1].length - a[1].length);
+
+  const corps = groupes.map(([parti, membres]) => {
+    const couleur = membres[0]?.couleurParti;
+    return `  <section class="nb-section">
+    <div class="nb-section-tete"${couleur ? ` style="border-bottom-color:${echapper(couleur)}"` : ''}>
+      <h2>${echapper(parti)}</h2>
+      <span class="nb-compte">${membres.length}</span>
+    </div>
+    <ul class="nb-personnes">
+${membres.map((d) => `      <li>
+        <a href="${echapper(d.fiche || '#')}" rel="noopener">
+          <b>${echapper(d.nomAffiche)}</b>
+          <span>${echapper(d.circonscription || '')}</span>
+        </a>
+      </li>`).join('\n')}
+    </ul>
+  </section>`;
+  }).join('\n');
+
+  return coquille({
+    langue,
+    vers: langue === 'en' ? 'members' : 'deputes',
+    versAutre: langue === 'en' ? 'deputes' : 'members',
+    titre: `${t.deputesTitre} — DossierNBrunswick`,
+    description: t.deputesDescription,
+    corps: `${teteDeSection(t.deputesSurtitre(deputesFichier?.sieges ?? deputes.length), t.deputesTitre, t.deputesNote)}
+${corps}`,
+  });
+}
+
+/** La page du Conseil exécutif. */
+function pageMinistres(langue) {
+  const t = T[langue];
+  const membres = conseilFichier?.membres || [];
+  const cartes = membres.map((m) => `      <article class="nb-fiche">
+        <header>
+          <h2>${echapper(m.nomAffiche)}</h2>
+          <p class="nb-fiche-type">${echapper(m.circonscription || '')}</p>
+        </header>
+        <ul class="nb-portefeuilles">
+${(m.roles || []).map((r) => `          <li>${echapper(r)}</li>`).join('\n')}
+        </ul>
+        ${m.fiche ? `<p class="nb-fiche-source"><a href="${echapper(m.fiche)}" rel="noopener">${t.voirOfficiel}</a></p>` : ''}
+      </article>`).join('\n');
+
+  return coquille({
+    langue,
+    vers: langue === 'en' ? 'ministers' : 'ministres',
+    versAutre: langue === 'en' ? 'ministres' : 'ministers',
+    titre: `${t.ministresTitre} — DossierNBrunswick`,
+    description: t.ministresDescription,
+    corps: `${teteDeSection(t.ministresSurtitre(membres.length), t.ministresTitre, t.ministresNote)}
+  <section class="nb-section nb-fiches">
+${cartes}
+  </section>`,
+  });
+}
+
+/** Le lexique : le jargon de l'Assemblée, en langage clair. */
+function pageLexique(langue) {
+  const t = T[langue];
+  const entrees = t.lexique.map(([terme, definition]) => `      <div class="nb-terme">
+        <dt>${echapper(terme)}</dt>
+        <dd>${definition}</dd>
+      </div>`).join('\n');
+
+  return coquille({
+    langue,
+    vers: langue === 'en' ? 'glossary' : 'lexique',
+    versAutre: langue === 'en' ? 'lexique' : 'glossary',
+    titre: `${t.lexiqueTitre} — DossierNBrunswick`,
+    description: t.lexiqueDescription,
+    corps: `${teteDeSection(t.lexiqueSurtitre, t.lexiqueTitre, t.lexiqueNote)}
+  <section class="nb-section">
+    <dl class="nb-lexique">
+${entrees}
+    </dl>
+  </section>`,
+  });
+}
+
 /* ─── Écriture ────────────────────────────────────────────────────────────── */
 
-writeFileSync('index.html', page('fr'), 'utf8');
 mkdirSync('en', { recursive: true });
-writeFileSync('en/index.html', page('en'), 'utf8');
+
+// Chaque page existe dans les deux langues, à une adresse qui se lit dans sa langue :
+// /projets-de-loi et /en/bills, /deputes et /en/members. Une adresse est la première
+// chose qu'on lit d'une page.
+const PAGES = [
+  { fr: 'index.html', en: 'en/index.html', faire: page },
+  { fr: 'projets-de-loi.html', en: 'en/bills.html', faire: pageProjets },
+  { fr: 'deputes.html', en: 'en/members.html', faire: pageDeputes },
+  { fr: 'ministres.html', en: 'en/ministers.html', faire: pageMinistres },
+  { fr: 'lexique.html', en: 'en/glossary.html', faire: pageLexique },
+];
+
+for (const { fr, en, faire } of PAGES) {
+  writeFileSync(fr, faire('fr'), 'utf8');
+  writeFileSync(en, faire('en'), 'utf8');
+}
 
 // Le sitemap que robots.txt annonce. Chaque adresse déclare ses deux langues : c'est comme
 // ça qu'un moteur sait que /en/ n'est pas une page concurrente de /, mais la même page dans
 // l'autre langue officielle.
-const LANGUES = [['fr', `${SITE}/`], ['en', `${SITE}/en/`]];
-const jour = new Date().toISOString().slice(0, 10);
-const alternatives = LANGUES
-  .map(([code, adresse]) => `    <xhtml:link rel="alternate" hreflang="${code}" href="${adresse}"/>`)
-  .join('\n');
+// Vercel sert les « URL propres » : /projets-de-loi, sans le .html, et / pour l'accueil.
+const adresse = (fichier) => `${SITE}/${fichier.replace(/index\.html$/, '').replace(/\.html$/, '')}`;
 
-const sitemap = [
+const jour = new Date().toISOString().slice(0, 10);
+const entrees = [];
+
+for (const { fr, en } of PAGES) {
+  // Les deux langues d'une même page se déclarent mutuellement : c'est ainsi qu'un moteur
+  // sait que /en/bills n'est pas une page concurrente de /projets-de-loi, mais la même
+  // page dans l'autre langue officielle.
+  const alternatives = [
+    `    <xhtml:link rel="alternate" hreflang="fr" href="${adresse(fr)}"/>`,
+    `    <xhtml:link rel="alternate" hreflang="en" href="${adresse(en)}"/>`,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${adresse(fr)}"/>`,
+  ].join('\n');
+  for (const page of [fr, en]) {
+    entrees.push([
+      '  <url>',
+      `    <loc>${adresse(page)}</loc>`,
+      alternatives,
+      `    <lastmod>${jour}</lastmod>`,
+      '  </url>',
+    ].join('\n'));
+  }
+}
+
+writeFileSync('sitemap.xml', [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
-  ...LANGUES.map(([, adresse]) => [
-    '  <url>',
-    `    <loc>${adresse}</loc>`,
-    alternatives,
-    `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/"/>`,
-    `    <lastmod>${jour}</lastmod>`,
-    '  </url>',
-  ].join('\n')),
+  ...entrees,
   '</urlset>',
   '',
-].join('\n');
-
-writeFileSync('sitemap.xml', sitemap, 'utf8');
+].join('\n'), 'utf8');
 
 
 console.log(`écrit index.html, en/index.html et sitemap.xml`);

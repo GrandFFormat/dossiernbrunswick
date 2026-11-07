@@ -530,3 +530,124 @@ html[data-theme='dark'] .nb-en-clair { color: var(--nb-jaune); }
   .nb-fil div { grid-template-columns: 1fr; gap: 2px; }
   .nb-neuf h2 { font-size: 28px; }
 }
+
+/* ═══ Les pages de section ══════════════════════════════════════════════════ */
+
+.nb-surtitre-rouge { color: var(--nb-rouge); margin-bottom: 8px; }
+html[data-theme='dark'] .nb-surtitre-rouge { color: var(--nb-jaune); }
+
+.nb-section-tete h1 {
+  font: 600 40px/1 var(--font-heading);
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+.nb-compte {
+  font: 600 28px var(--font-heading);
+  color: var(--ink3);
+  font-feature-settings: 'tnum';
+}
+
+/* ─── Une fiche (projet de loi, ministre) ───────────────────────────────── */
+
+.nb-fiches { display: grid; gap: 14px; }
+.nb-fiche {
+  background: var(--w);
+  box-shadow: var(--shadow-sm);
+  border-left: 6px solid var(--nb-bleu);
+  padding: 22px 24px;
+}
+.nb-fiche > header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.nb-fiche h2 {
+  font: 500 19px/1.3 var(--font-body);
+  margin: 0;
+  flex: 1 1 320px;
+}
+.nb-fiche-type {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin: 0;
+}
+.nb-fiche-parrain { font-size: 14px; color: var(--ink2); margin: 12px 0 0; }
+.nb-parti {
+  border-left: 3px solid var(--parti, var(--nb-bleu));
+  padding-left: 7px;
+}
+.nb-fiche-docs, .nb-fiche-source { font-size: 13px; margin: 12px 0 0; color: var(--ink3); }
+.nb-fiche-source a { color: var(--acc); text-decoration: none; font-weight: 600; }
+.nb-fiche-source a:hover { color: var(--nb-rouge); }
+
+/* ─── Les étapes d'un projet de loi ─────────────────────────────────────── */
+
+.nb-etapes {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--color-divider);
+  border: 1px solid var(--color-divider);
+}
+.nb-etapes li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  padding: 8px 12px;
+  background: var(--w);
+  font-size: 13px;
+}
+.nb-etapes li.faite span:first-child { font-weight: 600; }
+/* Une étape pas encore franchie se lit comme un chemin qui reste, pas comme un manque. */
+.nb-etapes li.a-venir { color: var(--ink3); }
+.nb-etapes li span:last-child { color: var(--ink3); font-variant-numeric: tabular-nums; }
+
+/* ─── Les portefeuilles d'un ministre ───────────────────────────────────── */
+
+.nb-portefeuilles { margin: 12px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.6; color: var(--ink2); }
+
+/* ─── Une liste de personnes ────────────────────────────────────────────── */
+
+.nb-personnes {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 8px;
+}
+.nb-personnes a {
+  display: grid;
+  gap: 2px;
+  padding: 12px 16px;
+  background: var(--w);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  border-left: 4px solid transparent;
+}
+.nb-personnes a:hover { border-left-color: var(--hl); box-shadow: var(--shadow-md); }
+.nb-personnes span { font-size: 13px; color: var(--ink3); }
+
+/* ─── Le lexique ────────────────────────────────────────────────────────── */
+
+.nb-lexique { margin: 14px 0 0; display: grid; gap: 10px; }
+.nb-terme {
+  background: var(--w);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--nb-jaune);
+  padding: 16px 20px;
+}
+.nb-terme dt {
+  font: 600 17px var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+.nb-terme dd { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink2); }
+
+@media (max-width: 640px) {
+  .nb-section-tete h1 { font-size: 28px; }
+  .nb-etapes li { grid-template-columns: 1fr; gap: 2px; }
+}
