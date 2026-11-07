@@ -31,6 +31,8 @@ const votesFichier = lireJson('data/votes.json');
 const fichesFichier = lireJson('data/fiches.json');
 // Les dépenses payées aux député·e·s, lues dans les tableaux PDF de l'Assemblée.
 const financesFichier = lireJson('data/finances.json');
+// Les sept charges indépendantes de l'Assemblée, nommées dans le lexique.
+const officiersFichier = lireJson('data/officiers.json');
 
 if (!projetsFichier) throw new Error('data/projets-de-loi.json manque — lancer les scrapers avant le build');
 
@@ -209,6 +211,12 @@ const T = {
     projetAucunVote: 'Aucun vote nominatif n\u2019a \u00e9t\u00e9 tenu sur ce projet de loi. Ce n\u2019est pas un signe d\u2019unanimit\u00e9 : au Nouveau-Brunswick, la plupart des projets passent de vive voix, sans que personne soit nomm\u00e9.',
     projetDescription: (n, titre, statut) => `Projet de loi n\u1d52 ${n} \u00e0 l\u2019Assembl\u00e9e l\u00e9gislative du Nouveau-Brunswick : ${titre}.${statut ? ` \u00c9tape : ${statut}.` : ''} Son chemin, son parrain, ses votes nominatifs et ses textes officiels.`,
     session: 'L\u00e9gislature et session',
+    lexiqueFamilles: { chemin: 'Le chemin d\u2019un projet', votes: 'Votes', documents: 'Documents', textes: 'Sortes de projets', gens: 'Personnes et droits' },
+    officiersSurtitre: 'Ind\u00e9pendants du gouvernement et des partis',
+    officiersTitre: 'Qui veille sur l\u2019Assembl\u00e9e',
+    officiersSite: 'Son site \u2192',
+    officiersNote: 'L\u2019Assembl\u00e9e ne publie pas le nom des personnes en poste sur cette page : on nomme la charge, pas la personne. Le commissaire \u00e0 l\u2019int\u00e9grit\u00e9 tient le registre des lobbyistes du Nouveau-Brunswick.',
+    officiersSource: 'La page des hauts fonctionnaires sur legnb.ca \u2192',
     ficheEtiquetteMinistre: 'Ministre du Nouveau-Brunswick',
     ficheEtiquetteChef: 'Chef de parti',
     ficheEtiquetteDepute: 'D\u00e9put\u00e9\u00b7e \u00e0 l\u2019Assembl\u00e9e',
@@ -256,22 +264,22 @@ const T = {
     lexiqueNote: 'Les mots que l\'Assemblée emploie, expliqués simplement. Rien ici n\'a de valeur officielle : c\'est une aide à la lecture.',
     lexiqueDescription: 'Le vocabulaire de l\'Assemblée législative du Nouveau-Brunswick expliqué en langage clair.',
     lexique: [
-      ['Première lecture', 'Le dépôt. Le projet de loi est présenté à la Chambre et imprimé. Il n\'est pas encore débattu, et personne ne vote sur son contenu.'],
-      ['Deuxième lecture', 'Le débat sur le principe. On discute de l\'idée du projet, pas encore du détail de ses articles. C\'est l\'étape où un projet peut être rejeté d\'un coup.'],
-      ['Étude en comité', 'L\'examen article par article, par un comité de député·e·s. C\'est là que le texte peut être amendé. Au Nouveau-Brunswick, un projet d\'intérêt privé passe en comité <b>avant</b> sa deuxième lecture : l\'ordre n\'est pas toujours le même.'],
-      ['Troisième lecture', 'Le dernier vote de la Chambre. Après, le texte ne change plus.'],
-      ['Sanction royale', 'La signature de la lieutenante-gouverneure, qui fait du projet une loi. <b>Attention :</b> une loi sanctionnée n\'est pas forcément en vigueur — beaucoup attendent une proclamation, parfois des mois plus tard.'],
-      ['Projet de loi d\'initiative ministérielle', 'Un projet déposé par un ou une ministre, au nom du gouvernement. C\'est la grande majorité des projets adoptés.'],
-      ['Projet de loi d\'intérêt public et d\'initiative parlementaire', 'Un projet déposé par un·e député·e qui n\'est pas ministre. Il aboutit rarement.'],
-      ['Projet de loi d\'intérêt privé', 'Un projet qui vise une personne, une entreprise ou un organisme précis — par exemple modifier la loi constitutive d\'une université ou d\'un ordre professionnel.'],
-      ['Vote nominatif', 'Un vote où le nom de chaque député·e est inscrit au Journal. Ils sont <b>rares</b> : la plupart des projets de loi sont adoptés de vive voix, sans que les positions individuelles soient consignées. L\'absence de vote nominatif ne veut donc pas dire « unanime ».'],
-      ['Journal', 'Le compte rendu officiel des décisions de la Chambre, publié chaque jour de séance. C\'est le seul endroit où figurent les votes nominatifs du Nouveau-Brunswick.'],
-      ['Hansard', 'Le compte rendu des débats, mot à mot. Il paraît plusieurs mois après la séance.'],
-      ['Feuilleton', 'L\'ordre du jour de la Chambre : ce qui est à l\'étude et dans quel ordre.'],
-      ['Pétition', 'Au Nouveau-Brunswick, une pétition est <b>sur papier</b>, signée à la main, et ne peut être déposée que par un·e député·e. Il n\'existe pas de pétition en ligne. Le ministre doit répondre par écrit dans les deux semaines, mais cette réponse n\'est pas publiée.'],
-      ['Présidence de l\'Assemblée', 'La personne qui préside les séances. Elle <b>ne vote pas</b> : un vote nominatif ne dépasse donc jamais 48 voix sur 49 sièges.'],
-      ['Session', 'Une période de travaux. Chaque nouvelle session renumérote les projets de loi à partir de 1 — un même numéro désigne donc des projets différents d\'une session à l\'autre.'],
-      ['Présence aux votes', 'La part des votes nominatifs de la session où le nom d\'une personne est inscrit au Journal, pour ou contre. Ce <b>n\'est pas une mesure officielle</b> : l\'Assemblée n\'en publie aucune, et celle-ci est calculée ici. Elle dit peu de chose tant que la session compte peu de votes nominatifs — et comme ils sont rares au Nouveau-Brunswick, c\'est souvent le cas. « n/d » veut dire qu\'aucun vote nominatif n\'a enregistré cette personne : ce n\'est pas une absence, c\'est une absence d\'information. La présidence de l\'Assemblée, elle, ne vote jamais.'],
+      ['Première lecture', 'Le dépôt. Le projet de loi est présenté à la Chambre et imprimé. Il n\'est pas encore débattu, et personne ne vote sur son contenu.', 'chemin'],
+      ['Deuxième lecture', 'Le débat sur le principe. On discute de l\'idée du projet, pas encore du détail de ses articles. C\'est l\'étape où un projet peut être rejeté d\'un coup.', 'chemin'],
+      ['Étude en comité', 'L\'examen article par article, par un comité de député·e·s. C\'est là que le texte peut être amendé. Au Nouveau-Brunswick, un projet d\'intérêt privé passe en comité <b>avant</b> sa deuxième lecture : l\'ordre n\'est pas toujours le même.', 'chemin'],
+      ['Troisième lecture', 'Le dernier vote de la Chambre. Après, le texte ne change plus.', 'chemin'],
+      ['Sanction royale', 'La signature de la lieutenante-gouverneure, qui fait du projet une loi. <b>Attention :</b> une loi sanctionnée n\'est pas forcément en vigueur — beaucoup attendent une proclamation, parfois des mois plus tard.', 'chemin'],
+      ['Projet de loi d\'initiative ministérielle', 'Un projet déposé par un ou une ministre, au nom du gouvernement. C\'est la grande majorité des projets adoptés.', 'textes'],
+      ['Projet de loi d\'intérêt public et d\'initiative parlementaire', 'Un projet déposé par un·e député·e qui n\'est pas ministre. Il aboutit rarement.', 'textes'],
+      ['Projet de loi d\'intérêt privé', 'Un projet qui vise une personne, une entreprise ou un organisme précis — par exemple modifier la loi constitutive d\'une université ou d\'un ordre professionnel.', 'textes'],
+      ['Vote nominatif', 'Un vote où le nom de chaque député·e est inscrit au Journal. Ils sont <b>rares</b> : la plupart des projets de loi sont adoptés de vive voix, sans que les positions individuelles soient consignées. L\'absence de vote nominatif ne veut donc pas dire « unanime ».', 'votes'],
+      ['Journal', 'Le compte rendu officiel des décisions de la Chambre, publié chaque jour de séance. C\'est le seul endroit où figurent les votes nominatifs du Nouveau-Brunswick.', 'documents'],
+      ['Hansard', 'Le compte rendu des débats, mot à mot. Il paraît plusieurs mois après la séance.', 'documents'],
+      ['Feuilleton', 'L\'ordre du jour de la Chambre : ce qui est à l\'étude et dans quel ordre.', 'documents'],
+      ['Pétition', 'Au Nouveau-Brunswick, une pétition est <b>sur papier</b>, signée à la main, et ne peut être déposée que par un·e député·e. Il n\'existe pas de pétition en ligne. Le ministre doit répondre par écrit dans les deux semaines, mais cette réponse n\'est pas publiée.', 'gens'],
+      ['Présidence de l\'Assemblée', 'La personne qui préside les séances. Elle <b>ne vote pas</b> : un vote nominatif ne dépasse donc jamais 48 voix sur 49 sièges.', 'gens'],
+      ['Session', 'Une période de travaux. Chaque nouvelle session renumérote les projets de loi à partir de 1 — un même numéro désigne donc des projets différents d\'une session à l\'autre.', 'chemin'],
+      ['Présence aux votes', 'La part des votes nominatifs de la session où le nom d\'une personne est inscrit au Journal, pour ou contre. Ce <b>n\'est pas une mesure officielle</b> : l\'Assemblée n\'en publie aucune, et celle-ci est calculée ici. Elle dit peu de chose tant que la session compte peu de votes nominatifs — et comme ils sont rares au Nouveau-Brunswick, c\'est souvent le cas. « n/d » veut dire qu\'aucun vote nominatif n\'a enregistré cette personne : ce n\'est pas une absence, c\'est une absence d\'information. La présidence de l\'Assemblée, elle, ne vote jamais.', 'votes'],
     ],
     theme: 'Thème clair ou sombre', texteMoins: 'Réduire le texte', textePlus: 'Agrandir le texte',
     deposeLe: 'Dépôt', dernierActe: 'Dernier acte', pour: 'pour', contre: 'contre',
@@ -424,6 +432,12 @@ const T = {
     projetAucunVote: 'No recorded division was held on this bill. That is not a sign of unanimity: in New Brunswick most bills pass on a voice vote, with nobody named.',
     projetDescription: (n, titre, statut) => `Bill ${n} in the Legislative Assembly of New Brunswick: ${titre}.${statut ? ` Stage: ${statut}.` : ''} Its path, its sponsor, its recorded divisions and its official texts.`,
     session: 'Legislature and session',
+    lexiqueFamilles: { chemin: 'A bill\u2019s path', votes: 'Votes', documents: 'Documents', textes: 'Kinds of bills', gens: 'People and rights' },
+    officiersSurtitre: 'Independent of government and of the parties',
+    officiersTitre: 'Who watches over the Assembly',
+    officiersSite: 'Their site \u2192',
+    officiersNote: 'The Assembly does not publish the names of the people holding these offices on that page: we name the office, not the person. The Integrity Commissioner keeps New Brunswick\u2019s lobbyists\u2019 registry.',
+    officiersSource: 'The legislative officers page on legnb.ca \u2192',
     ficheEtiquetteMinistre: 'Minister of New Brunswick',
     ficheEtiquetteChef: 'Party leader',
     ficheEtiquetteDepute: 'Member of the Assembly',
@@ -471,22 +485,22 @@ const T = {
     lexiqueDescription: 'The vocabulary of the Legislative Assembly of New Brunswick, explained in plain language.',
     lexiqueNote: 'The words the Assembly uses, explained simply. Nothing here is official: it is a reading aid.',
     lexique: [
-      ['First reading', 'The tabling. The bill is introduced and printed. It is not debated yet, and nobody votes on its content.'],
-      ['Second reading', 'The debate on the principle. The House discusses the idea of the bill, not yet its clauses. This is the stage where a bill can be defeated outright.'],
-      ['Committee', 'Clause-by-clause study by a committee of members. This is where the text can be amended. In New Brunswick a private bill goes to committee <b>before</b> its second reading: the order is not always the same.'],
-      ['Third reading', 'The House\'s final vote. After it, the text no longer changes.'],
-      ['Royal assent', 'The Lieutenant-Governor\'s signature, which turns a bill into an Act. <b>Careful:</b> an Act that has received assent is not necessarily in force — many wait on a proclamation, sometimes months later.'],
-      ['Government bill', 'A bill introduced by a minister, on behalf of the government. These are the vast majority of bills that pass.'],
-      ['Private member\'s public bill', 'A bill introduced by a member who is not a minister. It rarely becomes law.'],
-      ['Private bill', 'A bill aimed at one person, company or body — amending a university\'s founding Act, for instance, or a professional association\'s.'],
-      ['Recorded division', 'A vote where every member\'s name is entered in the Journal. They are <b>rare</b>: most bills pass on a voice vote, with no individual positions recorded. No recorded vote therefore does not mean "unanimous".'],
-      ['Journal', 'The official record of the decisions of the House, published each sitting day. It is the only place New Brunswick\'s recorded votes appear.'],
-      ['Hansard', 'The word-for-word record of debate. It appears several months after the sitting.'],
-      ['Order paper', 'The agenda of the House: what is before it, and in what order.'],
-      ['Petition', 'In New Brunswick a petition is <b>on paper</b>, signed by hand, and can only be presented by a member. There is no online petition system. A minister must reply in writing within two weeks, but that reply is not published.'],
-      ['Speaker', 'The member who presides over sittings. The Speaker <b>does not vote</b>: a recorded division therefore never exceeds 48 of the 49 seats.'],
-      ['Session', 'A period of business. Every new session renumbers bills from 1 — the same number means different bills in different sessions.'],
-      ['Vote attendance', 'The share of the session\'s recorded divisions in which a person\'s name is entered in the Journal, yea or nay. It is <b>not an official measure</b>: the Assembly publishes none, and this one is worked out here. It says little while a session holds few recorded divisions — and since they are rare in New Brunswick, that is often the case. "n/a" means no recorded division has this person on file: that is missing information, not an absence. The Speaker never votes.'],
+      ['First reading', 'The tabling. The bill is introduced and printed. It is not debated yet, and nobody votes on its content.', 'chemin'],
+      ['Second reading', 'The debate on the principle. The House discusses the idea of the bill, not yet its clauses. This is the stage where a bill can be defeated outright.', 'chemin'],
+      ['Committee', 'Clause-by-clause study by a committee of members. This is where the text can be amended. In New Brunswick a private bill goes to committee <b>before</b> its second reading: the order is not always the same.', 'chemin'],
+      ['Third reading', 'The House\'s final vote. After it, the text no longer changes.', 'chemin'],
+      ['Royal assent', 'The Lieutenant-Governor\'s signature, which turns a bill into an Act. <b>Careful:</b> an Act that has received assent is not necessarily in force — many wait on a proclamation, sometimes months later.', 'chemin'],
+      ['Government bill', 'A bill introduced by a minister, on behalf of the government. These are the vast majority of bills that pass.', 'textes'],
+      ['Private member\'s public bill', 'A bill introduced by a member who is not a minister. It rarely becomes law.', 'textes'],
+      ['Private bill', 'A bill aimed at one person, company or body — amending a university\'s founding Act, for instance, or a professional association\'s.', 'textes'],
+      ['Recorded division', 'A vote where every member\'s name is entered in the Journal. They are <b>rare</b>: most bills pass on a voice vote, with no individual positions recorded. No recorded vote therefore does not mean "unanimous".', 'votes'],
+      ['Journal', 'The official record of the decisions of the House, published each sitting day. It is the only place New Brunswick\'s recorded votes appear.', 'documents'],
+      ['Hansard', 'The word-for-word record of debate. It appears several months after the sitting.', 'documents'],
+      ['Order paper', 'The agenda of the House: what is before it, and in what order.', 'documents'],
+      ['Petition', 'In New Brunswick a petition is <b>on paper</b>, signed by hand, and can only be presented by a member. There is no online petition system. A minister must reply in writing within two weeks, but that reply is not published.', 'gens'],
+      ['Speaker', 'The member who presides over sittings. The Speaker <b>does not vote</b>: a recorded division therefore never exceeds 48 of the 49 seats.', 'gens'],
+      ['Session', 'A period of business. Every new session renumbers bills from 1 — the same number means different bills in different sessions.', 'chemin'],
+      ['Vote attendance', 'The share of the session\'s recorded divisions in which a person\'s name is entered in the Journal, yea or nay. It is <b>not an official measure</b>: the Assembly publishes none, and this one is worked out here. It says little while a session holds few recorded divisions — and since they are rare in New Brunswick, that is often the case. "n/a" means no recorded division has this person on file: that is missing information, not an absence. The Speaker never votes.', 'votes'],
     ],
     theme: 'Light or dark theme', texteMoins: 'Smaller text', textePlus: 'Larger text',
     deposeLe: 'Tabled', dernierActe: 'Latest act', pour: 'yeas', contre: 'nays',
@@ -1488,13 +1502,34 @@ ${assemblee}`,
   });
 }
 
-/** Le lexique : le jargon de l'Assemblée, en langage clair. */
+/** Le lexique : le jargon en cartes, et les charges indépendantes qui veillent sur l'Assemblée. */
 function pageLexique(langue) {
   const t = T[langue];
-  const entrees = t.lexique.map(([terme, definition]) => `      <div class="nb-terme">
-        <dt>${echapper(terme)}</dt>
-        <dd>${definition}</dd>
-      </div>`).join('\n');
+
+  // Chaque terme porte sa famille : le chemin d'un projet, les votes, les documents, les
+  // personnes. C'est l'étiquette de DossierQuébec, et elle aide à chercher des yeux.
+  const cartes = t.lexique.map(([terme, definition, famille]) => `      <article class="nb-terme-carte">
+        <header>
+          <h2>${echapper(terme)}</h2>
+          ${famille ? `<span class="nb-famille ${famille}">${t.lexiqueFamilles[famille]}</span>` : ''}
+        </header>
+        <p>${definition}</p>
+      </article>`).join('\n');
+
+  const o = officiersFichier;
+  const officiers = o?.officiers?.length ? `  <section class="nb-section">
+    <p class="nb-surtitre nb-surtitre-rouge">${t.officiersSurtitre}</p>
+    <div class="nb-section-tete"><h2>${t.officiersTitre}</h2><span class="nb-compte">${o.officiers.length}</span></div>
+    <p class="nb-texte">${echapper(o.intro[langue] || o.intro.en)}</p>
+    <ul class="nb-officiers">
+${o.officiers.map((x) => `      <li>
+        <b>${echapper(x.nom[langue] || x.nom.en)}</b>
+        <a href="${echapper(x.site[langue] || x.site.en)}" rel="noopener">${t.officiersSite}</a>
+      </li>`).join('\n')}
+    </ul>
+    <p class="nb-section-note">${t.officiersNote}</p>
+    <p class="nb-carte-pied"><a href="${echapper(o.source[langue] || o.source.en)}" rel="noopener">${t.officiersSource}</a></p>
+  </section>` : '';
 
   return coquille({
     langue,
@@ -1504,10 +1539,11 @@ function pageLexique(langue) {
     description: t.lexiqueDescription,
     corps: `${teteDeSection(t.lexiqueSurtitre, t.lexiqueTitre, t.lexiqueNote)}
   <section class="nb-section">
-    <dl class="nb-lexique">
-${entrees}
-    </dl>
-  </section>`,
+    <div class="nb-lexique-grille">
+${cartes}
+    </div>
+  </section>
+${officiers}`,
   });
 }
 
