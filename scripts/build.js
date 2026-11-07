@@ -474,25 +474,52 @@ function avisSeance(t, langue) {
   return `  <p class="nb-avis">${t.prochaineSeance(d, heureLisible(prochaine.heure, langue))}</p>`;
 }
 
-function rangeeProjet(projet, t, langue, { nue = false } = {}) {
+/** Ce qu'un projet de loi montre une fois ouvert : son dépôt, son dernier vote, son parrain. */
+function detailProjet(projet, t, langue) {
+  const depot = (projet.etapes || []).find((e) => e.date);
+  const vote = dernierVoteDe(projet.numero);
+  const parrain = projet.parrain;
+  const lien = projet.source?.[langue] || projet.source?.en || '#';
+  const chiffres = [
+    depot ? `<b>${t.deposeLe}</b> · ${dateLisible(depot.date, langue)}` : null,
+    vote ? `<b>${t.dernierVote}</b> · ${vote.pour.total} ${t.pour} · ${vote.contre.total} ${t.contre}` : null,
+  ].filter(Boolean);
+
+  return `            <div class="nb-projet-detail">
+              <div>
+                ${parrain?.nom ? `<p>${t.parrainePar} <b>${echapper(parrain.nom)}</b>`
+                  + `${parrain.parti ? ` · <span class="nb-parti"${parrain.couleurParti ? ` style="--parti:${echapper(parrain.couleurParti)}"` : ''}>${echapper(parrain.parti)}</span>` : ''}`
+                  + `${parrain.circonscription ? ` · ${echapper(parrain.circonscription)}` : ''}.</p>` : ''}
+              </div>
+              <p class="nb-projet-chiffres">${chiffres.join('<br>')}
+                ${chiffres.length ? '<br>' : ''}<a href="${echapper(lien)}" rel="noopener">${t.ouvrirFiche}</a></p>
+            </div>`;
+}
+
+/**
+ * Une rangée de projet de loi. Le clic ouvre le projet là où il est, au lieu de partir
+ * sur legnb.ca — le lien officiel reste à l'intérieur, une fois ouvert. C'est un
+ * <details> et pas un bouton maison : il s'ouvre au clavier, se cherche avec Ctrl+F,
+ * et marche même si le JavaScript ne se charge pas.
+ */
+function rangeeProjet(projet, t, langue, { ouvert = false } = {}) {
   const titre = projet.titre[langue] || projet.titre.en || projet.titre.fr;
   const etape = derniereEtape(projet);
   const statut = statutLisible(projet, langue)
     || (etape ? etapeLisible(etape.nom, langue) : null);
   const rejete = /defeated|rejet/i.test(projet.statut || '');
-  const lien = projet.source?.[langue] || projet.source?.en || '#';
-  const corps = `          <a class="nb-projet" href="${echapper(lien)}" rel="noopener">
-            <span class="nb-projet-num">${langue === 'en' ? 'No.' : 'Nᵒ'} ${projet.numero}</span>
-            <span class="nb-projet-titre">${echapper(titre)}</span>
-            ${statut ? `<span class="nb-etape${rejete ? ' rejete' : ''}">${echapper(statut)}</span>` : '<span></span>'}
-            <span class="nb-projet-fleche">${CHEVRON}</span>
-          </a>`;
-  // Dans un projet déjà ouvert, la rangée n'est que l'en-tête du bloc : elle n'a ni son
-  // enveloppe ni son bouton, que le bloc porte lui-même.
-  if (nue) return corps;
+
   // La rangée porte son numéro de projet : c'est par là que « Mon dossier » la retrouve.
   return `        <div class="nb-rangee" data-nb-projet="${projet.numero}">
-${corps}
+          <details class="nb-projet-bloc"${ouvert ? ' open' : ''}>
+            <summary class="nb-projet">
+              <span class="nb-projet-num">${langue === 'en' ? 'No.' : 'Nᵒ'} ${projet.numero}</span>
+              <span class="nb-projet-titre">${echapper(titre)}</span>
+              ${statut ? `<span class="nb-etape${rejete ? ' rejete' : ''}">${echapper(statut)}</span>` : '<span></span>'}
+              <span class="nb-projet-fleche">${CHEVRON}</span>
+            </summary>
+${detailProjet(projet, t, langue)}
+          </details>
           <button class="nb-suivre" type="button" data-nb-suivre="${projet.numero}"
             data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
             aria-pressed="false" title="${echapper(t.suivreTitre(projet.numero))}">${t.suivre}</button>
@@ -586,34 +613,11 @@ function sectionRecents(t, langue) {
   const racine = langue === 'en' ? '/en/' : '/';
   const vers = langue === 'en' ? 'bills' : 'projets-de-loi';
   const tous = [...projetsFichier.projets].sort((a, b) => b.numero - a.numero);
-  const recents = tous.slice(0, 4);
-  const [premier, ...suite] = recents;
-
-  const depot = (premier.etapes || []).find((e) => e.date);
-  const vote = dernierVoteDe(premier.numero);
-  const parrain = premier.parrain;
-  const chiffres = [
-    depot ? `<b>${t.deposeLe}</b> · ${dateLisible(depot.date, langue)}` : null,
-    vote ? `<b>${t.dernierVote}</b> · ${vote.pour.total} ${t.pour} · ${vote.contre.total} ${t.contre}` : null,
-  ].filter(Boolean);
-
-  const ouvert = `        <div class="nb-rangee" data-nb-projet="${premier.numero}">
-          <div class="nb-projet-ouvert">
-${rangeeProjet(premier, t, langue, { nue: true })}
-            <div class="nb-projet-detail">
-              <div>
-                ${parrain?.nom ? `<p>${t.parrainePar} <b>${echapper(parrain.nom)}</b>`
-                  + `${parrain.parti ? ` · <span class="nb-parti"${parrain.couleurParti ? ` style="--parti:${echapper(parrain.couleurParti)}"` : ''}>${echapper(parrain.parti)}</span>` : ''}`
-                  + `${parrain.circonscription ? ` · ${echapper(parrain.circonscription)}` : ''}.</p>` : ''}
-              </div>
-              <p class="nb-projet-chiffres">${chiffres.join('<br>')}
-                ${chiffres.length ? '<br>' : ''}<a href="${echapper(premier.source?.[langue] || premier.source?.en || '#')}" rel="noopener">${t.ouvrirFiche}</a></p>
-            </div>
-          </div>
-          <button class="nb-suivre" type="button" data-nb-suivre="${premier.numero}"
-            data-nb-suivre-mots="${echapper(t.suivre)}|${echapper(t.suivi)}"
-            aria-pressed="false" title="${echapper(t.suivreTitre(premier.numero))}">${t.suivre}</button>
-        </div>`;
+  // Le premier est ouvert d'avance : une liste de quatre volets tous fermés ne montre
+  // pas ce qu'un clic apporte.
+  const rangees = tous.slice(0, 4)
+    .map((p, i) => rangeeProjet(p, t, langue, { ouvert: i === 0 }))
+    .join('\n');
 
   return `  <section class="nb-section nb-recents" id="projets">
     <div>
@@ -623,8 +627,7 @@ ${rangeeProjet(premier, t, langue, { nue: true })}
       </div>
       <p class="nb-section-note">${t.recentsNote}</p>
       <div class="nb-projets">
-${ouvert}
-${suite.map((p) => rangeeProjet(p, t, langue)).join('\n')}
+${rangees}
       </div>
       <p class="nb-source-officielle">${t.sourceOfficielle}</p>
     </div>

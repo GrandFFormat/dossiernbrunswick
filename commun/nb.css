@@ -312,6 +312,8 @@ button:focus-visible,
 .nb-projets { display: grid; gap: 8px; }
 .nb-projet {
   display: grid;
+  cursor: pointer;
+  list-style: none;
   grid-template-columns: 72px 1fr auto 28px;
   gap: 18px;
   padding: 16px 20px;
@@ -322,7 +324,23 @@ button:focus-visible,
   border-left: 6px solid transparent;
   box-shadow: var(--shadow-sm);
 }
-.nb-projet:hover { border-left-color: var(--hl); box-shadow: var(--shadow-md); }
+.nb-projet::-webkit-details-marker { display: none; }
+.nb-projet:hover { border-left-color: var(--hl); }
+
+/* Le volet d'un projet de loi : le clic l'ouvre là où il est, au lieu de quitter le site. */
+.nb-projet-bloc {
+  background: var(--w);
+  border-left: 6px solid transparent;
+  box-shadow: var(--shadow-sm);
+}
+.nb-projet-bloc:hover { border-left-color: var(--hl); box-shadow: var(--shadow-md); }
+.nb-projet-bloc[open] { border-left-color: var(--nb-bleu); box-shadow: var(--shadow-md); }
+.nb-projet-bloc .nb-projet { background: transparent; border-left: 0; box-shadow: none; }
+.nb-projet-bloc .nb-projet-fleche { transition: transform 0.15s ease; }
+.nb-projet-bloc[open] .nb-projet-fleche { transform: rotate(90deg); }
+@media (prefers-reduced-motion: reduce) {
+  .nb-projet-bloc .nb-projet-fleche { transition: none; }
+}
 .nb-projet-num { font: 600 24px var(--font-heading); color: var(--acc); }
 .nb-projet-titre { font-size: 16px; font-weight: 500; }
 .nb-etape {
