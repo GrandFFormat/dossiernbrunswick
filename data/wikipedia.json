@@ -1,5 +1,5 @@
 {
-  "luLe": "2026-11-07T12:17:07.720Z",
+  "luLe": "2026-11-07T12:26:55.339Z",
   "regle": "une page n'est gardée que si son résumé nomme la personne, le Nouveau-Brunswick et la politique",
   "personnes": [
     {
@@ -98,14 +98,154 @@
       "en": "https://en.wikipedia.org/wiki/Alyson_Townsend"
     },
     {
+      "nomAffiche": "Richard Ames",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Richard_Ames_(Canadian_politician)"
+    },
+    {
+      "nomAffiche": "Guy Arseneault",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Guy_Arseneault"
+    },
+    {
+      "nomAffiche": "Kris Austin",
+      "fr": "https://fr.wikipedia.org/wiki/Kris_Austin",
+      "en": "https://en.wikipedia.org/wiki/Kris_Austin"
+    },
+    {
+      "nomAffiche": "Kathy Bockus",
+      "fr": "https://fr.wikipedia.org/wiki/Kathy_Bockus",
+      "en": "https://en.wikipedia.org/wiki/Kathy_Bockus"
+    },
+    {
+      "nomAffiche": "Benoît Bourque",
+      "fr": "https://fr.wikipedia.org/wiki/Beno%C3%AEt_Bourque",
+      "en": "https://en.wikipedia.org/wiki/Beno%C3%AEt_Bourque"
+    },
+    {
+      "nomAffiche": "Michelle Conroy",
+      "fr": "https://fr.wikipedia.org/wiki/Michelle_Conroy",
+      "en": "https://en.wikipedia.org/wiki/Michelle_Conroy"
+    },
+    {
       "nomAffiche": "David Coon",
       "fr": "https://fr.wikipedia.org/wiki/David_Coon",
       "en": "https://en.wikipedia.org/wiki/David_Coon"
     },
     {
+      "nomAffiche": "Ryan Cullins",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Ryan_Cullins"
+    },
+    {
+      "nomAffiche": "Alexandre Cédric Doucet",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Alexandre_C%C3%A9dric_Doucet"
+    },
+    {
+      "nomAffiche": "Bill Hogan",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/William_Hogan"
+    },
+    {
       "nomAffiche": "Margaret Johnson",
       "fr": "https://fr.wikipedia.org/wiki/Margaret_Johnson_(femme_politique)",
-      "en": "https://en.wikipedia.org/wiki/Margaret_Johnson"
+      "en": "https://en.wikipedia.org/wiki/Margaret_Johnson_(politician)"
+    },
+    {
+      "nomAffiche": "Sam Johnston",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Sam_Johnston_(New_Brunswick_politician)"
+    },
+    {
+      "nomAffiche": "Francine Landry",
+      "fr": "https://fr.wikipedia.org/wiki/Francine_Landry",
+      "en": "https://en.wikipedia.org/wiki/Francine_Landry"
+    },
+    {
+      "nomAffiche": "Jacques LeBlanc",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Jacques_LeBlanc_(politician)"
+    },
+    {
+      "nomAffiche": "Marco LeBlanc",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Marco_LeBlanc"
+    },
+    {
+      "nomAffiche": "Ian Lee",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Ian_Lee_(politician)"
+    },
+    {
+      "nomAffiche": "Eric Mallet",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Eric_Mallet"
+    },
+    {
+      "nomAffiche": "Megan Mitton",
+      "fr": "https://fr.wikipedia.org/wiki/Megan_Mitton",
+      "en": "https://en.wikipedia.org/wiki/Megan_Mitton"
+    },
+    {
+      "nomAffiche": "Don Monahan",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Don_Monahan"
+    },
+    {
+      "nomAffiche": "Bill Oliver",
+      "fr": "https://fr.wikipedia.org/wiki/Bill_Oliver_(homme_politique)",
+      "en": null
+    },
+    {
+      "nomAffiche": "Luc Robichaud",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Luc_Robichaud"
+    },
+    {
+      "nomAffiche": "Kevin Russell",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Kevin_Russell_(politician)"
+    },
+    {
+      "nomAffiche": "Glen Savoie",
+      "fr": "https://fr.wikipedia.org/wiki/Glen_Savoie",
+      "en": "https://en.wikipedia.org/wiki/Glen_Savoie"
+    },
+    {
+      "nomAffiche": "Tammy Scott-Wallace",
+      "fr": "https://fr.wikipedia.org/wiki/Tammy_Scott-Wallace",
+      "en": "https://en.wikipedia.org/wiki/Tammy_Scott-Wallace"
+    },
+    {
+      "nomAffiche": "Tania Sodhi",
+      "fr": "https://fr.wikipedia.org/wiki/Tania_Sodhi",
+      "en": null
+    },
+    {
+      "nomAffiche": "Natacha Vautour",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Natacha_Vautour"
+    },
+    {
+      "nomAffiche": "Rob Weir",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Rob_Weir"
+    },
+    {
+      "nomAffiche": "Kate Wilcott",
+      "fr": null,
+      "en": "https://en.wikipedia.org/wiki/Kate_Elman_Wilcott"
+    },
+    {
+      "nomAffiche": "Mary Wilson",
+      "fr": "https://fr.wikipedia.org/wiki/Mary_Wilson_(femme_politique)",
+      "en": "https://en.wikipedia.org/wiki/Mary_Wilson_(politician)"
+    },
+    {
+      "nomAffiche": "Sherry Wilson",
+      "fr": "https://fr.wikipedia.org/wiki/Sherry_Wilson",
+      "en": "https://en.wikipedia.org/wiki/Sherry_Wilson"
     }
   ]
 }

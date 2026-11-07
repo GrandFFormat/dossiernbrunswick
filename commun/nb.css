@@ -1346,3 +1346,13 @@ html[data-theme='dark'] .nb-famille.votes { color: #5fcf8a; border-color: #5fcf8
 
 .nb-portrait .nb-partage { margin-top: 12px; gap: 5px; }
 .nb-portrait .nb-reseau { width: 27px; height: 27px; }
+
+/* ─── Les outils d'une personne sur la liste (copier, W) ────────────────── */
+
+.nb-outils { display: inline-flex; gap: 4px; }
+.nb-outils .nb-reseau { width: 24px; height: 24px; }
+.nb-outils .nb-copier { color: var(--ink3); background: var(--w); border-color: var(--color-divider); }
+.nb-outils .nb-copier:hover { color: #fff; background: var(--acc); border-color: var(--acc); }
+.nb-carte-tete { gap: 8px; }
+.nb-carte-tete .nb-outils { margin-left: auto; }
+.nb-ligne-depute { grid-template-columns: 2fr auto 1fr auto auto; }
