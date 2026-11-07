@@ -384,3 +384,149 @@ html[data-theme='dark'] .nb-etape.rejete { color: #ffc9d2; }
   .nb-projet-fleche { display: none; }
   .nb-journal li { grid-template-columns: 1fr; gap: 2px; }
 }
+
+/* ═══ La forme complète de la maquette (accueil-original.html) ═══════════════
+ *
+ * Ce qui suit reprend les sections de la maquette que l'accueil n'avait pas encore :
+ * les onglets numérotés, le fil « Quoi de neuf » sur bande bleue pleine, et la mission
+ * en trois colonnes qui met legnb.ca et ce site côte à côte.
+ */
+
+/* ─── Les onglets numérotés de l'en-tête ────────────────────────────────── */
+
+.nb-num {
+  color: var(--nb-rouge);
+  font-size: 11px;
+  margin-right: 4px;
+}
+html[data-theme='dark'] .nb-num { color: var(--nb-jaune); }
+
+/* ─── Le fil « Quoi de neuf », sur bande bleue pleine ───────────────────── */
+
+.nb-neuf {
+  background: var(--nb-bleu);
+  color: #fff;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+}
+.nb-neuf h2 {
+  font: 600 40px/1 var(--font-heading);
+  text-transform: uppercase;
+  margin: 0;
+  color: #fff;
+}
+.nb-neuf .nb-surtitre { color: var(--nb-jaune); opacity: 1; }
+.nb-neuf-intro { margin-top: 16px; font-size: 14px; opacity: 0.85; }
+.nb-fil { display: grid; }
+.nb-fil div {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 15px;
+}
+.nb-fil div:last-child { border-bottom: 0; }
+.nb-fil time {
+  font: 600 15px var(--font-heading);
+  color: var(--nb-jaune);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ─── La mission, en trois colonnes ─────────────────────────────────────── */
+
+.nb-mission3 {
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.nb-mission3 h2 {
+  font: 600 30px/1.02 var(--font-heading);
+  text-transform: uppercase;
+  margin: 0;
+}
+.nb-mission3 > div:first-child { padding-right: 36px; }
+.nb-mission3 > div + div {
+  padding: 0 36px;
+  border-left: 1px solid var(--color-divider);
+}
+.nb-mission3 > div:last-child { padding-right: 0; }
+.nb-colonne-titre {
+  font: 600 18px var(--font-heading);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.nb-colonne-titre.officiel { color: var(--ink3); }
+.nb-colonne-titre.nous { color: var(--acc); }
+.nb-mission3 ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink2);
+}
+
+/* ─── La ligne de liens sous le tricolore ───────────────────────────────── */
+
+.nb-pied-liens {
+  padding: 16px 48px;
+  font-size: 12px;
+  color: var(--ink3);
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.nb-pied-liens a { color: inherit; }
+
+/* ─── Un projet de loi ouvert, qui montre son résumé ────────────────────── */
+
+.nb-projet-ouvert {
+  display: block;
+  background: var(--w);
+  border-left: 6px solid var(--nb-bleu);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  color: inherit;
+}
+.nb-projet-ouvert .nb-projet { box-shadow: none; border-left: 0; background: transparent; }
+.nb-projet-detail {
+  padding: 0 20px 18px 110px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+}
+.nb-en-clair {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--nb-rouge);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+html[data-theme='dark'] .nb-en-clair { color: var(--nb-jaune); }
+.nb-projet-detail p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--ink2); }
+.nb-projet-chiffres {
+  font-size: 12px;
+  color: var(--ink3);
+  line-height: 1.7;
+  white-space: nowrap;
+}
+.nb-projet-chiffres b { color: var(--ink); }
+
+@media (max-width: 900px) {
+  .nb-neuf, .nb-mission3 { grid-template-columns: 1fr; gap: 28px; }
+  .nb-mission3 > div + div { padding: 0; border-left: 0; border-top: 1px solid var(--color-divider); padding-top: 20px; margin-top: 20px; }
+  .nb-mission3 > div:first-child { padding-right: 0; }
+  .nb-projet-detail { padding-left: 20px; grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .nb-neuf, .nb-mission3, .nb-pied-liens { padding-left: 20px; padding-right: 20px; }
+  .nb-fil div { grid-template-columns: 1fr; gap: 2px; }
+  .nb-neuf h2 { font-size: 28px; }
+}
