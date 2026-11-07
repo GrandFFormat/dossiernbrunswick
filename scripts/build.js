@@ -212,7 +212,7 @@ const T = {
     filtreTous: 'Tous', filtreEnCours: 'En cours', filtreAdoptes: 'Sanctionn\u00e9s',
     comptePdl: (n, total) => (n === total ? `${total} projet${total > 1 ? 's' : ''} de loi` : `${n} sur ${total} projets de loi`),
     enClair: 'En clair',
-    enClairAvis: (modele) => `R\u00e9sum\u00e9 \u00e9crit par un mod\u00e8le de langage (${modele}) \u00e0 partir du texte officiel de l\u2019Assembl\u00e9e. Il n\u2019est pas officiel : en cas de doute, c\u2019est le texte qui fait foi.`,
+    enClairAvis: () => '\u2699 R\u00e9sum\u00e9 r\u00e9dig\u00e9 par une IA \u00e0 partir du texte officiel de l\u2019Assembl\u00e9e, et signal\u00e9 comme tel \u2014 peut ne pas refl\u00e9ter les amendements adopt\u00e9s depuis. Le texte officiel reste \u00e0 un clic, et c\u2019est lui qui compte.',
     enClairTronque: 'Le texte de ce projet d\u00e9passait la taille lue : le r\u00e9sum\u00e9 ne porte que sur son d\u00e9but.',
     enClairSansContenu: 'Ce texte est trop court ou trop technique pour \u00eatre r\u00e9sum\u00e9 honn\u00eatement. Rien n\u2019est affich\u00e9 ici plut\u00f4t qu\u2019une phrase creuse.',
     cafeAria: 'Offrez-nous un caf\u00e9 (s\u2019ouvre dans un nouvel onglet)',
@@ -430,7 +430,7 @@ const T = {
     filtreTous: 'All', filtreEnCours: 'In progress', filtreAdoptes: 'Assented to',
     comptePdl: (n, total) => (n === total ? `${total} bill${total > 1 ? 's' : ''}` : `${n} of ${total} bills`),
     enClair: 'In plain words',
-    enClairAvis: (modele) => `Summary written by a language model (${modele}) from the Assembly\u2019s official text. It is not official: where they differ, the text prevails.`,
+    enClairAvis: () => '\u2699 Summary written by an AI from the Assembly\u2019s official text, and flagged as such \u2014 it may not reflect amendments made since. The official text is one click away, and it is the one that counts.',
     enClairTronque: 'This bill\u2019s text was longer than what was read: the summary covers only its beginning.',
     enClairSansContenu: 'This text is too short or too technical to summarise honestly. Nothing is shown here rather than a hollow sentence.',
     cafeAria: 'Buy us a coffee (opens in a new tab)',
@@ -1653,7 +1653,7 @@ ${(deputesFichier?.deputes || []).map((d) => ligneDepute(d, t, langue)).join('\n
 function blocEnClair(projet, t, langue) {
   const r = resumesFichier?.resumes?.[`${projet.numero}-${langue}`];
   if (!r) return '';
-  const avis = `<p class="nb-clair-avis">${echapper(t.enClairAvis(r.modele))}${r.tronque ? ` ${echapper(t.enClairTronque)}` : ''}</p>`;
+  const avis = `<p class="nb-clair-avis">${echapper(t.enClairAvis())}${r.tronque ? ` ${echapper(t.enClairTronque)}` : ''}</p>`;
   if (r.sansContenu || !r.puces.length) {
     return `<div class="nb-clair">
       <p class="nb-clair-titre">${t.enClair}</p>
