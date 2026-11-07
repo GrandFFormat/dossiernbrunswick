@@ -22,7 +22,6 @@ const ETAPES = [
   ['Conseil exécutif', 'scrapers/nb-conseil-executif.js'],
   ['calendrier', 'scrapers/nb-calendrier.js'],
   ['votes nominatifs', 'scrapers/nb-votes.js'],
-  ['hauts fonctionnaires', 'scrapers/nb-officiers.js'],
 ];
 
 const echecs = [];
