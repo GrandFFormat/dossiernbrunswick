@@ -403,6 +403,9 @@ html[data-theme='dark'] .nb-num { color: var(--nb-jaune); }
 /* ─── Le fil « Quoi de neuf », sur bande bleue pleine ───────────────────── */
 
 .nb-neuf {
+  /* Les sections respirent de 48 px entre elles. La bande bleue n'avait rien : les
+     cartes blanches lui rentraient dedans. */
+  margin-top: 48px;
   background: var(--nb-bleu);
   color: #fff;
   padding: 48px;
