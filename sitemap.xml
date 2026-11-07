@@ -336,4 +336,32 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/alyson-townsend"/>
     <lastmod>2026-11-07</lastmod>
   </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/ministres/david-coon</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/david-coon"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/david-coon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/david-coon"/>
+    <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministers/david-coon</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/david-coon"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/david-coon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/david-coon"/>
+    <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/ministres/margaret-johnson</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/margaret-johnson"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/margaret-johnson"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/margaret-johnson"/>
+    <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministers/margaret-johnson</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/margaret-johnson"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/margaret-johnson"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/margaret-johnson"/>
+    <lastmod>2026-11-07</lastmod>
+  </url>
 </urlset>

@@ -29,6 +29,7 @@ const TYPES = {
 };
 
 const estUnDossier = (chemin) => stat(chemin).then((s) => s.isDirectory(), () => false);
+const existe = (chemin) => stat(chemin).then(() => true, () => false);
 
 createServer(async (req, res) => {
   try {
@@ -41,8 +42,14 @@ createServer(async (req, res) => {
       return;
     }
 
-    if (await estUnDossier(chemin)) chemin = join(chemin, 'index.html');
     // Vercel sert les « URL propres » (cleanUrls) : /projets-de-loi donne le .html.
+    //
+    // L'ORDRE COMPTE. /ministres est à la fois une page (ministres.html) et un dossier
+    // (ministres/, qui tient une page par personne). Le fichier gagne, comme chez Vercel :
+    // chercher le dossier d'abord servait un index.html qui n'existe pas, et la page
+    // tombait en 404 en local alors qu'elle s'affiche en ligne.
+    if (!extname(chemin) && await existe(`${chemin}.html`)) chemin += '.html';
+    else if (await estUnDossier(chemin)) chemin = join(chemin, 'index.html');
     else if (!extname(chemin)) chemin += '.html';
 
     const corps = await readFile(chemin);
