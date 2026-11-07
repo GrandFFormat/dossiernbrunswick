@@ -192,6 +192,23 @@
 
   rafraichir();
 
+  /* ─── Copier l'adresse ────────────────────────────────────────────────── */
+
+  // Les six liens de partage marchent sans JavaScript : ce sont de vraies adresses. Seul
+  // le bouton « copier » en a besoin, et il ne s'affiche que s'il peut servir.
+  for (const bouton of document.querySelectorAll('[data-nb-copier]')) {
+    if (!navigator.clipboard) { bouton.hidden = true; continue; }
+    bouton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(bouton.getAttribute('data-nb-copier'));
+        const avant = bouton.title;
+        bouton.title = bouton.getAttribute('data-nb-copie-faite') || avant;
+        bouton.setAttribute('data-nb-fait', '');
+        setTimeout(() => { bouton.title = avant; bouton.removeAttribute('data-nb-fait'); }, 2000);
+      } catch { /* le presse-papiers a refusé : le lien reste copiable à la main */ }
+    });
+  }
+
   /* ─── Chercher une personne ───────────────────────────────────────────── */
 
   // Une seule recherche pour les ministres et pour l'Assemblée : on tape un nom, une

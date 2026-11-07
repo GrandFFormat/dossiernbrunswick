@@ -201,6 +201,14 @@ const T = {
     financesSource: 'Les tableaux de l\u2019Assembl\u00e9e (PDF bilingues) :',
     financesFrais: 'frais des d\u00e9put\u00e9s', financesCirconscription: 'bureaux de circonscription',
     financesExerciceNote: 'Un exercice commence le 1er avril : celui-ci peut contenir des sommes vers\u00e9es avant la l\u00e9gislature en cours.',
+    abrevProjet: 'PL n\u1d52',
+    partager: 'Partager', partageCopier: 'Copier l\u2019adresse', partageCopie: 'Adresse copi\u00e9e',
+    cheminTitre: 'Le chemin de ce projet de loi', cheminLexique: 'C\u2019est quoi, ces \u00e9tapes ? \u2192 Lexique',
+    texteOfficielTitre: 'Le texte officiel',
+    texteOfficielNote: 'Les deux versions font \u00e9galement foi. La version imprim\u00e9e par l\u2019Assembl\u00e9e reste la version officielle.',
+    projetAucunVote: 'Aucun vote nominatif n\u2019a \u00e9t\u00e9 tenu sur ce projet de loi. Ce n\u2019est pas un signe d\u2019unanimit\u00e9 : au Nouveau-Brunswick, la plupart des projets passent de vive voix, sans que personne soit nomm\u00e9.',
+    projetDescription: (n, titre, statut) => `Projet de loi n\u1d52 ${n} \u00e0 l\u2019Assembl\u00e9e l\u00e9gislative du Nouveau-Brunswick : ${titre}.${statut ? ` \u00c9tape : ${statut}.` : ''} Son chemin, son parrain, ses votes nominatifs et ses textes officiels.`,
+    session: 'L\u00e9gislature et session',
     ficheEtiquetteMinistre: 'Ministre du Nouveau-Brunswick',
     ficheEtiquetteChef: 'Chef de parti',
     ficheEtiquetteDepute: 'D\u00e9put\u00e9\u00b7e \u00e0 l\u2019Assembl\u00e9e',
@@ -408,6 +416,14 @@ const T = {
     financesSource: 'The Assembly\u2019s tables (bilingual PDFs):',
     financesFrais: 'members\u2019 expenses', financesCirconscription: 'constituency offices',
     financesExerciceNote: 'A fiscal year starts on 1 April: this one may hold amounts paid before the current legislature.',
+    abrevProjet: 'Bill',
+    partager: 'Share', partageCopier: 'Copy the link', partageCopie: 'Link copied',
+    cheminTitre: 'This bill\u2019s path', cheminLexique: 'What are these stages? \u2192 Glossary',
+    texteOfficielTitre: 'The official text',
+    texteOfficielNote: 'Both versions are equally authoritative. The version printed by the Assembly remains the official one.',
+    projetAucunVote: 'No recorded division was held on this bill. That is not a sign of unanimity: in New Brunswick most bills pass on a voice vote, with nobody named.',
+    projetDescription: (n, titre, statut) => `Bill ${n} in the Legislative Assembly of New Brunswick: ${titre}.${statut ? ` Stage: ${statut}.` : ''} Its path, its sponsor, its recorded divisions and its official texts.`,
+    session: 'Legislature and session',
     ficheEtiquetteMinistre: 'Minister of New Brunswick',
     ficheEtiquetteChef: 'Party leader',
     ficheEtiquetteDepute: 'Member of the Assembly',
@@ -643,7 +659,7 @@ function detailProjet(projet, t, langue) {
                   + `${parrain.circonscription ? ` · ${echapper(parrain.circonscription)}` : ''}.</p>` : ''}
               </div>
               <p class="nb-projet-chiffres">${chiffres.join('<br>')}
-                ${chiffres.length ? '<br>' : ''}<a href="${echapper(lien)}" rel="noopener">${t.ouvrirFiche}</a></p>
+                ${chiffres.length ? '<br>' : ''}<a href="${langue === 'en' ? '/en/bills/' : '/projets-de-loi/'}${slugProjet(projet)}">${t.ouvrirFiche}</a></p>
             </div>`;
 }
 
@@ -1079,7 +1095,8 @@ ${votes}
         </div>` : '';
         })()}
         ${docs.length ? `<p class="nb-fiche-docs">${t.documents} ${docs.join(' · ')}</p>` : ''}
-        <p class="nb-fiche-source"><a href="${echapper(p.source?.[langue] || p.source?.en || '#')}" rel="noopener">${t.voirOfficiel}</a></p>
+        <p class="nb-fiche-source"><a href="${langue === 'en' ? '/en/bills/' : '/projets-de-loi/'}${slugProjet(p)}">${t.ouvrirFiche}</a>
+          · <a href="${echapper(p.source?.[langue] || p.source?.en || '#')}" rel="noopener">${t.voirOfficiel}</a></p>
       </article>`;
   }).join('\n');
 
@@ -1579,6 +1596,151 @@ ${t.villesContenu.map((l) => `      <li>${l}</li>`).join('\n')}
   });
 }
 
+/* ─── Partager ────────────────────────────────────────────────────────── */
+
+/**
+ * Les six réseaux de DossierQuébec, plus un bouton pour copier l'adresse. Chaque lien est
+ * une simple adresse de partage : aucun script des réseaux n'est chargé ici, donc personne
+ * n'est pisté depuis ce site.
+ */
+const RESEAUX = [
+  ['X', 'https://twitter.com/intent/tweet?text={t}&url={u}', '<path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/>'],
+  ['Facebook', 'https://www.facebook.com/sharer/sharer.php?u={u}', '<path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/>'],
+  ['LinkedIn', 'https://www.linkedin.com/sharing/share-offsite/?url={u}', '<path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/>'],
+  ['Reddit', 'https://www.reddit.com/submit?url={u}&title={t}', '<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/>'],
+  ['Threads', 'https://www.threads.net/intent/post?text={t}%20{u}', '<path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/>'],
+  ['Bluesky', 'https://bsky.app/intent/compose?text={t}%20{u}', '<path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/>'],
+];
+
+/**
+ * La barre de partage. Le texte et l'adresse sont posés dans l'attribut, pas construits en
+ * JavaScript : les liens marchent même si le script ne se charge pas, et le bouton « copier »
+ * est le seul morceau qui en a besoin.
+ */
+function barrePartage(titre, adresse, t) {
+  const u = encodeURIComponent(adresse);
+  const txt = encodeURIComponent(titre);
+  const liens = RESEAUX.map(([nom, gabarit, chemin]) => {
+    const href = gabarit.replace('{u}', u).replace('{t}', txt);
+    return `      <a class="nb-reseau" href="${href}" rel="noopener nofollow" target="_blank" title="${echapper(nom)}" aria-label="${echapper(nom)}">`
+      + `<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor">${chemin}</svg></a>`;
+  }).join('\n');
+
+  return `    <div class="nb-partage">
+      <span class="nb-partage-titre">${t.partager}</span>
+${liens}
+      <button class="nb-reseau nb-copier" type="button" data-nb-copier="${echapper(adresse)}"
+        data-nb-copie-faite="${echapper(t.partageCopie)}" title="${echapper(t.partageCopier)}" aria-label="${echapper(t.partageCopier)}">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+      </button>
+    </div>`;
+}
+
+/* ─── Une page par projet de loi ─────────────────────────────────────────── */
+
+/** L'adresse d'un projet : son numéro, sa législature et sa session — jamais le numéro seul. */
+const slugProjet = (p) => `${p.numero}-${projetsFichier.legislature}-${projetsFichier.session}`;
+
+/**
+ * Le chemin d'un projet de loi, en pastilles : les étapes franchies s'allument, celles qui
+ * restent attendent. C'est la forme de DossierQuébec, et elle dit d'un coup d'œil où en est
+ * un texte — ce qu'une liste de dates ne montre pas.
+ */
+function cheminEtapes(projet, t, langue) {
+  const etapes = projet.etapes || [];
+  if (!etapes.length) return '';
+  return `    <ol class="nb-chemin">
+${etapes.map((e) => {
+    const nom = langue === 'fr' ? (e.nomFr || e.nom) : e.nom;
+    const quand = e.date ? dateLisible(e.date, langue) : null;
+    return `      <li class="${e.date ? 'faite' : 'a-venir'}"${quand ? ` title="${echapper(quand)}"` : ''}>`
+      + `<span>${echapper(nom)}</span>${quand ? `<time datetime="${e.date}">${quand}</time>` : ''}</li>`;
+  }).join('\n')}
+    </ol>`;
+}
+
+/** La page d'un projet de loi : ce qu'il est, où il en est, qui l'a déposé, et qui a voté. */
+function pageProjet(projet, t, langue) {
+  const racine = langue === 'en' ? '/en/' : '/';
+  const dossier = langue === 'en' ? 'bills' : 'projets-de-loi';
+  const autreDossier = langue === 'en' ? 'projets-de-loi' : 'bills';
+  const slug = slugProjet(projet);
+  const titre = projet.titre[langue] || projet.titre.en;
+  const type = langue === 'fr' ? projet.typeFr : projet.type;
+  const statut = statutLisible(projet, langue);
+  const parrain = projet.parrain;
+  const depot = (projet.etapes || []).find((e) => e.date);
+  const lien = projet.source?.[langue] || projet.source?.en || '#';
+
+  const docs = [];
+  if (projet.documents?.htmlFr) docs.push(`<a href="${echapper(projet.documents.htmlFr)}" rel="noopener">${t.texteFr}</a>`);
+  if (projet.documents?.htmlEn) docs.push(`<a href="${echapper(projet.documents.htmlEn)}" rel="noopener">${t.texteEn}</a>`);
+  if (projet.documents?.pdfBilingue) docs.push(`<a href="${echapper(projet.documents.pdfBilingue)}" rel="noopener">${t.textePdf}</a>`);
+  for (const a of projet.documents?.amendements || []) {
+    docs.push(`<a href="${echapper(a)}" rel="noopener">${t.amendement}</a>`);
+  }
+
+  // Le parrain mène à sa page quand il en a une : un projet de loi et la personne qui l'a
+  // déposé se lisent mieux ensemble.
+  // Le parrain est nommé « Hon. Robert MCKEE, K.C. » au bas du projet et « Robert McKee »
+  // dans la liste des député·e·s : on retrouve la personne plutôt que de recoudre son nom.
+  const personneParrain = parrain?.nom
+    ? (deputesFichier?.deputes || []).find((d) => normaliserNom(d.nomAffiche) === normaliserNom(parrain.nom))
+    : null;
+
+  const ligneParrain = parrain?.nom
+    ? `${t.parrainePar} <b>${lienPersonne(personneParrain || { nomAffiche: parrain.nom }, t, langue)}</b>`
+      + `${parrain.parti ? ` · <span class="nb-parti"${parrain.couleurParti ? ` style="--parti:${echapper(parrain.couleurParti)}"` : ''}>${echapper(parrain.parti)}</span>` : ''}`
+      + `${parrain.circonscription ? ` · ${echapper(parrain.circonscription)}` : ''}`
+    : '';
+
+  const votes = blocVotes(projet, t, langue);
+  const adresse = `${SITE}${racine}${dossier}/${slug}`;
+
+  return coquille({
+    langue,
+    vers: `${dossier}/${slug}`,
+    versAutre: `${autreDossier}/${slug}`,
+    titre: `${t.abrevProjet} ${projet.numero} — ${titre} — DossierNBrunswick`,
+    description: t.projetDescription(projet.numero, titre, statut),
+    corps: `  <nav class="nb-ariane" aria-label="${t.ariane}">
+    <a href="${racine}">${t.arianeAccueil}</a> <span aria-hidden="true">›</span>
+    <a href="${racine}${dossier}">${t.projetsTitre}</a> <span aria-hidden="true">›</span>
+    <span aria-current="page">${t.abrevProjet} ${projet.numero}</span>
+  </nav>
+  <section class="nb-section nb-projet-haut">
+    <div>
+      <p class="nb-numero-gros">${t.abrevProjet} ${projet.numero}</p>
+      <h1>${echapper(titre)}</h1>
+      ${type ? `<p class="nb-fiche-type">${echapper(type)}</p>` : ''}
+      ${ligneParrain ? `<p class="nb-fiche-parrain">${ligneParrain}</p>` : ''}
+    </div>
+    <aside class="nb-projet-boite">
+      ${statut ? `<p class="nb-etape-grande">${echapper(statut)}</p>` : ''}
+      ${depot ? `<p class="nb-boite-ligne"><span>${t.deposeLe}</span><time datetime="${depot.date}">${dateLisible(depot.date, langue)}</time></p>` : ''}
+      <p class="nb-boite-ligne"><span>${t.session}</span><b>${projetsFichier.legislature}<sup>${langue === 'en' ? 'th' : 'e'}</sup> · ${projetsFichier.session}</b></p>
+      <a class="nb-btn nb-btn-jaune" href="${echapper(lien)}" rel="noopener">${t.voirOfficiel}</a>
+${barrePartage(`${t.abrevProjet} ${projet.numero} — ${titre}`, adresse, t)}
+    </aside>
+  </section>
+  <section class="nb-section">
+    <div class="nb-section-tete"><h2>${t.cheminTitre}</h2>
+      <a class="nb-voir-tout" href="${racine}${langue === 'en' ? 'glossary' : 'lexique'}">${t.cheminLexique}</a></div>
+${cheminEtapes(projet, t, langue)}
+  </section>
+  ${docs.length ? `<section class="nb-section">
+    <div class="nb-section-tete"><h2>${t.texteOfficielTitre}</h2></div>
+    <p class="nb-texte">${t.texteOfficielNote}</p>
+    <p class="nb-carte-pied">${docs.join(' · ')}</p>
+  </section>` : ''}
+  <section class="nb-section">
+    <div class="nb-section-tete"><h2>${t.projetVotes}</h2></div>
+    ${votes ? `<div class="nb-fiche-votes">\n${votes}\n    </div>`
+      : `<p class="nb-section-note">${t.projetAucunVote}</p>`}
+  </section>`,
+  });
+}
+
 /* ─── Une page par personne ──────────────────────────────────────────────── */
 
 /**
@@ -1825,6 +1987,20 @@ for (const { fr, en, faire } of PAGES) {
 // Une page par personne, pour celles qui portent une fonction : les membres du Conseil
 // exécutif, et les chefs de parti qui n'en font pas partie. Chacune rassemble ce que
 // legnb.ca éparpille — fonctions, projets déposés, et le détail de ses votes nominatifs.
+// Une page par projet de loi, à une adresse qui porte sa session : un numéro repart à 1
+// à chaque session, et « /projets-de-loi/12 » désignerait des textes différents selon
+// l'année.
+mkdirSync('projets-de-loi', { recursive: true });
+mkdirSync('en/bills', { recursive: true });
+for (const projet of projetsFichier.projets) {
+  const slug = slugProjet(projet);
+  const fr = `projets-de-loi/${slug}.html`;
+  const en = `en/bills/${slug}.html`;
+  writeFileSync(fr, pageProjet(projet, T.fr, 'fr'), 'utf8');
+  writeFileSync(en, pageProjet(projet, T.en, 'en'), 'utf8');
+  PAGES.push({ fr, en });
+}
+
 if (PERSONNES.length) {
   mkdirSync('ministres', { recursive: true });
   mkdirSync('en/ministers', { recursive: true });
