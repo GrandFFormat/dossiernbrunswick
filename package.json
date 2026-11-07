@@ -1,30 +1,31 @@
 {
-  "name": "dossiernbrunswick",
+  "name": "veille-assnat",
   "version": "0.1.0",
   "private": true,
+  "description": "Scrapers pour la veille citoyenne de l'Assemblée nationale du Québec",
   "type": "module",
-  "description": "Site citoyen indépendant sur l'Assemblée législative du Nouveau-Brunswick. Données publiques de legnb.ca, en français et en anglais.",
-  "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
     "refresh": "node scripts/refresh.js",
-    "build": "node scripts/build.js",
-    "serveur": "node scripts/static-server.js",
-    "acces": "node scripts/test-acces-legnb.js",
-    "scrape:projets": "node scrapers/nb-projets-de-loi.js",
-    "scrape:deputes": "node scrapers/nb-deputes.js",
-    "scrape:conseil": "node scrapers/nb-conseil-executif.js",
-    "scrape:calendrier": "node scrapers/nb-calendrier.js",
-    "scrape:votes": "node scrapers/nb-votes.js",
-    "fiches": "node scrapers/nb-fiches.js",
-    "portraits": "node scrapers/nb-portraits.js",
-    "finances": "node scrapers/nb-finances.js",
-    "wikipedia": "node scrapers/nb-wikipedia.js",
-    "resumes": "node scrapers/nb-resumes.js"
+    "scrape:bills": "node scrapers/bills.js",
+    "scrape:bill-details": "node scrapers/bill-details.js",
+    "scrape:bill-summaries": "node --env-file-if-exists=api.env scrapers/bill-summaries.js",
+    "build:frontend": "node scrapers/build-frontend-data.js",
+    "scrape:depute-emails": "node scrapers/depute-emails.js",
+    "build:depute-emails": "node scrapers/build-depute-emails-data.js",
+    "scrape:deputes": "node scrapers/deputes.js",
+    "build:deputes": "node scrapers/build-deputes-data.js",
+    "scrape:votes": "node scrapers/votes.js",
+    "build:votes": "node scrapers/build-votes-data.js",
+    "scrape:ministers": "node scrapers/ministers.js",
+    "build:ministers": "node scrapers/build-ministers-data.js"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^1.6.0",
+    "@anthropic-ai/sdk": "^0.68.0",
     "cheerio": "^1.0.0",
-    "pdf-parse": "^1.1.1",
-    "sharp": "^0.35.5"
+    "csv-parse": "^5.6.0",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1"
   }
 }

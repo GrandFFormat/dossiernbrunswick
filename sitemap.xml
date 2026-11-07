@@ -1,549 +1,1345 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<!-- Écrit par scripts/build-section-pages.js (PAGES, puis VILLES et PAGES_VILLE) : ne pas modifier à la main. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dossiernbrunswick.ca/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/ministres</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/votes</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/archives</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/promesses</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/lexique</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/lexique"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/glossary"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/lexique"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/lexique</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/glossary</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/lexique"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/glossary"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/lexique"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/regles</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/14-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/14-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/14-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/14-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/abonnement</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/14-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/14-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/14-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/14-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/sources</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/13-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/13-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/13-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/13-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/quebec/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/13-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/13-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/13-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/13-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/quebec/decisions-de-la-ville-de-quebec</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/12-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/12-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/12-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/12-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/quebec/conseil-municipal-de-quebec</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/12-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/12-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/12-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/12-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/quebec/votes-nominatifs-du-conseil-de-quebec</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/11-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/11-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/11-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/11-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/quebec/lexique-municipal-de-quebec</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/11-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/11-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/11-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/11-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/quebec/sources-des-donnees-de-quebec</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/10-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/10-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/10-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/10-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/montreal/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/10-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/10-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/10-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/10-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/montreal/decisions-de-la-ville-de-montreal</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/9-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/9-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/9-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/9-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/montreal/conseil-municipal-de-montreal</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/9-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/9-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/9-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/9-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/montreal/votes-nominatifs-du-conseil-de-montreal</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/8-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/8-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/8-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/8-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/montreal/lexique-municipal-de-montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/8-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/8-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/8-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/8-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/montreal/sources-des-donnees-de-montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/7-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/7-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/7-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/7-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/3-43-3</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/7-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/7-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/7-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/7-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/10-43-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/6-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/6-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/6-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/6-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/17-43-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/6-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/6-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/6-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/6-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/22-43-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/5-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/5-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/5-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/5-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/23-43-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/5-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/5-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/5-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/5-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/24-43-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/4-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/4-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/4-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/4-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/692-43-3</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/4-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/4-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/4-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/4-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/2-43-3</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/3-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/3-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/3-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/3-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/4-43-3</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/3-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/3-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/3-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/3-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/9-43-3</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/2-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/2-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/2-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/2-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/11-43-2</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/2-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/2-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/2-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/2-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/12-43-2</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/projets-de-loi/1-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/1-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/1-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/1-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/200-43-2</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/bills/1-61-3</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi/1-61-3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills/1-61-3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/1-61-3"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/201-43-2</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/susan-holt</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/susan-holt"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/susan-holt"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/susan-holt"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/204-43-2</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/susan-holt</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/susan-holt"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/susan-holt"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/susan-holt"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/205-43-2</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/lyne-chantal-boudreau</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/lyne-chantal-boudreau"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/lyne-chantal-boudreau"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/lyne-chantal-boudreau"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/13-43-3</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/lyne-chantal-boudreau</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/lyne-chantal-boudreau"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/lyne-chantal-boudreau"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/lyne-chantal-boudreau"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/691-43-3</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/chuck-chiasson</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/chuck-chiasson"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/chuck-chiasson"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/chuck-chiasson"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/796-43-3</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/chuck-chiasson</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/chuck-chiasson"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/chuck-chiasson"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/chuck-chiasson"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/7-43-3</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/keith-chiasson</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/keith-chiasson"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/keith-chiasson"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/keith-chiasson"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/8-43-3</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/keith-chiasson</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/keith-chiasson"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/keith-chiasson"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/keith-chiasson"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/698-43-3</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/jean-claude-d-amours</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/jean-claude-d-amours"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/jean-claude-d-amours"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/jean-claude-d-amours"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/791-43-3</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/jean-claude-d-amours</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/jean-claude-d-amours"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/jean-claude-d-amours"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/jean-claude-d-amours"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/599-43-3</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/john-dornan</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/john-dornan"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/john-dornan"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/john-dornan"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/690-43-3</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/john-dornan</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/john-dornan"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/john-dornan"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/john-dornan"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/696-43-3</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/pat-finnigan</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/pat-finnigan"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/pat-finnigan"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/pat-finnigan"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/6-43-3</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/pat-finnigan</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/pat-finnigan"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/pat-finnigan"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/pat-finnigan"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/596-43-3</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/robert-gauvin</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/robert-gauvin"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/robert-gauvin"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/robert-gauvin"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/191-43-3</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/robert-gauvin</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/robert-gauvin"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/robert-gauvin"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/robert-gauvin"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/3-43-2</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/john-herron</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/john-herron"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/john-herron"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/john-herron"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/7-43-2</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/john-herron</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/john-herron"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/john-herron"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/john-herron"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/9-43-2</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/david-hickey</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/david-hickey"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/david-hickey"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/david-hickey"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/13-43-2</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/david-hickey</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/david-hickey"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/david-hickey"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/david-hickey"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/15-43-2</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/claire-johnson</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/claire-johnson"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/claire-johnson"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/claire-johnson"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/18-43-2</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/claire-johnson</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/claire-johnson"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/claire-johnson"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/claire-johnson"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/590-43-2</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/aaron-kennedy</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/aaron-kennedy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/aaron-kennedy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/aaron-kennedy"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/598-43-2</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/aaron-kennedy</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/aaron-kennedy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/aaron-kennedy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/aaron-kennedy"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/1-43-2</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/rene-legacy</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/rene-legacy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/rene-legacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/rene-legacy"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/20-43-2</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/rene-legacy</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/rene-legacy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/rene-legacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/rene-legacy"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/27-43-2</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/gilles-lepage</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/gilles-lepage"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/gilles-lepage"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/gilles-lepage"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/595-43-2</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/gilles-lepage</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/gilles-lepage"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/gilles-lepage"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/gilles-lepage"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/26-43-2</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/robert-mckee</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/robert-mckee"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/robert-mckee"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/robert-mckee"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/25-43-2</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/robert-mckee</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/robert-mckee"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/robert-mckee"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/robert-mckee"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/19-43-2</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/cindy-miles</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/cindy-miles"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/cindy-miles"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/cindy-miles"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/592-43-2</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/cindy-miles</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/cindy-miles"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/cindy-miles"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/cindy-miles"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/392-43-2</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/luke-randall</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/luke-randall"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/luke-randall"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/luke-randall"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/497-43-2</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/luke-randall</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/luke-randall"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/luke-randall"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/luke-randall"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/111-43-1</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/isabelle-theriault</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/isabelle-theriault"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/isabelle-theriault"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/isabelle-theriault"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/496-43-1</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/isabelle-theriault</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/isabelle-theriault"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/isabelle-theriault"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/isabelle-theriault"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/5-43-2</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/alyson-townsend</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/alyson-townsend"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/alyson-townsend"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/alyson-townsend"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/498-43-2</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/alyson-townsend</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/alyson-townsend"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/alyson-townsend"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/alyson-townsend"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/6-43-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/david-coon</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/david-coon"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/david-coon"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/david-coon"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/14-43-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/david-coon</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/david-coon"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/david-coon"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/david-coon"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/16-43-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/ministres/margaret-johnson</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/margaret-johnson"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/margaret-johnson"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/margaret-johnson"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/108-43-1</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/en/ministers/margaret-johnson</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres/margaret-johnson"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers/margaret-johnson"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres/margaret-johnson"/>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://dossierquebec.ca/projets-de-loi/109-43-1</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/202-43-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/495-43-2</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/203-43-2</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/395-43-2</loc>
+    <lastmod>2025-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/195-43-2</loc>
+    <lastmod>2025-12-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/492-43-2</loc>
+    <lastmod>2025-12-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/220-43-1</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/393-43-2</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/103-43-1</loc>
+    <lastmod>2025-11-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/4-43-2</loc>
+    <lastmod>2025-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/8-43-2</loc>
+    <lastmod>2025-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/104-43-1</loc>
+    <lastmod>2025-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/199-43-2</loc>
+    <lastmod>2025-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/191-43-2</loc>
+    <lastmod>2025-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/94-43-1</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/112-43-1</loc>
+    <lastmod>2025-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/82-43-1</loc>
+    <lastmod>2025-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/99-43-1</loc>
+    <lastmod>2025-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/101-43-1</loc>
+    <lastmod>2025-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/2-43-2</loc>
+    <lastmod>2025-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/198-43-2</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/190-43-2</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/97-43-1</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/106-43-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/110-43-1</loc>
+    <lastmod>2025-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/991-43-1</loc>
+    <lastmod>2025-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/107-43-1</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/995-43-1</loc>
+    <lastmod>2025-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/217-43-1</loc>
+    <lastmod>2025-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/994-43-1</loc>
+    <lastmod>2025-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/990-43-1</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/993-43-1</loc>
+    <lastmod>2025-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/992-43-1</loc>
+    <lastmod>2025-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/898-43-1</loc>
+    <lastmod>2025-04-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/899-43-1</loc>
+    <lastmod>2025-04-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/897-43-1</loc>
+    <lastmod>2025-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/895-43-1</loc>
+    <lastmod>2025-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/896-43-1</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/894-43-1</loc>
+    <lastmod>2024-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/893-43-1</loc>
+    <lastmod>2024-12-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/793-43-1</loc>
+    <lastmod>2024-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/892-43-1</loc>
+    <lastmod>2024-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/794-43-1</loc>
+    <lastmod>2024-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/699-43-1</loc>
+    <lastmod>2024-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/792-43-1</loc>
+    <lastmod>2024-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/796-43-1</loc>
+    <lastmod>2024-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/790-43-1</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/791-43-1</loc>
+    <lastmod>2024-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/697-43-1</loc>
+    <lastmod>2024-04-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/591-43-1</loc>
+    <lastmod>2024-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/694-43-1</loc>
+    <lastmod>2024-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/695-43-1</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/693-43-1</loc>
+    <lastmod>2024-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/599-43-1</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/597-43-1</loc>
+    <lastmod>2024-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/691-43-1</loc>
+    <lastmod>2023-12-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/394-43-1</loc>
+    <lastmod>2023-12-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/690-43-1</loc>
+    <lastmod>2023-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/596-43-1</loc>
+    <lastmod>2023-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/499-43-1</loc>
+    <lastmod>2023-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/593-43-1</loc>
+    <lastmod>2023-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/495-43-1</loc>
+    <lastmod>2023-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/491-43-1</loc>
+    <lastmod>2023-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/194-43-1</loc>
+    <lastmod>2023-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/494-43-1</loc>
+    <lastmod>2023-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/493-43-1</loc>
+    <lastmod>2023-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/397-43-1</loc>
+    <lastmod>2023-04-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/399-43-1</loc>
+    <lastmod>2023-04-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/201-43-1</loc>
+    <lastmod>2023-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/398-43-1</loc>
+    <lastmod>2023-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/203-43-1</loc>
+    <lastmod>2023-04-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/392-43-1</loc>
+    <lastmod>2023-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/490-43-1</loc>
+    <lastmod>2023-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/492-43-1</loc>
+    <lastmod>2023-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/393-43-1</loc>
+    <lastmod>2023-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/390-43-1</loc>
+    <lastmod>2023-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/391-43-1</loc>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/396-43-1</loc>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/196-43-1</loc>
+    <lastmod>2023-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/199-43-1</loc>
+    <lastmod>2023-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/198-43-1</loc>
+    <lastmod>2023-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/195-43-1</loc>
+    <lastmod>2023-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/193-43-1</loc>
+    <lastmod>2023-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/191-43-1</loc>
+    <lastmod>2022-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/192-43-1</loc>
+    <lastmod>2022-12-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/197-43-1</loc>
+    <lastmod>2022-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/projets-de-loi/190-43-1</loc>
+    <lastmod>2022-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/paul-st-pierre-plamondon</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/catherine-gentilcore</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/nicolas-marceau</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/stephane-paquet</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/alain-therrien</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/marie-karlynn-laflamme</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/joel-arseneau</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/pascal-berube</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/marie-claude-sarrazin</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/nicolas-girard</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/elsie-lefebvre</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/jean-pellerin</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/guy-jr-lapointe</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/natalie-bisaillon</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/bernard-sevigny</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/dieudonne-ella-oyono</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/mathieu-lebrun</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/meganne-perry-melancon</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/simon-pierre-savard-tremblay</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/camille-pellerin-forget</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/meggie-richard</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/sebastien-d-astous</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/anne-nguyen</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/ministres/nadine-le-gal</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/francois-legault</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/genevieve-guilbault</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/francois-bonnardel</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/christian-dube</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/eric-girard-groulx</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/pierre-fitzgibbon</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/sonia-lebel</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/bernard-drainville</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/pascale-dery</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/mathieu-lacombe</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/simon-jolin-barrette</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/jean-francois-roberge</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/christine-frechette</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/benoit-charette</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/suzanne-roy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/andree-laforest</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/andre-lamontagne</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/martine-biron</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/maite-blanchette-vezina</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/jean-boulet</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/kateri-champagne-jourdain</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/caroline-proulx</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/eric-caire</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/lionel-carmant</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/france-elaine-duranceau</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/ian-lafreniere</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/isabelle-charest</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/jonatan-julien</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/chantal-rouleau</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/sonia-belanger</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/christopher-skeete</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/donald-martel</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/jean-francois-simard</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/gilles-belanger</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/amelie-dionne</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/eric-girard-lac-saint-jean</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/samuel-poulin</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/catherine-blouin</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/karine-boivin-roy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/kariane-bourassa</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/mathieu-levesque</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/archives/43/ministres/daniel-bernard</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/deputes/charles-milliard</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/deputes/eric-duhaime</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/deputes/ruba-ghazal</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossierquebec.ca/deputes/sol-zanetti</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

@@ -1,1213 +1,599 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="light">
+<html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Le Conseil exécutif — DossierNBrunswick</title>
-<meta name="description" content="Les ministres du Nouveau-Brunswick et leurs portefeuilles, selon l'Assemblée législative.">
-<meta name="theme-color" content="#0033a0">
-<link rel="canonical" href="https://dossiernbrunswick.ca/ministres">
-<link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/ministers">
-<link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/ministres">
-<link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/ministres">
-<link rel="icon" href="/commun/nb.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/commun/industry.css">
-<link rel="stylesheet" href="/commun/nb.css">
+<!-- Consentement (Loi 25) : par défaut, Google Analytics n'a PAS le droit de déposer de témoins.
+     La bannière (commun/consentement.js) passe analytics_storage à « granted » après « Accepter ». -->
 <script>
-// Le thème avant le premier pixel : sans ça, une page sombre s'ouvre en blanc puis clignote.
-try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
 </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-87R1S6SR9Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-87R1S6SR9Y', { content_group: 'Assemblée' });
+</script>
+<script src="/commun/consentement.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* La langue, avant d'afficher quoi que ce soit — EXACTEMENT la décision de langueDeDepart
+   (commun/dq.js) : « ?lang=en » dans l'adresse, sinon le choix gardé dans dvq:langue (commun à
+   tout le site) ; en revenant par Précédent ou Suivant, le choix gardé passe avant l'adresse.
+   En anglais, la page reste cachée le temps que dq.js la traduise : 1,5 s au plus, même s'il
+   échoue. lang="en" n'est posé qu'au moment de traduire (dq.js) : si la traduction n'arrive pas,
+   la page française ne s'annonce pas en anglais.
+   Tout est dans une fonction : une variable globale ici entrerait en collision avec les
+   déclarations de dq.js et le ferait planter en entier. */
+(function(){
+  try{
+    var valide = function(l){ return l === 'en' || l === 'fr'; };
+    var gardee = null;
+    try{ gardee = localStorage.getItem('dvq:langue'); }catch(e){}
+    var q = new URLSearchParams(location.search).get('lang');
+    var nav = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+    var parHistorique = !!nav && nav.type === 'back_forward';
+    var choix = (parHistorique && valide(gardee)) ? gardee : (valide(q) ? q : gardee);
+    if(choix !== 'en') return;
+    var racine = document.documentElement;
+    racine.classList.add('dq-en');
+    setTimeout(function(){ racine.classList.add('dq-pret'); }, 1500);
+  }catch(e){}
+})();
+</script>
+<title>Ministres du Québec : le Conseil des ministres — DossierQuébec</title>
+<meta name="description" content="Combien de ministres au Québec et qui sont-ils : le Conseil des ministres, le ministère de chacun et les député·e·s de l'Assemblée nationale.">
+<link rel="canonical" href="https://dossierquebec.ca/ministres">
+<!-- Plus de <link rel="alternate"> vers /feed.xml : le flux RSS est réservé aux abonné·e·s depuis le
+     21 oct. 2026 (api/feed.js), chacun avec son adresse personnelle dans Mon dossier. -->
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0E4FC1">
+
+<!-- Open Graph (aperçu au partage : Facebook, LinkedIn, iMessage…) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DossierQuébec">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:title" content="Ministres du Québec : le Conseil des ministres — DossierQuébec">
+<meta property="og:description" content="Combien de ministres au Québec et qui sont-ils : le Conseil des ministres, le ministère de chacun et les député·e·s de l'Assemblée nationale.">
+<meta property="og:url" content="https://dossierquebec.ca/ministres">
+<meta property="og:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
+<meta property="og:image:width" content="1702">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DossierQuébec — veille citoyenne de l'Assemblée nationale du Québec">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ministres du Québec : le Conseil des ministres — DossierQuébec">
+<meta name="twitter:description" content="Combien de ministres au Québec et qui sont-ils : le Conseil des ministres, le ministère de chacun et les député·e·s de l'Assemblée nationale.">
+<meta name="twitter:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
+
+<link rel="icon" type="image/svg+xml" href="/commun/dq.svg">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/commun/dq-48.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/commun/dq-512.png">
+<link rel="apple-touch-icon" href="/commun/dq-512.png">
+
+<!-- Données structurées (aide Google à comprendre le site) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://dossierquebec.ca/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ministres et député·e·s",
+      "item": "https://dossierquebec.ca/ministres"
+    }
+  ]
+}
+</script>
+<!-- Les DEUX préconnexions sont nécessaires et ce n'est pas un doublon :
+     googleapis.com sert la feuille CSS, gstatic.com sert les ~258 ko de
+     fichiers de police. Sans la seconde, le navigateur n'ouvre la connexion
+     vers gstatic qu'APRÈS avoir lu le CSS — un DNS + TLS en série, soit 100 à
+     300 ms perdus sur mobile à la première visite. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- ⚠️ « wght@400..900 » (deux points) demande la POLICE VARIABLE : un seul
+     fichier couvrant toutes les graisses, au lieu d'un fichier par graisse.
+     Mesuré : Archivo passe de 6 fichiers / 205 ko à 1 fichier / 34 ko, et
+     Archivo Narrow de 3 fichiers / 55 ko à 1 fichier / 18 ko — 260 ko et
+     9 requêtes ramenés à 52 ko et 2 requêtes, sans perdre aucune graisse.
+     Ne pas revenir à la liste « 400;500;600 » (points-virgules) : c'est la
+     syntaxe des fichiers statiques.
+     IBM Plex Mono a été retirée : utilisée nulle part. Aucun octet économisé
+     pour autant — un navigateur ne télécharge une police que si elle sert au
+     rendu, donc elle ne partait déjà pas. C'était du ménage, pas un gain. -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Archivo+Narrow:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/commun/dq.css">
 </head>
-<body>
-<div class="nb-page">
-  <div class="nb-ticker" aria-hidden="true"><div class="nb-ticker-piste"><span><span class="nb-etoile">★</span> DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span><span><span class="nb-etoile">★</span> DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span><span><span class="nb-etoile">★</span> DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span></div></div>
-  <header class="nb-entete">
-    <a class="nb-marque" href="/">
-      <span style="width:22px;height:22px;display:inline-flex"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon fill="var(--nb-jaune)" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg></span>
-      Dossier<em>NBrunswick</em>
-    </a>
-    <details class="nb-villes">
-      <summary>Villes<svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <div class="nb-villes-menu">
-        <a href="https://dossierquebec.ca/represente-ta-ville" rel="noopener">+ Représentez votre ville</a>
-      </div>
-    </details>
-    <a class="nb-onglet" href="/"><span class="nb-num">01</span>Aperçu</a>
-    <a class="nb-onglet" href="/ministres" aria-current="page"><span class="nb-num">02</span>Ministres</a>
-    <a class="nb-onglet" href="/projets-de-loi"><span class="nb-num">03</span>Projets de loi</a>
-    <a class="nb-onglet" href="/lexique"><span class="nb-num">04</span>Lexique</a>
-    <a class="nb-onglet nb-onglet-etoile" href="/mon-dossier">
-      <span class="nb-etoile-petite" aria-hidden="true">★</span>Mon dossier<span class="nb-compteur-suivis" data-nb-compteur hidden></span></a>
-    <button class="nb-bouton-carre" type="button" data-nb-theme aria-pressed="false" title="Thème clair ou sombre">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
-      <span class="nb-invisible">Thème clair ou sombre</span>
-    </button>
-    <div class="nb-zoom" role="group" aria-label="Agrandir le texte">
-      <button type="button" data-nb-zoom="moins" title="Réduire le texte">A−</button>
-      <output data-nb-zoom-valeur>100%</output>
-      <button type="button" data-nb-zoom="plus" title="Agrandir le texte">A+</button>
-    </div>
-    <a class="nb-onglet" data-nb-autre-langue="en" href="/en/ministers" hreflang="en" rel="alternate">English</a>
-  </header>
-  <section class="nb-section">
-    <p class="nb-surtitre nb-surtitre-rouge">49 sièges · 19 ministres</p>
-    <div class="nb-section-tete"><h1>Le Conseil exécutif et toute l'Assemblée</h1></div>
-    <p class="nb-section-note">La liste tenue par l'Assemblée législative. La page du gouvernement a déjà été en retard sur celle-ci : en cas de divergence, c'est celle-ci qui fait foi ici.</p>
-  </section>
-  <section class="nb-section">
-    <form class="nb-cherche" role="search" data-nb-cherche hidden>
-      <label class="nb-invisible" for="nb-cherche-champ">Chercher une personne</label>
-      <span class="nb-cherche-loupe" aria-hidden="true">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
-      </span>
-      <input id="nb-cherche-champ" type="search" autocomplete="off" placeholder="Nom, circonscription, parti…">
-      <button type="reset">Effacer</button>
-    </form>
-    <p class="nb-vide" data-nb-cherche-rien="Personne ne correspond à « {q} »." hidden></p>
-  </section>
-  <section class="nb-section">
-    <p class="nb-surtitre nb-surtitre-rouge">Selon la liste des député·e·s tenue par l'Assemblée législative</p>
-    <div class="nb-section-tete"><h2>Composition — 49 sièges</h2></div>
-    <div class="nb-barre-sieges" role="img" aria-label="Liberal Party 31, Progressive Conservative Party 16, Green Party 2">
-      <i style="width:63.26530612244898%;background:#C0161D" title="Liberal Party — 31"></i>
-      <i style="width:32.6530612244898%;background:#005DAC" title="Progressive Conservative Party — 16"></i>
-      <i style="width:4.081632653061225%;background:#3D9B35" title="Green Party — 2"></i>
-    </div>
-    <ul class="nb-legende-partis">
-      <li><i style="background:#C0161D"></i>Liberal Party — <b>31</b></li>
-      <li><i style="background:#005DAC"></i>Progressive Conservative Party — <b>16</b></li>
-      <li><i style="background:#3D9B35"></i>Green Party — <b>2</b></li>
-    </ul>
-  </section>
-  <section class="nb-section">
-    <div class="nb-encadre">
-      <div class="nb-encadre-tete">
-        <h3>Lire la présence aux votes</h3>
-        <a class="nb-voir-tout" href="/lexique">Définition complète → Lexique</a>
-      </div>
-      <p class="nb-encadre-def"><b>100 %</b> : sur les 3 votes par appel nominal tenus depuis le début de la session, la personne a voté à 100 % d'entre eux — pour ou contre, peu importe le sens.</p>
-      <div class="nb-echelle" aria-hidden="true">
-        <span class="nb-echelle-barre"><i style="width:100%"></i></span>
-        <span class="nb-echelle-bornes"><span>0 %</span><span>100 %</span></span>
-      </div>
-      <ul class="nb-legende">
-        <li><span class="nb-taux vert">Vert</span> (39) — 100 % et plus, la médiane de l'Assemblée.</li>
-        <li><span class="nb-taux jaune">Jaune</span> (0) — de 94 % à 99 %, sous la médiane.</li>
-        <li><span class="nb-taux">Sans couleur</span> (0) — moins de 94 %.</li>
-        <li><span class="nb-taux nd">n/d</span> (9) — aucun vote nominatif enregistré pour cette personne. Ce n'est pas une absence : on n'en sait rien.</li>
-        <li><span class="nb-taux preside">ne vote pas</span> — la présidence de l'Assemblée (Francine Landry) dirige les débats et reste neutre. Son nom ne figure dans aucun vote nominatif, et c'est la règle.</li>
-      </ul>
-      <p class="nb-encadre-portee">Chez les 39 personnes comptées : de 100 % à 100 %. Le calcul porte sur <b>3 votes nominatifs</b>, tenus sur 1 jour de séance.</p>
-      <ul class="nb-encadre-avis">
-        <li><b>Les votes nominatifs sont rares au Nouveau-Brunswick.</b> La plupart des projets de loi sont adoptés de vive voix, sans que personne soit nommé. Tant que la session en compte peu, ce taux ne mesure presque rien — il se précisera à mesure que les votes s'accumulent.</li>
-        <li><b>La présidence de l'Assemblée ne vote pas.</b> Elle dirige les débats et reste neutre : son nom ne figure dans aucun vote nominatif, et c'est normal.</li>
-        <li><b>Ce n'est pas une mesure officielle.</b> L'Assemblée ne publie aucun taux d'assiduité. Celui-ci est calculé ici, à partir des noms inscrits dans les Journaux, et un vote manqué n'en dit jamais la raison.</li>
-      </ul>
-    </div>
-  </section>
-  <section class="nb-section" data-nb-groupe>
-    <div class="nb-section-tete"><h2>Les ministres</h2><span class="nb-compte" data-nb-compte-groupe>19</span></div>
-    <p class="nb-section-note">19 des 49 sièges de l'Assemblée. Les 30 autres sont plus bas.</p>
-    <div class="nb-grille-ministres">
-      <article class="nb-carte-ministre" id="susan-holt" data-nb-ministre="holt-susan" data-nb-chercher="susan holt fredericton south-silverwood fredericton-sud-silverwood liberal party parti liberal premier president of the executive council minister responsible for official languages premiere ministre presidente du conseil executif ministre responsable des langues officielles" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/susan-holt" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Susan_Holt" rel="noopener" title="À propos de Susan Holt sur Wikipédia" aria-label="À propos de Susan Holt sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>60 338 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="holt-susan" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Susan Holt">Suivre</button>
-        </div>
-        <h2><a href="/ministres/susan-holt">Susan Holt</a></h2>
-        <p class="nb-roles">première ministre · présidente du Conseil exécutif · ministre responsable des Langues officielles</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Fredericton-Sud-Silverwood</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux nd">n/d</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/182/susan-holt" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="lyne-chantal-boudreau" data-nb-ministre="boudreau-lyne-chantal" data-nb-chercher="lyne chantal boudreau champdore-irishtown champdore-irishtown liberal party parti liberal minister of seniors minister responsible for women and gender equity ministre des aines ministre responsable de l’equite des femmes et des genres" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/lyne-chantal-boudreau" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Lyne_Chantal_Boudreau" rel="noopener" title="À propos de Lyne Chantal Boudreau sur Wikipédia" aria-label="À propos de Lyne Chantal Boudreau sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>72 421 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="boudreau-lyne-chantal" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Lyne Chantal Boudreau">Suivre</button>
-        </div>
-        <h2><a href="/ministres/lyne-chantal-boudreau">Lyne Chantal Boudreau</a></h2>
-        <p class="nb-roles">ministre des Aînés · ministre responsable de l’équité des femmes et des genres</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Champdoré-Irishtown</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux nd">n/d</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/208/lyne chantal-boudreau" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="chuck-chiasson" data-nb-ministre="chiasson-chuck" data-nb-chercher="chuck chiasson grand falls-vallee-des-rivieres-saint-quentin grand sault-vallee-des-rivieres-saint-quentin liberal party parti liberal minister of transportation and infrastructure ministre des transports et de l'infrastructure" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/chuck-chiasson" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Chuck_Chiasson" rel="noopener" title="À propos de Chuck Chiasson sur Wikipédia" aria-label="À propos de Chuck Chiasson sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>71 357 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="chiasson-chuck" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Chuck Chiasson">Suivre</button>
-        </div>
-        <h2><a href="/ministres/chuck-chiasson">Chuck Chiasson</a></h2>
-        <p class="nb-roles">ministre des Transports et de l'Infrastructure</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Grand Sault-Vallée-des-Rivières-Saint-Quentin</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux nd">n/d</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/11/chuck-chiasson" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="keith-chiasson" data-nb-ministre="chiasson-keith" data-nb-chercher="keith chiasson tracadie tracadie liberal party parti liberal minister of indigenous affairs ministre des affaires autochtones" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/keith-chiasson" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Keith_Chiasson" rel="noopener" title="À propos de Keith Chiasson sur Wikipédia" aria-label="À propos de Keith Chiasson sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>72 348 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="chiasson-keith" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Keith Chiasson">Suivre</button>
-        </div>
-        <h2><a href="/ministres/keith-chiasson">Keith Chiasson</a></h2>
-        <p class="nb-roles">ministre des Affaires autochtones</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Tracadie</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux nd">n/d</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/49/keith-chiasson" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="jean-claude-d-amours" data-nb-ministre="damours-jean-claude" data-nb-chercher="jean-claude d'amours edmundston-vallee-des-rivieres edmundston-vallee-des-rivieres liberal party parti liberal minister of post-secondary education, training and labour minister of intergovernmental affairs minister responsible for immigration minister responsible for military affairs minister responsible for the research and productivity council ministre de l'education postsecondaire, de la formation et du travail ministre des affaires intergouvernementales ministre responsable de l'immigration ministre responsable des affaires militaires ministre responsable du conseil de la recherche et de la productivite" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/jean-claude-d-amours" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Jean-Claude_D'Amours" rel="noopener" title="À propos de Jean-Claude D'Amours sur Wikipédia" aria-label="À propos de Jean-Claude D'Amours sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>73 071 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="damours-jean-claude" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Jean-Claude D'Amours">Suivre</button>
-        </div>
-        <h2><a href="/ministres/jean-claude-d-amours">Jean-Claude D'Amours</a></h2>
-        <p class="nb-roles">ministre de l'Éducation postsecondaire, de la Formation et du Travail · ministre des Affaires intergouvernementales · ministre responsable de l'Immigration · ministre responsable des Affaires militaires · ministre responsable du Conseil de la recherche et de la productivité</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Edmundston-Vallée-des-Rivières</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/9/jean-claude-d'amours" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="john-dornan" data-nb-ministre="dornan-john" data-nb-chercher="john dornan saint john portland-simonds saint john portland-simonds liberal party parti liberal minister of health ministre de la sante" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/john-dornan" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/John_Dornan" rel="noopener" title="À propos de John Dornan sur Wikipédia" aria-label="À propos de John Dornan sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>53 994 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="dornan-john" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre John Dornan">Suivre</button>
-        </div>
-        <h2><a href="/ministres/john-dornan">John Dornan</a></h2>
-        <p class="nb-roles">ministre de la Santé</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Saint John Portland-Simonds</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/202/john-dornan" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="pat-finnigan" data-nb-ministre="finnigan-pat" data-nb-chercher="pat finnigan kent north kent-nord liberal party parti liberal minister of agriculture, aquaculture and fisheries ministre de l'agriculture, de l’aquaculture et des peches" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/pat-finnigan" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Pat_Finnigan" rel="noopener" title="À propos de Pat Finnigan sur Wikipédia" aria-label="À propos de Pat Finnigan sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>66 517 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="finnigan-pat" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Pat Finnigan">Suivre</button>
-        </div>
-        <h2><a href="/ministres/pat-finnigan">Pat Finnigan</a></h2>
-        <p class="nb-roles">ministre de l'Agriculture, de l’Aquaculture et des Pêches</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Kent-Nord</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux nd">n/d</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/192/pat-finnigan" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="robert-gauvin" data-nb-ministre="gauvin-robert" data-nb-chercher="robert gauvin shediac bay-dieppe baie-de-shediac-dieppe liberal party parti liberal minister of public safety minister responsible for la francophonie ministre de la securite publique ministre responsable de la francophonie" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/robert-gauvin" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Robert_Gauvin" rel="noopener" title="À propos de Robert Gauvin sur Wikipédia" aria-label="À propos de Robert Gauvin sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>45 810 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="gauvin-robert" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Robert Gauvin">Suivre</button>
-        </div>
-        <h2><a href="/ministres/robert-gauvin">Robert Gauvin</a></h2>
-        <p class="nb-roles">ministre de la Sécurité publique · ministre responsable de la Francophonie</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Baie-de-Shediac-Dieppe</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/46/robert-gauvin" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="john-herron" data-nb-ministre="herron-john" data-nb-chercher="john herron hampton-fundy-st. martins hampton-fundy-st. martins liberal party parti liberal minister of natural resources ministre des ressources naturelles" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/john-herron" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>72 197 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="herron-john" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre John Herron">Suivre</button>
-        </div>
-        <h2><a href="/ministres/john-herron">John Herron</a></h2>
-        <p class="nb-roles">ministre des Ressources naturelles</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Hampton-Fundy-St. Martins</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/199/john-herron" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="david-hickey" data-nb-ministre="hickey-david" data-nb-chercher="david hickey saint john harbour saint john harbour liberal party parti liberal minister responsible for the new brunswick housing corporation ministre responsable de la societe d’habitation du nouveau-brunswick" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/david-hickey" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>59 556 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="hickey-david" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre David Hickey">Suivre</button>
-        </div>
-        <h2><a href="/ministres/david-hickey">David Hickey</a></h2>
-        <p class="nb-roles">ministre responsable de la Société d’habitation du Nouveau-Brunswick</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Saint John Harbour</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/203/david-hickey" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="claire-johnson" data-nb-ministre="johnson-claire" data-nb-chercher="claire johnson moncton south moncton-sud liberal party parti liberal minister of education and early childhood development ministre de l’education et du developpement de la petite enfance" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/claire-johnson" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Claire_Johnson" rel="noopener" title="À propos de Claire Johnson sur Wikipédia" aria-label="À propos de Claire Johnson sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>65 848 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="johnson-claire" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Claire Johnson">Suivre</button>
-        </div>
-        <h2><a href="/ministres/claire-johnson">Claire Johnson</a></h2>
-        <p class="nb-roles">ministre de l’Éducation et du Développement de la petite enfance</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Moncton-Sud</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/194/claire-johnson" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="aaron-kennedy" data-nb-ministre="kennedy-aaron" data-nb-chercher="aaron kennedy quispamsis quispamsis liberal party parti liberal minister of local government minister responsible for service new brunswick ministre des gouvernements locaux ministre responsable de services nouveau-brunswick" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/aaron-kennedy" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>60 703 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="kennedy-aaron" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Aaron Kennedy">Suivre</button>
-        </div>
-        <h2><a href="/ministres/aaron-kennedy">Aaron Kennedy</a></h2>
-        <p class="nb-roles">ministre des Gouvernements locaux · ministre responsable de Services Nouveau-Brunswick</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Quispamsis</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/200/aaron-kennedy" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="rene-legacy" data-nb-ministre="legacy-rene" data-nb-chercher="rene legacy bathurst bathurst liberal party parti liberal deputy premier minister of finance and treasury board minister of energy minister responsible for the right to information and protection of privacy act vice-premier ministre ministre des finances et du conseil du tresor ministre de l’energie ministre responsable de la loi sur le droit a l’information et la protection de la vie privee" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/rene-legacy" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Ren%C3%A9_Legacy" rel="noopener" title="À propos de René Legacy sur Wikipédia" aria-label="À propos de René Legacy sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>74 601 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="legacy-rene" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre René Legacy">Suivre</button>
-        </div>
-        <h2><a href="/ministres/rene-legacy">René Legacy</a></h2>
-        <p class="nb-roles">vice-premier ministre · ministre des Finances et du Conseil du Trésor · ministre de l’Énergie · ministre responsable de la Loi sur le droit à l’information et la protection de la vie privée</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Bathurst</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>2</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/157/rené-legacy" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="gilles-lepage" data-nb-ministre="lepage-gilles" data-nb-chercher="gilles lepage restigouche west restigouche-ouest liberal party parti liberal minister of environment and climate change minister responsible for the regional development corporation ministre de l'environnement et du changement climatique ministre responsable de la societe de developpement regional" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/gilles-lepage" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Gilles_LePage" rel="noopener" title="À propos de Gilles LePage sur Wikipédia" aria-label="À propos de Gilles LePage sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>72 172 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="lepage-gilles" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Gilles LePage">Suivre</button>
-        </div>
-        <h2><a href="/ministres/gilles-lepage">Gilles LePage</a></h2>
-        <p class="nb-roles">ministre de l'Environnement et du Changement climatique · ministre responsable de la Société de développement régional</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Restigouche-Ouest</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/37/gilles-lepage" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="robert-mckee" data-nb-ministre="mckee-robert" data-nb-chercher="robert mckee moncton centre moncton-centre liberal party parti liberal minister of justice attorney general minister responsible for addictions and mental health services ministre de la justice procureur general ministre responsable des services de sante mentale et de traitement des dependances" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/robert-mckee" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Rob_McKee" rel="noopener" title="À propos de Robert McKee sur Wikipédia" aria-label="À propos de Robert McKee sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>66 790 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="mckee-robert" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Robert McKee">Suivre</button>
-        </div>
-        <h2><a href="/ministres/robert-mckee">Robert McKee</a></h2>
-        <p class="nb-roles">ministre de la Justice · procureur général · ministre responsable des Services de santé mentale et de traitement des dépendances</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Moncton-Centre</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>5</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/30/robert-mckee" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="cindy-miles" data-nb-ministre="miles-cindy" data-nb-chercher="cindy miles hanwell-new maryland hanwell-new maryland liberal party parti liberal minister of social development minister responsible for the economic and social inclusion corporation ministre du developpement social ministre responsable de la societe de l’inclusion economique et sociale" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/cindy-miles" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Cindy_Miles" rel="noopener" title="À propos de Cindy Miles sur Wikipédia" aria-label="À propos de Cindy Miles sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>50 266 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="miles-cindy" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Cindy Miles">Suivre</button>
-        </div>
-        <h2><a href="/ministres/cindy-miles">Cindy Miles</a></h2>
-        <p class="nb-roles">ministre du Développement social · ministre responsable de la Société de l’inclusion économique et sociale</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Hanwell-New Maryland</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/207/cindy-miles" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="luke-randall" data-nb-ministre="randall-luke" data-nb-chercher="luke randall fredericton north fredericton-nord liberal party parti liberal minister responsible for opportunities nb minister responsible for economic development and small business minister responsible for nb liquor and cannabis nb minister responsible for the regulatory accountability and reporting act ministre responsable d’opportunites nb ministre responsable du developpement economique et des petites entreprises ministre responsable d’alcool nb et de cannabis nb ministre responsable de la loi sur la responsabilisation et la presentation de rapports en matiere de reglementation" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/luke-randall" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Jill_Green" rel="noopener" title="À propos de Luke Randall sur Wikipédia" aria-label="À propos de Luke Randall sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>66 685 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="randall-luke" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Luke Randall">Suivre</button>
-        </div>
-        <h2><a href="/ministres/luke-randall">Luke Randall</a></h2>
-        <p class="nb-roles">ministre responsable d’Opportunités NB · ministre responsable du Développement économique et des Petites Entreprises · ministre responsable d’Alcool NB et de Cannabis NB · ministre responsable de la Loi sur la responsabilisation et la présentation de rapports en matière de réglementation</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Fredericton-Nord</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/206/luke-randall" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="isabelle-theriault" data-nb-ministre="theriault-isabelle" data-nb-chercher="isabelle theriault caraquet caraquet liberal party parti liberal minister of tourism, heritage and culture ministre du tourisme, du patrimoine et de la culture" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/isabelle-theriault" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Isabelle_Th%C3%A9riault" rel="noopener" title="À propos de Isabelle Thériault sur Wikipédia" aria-label="À propos de Isabelle Thériault sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>72 666 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="theriault-isabelle" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Isabelle Thériault">Suivre</button>
-        </div>
-        <h2><a href="/ministres/isabelle-theriault">Isabelle Thériault</a></h2>
-        <p class="nb-roles">ministre du Tourisme, du Patrimoine et de la Culture</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Caraquet</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>0</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/5/isabelle-thériault" rel="noopener">Fiche officielle →</a></p>
-      </article>
-      <article class="nb-carte-ministre" id="alyson-townsend" data-nb-ministre="townsend-alyson" data-nb-chercher="alyson townsend rothesay rothesay liberal party parti liberal minister responsible for labour ministre responsable du travail" style="--parti:#C0161D">
-        <div class="nb-carte-tete">
-          <span class="nb-pastille-parti">Parti libéral</span>
-          <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/alyson-townsend" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>51 423 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-          <button class="nb-suivre" type="button" data-nb-suivre="townsend-alyson" data-nb-suivre-genre="ministre"
-            data-nb-suivre-mots="Suivre|Suivi"
-            aria-pressed="false" title="Suivre Alyson Townsend">Suivre</button>
-        </div>
-        <h2><a href="/ministres/alyson-townsend">Alyson Townsend</a></h2>
-        <p class="nb-roles">ministre responsable du Travail</p>
-        <dl class="nb-carte-donnees">
-          <div><dt>Circonscription</dt><dd>Rothesay</dd></div>
-          <div><dt>Projets de loi déposés</dt><dd>1</dd></div>
-          <div><dt>Présence aux votes</dt><dd><span class="nb-taux vert" title="3 votes sur 3">100 %</span></dd></div>
-        </dl>
-        <p class="nb-carte-pied"><a href="https://www.legnb.ca/fr/parlementaires/actuel/201/alyson-townsend" rel="noopener">Fiche officielle →</a></p>
-      </article>
-    </div>
-  </section>
-  <section class="nb-section" id="assemblee">
-    <p class="nb-surtitre nb-surtitre-rouge">30 député·e·s</p>
-    <div class="nb-section-tete"><h2>Les député·e·s</h2></div>
-    <p class="nb-section-note"><b>Les député·e·s qui ne sont pas ministres.</b> Les membres du Conseil exécutif sont plus haut, avec leurs portefeuilles. Classés par parti, du plus nombreux au moins nombreux. Les courriels ne sont pas repris ici : l'Assemblée les protège derrière un mécanisme anti-robots, et on ne le contourne pas. Chaque nom mène à sa fiche officielle, qui porte l'adresse.</p>
-  </section>
-  <section class="nb-section" data-nb-groupe>
-    <div class="nb-section-tete" style="border-bottom-color:#C0161D">
-      <h3>Liberal Party</h3>
-      <span class="nb-compte" data-nb-compte-groupe>12</span>
-    </div>
-    <div class="nb-lignes-deputes">
-      <div class="nb-ligne-depute" id="guy-arseneault" data-nb-depute="arseneault-guy" data-nb-chercher="guy arseneault restigouche east restigouche-est liberal party parti liberal deputy speaker of the legislative assembly vice-president de i’assemblee legislative" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Guy Arseneault</b>
-          <span>Restigouche-Est · <em>vice-président de I’Assemblée législative</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux nd">n/d</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/4/guy-arseneault" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#guy-arseneault" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>28 157 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>73 044 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="arseneault-guy" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Guy Arseneault">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="benoit-bourque" data-nb-depute="bourque-benoit" data-nb-chercher="benoit bourque beausoleil-grand-bouctouche-kent beausoleil-grand-bouctouche-kent liberal party parti liberal deputy speaker of the legislative assembly vice-president de i’assemblee legislative" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Benoît Bourque</b>
-          <span>Beausoleil-Grand-Bouctouche-Kent · <em>vice-président de I’Assemblée législative</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/23/benoît-bourque" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#benoit-bourque" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Beno%C3%AEt_Bourque" rel="noopener" title="À propos de Benoît Bourque sur Wikipédia" aria-label="À propos de Benoît Bourque sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>46 711 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>72 247 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="bourque-benoit" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Benoît Bourque">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="alexandre-cedric-doucet" data-nb-depute="doucet-alexandre-cedric" data-nb-chercher="alexandre cedric doucet moncton east moncton-est liberal party parti liberal" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Alexandre Cédric Doucet</b>
-          <span>Moncton-Est</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/196/alexandre cédric-doucet" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#alexandre-cedric-doucet" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>33 008 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>75 000 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="doucet-alexandre-cedric" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Alexandre Cédric Doucet">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="sam-johnston" data-nb-depute="johnston-sam" data-nb-chercher="sam johnston miramichi bay-neguac baie-de-miramichi-neguac liberal party parti liberal" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Sam Johnston</b>
-          <span>Baie-de-Miramichi-Neguac</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux nd">n/d</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/191/sam-johnston" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#sam-johnston" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>23 507 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>55 778 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="johnston-sam" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Sam Johnston">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="francine-landry" data-nb-depute="landry-francine" data-nb-chercher="francine landry madawaska les lacs-edmundston madawaska-les-lacs-edmundston liberal party parti liberal speaker of the legislative assembly presidente de l’assemblee legislative" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Francine Landry</b>
-          <span>Madawaska-Les-Lacs-Edmundston · <em>présidente de l’Assemblée législative</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux preside" title="La présidence de l'Assemblée ne vote pas : elle dirige les débats et reste neutre.">ne vote pas</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/26/francine-landry" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#francine-landry" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Francine_Landry" rel="noopener" title="À propos de Francine Landry sur Wikipédia" aria-label="À propos de Francine Landry sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>39 017 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="landry-francine" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Francine Landry">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="jacques-leblanc" data-nb-depute="leblanc-jacques" data-nb-chercher="jacques leblanc shediac-cap-acadie shediac-cap-acadie liberal party parti liberal government whip whip du gouvernement" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Jacques LeBlanc</b>
-          <span>Shediac-Cap-Acadie · <em>whip du gouvernement</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/45/jacques-leblanc" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#jacques-leblanc" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>38 395 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>74 597 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="leblanc-jacques" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Jacques LeBlanc">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="marco-leblanc" data-nb-depute="leblanc-marco" data-nb-chercher="marco leblanc belle-baie-belledune belle-baie-belledune liberal party parti liberal government house leader leader parlementaire du gouvernement" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Marco LeBlanc</b>
-          <span>Belle-Baie-Belledune · <em>leader parlementaire du gouvernement</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/180/marco-leblanc" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#marco-leblanc" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>46 025 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>75 000 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="leblanc-marco" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Marco LeBlanc">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="eric-mallet" data-nb-depute="mallet-eric" data-nb-chercher="eric mallet shippagan-les-iles shippagan-les-iles liberal party parti liberal" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Eric Mallet</b>
-          <span>Shippagan-Les-Îles</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/158/eric-mallet" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#eric-mallet" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>31 696 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>68 208 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="mallet-eric" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Eric Mallet">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="luc-robichaud" data-nb-depute="robichaud-luc" data-nb-chercher="luc robichaud hautes-terres-nepisiguit hautes-terres-nepisiguit liberal party parti liberal" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Luc Robichaud</b>
-          <span>Hautes-Terres-Nepisiguit</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/190/luc-robichaud" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#luc-robichaud" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>43 875 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>74 933 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="robichaud-luc" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Luc Robichaud">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="tania-sodhi" data-nb-depute="sodhi-tania" data-nb-chercher="tania sodhi moncton northwest moncton-nord-ouest liberal party parti liberal" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Tania Sodhi</b>
-          <span>Moncton-Nord-Ouest</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/195/tania-sodhi" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#tania-sodhi" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Tania_Sodhi" rel="noopener" title="À propos de Tania Sodhi sur Wikipédia" aria-label="À propos de Tania Sodhi sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>14 735 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>57 475 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="sodhi-tania" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Tania Sodhi">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="natacha-vautour" data-nb-depute="vautour-natacha" data-nb-chercher="natacha vautour dieppe-memramcook dieppe-memramcook liberal party parti liberal government caucus chair presidente du caucus du gouvernement" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Natacha Vautour</b>
-          <span>Dieppe-Memramcook · <em>présidente du caucus du gouvernement</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/193/natacha-vautour" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#natacha-vautour" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>31 467 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>55 819 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="vautour-natacha" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Natacha Vautour">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="kate-wilcott" data-nb-depute="wilcott-kate" data-nb-chercher="kate wilcott saint john west-lancaster saint john-ouest-lancaster liberal party parti liberal" style="--parti:#C0161D">
-        <p class="nb-ligne-nom"><b>Kate Wilcott</b>
-          <span>Saint John-Ouest-Lancaster</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/204/kate-wilcott" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#kate-wilcott" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>17 669 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>59 380 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="wilcott-kate" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Kate Wilcott">Suivre</button>
-      </div>
-    </div>
-  </section>
-  <section class="nb-section" data-nb-groupe>
-    <div class="nb-section-tete" style="border-bottom-color:#005DAC">
-      <h3>Progressive Conservative Party</h3>
-      <span class="nb-compte" data-nb-compte-groupe>16</span>
-    </div>
-    <div class="nb-lignes-deputes">
-      <div class="nb-ligne-depute" id="margaret-johnson" data-nb-depute="johnson-margaret" data-nb-chercher="margaret johnson carleton-victoria carleton-victoria progressive conservative party parti progressiste-conservateur leader of the official opposition chef de l’opposition officielle" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b><a href="/ministres/margaret-johnson">Margaret Johnson</a></b>
-          <span>Carleton-Victoria · <em>chef de l’opposition officielle</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/167/margaret-johnson" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/margaret-johnson" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Margaret_Johnson_(femme_politique)" rel="noopener" title="À propos de Margaret Johnson sur Wikipédia" aria-label="À propos de Margaret Johnson sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>11 451 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>73 945 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="johnson-margaret" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Margaret Johnson">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="richard-ames" data-nb-depute="ames-richard" data-nb-chercher="richard ames carleton-york carleton-york progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Richard Ames</b>
-          <span>Carleton-York</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/165/richard-ames" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#richard-ames" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>6 326 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>71 863 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="ames-richard" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Richard Ames">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="kris-austin" data-nb-depute="austin-kris" data-nb-chercher="kris austin fredericton-grand lake fredericton-grand lake progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Kris Austin</b>
-          <span>Fredericton-Grand Lake</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/16/kris-austin" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#kris-austin" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Kris_Austin" rel="noopener" title="À propos de Kris Austin sur Wikipédia" aria-label="À propos de Kris Austin sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>12 009 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>58 728 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="austin-kris" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Kris Austin">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="kathy-bockus" data-nb-depute="bockus-kathy" data-nb-chercher="kathy bockus saint croix sainte-croix progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Kathy Bockus</b>
-          <span>Sainte-Croix</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/162/kathy-bockus" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#kathy-bockus" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Kathy_Bockus" rel="noopener" title="À propos de Kathy Bockus sur Wikipédia" aria-label="À propos de Kathy Bockus sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>13 133 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>65 200 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="bockus-kathy" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Kathy Bockus">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="michelle-conroy" data-nb-depute="conroy-michelle" data-nb-chercher="michelle conroy miramichi east miramichi-est progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Michelle Conroy</b>
-          <span>Miramichi-Est</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/29/michelle-conroy" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#michelle-conroy" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Michelle_Conroy" rel="noopener" title="À propos de Michelle Conroy sur Wikipédia" aria-label="À propos de Michelle Conroy sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>17 718 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>65 415 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="conroy-michelle" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Michelle Conroy">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="ryan-cullins" data-nb-depute="cullins-ryan" data-nb-chercher="ryan cullins fredericton-york fredericton-york progressive conservative party parti progressiste-conservateur official opposition caucus chair president du caucus de l’opposition officielle" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Ryan Cullins</b>
-          <span>Fredericton-York · <em>président du caucus de l’opposition officielle</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/164/ryan-cullins" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#ryan-cullins" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>3 956 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>64 518 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="cullins-ryan" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Ryan Cullins">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="bill-hogan" data-nb-depute="hogan-bill" data-nb-chercher="bill hogan woodstock-hartland woodstock-hartland progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Bill Hogan</b>
-          <span>Woodstock-Hartland</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/166/bill-hogan" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#bill-hogan" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>10 399 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>61 657 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="hogan-bill" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Bill Hogan">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="ian-lee" data-nb-depute="lee-ian" data-nb-chercher="ian lee fundy-the isles-saint john lorneville fundy-the isles-saint john lorneville progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Ian Lee</b>
-          <span>Fundy-The Isles-Saint John Lorneville</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/205/ian-lee" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#ian-lee" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>17 366 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>57 388 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="lee-ian" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Ian Lee">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="don-monahan" data-nb-depute="monahan-don" data-nb-chercher="don monahan arcadia-butternut valley-maple hills arcadia-butternut valley-maple hills progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Don Monahan</b>
-          <span>Arcadia-Butternut Valley-Maple Hills</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/198/don-monahan" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#don-monahan" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>19 994 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>74 958 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="monahan-don" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Don Monahan">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="bill-oliver" data-nb-depute="oliver-bill" data-nb-chercher="bill oliver kings centre kings-centre progressive conservative party parti progressiste-conservateur official opposition whip whip de l’opposition officielle" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Bill Oliver</b>
-          <span>Kings-Centre · <em>whip de l’opposition officielle</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/24/bill-oliver" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#bill-oliver" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Bill_Oliver_(homme_politique)" rel="noopener" title="À propos de Bill Oliver sur Wikipédia" aria-label="À propos de Bill Oliver sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>13 576 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>58 693 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="oliver-bill" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Bill Oliver">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="kevin-russell" data-nb-depute="russell-kevin" data-nb-chercher="kevin russell miramichi west miramichi-ouest progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Kevin Russell</b>
-          <span>Miramichi-Ouest</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/209/kevin-russell" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#kevin-russell" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>8 918 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>33 213 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="russell-kevin" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Kevin Russell">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="glen-savoie" data-nb-depute="savoie-glen" data-nb-chercher="glen savoie saint john east saint john-est progressive conservative party parti progressiste-conservateur official opposition house leader leader parlementaire de l’opposition officielle" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Glen Savoie</b>
-          <span>Saint John-Est · <em>leader parlementaire de l’opposition officielle</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/21/glen-savoie" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#glen-savoie" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Glen_Savoie" rel="noopener" title="À propos de Glen Savoie sur Wikipédia" aria-label="À propos de Glen Savoie sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>11 110 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>61 918 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="savoie-glen" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Glen Savoie">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="tammy-scott-wallace" data-nb-depute="scott-wallace-tammy" data-nb-chercher="tammy scott-wallace sussex-three rivers sussex-three rivers progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Tammy Scott-Wallace</b>
-          <span>Sussex-Three Rivers</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/161/tammy-scott-wallace" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#tammy-scott-wallace" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Tammy_Scott-Wallace" rel="noopener" title="À propos de Tammy Scott-Wallace sur Wikipédia" aria-label="À propos de Tammy Scott-Wallace sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>27 335 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>72 660 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="scott-wallace-tammy" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Tammy Scott-Wallace">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="rob-weir" data-nb-depute="weir-rob" data-nb-chercher="rob weir riverview riverview progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Rob Weir</b>
-          <span>Riverview</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux nd">n/d</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/197/rob-weir" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#rob-weir" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>38 871 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>68 295 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="weir-rob" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Rob Weir">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="mary-wilson" data-nb-depute="wilson-mary" data-nb-chercher="mary wilson oromocto-sunbury oromocto-sunbury progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Mary Wilson</b>
-          <span>Oromocto-Sunbury</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/35/mary-wilson" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#mary-wilson" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Mary_Wilson_(femme_politique)" rel="noopener" title="À propos de Mary Wilson sur Wikipédia" aria-label="À propos de Mary Wilson sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>2 647 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>72 790 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="wilson-mary" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Mary Wilson">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="sherry-wilson" data-nb-depute="wilson-sherry" data-nb-chercher="sherry wilson albert-riverview albert-riverview progressive conservative party parti progressiste-conservateur" style="--parti:#005DAC">
-        <p class="nb-ligne-nom"><b>Sherry Wilson</b>
-          <span>Albert-Riverview</span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/33/sherry-wilson" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#sherry-wilson" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Sherry_Wilson" rel="noopener" title="À propos de Sherry Wilson sur Wikipédia" aria-label="À propos de Sherry Wilson sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>13 714 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>48 381 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="wilson-sherry" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Sherry Wilson">Suivre</button>
-      </div>
-    </div>
-  </section>
-  <section class="nb-section" data-nb-groupe>
-    <div class="nb-section-tete" style="border-bottom-color:#3D9B35">
-      <h3>Green Party</h3>
-      <span class="nb-compte" data-nb-compte-groupe>2</span>
-    </div>
-    <div class="nb-lignes-deputes">
-      <div class="nb-ligne-depute" id="david-coon" data-nb-depute="coon-david" data-nb-chercher="david coon fredericton lincoln fredericton-lincoln green party parti vert leader of the third party chef du tiers parti" style="--parti:#3D9B35">
-        <p class="nb-ligne-nom"><b><a href="/ministres/david-coon">David Coon</a></b>
-          <span>Fredericton-Lincoln · <em>chef du tiers parti</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux nd">n/d</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/14/david-coon" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres/david-coon" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/David_Coon" rel="noopener" title="À propos de David Coon sur Wikipédia" aria-label="À propos de David Coon sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>5 829 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>73 863 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="coon-david" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre David Coon">Suivre</button>
-      </div>
-      <div class="nb-ligne-depute" id="megan-mitton" data-nb-depute="mitton-megan" data-nb-chercher="megan mitton tantramar tantramar green party parti vert third party house leader leader parlementaire du tiers parti" style="--parti:#3D9B35">
-        <p class="nb-ligne-nom"><b>Megan Mitton</b>
-          <span>Tantramar · <em>leader parlementaire du tiers parti</em></span></p>
-        <p class="nb-ligne-chiffres">
-          <span class="nb-taux vert" title="3 votes sur 3">100 %</span>
-          <span class="nb-ligne-pl">0 PL</span>
-        </p>
-        <p class="nb-ligne-liens"><a href="https://www.legnb.ca/fr/parlementaires/actuel/27/megan-mitton" rel="noopener">Fiche officielle →</a></p>
-        <span class="nb-outils"><button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/ministres#megan-mitton" data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button><a class="nb-reseau" data-nb-reseau="wikipedia" href="https://fr.wikipedia.org/wiki/Megan_Mitton" rel="noopener" title="À propos de Megan Mitton sur Wikipédia" aria-label="À propos de Megan Mitton sur Wikipédia">W</a><details class="nb-fin">
-      <summary class="nb-reseau" data-nb-reseau="finances" title="Finances publiques" aria-label="Finances publiques">$</summary>
-      <div class="nb-fin-menu">
-        <p class="nb-fin-tete">Finances publiques · Exercice 2025-2026</p>
-        <p class="nb-fin-ligne"><span>Total des frais</span><b>23 814 $</b></p><p class="nb-fin-ligne"><span>Budget du bureau de circonscription</span><b>60 130 $</b></p>
-        <p class="nb-fin-note">Ce ne sont pas des salaires. L’indemnité de session fait partie de la rémunération ; le reste rembourse des frais — kilométrage, avion, comités, déplacements. Le budget du bureau de circonscription paie un local et son personnel, pas la personne.</p>
-      </div>
-    </details></span>
-        <button class="nb-suivre" type="button" data-nb-suivre="mitton-megan" data-nb-suivre-genre="depute"
-          data-nb-suivre-mots="Suivre|Suivi"
-          aria-pressed="false" title="Suivre Megan Mitton">Suivre</button>
-      </div>
-    </div>
-  </section>
-  <footer class="nb-pied">
-    <p><strong>Site non officiel.</strong> Données publiques de l'Assemblée législative du Nouveau-Brunswick (legnb.ca) et du gouvernement du Nouveau-Brunswick (gnb.ca). La version imprimée des projets de loi reste la version officielle.</p>
-    <p>Données lues le 7 nov. 2026.</p>
-  </footer>
-  <div class="nb-tricolore" aria-hidden="true"><i></i><i></i><i></i></div>
-  <div class="nb-pied-liens">
-    <span>Site non officiel — Données publiques de l'Assemblée législative du Nouveau-Brunswick (legnb.ca) et du gouvernement du Nouveau-Brunswick (gnb.ca).</span>
-    
-    <a href="https://dafrsolution.com" rel="noopener">Une réalisation de DAFR Solution</a>
-    <a data-nb-autre-langue="en" href="/en/ministers" hreflang="en" rel="alternate">English</a>
+<body data-page="ministres" data-donnees="ministers,deputesRaw,deputeEmails,presences,historiqueLeg,billsParrains,stats">
+
+<!-- Ticker brutaliste : bande noire défilante — contenu rempli avec les VRAIES
+     données par renderTicker() (appelé une fois les datasets chargés). -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-text" id="tickerA">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerB">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
-<script src="/commun/nb.js" defer></script>
+
+<div id="dq-topbar">
+<header class="top">
+  <div class="brand">
+    <div class="brand-text" role="button" tabindex="0" aria-label="Retour à l'aperçu" onclick="goToTab('apercu')">
+      <!-- Volontairement un div, et non un titre de niveau 1 : le nom du site se
+           répète sur chaque page, alors que le titre de niveau 1 doit annoncer
+           le sujet de LA page. C'est le titre de une de la vue active qui joue
+           ce rôle, et le générateur de pages de section s'en assure.
+           (Pas de balise écrite en toutes lettres dans ce commentaire : elle
+           fausserait les outils qui comptent les titres à l'expression
+           régulière.) -->
+      <div class="brand-title">Dossier<span class="brand-blue">Québec</span></div>
+      <p>Qui siège, qui légifère, qui vote quoi</p>
+    </div>
+    <!-- Feuille d'érable : passerelle vers le site fédéral DossierCanada.
+         Flippe jaune ↔ rouge toutes les 20 s (voir le script plus bas). -->
+    <a class="maple-flip" id="mapleFlip" role="button" tabindex="0"
+       title="Aller au site fédéral — DossierCanada"
+       aria-label="Aller au site fédéral — DossierCanada"
+       onclick="goToFederal(event)">
+      <svg viewBox="-2015 -2000 4030 4030" aria-hidden="true"><path fill="currentColor" d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z"/></svg>
+    </a>
+    <!-- Les volets municipaux (DossierVille) : un bouton « Villes » qui ouvre la liste.
+         Vrais liens <a href> : le clavier, le clic du milieu et « ouvrir dans un
+         nouvel onglet » fonctionnent sans une ligne de code. La barre oblique finale
+         est OBLIGATOIRE — sans elle, les chemins relatifs du volet (assets/, data/)
+         se résolvent depuis la racine du site. Plus de rel="nofollow" depuis le
+         21 sept. 2026 : les volets sont ouverts aux moteurs de recherche. Le chemin dit /quebec/ : c'est la
+         liste, sous « Villes », qui dit qu'il s'agit de la ville. -->
+    <details class="villes-menu" id="villesMenu">
+      <summary class="city-flip" title="Les volets municipaux" aria-label="Les volets municipaux">
+        <span data-i18n="nav.villes">Villes</span>
+      </summary>
+      <ul>
+        <li><a href="/quebec/">Québec <small>DossierVilleDeQuébec</small></a></li>
+        <li><a href="/montreal/">Montréal <small>DossierVilleDeMontréal</small></a></li>
+        <!-- Lévis, Longueuil et Laval : en pause depuis le 7 oct. 2026 (commun/navigation.js, VILLES_EN_PAUSE). -->
+      </ul>
+    </details>
+  </div>
+  <!-- Nav DANS la ligne du header (maquette : logo | menu | contrôles sur
+       UNE seule rangée). Sur mobile, le nav devient le panneau plein écran
+       du hamburger (position:fixed), peu importe où il vit dans le DOM. -->
+  <nav class="tabs">
+    <div class="close-menu" id="closeMenuBtn"><span data-i18n="nav.close">Fermer</span> ✕</div>
+    <!-- De vrais liens, pas des <button> : un moteur de recherche ne suit pas un bouton, et
+         /ministres, /projets-de-loi, /votes et /lexique n'avaient aucun lien qu'il puisse suivre. -->
+    <a href="/" data-view="apercu"><span class="n">01</span><span data-i18n="nav.apercu">Aperçu</span></a>
+    <a class="active" aria-current="page" href="/ministres" data-view="ministres"><span class="n">02</span><span data-i18n="nav.ministres">Ministres</span></a>
+    <a href="/projets-de-loi" data-view="projets"><span class="n">03</span><span data-i18n="nav.projets">Projets de loi</span></a>
+    <!-- Votes a quitté la barre le 30 oct. 2026 : les votes vivent dans les cartes des projets de
+         loi, et /votes reste lié du pied de page et de la page des projets. -->
+    <a href="/archives" data-view="archives"><span class="n">04</span><span data-i18n="nav.archives">Archives</span></a>
+    <a href="/lexique" data-view="lexique"><span class="n">05</span><span data-i18n="nav.lexique">Lexique</span></a>
+    <a href="/mon-dossier" data-view="mondossier" class="nav-mondossier"><span class="n">★</span><span data-i18n="nav.mondossier">Mon dossier</span></a>
+  </nav>
+  <div class="header-ctrls">
+    <div class="font-size-ctrl" id="fontSizeCtrl">
+      <button id="fontMinus" aria-label="Réduire le texte">A−</button>
+      <span id="fontPct">100%</span>
+      <button id="fontPlus" aria-label="Agrandir le texte">A+</button>
+    </div>
+    <!-- Aucun contenu textuel : l'icône est dessinée en CSS. Le nom accessible
+         vient donc entièrement de aria-label, que le JS tient à jour. -->
+    <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Passer au thème sombre" title="Passer au thème sombre"></button>
+    <button class="lang-toggle" id="langToggle">English</button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+</div>
+
+<script>
+/* Bascule le bloc logo+menu en mode compact après un peu de défilement.
+   Hystérésis (80 vs 20) pour éviter le clignotement autour du seuil. */
+(function(){
+  var bar = document.getElementById('dq-topbar');
+  var compact = false;
+  function onScroll(){
+    var y = window.scrollY;
+    if(!compact && y > 80){ compact = true; bar.classList.add('compact'); }
+    else if(compact && y < 20){ compact = false; bar.classList.remove('compact'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+
+// Ouvre le site fédéral DossierCanada dans un nouvel onglet.
+function goToFederal(evt){
+  if(evt) evt.stopPropagation();
+  window.open('https://dossiercanada.ca/', '_blank', 'noopener');
+}
+// Feuille d'érable : flippe jaune ↔ rouge toutes les 20 secondes.
+(function(){
+  var leaf = document.getElementById('mapleFlip');
+  if(!leaf) return;
+  setInterval(function(){ leaf.classList.toggle('is-red'); }, 20000);
+})();
+
+// Menu « Villes » : compte les clics vers chaque volet municipal (événement
+// personnalisé Vercel Web Analytics — onglet « Events » du tableau de bord), et
+// referme le menu quand on clique ailleurs ou qu'on appuie sur Échap.
+(function(){
+  var menu = document.getElementById('villesMenu');
+  if(!menu) return;
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(window.va) window.va('event', { name: 'clic_icone_ville', data: { ville: a.getAttribute('href') } });
+    });
+  });
+  document.addEventListener('click', function(e){ if(menu.open && !menu.contains(e.target)) menu.open = false; });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && menu.open){ menu.open = false; menu.querySelector('summary').focus(); } });
+})();
+</script>
+
+<div class="app">
+
+  <!-- APERÇU -->
+  <section class="view active" id="view-ministres">
+    <nav class="fil-ariane" aria-label="Fil d'Ariane"><a href="/" data-i18n="fil.accueil">Accueil</a><span class="sep" aria-hidden="true">›</span><span aria-current="page" data-i18n="fil.ministres">Ministres et député·e·s</span></nav>
+    <!-- Hero de vue (refonte brutaliste) -->
+    <div class="view-hero">
+      <h1 class="hero-h1 hero-h1-md">
+        <span class="hero-sujet" data-i18n="sujet.ministres">Ministres et député·e·s du Québec</span>
+        <span data-i18n="minhero.l1">Conseil des ministres</span>
+        <span class="hero-outline" data-i18n="minhero.l2">&amp; toute l'Assemblée.</span>
+      </h1>
+      <p class="view-hero-sub" data-i18n="minhero.sub">Les ministres, puis les 125 député·e·s de tous les partis (<b>les député·e·s sont plus bas</b>) — <b>une seule recherche pour les deux.</b></p>
+
+      <!-- Grande recherche façon maquette : loupe sur cellule jaune. Même rangée
+           que sur Projets de loi (.projets-controls = flex + retour à la ligne). -->
+      <div class="projets-controls">
+        <div class="brutal-search">
+          <span class="bs-icon" aria-hidden="true">🔍</span>
+          <input type="text" id="searchMinistres" data-i18n-placeholder="ph.searchMinistres" placeholder="Nom, circonscription, ville, code postal…">
+        </div>
+        <!-- Ce que la recherche a trouvé, juste sous la boîte (retourRecherche, commun/dq.js) : les
+             résultats s'affichent plus bas, hors de l'écran, et rien ne bougeait près de la boîte. -->
+        <div class="search-retour" id="searchRetour" aria-live="polite" hidden></div>
+        <!-- Tri par assiduité aux votes. La logique (toggleMinistresSort) existait
+             depuis le début, mais AUCUN bouton ne la déclenchait. -->
+        <button class="sort-toggle" id="ministresSortToggle" onclick="toggleMinistresSort()">Trier : ordre par défaut</button>
+      </div>
+    </div>
+
+    <!-- Composition : bande BLANCHE (maquette) — barre empilée bordée,
+         mêmes données réelles `seats`, rendu par renderHemicycle(). -->
+    <div class="band band-white bleed" id="band-composition">
+    <div class="section-head" id="sec-composition">
+      <div>
+        <h2 data-i18n="h.composition">Composition — 125 sièges</h2>
+      </div>
+      <span class="head-note" data-i18n="apercu.composition.sub">43e législature · répartition par groupe parlementaire</span>
+    </div>
+    <div class="compo-wrap">
+      <div class="compo-bar" id="compoBar"></div>
+      <div class="compo-legend" id="hemicycleLegend"></div>
+    </div>
+    </div>
+
+    <!-- Légende de la présence aux votes (Martin, 22 sept. 2026 : « faudrait une légende de
+         pourcentage de présence au vote »). Elle vaut pour les cartes des ministres et pour la liste
+         du reste de l'Assemblée, en dessous. L'échelle et les chiffres (étendue, médiane) sont
+         calculés par dq.js (renderLegendePresence) à partir de `presences`. Aucune couleur de
+         jugement : le site ne donne pas de verdict. -->
+    <div class="legende-presence" id="legendePresence">
+      <div class="lp-tete">
+        <b class="lp-titre" data-i18n="lp.titre">Lire la présence aux votes</b>
+        <a class="lp-lien" href="/lexique" data-i18n="lp.lien">Définition complète → Lexique</a>
+      </div>
+      <p class="lp-formule" data-i18n="lp.formule"><b>88 %</b> : sur 100 votes par appel nominal tenus depuis son premier vote de la législature, la personne a voté à 88 — pour, contre ou abstention, peu importe le sens.</p>
+      <div class="lp-echelle" id="lpEchelle"></div>
+      <ul class="lp-notes">
+        <li data-i18n="lp.debut">Le compte part du premier vote de chacun : une personne élue en cours de mandat n'est pas comptée absente des votes tenus avant son arrivée.</li>
+        <li data-i18n="lp.pres"><b>—</b> : la présidence de l'Assemblée* et ses trois vice-présidences. Par neutralité, elles votent peu ou pas du tout : un taux bas ne voudrait pas dire une absence.</li>
+        <li data-i18n="lp.nd"><b>n/d</b> : aucun vote enregistré pour cette personne.</li>
+        <li data-i18n="lp.officiel">Ce n'est pas une mesure officielle : l'Assemblée ne publie pas d'assiduité, et un vote manqué n'en dit pas la raison.</li>
+      </ul>
+      <p class="lp-asterisque" data-i18n="lp.aster">* La présidence de l'Assemblée n'est pas la même chose que le ou la première ministre : elle dirige les débats et reste neutre, alors que le ou la première ministre dirige le gouvernement et vote comme les autres élus. <a href="/lexique#role-presidence">Voir la présidence de l'Assemblée dans le Lexique →</a></p>
+      <p class="lp-asterisque lp-asterisque-suite" data-i18n="lp.aster2">** Mis à jour chaque matin : le site relit le registre des votes de l'Assemblée et recalcule le taux de chacun, puis la médiane, les couleurs et les nombres ci-dessus. Un vote tenu un jour apparaît le lendemain ; pendant la dissolution, rien ne bouge.</p>
+    </div>
+
+    <div class="role-group-title" id="combinedTitle" style="display:none;"></div>
+
+    <div class="section-head min-group-head" id="ministresTitle">
+      <!-- La capsule « Votes ↑ ↓ » (Martin, 6 oct. 2026) : classe TOUT le monde, ministres et
+           député·e·s, par présence aux votes. ↑ : les plus présents d'abord ; ↓ : les moins présents
+           d'abord ; un second clic sur la flèche active revient à l'ordre habituel. Remplie par
+           updateMinistresSortLabel (commun/dq.js). -->
+      <div class="tri-vote-rang"><h2 data-i18n="h.ministres2">Les ministres</h2><span class="tri-vote" id="triVoteMinistres"></span></div>
+      <span class="head-note"><span id="ministresCount"></span><span data-i18n="min.sub2b"> ministres — conseil en fonction (quebec.ca ou fiches de l’Assemblée)</span><br><span data-i18n="min.legende43">Présence et PL parrainés : 43<sup>e</sup> législature (2022-2026) seulement. « n/d » et 0 pour qui n’y siégeait pas, même avec plusieurs mandats plus anciens.</span></span>
+    </div>
+    <div class="grid" id="ministresGrid"></div>
+    <div class="prerendu" data-prerendu="ministers">
+      <ul aria-label="Conseil des ministres">
+        <li><b><a href="/ministres/paul-st-pierre-plamondon">Paul St-Pierre Plamondon</a></b> — Premier ministre · Ministre responsable de la Lutte contre l'itinérance <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/catherine-gentilcore">Catherine Gentilcore</a></b> — Vice-première ministre · Ministre de l’Immigration et de l’Intégration · Ministre responsable de l’Accession du Québec à l’Indépendance · Leader parlementaire du gouvernement <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/nicolas-marceau">Nicolas Marceau</a></b> — Ministre des Finances · Ministre responsable des Infrastructures <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/stephane-paquet">Stéphane Paquet</a></b> — Ministre du Développement économique, de l’Innovation et de l’Énergie · Ministre responsable de la Métropole et de la région de Montréal <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/alain-therrien">Alain Therrien</a></b> — Ministre responsable de l’Administration gouvernementale et président du Conseil du trésor · Ministre responsable de l'Action communautaire · Leader parlementaire adjoint du gouvernement <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/marie-karlynn-laflamme">Marie-Karlynn Laflamme</a></b> — Ministre de la Santé, de la Prévention et des Aînés · Ministre responsable de la région du Saguenay–Lac-Saint-Jean <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/joel-arseneau">Joël Arseneau</a></b> — Ministre de l’Éducation nationale <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/pascal-berube">Pascal Bérubé</a></b> — Ministre de la Culture, du Patrimoine, des Communications et de la Langue française · Ministre responsable de la région du Bas-Saint-Laurent <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/marie-claude-sarrazin">Marie-Claude Sarrazin</a></b> — Ministre de la Justice · Ministre responsable des Affaires intergouvernementales canadiennes · Ministre responsable des Relations avec les Québécois d’expression anglaise · Ministre responsable de la Lutte contre le racisme · Ministre responsable de la Lutte contre la discrimination envers les personnes LGBTQ+ · Ministre responsable de l’Accès à l’information et de la Protection des renseignements personnels · Ministre responsable de la Laïcité <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/nicolas-girard">Nicolas Girard</a></b> — Ministre des Transports et de la Mobilité durable · Ministre des Affaires municipales · Ministre responsable de la région de la Capitale-Nationale <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/elsie-lefebvre">Elsie Lefebvre</a></b> — Ministre de l’Enseignement supérieur · Ministre responsable de l'Habitation · Ministre responsable de la Condition féminine · Ministre responsable de la région de Lanaudière <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/jean-pellerin">Jean Pellerin</a></b> — Ministre de l’Environnement, de la Lutte contre les changements climatiques, de la Protection de la biodiversité, de la Faune et des Parcs · Ministre responsable de la région de la Mauricie <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/guy-jr-lapointe">Guy Jr Lapointe</a></b> — Ministre de la Sécurité intérieure · Ministre responsable de la région de la Montérégie <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/natalie-bisaillon">Natalie Bisaillon</a></b> — Ministre des Ressources naturelles et des Forêts · Ministre responsable de la région du Centre-du-Québec et de la région de la Chaudière-Appalaches <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/bernard-sevigny">Bernard Sévigny</a></b> — Ministre de l’Agriculture, des Pêcheries et de l’Alimentation · Ministre responsable de la région de l’Estrie <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/dieudonne-ella-oyono">Dieudonné Ella Oyono</a></b> — Ministre des Relations internationales, de la Francophonie et du Commerce extérieur · Ministre responsable de la région de Laval <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/mathieu-lebrun">Mathieu Lebrun</a></b> — Ministre du Travail, de l’Emploi et de la Solidarité sociale <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/meganne-perry-melancon">Méganne Perry Mélançon</a></b> — Ministre de la Famille et de la Jeunesse · Ministre responsable des Sports et des Loisirs · Ministre responsable de la région de la Gaspésie–Îles-de-la-Madeleine <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/simon-pierre-savard-tremblay">Simon-Pierre Savard-Tremblay</a></b> — Ministre responsable des Relations avec les Premières Nations et les Inuit <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/camille-pellerin-forget">Camille Pellerin-Forget</a></b> — Ministre responsable des Institutions démocratiques · Ministre déléguée à la Santé mentale et aux Services sociaux · Ministre responsable de la région de l’Outaouais <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/meggie-richard">Meggie Richard</a></b> — Ministre responsable des Régions et de l’Occupation du territoire · Ministre responsable de la région de la Côte-Nord <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/sebastien-d-astous">Sébastien D'Astous</a></b> — Ministre délégué à l’Efficacité gouvernementale et à l’Allègement réglementaire de l’État · Ministre responsable de la région de l’Abitibi-Témiscamingue et de la région du Nord-du-Québec <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/anne-nguyen">Anne Nguyen</a></b> — Ministre déléguée à l’Intelligence artificielle et au Numérique · Ministre responsable de la région des Laurentides <span class="pr-meta">(PQ)</span></li>
+        <li><b><a href="/ministres/nadine-le-gal">Nadine Le Gal</a></b> — Présidente du caucus du gouvernement <span class="pr-meta">(PQ)</span></li>
+      </ul>
+      <p class="pr-note">Le Conseil des ministres du Québec compte 24 membres, dont le premier ministre Paul St-Pierre Plamondon (au 6 novembre 2026). Source officielle : <a href="https://www.quebec.ca/premiere-ministre/equipe/conseil-des-ministres" rel="noopener">quebec.ca</a>.<noscript> Les filtres, la recherche et le détail de chaque fiche demandent JavaScript.</noscript></p>
+    </div>
+
+    <!-- FINANCES PUBLIQUES : bande BLEUE pleine largeur, à la place de l'ancien comparateur de
+         ministres (Martin, 6 oct. 2026 : « au lieu d'avoir un comparateur qui sert à rien, un tableau
+         où on sélectionne un député et toutes les finances publiques attachées à lui ou à sa
+         fonction »). On choisit une personne ; trois blocs : ce qu'elle gagne (barème), ce qui est
+         alloué à sa circonscription (barème), ce qu'elle a déclaré avoir dépensé (son rapport).
+         Données : data/finances.json (scrapers/finances.js), tout vient de l'Assemblée nationale.
+         JAMAIS un classement, jamais un total que l'Assemblée ne donne pas. Le bouton « $ » de
+         chaque fiche mène ici (voirFinances, commun/dq.js). -->
+    <div class="band band-blue bleed" id="band-finances">
+    <div class="section-head" id="sec-finances">
+      <div>
+        <h2 data-i18n="h.finances">Finances publiques</h2>
+        <div class="sub" data-i18n="fin.sub">Choisissez une personne : ce qu'elle gagne, ce qui lui est alloué, ce qu'elle a déclaré avoir dépensé — jamais un classement</div>
+      </div>
+    </div>
+    <div class="toolbar comparateur-toolbar finances-toolbar">
+      <select id="financesSelect" aria-label="Choisir un·e député·e" onchange="renderFinances()"></select>
+      <!-- Le bouton « $ » d'une fiche fait descendre jusqu'ici : cette flèche ramène aux ministres d'un
+           clic (Martin, 6 oct. 2026 : d'abord en haut de la page, puis « faudrait que ça ramène aux
+           ministres »). -->
+      <button type="button" class="fin-haut" id="financesHaut" aria-label="Revenir aux ministres" title="Revenir aux ministres" onclick="retourMinistres()">↑</button>
+    </div>
+    <div id="financesTable"></div>
+    </div>
+
+    <div class="section-head min-group-head" id="deputesTitle">
+      <div><h2 data-i18n="min.restTitle">Le reste de l'Assemblée</h2></div>
+      <span class="head-note" data-i18n="min.restNote">Tous les partis — 125 sièges au total</span>
+    </div>
+    <div class="grid" id="deputesList"></div>
+    <div class="prerendu" data-prerendu="deputesRaw">
+      <ul aria-label="Le reste de l’Assemblée">
+        <li>Alexandre Leduc — Hochelaga-Maisonneuve <span class="pr-meta">(QS)</span></li>
+        <li>Andrés Fontecilla — Laurier-Dorion <span class="pr-meta">(QS)</span></li>
+        <li>Sol Zanetti — Jean-Lesage <span class="pr-meta">(QS)</span></li>
+        <li>Etienne Grandmont — Taschereau <span class="pr-meta">(QS)</span></li>
+        <li>Madwa-Nika Cadet — Bourassa-Sauvé <span class="pr-meta">(PLQ)</span></li>
+        <li>Brigitte B . Garceau — Robert-Baldwin <span class="pr-meta">(PLQ)</span></li>
+        <li>Gregory Kelley — Jacques-Cartier <span class="pr-meta">(PLQ)</span></li>
+        <li>Elisabeth Prass — D'Arcy-McGee <span class="pr-meta">(PLQ)</span></li>
+        <li>Michelle Setlakwe — Mont-Royal–Outremont <span class="pr-meta">(PLQ)</span></li>
+        <li>Valérie Assouline — Saint-Laurent <span class="pr-meta">(PLQ)</span></li>
+        <li>David Bowles — Pierre-Laporte <span class="pr-meta">(PLQ)</span></li>
+        <li>Pier-Luc Bujold — Bonaventure <span class="pr-meta">(PQ)</span></li>
+        <li>Benoit Clermont — Saint-Henri–Sainte-Anne <span class="pr-meta">(PLQ)</span></li>
+        <li>Geneviève Couture — Mirabel <span class="pr-meta">(PQ)</span></li>
+        <li>Catherine Drouin — Labelle <span class="pr-meta">(PQ)</span></li>
+        <li>Éric Duhaime — Bellechasse <span class="pr-meta">(PCQ)</span></li>
+        <li>Madeleine Féquière — Chomedey <span class="pr-meta">(PLQ)</span></li>
+        <li>Marie Claude Fournier — Fabre <span class="pr-meta">(PLQ)</span></li>
+        <li>Cédric Gagnon-Ducharme — Borduas <span class="pr-meta">(PQ)</span></li>
+        <li>Frédéric Laplante — Huntingdon <span class="pr-meta">(PQ)</span></li>
+        <li>Odette Lavigne — René-Lévesque <span class="pr-meta">(PQ)</span></li>
+        <li>Michel Leblanc — Marguerite-Bourgeoys <span class="pr-meta">(PLQ)</span></li>
+        <li>Roxane Milot — Sainte-Marie–Saint-Jacques <span class="pr-meta">(QS)</span></li>
+        <li>Élodie Murphy-Gauthier — Laviolette–Saint-Maurice <span class="pr-meta">(PQ)</span></li>
+        <li>Nicolas Plourde — Anjou–Louis-Riel <span class="pr-meta">(PLQ)</span></li>
+        <li>Gisèle Pouhe Njall — Rosemont <span class="pr-meta">(QS)</span></li>
+        <li>Émile Simard — Dubuc <span class="pr-meta">(PQ)</span></li>
+        <li>Isabelle Thibeault — Roberval <span class="pr-meta">(PQ)</span></li>
+        <li>Stéphanie Vachon — Sherbrooke <span class="pr-meta">(QS)</span></li>
+        <li>Julie White — Jean-Talon <span class="pr-meta">(PLQ)</span></li>
+        <li>William Fradette — Lac-Saint-Jean <span class="pr-meta">(PQ)</span></li>
+        <li>Sylvie Tanguay — Saint-François <span class="pr-meta">(PQ)</span></li>
+        <li>Antoine Dionne Charest — Verdun <span class="pr-meta">(PLQ)</span></li>
+        <li>Désirée McGraw — Notre-Dame-de-Grâce <span class="pr-meta">(PLQ)</span></li>
+        <li>Frédéric Beauchemin — Brome-Missisquoi <span class="pr-meta">(PLQ)</span></li>
+        <li>Nada Boumeftah — Maurice-Richard <span class="pr-meta">(PLQ)</span></li>
+        <li>Linda Caron — La Pinière <span class="pr-meta">(PLQ)</span></li>
+        <li>André Fortin — Pontiac <span class="pr-meta">(PLQ)</span></li>
+        <li>James Hughes — Vaudreuil <span class="pr-meta">(PLQ)</span></li>
+        <li>Michel Langevin — Chapleau <span class="pr-meta">(PLQ)</span></li>
+        <li>Mathieu Lavoie — Montarville <span class="pr-meta">(PLQ)</span></li>
+        <li>David Logue — Gatineau <span class="pr-meta">(PLQ)</span></li>
+        <li>Félix Rhéaume — Châteauguay <span class="pr-meta">(PLQ)</span></li>
+        <li>Filomena Rotiroti — Jeanne-Mance–Viger <span class="pr-meta">(PLQ)</span></li>
+        <li>Olivier Bertin-Mahieux — Soulanges <span class="pr-meta">(PLQ)</span></li>
+        <li>Sacha Cannon — Hull <span class="pr-meta">(PLQ)</span></li>
+        <li>Caroline De Guire — Laval-des-Rapides <span class="pr-meta">(PLQ)</span></li>
+        <li>Monsef Derraji — Nelligan <span class="pr-meta">(PLQ)</span></li>
+        <li>Virginie Dufour — Mille-Îles <span class="pr-meta">(PLQ)</span></li>
+        <li>Louis Ialenti — Vimont-Auteuil <span class="pr-meta">(PLQ)</span></li>
+        <li>Sonia Ziadé — La Prairie <span class="pr-meta">(PLQ)</span></li>
+        <li>Alexandre Girard-Duchaine — Bertrand <span class="pr-meta">(PQ)</span></li>
+        <li>Ruba Ghazal — Mercier <span class="pr-meta">(QS)</span></li>
+        <li>Julie Guyot — Chambly <span class="pr-meta">(PQ)</span></li>
+        <li>Isabelle Blais — Maskinongé <span class="pr-meta">(PQ)</span></li>
+        <li>Jimmy Bouchard — Jonquière <span class="pr-meta">(PQ)</span></li>
+        <li>Ariane Boyer — Rivière-du-Loup–Témiscouata–Les Basques <span class="pr-meta">(PQ)</span></li>
+        <li>Diane Dallaire — Rouyn-Noranda–Témiscamingue <span class="pr-meta">(PQ)</span></li>
+        <li>Alexandre Daneau — Beauharnois <span class="pr-meta">(PQ)</span></li>
+        <li>Jocelyn Desjardins — Richelieu <span class="pr-meta">(PQ)</span></li>
+        <li>Sandra Hernández — Taillon <span class="pr-meta">(PQ)</span></li>
+        <li>Stephan Fogaing — Vachon <span class="pr-meta">(PQ)</span></li>
+        <li>Maxime Laporte — L'Assomption <span class="pr-meta">(PQ)</span></li>
+        <li>Sandrine Michon — Saint-Jérôme <span class="pr-meta">(PQ)</span></li>
+        <li>Pierre Nantel — Argenteuil <span class="pr-meta">(PQ)</span></li>
+        <li>Charles Page — Drummond–Bois-Francs <span class="pr-meta">(PQ)</span></li>
+        <li>Yohann St-Pierre — Rimouski <span class="pr-meta">(PQ)</span></li>
+        <li>Stéphane Tremblay — Abitibi-Est <span class="pr-meta">(PQ)</span></li>
+        <li>Linda Vaillant — Deux-Montagnes <span class="pr-meta">(PQ)</span></li>
+        <li>Véronique Venne — Joliette <span class="pr-meta">(PQ)</span></li>
+        <li>Sonia Caron — Ungava <span class="pr-meta">(PQ)</span></li>
+        <li>Isabelle Millette — Papineau <span class="pr-meta">(PQ)</span></li>
+        <li>Karim Elayoubi — Chauveau <span class="pr-meta">(PCQ)</span></li>
+        <li>Renaud Labrecque — Lotbinière-Frontenac <span class="pr-meta">(PCQ)</span></li>
+        <li>Patrick Paquet — Vanier-Les Rivières <span class="pr-meta">(PCQ)</span></li>
+        <li>Frédéric Poulin — Côte-du-Sud <span class="pr-meta">(PCQ)</span></li>
+        <li>Caroline Simard — Charlevoix–Côte-de-Beaupré <span class="pr-meta">(PCQ)</span></li>
+        <li>Adriana Szalontai — Champlain <span class="pr-meta">(PCQ)</span></li>
+        <li>Cécile Tremblay — Sainte-Rose <span class="pr-meta">(PLQ)</span></li>
+        <li>Tarek Henoud — Arthabaska-L’Érable <span class="pr-meta">(PCQ)</span></li>
+        <li>Jonathan Poulin — Beauce-Sud <span class="pr-meta">(PCQ)</span></li>
+        <li>Maïté Blanchette Vézina — La Peltrie <span class="pr-meta">(PCQ)</span></li>
+        <li>Marie-Josée Hélie — Montmorency <span class="pr-meta">(PCQ)</span></li>
+        <li>Karine Laflamme — Lévis <span class="pr-meta">(PCQ)</span></li>
+        <li>Jimmy Gagnon — Mégantic <span class="pr-meta">(PCQ)</span></li>
+        <li>Patricia Drouin — Beauce-Nord <span class="pr-meta">(PCQ)</span></li>
+        <li>Marcos Archambault — Louis-Hébert <span class="pr-meta">(PCQ)</span></li>
+        <li>Jean-François Arsenault — Granby <span class="pr-meta">(PQ)</span></li>
+        <li>Marc Tanguay — LaFontaine <span class="pr-meta">(PLQ)</span></li>
+        <li>Enrico Ciccone — Marquette <span class="pr-meta">(PLQ)</span></li>
+        <li>Frantz Benjamin — Viau <span class="pr-meta">(PLQ)</span></li>
+        <li>Audrey Bujold — Bellefeuille <span class="pr-meta">(PQ)</span></li>
+        <li>Dominique Dumas — Chutes-de-la-Chaudière <span class="pr-meta">(PCQ)</span></li>
+        <li>André Albert Morin — Acadie <span class="pr-meta">(PLQ)</span></li>
+        <li>Guillaume Langlois — Nicolet-Bécancour <span class="pr-meta">(PCQ)</span></li>
+        <li>Jennifer Maccarone — Westmount–Saint-Louis <span class="pr-meta">(PLQ)</span></li>
+        <li>Alexandre Boulerice — Gouin <span class="pr-meta">(QS)</span></li>
+        <li>Nathalie Boisclair — Daniel-Johnson <span class="pr-meta">(PQ)</span></li>
+        <li>Éloïse Coulombe — Charlesbourg <span class="pr-meta">(PCQ)</span></li>
+        <li>Marcel Bouchard — Portneuf <span class="pr-meta">(PCQ)</span></li>
+        <li>Charles Milliard — Orford <span class="pr-meta">(PLQ)</span></li>
+        <li>Gaétan Bédard — Saint-Jean <span class="pr-meta">(PQ)</span></li>
+        <li>Stéphane Handfield — Masson <span class="pr-meta">(PQ)</span></li>
+      </ul>
+      <p class="pr-note">Les 103 autres député·e·s. Source officielle : <a href="https://www.assnat.qc.ca/" rel="noopener">assnat.qc.ca</a>.<noscript> Les filtres, la recherche et le détail de chaque fiche demandent JavaScript.</noscript></p>
+    </div>
+    <div class="info-box" id="deputesInfoBox" data-i18n="trouve.info">Ces 125 entrées viennent directement de la liste officielle des députés en fonction de l'Assemblée nationale. Certains sièges peuvent changer entre deux mises à jour (démission, élection partielle) — cette liste est une photo prise au moment de la dernière mise à jour, pas un flux automatiquement à jour.</div>
+  </section>
+
+  <!-- MINISTRES & DÉPUTÉS -->
+  
+
+  <!-- PROJETS DE LOI -->
+  
+
+  <!-- VOTES -->
+  
+
+  <!-- ARCHIVES (Martin, 30 oct. 2026) : les législatures terminées, une carte chacune (projets de
+       loi, votes), puis les promesses de l'élection de 2026. Dessiné par commun/dq.js (renderArchives)
+       depuis data/archives/index.json : la 43e y entre seule à l'ouverture de la 44e. -->
+  
+
+  <!-- COMPTE & ABONNEMENT -->
+
+  <!-- LEXIQUE (fusion : personnes, lexique, apropos) -->
+  <!-- PROMESSES — vue sans onglet (comme view-bd). Accessible par /promesses,
+       par le bouton de la bande de dissolution et par le bloc du Lexique.
+       Contenu saisi à la main dans data/promises.json (voir la note du fichier). -->
+  
+
+  
+
+  <!-- PAGE CACHÉE — la BD « l'idée derrière le site ». Aucun onglet n'y mène :
+       accessible seulement par le « et moi » du bas de page (à côté de
+       « Construit avec Claude »). goToTab('bd') fonctionne sans bouton d'onglet. -->
+  <!-- /mon-dossier : l'espace de la personne connectée, côté ASSEMBLÉE seulement (Martin,
+       22 sept. 2026 : « mes dossiers provincial et les villes doivent être complètement séparés »).
+       Les villes y ont leur section (#villes) depuis le 30 sept. 2026 ; avant, /mes-dossiers. Tout le contenu
+       est rempli par commun/dq.js (renderMonDossier) : rien de personnel n'est dans le HTML. -->
+  <!-- LES RÈGLES (Martin, 5 oct. 2026 : « on pourrait quasiment faire une page de ça… à côté de
+       Facebook »). Les règles de sources du site, écrites une fois pour être montrées à quelqu'un :
+       tout ce que les encadrés de méthode disent page par page, réuni. Lien dans le pied de page. -->
+  
+
+  <!-- LA PAGE 404 (Martin, 6 oct. 2026 : « faut une page drôle 404 », puis : avec le jaune et tout
+       le kit du site, « morte dans l'œuf », et pas de blanc sur noir). Vercel sert 404.html, avec le
+       code 404, pour toute adresse qui n'existe pas ; avant, c'était le message brut de l'hébergeur,
+       en anglais. Fabriquée comme les autres pages (scripts/build-section-pages.js, vue
+       « introuvable »), donc avec l'en-tête, le menu et le pied du site.
+       « Morte dans l'œuf » est le libellé des projets de loi jamais rendus plus loin que la
+       présentation. Le faux vote est ÉTIQUETÉ comme une blague : ce site n'invente jamais de donnée. -->
+  
+
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+  
+
+  
+
+  
+
+</div>
+
+<!-- Footer maquette : texte à gauche (avec « construit avec Claude » suivi du
+     lien caché « et moi » vers la BD), liens texte en majuscules à droite. -->
+<footer>
+  <nav class="footer-nav" aria-label="Plan du site">
+    <a href="/" data-i18n="nav.apercu">Aperçu</a>
+    <a href="/ministres" data-i18n="nav.ministres">Ministres</a>
+    <a href="/projets-de-loi" data-i18n="nav.projets">Projets de loi</a>
+    <a href="/votes" data-i18n="nav.votes">Votes</a>
+    <a href="/promesses" data-i18n="fil.promesses">Promesses</a>
+    <a href="/archives" data-i18n="nav.archives">Archives</a>
+    <a href="/lexique" data-i18n="nav.lexique">Lexique</a>
+    <a href="/sources" data-i18n="fil.bd">Mises à jour du site</a>
+    <a href="/mon-dossier" data-i18n="nav.mondossier">Mon dossier</a>
+    <span class="footer-nav-villes"><span data-i18n="footer.villes">Villes :</span>
+      <a href="/quebec/">Québec</a>
+      <a href="/montreal/">Montréal</a>
+    </span>
+  </nav>
+  <div class="footer-inner">
+  <span class="footer-left-line"><span id="footerLeft">Site non officiel — données publiques ANQ &amp; Données Québec ·</span> <span id="footerRight">Une réalisation de</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com" target="_blank" rel="noopener">DAFR Solution</a></span>
+  <span class="footer-right-group">
+    <a class="footer-gh" href="/regles" data-i18n="footer.regles">Les règles</a>
+    <a class="footer-gh" href="/abonnement" data-i18n="footer.abonnement">Abonnement</a>
+    <a class="footer-gh" href="https://www.facebook.com/dossierquebec" target="_blank" rel="noopener" aria-label="DossierQuébec sur Facebook">Facebook</a>
+    <a class="footer-gh footer-coffee" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener" aria-label="Offre-moi un café" data-i18n="footer.coffee">Offre-moi un café</a>
+    <a class="footer-gh" href="/abonnement" data-i18n="footer.rss" title="Flux RSS : réservé aux abonné·e·s">Flux RSS</a>
+    <!-- Crédit exigé par la licence gratuite de Flaticon (icônes du bouton café, 3 nov. 2026). -->
+    <a class="footer-gh" href="https://www.flaticon.com/fr/icones-gratuites/cafe" target="_blank" rel="noopener" data-i18n="footer.flaticon">Icônes : Flaticon</a>
+    <a class="footer-gh" href="https://github.com/GrandFFormat/DossierQuebec" target="_blank" rel="noopener" data-i18n="footer.source">Code source</a>
+  </span>
+  </div>
+</footer>
+
+<button id="backToTop" class="dq-remonter" aria-label="Remonter en haut" title="Remonter en haut" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/commun/apercu.js"></script>
+<script src="/commun/dq.js"></script>
+<!-- Vercel Web Analytics — sans cookie, sans donnée personnelle (donc pas de
+     bannière de consentement requise). Le script est servi automatiquement par
+     Vercel quand Web Analytics est activé dans le tableau de bord du projet. -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

@@ -1,795 +1,570 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="light">
+<html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Projets de loi de la session — DossierNBrunswick</title>
-<meta name="description" content="Tous les projets de loi de la session en cours à l'Assemblée législative du Nouveau-Brunswick, avec leurs étapes datées et leurs textes officiels.">
-<meta name="theme-color" content="#0033a0">
-<link rel="canonical" href="https://dossiernbrunswick.ca/projets-de-loi">
-<link rel="alternate" hreflang="en" href="https://dossiernbrunswick.ca/en/bills">
-<link rel="alternate" hreflang="fr" href="https://dossiernbrunswick.ca/projets-de-loi">
-<link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi">
-<link rel="icon" href="/commun/nb.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/commun/industry.css">
-<link rel="stylesheet" href="/commun/nb.css">
+<!-- Consentement (Loi 25) : par défaut, Google Analytics n'a PAS le droit de déposer de témoins.
+     La bannière (commun/consentement.js) passe analytics_storage à « granted » après « Accepter ». -->
 <script>
-// Le thème avant le premier pixel : sans ça, une page sombre s'ouvre en blanc puis clignote.
-try { var m = localStorage.getItem('dnb:theme'); if (m === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
 </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-87R1S6SR9Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-87R1S6SR9Y', { content_group: 'Assemblée' });
+</script>
+<script src="/commun/consentement.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* La langue, avant d'afficher quoi que ce soit — EXACTEMENT la décision de langueDeDepart
+   (commun/dq.js) : « ?lang=en » dans l'adresse, sinon le choix gardé dans dvq:langue (commun à
+   tout le site) ; en revenant par Précédent ou Suivant, le choix gardé passe avant l'adresse.
+   En anglais, la page reste cachée le temps que dq.js la traduise : 1,5 s au plus, même s'il
+   échoue. lang="en" n'est posé qu'au moment de traduire (dq.js) : si la traduction n'arrive pas,
+   la page française ne s'annonce pas en anglais.
+   Tout est dans une fonction : une variable globale ici entrerait en collision avec les
+   déclarations de dq.js et le ferait planter en entier. */
+(function(){
+  try{
+    var valide = function(l){ return l === 'en' || l === 'fr'; };
+    var gardee = null;
+    try{ gardee = localStorage.getItem('dvq:langue'); }catch(e){}
+    var q = new URLSearchParams(location.search).get('lang');
+    var nav = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+    var parHistorique = !!nav && nav.type === 'back_forward';
+    var choix = (parHistorique && valide(gardee)) ? gardee : (valide(q) ? q : gardee);
+    if(choix !== 'en') return;
+    var racine = document.documentElement;
+    racine.classList.add('dq-en');
+    setTimeout(function(){ racine.classList.add('dq-pret'); }, 1500);
+  }catch(e){}
+})();
+</script>
+<title>Projets de loi du Québec expliqués en clair — DossierQuébec</title>
+<meta name="description" content="Les projets de loi de l'Assemblée nationale du Québec résumés en langage courant, avec leur étape réelle dans le processus et le lien vers le texte officiel.">
+<link rel="canonical" href="https://dossierquebec.ca/projets-de-loi">
+<!-- Plus de <link rel="alternate"> vers /feed.xml : le flux RSS est réservé aux abonné·e·s depuis le
+     21 oct. 2026 (api/feed.js), chacun avec son adresse personnelle dans Mon dossier. -->
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0E4FC1">
+
+<!-- Open Graph (aperçu au partage : Facebook, LinkedIn, iMessage…) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DossierQuébec">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:title" content="Projets de loi du Québec expliqués en clair — DossierQuébec">
+<meta property="og:description" content="Les projets de loi de l'Assemblée nationale du Québec résumés en langage courant, avec leur étape réelle dans le processus et le lien vers le texte officiel.">
+<meta property="og:url" content="https://dossierquebec.ca/projets-de-loi">
+<meta property="og:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
+<meta property="og:image:width" content="1702">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DossierQuébec — veille citoyenne de l'Assemblée nationale du Québec">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Projets de loi du Québec expliqués en clair — DossierQuébec">
+<meta name="twitter:description" content="Les projets de loi de l'Assemblée nationale du Québec résumés en langage courant, avec leur étape réelle dans le processus et le lien vers le texte officiel.">
+<meta name="twitter:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
+
+<link rel="icon" type="image/svg+xml" href="/commun/dq.svg">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/commun/dq-48.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/commun/dq-512.png">
+<link rel="apple-touch-icon" href="/commun/dq-512.png">
+
+<!-- Données structurées (aide Google à comprendre le site) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://dossierquebec.ca/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Projets de loi",
+      "item": "https://dossierquebec.ca/projets-de-loi"
+    }
+  ]
+}
+</script>
+<!-- Les DEUX préconnexions sont nécessaires et ce n'est pas un doublon :
+     googleapis.com sert la feuille CSS, gstatic.com sert les ~258 ko de
+     fichiers de police. Sans la seconde, le navigateur n'ouvre la connexion
+     vers gstatic qu'APRÈS avoir lu le CSS — un DNS + TLS en série, soit 100 à
+     300 ms perdus sur mobile à la première visite. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- ⚠️ « wght@400..900 » (deux points) demande la POLICE VARIABLE : un seul
+     fichier couvrant toutes les graisses, au lieu d'un fichier par graisse.
+     Mesuré : Archivo passe de 6 fichiers / 205 ko à 1 fichier / 34 ko, et
+     Archivo Narrow de 3 fichiers / 55 ko à 1 fichier / 18 ko — 260 ko et
+     9 requêtes ramenés à 52 ko et 2 requêtes, sans perdre aucune graisse.
+     Ne pas revenir à la liste « 400;500;600 » (points-virgules) : c'est la
+     syntaxe des fichiers statiques.
+     IBM Plex Mono a été retirée : utilisée nulle part. Aucun octet économisé
+     pour autant — un navigateur ne télécharge une police que si elle sert au
+     rendu, donc elle ne partait déjà pas. C'était du ménage, pas un gain. -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Archivo+Narrow:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/commun/dq.css">
 </head>
-<body>
-<div class="nb-page">
-  <div class="nb-ticker" aria-hidden="true"><div class="nb-ticker-piste"><span><span class="nb-etoile">★</span> DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span><span><span class="nb-etoile">★</span> DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span><span><span class="nb-etoile">★</span> DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span></div></div>
-  <header class="nb-entete">
-    <a class="nb-marque" href="/">
-      <span style="width:22px;height:22px;display:inline-flex"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon fill="var(--nb-jaune)" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg></span>
-      Dossier<em>NBrunswick</em>
-    </a>
-    <details class="nb-villes">
-      <summary>Villes<svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
-      <div class="nb-villes-menu">
-        <a href="https://dossierquebec.ca/represente-ta-ville" rel="noopener">+ Représentez votre ville</a>
-      </div>
-    </details>
-    <a class="nb-onglet" href="/"><span class="nb-num">01</span>Aperçu</a>
-    <a class="nb-onglet" href="/ministres"><span class="nb-num">02</span>Ministres</a>
-    <a class="nb-onglet" href="/projets-de-loi" aria-current="page"><span class="nb-num">03</span>Projets de loi</a>
-    <a class="nb-onglet" href="/lexique"><span class="nb-num">04</span>Lexique</a>
-    <a class="nb-onglet nb-onglet-etoile" href="/mon-dossier">
-      <span class="nb-etoile-petite" aria-hidden="true">★</span>Mon dossier<span class="nb-compteur-suivis" data-nb-compteur hidden></span></a>
-    <button class="nb-bouton-carre" type="button" data-nb-theme aria-pressed="false" title="Thème clair ou sombre">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
-      <span class="nb-invisible">Thème clair ou sombre</span>
-    </button>
-    <div class="nb-zoom" role="group" aria-label="Agrandir le texte">
-      <button type="button" data-nb-zoom="moins" title="Réduire le texte">A−</button>
-      <output data-nb-zoom-valeur>100%</output>
-      <button type="button" data-nb-zoom="plus" title="Agrandir le texte">A+</button>
-    </div>
-    <a class="nb-onglet" data-nb-autre-langue="en" href="/en/bills" hreflang="en" rel="alternate">English</a>
-  </header>
-  <section class="nb-section">
-    <p class="nb-bande-chemin">Le chemin d’un projet de loi :
-      <span>1re lecture</span><i aria-hidden="true">→</i><span>2e lecture</span><i aria-hidden="true">→</i><span>Étude en comité</span><i aria-hidden="true">→</i><span>3e lecture</span><i aria-hidden="true">→</i><span>Sanction royale</span>
-      <a href="/lexique">C’est quoi, ces étapes ? → Lexique</a></p>
-  </section>
-  <section class="nb-section">
-    <p class="nb-surtitre nb-surtitre-rouge">61ᵉ législature · 3ᵉ session</p>
-    <div class="nb-section-tete"><h1>Projets de loi de la session</h1></div>
-    <p class="nb-section-note">Chaque projet renvoie au texte officiel, en français et en anglais. Les étapes et leurs dates sont celles publiées par l'Assemblée.</p>
-  </section>
-  <section class="nb-section">
-    <form class="nb-cherche" role="search" data-nb-cherche hidden>
-      <label class="nb-invisible" for="nb-cherche-pdl">Chercher un projet de loi</label>
-      <span class="nb-cherche-loupe" aria-hidden="true">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
-      </span>
-      <input id="nb-cherche-pdl" type="search" autocomplete="off" placeholder="Numéro, titre, parrain, étape…">
-      <button type="reset">Effacer</button>
-    </form>
-    <div class="nb-filtres" role="group" aria-label="Filtrer les projets de loi">
-      <button type="button" data-nb-filtre="tous" aria-pressed="true">Tous</button>
-      <button type="button" data-nb-filtre="encours" aria-pressed="false">En cours</button>
-      <button type="button" data-nb-filtre="adopte" aria-pressed="false">Sanctionnés</button>
-    </div>
-    <p class="nb-section-note" data-nb-compte-pdl></p>
-    <p class="nb-vide" data-nb-cherche-rien="Personne ne correspond à « {q} »." hidden></p>
-    <div class="nb-pdls">
-      <details class="nb-pdl" data-nb-pdl="14" data-nb-etat="encours" data-nb-chercher="loi concernant les mesures de reforme de l’impot foncier projet de loi d’initiative ministerielle etape de la deuxieme lecture franchie hon. aaron kennedy liberal party quispamsis pl nᵒ 14 pl 14 bill 14 14">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 14</span>
-          <span class="nb-pdl-titre">
-            <b>Loi concernant les mesures de réforme de l’impôt foncier</b>
-            <small>Déposé par Hon. Aaron KENNEDY · Dépôt 4 nov. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Le directeur de l'évaluation foncière obtient un accès élargi aux propriétés et aux renseignements financiers pour évaluer les biens</li><li>Les propriétaires qui refusent de fournir les renseignements demandés perdent le droit de contester leur évaluation</li><li>Les gouvernements locaux pourront imposer une nouvelle taxe sur les biens vacants, selon des règles à venir</li><li>Les revenus de cette taxe devront servir au développement du logement, économique ou à l'administration de la taxe</li><li>Les municipalités et districts ruraux pourront conclure des accords d'avantages communautaires avec des promoteurs</li><li>Un nouveau crédit d'impôt foncier pour résidence principale est créé à compter de 2027, remplaçant l'ancien à terme</li><li>Le crédit d'impôt actuel cesse de s'appliquer pour les années après 2026</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="4 nov. 2026"><span>1re lecture</span><time datetime="2026-11-04">4 nov. 2026</time></li>
-      <li class="faite" title="6 nov. 2026"><span>2e lecture</span><time datetime="2026-11-06">6 nov. 2026</time></li>
-      <li class="a-venir"><span>Étude en comité</span></li>
-      <li class="a-venir"><span>3e lecture</span></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/aaron-kennedy">Aaron Kennedy</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>6 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/14-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-14-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-14-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-14.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%2014%20%E2%80%94%20Loi%20concernant%20les%20mesures%20de%20r%C3%A9forme%20de%20l%E2%80%99imp%C3%B4t%20foncier&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F14-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F14-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F14-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F14-61-3&title=PL%20n%E1%B5%92%2014%20%E2%80%94%20Loi%20concernant%20les%20mesures%20de%20r%C3%A9forme%20de%20l%E2%80%99imp%C3%B4t%20foncier" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%2014%20%E2%80%94%20Loi%20concernant%20les%20mesures%20de%20r%C3%A9forme%20de%20l%E2%80%99imp%C3%B4t%20foncier%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F14-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%2014%20%E2%80%94%20Loi%20concernant%20les%20mesures%20de%20r%C3%A9forme%20de%20l%E2%80%99imp%C3%B4t%20foncier%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F14-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/14-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-croissant.png" width="24" height="24" alt="">Soutenez-nous !</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="13" data-nb-etat="encours" data-nb-chercher="loi modifiant la loi sur l’universite de moncton projet de loi d’initiative ministerielle etape de la troisieme lecture franchie hon. jean-claude d'amours liberal party edmundston-vallee-des-rivieres pl nᵒ 13 pl 13 bill 13 13">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 13</span>
-          <span class="nb-pdl-titre">
-            <b>Loi modifiant la Loi sur l’Université de Moncton</b>
-            <small>Déposé par Hon. Jean-Claude D'AMOURS · Dépôt 3 nov. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la troisième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Précise les programmes d'études que chaque campus de l'Université de Moncton peut offrir</li><li>Le campus de Moncton peut offrir des programmes de baccalauréat, maîtrise et doctorat</li><li>Le campus d'Edmundston peut offrir des baccalauréats et des maîtrises en foresterie</li><li>Le campus de Shippagan peut offrir des baccalauréats, dont en gestion des zones côtières</li><li>Tous ces programmes doivent être approuvés par le Sénat académique et le Conseil des gouverneurs</li><li>Modifie une règle sur la composition d'un comité prévu par la loi</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="3 nov. 2026"><span>1re lecture</span><time datetime="2026-11-03">3 nov. 2026</time></li>
-      <li class="faite" title="4 nov. 2026"><span>2e lecture</span><time datetime="2026-11-04">4 nov. 2026</time></li>
-      <li class="faite" title="4 nov. 2026"><span>Étude en comité</span><time datetime="2026-11-04">4 nov. 2026</time></li>
-      <li class="faite" title="6 nov. 2026"><span>3e lecture</span><time datetime="2026-11-06">6 nov. 2026</time></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/jean-claude-d-amours">Jean-Claude D'Amours</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>6 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/13-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-13-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-13-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-13.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%2013%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99Universit%C3%A9%20de%20Moncton&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F13-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F13-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F13-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F13-61-3&title=PL%20n%E1%B5%92%2013%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99Universit%C3%A9%20de%20Moncton" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%2013%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99Universit%C3%A9%20de%20Moncton%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F13-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%2013%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99Universit%C3%A9%20de%20Moncton%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F13-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/13-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-carafe.png" width="24" height="24" alt="">Aidez DQ à rester gratuit !</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="12" data-nb-etat="encours" data-nb-chercher="loi concernant les jeunes, les marches numeriques et l’utilisation de la technologie projet de loi d’initiative ministerielle etape de la deuxieme lecture franchie hon. robert mckee, k.c. liberal party moncton centre pl nᵒ 12 pl 12 bill 12 12">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 12</span>
-          <span class="nb-pdl-titre">
-            <b>Loi concernant les jeunes, les marchés numériques et l’utilisation de la technologie</b>
-            <small>Déposé par Hon. Robert MCKEE, K.C. · Dépôt 3 nov. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Crée une nouvelle loi pour protéger les consommateurs de moins de 16 ans sur les plateformes numériques comme Instagram, TikTok, Snapchat et Roblox</li><li>Interdit aux fournisseurs les pratiques déloyales envers les jeunes : tromperie, pression indue, fausses urgences, conception qui empêche de se désabonner</li><li>Permet au jeune consommateur d'annuler une convention et de se faire rembourser dans les 15 jours si une pratique déloyale est en cause</li><li>Crée un directeur des marchés numériques et des agents de conformité pouvant inspecter les livres et documents des fournisseurs</li><li>Prévoit des pénalités administratives pouvant atteindre 10 000 $ pour un particulier et 25 000 $ pour une entreprise</li><li>Le Tribunal peut imposer des pénalités administratives allant jusqu'à 1 000 000 $ si l'intérêt public l'exige</li><li>Les infractions les plus graves peuvent entraîner une amende maximale de 5 000 000 $ ou jusqu'à 5 ans moins un jour de prison</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte. Le texte de ce projet dépassait la taille lue : le résumé ne porte que sur son début.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="3 nov. 2026"><span>1re lecture</span><time datetime="2026-11-03">3 nov. 2026</time></li>
-      <li class="faite" title="6 nov. 2026"><span>2e lecture</span><time datetime="2026-11-06">6 nov. 2026</time></li>
-      <li class="a-venir"><span>Étude en comité</span></li>
-      <li class="a-venir"><span>3e lecture</span></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/robert-mckee">Robert McKee</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>6 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/12-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-12-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-12-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-12.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%2012%20%E2%80%94%20Loi%20concernant%20les%20jeunes%2C%20les%20march%C3%A9s%20num%C3%A9riques%20et%20l%E2%80%99utilisation%20de%20la%20technologie&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F12-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F12-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F12-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F12-61-3&title=PL%20n%E1%B5%92%2012%20%E2%80%94%20Loi%20concernant%20les%20jeunes%2C%20les%20march%C3%A9s%20num%C3%A9riques%20et%20l%E2%80%99utilisation%20de%20la%20technologie" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%2012%20%E2%80%94%20Loi%20concernant%20les%20jeunes%2C%20les%20march%C3%A9s%20num%C3%A9riques%20et%20l%E2%80%99utilisation%20de%20la%20technologie%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F12-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%2012%20%E2%80%94%20Loi%20concernant%20les%20jeunes%2C%20les%20march%C3%A9s%20num%C3%A9riques%20et%20l%E2%80%99utilisation%20de%20la%20technologie%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F12-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/12-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-moulin.png" width="24" height="24" alt="">Gardez DQ vivant !</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="11" data-nb-etat="encours" data-nb-chercher="loi sur les permis visant les services de traitement des dependances projet de loi d’initiative ministerielle etape de la deuxieme lecture franchie hon. robert mckee, k.c. liberal party moncton centre pl nᵒ 11 pl 11 bill 11 11">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 11</span>
-          <span class="nb-pdl-titre">
-            <b>Loi sur les permis visant les services de traitement des dépendances</b>
-            <small>Déposé par Hon. Robert MCKEE, K.C. · Dépôt 3 nov. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Crée un régime de permis obligatoire pour quiconque offre des services de traitement des dépendances avec hébergement au Nouveau-Brunswick</li><li>Exige des vérifications d'antécédents judiciaires pour les demandeurs de permis et le personnel ayant des contacts avec les clients</li><li>Le ministre de la Santé peut refuser, suspendre, modifier ou annuler un permis en cas de non-conformité ou de risque pour la santé et la sécurité des clients</li><li>Les permis doivent être affichés publiquement et le ministre peut publier des renseignements sur les titulaires, incluant inspections et infractions</li><li>Des inspecteurs peuvent entrer dans les établissements, exiger des documents et enquêter sur le respect de la loi</li><li>Exige un plan de transition des clients avant toute fermeture volontaire d'un établissement ou remise d'un permis</li><li>Prévoit des amendes pour les infractions à la loi, notamment fournir des services sans permis ou fournir de faux renseignements</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="3 nov. 2026"><span>1re lecture</span><time datetime="2026-11-03">3 nov. 2026</time></li>
-      <li class="faite" title="4 nov. 2026"><span>2e lecture</span><time datetime="2026-11-04">4 nov. 2026</time></li>
-      <li class="a-venir"><span>Étude en comité</span></li>
-      <li class="a-venir"><span>3e lecture</span></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/robert-mckee">Robert McKee</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>4 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/11-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-11-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-11-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-11.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%2011%20%E2%80%94%20Loi%20sur%20les%20permis%20visant%20les%20services%20de%20traitement%20des%20d%C3%A9pendances&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F11-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F11-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F11-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F11-61-3&title=PL%20n%E1%B5%92%2011%20%E2%80%94%20Loi%20sur%20les%20permis%20visant%20les%20services%20de%20traitement%20des%20d%C3%A9pendances" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%2011%20%E2%80%94%20Loi%20sur%20les%20permis%20visant%20les%20services%20de%20traitement%20des%20d%C3%A9pendances%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F11-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%2011%20%E2%80%94%20Loi%20sur%20les%20permis%20visant%20les%20services%20de%20traitement%20des%20d%C3%A9pendances%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F11-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/11-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-filtre.png" width="24" height="24" alt="">Vive DQ libre !</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="10" data-nb-etat="encours" data-nb-chercher="loi modifiant la loi sur l’education projet de loi d’initiative ministerielle etape de la deuxieme lecture franchie hon. claire johnson liberal party moncton south pl nᵒ 10 pl 10 bill 10 10">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 10</span>
-          <span class="nb-pdl-titre">
-            <b>Loi modifiant la Loi sur l’éducation</b>
-            <small>Déposé par Hon. Claire JOHNSON · Dépôt 28 oct. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Ajoute une définition du « parcours d'immersion en français » dans la Loi sur l'éducation</li><li>Ce parcours offre un enseignement principalement en français comme langue seconde dans les écoles anglophones</li><li>Le directeur général peut mettre en place ce parcours selon les politiques provinciales établies par le ministre</li><li>Les élèves peuvent normalement commencer ce parcours en 1re année ou en 6e année</li><li>Un parent peut demander au directeur général de permettre à son enfant de commencer à un autre niveau scolaire</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="28 oct. 2026"><span>1re lecture</span><time datetime="2026-10-28">28 oct. 2026</time></li>
-      <li class="faite" title="3 nov. 2026"><span>2e lecture</span><time datetime="2026-11-03">3 nov. 2026</time></li>
-      <li class="a-venir"><span>Étude en comité</span></li>
-      <li class="a-venir"><span>3e lecture</span></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/claire-johnson">Claire Johnson</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>3 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/10-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-10-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-10-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-10.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%2010%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99%C3%A9ducation&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F10-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F10-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F10-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F10-61-3&title=PL%20n%E1%B5%92%2010%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99%C3%A9ducation" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%2010%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99%C3%A9ducation%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F10-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%2010%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99%C3%A9ducation%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F10-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/10-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-coeur.png" width="24" height="24" alt="">Contribuez au site !</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="9" data-nb-etat="encours" data-nb-chercher="loi modifiant la loi sur l’electricite projet de loi d’initiative ministerielle etape de la deuxieme lecture franchie hon. rene legacy liberal party bathurst pl nᵒ 9 pl 9 bill 9 9">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 9</span>
-          <span class="nb-pdl-titre">
-            <b>Loi modifiant la Loi sur l’électricité</b>
-            <small>Déposé par Hon. René LEGACY · Dépôt 27 oct. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Crée un compte spécial pour suivre les coûts liés à un possible nouveau projet nucléaire à la centrale de Point Lepreau</li><li>Ce compte couvrira des coûts comme l'étude du site, les exigences environnementales, la consultation des Premières Nations et des collectivités</li><li>Énergie NB devra tenir des registres détaillés et séparés pour ces coûts de pré-développement</li><li>À partir du 1er avril 2030, ces coûts pourront être inclus dans les tarifs d'électricité facturés aux clients</li><li>Le gouvernement pourra fixer par règlement un montant maximal de coûts inscriptibles au compte chaque année</li><li>La loi entre en vigueur le 1er avril 2027</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="27 oct. 2026"><span>1re lecture</span><time datetime="2026-10-27">27 oct. 2026</time></li>
-      <li class="faite" title="3 nov. 2026"><span>2e lecture</span><time datetime="2026-11-03">3 nov. 2026</time></li>
-      <li class="a-venir"><span>Étude en comité</span></li>
-      <li class="a-venir"><span>3e lecture</span></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/rene-legacy">René Legacy</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>3 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/9-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-9-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-9-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-9.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%209%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99%C3%A9lectricit%C3%A9&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F9-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F9-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F9-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F9-61-3&title=PL%20n%E1%B5%92%209%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99%C3%A9lectricit%C3%A9" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%209%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99%C3%A9lectricit%C3%A9%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F9-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%209%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20l%E2%80%99%C3%A9lectricit%C3%A9%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F9-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/9-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-machine4.png" width="24" height="24" alt="">Vive l’information publique !</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="8" data-nb-etat="encours" data-nb-chercher="loi modifiant la loi sur la reglementation des jeux projet de loi d’initiative ministerielle etape de la deuxieme lecture franchie hon. rene legacy liberal party bathurst pl nᵒ 8 pl 8 bill 8 8">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 8</span>
-          <span class="nb-pdl-titre">
-            <b>Loi modifiant la Loi sur la réglementation des jeux</b>
-            <small>Déposé par Hon. René LEGACY · Dépôt 27 oct. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Permet à la Société des jeux de conclure une entente pour désigner un organisme chargé d'exploiter des loteries de casino en ligne</li><li>Crée de nouvelles catégories : loterie de casino en direct et loterie de casino en ligne</li><li>Permet que des loteries de la Société soient exploitées par un autre organisme du gouvernement provincial</li><li>Supprime l'obligation de payer un droit de demande de licence si cette licence est déjà assujettie à un autre droit</li><li>Donne au gouvernement le pouvoir de fixer par règlement la méthode de calcul, le montant maximal et les modalités de paiement des droits de licence</li><li>Plusieurs modifications sont de nature linguistique, pour uniformiser le texte français de la loi</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="27 oct. 2026"><span>1re lecture</span><time datetime="2026-10-27">27 oct. 2026</time></li>
-      <li class="faite" title="3 nov. 2026"><span>2e lecture</span><time datetime="2026-11-03">3 nov. 2026</time></li>
-      <li class="a-venir"><span>Étude en comité</span></li>
-      <li class="a-venir"><span>3e lecture</span></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/rene-legacy">René Legacy</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>3 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/8-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-8-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-8-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-8.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%208%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20la%20r%C3%A9glementation%20des%20jeux&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F8-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F8-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F8-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F8-61-3&title=PL%20n%E1%B5%92%208%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20la%20r%C3%A9glementation%20des%20jeux" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%208%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20la%20r%C3%A9glementation%20des%20jeux%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F8-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%208%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20la%20r%C3%A9glementation%20des%20jeux%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F8-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/8-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-terrasse.png" width="24" height="24" alt="">Donnez un coup de pouce !</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="7" data-nb-etat="encours" data-nb-chercher="loi modifiant la loi sur les licences de brocanteurs projet de loi d’initiative ministerielle etape de la deuxieme lecture franchie hon. robert gauvin liberal party shediac bay-dieppe pl nᵒ 7 pl 7 bill 7 7">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 7</span>
-          <span class="nb-pdl-titre">
-            <b>Loi modifiant la Loi sur les licences de brocanteurs</b>
-            <small>Déposé par Hon. Robert GAUVIN · Dépôt 27 oct. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la deuxième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Crée de nouvelles licences de catégorie A et B exigées pour vendre ou livrer du fil de cuivre à un brocanteur</li><li>Interdit aux brocanteurs d'acheter du fil de cuivre sans isolant d'origine ou endommagé, sauf approbation du ministre</li><li>Oblige le brocanteur à garder le paiement et le cuivre acheté pendant 48 heures avant de le revendre ou le transformer</li><li>Exige une pièce d'identité avec photo et une fiche détaillée pour chaque achat ou vente d'objets de récupération</li><li>Impose l'installation d'un système de vidéosurveillance continu dans les dépôts, avec conservation des images pendant 30 jours</li><li>Oblige le brocanteur à signaler immédiatement à la police tout objet soupçonné d'être volé</li><li>Permet au ministre de suspendre une licence sans audience si une opération est liée à une atteinte à des infrastructures essentielles</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="27 oct. 2026"><span>1re lecture</span><time datetime="2026-10-27">27 oct. 2026</time></li>
-      <li class="faite" title="28 oct. 2026"><span>2e lecture</span><time datetime="2026-10-28">28 oct. 2026</time></li>
-      <li class="a-venir"><span>Étude en comité</span></li>
-      <li class="a-venir"><span>3e lecture</span></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/robert-gauvin">Robert Gauvin</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>28 oct. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/7-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-7-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-7-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-7.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%207%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20les%20licences%20de%20brocanteurs&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F7-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F7-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F7-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F7-61-3&title=PL%20n%E1%B5%92%207%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20les%20licences%20de%20brocanteurs" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%207%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20les%20licences%20de%20brocanteurs%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F7-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%207%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20les%20licences%20de%20brocanteurs%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F7-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/7-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-tasse-or.png" width="24" height="24" alt="">Soutenez la cause !</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="6" data-nb-etat="encours" data-nb-chercher="loi modifiant la loi sur les normes d’emploi projet de loi d’initiative ministerielle comite (adoption) hon. alyson townsend liberal party rothesay pl nᵒ 6 pl 6 bill 6 6">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 6</span>
-          <span class="nb-pdl-titre">
-            <b>Loi modifiant la Loi sur les normes d’emploi</b>
-            <small>Déposé par Hon. Alyson TOWNSEND · Dépôt 27 oct. 2026</small>
-          </span>
-          <span class="nb-etape">comité (adoption)</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Les employeurs qui embauchent des travailleurs étrangers ou utilisent un recruteur devront s'inscrire auprès du Directeur, avec des exigences d'admissibilité possibles.</li><li>À partir du 1er avril 2028, toute personne qui recrute des travailleurs étrangers devra détenir une licence de recruteur, valide trois ans au maximum.</li><li>Un registre public listera les employeurs inscrits et les recruteurs licenciés, avec mention des suspensions ou révocations.</li><li>Il devient interdit d'exiger qu'un travailleur étranger paie un consultant en immigration ou un recruteur, ou de lui facturer des frais de recrutement.</li><li>Il est interdit de mentir sur l'emploi offert, de confisquer les documents du travailleur (passeport, permis de travail) ou de le menacer de déportation sans motif.</li><li>Les employeurs et recruteurs doivent conserver les documents liés au recrutement pendant au moins trois ans et les remettre au Directeur sur demande.</li><li>Le montant maximal des amendes administratives n'est plus plafonné à 900$ mais sera fixé par règlement.</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="27 oct. 2026"><span>1re lecture</span><time datetime="2026-10-27">27 oct. 2026</time></li>
-      <li class="faite" title="28 oct. 2026"><span>2e lecture</span><time datetime="2026-10-28">28 oct. 2026</time></li>
-      <li class="faite" title="6 nov. 2026"><span>Étude en comité</span><time datetime="2026-11-06">6 nov. 2026</time></li>
-      <li class="a-venir"><span>3e lecture</span></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/alyson-townsend">Alyson Townsend</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>6 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/6-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-6-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-6-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-6-SectionArticle3.1.pdf" rel="noopener">PDF bilingue</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-6-SectionArticle3.pdf" rel="noopener">amendement (PDF)</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%206%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20les%20normes%20d%E2%80%99emploi&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F6-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F6-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F6-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F6-61-3&title=PL%20n%E1%B5%92%206%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20les%20normes%20d%E2%80%99emploi" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%206%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20les%20normes%20d%E2%80%99emploi%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F6-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%206%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20les%20normes%20d%E2%80%99emploi%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F6-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/6-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-latte.png" width="24" height="24" alt="">Un café pour l’équipe ?</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="5" data-nb-etat="encours" data-nb-chercher="loi sur les accords de non-divulgation projet de loi d’initiative ministerielle etape de la troisieme lecture franchie hon. robert mckee, k.c. liberal party moncton centre pl nᵒ 5 pl 5 bill 5 5">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 5</span>
-          <span class="nb-pdl-titre">
-            <b>Loi sur les accords de non-divulgation</b>
-            <small>Déposé par Hon. Robert MCKEE, K.C. · Dépôt 27 oct. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la troisième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Encadre les ententes de confidentialité (clauses de non-divulgation) liées à des conduites transgressives comme la violence sexuelle, le harcèlement ou la discrimination</li><li>Oblige la rédaction en langage clair, une durée précisée et l'annexion d'une copie de la loi à l'accord</li><li>Accorde un délai de réflexion de 30 jours (prolongeable de 15 jours) avant de signer, sauf si la personne obtient des conseils juridiques indépendants</li><li>Interdit les pénalités, remboursements forcés ou frais imposés en cas de bris de la clause de non-divulgation</li><li>Permet à la personne ayant subi la conduite de divulguer des renseignements à un avocat, un thérapeute, un proche ou un employeur dans certaines conditions</li><li>Interdit à la personne légalement responsable de conclure une telle entente si une enquête a confirmé que l'allégation était fondée</li><li>S'applique à la Couronne provinciale et ne touche pas les accords conclus avant l'entrée en vigueur de la loi, sauf exceptions précisées</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="27 oct. 2026"><span>1re lecture</span><time datetime="2026-10-27">27 oct. 2026</time></li>
-      <li class="faite" title="28 oct. 2026"><span>2e lecture</span><time datetime="2026-10-28">28 oct. 2026</time></li>
-      <li class="faite" title="4 nov. 2026"><span>Étude en comité</span><time datetime="2026-11-04">4 nov. 2026</time></li>
-      <li class="faite" title="6 nov. 2026"><span>3e lecture</span><time datetime="2026-11-06">6 nov. 2026</time></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/robert-mckee">Robert McKee</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>6 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/5-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-5-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-5-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-5.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%205%20%E2%80%94%20Loi%20sur%20les%20accords%20de%20non-divulgation&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F5-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F5-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F5-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F5-61-3&title=PL%20n%E1%B5%92%205%20%E2%80%94%20Loi%20sur%20les%20accords%20de%20non-divulgation" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%205%20%E2%80%94%20Loi%20sur%20les%20accords%20de%20non-divulgation%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F5-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%205%20%E2%80%94%20Loi%20sur%20les%20accords%20de%20non-divulgation%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F5-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/5-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-the.png" width="24" height="24" alt="">Cappuccino ou espresso ?</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="4" data-nb-etat="encours" data-nb-chercher="loi modifiant la loi sur la cour provinciale projet de loi d’initiative ministerielle etape de la troisieme lecture franchie hon. robert mckee, k.c. liberal party moncton centre pl nᵒ 4 pl 4 bill 4 4">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 4</span>
-          <span class="nb-pdl-titre">
-            <b>Loi modifiant la Loi sur la Cour provinciale</b>
-            <small>Déposé par Hon. Robert MCKEE, K.C. · Dépôt 27 oct. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la troisième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Le pouvoir de nommer certains juges à la Cour provinciale passe du lieutenant-gouverneur en conseil au juge en chef</li><li>Une disposition de la Loi sur la Cour provinciale concernant un autre mécanisme de nomination est abrogée</li><li>Les juges déjà nommés sous l'ancienne règle restent valablement nommés, même pour leurs dossiers en cours</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="27 oct. 2026"><span>1re lecture</span><time datetime="2026-10-27">27 oct. 2026</time></li>
-      <li class="faite" title="28 oct. 2026"><span>2e lecture</span><time datetime="2026-10-28">28 oct. 2026</time></li>
-      <li class="faite" title="4 nov. 2026"><span>Étude en comité</span><time datetime="2026-11-04">4 nov. 2026</time></li>
-      <li class="faite" title="6 nov. 2026"><span>3e lecture</span><time datetime="2026-11-06">6 nov. 2026</time></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/robert-mckee">Robert McKee</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>6 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/4-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-4-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-4-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-4.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%204%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20la%20Cour%20provinciale&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F4-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F4-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F4-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F4-61-3&title=PL%20n%E1%B5%92%204%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20la%20Cour%20provinciale" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%204%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20la%20Cour%20provinciale%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F4-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%204%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20la%20Cour%20provinciale%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F4-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/4-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-pastille.png" width="24" height="24" alt="">Appuyez-nous !</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="3" data-nb-etat="encours" data-nb-chercher="loi concernant le defenseur des enfants, des jeunes, des aines et de la sante mentale projet de loi d’initiative ministerielle etape de la troisieme lecture franchie hon. robert mckee, k.c. liberal party moncton centre pl nᵒ 3 pl 3 bill 3 3">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 3</span>
-          <span class="nb-pdl-titre">
-            <b>Loi concernant le défenseur des enfants, des jeunes, des aînés et de la santé mentale</b>
-            <small>Déposé par Hon. Robert MCKEE, K.C. · Dépôt 21 oct. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la troisième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Le Bureau du défenseur des enfants, des jeunes et des aînés devient le Bureau du défenseur des enfants, des jeunes, des aînés et de la santé mentale</li><li>Le mandat du défenseur s'étend désormais aux personnes vivant avec des difficultés de santé mentale, peu importe leur âge</li><li>Une nouvelle catégorie de « jeune adulte » (19 à moins de 26 ans) est créée pour soutenir la transition vers la vie autonome</li><li>Le défenseur ne peut pas intervenir dans certaines procédures judiciaires ou devant certains tribunaux concernant la santé mentale</li><li>Des règles de consentement sont ajoutées avant que le nom d'une personne apparaisse dans un rapport du défenseur</li><li>Plusieurs lois et règlements (santé mentale, bien-être des enfants, coroners, mesures d'urgence, ombud, accès à l'information) sont mis à jour pour refléter le nouveau nom</li><li>La loi entre en vigueur le 1er janvier 2027</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="21 oct. 2026"><span>1re lecture</span><time datetime="2026-10-21">21 oct. 2026</time></li>
-      <li class="faite" title="27 oct. 2026"><span>2e lecture</span><time datetime="2026-10-27">27 oct. 2026</time></li>
-      <li class="faite" title="4 nov. 2026"><span>Étude en comité</span><time datetime="2026-11-04">4 nov. 2026</time></li>
-      <li class="faite" title="6 nov. 2026"><span>3e lecture</span><time datetime="2026-11-06">6 nov. 2026</time></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/robert-mckee">Robert McKee</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>6 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/3-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-3-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-3-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-3.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%203%20%E2%80%94%20Loi%20concernant%20le%20d%C3%A9fenseur%20des%20enfants%2C%20des%20jeunes%2C%20des%20a%C3%AEn%C3%A9s%20et%20de%20la%20sant%C3%A9%20mentale&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F3-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F3-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F3-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F3-61-3&title=PL%20n%E1%B5%92%203%20%E2%80%94%20Loi%20concernant%20le%20d%C3%A9fenseur%20des%20enfants%2C%20des%20jeunes%2C%20des%20a%C3%AEn%C3%A9s%20et%20de%20la%20sant%C3%A9%20mentale" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%203%20%E2%80%94%20Loi%20concernant%20le%20d%C3%A9fenseur%20des%20enfants%2C%20des%20jeunes%2C%20des%20a%C3%AEn%C3%A9s%20et%20de%20la%20sant%C3%A9%20mentale%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F3-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%203%20%E2%80%94%20Loi%20concernant%20le%20d%C3%A9fenseur%20des%20enfants%2C%20des%20jeunes%2C%20des%20a%C3%AEn%C3%A9s%20et%20de%20la%20sant%C3%A9%20mentale%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F3-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/3-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-croissant.png" width="24" height="24" alt="">La démocratie, lisible !</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="2" data-nb-etat="encours" data-nb-chercher="loi modifiant la loi sur le recouvrement des dommages-interets et des couts des soins de sante imputables aux opioides projet de loi d’initiative ministerielle etape de la troisieme lecture franchie hon. john dornan liberal party saint john portland-simonds pl nᵒ 2 pl 2 bill 2 2">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 2</span>
-          <span class="nb-pdl-titre">
-            <b>Loi modifiant la Loi sur le recouvrement des dommages-intérêts et des coûts des soins de santé imputables aux opioïdes</b>
-            <small>Déposé par Hon. John DORNAN · Dépôt 21 oct. 2026</small>
-          </span>
-          <span class="nb-etape">Étape de la troisième lecture franchie</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <ul><li>Permet désormais à la Couronne du chef du Canada, en plus de la province, de poursuivre les fabricants, grossistes ou conseillers pour récupérer les coûts de soins de santé liés aux opioïdes</li><li>La Couronne fédérale pourra intenter son propre recours, en son nom propre, sans passer par subrogation</li><li>Le recouvrement pourra viser des assurés en particulier ou une population entière ayant subi un préjudice lié aux opioïdes</li><li>Pour un recouvrement global, il ne sera pas nécessaire d'identifier chaque assuré ni de prouver le coût exact des soins reçus par chacun</li><li>Les dossiers médicaux individuels restent protégés, sauf ordonnance du tribunal exigeant un échantillon statistique anonymisé</li><li>Les actions intentées par la Couronne fédérale ne seront pas prescrites si elles sont introduites avant l'entrée en vigueur ou dans les quinze ans suivants</li><li>Ajuste plusieurs définitions et renvois techniques de la loi pour inclure les actions fédérales en plus des actions provinciales</li></ul>
-      <p class="nb-clair-avis">⚙ Résumé rédigé par une IA à partir du texte officiel de l’Assemblée, et signalé comme tel — peut ne pas refléter les amendements adoptés depuis. Le texte officiel reste à un clic, et c’est lui qui compte.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="21 oct. 2026"><span>1re lecture</span><time datetime="2026-10-21">21 oct. 2026</time></li>
-      <li class="faite" title="27 oct. 2026"><span>2e lecture</span><time datetime="2026-10-27">27 oct. 2026</time></li>
-      <li class="faite" title="4 nov. 2026"><span>Étude en comité</span><time datetime="2026-11-04">4 nov. 2026</time></li>
-      <li class="faite" title="6 nov. 2026"><span>3e lecture</span><time datetime="2026-11-06">6 nov. 2026</time></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/john-dornan">John Dornan</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>6 nov. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/2-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-2-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-2-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-2.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%202%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20le%20recouvrement%20des%20dommages-int%C3%A9r%C3%AAts%20et%20des%20co%C3%BBts%20des%20soins%20de%20sant%C3%A9%20imputables%20aux%20opio%C3%AFdes&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F2-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F2-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F2-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F2-61-3&title=PL%20n%E1%B5%92%202%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20le%20recouvrement%20des%20dommages-int%C3%A9r%C3%AAts%20et%20des%20co%C3%BBts%20des%20soins%20de%20sant%C3%A9%20imputables%20aux%20opio%C3%AFdes" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%202%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20le%20recouvrement%20des%20dommages-int%C3%A9r%C3%AAts%20et%20des%20co%C3%BBts%20des%20soins%20de%20sant%C3%A9%20imputables%20aux%20opio%C3%AFdes%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F2-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%202%20%E2%80%94%20Loi%20modifiant%20la%20Loi%20sur%20le%20recouvrement%20des%20dommages-int%C3%A9r%C3%AAts%20et%20des%20co%C3%BBts%20des%20soins%20de%20sant%C3%A9%20imputables%20aux%20opio%C3%AFdes%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F2-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/2-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-carafe.png" width="24" height="24" alt="">Un petit geste !</a>
-          </aside>
-        </div>
-      </details>
-      <details class="nb-pdl" data-nb-pdl="1" data-nb-etat="encours" data-nb-chercher="loi perpetuant un droit traditionnel specifique projet de loi d’initiative ministerielle premiere lecture hon. susan holt liberal party fredericton south-silverwood pl nᵒ 1 pl 1 bill 1 1">
-        <summary>
-          <span class="nb-pdl-num">PL nᵒ 1</span>
-          <span class="nb-pdl-titre">
-            <b>Loi perpétuant un droit traditionnel spécifique</b>
-            <small>Déposé par Hon. Susan HOLT · Dépôt 20 oct. 2026</small>
-          </span>
-          <span class="nb-etape">Première lecture</span>
-          <span class="nb-projet-fleche"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"></path></svg></span>
-        </summary>
-        <div class="nb-pdl-corps">
-          <div>
-<div class="nb-clair">
-      <p class="nb-clair-titre">En clair</p>
-      <p class="nb-clair-vide">Ce texte est trop court ou trop technique pour être résumé honnêtement. Rien n’est affiché ici plutôt qu’une phrase creuse.</p>
-    </div>
-    <ol class="nb-chemin">
-      <li class="faite" title="20 oct. 2026"><span>1re lecture</span><time datetime="2026-10-20">20 oct. 2026</time></li>
-      <li class="a-venir"><span>2e lecture</span></li>
-      <li class="a-venir"><span>Étude en comité</span></li>
-      <li class="a-venir"><span>3e lecture</span></li>
-      <li class="a-venir"><span>Sanction royale</span></li>
-    </ol>
-            <p class="nb-fiche-type">Projet de loi d’initiative ministérielle</p>
-            <p class="nb-fiche-parrain">Déposé par <b><a href="/ministres/susan-holt">Susan Holt</a></b> · <span class="nb-parti" style="--parti:#C0161D">Liberal Party</span></p>
-          </div>
-          <aside class="nb-pdl-boite">
-            <p class="nb-boite-ligne"><span>Dernier acte</span><b>20 oct. 2026</b></p>
-            
-            <a class="nb-btn nb-btn-jaune" href="/projets-de-loi/1-61-3">Ouvrir la fiche →</a>
-            <p class="nb-pdl-docs">Textes officiels : <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-1-f.htm" rel="noopener">français (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-1-e.htm" rel="noopener">anglais (HTML)</a> · <a href="https://www.legnb.ca/content/house_business/61/3/bills/Bill-1.pdf" rel="noopener">PDF bilingue</a></p>
-    <div class="nb-partage">
-      <span class="nb-partage-titre">Partager</span>
-      <a class="nb-reseau" data-nb-reseau="x" href="https://twitter.com/intent/tweet?text=PL%20n%E1%B5%92%201%20%E2%80%94%20Loi%20perp%C3%A9tuant%20un%20droit%20traditionnel%20sp%C3%A9cifique&url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F1-61-3" rel="noopener nofollow" target="_blank" title="X" aria-label="X"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.3l-4.9-6.4L6 22H3l7.6-8.7L2 2h6.4l4.5 5.9zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F1-61-3" rel="noopener nofollow" target="_blank" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F1-61-3" rel="noopener nofollow" target="_blank" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F1-61-3&title=PL%20n%E1%B5%92%201%20%E2%80%94%20Loi%20perp%C3%A9tuant%20un%20droit%20traditionnel%20sp%C3%A9cifique" rel="noopener nofollow" target="_blank" title="Reddit" aria-label="Reddit"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5.2 9.2a1.4 1.4 0 0 1-.6 1.2v.4c0 2.2-2.5 4-5.6 4s-5.6-1.8-5.6-4v-.4a1.4 1.4 0 1 1 1.6-2.3 6.9 6.9 0 0 1 3.5-1.1l.7-3.1 2.4.5a1.1 1.1 0 1 1 .1.8l-1.8-.4-.6 2.2c1.3.1 2.5.5 3.4 1.1a1.4 1.4 0 0 1 2.5.9zM9 13a1.1 1.1 0 1 0 0-2.2A1.1 1.1 0 0 0 9 13zm6 0a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2zm-.4 2a3.9 3.9 0 0 1-5.2 0 .4.4 0 1 0-.5.5 4.7 4.7 0 0 0 6.2 0 .4.4 0 1 0-.5-.5z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="threads" href="https://www.threads.net/intent/post?text=PL%20n%E1%B5%92%201%20%E2%80%94%20Loi%20perp%C3%A9tuant%20un%20droit%20traditionnel%20sp%C3%A9cifique%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F1-61-3" rel="noopener nofollow" target="_blank" title="Threads" aria-label="Threads"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M16.5 11.3a5.6 5.6 0 0 0-.6-.3c-.1-2-1.2-3.1-3-3.1-1 0-1.9.4-2.4 1.2l1.1.8c.4-.6.9-.7 1.3-.7.9 0 1.5.5 1.6 1.5h-.9c-2.3 0-3.7 1-3.7 2.6 0 1.4 1.1 2.4 2.7 2.4 1.5 0 2.5-.9 2.8-2.3.5.3.8.8.8 1.4 0 1.3-1.4 2.5-3.9 2.5-2.8 0-4.6-1.8-4.6-5.3S8.5 6.7 11.3 6.7c2 0 3.4.8 4.1 2.3l1.3-.6C15.8 6.3 13.9 5.2 11.3 5.2 7.5 5.2 5.4 7.8 5.4 12s2.1 6.8 5.9 6.8c3.3 0 5.4-1.8 5.4-4 0-1.3-.6-2.4-1.6-3.1zm-3.9 2.9c-.7 0-1.2-.4-1.2-.9 0-.7.7-1.1 1.9-1.1h.9c-.1 1.3-.7 2-1.6 2z"/></svg></a>
-      <a class="nb-reseau" data-nb-reseau="bluesky" href="https://bsky.app/intent/compose?text=PL%20n%E1%B5%92%201%20%E2%80%94%20Loi%20perp%C3%A9tuant%20un%20droit%20traditionnel%20sp%C3%A9cifique%20https%3A%2F%2Fdossiernbrunswick.ca%2Fprojets-de-loi%2F1-61-3" rel="noopener nofollow" target="_blank" title="Bluesky" aria-label="Bluesky"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M12 10.8C10.9 8.7 8 4.7 5.3 2.9 2.7 1.1 1.7 1.4 1 1.7.2 2.1 0 3.3 0 4s.4 6 .7 7c.9 3.3 4.4 4.4 7.6 4-4.8.7-9 2.5-3.4 8.7 6.1 6.4 8.4-1.4 9.6-5.3 1.2 3.9 2.5 11.4 9.5 5.3 5.2-5.3 1.5-8-3.3-8.7 3.2.4 6.7-.7 7.6-4 .3-1 .7-6.4.7-7 0-.7-.2-1.9-1-2.3-.7-.3-1.7-.6-4.3 1.2C16.1 4.7 13.1 8.7 12 10.8z" transform="scale(.85) translate(2 2)"/></svg></a>
-      <button class="nb-reseau nb-copier" type="button" data-nb-copier="https://dossiernbrunswick.ca/projets-de-loi/1-61-3"
-        data-nb-copie-faite="Adresse copiée" title="Copier l’adresse" aria-label="Copier l’adresse">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
-      </button>
-    </div>
-    <a class="nb-cafe" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener"
-      aria-label="Offrez-nous un café (s’ouvre dans un nouvel onglet)"><img src="/commun/cafe-moulin.png" width="24" height="24" alt="">Appuyez la cause !</a>
-          </aside>
-        </div>
-      </details>
-    </div>
-    <p class="nb-source-officielle">Source officielle : legnb.ca</p>
-  </section>
-  <footer class="nb-pied">
-    <p><strong>Site non officiel.</strong> Données publiques de l'Assemblée législative du Nouveau-Brunswick (legnb.ca) et du gouvernement du Nouveau-Brunswick (gnb.ca). La version imprimée des projets de loi reste la version officielle.</p>
-    <p>Données lues le 7 nov. 2026.</p>
-  </footer>
-  <div class="nb-tricolore" aria-hidden="true"><i></i><i></i><i></i></div>
-  <div class="nb-pied-liens">
-    <span>Site non officiel — Données publiques de l'Assemblée législative du Nouveau-Brunswick (legnb.ca) et du gouvernement du Nouveau-Brunswick (gnb.ca).</span>
-    
-    <a href="https://dafrsolution.com" rel="noopener">Une réalisation de DAFR Solution</a>
-    <a data-nb-autre-langue="en" href="/en/bills" hreflang="en" rel="alternate">English</a>
+<body data-page="projets" data-donnees="bills,deputesRaw,stats">
+
+<!-- Ticker brutaliste : bande noire défilante — contenu rempli avec les VRAIES
+     données par renderTicker() (appelé une fois les datasets chargés). -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-text" id="tickerA">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerB">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
-<script src="/commun/nb.js" defer></script>
+
+<div id="dq-topbar">
+<header class="top">
+  <div class="brand">
+    <div class="brand-text" role="button" tabindex="0" aria-label="Retour à l'aperçu" onclick="goToTab('apercu')">
+      <!-- Volontairement un div, et non un titre de niveau 1 : le nom du site se
+           répète sur chaque page, alors que le titre de niveau 1 doit annoncer
+           le sujet de LA page. C'est le titre de une de la vue active qui joue
+           ce rôle, et le générateur de pages de section s'en assure.
+           (Pas de balise écrite en toutes lettres dans ce commentaire : elle
+           fausserait les outils qui comptent les titres à l'expression
+           régulière.) -->
+      <div class="brand-title">Dossier<span class="brand-blue">Québec</span></div>
+      <p>Qui siège, qui légifère, qui vote quoi</p>
+    </div>
+    <!-- Feuille d'érable : passerelle vers le site fédéral DossierCanada.
+         Flippe jaune ↔ rouge toutes les 20 s (voir le script plus bas). -->
+    <a class="maple-flip" id="mapleFlip" role="button" tabindex="0"
+       title="Aller au site fédéral — DossierCanada"
+       aria-label="Aller au site fédéral — DossierCanada"
+       onclick="goToFederal(event)">
+      <svg viewBox="-2015 -2000 4030 4030" aria-hidden="true"><path fill="currentColor" d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z"/></svg>
+    </a>
+    <!-- Les volets municipaux (DossierVille) : un bouton « Villes » qui ouvre la liste.
+         Vrais liens <a href> : le clavier, le clic du milieu et « ouvrir dans un
+         nouvel onglet » fonctionnent sans une ligne de code. La barre oblique finale
+         est OBLIGATOIRE — sans elle, les chemins relatifs du volet (assets/, data/)
+         se résolvent depuis la racine du site. Plus de rel="nofollow" depuis le
+         21 sept. 2026 : les volets sont ouverts aux moteurs de recherche. Le chemin dit /quebec/ : c'est la
+         liste, sous « Villes », qui dit qu'il s'agit de la ville. -->
+    <details class="villes-menu" id="villesMenu">
+      <summary class="city-flip" title="Les volets municipaux" aria-label="Les volets municipaux">
+        <span data-i18n="nav.villes">Villes</span>
+      </summary>
+      <ul>
+        <li><a href="/quebec/">Québec <small>DossierVilleDeQuébec</small></a></li>
+        <li><a href="/montreal/">Montréal <small>DossierVilleDeMontréal</small></a></li>
+        <!-- Lévis, Longueuil et Laval : en pause depuis le 7 oct. 2026 (commun/navigation.js, VILLES_EN_PAUSE). -->
+      </ul>
+    </details>
+  </div>
+  <!-- Nav DANS la ligne du header (maquette : logo | menu | contrôles sur
+       UNE seule rangée). Sur mobile, le nav devient le panneau plein écran
+       du hamburger (position:fixed), peu importe où il vit dans le DOM. -->
+  <nav class="tabs">
+    <div class="close-menu" id="closeMenuBtn"><span data-i18n="nav.close">Fermer</span> ✕</div>
+    <!-- De vrais liens, pas des <button> : un moteur de recherche ne suit pas un bouton, et
+         /ministres, /projets-de-loi, /votes et /lexique n'avaient aucun lien qu'il puisse suivre. -->
+    <a href="/" data-view="apercu"><span class="n">01</span><span data-i18n="nav.apercu">Aperçu</span></a>
+    <a href="/ministres" data-view="ministres"><span class="n">02</span><span data-i18n="nav.ministres">Ministres</span></a>
+    <a class="active" aria-current="page" href="/projets-de-loi" data-view="projets"><span class="n">03</span><span data-i18n="nav.projets">Projets de loi</span></a>
+    <!-- Votes a quitté la barre le 30 oct. 2026 : les votes vivent dans les cartes des projets de
+         loi, et /votes reste lié du pied de page et de la page des projets. -->
+    <a href="/archives" data-view="archives"><span class="n">04</span><span data-i18n="nav.archives">Archives</span></a>
+    <a href="/lexique" data-view="lexique"><span class="n">05</span><span data-i18n="nav.lexique">Lexique</span></a>
+    <a href="/mon-dossier" data-view="mondossier" class="nav-mondossier"><span class="n">★</span><span data-i18n="nav.mondossier">Mon dossier</span></a>
+  </nav>
+  <div class="header-ctrls">
+    <div class="font-size-ctrl" id="fontSizeCtrl">
+      <button id="fontMinus" aria-label="Réduire le texte">A−</button>
+      <span id="fontPct">100%</span>
+      <button id="fontPlus" aria-label="Agrandir le texte">A+</button>
+    </div>
+    <!-- Aucun contenu textuel : l'icône est dessinée en CSS. Le nom accessible
+         vient donc entièrement de aria-label, que le JS tient à jour. -->
+    <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Passer au thème sombre" title="Passer au thème sombre"></button>
+    <button class="lang-toggle" id="langToggle">English</button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+</div>
+
+<script>
+/* Bascule le bloc logo+menu en mode compact après un peu de défilement.
+   Hystérésis (80 vs 20) pour éviter le clignotement autour du seuil. */
+(function(){
+  var bar = document.getElementById('dq-topbar');
+  var compact = false;
+  function onScroll(){
+    var y = window.scrollY;
+    if(!compact && y > 80){ compact = true; bar.classList.add('compact'); }
+    else if(compact && y < 20){ compact = false; bar.classList.remove('compact'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+
+// Ouvre le site fédéral DossierCanada dans un nouvel onglet.
+function goToFederal(evt){
+  if(evt) evt.stopPropagation();
+  window.open('https://dossiercanada.ca/', '_blank', 'noopener');
+}
+// Feuille d'érable : flippe jaune ↔ rouge toutes les 20 secondes.
+(function(){
+  var leaf = document.getElementById('mapleFlip');
+  if(!leaf) return;
+  setInterval(function(){ leaf.classList.toggle('is-red'); }, 20000);
+})();
+
+// Menu « Villes » : compte les clics vers chaque volet municipal (événement
+// personnalisé Vercel Web Analytics — onglet « Events » du tableau de bord), et
+// referme le menu quand on clique ailleurs ou qu'on appuie sur Échap.
+(function(){
+  var menu = document.getElementById('villesMenu');
+  if(!menu) return;
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(window.va) window.va('event', { name: 'clic_icone_ville', data: { ville: a.getAttribute('href') } });
+    });
+  });
+  document.addEventListener('click', function(e){ if(menu.open && !menu.contains(e.target)) menu.open = false; });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && menu.open){ menu.open = false; menu.querySelector('summary').focus(); } });
+})();
+</script>
+
+<div class="app">
+
+  <!-- APERÇU -->
+  <section class="view active" id="view-projets">
+    <nav class="fil-ariane" aria-label="Fil d'Ariane"><a href="/" data-i18n="fil.accueil">Accueil</a><span class="sep" aria-hidden="true">›</span><span aria-current="page" data-i18n="fil.projets">Projets de loi</span></nav>
+    <!-- Rappel de dissolution : sans ça, les projets non sanctionnés seraient lus
+         comme « encore en cours ». À retirer avec l'autre bande le 17 nov. 2026. -->
+    <div class="band band-yellow bleed" id="band-dissolution-projets">
+      <h2 data-i18n="dissp.h">⚠️ Ces projets ne sont jamais devenus des lois</h2>
+      <p data-i18n="dissp.p">L'Assemblée a été dissoute le <b>27 août 2026</b>. Tout projet de loi qui n'avait pas été <b>sanctionné</b> est donc <b>mort au feuilleton</b> — c'est le terme officiel de l'Assemblée. Sur les cartes, on l'écrit en clair : <b>« mort dans l'œuf »</b> si le projet n'a jamais dépassé la présentation, <b>« tombé en cours de route »</b> s'il s'était rendu plus loin. Dans les deux cas, il devra repartir de zéro devant la nouvelle Assemblée (17 novembre 2026). Les projets marqués « Sanctionnée » sont, eux, bel et bien devenus des lois.</p>
+    </div>
+
+    <!-- Hero de vue (refonte brutaliste) -->
+    <div class="view-hero">
+      <h1 class="hero-h1 hero-h1-md">
+        <span class="hero-sujet" data-i18n="sujet.projets">Projets de loi du Québec</span>
+        <span data-i18n="projhero.l1">Projets de loi,</span>
+        <span class="hero-outline" data-i18n="projhero.l2">traduits en clair.</span>
+      </h1>
+      <p class="view-hero-sub" data-i18n="projhero.sub">Chaque projet résumé en langage courant, avec son étape réelle dans le processus. <b>Le texte intégral reste toujours à un clic sur assnat.qc.ca.</b></p>
+
+      <!-- Recherche façon maquette + 4 filtres rapides (actif = noir/jaune) -->
+      <div class="projets-controls">
+        <div class="brutal-search">
+          <span class="bs-icon" aria-hidden="true">🔍</span>
+          <input type="text" id="searchBills" data-i18n-placeholder="ph.searchBills" placeholder="Numéro, titre ou mot-clé…">
+        </div>
+        <!-- Tri par activité. La logique existait déjà (toggleBillsSort) mais
+             AUCUN bouton ne la déclenchait : la liste était figée sur « activité
+             la plus récente » sans que personne puisse en sortir. -->
+        <button class="sort-toggle" id="sortToggle" onclick="toggleBillsSort()">↓ Activité récente</button>
+        <div class="quick-filters" id="billsQuickFilters"></div>
+      </div>
+    </div>
+
+    <!-- Bande légende : le chemin d'un projet (les 3 étapes RÉELLES du site) -->
+    <div class="legend-strip bleed">
+      <span class="legend-label" data-i18n="legend.label">Le chemin d'un projet de loi :</span>
+      <span class="legend-chips">
+        <span class="bstep">Présentation</span><span class="legend-arrow">→</span>
+        <a class="bstep bstep-lien" href="/lexique#etape-etude">Étude détaillée</a><span class="legend-arrow">→</span>
+        <a class="bstep bstep-lien" href="/lexique#etape-adoption">Adoption / Sanction</a>
+      </span>
+      <!-- #etapes : les étapes du Lexique, plutôt que le haut de la page (lobbyistes d'abord). -->
+      <a class="legend-link" href="/lexique#etapes" data-i18n="legend.link">C'est quoi ces étapes ? → Lexique</a>
+    </div>
+    <!-- Les votes nominaux sont dans chaque carte (« Qui a voté… ») ; la liste complète, motions
+         comprises, reste sur /votes (30 oct. 2026). -->
+    <p class="archives-note" id="lienTousVotes"><a href="/votes" data-i18n="projets.tousvotes">Tous les votes nominaux, motions comprises →</a></p>
+
+    <!-- Titre de résultats (change avec le filtre actif) -->
+    <div class="section-head min-group-head" id="billsResultHead">
+      <div><h2 id="billsResultTitle">Tous les projets</h2></div>
+      <span class="head-note" id="billsResultNote"></span>
+    </div>
+
+    <div id="billsList"></div>
+    <div class="prerendu" data-prerendu="bills">
+      <ul aria-label="Projets de loi">
+        <li><b>Projet de loi n° 3</b> — Loi visant à assurer la représentation effective des électeurs <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 10</b> — Loi protégeant les consommateurs contre les pratiques abusives de revente de billets et de renouvellement d’abonnements en ligne <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 17</b> — Loi modifiant la Loi sur le stockage de gaz naturel et sur les conduites de gaz naturel et de pétrole aux fins d'autoriser la mise en œuvre d'un projet pilote relatif à la recherche ou à l'exploitation d'un réservoir souterrain ou de certains fluides (titre modifié) <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 22</b> — Loi bonifiant les pouvoirs d’intervention des municipalités et modifiant d’autres dispositions législatives <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 23</b> — Loi visant principalement à mieux accompagner les personnes dont l’état mental pourrait représenter un risque pour leur propre sécurité ou celle d’autrui <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 24</b> — Loi protégeant le consommateur contre l’utilisation trompeuse ou frauduleuse de l’identité ou de l’image d’une personne <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 692</b> — Loi visant à créer un nouvel outil de conservation volontaire des milieux naturels <span class="pr-meta">· Présenté le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 2</b> — Loi permettant au Parlement du Québec de préserver le principe de la souveraineté parlementaire à l’égard de la Charte de la langue française et de la Loi sur la langue officielle et commune du Québec, le français <span class="pr-meta">· Étude détaillée entreprise le 2026-06-11</span></li>
+        <li><b>Projet de loi n° 4</b> — Loi sur la communication de renseignements aux fins de protection contre la violence d’un partenaire intime et modifiant diverses dispositions législatives <span class="pr-meta">· Sanctionné le 2026-06-11</span></li>
+        <li><b>Projet de loi n° 9</b> — Loi visant à prévenir les effets nocifs de la boisson énergisante sur la santé des jeunes <span class="pr-meta">· Sanctionné le 2026-06-11</span></li>
+        <li><b>Projet de loi n° 11</b> — Loi modifiant diverses dispositions principalement aux fins d’allègement du fardeau réglementaire et administratif <span class="pr-meta">· Sanctionné le 2026-06-11</span></li>
+        <li><b>Projet de loi n° 12</b> — Loi instituant la prestation de services de garde éducatifs à l’enfance par les personnes reconnues à titre de responsables d’un service de garde éducatif en communauté <span class="pr-meta">· Sanctionné le 2026-06-11</span></li>
+        <li><b>Projet de loi n° 200</b> — Loi concernant Le Country Club de Montréal <span class="pr-meta">· Sanctionné le 2026-06-11</span></li>
+        <li><b>Projet de loi n° 201</b> — Loi concernant le Monastère des Ursulines de Québec <span class="pr-meta">· Sanctionné le 2026-06-11</span></li>
+        <li><b>Projet de loi n° 204</b> — Loi concernant la Ville de Gatineau <span class="pr-meta">· Sanctionné le 2026-06-11</span></li>
+        <li><b>Projet de loi n° 205</b> — Loi concernant un immeuble situé sur le territoire de la Ville de Québec <span class="pr-meta">· Sanctionné le 2026-06-11</span></li>
+        <li><b>Projet de loi n° 13</b> — Loi instaurant la charge de greffier spécial <span class="pr-meta">· Présenté le 2026-06-10</span></li>
+        <li><b>Projet de loi n° 1</b> — Loi constitutionnelle de 2025 sur le Québec <span class="pr-meta">· Étude détaillée en commission — 2026-06-10</span></li>
+        <li><b>Projet de loi n° 5</b> — Loi visant à accélérer l’octroi des autorisations requises pour la réalisation des projets prioritaires et d’envergure nationale <span class="pr-meta">· Étude détaillée en commission — 2026-06-09</span></li>
+        <li><b>Projet de loi n° 691</b> — Loi sur le maintien de l’autonomie des personnes aînées <span class="pr-meta">· Présenté le 2026-06-05</span></li>
+        <li><b>Projet de loi n° 796</b> — Loi visant à protéger les jeunes contre les effets néfastes des écrans notamment en encadrant les médias sociaux et les jeux vidéo <span class="pr-meta">· Présenté le 2026-06-05</span></li>
+        <li><b>Projet de loi n° 7</b> — Loi n° 2 sur les crédits, 2026-2027 <span class="pr-meta">· Sanctionné le 2026-06-04</span></li>
+        <li><b>Projet de loi n° 8</b> — Loi encadrant la langue de l’enseignement en formation professionnelle et en formation générale des adultes <span class="pr-meta">· Présenté le 2026-06-04</span></li>
+        <li><b>Projet de loi n° 698</b> — Loi sur la coconstruction des mesures législatives et réglementaires touchant les Premières Nations et les Inuit <span class="pr-meta">· Présenté le 2026-05-28</span></li>
+        <li><b>Projet de loi n° 791</b> — Loi modifiant la Loi électorale aux fins de protéger de manière permanente les circonscriptions de Gaspé et de Bonaventure <span class="pr-meta">· Présenté le 2026-05-27</span></li>
+        <li><b>Projet de loi n° 599</b> — Loi proclamant la Journée nationale de sensibilisation aux enjeux vécus par les personnes immunosupprimées <span class="pr-meta">· Présenté le 2026-05-14</span></li>
+        <li><b>Projet de loi n° 690</b> — Loi sur le droit à l’alimentation <span class="pr-meta">· Présenté le 2026-05-14</span></li>
+        <li><b>Projet de loi n° 696</b> — Loi visant à garantir la liberté des personnes exploitant un établissement d’hébergement touristique quant à la détermination des prix et des conditions applicables à la location d’unités d’hébergement <span class="pr-meta">· Présenté le 2026-05-13</span></li>
+        <li><b>Projet de loi n° 6</b> — Loi donnant suite à des mesures fiscales annoncées lors du discours sur le budget du 18 mars 2026 et du point sur la situation économique et financière du Québec du 25 novembre 2025 ainsi qu’à certaines autres mesures <span class="pr-meta">· Présenté le 2026-05-12</span></li>
+        <li><b>Projet de loi n° 596</b> — Loi renforçant l’intégrité et la protection des droits et libertés de la personne <span class="pr-meta">· Présenté le 2026-05-07</span></li>
+        <li><b>Projet de loi n° 191</b> — Loi mettant en place des mesures concernant les approches complémentaires et intégratives en santé <span class="pr-meta">· Présenté le 2026-05-06</span></li>
+        <li><b>Projet de loi n° 3</b> — Loi visant à améliorer la transparence, la gouvernance et le processus démocratique de diverses associations en milieu de travail <span class="pr-meta">· Sanctionné le 2026-04-02</span></li>
+        <li><b>Projet de loi n° 7</b> — Loi visant à réduire la bureaucratie, à accroître l’efficacité de l’État et à renforcer l’imputabilité des hauts fonctionnaires <span class="pr-meta">· Sanctionné le 2026-04-02</span></li>
+        <li><b>Projet de loi n° 9</b> — Loi sur le renforcement de la laïcité au Québec <span class="pr-meta">· Sanctionné le 2026-04-02</span></li>
+        <li><b>Projet de loi n° 13</b> — Loi visant à favoriser la sécurité et le sentiment de sécurité de la population et modifiant diverses dispositions <span class="pr-meta">· Sanctionné le 2026-04-02</span></li>
+        <li><b>Projet de loi n° 15</b> — Loi modifiant le Code des professions et d’autres dispositions principalement afin d’alléger les processus réglementaires du système professionnel et d’élargir certaines pratiques professionnelles dans le domaine de la santé et des services sociaux <span class="pr-meta">· Sanctionné le 2026-04-02</span></li>
+        <li><b>Projet de loi n° 18</b> — Loi modifiant les critères du vote de l’électeur hors Québec <span class="pr-meta">· Sanctionné le 2026-04-02</span></li>
+        <li><b>Projet de loi n° 590</b> — Loi modifiant la Loi sur le drapeau et les emblèmes du Québec afin de reconnaître le tartan du Québec <span class="pr-meta">· Présenté le 2026-04-02</span></li>
+        <li><b>Projet de loi n° 598</b> — Loi visant à protéger l’enfant et le parent victimes de violence familiale <span class="pr-meta">· Présenté le 2026-04-02</span></li>
+        <li><b>Projet de loi n° 20</b> — Loi édictant la Loi visant à favoriser l’accès au logement et modifiant diverses dispositions concernant le domaine de l’habitation <span class="pr-meta">· Déposé en commission pour consultations particulières le 2026-04-01</span></li>
+        <li><b>Projet de loi n° 27</b> — Loi modifiant diverses dispositions concernant les décrets de convention collective et l’industrie de la construction <span class="pr-meta">· Présenté le 2026-04-01</span></li>
+        <li><b>Projet de loi n° 595</b> — Loi sur l’assistance personnelle autodirigée pour les personnes handicapées <span class="pr-meta">· Présenté le 2026-04-01</span></li>
+        <li><b>Projet de loi n° 26</b> — Loi n° 1 sur les crédits, 2026-2027 <span class="pr-meta">· Sanctionné le 2026-03-20</span></li>
+        <li><b>Projet de loi n° 25</b> — Loi visant à accroître la confiance du public envers le système de justice en modernisant la déontologie judiciaire et mettant en œuvre certaines recommandations du comité de la rémunération des juges pour la période 2023-2027 <span class="pr-meta">· Présenté le 2026-03-18</span></li>
+        <li><b>Projet de loi n° 19</b> — Loi visant notamment l’amélioration de l’accès aux services médicaux et la prise en charge médicale de la population <span class="pr-meta">· Sanctionné le 2026-02-26</span></li>
+        <li><b>Projet de loi n° 592</b> — Loi édictant la Loi sur la régionalisation de l’immigration afin d’instituer des tables régionales de l’immigration et d’affirmer le rôle des régions dans l’accueil et l’intégration des personnes immigrantes <span class="pr-meta">· Présenté le 2026-02-26</span></li>
+        <li><b>Projet de loi n° 392</b> — Loi visant à lutter contre le gaspillage alimentaire <span class="pr-meta">· Présenté le 2026-02-25</span></li>
+        <li><b>Projet de loi n° 497</b> — Loi visant à assurer la qualité de l’air <span class="pr-meta">· Présenté le 2026-02-25</span></li>
+        <li><b>Projet de loi n° 111</b> — Loi modernisant la Loi sur les coopératives et modifiant d’autres dispositions <span class="pr-meta">· Sanctionné le 2026-02-24</span></li>
+        <li><b>Projet de loi n° 496</b> — Loi visant à reconnaître l’amiral blanc en tant qu’insecte emblématique du Québec <span class="pr-meta">· Étude détaillée en commission</span></li>
+        <li><b>Projet de loi n° 498</b> — Loi retirant des freins à l’efficacité du système de santé <span class="pr-meta">· Présenté le 2026-02-17</span></li>
+        <li><b>Projet de loi n° 6</b> — Loi donnant suite à des mesures fiscales annoncées à l’occasion du discours sur le budget du 25 mars 2025 et à certaines autres mesures <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 14</b> — Loi visant à renforcer l’intégrité du vote dans le cadre des campagnes à la direction d’un parti politique et des courses à l’investiture <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 16</b> — Loi reportant l’entrée en vigueur de certaines dispositions de la Loi visant principalement à instaurer la responsabilité collective quant à l’amélioration de l’accès aux services médicaux et à assurer la continuité de la prestation de ces services <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 108</b> — Loi modifiant la Loi sur la Société de développement des entreprises culturelles afin de moderniser son offre de services financiers et de reconnaître le domaine de la créativité numérique <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 109</b> — Loi affirmant la souveraineté culturelle du Québec et édictant la Loi sur la découvrabilité des contenus culturels francophones dans l’environnement numérique <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 202</b> — Loi concernant le regroupement de Mutuelle Beneva et de La Compagnie mutuelle d’assurance Gore <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 495</b> — Loi modifiant la Loi sur la gouvernance du système de santé et de services sociaux pour garantir l’accès d’un organisme ayant un projet d’économie sociale aux subventions allouées aux organismes communautaires <span class="pr-meta">· Présenté le 2025-12-10</span></li>
+        <li><b>Projet de loi n° 203</b> — Loi visant à octroyer certains pouvoirs temporaires à la Ville de Rivière-du-Loup <span class="pr-meta">· Étude détaillée en commission</span></li>
+        <li><b>Projet de loi n° 395</b> — Loi modifiant la Loi sur la Société de l’assurance automobile du Québec et d’autres dispositions législatives concernant les droits consentis sur un véhicule <span class="pr-meta">· Présenté le 2025-12-04</span></li>
+        <li><b>Projet de loi n° 195</b> — Loi limitant le recours aux services d’une agence de placement de personnel et à de la main-d’œuvre indépendante dans le secteur des services de garde éducatifs à l’enfance <span class="pr-meta">· Présenté le 2025-12-03</span></li>
+        <li><b>Projet de loi n° 492</b> — Loi modifiant certaines dispositions réglementaires afin de favoriser la protection des concurrents professionnels de sports de combat <span class="pr-meta">· Présenté le 2025-12-02</span></li>
+        <li><b>Projet de loi n° 220</b> — Loi concernant Joseph Paul-Émile Daniel Michel Marcil <span class="pr-meta">· Sanctionné le 2025-11-27</span></li>
+        <li><b>Projet de loi n° 393</b> — Loi modifiant la Loi sur le vérificateur général relativement à sa nomination <span class="pr-meta">· Présenté le 2025-11-26</span></li>
+        <li><b>Projet de loi n° 103</b> — Loi visant à réglementer les sites de consommation supervisée afin de favoriser une cohabitation harmonieuse avec la communauté (titre modifié) <span class="pr-meta">· Sanctionné le 2025-11-13</span></li>
+        <li><b>Projet de loi n° 4</b> — Loi concernant la mise en œuvre de certaines dispositions du discours sur le budget du 25 mars 2025 et modifiant d’autres dispositions <span class="pr-meta">· Sanctionné le 2025-11-12</span></li>
+        <li><b>Projet de loi n° 8</b> — Loi concernant l’entrée en vigueur de la Loi visant à considérer davantage les besoins de la population en cas de grève ou de lock-out <span class="pr-meta">· Présenté le 2025-11-12</span></li>
+        <li><b>Projet de loi n° 104</b> — Loi modifiant diverses dispositions afin notamment de donner suite à certaines demandes du milieu municipal <span class="pr-meta">· Sanctionné le 2025-11-12</span></li>
+        <li><b>Projet de loi n° 199</b> — Loi établissant un nouveau mode de scrutin <span class="pr-meta">· Présenté le 2025-11-12</span></li>
+        <li><b>Projet de loi n° 191</b> — Loi modifiant la Loi sur le Cercle des ex-parlementaires de l’Assemblée nationale du Québec <span class="pr-meta">· Sanctionné le 2025-11-04</span></li>
+        <li><b>Projet de loi n° 94</b> — Loi visant notamment à renforcer la laïcité dans le réseau de l’éducation et modifiant diverses dispositions législatives <span class="pr-meta">· Sanctionné le 2025-10-30</span></li>
+        <li><b>Projet de loi n° 112</b> — Loi favorisant le commerce des produits et la mobilité de la main-d’œuvre en provenance des autres provinces et des territoires du Canada <span class="pr-meta">· Sanctionné le 2025-10-30</span></li>
+        <li><b>Projet de loi n° 82</b> — Loi concernant l’identité numérique nationale et modifiant d’autres dispositions <span class="pr-meta">· Sanctionné le 2025-10-28</span></li>
+        <li><b>Projet de loi n° 99</b> — Loi donnant suite à des mesures fiscales annoncées lors du point sur la situation économique et financière du Québec du 21 novembre 2024 et du discours sur le budget du 25 mars 2025 ainsi qu’à certaines autres mesures <span class="pr-meta">· Sanctionné le 2025-10-28</span></li>
+        <li><b>Projet de loi n° 101</b> — Loi visant l’amélioration de certaines lois du travail <span class="pr-meta">· Sanctionné le 2025-10-28</span></li>
+        <li><b>Projet de loi n° 2</b> — Loi visant principalement à instaurer la responsabilité collective quant à l’amélioration de l’accès aux services médicaux et à assurer la continuité de la prestation de ces services <span class="pr-meta">· Sanctionné le 2025-10-25</span></li>
+        <li><b>Projet de loi n° 198</b> — Loi proclamant la Journée nationale de sensibilisation à l’itinérance <span class="pr-meta">· Présenté le 2025-10-09</span></li>
+        <li><b>Projet de loi n° 190</b> — Loi sur la mise en place en milieu de travail de comités paritaires de transition juste vers une économie écologiquement durable <span class="pr-meta">· Présenté le 2025-10-08</span></li>
+        <li><b>Projet de loi n° 106</b> — Loi visant principalement à instaurer la responsabilité collective et l’imputabilité des médecins quant à l’amélioration de l’accès aux services médicaux <span class="pr-meta">· Étude détaillée en commission — 2025-06-06</span></li>
+        <li><b>Projet de loi n° 97</b> — Loi visant principalement à moderniser le régime forestier <span class="pr-meta">· Resté à l'étape « dépôt en commission (consultations particulières) » (session 1) — non réinscrit depuis, dernière activité le 2025-06-05</span></li>
+        <li><b>Projet de loi n° 110</b> — Loi concernant l’Office franco-québécois pour la jeunesse et l’Office Québec-Monde pour la jeunesse <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2025-05-29</span></li>
+        <li><b>Projet de loi n° 991</b> — Loi sur la procédure de sélection et de nomination des décideurs administratifs indépendants et de renouvellement de leur mandat <span class="pr-meta">· Présenté le 2025-05-27</span></li>
+        <li><b>Projet de loi n° 107</b> — Loi modifiant diverses dispositions concernant principalement le Comité consultatif sur l’accessibilité financière aux études et la Commission d’évaluation de l’enseignement collégial <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2025-05-22</span></li>
+        <li><b>Projet de loi n° 995</b> — Loi visant à établir un cadre de surveillance et de régulation des polluants éternels <span class="pr-meta">· Présenté le 2025-05-22</span></li>
+        <li><b>Projet de loi n° 217</b> — Loi visant à octroyer certains pouvoirs temporaires à la Ville de Rivière-du-Loup <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2025-05-07</span></li>
+        <li><b>Projet de loi n° 994</b> — Loi favorisant la santé sexuelle et reproductive par un accès amélioré à la contraception <span class="pr-meta">· Présenté le 2025-05-07</span></li>
+        <li><b>Projet de loi n° 990</b> — Loi modifiant la Loi sur les normes du travail afin d’encadrer l’exercice du télétravail <span class="pr-meta">· Présenté le 2025-05-01</span></li>
+        <li><b>Projet de loi n° 993</b> — Loi modifiant le Code du travail afin d’assurer des pratiques syndicales transparentes et démocratiques <span class="pr-meta">· Présenté le 2025-04-30</span></li>
+        <li><b>Projet de loi n° 992</b> — Loi visant à créer un comité chargé de formuler des recommandations sur les critères de fixation ou de réajustement de loyer <span class="pr-meta">· Présenté le 2025-04-24</span></li>
+        <li><b>Projet de loi n° 898</b> — Loi visant à renforcer l’encadrement des augmentations de loyer d’un bail de logement <span class="pr-meta">· Présenté le 2025-04-03</span></li>
+        <li><b>Projet de loi n° 899</b> — Loi modifiant le Code de la sécurité routière afin d’obliger la Société de l’assurance automobile du Québec à conclure des ententes avec des ministères ou organismes en vue de l’application de certaines lois <span class="pr-meta">· Présenté le 2025-04-03</span></li>
+        <li><b>Projet de loi n° 897</b> — Loi modifiant le Code de la sécurité routière afin de prévoir la délivrance obligatoire d’un avis de paiement au propriétaire d’un véhicule routier immatriculé ou au titulaire de certains permis <span class="pr-meta">· Présenté le 2025-03-19</span></li>
+        <li><b>Projet de loi n° 895</b> — Loi établissant un réseau scolaire commun afin de garantir l’égalité des chances <span class="pr-meta">· Présenté le 2025-02-19</span></li>
+        <li><b>Projet de loi n° 896</b> — Loi visant à indemniser les municipalités locales lors de la cession de terrains destinés à la construction ou à l’agrandissement d’écoles <span class="pr-meta">· Présenté le 2025-02-13</span></li>
+        <li><b>Projet de loi n° 894</b> — Loi visant à étendre l’admissibilité au régime d’assurance maladie et au régime général d’assurance médicaments à toutes les femmes ou à toutes les personnes enceintes vivant au Québec sans égard à leur statut migratoire <span class="pr-meta">· Présenté le 2024-12-04</span></li>
+        <li><b>Projet de loi n° 893</b> — Loi sur le maintien de l’autonomie des personnes aînées <span class="pr-meta">· Présenté le 2024-12-03</span></li>
+        <li><b>Projet de loi n° 793</b> — Loi sur le processus de publication des documents issus de l’enquête menée par Bernard Grenier au sujet des activités d’Option Canada à l’occasion du référendum tenu au Québec en octobre 1995 <span class="pr-meta">· Présenté le 2024-11-27</span></li>
+        <li><b>Projet de loi n° 892</b> — Loi visant à interdire l’offre de services de consommation supervisée à proximité d’un service de garde éducatif à l’enfance en installation ou d’un établissement d’enseignement offrant une formation de niveau préscolaire, primaire ou secondaire <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2024-11-27</span></li>
+        <li><b>Projet de loi n° 794</b> — Loi déclarant l’engagement du Québec d’atteindre la carboneutralité d’ici 2050 <span class="pr-meta">· Présenté le 2024-11-07</span></li>
+        <li><b>Projet de loi n° 699</b> — Loi modifiant la Charte des droits et libertés de la personne afin d’y consacrer le droit à un logement décent <span class="pr-meta">· Présenté le 2024-06-04</span></li>
+        <li><b>Projet de loi n° 792</b> — Loi visant à accroître la présence du drapeau du Québec <span class="pr-meta">· Présenté le 2024-05-30</span></li>
+        <li><b>Projet de loi n° 796</b> — Loi remplaçant le nom de la circonscription électorale d’Arthabaska par celui d’« Arthabaska-L’Érable » <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2024-05-30</span></li>
+        <li><b>Projet de loi n° 790</b> — Loi visant à étendre aux usagers hébergés dans une résidence à assistance continue l’application du Règlement concernant les modalités d’utilisation de mécanismes de surveillance par un usager hébergé dans une installation maintenue par un établissement qui exploite un centre d’hébergement et de soins de longue durée <span class="pr-meta">· Présenté le 2024-05-22</span></li>
+        <li><b>Projet de loi n° 791</b> — Loi permettant à des organismes publics de transport en commun de développer des projets immobiliers aux abords ou au-dessus de leurs infrastructures de transport en commun <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2024-05-01</span></li>
+        <li><b>Projet de loi n° 697</b> — Loi visant à lutter contre le gaspillage <span class="pr-meta">· Présenté le 2024-04-23</span></li>
+        <li><b>Projet de loi n° 591</b> — Loi visant principalement à renforcer le contrôle de l’action gouvernementale par un député en lui reconnaissant un droit de visite des institutions administratives <span class="pr-meta">· Présenté le 2024-03-21</span></li>
+        <li><b>Projet de loi n° 694</b> — Loi modifiant le Code de la sécurité routière afin de lutter plus efficacement contre l’alcool au volant <span class="pr-meta">· Présenté le 2024-03-19</span></li>
+        <li><b>Projet de loi n° 695</b> — Loi sur le directeur parlementaire du budget <span class="pr-meta">· Présenté le 2024-03-14</span></li>
+        <li><b>Projet de loi n° 693</b> — Loi favorisant la contribution active à la société des prestataires du Programme de solidarité sociale <span class="pr-meta">· Présenté le 2024-02-22</span></li>
+        <li><b>Projet de loi n° 599</b> — Loi modifiant principalement la Loi sur le régime de rentes du Québec afin d’abolir la réduction de la rente de retraite de la personne qui bénéficie d’une rente d’invalidité entre 60 ans et 65 ans <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2024-02-20</span></li>
+        <li><b>Projet de loi n° 597</b> — Loi modifiant la Loi sur la qualité de l’environnement pour instaurer un droit d’initiative citoyenne en environnement et renforcer les pouvoirs et l’indépendance du Bureau d’audiences publiques sur l’environnement <span class="pr-meta">· Présenté le 2024-02-01</span></li>
+        <li><b>Projet de loi n° 691</b> — Loi modifiant diverses dispositions législatives relatives à l’aide financière aux études <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-12-07</span></li>
+        <li><b>Projet de loi n° 394</b> — Loi concernant la mise en place de politiques de conciliation études-famille-travail notamment dans les établissements d’enseignement supérieur <span class="pr-meta">· Présenté le 2023-12-05</span></li>
+        <li><b>Projet de loi n° 690</b> — Loi modifiant la Loi sur le régime de rentes du Québec afin de corriger une iniquité envers les retraités invalides <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-11-23</span></li>
+        <li><b>Projet de loi n° 596</b> — Loi modifiant principalement la Loi sur l’aménagement et l’urbanisme afin de permettre aux municipalités d’adopter un règlement relatif au zonage différencié visant à accroître et à pérenniser l’offre de logements sociaux ou abordables <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-10-24</span></li>
+        <li><b>Projet de loi n° 499</b> — Loi établissant un nouveau mode de scrutin <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-10-05</span></li>
+        <li><b>Projet de loi n° 593</b> — Loi modifiant le Code civil afin d’interdire les évictions faites en vue de convertir un logement en hébergement touristique de courte durée <span class="pr-meta">· Présenté le 2023-10-04</span></li>
+        <li><b>Projet de loi n° 495</b> — Loi visant à lutter contre l’accaparement des terres agricoles <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-09-26</span></li>
+        <li><b>Projet de loi n° 491</b> — Loi visant à modifier la Loi sur les infrastructures publiques afin de soumettre les projets inscrits au plan québécois des infrastructures à un test climat <span class="pr-meta">· Présenté le 2023-09-14</span></li>
+        <li><b>Projet de loi n° 194</b> — Loi instaurant une présomption de consentement au don d’organes ou de tissus après le décès <span class="pr-meta">· Étude détaillée en commission</span></li>
+        <li><b>Projet de loi n° 494</b> — Loi modifiant le Code civil afin de rendre sans effet les clauses d’un bail de logement qui tendent à interdire les animaux de compagnie <span class="pr-meta">· Présenté le 2023-05-25</span></li>
+        <li><b>Projet de loi n° 493</b> — Loi modifiant la Loi sur l’immigration au Québec pour tenir compte des résidents temporaires aux fins de la planification de l’immigration <span class="pr-meta">· Présenté le 2023-05-10</span></li>
+        <li><b>Projet de loi n° 397</b> — Loi visant à prévenir et à combattre les violences à caractère sexuel dans les établissements d’enseignement dispensant des services de l’éducation préscolaire, d’enseignement au primaire ou d’enseignement en formation générale ou professionnelle au secondaire, incluant les services éducatifs pour les adultes <span class="pr-meta">· Présenté le 2023-04-27</span></li>
+        <li><b>Projet de loi n° 399</b> — Loi modifiant la Loi sur la Caisse de dépôt et placement du Québec afin d’obliger la Caisse de dépôt et placement du Québec à faire des investissements ayant des impacts sociaux et environnementaux durables et à en rendre compte <span class="pr-meta">· Présenté le 2023-04-27</span></li>
+        <li><b>Projet de loi n° 201</b> — Loi concernant la Municipalité de Morin-Heights <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-04-20</span></li>
+        <li><b>Projet de loi n° 398</b> — Loi modifiant la Loi sur l’instruction publique afin de consacrer le droit des élèves handicapés ou en difficulté d’adaptation ou d’apprentissage de recevoir des services éducatifs équivalents à ceux dispensés par l’école <span class="pr-meta">· Présenté le 2023-04-20</span></li>
+        <li><b>Projet de loi n° 203</b> — Loi concernant les fins et les pouvoirs de la Corporation archiépiscopale catholique romaine de Montréal <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-04-19</span></li>
+        <li><b>Projet de loi n° 392</b> — Loi concernant la suspension de la délivrance de nouveaux claims miniers et mettant fin à la préséance des droits miniers et gaziers sur les autres usages du territoire <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-04-18</span></li>
+        <li><b>Projet de loi n° 490</b> — Loi renforçant la majorité qualifiée requise pour la nomination et la destitution des personnes nommées par l’Assemblée nationale <span class="pr-meta">· Présenté le 2023-04-18</span></li>
+        <li><b>Projet de loi n° 492</b> — Loi visant à lutter contre le gaspillage <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-04-18</span></li>
+        <li><b>Projet de loi n° 393</b> — Loi visant à lutter contre le gaspillage alimentaire <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-04-06</span></li>
+        <li><b>Projet de loi n° 390</b> — Loi favorisant la prise en compte de l’égalité des sexes et de la diversité dans une perspective intersectionnelle dans le processus budgétaire <span class="pr-meta">· Présenté le 2023-03-21</span></li>
+        <li><b>Projet de loi n° 391</b> — Loi modifiant la Loi sur l'instruction publique afin de consacrer le droit à la gratuité des projets pédagogiques particuliers offerts dans les écoles où est dispensé le service de l’éducation préscolaire ou de l’enseignement primaire et secondaire ainsi que de limiter la distance entre les immeubles d’une école à projet particulier <span class="pr-meta">· Présenté le 2023-03-16</span></li>
+        <li><b>Projet de loi n° 396</b> — Loi modifiant la Loi sur la réduction de la dette et instituant le Fonds des générations afin d’y prévoir l’atteinte d’une capitalisation de 100 milliards de dollars <span class="pr-meta">· Présenté le 2023-03-16</span></li>
+        <li><b>Projet de loi n° 196</b> — Loi modifiant la Loi sur les services de garde éducatifs à l’enfance afin de garantir le droit de recevoir des services de garde <span class="pr-meta">· Présenté le 2023-03-14</span></li>
+        <li><b>Projet de loi n° 199</b> — Loi visant une meilleure protection du consommateur contre les contrats de crédit abusifs <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-02-23</span></li>
+        <li><b>Projet de loi n° 198</b> — Loi modifiant le Code civil afin d’assurer une plus grande protection aux locataires aînés contre les reprises de logement ou les évictions <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-02-21</span></li>
+        <li><b>Projet de loi n° 195</b> — Loi modifiant la Loi sur la protection du consommateur afin de lutter contre l’obsolescence programmée et de faire valoir le droit à la réparation des biens <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2023-02-02</span></li>
+        <li><b>Projet de loi n° 193</b> — Loi modifiant la Charte des droits et libertés de la personne afin de reconnaître le droit à un environnement sain à titre de droit fondamental <span class="pr-meta">· Présenté le 2023-02-01</span></li>
+        <li><b>Projet de loi n° 191</b> — Loi modifiant la Loi sur la sécurité dans les sports afin d’interdire les batailles dans les activités sportives auxquelles des personnes de moins de 18 ans participent <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2022-12-08</span></li>
+        <li><b>Projet de loi n° 192</b> — Loi visant à assurer la santé et la sécurité des élèves en classe en encadrant la qualité de l’air ambiant dans les écoles <span class="pr-meta">· Présenté le 2022-12-07</span></li>
+        <li><b>Projet de loi n° 197</b> — Loi visant à améliorer la qualité des soins par la fixation de ratios dans certains établissements visés par la Loi sur les services de santé et les services sociaux <span class="pr-meta">· Présenté le 2022-12-06</span></li>
+        <li><b>Projet de loi n° 190</b> — Loi visant à reconnaître le serment des députés envers le peuple du Québec comme seul serment obligatoire à leur entrée en fonction <span class="pr-meta">· Resté à l'étape « présentation » (session 1) — non réinscrit depuis, dernière activité le 2022-12-01</span></li>
+      </ul>
+      <p class="pr-note">Les 143 projets de loi, du plus récemment actif au plus ancien. Texte intégral de chacun : <a href="https://www.assnat.qc.ca/" rel="noopener">assnat.qc.ca</a>.<noscript> Les filtres, la recherche et le détail de chaque fiche demandent JavaScript.</noscript></p>
+    </div>
+
+    <!-- Explainer « challenger » : adapté au VRAI mécanisme du site (compte
+         requis, 1 demande par personne, paliers 500/1000) — la maquette disait
+         « pas de compte requis », ce qui ne correspond pas à la réalité. -->
+    <div class="band band-yellow bleed" id="band-challenge-explainer">
+      <h2 data-i18n="chexp.h">✋ C'est quoi, « challenger » ?</h2>
+      <p data-i18n="chexp.p1">Un clic sur « Demander une explication » = une demande citoyenne pour que le parrain du projet l'explique en langage clair, et pour qu'on le garde à l'œil ensemble.</p>
+      <p data-i18n="chexp.p2"><b>Un compte (courriel) est requis</b> — une demande par personne, aucune demande anonyme. 🔥 À <b>1 000</b>, on pousse pour une pétition officielle.</p>
+    </div>
+
+    <!-- Reste des projets (3e et suivants) — la bande jaune ci-dessus
+         s'intercale ainsi entre le 2e et le 3e projet. -->
+    <div id="billsListRest"></div>
+  </section>
+
+  <!-- MINISTRES & DÉPUTÉS -->
+  
+
+  <!-- PROJETS DE LOI -->
+  
+
+  <!-- VOTES -->
+  
+
+  <!-- ARCHIVES (Martin, 30 oct. 2026) : les législatures terminées, une carte chacune (projets de
+       loi, votes), puis les promesses de l'élection de 2026. Dessiné par commun/dq.js (renderArchives)
+       depuis data/archives/index.json : la 43e y entre seule à l'ouverture de la 44e. -->
+  
+
+  <!-- COMPTE & ABONNEMENT -->
+
+  <!-- LEXIQUE (fusion : personnes, lexique, apropos) -->
+  <!-- PROMESSES — vue sans onglet (comme view-bd). Accessible par /promesses,
+       par le bouton de la bande de dissolution et par le bloc du Lexique.
+       Contenu saisi à la main dans data/promises.json (voir la note du fichier). -->
+  
+
+  
+
+  <!-- PAGE CACHÉE — la BD « l'idée derrière le site ». Aucun onglet n'y mène :
+       accessible seulement par le « et moi » du bas de page (à côté de
+       « Construit avec Claude »). goToTab('bd') fonctionne sans bouton d'onglet. -->
+  <!-- /mon-dossier : l'espace de la personne connectée, côté ASSEMBLÉE seulement (Martin,
+       22 sept. 2026 : « mes dossiers provincial et les villes doivent être complètement séparés »).
+       Les villes y ont leur section (#villes) depuis le 30 sept. 2026 ; avant, /mes-dossiers. Tout le contenu
+       est rempli par commun/dq.js (renderMonDossier) : rien de personnel n'est dans le HTML. -->
+  <!-- LES RÈGLES (Martin, 5 oct. 2026 : « on pourrait quasiment faire une page de ça… à côté de
+       Facebook »). Les règles de sources du site, écrites une fois pour être montrées à quelqu'un :
+       tout ce que les encadrés de méthode disent page par page, réuni. Lien dans le pied de page. -->
+  
+
+  <!-- LA PAGE 404 (Martin, 6 oct. 2026 : « faut une page drôle 404 », puis : avec le jaune et tout
+       le kit du site, « morte dans l'œuf », et pas de blanc sur noir). Vercel sert 404.html, avec le
+       code 404, pour toute adresse qui n'existe pas ; avant, c'était le message brut de l'hébergeur,
+       en anglais. Fabriquée comme les autres pages (scripts/build-section-pages.js, vue
+       « introuvable »), donc avec l'en-tête, le menu et le pied du site.
+       « Morte dans l'œuf » est le libellé des projets de loi jamais rendus plus loin que la
+       présentation. Le faux vote est ÉTIQUETÉ comme une blague : ce site n'invente jamais de donnée. -->
+  
+
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+  
+
+  
+
+  
+
+</div>
+
+<!-- Footer maquette : texte à gauche (avec « construit avec Claude » suivi du
+     lien caché « et moi » vers la BD), liens texte en majuscules à droite. -->
+<footer>
+  <nav class="footer-nav" aria-label="Plan du site">
+    <a href="/" data-i18n="nav.apercu">Aperçu</a>
+    <a href="/ministres" data-i18n="nav.ministres">Ministres</a>
+    <a href="/projets-de-loi" data-i18n="nav.projets">Projets de loi</a>
+    <a href="/votes" data-i18n="nav.votes">Votes</a>
+    <a href="/promesses" data-i18n="fil.promesses">Promesses</a>
+    <a href="/archives" data-i18n="nav.archives">Archives</a>
+    <a href="/lexique" data-i18n="nav.lexique">Lexique</a>
+    <a href="/sources" data-i18n="fil.bd">Mises à jour du site</a>
+    <a href="/mon-dossier" data-i18n="nav.mondossier">Mon dossier</a>
+    <span class="footer-nav-villes"><span data-i18n="footer.villes">Villes :</span>
+      <a href="/quebec/">Québec</a>
+      <a href="/montreal/">Montréal</a>
+    </span>
+  </nav>
+  <div class="footer-inner">
+  <span class="footer-left-line"><span id="footerLeft">Site non officiel — données publiques ANQ &amp; Données Québec ·</span> <span id="footerRight">Une réalisation de</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com" target="_blank" rel="noopener">DAFR Solution</a></span>
+  <span class="footer-right-group">
+    <a class="footer-gh" href="/regles" data-i18n="footer.regles">Les règles</a>
+    <a class="footer-gh" href="/abonnement" data-i18n="footer.abonnement">Abonnement</a>
+    <a class="footer-gh" href="https://www.facebook.com/dossierquebec" target="_blank" rel="noopener" aria-label="DossierQuébec sur Facebook">Facebook</a>
+    <a class="footer-gh footer-coffee" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener" aria-label="Offre-moi un café" data-i18n="footer.coffee">Offre-moi un café</a>
+    <a class="footer-gh" href="/abonnement" data-i18n="footer.rss" title="Flux RSS : réservé aux abonné·e·s">Flux RSS</a>
+    <!-- Crédit exigé par la licence gratuite de Flaticon (icônes du bouton café, 3 nov. 2026). -->
+    <a class="footer-gh" href="https://www.flaticon.com/fr/icones-gratuites/cafe" target="_blank" rel="noopener" data-i18n="footer.flaticon">Icônes : Flaticon</a>
+    <a class="footer-gh" href="https://github.com/GrandFFormat/DossierQuebec" target="_blank" rel="noopener" data-i18n="footer.source">Code source</a>
+  </span>
+  </div>
+</footer>
+
+<button id="backToTop" class="dq-remonter" aria-label="Remonter en haut" title="Remonter en haut" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/commun/apercu.js"></script>
+<script src="/commun/dq.js"></script>
+<!-- Vercel Web Analytics — sans cookie, sans donnée personnelle (donc pas de
+     bannière de consentement requise). Le script est servi automatiquement par
+     Vercel quand Web Analytics est activé dans le tableau de bord du projet. -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
