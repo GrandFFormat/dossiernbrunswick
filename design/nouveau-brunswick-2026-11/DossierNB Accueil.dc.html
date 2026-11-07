@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/industry-87788c62-4d64-4785-9555-78ddce523df0/styles.css">
+<script src="_ds/industry-87788c62-4d64-4785-9555-78ddce523df0/_ds_bundle.js"></script>
+<style>
+:root{--color-accent:#0033a0;--color-accent-600:#002a85;--color-accent-700:#00226b;--color-accent-100:#e8eefb;--color-accent-800:#001a52;--color-accent-900:#00143f}
+body{margin:0;background:#e9e9ea;text-wrap:pretty}
+a{color:#00226b}a:hover{color:#e4002b}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.dv-turn{padding:40px 44px 32px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 12px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.6)}.dv-card{width:1200px;background:#f2f2f3;border:1px solid rgba(0,0,0,.1);box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden;color:#1d1f20;font-family:var(--font-body)}.dv-opt:target .dv-oid{background:#0033a0;color:#fff}.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.55)}
+.dv-card[data-theme]{background:var(--p);color:var(--ink)}.dv-card[data-theme="light"]{--acc:#0033a0;--p:#f2f2f3;--w:#fff;--ink:#1d1f20;--ink2:#424244;--ink3:#5d5d60;--tint:#e8eefb;--tintink:#00226b;--hl:#0033a0}.dv-card[data-theme="dark"]{--acc:#a9c0ff;--p:#071233;--w:#0e1c4a;--ink:#f1f1f3;--ink2:#c9cbd1;--ink3:#9a9ea8;--tint:#132a6b;--tintink:#e3eaff;--hl:#ffd100;--color-divider:rgba(255,255,255,.18);--shadow-sm:0 1px 2px rgba(0,0,0,.5);--shadow-md:0 3px 10px rgba(0,0,0,.6)}.dv-card[data-theme="dark"] a{color:#9db4ff}.dv-card[data-theme="dark"] .input::placeholder{color:#9a9ea8}
+.dv-note{max-width:880px;margin:0 0 28px;font:13px/1.55 system-ui,sans-serif;color:rgba(0,0,0,.7)}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Raffinement de <a class="dv-oid" href="#1a">1a</a> — projets de loi cliquables, fin des boîtes à repères « + »</span></div>
+<p class="dv-note">Les projets de loi deviennent des <b>rangées‑boutons</b> : flèche, aperçu en langage clair, bandeau bleu au survol, et la première est montrée ouverte pour rappeler qu'on lit le résumé sur place. Les cadres filaires à « + » sont remplacés par des <b>aplats</b> (compte = bleu plein, mission = colonnes séparées par un simple filet).</p>
+<div class="dv-opts">
+<div class="dv-opt" id="2a"><div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Tricolore v2 — onglet Villes · thème sombre (bouton lune dans la nav, ou via Tweaks)</div>
+<div class="dv-card" data-theme="{{ theme }}">
+  <div style="background:#00226b;color:#fff;overflow:hidden;height:30px;display:flex;align-items:center;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-heading);font-weight:600">
+    <div style="display:flex;white-space:nowrap;animation:tick 28s linear infinite"><span style="padding:0 40px"><span style="color:#ffd100">★</span> DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span><span style="padding:0 40px"><span style="color:#ffd100">★</span> DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span><span style="padding:0 40px"><span style="color:#ffd100">★</span> DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span></div>
+  </div>
+  <nav style="display:flex;align-items:center;gap:22px;padding:18px 48px;border-bottom:1px solid var(--color-divider)">
+    <div style="display:flex;align-items:center;gap:10px;margin-right:auto"><svg width="22" height="22" viewBox="0 0 24 24"><polygon fill="#ffd100" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg><span style="font-family:var(--font-heading);font-weight:600;font-size:22px;letter-spacing:.02em">Dossier<span style="color:#e4002b">NBrunswick</span></span></div>
+    <a style="text-decoration:none;color:var(--acc);font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#2a"><span style="color:#e4002b;font-size:11px;margin-right:4px">01</span>APERÇU</a>
+    <a style="text-decoration:none;color:var(--ink);font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#2a"><span style="color:#e4002b;font-size:11px;margin-right:4px">02</span>MINISTRES</a>
+    <a style="text-decoration:none;color:var(--ink);font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#2a"><span style="color:#e4002b;font-size:11px;margin-right:4px">03</span>PROJETS DE LOI</a>
+    <a style="text-decoration:none;color:var(--ink);font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#2a"><span style="color:#e4002b;font-size:11px;margin-right:4px">04</span>ARCHIVES</a>
+    <a style="text-decoration:none;color:var(--ink);font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#2a"><span style="color:#e4002b;font-size:11px;margin-right:4px">05</span>LEXIQUE</a>
+    <a style="text-decoration:none;color:var(--ink);font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em;display:inline-flex;align-items:center;gap:4px" href="#2a"><span style="color:#e4002b;font-size:11px;margin-right:4px">06</span>VILLES<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"></path></svg></a>
+    <a style="text-decoration:none;color:#fff;background:#0033a0;padding:7px 14px;font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#2a"><span style="color:#ffd100">★</span> MON DOSSIER</a>
+    <button onClick="{{ toggleTheme }}" title="Thème clair / sombre" style="width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--color-divider);background:transparent;color:var(--ink);cursor:pointer;padding:0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></button>
+    <div style="display:flex;gap:2px;font-size:12px;color:var(--ink3);border:1px solid var(--color-divider)"><span style="padding:4px 8px">A−</span><span style="padding:4px 8px;border-inline:1px solid var(--color-divider)">100%</span><span style="padding:4px 8px">A+</span></div>
+  </nav>
+  <div style="display:flex;align-items:center;gap:18px;padding:10px 48px;background:var(--tint);color:var(--tintink);font-size:13px;border-bottom:1px solid var(--color-divider)"><span style="font-family:var(--font-heading);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:12px">Villes</span><a href="#2a" style="color:inherit;text-decoration:none;font-weight:600">Moncton</a><a href="#2a" style="color:inherit;text-decoration:none;font-weight:600">Fredericton</a><a href="#2a" style="color:inherit;text-decoration:none;font-weight:600">Saint John</a><a href="#2a" style="color:inherit;text-decoration:none;font-weight:600">Dieppe</a><a href="#2a" style="color:inherit;text-decoration:none;font-weight:600">Bathurst</a><span style="margin-left:auto;font-size:12px;opacity:.8">Conseils municipaux : ordres du jour et votes en langage clair</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;min-height:460px">
+    <div style="background:#0033a0;color:#fff;padding:56px 44px;position:relative;overflow:hidden">
+      <svg style="position:absolute;right:-60px;bottom:-60px;width:300px;height:300px" viewBox="0 0 24 24"><polygon fill="#ffd100" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:12px;opacity:.85">61ᵉ législature · session 2026–2027</div>
+      <h1 style="font-size:64px;line-height:.98;text-transform:uppercase;letter-spacing:.01em;margin:0 0 20px;color:#fff">L'Assemblée législative du N.‑B. en clair</h1>
+      <div style="font-family:var(--font-heading);font-weight:600;font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:#fff;position:relative">Qui siège, qui légifère, qui vote quoi.</div>
+    </div>
+    <div style="background:var(--p);padding:56px 44px;display:flex;flex-direction:column;justify-content:space-between">
+      <p style="font-size:18px;line-height:1.5;margin:0">L'Assemblée législative du Nouveau-Brunswick, réorganisée <b>par personne</b> et traduite <b>en langage clair</b> — sans jugement ni verdict. Site citoyen indépendant, vraies données publiques, en français et en anglais.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap"><a href="#2a" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:#e4002b;padding:12px 22px;font-family:var(--font-heading);font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase">Explorer →</a><a href="#2a" style="display:inline-flex;align-items:center;text-decoration:none;color:var(--acc);border:1px solid var(--acc);padding:12px 22px;font-family:var(--font-heading);font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase">Les député·e·s</a></div>
+    </div>
+    <div style="background:#e4002b;color:#fff;padding:56px 44px;display:grid;grid-template-rows:1fr 1fr 1fr">
+      <div style="border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:12px"><div style="font-family:var(--font-heading);font-weight:600;font-size:72px;line-height:1;font-feature-settings:'tnum'">49</div><div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase">Député·e·s à l'Assemblée</div></div>
+      <div style="border-bottom:1px solid rgba(255,255,255,.35);padding:14px 0 12px"><div style="font-family:var(--font-heading);font-weight:600;font-size:72px;line-height:1;font-feature-settings:'tnum'">38</div><div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase">Projets de loi suivis</div></div>
+      <div style="padding-top:14px"><div style="font-family:var(--font-heading);font-weight:600;font-size:72px;line-height:1;font-feature-settings:'tnum'">212</div><div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase">Votes nominatifs</div></div>
+    </div>
+  </div>
+  <div style="margin:36px 48px 0;display:flex;align-items:center;gap:16px;padding:14px 20px;background:var(--tint);font-size:14px;color:var(--tintink)"><span style="width:10px;height:10px;background:#e4002b;flex:none"></span><b>Reprise des travaux le 18 novembre 2026.</b>&nbsp;Les premiers projets de loi de la 3ᵉ session apparaîtront ici dès leur dépôt à Fredericton.</div>
+  <!-- signalés par les citoyens -->
+  <div style="padding:48px 48px 0">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #e4002b;padding-bottom:8px;margin-bottom:6px"><h2 style="font-size:28px;text-transform:uppercase;margin:0;letter-spacing:.01em">Projets signalés par les citoyen·ne·s</h2><a href="#2a" style="font-size:13px;color:#e4002b;text-decoration:none;font-weight:600">Voir plus →</a></div>
+    <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);margin-bottom:18px;line-height:1.5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e4002b" stroke-width="1.5" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 16h.01"></path></svg><span><b>Pas de pétition en ligne au Nouveau‑Brunswick.</b> Contrairement au Québec, l'Assemblée n'accepte que les pétitions papier déposées par un·e député·e. Signaler un projet ici n'a aucune valeur officielle — c'est un compteur citoyen qui montre ce qui préoccupe, et vous indique comment agir.</span></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <a href="#2a" style="text-decoration:none;color:inherit;background:var(--w);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;border-top:4px solid #e4002b" style-hover="box-shadow:var(--shadow-md)">
+        <div style="padding:18px 20px 0;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:var(--font-heading);font-weight:600;font-size:22px;color:var(--acc)">N° 7</span><span style="font-size:11px;background:#fde6ea;color:#9a001c;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase">En comité</span></div>
+        <div style="padding:8px 20px 0;font-size:15px;font-weight:500;line-height:1.35;flex:1">Loi sur la protection des locataires et le plafonnement des hausses de loyer</div>
+        <div style="padding:16px 20px 18px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;color:var(--ink2)"><b style="font-family:var(--font-heading);font-size:22px;color:#e4002b">1 284</b> signalements</span><span style="font-size:12px;color:var(--acc);font-weight:600;text-transform:uppercase;letter-spacing:.04em">Signaler →</span></div>
+      </a>
+      <a href="#2a" style="text-decoration:none;color:inherit;background:var(--w);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;border-top:4px solid #e4002b" style-hover="box-shadow:var(--shadow-md)">
+        <div style="padding:18px 20px 0;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:var(--font-heading);font-weight:600;font-size:22px;color:var(--acc)">N° 11</span><span style="font-size:11px;background:#e8eefb;color:#00226b;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase">1ʳᵉ lecture</span></div>
+        <div style="padding:8px 20px 0;font-size:15px;font-weight:500;line-height:1.35;flex:1">Loi sur les langues officielles — révision décennale</div>
+        <div style="padding:16px 20px 18px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;color:var(--ink2)"><b style="font-family:var(--font-heading);font-size:22px;color:#e4002b">947</b> signalements</span><span style="font-size:12px;color:var(--acc);font-weight:600;text-transform:uppercase;letter-spacing:.04em">Signaler →</span></div>
+      </a>
+      <a href="#2a" style="text-decoration:none;color:inherit;background:var(--w);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;border-top:4px solid #e4002b" style-hover="box-shadow:var(--shadow-md)">
+        <div style="padding:18px 20px 0;display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:var(--font-heading);font-weight:600;font-size:22px;color:var(--acc)">N° 4</span><span style="font-size:11px;background:#e8eefb;color:#00226b;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase">2ᵉ lecture</span></div>
+        <div style="padding:8px 20px 0;font-size:15px;font-weight:500;line-height:1.35;flex:1">Loi modifiant la Loi sur l'assurance‑maladie — accès aux soins primaires en région</div>
+        <div style="padding:16px 20px 18px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:13px;color:var(--ink2)"><b style="font-family:var(--font-heading);font-size:22px;color:#e4002b">412</b> signalements</span><span style="font-size:12px;color:var(--acc);font-weight:600;text-transform:uppercase;letter-spacing:.04em">Signaler →</span></div>
+      </a>
+    </div>
+    <div style="margin-top:14px;font-size:13px;color:var(--ink3);display:flex;gap:6px;flex-wrap:wrap">Pour agir officiellement : <a href="#2a">écrire à votre député·e</a> · <a href="#2a">lancer une pétition papier (guide)</a> · <a href="#2a">s'inscrire au comité (audiences publiques)</a></div>
+  </div>
+  <!-- bills: clickable rows -->
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:48px;padding:48px 48px 56px">
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #0033a0;padding-bottom:8px;margin-bottom:6px"><h2 style="font-size:28px;text-transform:uppercase;margin:0;letter-spacing:.01em">Projets de loi récemment actifs</h2><a href="#2a" style="font-size:13px;color:#e4002b;text-decoration:none;font-weight:600">Voir tout →</a></div>
+      <div style="font-size:12px;color:var(--ink3);margin-bottom:14px">Cliquez un projet pour lire son résumé en langage clair, son étape et les votes.</div>
+      <div style="display:grid;gap:8px">
+        <!-- opened example -->
+        <a href="#2a" style="display:block;text-decoration:none;color:inherit;background:var(--w);border-left:6px solid #0033a0;box-shadow:var(--shadow-md)">
+          <div style="display:grid;grid-template-columns:72px 1fr auto 28px;gap:18px;padding:16px 20px;align-items:center"><span style="font-family:var(--font-heading);font-weight:600;font-size:24px;color:var(--acc)">N° 4</span><span style="font-size:16px;font-weight:500">Loi modifiant la Loi sur l'assurance-maladie — accès aux soins primaires en région</span><span style="font-size:11px;background:#e8eefb;color:#00226b;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase">2ᵉ lecture</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.5"><path d="M6 9l6 6 6-6"></path></svg></div>
+          <div style="padding:0 20px 18px 110px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start">
+            <div><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#e4002b;font-weight:600;margin-bottom:6px">En clair</div><p style="margin:0;font-size:14px;line-height:1.55;color:var(--ink2)">Le projet oblige la Régie à garantir un rendez‑vous en soins primaires dans un délai de 30 jours hors des grands centres, et ouvre la facturation aux infirmières praticiennes. Déposé par la ministre de la Santé.</p></div>
+            <div style="font-size:12px;color:var(--ink3);line-height:1.7;white-space:nowrap"><div>Dépôt · 14 oct. 2026</div><div>Dernier vote · <b style="color:var(--ink)">31 pour · 16 contre</b></div><div style="color:var(--acc);font-weight:600">Ouvrir la fiche →</div></div>
+          </div>
+        </a>
+        <a href="#2a" style="display:grid;grid-template-columns:72px 1fr auto 28px;gap:18px;padding:16px 20px;align-items:center;text-decoration:none;color:inherit;background:var(--w);border-left:6px solid transparent;box-shadow:var(--shadow-sm)" style-hover="border-left-color:var(--hl);box-shadow:var(--shadow-md)"><span style="font-family:var(--font-heading);font-weight:600;font-size:24px;color:var(--acc)">N° 7</span><span style="font-size:16px;font-weight:500">Loi sur la protection des locataires et le plafonnement des hausses de loyer</span><span style="font-size:11px;background:#fde6ea;color:#9a001c;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase">En comité</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.5"><path d="M9 6l6 6-6 6"></path></svg></a>
+        <a href="#2a" style="display:grid;grid-template-columns:72px 1fr auto 28px;gap:18px;padding:16px 20px;align-items:center;text-decoration:none;color:inherit;background:var(--w);border-left:6px solid transparent;box-shadow:var(--shadow-sm)" style-hover="border-left-color:var(--hl);box-shadow:var(--shadow-md)"><span style="font-family:var(--font-heading);font-weight:600;font-size:24px;color:var(--acc)">N° 11</span><span style="font-size:16px;font-weight:500">Loi sur les langues officielles — révision décennale</span><span style="font-size:11px;background:#e8eefb;color:#00226b;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase">1ʳᵉ lecture</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.5"><path d="M9 6l6 6-6 6"></path></svg></a>
+        <a href="#2a" style="display:grid;grid-template-columns:72px 1fr auto 28px;gap:18px;padding:16px 20px;align-items:center;text-decoration:none;color:inherit;background:var(--w);border-left:6px solid transparent;box-shadow:var(--shadow-sm)" style-hover="border-left-color:var(--hl);box-shadow:var(--shadow-md)"><span style="font-family:var(--font-heading);font-weight:600;font-size:24px;color:var(--acc)">N° 2</span><span style="font-size:16px;font-weight:500">Loi sur la gestion durable des forêts de la Couronne</span><span style="font-size:11px;background:#1d1f20;color:#fff;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase">Sanctionné</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.5"><path d="M9 6l6 6-6 6"></path></svg></a>
+      </div>
+      <div style="font-size:12px;color:var(--ink3);margin-top:14px">Source officielle : legnb.ca</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="background:#0033a0;color:#fff;padding:24px;position:relative;overflow:hidden">
+      <svg style="position:absolute;right:-30px;top:-30px;width:120px;height:120px" viewBox="0 0 24 24"><polygon fill="#ffd100" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#ffd100;font-weight:600;margin-bottom:6px">Compte gratuit</div>
+      <h3 style="font-size:24px;text-transform:uppercase;margin:0 0 8px;color:#fff;line-height:1;max-width:220px">Suivez les projets qui vous touchent</h3>
+      <p style="font-size:13px;line-height:1.45;opacity:.9;margin:0">Sans mot de passe : un lien arrive par courriel. Jusqu'à 3 projets suivis dans Mon dossier.</p>
+      <div style="display:flex;gap:8px;margin-top:14px"><input class="input" placeholder="votre@courriel.ca" style="border-radius:0;background:var(--w);border-color:var(--w);color:var(--ink);flex:1"><a href="#2a" style="display:flex;align-items:center;text-decoration:none;color:#fff;background:#e4002b;padding:0 14px;font-family:var(--font-heading);font-weight:600;font-size:14px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap">Recevoir le lien</a></div>
+    </div>
+    <div style="background:#e4002b;color:#fff;padding:24px;display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#ffd100;font-weight:600">Commandite</div>
+      <h3 style="font-size:24px;text-transform:uppercase;margin:0;color:#fff;line-height:1">Commanditez votre ville</h3>
+      <p style="font-size:13px;line-height:1.45;margin:0;opacity:.95">Ouvrez le suivi du conseil municipal de votre ville — ordres du jour, votes et résolutions en langage clair. Une commandite locale finance la couverture d'une ville pendant un an.</p>
+      <div style="display:flex;gap:10px;align-items:center;margin-top:6px;flex-wrap:wrap"><a href="#2a" style="display:inline-flex;align-items:center;text-decoration:none;color:#00226b;background:#ffd100;padding:9px 16px;font-family:var(--font-heading);font-weight:600;font-size:14px;letter-spacing:.04em;text-transform:uppercase">Commanditer →</a><span style="font-size:12px;opacity:.9">Edmundston, Miramichi, Campbellton… encore sans couverture</span></div>
+    </div>
+    </div>
+  </div>
+  <div style="background:#0033a0;color:#fff;padding:48px 48px 56px;display:grid;grid-template-columns:1fr 2fr;gap:48px">
+    <div><div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#ffd100;font-weight:600;margin-bottom:8px">Quoi de neuf</div><h2 style="font-size:40px;text-transform:uppercase;line-height:1;margin:0;color:#fff">Dernières activités réelles à l'Assemblée</h2><p style="margin-top:16px;font-size:14px;opacity:.85">Fil chronologique, du plus récent au plus ancien.</p></div>
+    <div style="display:grid">
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.3);font-size:15px"><span style="font-family:var(--font-heading);font-weight:600;color:#ffd100;letter-spacing:.04em">4 NOV. 2026</span><span>Remaniement : trois nouveaux ministres assermentés à Fredericton.</span></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.3);font-size:15px"><span style="font-family:var(--font-heading);font-weight:600;color:#ffd100;letter-spacing:.04em">28 OCT. 2026</span><span>Dépôt du projet de loi n° 11 — Loi sur les langues officielles, révision décennale.</span></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.3);font-size:15px"><span style="font-family:var(--font-heading);font-weight:600;color:#ffd100;letter-spacing:.04em">21 OCT. 2026</span><span>Vote nominatif sur le projet de loi n° 7 : adopté en 2ᵉ lecture, 27 pour, 20 contre.</span></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.3);font-size:15px"><span style="font-family:var(--font-heading);font-weight:600;color:#ffd100;letter-spacing:.04em">9 OCT. 2026</span><span>Sanction royale du projet de loi n° 2 — Gestion durable des forêts de la Couronne.</span></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:20px;padding:12px 0;font-size:15px"><span style="font-family:var(--font-heading);font-weight:600;color:#ffd100;letter-spacing:.04em">30 SEPT. 2026</span><span>Ouverture de la 3ᵉ session : discours du trône.</span></div>
+    </div>
+  </div>
+  <!-- mission: flat columns, no frames -->
+  <div style="padding:48px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0">
+    <div style="padding-right:36px"><div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#e4002b;font-weight:600;margin-bottom:8px">Notre mission</div><h2 style="font-size:30px;text-transform:uppercase;line-height:1.02;margin:0">Le site officiel est la source la plus fiable. Celui‑ci la rend juste plus facile à suivre.</h2></div>
+    <div style="padding:0 36px;border-left:1px solid var(--color-divider)"><div style="font-family:var(--font-heading);font-weight:600;font-size:18px;text-transform:uppercase;margin-bottom:10px;color:var(--ink3)">legnb.ca fait</div><ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:var(--ink2)"><li>Organise tout par document officiel</li><li>La source légale et complète de tout</li><li>Neutre — ne compare ni ne résume jamais</li></ul></div>
+    <div style="padding:0 0 0 36px;border-left:1px solid var(--color-divider)"><div style="font-family:var(--font-heading);font-weight:600;font-size:18px;text-transform:uppercase;margin-bottom:10px;color:var(--acc)">Ce site essaie de faire</div><ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:var(--ink2)"><li>Organise tout par personne : une fiche, tous ses dossiers</li><li>Traduit le jargon en langage clair (voir le Lexique)</li><li>Vous laisse suivre ce qui vous touche, sans jugement ni verdict</li></ul></div>
+  </div>
+  <footer style="display:flex;height:6px"><div style="flex:1;background:#0033a0"></div><div style="flex:1;background:var(--p);border-top:1px solid var(--color-divider)"></div><div style="flex:1;background:#e4002b"></div></footer>
+  <div style="padding:16px 48px;font-size:12px;color:var(--ink3);display:flex;gap:20px;flex-wrap:wrap">Site non officiel — données publiques de l'Assemblée législative du N.‑B.<a href="#2a">Les règles</a><a href="#2a">Abonnement</a><a href="#2a">English</a></div>
+</div></div>
+</div>
+<p class="dv-next">Essayez : « ouvre le résumé dans un panneau latéral plutôt qu'en accordéon » · « ajoute les votes par député sur la rangée ouverte » · « page Projets de loi complète dans cette direction »</p>
+</section>
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">DossierNBrunswick — trois directions pour l'accueil</span></div>
+<p class="dv-note"><b>Contexte :</b> structure reprise de DossierQuébec (bandeau, nav 01–05, titre + 3 chiffres, projets récents, compte sans mot de passe, Quoi de neuf, mission, A−/A+). Grammaire visuelle Industry (Barlow Condensed, cadres filaires à repères « + », grille modulaire). Palette acadienne en grands aplats : bleu <span style="display:inline-block;width:10px;height:10px;background:#0033a0;vertical-align:middle"></span> rouge <span style="display:inline-block;width:10px;height:10px;background:#e4002b;vertical-align:middle"></span> étoile or <span style="display:inline-block;width:10px;height:10px;background:#ffd100;vertical-align:middle"></span>. Données : placeholders réalistes (Assemblée législative du N.-B., 49 député·e·s, 61ᵉ législature).</p>
+<div class="dv-opts">
+
+<!-- ═══════════ 1a — Tricolore ═══════════ -->
+<div class="dv-opt" id="1a"><div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Tricolore — le drapeau comme structure de page</div>
+<div class="dv-card">
+  <div style="background:#00226b;color:#fff;overflow:hidden;height:30px;display:flex;align-items:center;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-heading);font-weight:600">
+    <div style="display:flex;white-space:nowrap;animation:tick 28s linear infinite"><span style="padding:0 40px">★ DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span><span style="padding:0 40px">★ DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span><span style="padding:0 40px">★ DossierNBrunswick — site citoyen indépendant · vraies données publiques · Assemblée législative du Nouveau-Brunswick</span></div>
+  </div>
+  <nav style="display:flex;align-items:center;gap:28px;padding:18px 48px;border-bottom:1px solid var(--color-divider)">
+    <div style="display:flex;align-items:center;gap:10px;margin-right:auto"><svg width="22" height="22" viewBox="0 0 24 24"><polygon fill="#ffd100" stroke="#0033a0" stroke-width="1.2" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg><span style="font-family:var(--font-heading);font-weight:600;font-size:22px;letter-spacing:.02em">Dossier<span style="color:#e4002b">NB</span></span><span style="font-size:12px;color:#5d5d60;margin-left:6px">Qui siège, qui légifère, qui vote quoi</span></div>
+    <a style="text-decoration:none;color:#0033a0;font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#1a"><span style="color:#e4002b;font-size:11px;margin-right:4px">01</span>APERÇU</a>
+    <a style="text-decoration:none;color:#1d1f20;font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#1a"><span style="color:#e4002b;font-size:11px;margin-right:4px">02</span>MINISTRES</a>
+    <a style="text-decoration:none;color:#1d1f20;font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#1a"><span style="color:#e4002b;font-size:11px;margin-right:4px">03</span>PROJETS DE LOI</a>
+    <a style="text-decoration:none;color:#1d1f20;font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#1a"><span style="color:#e4002b;font-size:11px;margin-right:4px">04</span>ARCHIVES</a>
+    <a style="text-decoration:none;color:#1d1f20;font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#1a"><span style="color:#e4002b;font-size:11px;margin-right:4px">05</span>LEXIQUE</a>
+    <a style="text-decoration:none;color:#fff;background:#0033a0;padding:7px 14px;font-size:14px;font-family:var(--font-heading);font-weight:600;letter-spacing:.04em" href="#1a">★ MON DOSSIER</a>
+    <div style="display:flex;gap:2px;font-size:12px;color:#5d5d60;border:1px solid var(--color-divider)"><span style="padding:4px 8px">A−</span><span style="padding:4px 8px;border-inline:1px solid var(--color-divider)">100%</span><span style="padding:4px 8px">A+</span></div>
+  </nav>
+  <!-- hero: three bands -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;min-height:460px">
+    <div style="background:#0033a0;color:#fff;padding:56px 44px;position:relative;overflow:hidden">
+      <svg style="position:absolute;right:-60px;bottom:-60px;width:300px;height:300px;opacity:.95" viewBox="0 0 24 24"><polygon fill="#ffd100" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:12px;opacity:.85">61ᵉ législature · session 2026–2027</div>
+      <h1 style="font-size:64px;line-height:.98;text-transform:uppercase;letter-spacing:.01em;margin:0 0 20px;color:#fff">L'Assemblée législative du N.‑B. en clair</h1>
+    </div>
+    <div style="background:#f2f2f3;padding:56px 44px;display:flex;flex-direction:column;justify-content:space-between">
+      <p style="font-size:18px;line-height:1.5;margin:0">L'Assemblée législative du Nouveau-Brunswick, réorganisée <b>par personne</b> et traduite <b>en langage clair</b> — sans jugement ni verdict. Site citoyen indépendant, vraies données publiques, en français et en anglais.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap"><a href="#1a" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:#e4002b;padding:12px 22px;font-family:var(--font-heading);font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase">Explorer →</a><a href="#1a" style="display:inline-flex;align-items:center;text-decoration:none;color:#0033a0;border:1px solid #0033a0;padding:12px 22px;font-family:var(--font-heading);font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase">Les député·e·s</a></div>
+    </div>
+    <div style="background:#e4002b;color:#fff;padding:56px 44px;display:grid;grid-template-rows:1fr 1fr 1fr">
+      <div style="border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:12px"><div style="font-family:var(--font-heading);font-weight:600;font-size:72px;line-height:1;font-feature-settings:'tnum'">49</div><div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase">Député·e·s à l'Assemblée</div></div>
+      <div style="border-bottom:1px solid rgba(255,255,255,.35);padding:14px 0 12px"><div style="font-family:var(--font-heading);font-weight:600;font-size:72px;line-height:1;font-feature-settings:'tnum'">38</div><div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase">Projets de loi suivis</div></div>
+      <div style="padding-top:14px"><div style="font-family:var(--font-heading);font-weight:600;font-size:72px;line-height:1;font-feature-settings:'tnum'">212</div><div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase">Votes nominatifs</div></div>
+    </div>
+  </div>
+  <!-- notice -->
+  <div style="margin:36px 48px 0;display:flex;align-items:center;gap:16px;padding:14px 20px;border:1px solid #0033a0;background:#e8eefb;font-size:14px"><span style="width:10px;height:10px;background:#e4002b;flex:none"></span><b>Reprise des travaux le 18 novembre 2026.</b>&nbsp;Les premiers projets de loi de la 3ᵉ session apparaîtront ici dès leur dépôt à Fredericton.</div>
+  <!-- bills + account -->
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:48px;padding:48px 48px 56px">
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #1d1f20;padding-bottom:8px;margin-bottom:4px"><h2 style="font-size:28px;text-transform:uppercase;margin:0;letter-spacing:.01em">Projets de loi récemment actifs</h2><a href="#1a" style="font-size:13px;color:#e4002b;text-decoration:none;font-weight:600">Voir tout →</a></div>
+      <div style="font-size:12px;color:#5d5d60;margin-bottom:14px">↓ Cliquez une ligne pour lire le résumé en langage clair ↓</div>
+      <div style="display:grid;gap:0">
+        <div style="display:grid;grid-template-columns:64px 1fr auto;gap:18px;padding:14px 0;border-bottom:1px solid var(--color-divider);align-items:baseline"><span style="font-family:var(--font-heading);font-weight:600;font-size:22px;color:#0033a0">N° 4</span><span style="font-size:15px">Loi modifiant la Loi sur l'assurance-maladie — accès aux soins primaires en région</span><span style="font-size:11px;background:#e8eefb;color:#00226b;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase">2ᵉ lecture</span></div>
+        <div style="display:grid;grid-template-columns:64px 1fr auto;gap:18px;padding:14px 0;border-bottom:1px solid var(--color-divider);align-items:baseline"><span style="font-family:var(--font-heading);font-weight:600;font-size:22px;color:#0033a0">N° 7</span><span style="font-size:15px">Loi sur la protection des locataires et le plafonnement des hausses de loyer</span><span style="font-size:11px;background:#fde6ea;color:#9a001c;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase">En comité</span></div>
+        <div style="display:grid;grid-template-columns:64px 1fr auto;gap:18px;padding:14px 0;border-bottom:1px solid var(--color-divider);align-items:baseline"><span style="font-family:var(--font-heading);font-weight:600;font-size:22px;color:#0033a0">N° 11</span><span style="font-size:15px">Loi sur les langues officielles — révision décennale</span><span style="font-size:11px;background:#e8eefb;color:#00226b;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase">1ʳᵉ lecture</span></div>
+        <div style="display:grid;grid-template-columns:64px 1fr auto;gap:18px;padding:14px 0;border-bottom:1px solid var(--color-divider);align-items:baseline"><span style="font-family:var(--font-heading);font-weight:600;font-size:22px;color:#0033a0">N° 2</span><span style="font-size:15px">Loi sur la gestion durable des forêts de la Couronne</span><span style="font-size:11px;background:#1d1f20;color:#fff;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase">Sanctionné</span></div>
+      </div>
+      <div style="font-size:12px;color:#5d5d60;margin-top:12px">Source officielle : legnb.ca</div>
+    </div>
+    <div class="blueprint" style="padding:28px;background:transparent"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#e4002b;font-weight:600;margin-bottom:8px">Compte gratuit</div>
+      <h3 style="font-size:26px;text-transform:uppercase;margin:0 0 12px">Suivez les projets qui vous touchent</h3>
+      <p style="font-size:14px;line-height:1.5;color:#424244">Sans mot de passe : un lien de connexion arrive par courriel. Suivez jusqu'à 3 projets de loi et retrouvez-les dans Mon dossier.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px"><input class="input" placeholder="votre@courriel.ca" style="border-radius:0"><a href="#1a" style="display:flex;justify-content:center;text-decoration:none;color:#fff;background:#0033a0;padding:11px;font-family:var(--font-heading);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase">Recevoir le lien</a></div>
+    </div>
+  </div>
+  <!-- quoi de neuf -->
+  <div style="background:#0033a0;color:#fff;padding:48px 48px 56px;display:grid;grid-template-columns:1fr 2fr;gap:48px">
+    <div><div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#ffd100;font-weight:600;margin-bottom:8px">Quoi de neuf</div><h2 style="font-size:40px;text-transform:uppercase;line-height:1;margin:0;color:#fff">Dernières activités réelles à l'Assemblée</h2><p style="margin-top:16px;font-size:14px;opacity:.85">Fil chronologique, du plus récent au plus ancien.</p></div>
+    <div style="display:grid">
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.3);font-size:15px"><span style="font-family:var(--font-heading);font-weight:600;color:#ffd100;letter-spacing:.04em">4 NOV. 2026</span><span>Remaniement : trois nouveaux ministres assermentés à Fredericton.</span></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.3);font-size:15px"><span style="font-family:var(--font-heading);font-weight:600;color:#ffd100;letter-spacing:.04em">28 OCT. 2026</span><span>Dépôt du projet de loi n° 11 — Loi sur les langues officielles, révision décennale.</span></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.3);font-size:15px"><span style="font-family:var(--font-heading);font-weight:600;color:#ffd100;letter-spacing:.04em">21 OCT. 2026</span><span>Vote nominatif sur le projet de loi n° 7 : adopté en 2ᵉ lecture, 27 pour, 20 contre.</span></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.3);font-size:15px"><span style="font-family:var(--font-heading);font-weight:600;color:#ffd100;letter-spacing:.04em">9 OCT. 2026</span><span>Sanction royale du projet de loi n° 2 — Gestion durable des forêts de la Couronne.</span></div>
+      <div style="display:grid;grid-template-columns:150px 1fr;gap:20px;padding:12px 0;font-size:15px"><span style="font-family:var(--font-heading);font-weight:600;color:#ffd100;letter-spacing:.04em">30 SEPT. 2026</span><span>Ouverture de la 3ᵉ session : discours du trône.</span></div>
+    </div>
+  </div>
+  <!-- mission -->
+  <div style="padding:48px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:36px">
+    <div><div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#e4002b;font-weight:600;margin-bottom:8px">Notre mission</div><h2 style="font-size:30px;text-transform:uppercase;line-height:1.02;margin:0">Le site officiel est la source la plus fiable. Celui‑ci la rend juste plus facile à suivre.</h2></div>
+    <div class="blueprint" style="padding:22px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><div style="font-family:var(--font-heading);font-weight:600;font-size:18px;text-transform:uppercase;margin-bottom:10px">legnb.ca fait</div><ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:#424244"><li>Organise tout par document officiel</li><li>La source légale et complète de tout</li><li>Neutre — ne compare ni ne résume jamais</li></ul></div>
+    <div class="blueprint" style="padding:22px;border-color:#0033a0"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><div style="font-family:var(--font-heading);font-weight:600;font-size:18px;text-transform:uppercase;margin-bottom:10px;color:#0033a0">Ce site essaie de faire</div><ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:#424244"><li>Organise tout par personne : une fiche, tous ses dossiers</li><li>Traduit le jargon en langage clair (voir le Lexique)</li><li>Vous laisse suivre ce qui vous touche, sans jugement ni verdict</li></ul></div>
+  </div>
+  <footer style="display:flex;height:6px"><div style="flex:1;background:#0033a0"></div><div style="flex:1;background:#f2f2f3;border-top:1px solid var(--color-divider)"></div><div style="flex:1;background:#e4002b"></div></footer>
+  <div style="padding:16px 48px;font-size:12px;color:#5d5d60;display:flex;gap:20px;flex-wrap:wrap">Site non officiel — données publiques de l'Assemblée législative du N.‑B.<a href="#1a">Les règles</a><a href="#1a">Abonnement</a><a href="#1a">English</a></div>
+</div></div>
+
+<!-- ═══════════ 1b — Étoile ═══════════ -->
+<div class="dv-opt" id="1b"><div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Étoile — bleu plein écran, l'étoile d'or comme motif de repère</div>
+<div class="dv-card" style="background:#0033a0;color:#fff">
+  <div style="background:#ffd100;color:#00226b;overflow:hidden;height:30px;display:flex;align-items:center;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-heading);font-weight:600">
+    <div style="display:flex;white-space:nowrap;animation:tick 28s linear infinite"><span style="padding:0 40px">★ Reprise des travaux le 18 novembre 2026 · DossierNBrunswick — site citoyen indépendant · vraies données publiques</span><span style="padding:0 40px">★ Reprise des travaux le 18 novembre 2026 · DossierNBrunswick — site citoyen indépendant · vraies données publiques</span><span style="padding:0 40px">★ Reprise des travaux le 18 novembre 2026 · DossierNBrunswick — site citoyen indépendant · vraies données publiques</span></div>
+  </div>
+  <nav style="display:grid;grid-template-columns:220px repeat(5,1fr) auto;border-bottom:1px solid rgba(255,255,255,.3)">
+    <div style="padding:20px 24px;border-right:1px solid rgba(255,255,255,.3);font-family:var(--font-heading);font-weight:600;font-size:24px;display:flex;align-items:center;gap:8px"><svg width="20" height="20" viewBox="0 0 24 24"><polygon fill="#ffd100" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg>DossierNB</div>
+    <a href="#1b" style="padding:14px 18px;border-right:1px solid rgba(255,255,255,.3);text-decoration:none;color:#fff;background:rgba(255,255,255,.1)"><div style="font-size:11px;color:#ffd100;letter-spacing:.1em">01</div><div style="font-family:var(--font-heading);font-weight:600;font-size:16px;text-transform:uppercase;letter-spacing:.04em">Aperçu</div></a>
+    <a href="#1b" style="padding:14px 18px;border-right:1px solid rgba(255,255,255,.3);text-decoration:none;color:#fff"><div style="font-size:11px;color:#ffd100;letter-spacing:.1em">02</div><div style="font-family:var(--font-heading);font-weight:600;font-size:16px;text-transform:uppercase;letter-spacing:.04em">Ministres</div></a>
+    <a href="#1b" style="padding:14px 18px;border-right:1px solid rgba(255,255,255,.3);text-decoration:none;color:#fff"><div style="font-size:11px;color:#ffd100;letter-spacing:.1em">03</div><div style="font-family:var(--font-heading);font-weight:600;font-size:16px;text-transform:uppercase;letter-spacing:.04em">Projets de loi</div></a>
+    <a href="#1b" style="padding:14px 18px;border-right:1px solid rgba(255,255,255,.3);text-decoration:none;color:#fff"><div style="font-size:11px;color:#ffd100;letter-spacing:.1em">04</div><div style="font-family:var(--font-heading);font-weight:600;font-size:16px;text-transform:uppercase;letter-spacing:.04em">Archives</div></a>
+    <a href="#1b" style="padding:14px 18px;border-right:1px solid rgba(255,255,255,.3);text-decoration:none;color:#fff"><div style="font-size:11px;color:#ffd100;letter-spacing:.1em">05</div><div style="font-family:var(--font-heading);font-weight:600;font-size:16px;text-transform:uppercase;letter-spacing:.04em">Lexique</div></a>
+    <div style="display:flex;align-items:center;gap:14px;padding:0 24px"><div style="display:flex;font-size:12px;border:1px solid rgba(255,255,255,.4)"><span style="padding:4px 8px">A−</span><span style="padding:4px 8px;border-inline:1px solid rgba(255,255,255,.4)">100%</span><span style="padding:4px 8px">A+</span></div><a href="#1b" style="text-decoration:none;color:#00226b;background:#ffd100;padding:8px 14px;font-family:var(--font-heading);font-weight:600;font-size:14px;letter-spacing:.04em;text-transform:uppercase">★ Mon dossier</a></div>
+  </nav>
+  <!-- hero -->
+  <div style="position:relative;padding:72px 48px 64px;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.3)">
+    <svg style="position:absolute;right:48px;top:40px;width:420px;height:420px" viewBox="0 0 24 24"><polygon fill="none" stroke="#ffd100" stroke-width=".25" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon><polygon fill="#ffd100" transform="translate(12 12) scale(.55) translate(-12 -12)" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon><line x1="12" y1="-2" x2="12" y2="26" stroke="#ffd100" stroke-width=".12"></line><line x1="-2" y1="12" x2="26" y2="12" stroke="#ffd100" stroke-width=".12"></line></svg>
+    <div style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#ffd100;margin-bottom:16px">Assemblée législative du Nouveau‑Brunswick · 61ᵉ législature</div>
+    <h1 style="font-size:104px;line-height:.92;text-transform:uppercase;letter-spacing:.005em;margin:0 0 28px;color:#fff;max-width:720px">Qui siège,<br>qui légifère,<br><span style="color:#ffd100">qui vote quoi.</span></h1>
+    <p style="font-size:18px;line-height:1.5;max-width:560px;margin:0 0 28px;color:rgba(255,255,255,.9)">L'Assemblée réorganisée <b>par personne</b> et traduite <b>en langage clair</b> — sans jugement ni verdict. Site citoyen indépendant, vraies données publiques.</p>
+    <a href="#1b" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:#e4002b;padding:14px 26px;font-family:var(--font-heading);font-weight:600;font-size:17px;letter-spacing:.04em;text-transform:uppercase">Explorer →</a>
+  </div>
+  <!-- stats -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr)">
+    <div style="padding:28px 48px;border-right:1px solid rgba(255,255,255,.3)"><div style="font-family:var(--font-heading);font-weight:600;font-size:88px;line-height:1;font-feature-settings:'tnum'">49</div><div style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#ffd100">Député·e·s</div></div>
+    <div style="padding:28px 48px;border-right:1px solid rgba(255,255,255,.3)"><div style="font-family:var(--font-heading);font-weight:600;font-size:88px;line-height:1;font-feature-settings:'tnum'">38</div><div style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#ffd100">Projets de loi suivis</div></div>
+    <div style="padding:28px 48px"><div style="font-family:var(--font-heading);font-weight:600;font-size:88px;line-height:1;font-feature-settings:'tnum'">212</div><div style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#ffd100">Votes nominatifs</div></div>
+  </div>
+  <!-- paper section -->
+  <div style="background:#f2f2f3;color:#1d1f20;padding:56px 48px;display:grid;grid-template-columns:2fr 1fr;gap:56px">
+    <div>
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:18px"><svg width="14" height="14" viewBox="0 0 24 24"><polygon fill="#0033a0" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg><h2 style="font-size:30px;text-transform:uppercase;margin:0">Projets de loi récemment actifs</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px">
+        <div class="blueprint" style="padding:20px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><div style="display:flex;justify-content:space-between;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#00226b;font-weight:600"><span>Projet de loi n° 4</span><span style="color:#e4002b">2ᵉ lecture</span></div><div style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.15;margin-top:10px">Loi modifiant la Loi sur l'assurance‑maladie — accès aux soins primaires en région</div></div>
+        <div class="blueprint" style="padding:20px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><div style="display:flex;justify-content:space-between;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#00226b;font-weight:600"><span>Projet de loi n° 7</span><span style="color:#e4002b">En comité</span></div><div style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.15;margin-top:10px">Loi sur la protection des locataires et le plafonnement des hausses de loyer</div></div>
+        <div class="blueprint" style="padding:20px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><div style="display:flex;justify-content:space-between;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#00226b;font-weight:600"><span>Projet de loi n° 11</span><span style="color:#e4002b">1ʳᵉ lecture</span></div><div style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.15;margin-top:10px">Loi sur les langues officielles — révision décennale</div></div>
+        <div class="blueprint" style="padding:20px"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><div style="display:flex;justify-content:space-between;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#00226b;font-weight:600"><span>Projet de loi n° 2</span><span style="color:#5d5d60">Sanctionné</span></div><div style="font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.15;margin-top:10px">Loi sur la gestion durable des forêts de la Couronne</div></div>
+      </div>
+      <div style="font-size:12px;color:#5d5d60;margin-top:22px">Source officielle : legnb.ca · <a href="#1b">Voir tous les projets →</a></div>
+    </div>
+    <div style="background:#e4002b;color:#fff;padding:28px">
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:8px;color:#ffd100">Compte gratuit</div>
+      <h3 style="font-size:28px;text-transform:uppercase;margin:0 0 12px;color:#fff;line-height:1">Suivez les projets qui vous touchent</h3>
+      <p style="font-size:14px;line-height:1.5">Sans mot de passe : un lien arrive par courriel. Jusqu'à 3 projets suivis, retrouvés dans Mon dossier avec leur étape du moment.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px"><input class="input" placeholder="votre@courriel.ca" style="border-radius:0;background:#fff;border-color:#fff"><a href="#1b" style="display:flex;justify-content:center;text-decoration:none;color:#00226b;background:#ffd100;padding:11px;font-family:var(--font-heading);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase">Recevoir le lien</a></div>
+    </div>
+  </div>
+  <!-- quoi de neuf + mission -->
+  <div style="background:#f2f2f3;color:#1d1f20;padding:0 48px 56px;display:grid;grid-template-columns:1fr 1fr;gap:56px">
+    <div>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#e4002b;font-weight:600;margin-bottom:6px">Quoi de neuf</div>
+      <h2 style="font-size:30px;text-transform:uppercase;margin:0 0 14px">Dernières activités à l'Assemblée</h2>
+      <div style="border-left:2px solid #0033a0;padding-left:20px;display:grid;gap:14px">
+        <div style="font-size:14px"><div style="font-family:var(--font-heading);font-weight:600;color:#0033a0;letter-spacing:.04em">4 NOV. 2026</div>Remaniement : trois nouveaux ministres assermentés à Fredericton.</div>
+        <div style="font-size:14px"><div style="font-family:var(--font-heading);font-weight:600;color:#0033a0;letter-spacing:.04em">28 OCT. 2026</div>Dépôt du projet de loi n° 11 — Loi sur les langues officielles, révision décennale.</div>
+        <div style="font-size:14px"><div style="font-family:var(--font-heading);font-weight:600;color:#0033a0;letter-spacing:.04em">21 OCT. 2026</div>Vote nominatif sur le projet de loi n° 7 : adopté en 2ᵉ lecture, 27 pour, 20 contre.</div>
+        <div style="font-size:14px"><div style="font-family:var(--font-heading);font-weight:600;color:#0033a0;letter-spacing:.04em">9 OCT. 2026</div>Sanction royale du projet de loi n° 2 — Forêts de la Couronne.</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#e4002b;font-weight:600;margin-bottom:6px">Notre mission</div>
+      <h2 style="font-size:30px;text-transform:uppercase;margin:0 0 14px;line-height:1.02">Le site officiel reste la source. Celui‑ci la rend plus facile à suivre.</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--color-divider)">
+        <div style="padding:18px;border-right:1px solid var(--color-divider)"><div style="font-family:var(--font-heading);font-weight:600;font-size:16px;text-transform:uppercase;margin-bottom:8px">legnb.ca fait</div><ul style="margin:0;padding-left:16px;font-size:13px;line-height:1.6;color:#424244"><li>Par document officiel</li><li>Source légale et complète</li><li>Neutre, sans résumé</li></ul></div>
+        <div style="padding:18px;background:#e8eefb"><div style="font-family:var(--font-heading);font-weight:600;font-size:16px;text-transform:uppercase;margin-bottom:8px;color:#0033a0">Ce site essaie</div><ul style="margin:0;padding-left:16px;font-size:13px;line-height:1.6;color:#424244"><li>Par personne : une fiche, tous ses dossiers</li><li>Jargon traduit en langage clair</li><li>Suivi sans jugement ni verdict</li></ul></div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:16px 48px;font-size:12px;color:rgba(255,255,255,.8);display:flex;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.3)">Site non officiel — données publiques de l'Assemblée législative du N.‑B.<a href="#1b" style="color:#ffd100">Les règles</a><a href="#1b" style="color:#ffd100">Abonnement</a><a href="#1b" style="color:#ffd100">English</a></div>
+</div></div>
+
+<!-- ═══════════ 1c — Dossier ═══════════ -->
+<div class="dv-opt" id="1c"><div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Dossier — chemise de classement : fond papier, onglets bleu et rouge, grille de repères</div>
+<div class="dv-card" style="background-color:#f2f2f3;background-image:linear-gradient(rgba(0,51,160,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,51,160,.07) 1px,transparent 1px);background-size:48px 48px">
+  <div style="background:#1d1f20;color:#fff;overflow:hidden;height:30px;display:flex;align-items:center;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-heading);font-weight:600">
+    <div style="display:flex;white-space:nowrap;animation:tick 28s linear infinite"><span style="padding:0 40px"><span style="color:#ffd100">★</span> DossierNB — site citoyen indépendant · vraies données publiques · reprise des travaux le 18 novembre 2026</span><span style="padding:0 40px"><span style="color:#ffd100">★</span> DossierNB — site citoyen indépendant · vraies données publiques · reprise des travaux le 18 novembre 2026</span><span style="padding:0 40px"><span style="color:#ffd100">★</span> DossierNB — site citoyen indépendant · vraies données publiques · reprise des travaux le 18 novembre 2026</span></div>
+  </div>
+  <!-- tabs nav -->
+  <nav style="display:flex;align-items:flex-end;gap:0;padding:28px 48px 0;border-bottom:2px solid #0033a0">
+    <div style="display:flex;flex-direction:column;margin-right:auto;padding-bottom:14px"><span style="font-family:var(--font-heading);font-weight:600;font-size:34px;line-height:1;letter-spacing:.01em">DOSSIER<span style="color:#0033a0">NB</span><span style="color:#ffd100"> ★</span></span><span style="font-size:12px;color:#5d5d60;margin-top:4px;letter-spacing:.04em">QUI SIÈGE, QUI LÉGIFÈRE, QUI VOTE QUOI</span></div>
+    <a href="#1c" style="text-decoration:none;color:#fff;background:#0033a0;padding:10px 18px;font-family:var(--font-heading);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.04em"><span style="font-size:11px;opacity:.7;margin-right:6px">01</span>Aperçu</a>
+    <a href="#1c" style="text-decoration:none;color:#1d1f20;border:1px solid var(--color-divider);border-bottom:0;padding:10px 18px;font-family:var(--font-heading);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.04em"><span style="font-size:11px;color:#e4002b;margin-right:6px">02</span>Ministres</a>
+    <a href="#1c" style="text-decoration:none;color:#1d1f20;border:1px solid var(--color-divider);border-bottom:0;border-left:0;padding:10px 18px;font-family:var(--font-heading);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.04em"><span style="font-size:11px;color:#e4002b;margin-right:6px">03</span>Projets de loi</a>
+    <a href="#1c" style="text-decoration:none;color:#1d1f20;border:1px solid var(--color-divider);border-bottom:0;border-left:0;padding:10px 18px;font-family:var(--font-heading);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.04em"><span style="font-size:11px;color:#e4002b;margin-right:6px">04</span>Archives</a>
+    <a href="#1c" style="text-decoration:none;color:#1d1f20;border:1px solid var(--color-divider);border-bottom:0;border-left:0;padding:10px 18px;font-family:var(--font-heading);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.04em"><span style="font-size:11px;color:#e4002b;margin-right:6px">05</span>Lexique</a>
+    <a href="#1c" style="text-decoration:none;color:#fff;background:#e4002b;padding:10px 18px;margin-left:8px;font-family:var(--font-heading);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.04em">★ Mon dossier</a>
+    <div style="display:flex;font-size:12px;color:#5d5d60;margin:0 0 10px 20px;border:1px solid var(--color-divider);background:#f2f2f3"><span style="padding:4px 8px">A−</span><span style="padding:4px 8px;border-inline:1px solid var(--color-divider)">100%</span><span style="padding:4px 8px">A+</span></div>
+  </nav>
+  <!-- hero -->
+  <div style="display:grid;grid-template-columns:7fr 5fr;gap:48px;padding:64px 48px 48px;align-items:end">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:10px;background:#e4002b;color:#fff;padding:6px 12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:24px"><span style="width:8px;height:8px;background:#ffd100;border-radius:50%"></span>61ᵉ législature · 3ᵉ session · dès le 18 nov. 2026</div>
+      <h1 style="font-size:92px;line-height:.94;text-transform:uppercase;letter-spacing:.005em;margin:0 0 24px;color:#0033a0">L'Assemblée législative du Nouveau‑Brunswick <span style="color:#1d1f20">en clair</span></h1>
+      <p style="font-size:18px;line-height:1.5;max-width:600px;margin:0 0 28px">Réorganisée <b>par personne</b>, traduite <b>en langage clair</b> — sans jugement ni verdict. Site citoyen indépendant, vraies données publiques.</p>
+      <div style="display:flex;gap:12px"><a href="#1c" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:#0033a0;padding:14px 26px;font-family:var(--font-heading);font-weight:600;font-size:17px;letter-spacing:.04em;text-transform:uppercase">Explorer →</a><a href="#1c" style="display:inline-flex;align-items:center;text-decoration:none;color:#e4002b;border:1px solid #e4002b;padding:14px 26px;font-family:var(--font-heading);font-weight:600;font-size:17px;letter-spacing:.04em;text-transform:uppercase;background:#f2f2f3">Lexique</a></div>
+    </div>
+    <div class="blueprint" style="background:#f2f2f3;padding:0"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+      <div style="display:flex;border-bottom:1px solid var(--color-divider);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600"><span style="padding:10px 16px;flex:1">Fiche 01 · Aperçu</span><span style="padding:10px 16px;border-left:1px solid var(--color-divider);color:#5d5d60">Rév. 2026‑11</span></div>
+      <div style="display:grid;grid-template-columns:1fr;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--color-divider)"><span style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#424244">Député·e·s</span><span style="font-family:var(--font-heading);font-weight:600;font-size:56px;line-height:1;color:#0033a0;font-feature-settings:'tnum'">49</span></div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--color-divider)"><span style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#424244">Projets de loi suivis</span><span style="font-family:var(--font-heading);font-weight:600;font-size:56px;line-height:1;color:#e4002b;font-feature-settings:'tnum'">38</span></div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;padding:18px 20px"><span style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#424244">Votes nominatifs</span><span style="font-family:var(--font-heading);font-weight:600;font-size:56px;line-height:1;color:#0033a0;font-feature-settings:'tnum'">212</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- bills table + account -->
+  <div style="padding:16px 48px 56px;display:grid;grid-template-columns:2fr 1fr;gap:48px">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><span style="background:#0033a0;color:#fff;font-family:var(--font-heading);font-weight:600;font-size:13px;padding:3px 8px;letter-spacing:.08em">02</span><h2 style="font-size:28px;text-transform:uppercase;margin:0">Projets de loi récemment actifs</h2><a href="#1c" style="margin-left:auto;font-size:13px;color:#e4002b;text-decoration:none;font-weight:600">Voir tout →</a></div>
+      <table class="table" style="background:#f2f2f3;border:1px solid var(--color-divider)">
+        <thead><tr><th style="width:80px">N°</th><th>Titre</th><th style="width:130px">Étape</th><th style="width:110px">Dernier acte</th></tr></thead>
+        <tbody>
+          <tr><td style="font-family:var(--font-heading);font-weight:600;font-size:20px;color:#0033a0">4</td><td>Loi modifiant la Loi sur l'assurance‑maladie — accès aux soins primaires en région</td><td><span style="color:#0033a0;font-weight:600">2ᵉ lecture</span></td><td style="color:#5d5d60">2026‑11‑03</td></tr>
+          <tr><td style="font-family:var(--font-heading);font-weight:600;font-size:20px;color:#0033a0">7</td><td>Loi sur la protection des locataires et le plafonnement des hausses de loyer</td><td><span style="color:#e4002b;font-weight:600">En comité</span></td><td style="color:#5d5d60">2026‑10‑21</td></tr>
+          <tr><td style="font-family:var(--font-heading);font-weight:600;font-size:20px;color:#0033a0">11</td><td>Loi sur les langues officielles — révision décennale</td><td><span style="color:#0033a0;font-weight:600">1ʳᵉ lecture</span></td><td style="color:#5d5d60">2026‑10‑28</td></tr>
+          <tr><td style="font-family:var(--font-heading);font-weight:600;font-size:20px;color:#0033a0">2</td><td>Loi sur la gestion durable des forêts de la Couronne</td><td><span style="color:#424244;font-weight:600">Sanctionné</span></td><td style="color:#5d5d60">2026‑10‑09</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:12px;color:#5d5d60;margin-top:10px">Source officielle : legnb.ca</div>
+    </div>
+    <div style="background:#0033a0;color:#fff;padding:28px;position:relative;overflow:hidden">
+      <svg style="position:absolute;right:-30px;top:-30px;width:150px;height:150px;opacity:.9" viewBox="0 0 24 24"><polygon fill="#ffd100" points="12,1.5 14.9,8.6 22.5,9.1 16.6,14 18.5,21.5 12,17.4 5.5,21.5 7.4,14 1.5,9.1 9.1,8.6"></polygon></svg>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:8px;opacity:.85">Compte gratuit</div>
+      <h3 style="font-size:28px;text-transform:uppercase;margin:0 0 12px;color:#fff;line-height:1;max-width:240px">Suivez les projets qui vous touchent</h3>
+      <p style="font-size:14px;line-height:1.5;opacity:.9">Sans mot de passe : un lien arrive par courriel. Jusqu'à 3 projets suivis dans Mon dossier.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px"><input class="input" placeholder="votre@courriel.ca" style="border-radius:0;background:#fff;border-color:#fff"><a href="#1c" style="display:flex;justify-content:center;text-decoration:none;color:#fff;background:#e4002b;padding:11px;font-family:var(--font-heading);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase">Recevoir le lien</a></div>
+    </div>
+  </div>
+  <!-- quoi de neuf -->
+  <div style="padding:0 48px 56px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="background:#e4002b;color:#fff;font-family:var(--font-heading);font-weight:600;font-size:13px;padding:3px 8px;letter-spacing:.08em">03</span><h2 style="font-size:28px;text-transform:uppercase;margin:0">Quoi de neuf</h2><span style="font-size:13px;color:#5d5d60">Dernières activités réelles à l'Assemblée</span></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid #1d1f20">
+      <div style="padding:16px 18px 0 0;border-right:1px solid var(--color-divider);padding-right:18px"><div style="font-family:var(--font-heading);font-weight:600;font-size:22px;color:#e4002b">4 NOV.</div><div style="font-size:14px;line-height:1.5;margin-top:6px">Remaniement : trois nouveaux ministres assermentés à Fredericton.</div></div>
+      <div style="padding:16px 18px 0"><div style="font-family:var(--font-heading);font-weight:600;font-size:22px;color:#e4002b">28 OCT.</div><div style="font-size:14px;line-height:1.5;margin-top:6px">Dépôt du projet de loi n° 11 — Loi sur les langues officielles.</div></div>
+      <div style="padding:16px 18px 0;border-left:1px solid var(--color-divider)"><div style="font-family:var(--font-heading);font-weight:600;font-size:22px;color:#e4002b">21 OCT.</div><div style="font-size:14px;line-height:1.5;margin-top:6px">Vote nominatif n° 7 : adopté en 2ᵉ lecture, 27 pour, 20 contre.</div></div>
+      <div style="padding:16px 0 0 18px;border-left:1px solid var(--color-divider)"><div style="font-family:var(--font-heading);font-weight:600;font-size:22px;color:#e4002b">9 OCT.</div><div style="font-size:14px;line-height:1.5;margin-top:6px">Sanction royale du projet de loi n° 2 — Forêts de la Couronne.</div></div>
+    </div>
+  </div>
+  <!-- mission -->
+  <div style="margin:0 48px 56px;display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid #0033a0;background:#f2f2f3">
+    <div style="padding:28px;background:#0033a0;color:#fff"><div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#ffd100;font-weight:600;margin-bottom:8px">04 · Notre mission</div><h2 style="font-size:28px;text-transform:uppercase;line-height:1.02;margin:0;color:#fff">Le site officiel est la source. Celui‑ci la rend plus facile à suivre.</h2></div>
+    <div style="padding:28px;border-right:1px solid var(--color-divider)"><div style="font-family:var(--font-heading);font-weight:600;font-size:18px;text-transform:uppercase;margin-bottom:10px">legnb.ca fait</div><ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:#424244"><li>Organise tout par document officiel</li><li>La source légale et complète de tout</li><li>Neutre — ne compare ni ne résume jamais</li></ul></div>
+    <div style="padding:28px"><div style="font-family:var(--font-heading);font-weight:600;font-size:18px;text-transform:uppercase;margin-bottom:10px;color:#e4002b">Ce site essaie de faire</div><ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:#424244"><li>Par personne : une fiche, tous ses dossiers</li><li>Traduit le jargon en langage clair</li><li>Suivi sans jugement ni verdict</li></ul></div>
+  </div>
+  <div style="padding:16px 48px;font-size:12px;color:#5d5d60;display:flex;gap:20px;flex-wrap:wrap;border-top:1px solid var(--color-divider);background:#f2f2f3">Site non officiel — données publiques de l'Assemblée législative du N.‑B.<a href="#1c">Les règles</a><a href="#1c">Abonnement</a><a href="#1c">English</a></div>
+</div></div>
+
+</div>
+<p class="dv-next">Essayez : « garde <a class="dv-oid" href="#1a">1a</a> mais avec la nav en onglets de <a class="dv-oid" href="#1c">1c</a> » · « <a class="dv-oid" href="#1b">1b</a> avec moins de bleu, plus de papier » · « version mobile de <a class="dv-oid" href="#1c">1c</a> » · « page Projets de loi dans la direction choisie »</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'light' | 'dark'&quot;}}">
+class Component extends DCLogic {
+  state = { theme: null };
+  renderVals() {
+    const theme = this.state.theme ?? this.props.theme ?? 'light';
+    return { theme, toggleTheme: () => this.setState({ theme: theme === 'dark' ? 'light' : 'dark' }) };
+  }
+}
+</script>
+</body>
+</html>
