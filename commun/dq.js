@@ -253,7 +253,7 @@ const translations = {
     'hero.l1':"Who sits,",
     'hero.l2':"who legislates,",
     'hero.l3':"who votes what.",
-    'hero.manifesto':"New Brunswick's Legislative Assembly, reorganized by person and translated into plain language — no judgment, no verdict. Independent citizen site, real public data.",
+    'hero.manifesto':"New Brunswick's Legislative Assembly, reorganized <b>by person</b> and translated into <b>plain language</b> — <b>no judgment, no verdict</b>. Independent citizen site, real public data.",   // N.-B. : passages surlignés comme en français
     'hero.cta':"Explore →",
     'hero.cta2':"The members",
     'projhero.l1':"Bills,",

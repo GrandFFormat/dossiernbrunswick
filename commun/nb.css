@@ -417,6 +417,8 @@ nav.tabs a, .nav-villes{padding:6px 5px;}
 #view-apercu .hero-manifesto{flex:none; min-width:0; border:0; background:transparent; padding:0; box-shadow:none;}
 #view-apercu .hero-manifesto p{font-size:22px; line-height:1.45; font-weight:400;}
 @media (max-width:900px){ #view-apercu .hero-manifesto p{font-size:19px;} }
+/* Ce que le site cherche à faire, surligné au marqueur jaune (Martin, 8 nov. 2026). */
+#view-apercu .hero-manifesto p b{font-weight:700; color:var(--nb-bleu-nuit); background:linear-gradient(transparent 12%, var(--nb-jaune) 12%, var(--nb-jaune) 92%, transparent 92%); padding:0 3px; -webkit-box-decoration-break:clone; box-decoration-break:clone;}
 #view-apercu .hero-cta{
   background:var(--nb-rouge); color:#fff; border:0; box-shadow:none; padding:12px 22px;
   font-family:var(--nb-titre); font-weight:600; font-size:16px; letter-spacing:.04em;
