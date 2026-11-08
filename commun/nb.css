@@ -545,6 +545,12 @@ html[data-theme="dark"] #view-apercu .calendar-box.nb-etat .status{color:#dbe4ff
 #view-apercu .nb-agir{display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 0; font-size:13px; color:var(--slate);}
 #view-apercu .nb-agir a{color:var(--nb-bleu-fonce); text-decoration:underline;}
 html[data-theme="dark"] #view-apercu .nb-agir a{color:var(--gold);}
+/* Thème sombre : le bleu et le rouge foncés du drapeau disparaissaient sur la carte sombre (Martin, 8 nov. 2026). */
+html[data-theme="dark"] #view-apercu .ch-card{box-shadow:0 0 0 1px rgba(255,255,255,.14);}
+html[data-theme="dark"] #view-apercu .ch-num,
+html[data-theme="dark"] #view-apercu .ch-demand{color:var(--gold);}
+html[data-theme="dark"] #view-apercu .ch-badge{color:#ff6b80;}
+html[data-theme="dark"] #view-apercu .ch-stage{background:#5a1420; color:#ffd0d7;}
 
 /* 3. Projets récents (2/3) et les deux boîtes (1/3). Les cartes n'ont pas de colonne de droite. */
 .nb-recents{display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:48px; align-items:start; padding:48px 0 56px;}
