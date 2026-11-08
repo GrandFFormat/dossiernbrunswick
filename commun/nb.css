@@ -1,0 +1,650 @@
+/* La feuille du Nouveau-Brunswick, posée PAR-DESSUS commun/dq.css.
+ *
+ * dq.css est la copie conforme de DossierQuébec et ne se modifie jamais ici : un correctif de
+ * DQ se recopie tel quel. Ce fichier ne fait que redéfinir ce que le design du N.-B. montre
+ * (cahier du 7 nov. 2026, design-dossiernbrunswick.zip) : la palette du drapeau, les polices
+ * Barlow, des filets fins et des ombres douces au lieu des traits noirs et des ombres dures,
+ * l'affiche tricolore de l'accueil et le filet tricolore du pied. Tout ce qu'il ne redéfinit
+ * pas reste celui de DQ.
+ *
+ * Quatre blocs, dans cet ordre :
+ *   1. les polices (Barlow prend la place d'Archivo, sans toucher aux règles de dq.css) ;
+ *   2. la palette, en clair et en sombre ;
+ *   3. les FILETS, générés par scripts/nb-filets.js à partir de dq.css ;
+ *   4. les pièces que le design redessine (en-tête, affiche, cartes, pied).
+ */
+
+/* ---------- 1. LES POLICES ----------
+   dq.css nomme 'Archivo' et 'Archivo Narrow' dans plus de deux cents règles. Plutôt que de
+   les réécrire, on donne ces deux noms aux fichiers Barlow : chaque règle de DQ tombe alors
+   sur la police du N.-B., y compris celles qu'un futur correctif ajoutera. Le gabarit ne
+   charge plus Archivo chez Google, sinon les deux définitions se disputeraient le nom.
+   Fichiers servis par le site (commun/polices/), licence SIL Open Font License. */
+@font-face{font-family:'Archivo'; font-weight:400; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-400.woff2) format('woff2');}
+@font-face{font-family:'Archivo'; font-weight:500; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-500.woff2) format('woff2');}
+@font-face{font-family:'Archivo'; font-weight:600; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-600.woff2) format('woff2');}
+@font-face{font-family:'Archivo'; font-weight:700 900; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-700.woff2) format('woff2');}
+@font-face{font-family:'Archivo Narrow'; font-weight:400 500; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-condensed-400.woff2) format('woff2');}
+@font-face{font-family:'Archivo Narrow'; font-weight:600 900; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-condensed-600.woff2) format('woff2');}
+/* 'Barlow' sous son propre nom : nb.css le nomme directement (surtitres, pied, bandeau d'état).
+   Sans ces quatre lignes, ces textes tombaient sur la police du système. */
+@font-face{font-family:'Barlow'; font-weight:400; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-400.woff2) format('woff2');}
+@font-face{font-family:'Barlow'; font-weight:500; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-500.woff2) format('woff2');}
+@font-face{font-family:'Barlow'; font-weight:600; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-600.woff2) format('woff2');}
+@font-face{font-family:'Barlow'; font-weight:700 900; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-700.woff2) format('woff2');}
+@font-face{font-family:'Barlow Condensed'; font-weight:400 500; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-condensed-400.woff2) format('woff2');}
+@font-face{font-family:'Barlow Condensed'; font-weight:600 900; font-style:normal; font-display:swap; src:url(/commun/polices/barlow-condensed-600.woff2) format('woff2');}
+
+/* ---------- 2. LA PALETTE ----------
+   Le drapeau : le bleu porte, le rouge signale, le jaune appelle à l'action. Mêmes jetons
+   que dq.css, nouvelles valeurs ; --nb-* pour ce que DQ n'a pas. */
+:root{
+  --nb-bleu:#0033a0;
+  --nb-bleu-fonce:#00226b;
+  --nb-bleu-nuit:#001a52;
+  --nb-rouge:#e4002b;
+  --nb-rouge-fonce:#9a001c;
+  --nb-jaune:#ffd100;
+  --nb-filet:rgba(29,31,32,.16);
+  --nb-titre:'Barlow Condensed', system-ui, sans-serif;
+
+  --ink:#1d1f20;
+  --ink-2:#424244;
+  --paper:#f2f2f3;
+  --paper-2:#f8f8f9;
+  --card:#ffffff;
+  --line:#1d1f20;
+  --line-soft:#e1e1e4;
+  --slate:#5d5d60;
+  --sur-clair:#001a52;   /* le texte sur le jaune : bleu nuit */
+  --sur-fonce:#ffffff;
+  --gold:#0033a0;
+  --gold-soft:#e8eefb;
+  --gold-bg:#0033a0;
+  --gold-hover:#00226b;
+  --gold-pale:#b9c8ee;
+  --gold-paler:#e8eefb;
+  --ink-bg:#001a52;
+  --yellow:#ffd100;
+  --green:#1f7a3f;
+  --green-soft:#d3ecdc;
+  --red:#e4002b;
+  --red-soft:#fde6ea;
+  --shadow:0 1px 2px rgba(43,43,45,.14);
+  --shadow-sm:0 1px 2px rgba(43,43,45,.14);
+  --shadow-lg:0 3px 10px rgba(43,43,45,.16);
+}
+/* Le sombre du cahier : un bleu nuit, pas un gris. */
+html[data-theme="dark"]{
+  --nb-filet:rgba(255,255,255,.18);
+  --ink:#f1f1f3;
+  --ink-2:#c9cbd1;
+  --paper:#071233;
+  --paper-2:#0b1840;
+  --card:#0e1c4a;
+  --line:#f1f1f3;
+  --line-soft:#1d2d63;
+  --slate:#9a9ea8;
+  --gold:#a9c0ff;
+  --gold-soft:#132a6b;
+  --gold-bg:#0033a0;
+  --gold-hover:#00226b;
+  --gold-pale:#b9c8ee;
+  --gold-paler:#e8eefb;
+  --ink-bg:#001a52;
+  --yellow:#ffd100;
+  --green:#5fcb8a;
+  --green-soft:#123a26;
+  --red:#ff8a9b;
+  --red-soft:#4a0d19;
+  --shadow:0 1px 2px rgba(0,0,0,.5);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.5);
+  --shadow-lg:0 3px 10px rgba(0,0,0,.6);
+}
+/* dq.css rétablit, dans ses bandes jaune et bleue en sombre, les couleurs CLAIRES de DQ en
+   dur : on y remet celles du N.-B. */
+html[data-theme="dark"] .band-yellow{
+  --ink:#1d1f20; --ink-2:#424244; --line:#1d1f20; --line-soft:#e1e1e4;
+  --slate:#5d5d60; --card:#ffffff; --paper:#f2f2f3; --paper-2:#f8f8f9;
+  --gold:#0033a0; --gold-soft:#e8eefb;
+  --green:#1f7a3f; --green-soft:#d3ecdc; --red:#e4002b; --red-soft:#fde6ea;
+  --nb-filet:rgba(29,31,32,.16);
+}
+html[data-theme="dark"] .band-blue{ --slate:#c9d5f2; --gold:#b9c8ee; }
+
+/* ---------- 3. LES FILETS ---------- */
+/* ==== FILETS : début (généré par scripts/nb-filets.js, ne pas modifier à la main) ==== */
+.bill-share-btn{border-width:1px; border-color:var(--nb-filet);}
+.ticker{border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+#dq-topbar{border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+.font-size-ctrl button{border-width:1px; border-color:var(--nb-filet);}
+.lang-toggle{border-width:1px; border-color:var(--nb-filet);}
+.theme-toggle{border-width:1px; border-color:var(--nb-filet);}
+.hamburger{border-width:1px; border-color:var(--nb-filet);}
+.dq-remonter{border-width:1px; border-color:var(--nb-filet);}
+.hero-manifesto{border-width:1px; border-color:var(--nb-filet);}
+.hero-cta{border-width:1px; border-color:var(--nb-filet);}
+.stat-band{border-block-width:1px; border-block-color:var(--nb-filet);}
+.stat-cell{border-right-width:1px; border-right-color:var(--nb-filet);}
+.band{border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+.band-yellow{border-top-width:1px; border-top-color:var(--nb-filet);}
+.diss-cta{border-width:1px; border-color:var(--nb-filet);}
+.prom-card{border-width:1px; border-color:var(--nb-filet);}
+.prom-draft{border-width:1px; border-color:var(--nb-filet);}
+.prom-col{border-width:1px; border-color:var(--nb-filet);}
+.prom-theme-pill{border-width:1px; border-color:var(--nb-filet);}
+.band-blue{border-top-width:1px; border-top-color:var(--nb-filet);}
+.ch-more{border-width:1px; border-color:var(--nb-filet);}
+.ch-card{border-width:1px; border-color:var(--nb-filet);}
+.ch-stage{border-top-width:1px; border-top-color:var(--nb-filet);}
+.ch-demand{border-width:1px; border-color:var(--nb-filet);}
+.ch-share button{border-width:1px; border-color:var(--nb-filet);}
+.bill{border-width:1px; border-color:var(--nb-filet);}
+.calendar-box{border-width:1px; border-color:var(--nb-filet);}
+.petition-card{border-width:1px; border-color:var(--nb-filet);}
+.petition-progress{border-width:1px; border-color:var(--nb-filet);}
+@media (max-width:640px){ .stat-cell{border-bottom-width:1px; border-bottom-color:var(--nb-filet);} }
+.toolbar input{border-width:1px; border-color:var(--nb-filet);}
+.status-chip, .step-chip{border-width:1px; border-color:var(--nb-filet);}
+.sort-toggle, .filter-hamburger{border-width:1px; border-color:var(--nb-filet);}
+.qf-btn{border-width:1px; border-color:var(--nb-filet);}
+.prom-methode{border-width:1px; border-color:var(--nb-filet);}
+.prom-methode-fin{border-top-width:1px; border-top-color:var(--nb-filet);}
+.prom-ailleurs{border-width:1px; border-color:var(--nb-filet);}
+.prom-ailleurs-liste a{border-width:1px; border-color:var(--nb-filet);}
+.legend-strip{border-block-width:1px; border-block-color:var(--nb-filet);}
+.bstep{border-width:1px; border-color:var(--nb-filet);}
+.bill .num{border-width:1px; border-color:var(--nb-filet);}
+.last-event-box{border-width:1px; border-color:var(--nb-filet);}
+.status-pill{border-width:1px; border-color:var(--nb-filet);}
+.status-mort{border-width:1px; border-color:var(--nb-filet);}
+.follow-btn{border-width:1px; border-color:var(--nb-filet);}
+.bill-more{border-width:1px; border-color:var(--nb-filet);}
+.vote-card{border-width:1px; border-color:var(--nb-filet);}
+.vc-detail{border-top-width:1px; border-top-color:var(--nb-filet);}
+.vc-pbox{border-width:1px; border-color:var(--nb-filet);}
+.vc-phead{border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+.vc-ncol{border-width:1px; border-color:var(--nb-filet);}
+.vc-nhead{border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+.votes-more{border-width:1px; border-color:var(--nb-filet);}
+.result-badge{border-width:1px; border-color:var(--nb-filet);}
+.bar{border-width:1px; border-color:var(--nb-filet);}
+.bar .seg.contre{border-left-width:1px; border-left-color:var(--nb-filet);}
+.bar .seg.abst{border-left-width:1px; border-left-color:var(--nb-filet);}
+.info-box{border-width:1px; border-color:var(--nb-filet);}
+.brutal-search{border-width:1px; border-color:var(--nb-filet);}
+.brutal-search .bs-icon{border-right-width:1px; border-right-color:var(--nb-filet);}
+.compo-bar{border-width:1px; border-color:var(--nb-filet);}
+.compo-swatch{border-width:1px; border-color:var(--nb-filet);}
+.m-card{border-width:1px; border-color:var(--nb-filet);}
+.m-card-top{border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+.depute-party{border-width:1px; border-color:var(--nb-filet);}
+.dep-table{border-width:1px; border-color:var(--nb-filet);}
+.dep-group-banner{border-top-width:1px; border-top-color:var(--nb-filet); border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+.comparateur-toolbar select{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+#band-comparateur .compare-table-wrap{border-width:1px; border-color:var(--nb-filet);}
+.cp-slot{border-width:1px; border-color:var(--nb-filet);}
+.lexique-item{border-width:1px; border-color:var(--nb-filet);}
+.lex-badge{border-width:1px; border-color:var(--nb-filet);}
+.suggest-cta{border-width:1px; border-color:var(--nb-filet);}
+.role-card{border-width:1px; border-color:var(--nb-filet);}
+.role-badge{border-width:1px; border-color:var(--nb-filet);}
+.account-box{border-width:1px; border-color:var(--nb-filet);}
+.roadmap-item{border-width:1px; border-color:var(--nb-filet);}
+.roadmap-status{border-width:1px; border-color:var(--nb-filet);}
+.createur-photo{border-width:1px; border-color:var(--nb-filet);}
+.maj-mois h2{border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+.hero-h1 .hero-sujet{border-width:1px; border-color:var(--nb-filet);}
+.md-carte{border-width:1px; border-color:var(--nb-filet);}
+.md-etiquette{border-width:1px; border-color:var(--nb-filet);}
+.md-ligne input{border-width:1px; border-color:var(--nb-filet);}
+.md-carte .account-btn{border-width:1px; border-color:var(--nb-filet);}
+.md-bouton-doux{border-width:1px; border-color:var(--nb-filet);}
+.md-mot{border-width:1px; border-color:var(--nb-filet);}
+.md-villes.ab-page{border-top-width:1px; border-top-color:var(--nb-filet);}
+.legende-presence{border-width:1px; border-color:var(--nb-filet);}
+.lp-formule b{border-width:1px; border-color:var(--nb-filet);}
+.lp-barre{border-width:1px; border-color:var(--nb-filet);}
+.presence-pastille{border-width:1px; border-color:var(--nb-filet);}
+.promo-villes{border-width:1px; border-color:var(--nb-filet);}
+.promo-compte{border-width:1px; border-color:var(--nb-filet);}
+.promo-compte-ligne input{border-width:1px; border-color:var(--nb-filet);}
+.promo-compte .account-btn{border-width:1px; border-color:var(--nb-filet);}
+.omnibus-avis{border-width:1px; border-color:var(--nb-filet);}
+.prom-parti-titre{border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+.prom-parti-puce{border-width:1px; border-color:var(--nb-filet);}
+.regle{border-width:1px; border-color:var(--nb-filet);}
+.prom-parti-repli{border-width:1px; border-color:var(--nb-filet);}
+.prom-parti-repli[open] > summary.prom-parti-titre{border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+.p404-carte{border-width:1px; border-color:var(--nb-filet);}
+.p404-decompte li{border-width:1px; border-color:var(--nb-filet);}
+.p404-etapes li{border-width:1px; border-color:var(--nb-filet);}
+.p404-liens a{border-width:1px; border-color:var(--nb-filet);}
+.fin-bloc{border-width:1px; border-color:var(--nb-filet);}
+.fin-tag{border-width:1px; border-color:var(--nb-filet);}
+.fin-table .fin-total td{border-top-width:1px; border-top-color:var(--nb-filet);}
+.fin-btn{border-width:1px; border-color:var(--nb-filet);}
+.fin-haut{border-width:1px; border-color:var(--nb-filet);}
+.tri-vote{border-width:1px; border-color:var(--nb-filet);}
+.tri-vote-btn{border-left-width:1px; border-left-color:var(--nb-filet);}
+.fin-evol{border-top-width:1px; border-top-color:var(--nb-filet);}
+.fin-table-evol th{border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+@media (max-width:900px){ .fin-col-plus .fin-evol:first-child{border-top-width:1px; border-top-color:var(--nb-filet);} }
+.fin-legende{border-width:1px; border-color:var(--nb-filet);}
+.search-retour{border-width:1px; border-color:var(--nb-filet);}
+.search-retour-nom{border-width:1px; border-color:var(--nb-filet);}
+.bill-cafe-btn{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+.ab-etat{border-width:1px; border-color:var(--nb-filet);}
+.ab-forfaits li{border-width:1px; border-color:var(--nb-filet);}
+.md-preoc-texte{border-width:1px; border-color:var(--nb-filet);}
+.md-preoc-alerte{border-width:1px; border-color:var(--nb-filet);}
+.ab-forfait-choisi{box-shadow:var(--shadow);}
+.md-cadeau-puce{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+.part-btn{border-width:1px; border-color:var(--nb-filet);}
+.part-menu{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+.parti-arcade{border-width:1px !important; border-color:var(--nb-filet) !important;}
+.bs-effacer{border-left-width:1px; border-left-color:var(--nb-filet);}
+.wiki-btn{border-width:1px; border-color:var(--nb-filet);}
+.leg-bloc{border-width:1px; border-color:var(--nb-filet);}
+.leg-fleche{border-width:1px; border-color:var(--nb-filet);}
+.leg-bloc, .leg-bloc.leg-passe{border-left-width:1px; border-left-color:var(--nb-filet);}
+.bill-cafe-btn .bulle{border-width:1px; border-color:var(--nb-filet);}
+.min-photo img{border-width:1px; border-color:var(--nb-filet);}
+.min-reseaux a{border-width:1px; border-color:var(--nb-filet);}
+.md-exemple{border-width:1px; border-color:var(--nb-filet);}
+.mdr-connexion{border-width:1px; border-color:var(--nb-filet);}
+.mdr-connexion .md-ligne input{border-width:1px; border-color:var(--nb-filet);}
+.mdr-btn-jaune{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+.mdr-btn-jaune:hover{box-shadow:var(--shadow);}
+.mdr-btn-jaune:active{box-shadow:var(--shadow);}
+.mdr-compteur{border-width:1px; border-color:var(--nb-filet);}
+.mdr-carte{border-width:1px; border-color:var(--nb-filet);}
+.mdr-carte:hover{box-shadow:var(--shadow);}
+.mdr-plus{border-top-width:1px; border-top-color:var(--nb-filet);}
+.mdr-tuile{border-width:1px; border-color:var(--nb-filet);}
+.mdr-bande{border-width:1px; border-color:var(--nb-filet);}
+.mdc-section{border-top-width:1px; border-top-color:var(--nb-filet);}
+.mdc-carte{border-width:1px; border-color:var(--nb-filet);}
+.mdc-freq{border-width:1px; border-color:var(--nb-filet);}
+.mdc-switch{border-width:1px; border-color:var(--nb-filet);}
+.mdc .mdc-puce{border-width:1px; border-color:var(--nb-filet);}
+.mdc-select::after{border-right-width:1px; border-right-color:var(--nb-filet); border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+.mdc .mdc-select select{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+.mdc-langue span{border-width:1px; border-color:var(--nb-filet);}
+.mdr-offrir .md-cadeau-discret.mdr-offrir-carte{border-width:1px; border-color:var(--nb-filet);}
+.mdr-offrir .md-cadeau-qte{border-width:1px; border-color:var(--nb-filet);}
+#mdEcrirePli .mdr-ecrire{border-width:1px; border-color:var(--nb-filet);}
+#mdEcrirePli .ab-message select, #mdEcrirePli .ab-message textarea{border-width:1px; border-color:var(--nb-filet);}
+#mdEcrirePli .ab-message .ab-bouton{border-width:1px; border-color:var(--nb-filet);}
+#mdEcrirePli .ab-merci{border-width:1px; border-color:var(--nb-filet);}
+#villes .vp-compte{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+#villes details.ab-suggestions > summary.vp-ajouter{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+#villes details.ab-suggestions > summary.vp-ajouter:hover{box-shadow:var(--shadow);}
+#villes details.ab-suggestions > .ab-pliable-corps{border-width:1px; border-color:var(--nb-filet);}
+#villes .vp-ville-titre{border-width:1px; border-color:var(--nb-filet);}
+#villes details.ab-dossier{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+#villes details.ab-dossier[open] > summary{border-bottom-width:1px; border-bottom-color:var(--nb-filet);}
+#villes .vp-voir{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+#villes details.ab-dossier > summary:hover .vp-voir{box-shadow:var(--shadow);}
+#villes .vp-sugg{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+#villes .vp-sugg .ab-bouton{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+.bill-abo{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+.bill-abo-ligne input{border-width:1px; border-color:var(--nb-filet);}
+.bill-abo-btn{border-width:1px; border-color:var(--nb-filet);}
+.rtv-etape{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+.rtv-etape b{border-width:1px; border-color:var(--nb-filet);}
+.rtv-form{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+.rtv-form input:not([type=radio]), .rtv-form textarea{border-width:1px; border-color:var(--nb-filet);}
+.rtv-prix{border-width:1px; border-color:var(--nb-filet); box-shadow:var(--shadow);}
+/* ==== FILETS : fin ==== */
+
+/* ---------- 4. LES PIÈCES ---------- */
+
+body{background:var(--paper); color:var(--ink);}
+::selection{background:var(--nb-jaune); color:var(--nb-bleu-nuit);}
+
+/* Les titres : Barlow Condensed, 600, en capitales, interligne serré. */
+h1, h2, h3, .hero-h1, .section-head h2, .view h2, .stat-cell b{
+  font-family:var(--nb-titre); font-weight:600; letter-spacing:.01em;
+}
+.section-head h2, .view h2{line-height:1.05;}
+
+/* Le bandeau défilant : bleu foncé, 30 px. */
+.ticker{background:var(--nb-bleu-fonce); color:#fff; border-bottom:0;}
+.ticker-text{font-family:var(--nb-titre); font-size:12px; letter-spacing:.06em; padding:8px 0;}
+
+/* L'en-tête : un filet sous lui, la marque en Barlow Condensed avec le nom de la province
+   en rouge. */
+#dq-topbar{border-bottom:1px solid var(--nb-filet);}
+.brand-text .brand-title{font-family:var(--nb-titre); font-weight:600; font-size:22px; letter-spacing:.02em; text-transform:none; white-space:nowrap;}
+.brand-blue{color:var(--nb-rouge);}
+html[data-theme="dark"] .brand-blue{color:#ff8a9b;}
+/* L'étoile jaune du drapeau devant le nom, à la place de la feuille d'érable de DQ (Martin,
+   7 nov. 2026). Décor seulement. */
+.maple-flip{display:none;}
+.brand-text .brand-title::before{content:'★'; color:var(--nb-jaune); margin-right:8px;}
+
+/* Les onglets : numérotés, le numéro en rouge ; l'onglet courant en bleu, sans pastille. */
+nav.tabs a{font-family:var(--nb-titre); font-weight:600; font-size:14px; padding:6px 6px; border-color:transparent;}
+
+/* « Villes » : un onglet de plus, après Mon dossier, qui ouvre la liste des volets. */
+nav.tabs .villes-menu{margin-left:0;}
+.nav-villes{
+  display:inline-flex; align-items:center; gap:5px; padding:6px 6px; cursor:pointer; list-style:none;
+  font-family:var(--nb-titre); font-weight:600; font-size:14px; letter-spacing:.04em;
+  text-transform:uppercase; color:var(--ink); white-space:nowrap;
+}
+.nav-villes::-webkit-details-marker{display:none;}
+.nav-villes::after{content:""; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid currentColor; opacity:.85;}
+.nav-villes:hover, .villes-menu[open] .nav-villes{color:var(--nb-rouge);}
+.villes-menu ul{border:1px solid var(--nb-filet); box-shadow:var(--shadow-lg);}
+nav.tabs .villes-menu ul{left:auto; right:0;}
+nav.tabs a .n{display:inline; color:var(--nb-rouge); font-size:11px; margin-right:4px;}
+nav.tabs a.active{background:transparent; color:var(--gold); border-color:transparent;}
+nav.tabs a:hover:not(.active){background:transparent; color:var(--nb-rouge); border-color:transparent;}
+
+/* Les petits contrôles : carrés à filet, fond transparent ; le survol passe au bleu. */
+.font-size-ctrl button, .lang-toggle, .theme-toggle, .hamburger{
+  border:1px solid var(--nb-filet); background:transparent; color:var(--ink);
+}
+.theme-toggle{--derriere:var(--paper);}
+.font-size-ctrl button:hover, .lang-toggle:hover, .theme-toggle:hover{
+  background:transparent; border-color:var(--gold); color:var(--gold); --icone:var(--gold); --derriere:var(--paper);
+}
+.lang-toggle{font-family:var(--nb-titre); font-weight:600;}
+
+/* Tout l'en-tête sur une rangée (Martin, 7 nov. 2026) : comme sur la capture, le zoom est un
+   seul bloc « A− 100 % A+ », la langue est un mot sans cadre, et les onglets se serrent. */
+header.top{column-gap:12px;}
+nav.tabs{gap:2px;}
+nav.tabs a, .nav-villes{padding:6px 5px;}
+.header-ctrls{gap:8px;}
+.font-size-ctrl{gap:0; border:1px solid var(--nb-filet);}
+.font-size-ctrl button{border:0; width:28px; height:28px;}
+.font-size-ctrl #fontPct{padding:0 6px; line-height:28px; border-inline:1px solid var(--nb-filet); font-weight:400; color:var(--slate);}
+.theme-toggle{width:30px; height:30px;}
+.lang-toggle{border:0; padding:5px 4px; font-size:14px; letter-spacing:.04em;}
+
+/* L'affiche de l'accueil : trois colonnes — bleu (titre et étoile), papier (chapô et
+   bouton), rouge (les trois chiffres). Les blocs sont ceux de DQ ; seule leur disposition
+   change. Sur ordinateur, l'affiche reste dans la largeur du contenu (Martin, 7 nov. 2026 : pas
+   pleine largeur) ; sur téléphone, elle touche les bords. */
+#view-apercu{padding-top:0; container-type:inline-size; --nb-gouttiere:calc((var(--vw,100vw) - 100cqw) / 2);}
+@media (min-width:901px){
+  #view-apercu{display:grid; grid-template-columns:2fr 1fr;}
+  #view-apercu > *{grid-column:1 / -1; min-width:0;}
+  #view-apercu > .hero-poster{grid-column:1; margin-inline:0;}
+  #view-apercu > .stat-band{grid-column:2; margin-inline:0; padding-inline:44px;}
+}
+#view-apercu .hero-poster{
+  display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto 1fr; padding:0; min-height:460px;
+}
+/* Le surtitre (législature · session), en haut du bloc bleu. */
+#view-apercu .hero-session{
+  grid-column:1; grid-row:1; margin:0; padding:56px 44px 12px; background:var(--nb-bleu); color:#fff;
+  font-family:var(--nb-titre); font-weight:600; font-size:12px; letter-spacing:.1em; text-transform:uppercase; opacity:1;
+}
+#view-apercu .hero-session sup{font-size:.75em; line-height:0;}
+#view-apercu .hero-h1{
+  grid-column:1; grid-row:2;
+  position:relative; overflow:hidden; background:var(--nb-bleu); color:#fff;
+  padding:0 44px 56px; font-size:clamp(38px, 5vw, 64px); line-height:.98; letter-spacing:.01em;
+}
+#view-apercu .hero-session[hidden] + .hero-h1{grid-row:1 / 3; padding-top:56px;}
+/* L'étoile du drapeau, en bas à droite du bloc bleu : décor seulement. */
+#view-apercu .hero-h1::after{
+  content:''; position:absolute; right:-60px; bottom:-60px; width:300px; height:300px;
+  background:var(--nb-jaune); opacity:.9; pointer-events:none;
+  clip-path:polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+#view-apercu .hero-h1 > span{position:relative; z-index:1;}
+#view-apercu .hero-h1 .hero-sujet{
+  width:auto; font-family:var(--nb-titre); font-weight:600; font-size:1em; line-height:.98; letter-spacing:.01em;
+  color:#fff; background:transparent; border:0; padding:0; margin:0 0 20px;
+}
+#view-apercu .hero-h1 span:not(.hero-sujet){font-size:22px; line-height:1.25; letter-spacing:.03em; color:#fff;}
+#view-apercu .hero-outline{-webkit-text-stroke:0; color:#fff;}
+#view-apercu .hero-blue{color:#fff;}
+#view-apercu .hero-row{
+  grid-column:2; grid-row:1 / 3;
+  margin:0; padding:56px 44px; display:flex; flex-direction:column; justify-content:flex-start;
+  align-items:flex-start; gap:12px; background:var(--paper);
+}
+/* Les deux boutons, côte à côte en bas de la colonne (maquette). */
+#view-apercu .hero-row{flex-direction:row; flex-wrap:wrap; align-content:space-between;}
+#view-apercu .hero-row > .hero-manifesto{flex:1 0 100%;}
+#view-apercu .hero-manifesto{margin-bottom:12px;}
+#view-apercu .hero-manifesto{flex:none; min-width:0; border:0; background:transparent; padding:0; box-shadow:none;}
+#view-apercu .hero-manifesto p{font-size:22px; line-height:1.45; font-weight:400;}
+@media (max-width:900px){ #view-apercu .hero-manifesto p{font-size:19px;} }
+#view-apercu .hero-cta{
+  background:var(--nb-rouge); color:#fff; border:0; box-shadow:none; padding:12px 22px;
+  font-family:var(--nb-titre); font-weight:600; font-size:16px; letter-spacing:.04em;
+}
+#view-apercu .hero-cta:hover{background:var(--nb-rouge-fonce); color:#fff;}
+html[data-theme="dark"] #view-apercu .hero-cta:hover{color:#fff;}
+/* Le second bouton : en ligne bleue, plein au survol. */
+#view-apercu .hero-cta-ligne{background:transparent; color:var(--gold); border:1px solid var(--gold); padding:11px 21px;}
+#view-apercu .hero-cta-ligne:hover{background:var(--nb-bleu); border-color:var(--nb-bleu); color:#fff;}
+#view-apercu .stat-band{
+  background:var(--nb-rouge); color:#fff; border:0;
+  display:grid; grid-template-columns:1fr; grid-template-rows:1fr 1fr 1fr; padding-block:56px;
+}
+#view-apercu .stat-cell{padding:14px 0 12px; border:0; justify-content:center;}
+#view-apercu .stat-cell + .stat-cell{border-top:1px solid rgba(255,255,255,.35);}
+#view-apercu .stat-cell b{font-size:72px; font-feature-settings:'tnum'; color:#fff;}
+#view-apercu .stat-cell span{font-family:'Barlow', system-ui, sans-serif; font-weight:400; font-size:13px; letter-spacing:.08em; color:#fff;}
+@media (max-width:900px){
+  #view-apercu .hero-poster{grid-template-columns:1fr; min-height:0; margin-inline:calc(-1 * var(--nb-gouttiere));}
+  #view-apercu .hero-session{grid-column:1; grid-row:1; padding:32px 20px 10px;}
+  #view-apercu .hero-h1{grid-column:1; grid-row:2; padding:0 20px 32px;}
+  #view-apercu .hero-session[hidden] + .hero-h1{grid-row:2; padding-top:32px;}
+  #view-apercu .hero-row{grid-column:1; grid-row:3; padding:32px 20px;}
+  #view-apercu .stat-band{grid-template-rows:none; grid-template-columns:repeat(3, 1fr); gap:16px; padding-block:32px;}
+  #view-apercu .stat-cell + .stat-cell{border-top:0; border-left:1px solid rgba(255,255,255,.35); padding-left:16px;}
+  #view-apercu .stat-cell b{font-size:44px;}
+  #view-apercu .hero-h1::after{width:170px; height:170px; right:-40px; bottom:-40px;}
+}
+
+/* Les bandes : plus de trait noir entre elles. */
+.band{border-bottom:0;}
+.band-yellow, .band-blue{border-top:0;}
+
+/* Les têtes de section : titre en capitales, filet bleu de 2 px dessous. */
+.section-head{border-bottom:2px solid var(--nb-bleu); padding-bottom:8px;}
+.band-blue .section-head{border-bottom-color:rgba(255,255,255,.5);}
+
+/* Les cartes : fond blanc, ombre douce, filet bleu à gauche au survol et une fois ouvertes. */
+.bill, .ch-card, .m-card, .prom-card, .hero-manifesto + .hero-cta{box-shadow:var(--shadow);}
+.bill{border:0; border-left:6px solid transparent;}
+.bill:hover, .ch-card:hover, .m-card:hover{box-shadow:var(--shadow-lg);}
+.bill:hover{border-left-color:var(--gold);}
+.bill.open, .bill[open]{border-left-color:var(--nb-bleu); box-shadow:var(--shadow-lg);}
+.bill .num{font-family:var(--nb-titre); font-weight:600; font-size:24px; color:var(--gold); background:transparent; border:0; padding:0;}
+.bill h3{font-family:'Barlow', system-ui, sans-serif; font-weight:500; text-transform:none; letter-spacing:0;}
+
+/* Le pied (maquette) : collé à la mission, filet tricolore bleu / jaune / rouge EN HAUT, puis une
+   ligne de petit texte et de liens soulignés. */
+footer{
+  background:var(--paper); color:var(--ink-3, var(--slate)); border-top:0; margin:0; padding:22px 0 16px;
+  font-family:'Barlow', system-ui, sans-serif; font-size:12px; text-transform:none; letter-spacing:0; position:relative;
+}
+footer::before{
+  content:''; position:absolute; left:0; right:0; top:0; height:6px;
+  background:linear-gradient(90deg, var(--nb-bleu) 0 33.333%, var(--nb-jaune) 33.333% 66.666%, var(--nb-rouge) 66.666%);
+}
+.footer-nav{margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid var(--nb-filet); gap:6px 20px;}
+.footer-nav a, .footer-nav-villes > span:first-child{color:var(--ink-2); font-weight:400;}
+.footer-nav a:hover{color:var(--nb-rouge);}
+.footer-inner{justify-content:flex-start; gap:8px 20px;}
+.footer-right-group{gap:8px 20px;}
+.footer-gh, .footer-etmoi{color:var(--ink); font-weight:400; text-decoration:underline; text-underline-offset:3px;}
+.footer-gh:hover, .footer-etmoi:hover{color:var(--nb-rouge);}
+
+/* Le bouton « remonter » : jaune du drapeau, sans trait noir. */
+.dq-remonter{border:0; box-shadow:var(--shadow-lg); background:var(--nb-jaune); color:var(--nb-bleu-nuit);}
+.dq-remonter:hover{background:var(--nb-bleu); color:#fff;}
+
+/* Le haut des pages de section : un surtitre rouge, le titre en capitales avec son filet
+   bleu dessous, comme sur l'accueil du cahier. Plus d'étiquette jaune ni de lettres
+   évidées. */
+.hero-h1 .hero-sujet{
+  color:var(--nb-rouge); background:transparent; border:0; padding:0; margin:0 0 10px;
+  font-family:var(--nb-titre); font-weight:600; font-size:13px; letter-spacing:.1em;
+}
+html[data-theme="dark"] .hero-h1 .hero-sujet{color:#ff8a9b;}
+.hero-outline{-webkit-text-stroke:0; color:inherit;}
+.hero-blue{color:var(--gold);}
+.hero-h1-md{
+  font-size:clamp(30px, 3.6vw, 44px); line-height:1.02;
+  border-bottom:2px solid var(--nb-bleu); padding-bottom:10px;
+}
+
+/* Le sombre : le rouge du drapeau passe sous le seuil de lecture sur le bleu nuit, on prend
+   sa version claire pour les petits textes (numéros d'onglet)  */
+html[data-theme="dark"] nav.tabs a .n{color:#ff8a9b;}
+html[data-theme="dark"] .hero-h1-md, html[data-theme="dark"] .section-head{border-bottom-color:var(--gold);}
+
+/* dq.css fait défiler la barre d'onglets à l'horizontale ; la liste des villes, qui s'ouvre
+   SOUS la barre, y était coupée. La barre tient sur sa rangée (voir plus haut), on laisse
+   donc déborder la liste. Le téléphone garde son panneau qui défile. */
+@media (min-width:641px){ #dq-topbar nav.tabs{overflow:visible;} }
+@media (max-width:640px){ nav.tabs .villes-menu ul{position:static; box-shadow:none; margin:4px 24px 0;} .nav-villes{padding:16px 24px; font-size:15px;} }
+
+/* ==== ACCUEIL SOUS L'AFFICHE — d'après la maquette DossierNBrunswick.html (#2a), Martin, 7 nov. 2026 ====
+   Valeurs relevées dans la maquette : bandeau d'état bleu pâle, projets signalés en cartes blanches à
+   liseré rouge, projets récents (2/3) + boîtes pleines bleue et rouge (1/3), Quoi de neuf en bande
+   bleue, mission sur trois colonnes. Les identifiants de DQ restent : commun/dq.js remplit tout. */
+
+/* Titres de section de l'accueil : Barlow Condensed 28 px, majuscules, filet de couleur dessous. */
+#view-apercu .nb-signales .section-head, #view-apercu .nb-recents .section-head{display:flex; align-items:flex-end; justify-content:space-between; padding:0 0 8px; margin:0 0 6px; border-bottom:2px solid var(--nb-rouge);}
+#view-apercu .nb-recents .section-head{border-bottom-color:var(--nb-bleu);}
+#view-apercu .nb-signales .section-head h2, #view-apercu .nb-recents .section-head h2{font-family:var(--nb-titre); font-weight:600; font-size:28px; line-height:1.1; letter-spacing:.01em; text-transform:uppercase; color:var(--ink); margin:0;}
+#view-apercu .nb-recents .section-head .sub{font-size:12px; color:var(--slate); margin:6px 0 0; font-weight:400;}
+#view-apercu .ch-more{font-size:13px; font-weight:600; color:var(--nb-rouge); text-decoration:none;}
+
+/* 1. Le bandeau d'état, sous l'affiche. */
+#view-apercu .calendar-box.nb-etat{display:flex; align-items:center; gap:16px; background:var(--gold-soft); color:var(--nb-bleu-fonce); border:0; border-radius:0; box-shadow:none; padding:14px 20px; margin:36px 0 0;}
+#view-apercu .calendar-box.nb-etat::before{content:''; flex:none; width:10px; height:10px; background:var(--nb-rouge);}
+#view-apercu .calendar-box.nb-etat .status{font-family:'Barlow',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.55; color:var(--nb-bleu-fonce); margin:0;}
+html[data-theme="dark"] #view-apercu .calendar-box.nb-etat{background:#13286a; color:#dbe4ff;}
+html[data-theme="dark"] #view-apercu .calendar-box.nb-etat .status{color:#dbe4ff;}
+
+/* 2. Les projets signalés par les citoyen·ne·s. */
+#view-apercu .nb-signales{margin:40px 0 0;}
+#view-apercu .nb-signales #challengedSub{display:none;}
+#view-apercu .nb-avis-petition{display:flex; gap:10px; align-items:flex-start; margin:0 0 18px; font-size:13px; line-height:1.5; color:var(--ink-2);}
+#view-apercu .nb-avis-petition::before{content:'!'; flex:none; width:14px; height:14px; margin-top:2px; border:1.5px solid var(--nb-rouge); border-radius:50%; color:var(--nb-rouge); font-size:10px; font-weight:700; line-height:12px; text-align:center;}
+#view-apercu #challengedList.ch-grid{grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px;}
+#view-apercu .ch-card{background:var(--card); border:0; border-top:4px solid var(--nb-rouge); border-radius:0; box-shadow:0 1px 2px rgba(43,43,45,.14); padding:18px 20px 18px;}
+#view-apercu .ch-num{font-family:var(--nb-titre); font-weight:600; font-size:22px; color:var(--nb-bleu);}
+#view-apercu .ch-badge{background:transparent; border:0; color:var(--nb-rouge); font-family:var(--nb-titre); font-weight:700; font-size:22px; padding:0; box-shadow:none;}
+#view-apercu .ch-title{font-size:15px; font-weight:500; line-height:1.35; color:var(--ink); margin:8px 0 0;}
+#view-apercu .ch-stage{display:inline-block; margin-top:12px; background:var(--red-soft); color:var(--nb-rouge-fonce); border:0; font-size:11px; letter-spacing:.04em; text-transform:uppercase; padding:3px 10px;}
+#view-apercu .ch-demand{background:transparent; border:0; color:var(--nb-bleu); font-size:12px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; padding:0; margin-top:14px; box-shadow:none;}
+#view-apercu .nb-agir{display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 0; font-size:13px; color:var(--slate);}
+#view-apercu .nb-agir a{color:var(--nb-bleu-fonce); text-decoration:underline;}
+html[data-theme="dark"] #view-apercu .nb-agir a{color:var(--gold);}
+
+/* 3. Projets récents (2/3) et les deux boîtes (1/3). Les cartes n'ont pas de colonne de droite. */
+.nb-recents{display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:48px; align-items:start; padding:48px 0 56px;}
+.nb-recents-cote{display:grid; gap:16px;}
+@media (max-width:900px){ .nb-recents{grid-template-columns:1fr; gap:32px;} }
+#apercuBills .bill-open-side{display:none;}
+#apercuBills .bill-open-grid{grid-template-columns:1fr;}
+.nb-boite{position:relative; overflow:hidden; padding:24px; color:#fff; border:0; box-shadow:none;}
+.nb-boite.promo-accueil{background:var(--nb-bleu);}
+.nb-boite.nb-commandite{background:var(--nb-rouge);}
+/* L'étoile jaune de la maquette, coupée par le coin de la boîte bleue. */
+.nb-boite.promo-accueil::after{content:''; position:absolute; top:-30px; right:-30px; width:120px; height:120px; background:var(--nb-jaune); clip-path:polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);}
+.nb-boite .promo-sur{position:relative; z-index:1; margin:0 0 6px; font-family:'Barlow',system-ui,sans-serif; font-weight:600; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--nb-jaune);}
+.nb-boite h2{position:relative; z-index:1; margin:0 0 8px; max-width:none; font-family:var(--nb-titre); font-weight:600; font-size:24px; line-height:1; letter-spacing:-.015em; text-transform:uppercase; color:#fff;}
+.nb-boite.promo-accueil h2{max-width:220px;}
+.nb-boite .promo-texte{margin:0; font-size:13px; line-height:1.45; color:#fff;}
+.nb-boite .promo-compte{background:transparent; color:#fff; border:0; box-shadow:none; padding:0; margin-top:14px;}
+.nb-boite .promo-compte-ligne{display:flex; gap:8px;}
+.nb-boite .promo-compte-ligne input{flex:1 1 auto; min-width:0; height:36px; padding:6px 10px; border:1px solid #fff; background:#fff; color:var(--nb-encre, #1d1f20); font-size:14px;}
+.nb-boite .promo-compte .account-btn{height:36px; padding:0 14px; border:0; background:var(--nb-rouge); color:#fff; font-family:var(--nb-titre); font-weight:600; font-size:14px; letter-spacing:.04em; text-transform:uppercase;}
+.nb-boite .promo-compte-note{color:rgba(255,255,255,.85);}
+.nb-boite .promo-mes-dossiers{display:none;}   /* maquette : pas de lien sous le champ */
+#view-apercu .nb-boite .hero-cta{display:inline-flex; align-self:flex-start; margin-top:14px; padding:9px 16px; border:0; background:var(--nb-jaune); color:var(--nb-bleu-fonce); font-family:var(--nb-titre); font-weight:600; font-size:14px; letter-spacing:.04em; text-transform:uppercase; text-decoration:none; box-shadow:none;}
+#view-apercu .nb-boite .hero-cta:hover{background:#fff; color:var(--nb-bleu-fonce);}
+
+/* 4. Quoi de neuf : bande bleue, le titre à gauche (1/3), le fil à droite (2/3). */
+#band-actu{background:var(--nb-bleu); color:#fff; border:0;}
+#band-actu .actu-grid{grid-template-columns:1fr; gap:0; padding:48px 0 56px;}
+#band-actu .actu-grid > div{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2fr); gap:48px; align-items:start;}
+@media (max-width:900px){ #band-actu .actu-grid > div{grid-template-columns:1fr; gap:20px;} }
+#band-actu .section-head{border:0; padding:0; margin:0; display:block;}
+#band-actu .section-head h2{margin:0 0 6px; font-family:'Barlow',system-ui,sans-serif; font-weight:600; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--nb-jaune); border:0;}
+#band-actu .section-head .sub{margin:0; font-family:var(--nb-titre); font-weight:600; font-size:40px; line-height:1; letter-spacing:-.015em; text-transform:uppercase; color:#fff;}
+#band-actu .nb-fil{margin:16px 0 0; font-size:14px; line-height:1.55; color:#fff; opacity:.85;}
+#band-actu .news-item{display:grid; grid-template-columns:150px minmax(0,1fr); gap:20px; padding:12px 0; margin:0; border:0; border-bottom:1px solid rgba(255,255,255,.3);}
+#band-actu .news-date{width:auto; padding:0; font-family:var(--nb-titre); font-weight:600; font-size:15px; letter-spacing:.04em; text-transform:uppercase; color:var(--nb-jaune);}
+#band-actu .news-body p{margin:0; font-size:15px; line-height:1.55; color:#fff;}
+#band-actu .news-body p + p{margin-top:6px;}
+#band-actu .no-results, #band-actu .bill-more{color:rgba(255,255,255,.8); background:transparent;}
+@media (max-width:640px){ #band-actu .news-item{grid-template-columns:1fr; gap:4px;} }
+
+/* 5. La mission : trois colonnes sur le papier, séparées par des filets. */
+#band-mission{background:transparent; color:var(--ink); border:0;}
+#band-mission #introBlock{padding:48px 0;}
+#band-mission .mission-box{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2fr); gap:0; background:transparent; border:0; box-shadow:none; padding:0; margin:0;}
+#band-mission .mission-eyebrow{grid-column:1; margin:0 0 8px; font-family:'Barlow',system-ui,sans-serif; font-weight:600; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--nb-rouge);}
+#band-mission .mission-statement{grid-column:1; margin:0; padding-right:36px; font-family:var(--nb-titre); font-weight:600; font-size:30px; line-height:1.02; letter-spacing:-.015em; text-transform:uppercase; color:var(--ink);}
+#band-mission .mission-statement .hl{background:none; color:inherit; padding:0;}
+#band-mission .compare{grid-column:2; grid-row:1 / span 2; display:grid; grid-template-columns:1fr 1fr; gap:0; margin:0;}
+#band-mission .compare-col, #band-mission .compare-col:last-child{background:transparent; border:0; border-left:1px solid var(--nb-filet); border-radius:0; padding:0 36px;}
+#band-mission .compare-col:last-child{padding-right:0;}
+#band-mission .compare-col .tag{display:block; margin:0 0 10px; font-family:var(--nb-titre); font-weight:600; font-size:18px; letter-spacing:.02em; text-transform:uppercase; color:var(--ink-2);}
+#band-mission .compare-col:last-child .tag{color:var(--nb-bleu);}
+#band-mission .compare-col ul, #band-mission .compare-col li{color:var(--ink-2); font-size:14px; line-height:1.7;}
+html[data-theme="dark"] #band-mission .compare-col:last-child .tag{color:var(--gold);}
+@media (max-width:900px){
+  #band-mission .mission-box{grid-template-columns:1fr;}
+  #band-mission .compare{grid-column:1; grid-row:auto; grid-template-columns:1fr; gap:20px; margin-top:24px;}
+  #band-mission .compare-col, #band-mission .compare-col:last-child{border-left:0; border-top:1px solid var(--nb-filet); padding:16px 0 0;}
+}
+#view-apercu .calendar-box.nb-etat .status{text-transform:none; letter-spacing:0;}
+#view-apercu .ch-more{border:0; background:none; padding:0; box-shadow:none; text-transform:none; letter-spacing:0;}
+
+/* 6. Les projets récents de l'accueil (maquette) : rangées compactes qui se déplient, la
+   première ouverte (ligneProjetAccueil dans commun/dq.js). */
+#view-apercu .nb-recents .section-head{align-items:baseline;}
+.nb-voir-tout{font-size:13px; font-weight:600; color:var(--nb-rouge); text-decoration:none; white-space:nowrap;}
+.nb-voir-tout:hover{text-decoration:underline;}
+.nb-recents-sub{font-size:12px; color:var(--slate); margin:0 0 14px;}
+.nb-recents-source{font-size:12px; color:var(--slate); margin:14px 0 0;}
+.nb-recents-source a{color:inherit;}
+#apercuBills{display:grid; gap:8px;}
+.nb-ligne{background:var(--card, #fff); border-left:6px solid transparent; box-shadow:0 1px 3px rgba(0,0,0,.08);}
+.nb-ligne:hover, .nb-ligne[open]{border-left-color:var(--nb-bleu); box-shadow:0 4px 14px rgba(0,0,0,.12);}
+.nb-ligne > summary{display:grid; grid-template-columns:72px minmax(0,1fr) auto 28px; gap:18px; align-items:center; padding:16px 20px; cursor:pointer; list-style:none;}
+.nb-ligne > summary::-webkit-details-marker{display:none;}
+.nb-ligne-num{font-family:var(--nb-titre); font-weight:600; font-size:24px; color:var(--nb-bleu); white-space:nowrap;}
+.nb-ligne-titre{font-size:16px; font-weight:500; line-height:1.45; color:var(--ink);}
+.nb-ligne-etape{font-size:11px; padding:3px 10px; letter-spacing:.04em; text-transform:uppercase; white-space:nowrap; background:#e8eefb; color:#00226b;}
+.nb-ligne-etape sup{font-size:.75em; line-height:0; text-transform:none;}
+.nb-ligne-sanctionne{background:#1d1f20; color:#fff;}
+.nb-ligne-arret{background:#fde6ea; color:#9a001c;}
+.nb-ligne-fleche{color:var(--nb-bleu); transition:transform .15s;}
+.nb-ligne[open] .nb-ligne-fleche{transform:rotate(90deg);}
+.nb-ligne-corps{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px; align-items:start; padding:0 20px 18px 110px;}
+.nb-ligne-sur{font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--nb-rouge); margin:0 0 6px;}
+.nb-ligne-corps p{margin:0; font-size:14px; line-height:1.55; color:var(--ink-2);}
+.nb-ligne-meta{font-size:12px; line-height:1.7; color:var(--slate); white-space:nowrap;}
+.nb-ligne-meta b{color:var(--ink);}
+.nb-ligne-meta a{display:block; font-weight:600; color:var(--nb-bleu); text-decoration:none;}
+.nb-ligne-meta a:hover{text-decoration:underline;}
+html[data-theme="dark"] .nb-ligne-num, html[data-theme="dark"] .nb-ligne-fleche, html[data-theme="dark"] .nb-ligne-meta a{color:var(--gold);}
+.nb-commandite-villes{margin:12px 0 0; font-size:12px; line-height:1.5; opacity:.9; color:#fff;}
+@media (max-width:640px){
+  .nb-ligne > summary{grid-template-columns:auto minmax(0,1fr) 22px; gap:10px 12px; padding:14px 16px;}
+  .nb-ligne-etape{grid-column:2; grid-row:2; justify-self:start;}
+  .nb-ligne-fleche{grid-column:3; grid-row:1;}
+  .nb-ligne-corps{grid-template-columns:1fr; gap:12px; padding:0 16px 16px;}
+  .nb-ligne-meta{white-space:normal;}
+}
+
+/* Mon dossier, « Pour commencer » : deux cartes (pas de projet de ville au N.-B.). */
+@media (min-width:761px){ .mdr-cartes{grid-template-columns:repeat(2, minmax(0,1fr));} }

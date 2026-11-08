@@ -21,7 +21,7 @@ const HTML_PATH = 'gabarit.html';   // le MODÈLE, jamais servi : les pages en s
 // avant les réécritures, donc un /feed.xml statique court-circuiterait la
 // fonction api/feed.js qui compte les lectures. api/ n'est pas servi tel quel.
 const FEED_PATH = 'api/feed-data.xml';
-const SITE = 'https://dossierquebec.ca';
+const SITE = 'https://dossiernbrunswick.ca';
 const START_MARKER = '/* NEWS_DATA_START';
 const END_MARKER = '/* NEWS_DATA_END */';
 const MAX_ITEMS = 80; // le front paginera par fenêtres de 7 jours
@@ -64,12 +64,17 @@ function main() {
     const titreFr = court(b.title);
     const titreEn = court(b.titleEn || b.title);
     const note = String(b.note || '');
-    const presente = note.match(/^Présenté le (\d{4}-\d{2}-\d{2})/);
+    // N.-B. : la date de chaque étape est lue telle quelle sur la page de l'Assemblée (b.dates),
+    // ce n'est pas une approximation comme presentedOn au Québec.
+    const presente = b.dates?.premiere ? [null, b.dates.premiere] : note.match(/^Présenté le (\d{4}-\d{2}-\d{2})/);
     // `link` : le lien profond qui ouvre CE projet (voir openBillFromQuery). Il
     // ne sert pas dans la page — le bloc « Quoi de neuf » n'a pas de liens — mais
     // le flux RSS en a besoin : un item de flux sans lien vers la chose dont il
     // parle est inutile à qui le reçoit.
-    const lien = `${SITE}/projets-de-loi?pl=${encodeURIComponent(b.num)}`;
+    // N.-B. : le numéro recommence à 1 à chaque session ; l'adresse propre du projet porte les trois.
+    const lien = b.legislature && b.introSession
+      ? `${SITE}/projets-de-loi/${b.num}-${b.legislature}-${b.introSession}`
+      : `${SITE}/projets-de-loi?pl=${encodeURIComponent(b.num)}`;
     if (presente) {
       items.push({
         date: presente[1],
@@ -79,7 +84,7 @@ function main() {
         guid: `depot-${b.num}-${presente[1]}`,
       });
     }
-    const sanctionne = note.match(/^Sanctionné le (\d{4}-\d{2}-\d{2})/);
+    const sanctionne = b.dates?.sanction ? [null, b.dates.sanction] : note.match(/^Sanctionné le (\d{4}-\d{2}-\d{2})/);
     if (sanctionne) {
       items.push({
         date: sanctionne[1],
@@ -166,10 +171,10 @@ function rss(items) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DossierQuébec — Quoi de neuf</title>
+    <title>DossierNBrunswick — Quoi de neuf</title>
     <link>${SITE}/</link>
     <atom:link href="${SITE}/${FEED_PATH}" rel="self" type="application/rss+xml"/>
-    <description>Dépôts et sanctions de projets de loi, journées de votes nominatifs à l'Assemblée nationale du Québec. Site citoyen indépendant, données publiques officielles.</description>
+    <description>Dépôts et sanctions de projets de loi, journées de votes nominatifs à l'Assemblée législative du Nouveau-Brunswick. Site citoyen indépendant, données publiques officielles.</description>
     <language>fr-CA</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${entries}

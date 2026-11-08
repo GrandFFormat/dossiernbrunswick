@@ -32,50 +32,21 @@ function runOrThrow(label, nodeArgs) {
   if (res.status !== 0) throw new Error(`code ${res.status}`);
 }
 
-// En local, api.env fournit ANTHROPIC_API_KEY ; en CI, elle vient de l'env (secret).
-const summariesArgs = existsSync('api.env')
-  ? ['--env-file=api.env', 'scrapers/bill-summaries.js']
-  : ['scrapers/bill-summaries.js'];
-const promisesArgs = existsSync('api.env')
-  ? ['--env-file=api.env', 'scrapers/promises.js']
-  : ['scrapers/promises.js'];
 
-// Les pétitions bougent lentement : on ne les rafraîchit qu'une fois par semaine
-// (lundi UTC), pas chaque jour. FORCE_PETITIONS=1 force la mise à jour (local),
-// et on force aussi si le fichier n'existe pas encore.
-const doPetitions =
-  new Date().getUTCDay() === 1 || // 0=dimanche, 1=lundi
-  process.env.FORCE_PETITIONS === '1' ||
-  !existsSync('data/petitions.json');
+// Nouveau-Brunswick : pas de pétitions en ligne, pas encore de résumés IA ni de promesses (étapes
+// à venir, comme en Saskatchewan à ses débuts).
+const doPetitions = false;
 
-// 1) Scrapers (source -> data/*.json) — TOLÉRANT.
+// 1) Scrapers (source -> data/*.json) — TOLÉRANT. L'ordre compte : les projets de loi rattachent
+// leur parrain à la liste des député·e·s, les ministres aussi, et les votes ont besoin des deux.
+// legnb.ca demande 10 secondes entre deux requêtes (robots.txt) : un passage complet prend du temps.
 const SCRAPERS = [
-  ['Scrape : projets de loi (Données Québec)', ['scrapers/bills.js']],
-  ['Scrape : détails des projets de loi (assnat)', ['scrapers/bill-details.js']],
-  // Consultations en commission et mémoires déposés (outils de l'abonnement) : api/consultations-data.json,
-  // relu par morceaux (cache). « soft » : une panne garde le fichier de la veille.
-  ['Scrape : consultations et mémoires (assnat)', ['scrapers/consultations.js'], { soft: true }],
-  // `soft: true` = source lente/peu critique dont une panne NE déclenche PAS
-  // d'alerte (run vert). Les pétitions (hebdo) sont capricieuses côté assnat
-  // (liste parfois servie en AJAX) : une semaine ratée = données de la veille
-  // conservées, sans rendre le run rouge inutilement.
-  ...(doPetitions ? [['Scrape : pétitions ouvertes (assnat, hebdo)', ['scrapers/petitions.js'], { soft: true }]] : []),
-  ['Scrape : résumés IA + traductions (Claude)', summariesArgs],
-  // Promesses électorales : extraction IA des plateformes officielles, PUIS
-  // vérification que chaque citation existe mot pour mot dans la source.
-  // « soft » : source lente et dépendante de l'IA, une panne n'alerte pas.
-  ['Scrape : promesses électorales (Claude + vérif)', promisesArgs, { soft: true }],
-  ['Scrape : députés (assnat)', ['scrapers/deputes.js']],
-  ['Scrape : courriels des députés (assnat)', ['scrapers/depute-emails.js']],
-  ['Scrape : votes (assnat)', ['scrapers/votes.js']],
-  ['Scrape : ministres (quebec.ca)', ['scrapers/ministers.js']],
-  // « Ce qui vous préoccupe » (Mon dossier) : recompte des sujets rangés à la main par Martin,
-  // tableau des sujets dans data/preoccupations.json. « soft » : une panne garde le tableau d'hier.
-  ['Préoccupations des visiteurs (recompte)', ['scrapers/preoccupations.js'], { soft: true }],
-  // Finances publiques (barème des indemnités, groupes de circonscriptions, rapports de dépenses) :
-  // « soft », une panne garde le fichier précédent. Le PDF des dépenses (une cinquantaine de Mo)
-  // n'est retéléchargé que si l'Assemblée en publie un nouveau.
-  ['Scrape : finances publiques (assnat)', ['scrapers/finances.js'], { soft: true }],
+  ['Scrape : député·e·s (legnb.ca)', ['scrapers/deputes.js']],
+  ['Courriels des député·e·s (masqués par legnb.ca : aucun)', ['scrapers/depute-emails.js']],
+  ['Scrape : Conseil exécutif (legnb.ca)', ['scrapers/ministers.js']],
+  ['Scrape : projets de loi (legnb.ca)', ['scrapers/bills.js']],
+  ['Scrape : votes nominatifs (Journaux, legnb.ca)', ['scrapers/votes.js']],
+  ['Scrape : calendrier de la Chambre (legnb.ca)', ['scrapers/calendrier.js'], { soft: true }],
 ];
 
 const failed = [];      // sources critiques → déclenchent l'alerte (run rouge)
@@ -116,10 +87,11 @@ function sanityCheck() {
   } catch { /* pas de veille lisible : on garde 50 */ }
   const checks = [
     ['projets de loi', bills.length, plancherBills],
-    ['députés', deputes.length, 100],
-    ['députés avec région', deputes.filter((d) => d.region).length, 100],
-    ['votes', arr('data/votes.json', 'votes').length, 100],
-    ['ministres', arr('data/ministers.json', 'ministers').length, 15],
+    // Nouveau-Brunswick : 49 sièges (quelques-uns peuvent être vacants), pas de régions, peu de
+    // votes nominatifs (la plupart des projets passent de vive voix).
+    ['député·e·s', deputes.length, 40],
+    ['député·e·s avec parti', deputes.filter((d) => d.party).length, 40],
+    ['ministres', arr('data/ministers.json', 'ministers').length, 10],
   ];
   const failures = checks.filter(([, n, min]) => n < min);
   if (failures.length) {

@@ -12,7 +12,7 @@
 
 import { readFileSync } from 'node:fs';
 
-const HOTE = 'dossierquebec.ca';
+const HOTE = 'dossiernbrunswick.ca';
 const CLE = '11c9d53816cf182c6f38b2604d6d8444';
 
 const adresses = [...readFileSync('sitemap.xml', 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());

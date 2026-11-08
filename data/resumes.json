@@ -1,0 +1,482 @@
+{
+  "luLe": "2026-11-07T12:58:53.152Z",
+  "modele": "claude-sonnet-5",
+  "versionConsigne": 1,
+  "legislature": 61,
+  "session": 3,
+  "avis": "Résumés écrits par un modèle de langage à partir du texte officiel de l'Assemblée. Ils ne sont pas officiels.",
+  "resumes": {
+    "14-fr": {
+      "numero": 14,
+      "langue": "fr",
+      "puces": [
+        "Le directeur de l'évaluation foncière obtient un accès élargi aux propriétés et aux renseignements financiers pour évaluer les biens",
+        "Les propriétaires qui refusent de fournir les renseignements demandés perdent le droit de contester leur évaluation",
+        "Les gouvernements locaux pourront imposer une nouvelle taxe sur les biens vacants, selon des règles à venir",
+        "Les revenus de cette taxe devront servir au développement du logement, économique ou à l'administration de la taxe",
+        "Les municipalités et districts ruraux pourront conclure des accords d'avantages communautaires avec des promoteurs",
+        "Un nouveau crédit d'impôt foncier pour résidence principale est créé à compter de 2027, remplaçant l'ancien à terme",
+        "Le crédit d'impôt actuel cesse de s'appliquer pour les années après 2026"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|1fa325e2e767b5c7",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:03.611Z"
+    },
+    "14-en": {
+      "numero": 14,
+      "langue": "en",
+      "puces": [
+        "Lets the Assessment Director access properties and demand owner records to set property values",
+        "Owners must submit requested assessment information within 45 days or lose review rights",
+        "Allows local governments to impose a new levy on vacant properties, with rules set by regulation",
+        "Lets local governments and rural districts enter community benefit agreements with project developers",
+        "Creates a new residential property tax credit (section 2.11) starting in 2027 for principal residences",
+        "Extends tax credit eligibility to 'eligible individuals' like children, parents or disabled adults living on the property",
+        "Removes Treasury Board approval requirement for certain Service New Brunswick fee matters"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|2419ca1b351334c2",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:06.841Z"
+    },
+    "13-fr": {
+      "numero": 13,
+      "langue": "fr",
+      "puces": [
+        "Précise les programmes d'études que chaque campus de l'Université de Moncton peut offrir",
+        "Le campus de Moncton peut offrir des programmes de baccalauréat, maîtrise et doctorat",
+        "Le campus d'Edmundston peut offrir des baccalauréats et des maîtrises en foresterie",
+        "Le campus de Shippagan peut offrir des baccalauréats, dont en gestion des zones côtières",
+        "Tous ces programmes doivent être approuvés par le Sénat académique et le Conseil des gouverneurs",
+        "Modifie une règle sur la composition d'un comité prévu par la loi"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|e8c6b0e23d679500",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:09.308Z"
+    },
+    "13-en": {
+      "numero": 13,
+      "langue": "en",
+      "puces": [
+        "Updates which degree programs each Université de Moncton campus may offer",
+        "Moncton campus can offer undergraduate and graduate programs up to doctoral degree",
+        "Edmundston campus can offer undergraduate programs and graduate programs in forestry",
+        "Shippagan campus can offer undergraduate programs including coastal zone and information management",
+        "All campus programs require approval of the Academic Senate and Board of Governors",
+        "Removes requirement that certain members be chosen 'from their members' under section 6(7.1)"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|778d9a79bd7ecf36",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:11.578Z"
+    },
+    "12-fr": {
+      "numero": 12,
+      "langue": "fr",
+      "puces": [
+        "Crée une nouvelle loi pour protéger les consommateurs de moins de 16 ans sur les plateformes numériques comme Instagram, TikTok, Snapchat et Roblox",
+        "Interdit aux fournisseurs les pratiques déloyales envers les jeunes : tromperie, pression indue, fausses urgences, conception qui empêche de se désabonner",
+        "Permet au jeune consommateur d'annuler une convention et de se faire rembourser dans les 15 jours si une pratique déloyale est en cause",
+        "Crée un directeur des marchés numériques et des agents de conformité pouvant inspecter les livres et documents des fournisseurs",
+        "Prévoit des pénalités administratives pouvant atteindre 10 000 $ pour un particulier et 25 000 $ pour une entreprise",
+        "Le Tribunal peut imposer des pénalités administratives allant jusqu'à 1 000 000 $ si l'intérêt public l'exige",
+        "Les infractions les plus graves peuvent entraîner une amende maximale de 5 000 000 $ ou jusqu'à 5 ans moins un jour de prison"
+      ],
+      "sansContenu": false,
+      "tronque": true,
+      "signature": "claude-sonnet-5|v1|e32bd0a8f12df30c",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:30.881Z"
+    },
+    "12-en": {
+      "numero": 12,
+      "langue": "en",
+      "puces": [
+        "Creates rules to protect consumers under 16 in their dealings with digital platforms, apps, games and online services",
+        "Bans unfair practices like misleading ads, pressure tactics, fake urgency, addictive design features aimed at young consumers",
+        "Lets young consumers cancel agreements and get refunds within 15 days if a provider used an unfair practice",
+        "Creates a Director of Digital Markets for Young Consumers with powers to investigate, inspect and order compliance reviews",
+        "Allows administrative penalties up to $10,000 for individuals and $25,000 for companies, or up to $1,000,000 via Tribunal order",
+        "Sets offences with fines up to $5,000,000 or five years imprisonment for false statements or breaking orders",
+        "Lets courts order compensation, cancellation of agreements, and public advertising of judgments against providers"
+      ],
+      "sansContenu": false,
+      "tronque": true,
+      "signature": "claude-sonnet-5|v1|93c943fa9b48f82a",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:34.704Z"
+    },
+    "11-en": {
+      "numero": 11,
+      "langue": "en",
+      "puces": [
+        "Requires anyone providing bed-based addiction treatment services to hold a licence issued by the Minister of Health",
+        "Applicants must pass background checks including criminal record and vulnerable sector checks",
+        "Licences last up to four years, list authorized services and locations, and must be posted publicly",
+        "Minister can refuse, amend, suspend or revoke a licence for non-compliance or safety concerns",
+        "Inspectors can enter facilities, inspect records and interview staff or clients to check compliance",
+        "Licence holders must notify the Minister of situations endangering client health or safety",
+        "Violations can lead to fines under offence categories set out in the schedule"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|000aa3cabfbf6e23",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:41.676Z"
+    },
+    "10-fr": {
+      "numero": 10,
+      "langue": "fr",
+      "puces": [
+        "Ajoute une définition du « parcours d'immersion en français » dans la Loi sur l'éducation",
+        "Ce parcours offre un enseignement principalement en français comme langue seconde dans les écoles anglophones",
+        "Le directeur général peut mettre en place ce parcours selon les politiques provinciales établies par le ministre",
+        "Les élèves peuvent normalement commencer ce parcours en 1re année ou en 6e année",
+        "Un parent peut demander au directeur général de permettre à son enfant de commencer à un autre niveau scolaire"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|91a779f38b866fa5",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:44.043Z"
+    },
+    "10-en": {
+      "numero": 10,
+      "langue": "en",
+      "puces": [
+        "Adds a definition for \"French immersion pathway\" to the Education Act",
+        "Defines it as a program in English-language schools taught mainly in French for second language learning",
+        "Allows superintendents to implement a French immersion pathway in a school, following Minister's policies",
+        "Pupils may normally start the French immersion pathway in grade 1 or grade 6",
+        "Superintendent may allow a pupil to start at a different grade if a parent requests it"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|7c79b094aee5bb09",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:46.021Z"
+    },
+    "9-fr": {
+      "numero": 9,
+      "langue": "fr",
+      "puces": [
+        "Crée un compte spécial pour suivre les coûts liés à un possible nouveau projet nucléaire à la centrale de Point Lepreau",
+        "Ce compte couvrira des coûts comme l'étude du site, les exigences environnementales, la consultation des Premières Nations et des collectivités",
+        "Énergie NB devra tenir des registres détaillés et séparés pour ces coûts de pré-développement",
+        "À partir du 1er avril 2030, ces coûts pourront être inclus dans les tarifs d'électricité facturés aux clients",
+        "Le gouvernement pourra fixer par règlement un montant maximal de coûts inscriptibles au compte chaque année",
+        "La loi entre en vigueur le 1er avril 2027"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|823d6254704bccf6",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:49.129Z"
+    },
+    "9-en": {
+      "numero": 9,
+      "langue": "en",
+      "puces": [
+        "Lets NB Power create a special account to track early planning costs for a new nuclear program at Point Lepreau",
+        "Covers site evaluation, regulatory assessments, First Nations and community engagement, and technical planning costs",
+        "These pre-development costs cannot be recovered through customer rates until April 1, 2030",
+        "Starting April 1, 2030, the account balance becomes part of NB Power's revenue requirements and can be charged in rates",
+        "Costs must be reported separately from other revenue requirements when requesting rate changes",
+        "Government can set regulations on accounting methods, cost calculations, oversight, and yearly maximum amounts for the account",
+        "The Act takes effect April 1, 2027"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|eb3b5c317e41d992",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:51.917Z"
+    },
+    "8-fr": {
+      "numero": 8,
+      "langue": "fr",
+      "puces": [
+        "Permet à la Société des jeux de conclure une entente pour désigner un organisme chargé d'exploiter des loteries de casino en ligne",
+        "Crée de nouvelles catégories : loterie de casino en direct et loterie de casino en ligne",
+        "Permet que des loteries de la Société soient exploitées par un autre organisme du gouvernement provincial",
+        "Supprime l'obligation de payer un droit de demande de licence si cette licence est déjà assujettie à un autre droit",
+        "Donne au gouvernement le pouvoir de fixer par règlement la méthode de calcul, le montant maximal et les modalités de paiement des droits de licence",
+        "Plusieurs modifications sont de nature linguistique, pour uniformiser le texte français de la loi"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|16622a2c5154ab94",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:55.600Z"
+    },
+    "8-en": {
+      "numero": 8,
+      "langue": "en",
+      "puces": [
+        "Allows the Corporation to designate a body corporate to operate online casino lottery schemes in the province",
+        "Defines new terms for online casino lottery schemes and live casino lottery schemes with live hosts",
+        "Updates licensing rules so lottery schemes can be operated, not just conducted and managed, by agencies",
+        "Allows regulations to set licence fees, including how fees are calculated and maximum amounts",
+        "States an application fee is not required if a licence fee applies instead",
+        "Makes minor French-language wording corrections throughout the Act"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|fa63afaa8bd19f64",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:56:58.056Z"
+    },
+    "7-fr": {
+      "numero": 7,
+      "langue": "fr",
+      "puces": [
+        "Crée de nouvelles licences de catégorie A et B exigées pour vendre ou livrer du fil de cuivre à un brocanteur",
+        "Interdit aux brocanteurs d'acheter du fil de cuivre sans isolant d'origine ou endommagé, sauf approbation du ministre",
+        "Oblige le brocanteur à garder le paiement et le cuivre acheté pendant 48 heures avant de le revendre ou le transformer",
+        "Exige une pièce d'identité avec photo et une fiche détaillée pour chaque achat ou vente d'objets de récupération",
+        "Impose l'installation d'un système de vidéosurveillance continu dans les dépôts, avec conservation des images pendant 30 jours",
+        "Oblige le brocanteur à signaler immédiatement à la police tout objet soupçonné d'être volé",
+        "Permet au ministre de suspendre une licence sans audience si une opération est liée à une atteinte à des infrastructures essentielles"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|922c6de5c744039f",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:02.000Z"
+    },
+    "7-en": {
+      "numero": 7,
+      "langue": "en",
+      "puces": [
+        "Requires salvage dealers to photocopy ID and keep detailed records of every purchase, sale or delivery",
+        "Creates new Class A and Class B licences controlling who can sell or deliver stranded copper wire",
+        "Bans buying copper wire that is not in original state or has damaged insulation, unless Minister approves",
+        "Requires salvage dealers to hold payment and not resell purchased copper for 48 hours after a transaction",
+        "Requires salvage yards to post signs warning suspicious transactions will be reported to police",
+        "Requires salvage yards to install video recording systems and keep recordings for at least 30 days",
+        "Allows the Minister to suspend or revoke salvage dealer or copper wire licences on public interest grounds"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|2732b0c319e1dcd3",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:05.250Z"
+    },
+    "6-fr": {
+      "numero": 6,
+      "langue": "fr",
+      "puces": [
+        "Les employeurs qui embauchent des travailleurs étrangers ou utilisent un recruteur devront s'inscrire auprès du Directeur, avec des exigences d'admissibilité possibles.",
+        "À partir du 1er avril 2028, toute personne qui recrute des travailleurs étrangers devra détenir une licence de recruteur, valide trois ans au maximum.",
+        "Un registre public listera les employeurs inscrits et les recruteurs licenciés, avec mention des suspensions ou révocations.",
+        "Il devient interdit d'exiger qu'un travailleur étranger paie un consultant en immigration ou un recruteur, ou de lui facturer des frais de recrutement.",
+        "Il est interdit de mentir sur l'emploi offert, de confisquer les documents du travailleur (passeport, permis de travail) ou de le menacer de déportation sans motif.",
+        "Les employeurs et recruteurs doivent conserver les documents liés au recrutement pendant au moins trois ans et les remettre au Directeur sur demande.",
+        "Le montant maximal des amendes administratives n'est plus plafonné à 900$ mais sera fixé par règlement."
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|ef3c2c443597afca",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:10.076Z"
+    },
+    "6-en": {
+      "numero": 6,
+      "langue": "en",
+      "puces": [
+        "Requires employers recruiting foreign workers or using recruiters to register with the Director under new eligibility rules",
+        "Starting April 1, 2028, foreign worker recruiters must hold a licence to operate in New Brunswick",
+        "Creates a public register listing registered employers and licensed recruiters, including suspensions or revocations",
+        "Bans employers and recruiters from charging foreign workers recruitment fees or recovering unauthorized recruitment costs",
+        "Prohibits recruiters and employers from misrepresenting jobs, withholding documents like passports, or threatening deportation",
+        "Requires employers and licence holders to keep recruitment-related records for at least three years",
+        "Allows unpaid administrative penalty orders to be filed and enforced as court judgments"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|b73d7315d0c314fd",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:13.072Z"
+    },
+    "5-fr": {
+      "numero": 5,
+      "langue": "fr",
+      "puces": [
+        "Encadre les ententes de confidentialité (clauses de non-divulgation) liées à des conduites transgressives comme la violence sexuelle, le harcèlement ou la discrimination",
+        "Oblige la rédaction en langage clair, une durée précisée et l'annexion d'une copie de la loi à l'accord",
+        "Accorde un délai de réflexion de 30 jours (prolongeable de 15 jours) avant de signer, sauf si la personne obtient des conseils juridiques indépendants",
+        "Interdit les pénalités, remboursements forcés ou frais imposés en cas de bris de la clause de non-divulgation",
+        "Permet à la personne ayant subi la conduite de divulguer des renseignements à un avocat, un thérapeute, un proche ou un employeur dans certaines conditions",
+        "Interdit à la personne légalement responsable de conclure une telle entente si une enquête a confirmé que l'allégation était fondée",
+        "S'applique à la Couronne provinciale et ne touche pas les accords conclus avant l'entrée en vigueur de la loi, sauf exceptions précisées"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|5075796c3e7636f9",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:17.723Z"
+    },
+    "5-en": {
+      "numero": 5,
+      "langue": "en",
+      "puces": [
+        "Makes confidentiality clauses void unless they meet strict rules set out in this Act",
+        "Limits non-disclosure clauses to wrongful conduct that occurred before the agreement was signed",
+        "Requires agreements to be in plain language and state when the clause ends",
+        "Gives people 30 days, sometimes 15 more, to review and get legal advice before signing",
+        "Bans penalty payments, forced repayments or automatic injunctions for breaching a non-disclosure clause",
+        "Allows disclosure in specific cases like getting legal, medical or counselling help",
+        "Bars new non-disclosure deals once an investigation has already confirmed the wrongful conduct"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|802548d4beb99b3b",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:21.038Z"
+    },
+    "4-fr": {
+      "numero": 4,
+      "langue": "fr",
+      "puces": [
+        "Le pouvoir de nommer certains juges à la Cour provinciale passe du lieutenant-gouverneur en conseil au juge en chef",
+        "Une disposition de la Loi sur la Cour provinciale concernant un autre mécanisme de nomination est abrogée",
+        "Les juges déjà nommés sous l'ancienne règle restent valablement nommés, même pour leurs dossiers en cours"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|530eb590f93233a7",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:23.177Z"
+    },
+    "4-en": {
+      "numero": 4,
+      "langue": "en",
+      "puces": [
+        "Gives the chief judge, not the Lieutenant-Governor in Council, power to appoint certain judges under section 4.5(1)",
+        "Removes the requirement for Lieutenant-Governor in Council approval based on circumstances, leaving it to the chief judge's discretion",
+        "Repeals subsection 7.1(3) of the Provincial Court Act",
+        "Judges previously appointed by the Lieutenant-Governor in Council are deemed appointed by the chief judge for ongoing cases"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|8bd27e07d9dbacbb",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:25.234Z"
+    },
+    "3-fr": {
+      "numero": 3,
+      "langue": "fr",
+      "puces": [
+        "Le Bureau du défenseur des enfants, des jeunes et des aînés devient le Bureau du défenseur des enfants, des jeunes, des aînés et de la santé mentale",
+        "Le mandat du défenseur s'étend désormais aux personnes vivant avec des difficultés de santé mentale, peu importe leur âge",
+        "Une nouvelle catégorie de « jeune adulte » (19 à moins de 26 ans) est créée pour soutenir la transition vers la vie autonome",
+        "Le défenseur ne peut pas intervenir dans certaines procédures judiciaires ou devant certains tribunaux concernant la santé mentale",
+        "Des règles de consentement sont ajoutées avant que le nom d'une personne apparaisse dans un rapport du défenseur",
+        "Plusieurs lois et règlements (santé mentale, bien-être des enfants, coroners, mesures d'urgence, ombud, accès à l'information) sont mis à jour pour refléter le nouveau nom",
+        "La loi entre en vigueur le 1er janvier 2027"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|e43ece8615afb2d6",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:29.084Z"
+    },
+    "3-en": {
+      "numero": 3,
+      "langue": "en",
+      "puces": [
+        "Renames the Child, Youth and Senior Advocate as the Child, Youth, Senior and Mental Health Advocate",
+        "Extends the Advocate's role to cover persons living with mental health challenges",
+        "Creates a new 'young adult' category, aged 19 to under 26, eligible for transition support services",
+        "Lets the Advocate receive complaints, mediate, investigate and make recommendations for these groups",
+        "Bars the Advocate from acting in certain ongoing mental health tribunal, court or estate proceedings",
+        "Requires consent before the Advocate can disclose names or identifying details in reports",
+        "Updates related laws and French terminology, with the Act taking effect January 1, 2027"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|34f50241caa624e6",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:31.951Z"
+    },
+    "2-fr": {
+      "numero": 2,
+      "langue": "fr",
+      "puces": [
+        "Permet désormais à la Couronne du chef du Canada, en plus de la province, de poursuivre les fabricants, grossistes ou conseillers pour récupérer les coûts de soins de santé liés aux opioïdes",
+        "La Couronne fédérale pourra intenter son propre recours, en son nom propre, sans passer par subrogation",
+        "Le recouvrement pourra viser des assurés en particulier ou une population entière ayant subi un préjudice lié aux opioïdes",
+        "Pour un recouvrement global, il ne sera pas nécessaire d'identifier chaque assuré ni de prouver le coût exact des soins reçus par chacun",
+        "Les dossiers médicaux individuels restent protégés, sauf ordonnance du tribunal exigeant un échantillon statistique anonymisé",
+        "Les actions intentées par la Couronne fédérale ne seront pas prescrites si elles sont introduites avant l'entrée en vigueur ou dans les quinze ans suivants",
+        "Ajuste plusieurs définitions et renvois techniques de la loi pour inclure les actions fédérales en plus des actions provinciales"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|2f3c5e0ce94576b2",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:36.434Z"
+    },
+    "2-en": {
+      "numero": 2,
+      "langue": "en",
+      "puces": [
+        "Gives the Crown in right of Canada a new direct legal action to recover opioid-related health care costs",
+        "Allows Canada to sue manufacturers, wholesalers or consultants without relying on a subrogated claim",
+        "Lets Canada recover costs for individual patients or for a whole population on an aggregate basis",
+        "Protects individual patient records from disclosure, except limited statistical samples ordered by a court",
+        "Extends limitation periods so Canada's claims are not barred for 15 years after the section takes effect",
+        "Updates definitions of 'health care benefits' and 'cost of health care benefits' to cover federal expenditures",
+        "Makes related wording changes throughout the Act to include actions brought by Canada"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|426896ced180b925",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:39.485Z"
+    },
+    "1-fr": {
+      "numero": 1,
+      "langue": "fr",
+      "puces": [],
+      "sansContenu": true,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|e22a7e3a7a4afadc",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:40.460Z"
+    },
+    "1-en": {
+      "numero": 1,
+      "langue": "en",
+      "puces": [],
+      "sansContenu": true,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|08f12a8859cd2d25",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:57:41.577Z"
+    },
+    "11-fr": {
+      "numero": 11,
+      "langue": "fr",
+      "puces": [
+        "Crée un régime de permis obligatoire pour quiconque offre des services de traitement des dépendances avec hébergement au Nouveau-Brunswick",
+        "Exige des vérifications d'antécédents judiciaires pour les demandeurs de permis et le personnel ayant des contacts avec les clients",
+        "Le ministre de la Santé peut refuser, suspendre, modifier ou annuler un permis en cas de non-conformité ou de risque pour la santé et la sécurité des clients",
+        "Les permis doivent être affichés publiquement et le ministre peut publier des renseignements sur les titulaires, incluant inspections et infractions",
+        "Des inspecteurs peuvent entrer dans les établissements, exiger des documents et enquêter sur le respect de la loi",
+        "Exige un plan de transition des clients avant toute fermeture volontaire d'un établissement ou remise d'un permis",
+        "Prévoit des amendes pour les infractions à la loi, notamment fournir des services sans permis ou fournir de faux renseignements"
+      ],
+      "sansContenu": false,
+      "tronque": false,
+      "signature": "claude-sonnet-5|v1|5be9e4f48b9439ed",
+      "modele": "claude-sonnet-5",
+      "faitLe": "2026-11-07T12:58:53.151Z"
+    }
+  }
+}

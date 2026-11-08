@@ -9,12 +9,12 @@
   gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
 </script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-87R1S6SR9Y"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6CZX26581K"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-87R1S6SR9Y', { content_group: 'Assemblée' });
+  gtag('config', 'G-6CZX26581K', { content_group: 'Assemblée' });
 </script>
 <script src="/commun/consentement.js" defer></script>
 <meta charset="UTF-8">
@@ -44,9 +44,9 @@
   }catch(e){}
 })();
 </script>
-<title>Ministres du Québec : le Conseil des ministres — DossierQuébec</title>
-<meta name="description" content="Combien de ministres au Québec et qui sont-ils : le Conseil des ministres, le ministère de chacun et les député·e·s de l'Assemblée nationale.">
-<link rel="canonical" href="https://dossierquebec.ca/ministres">
+<title>Le Conseil exécutif du Nouveau-Brunswick — DossierNBrunswick</title>
+<meta name="description" content="Qui siège au Conseil exécutif du Nouveau-Brunswick : chaque ministre et ses portefeuilles, puis les 49 député·e·s de l'Assemblée législative, parti par parti.">
+<link rel="canonical" href="https://dossiernbrunswick.ca/ministres">
 <!-- Plus de <link rel="alternate"> vers /feed.xml : le flux RSS est réservé aux abonné·e·s depuis le
      21 oct. 2026 (api/feed.js), chacun avec son adresse personnelle dans Mon dossier. -->
 <meta name="robots" content="index, follow">
@@ -54,20 +54,20 @@
 
 <!-- Open Graph (aperçu au partage : Facebook, LinkedIn, iMessage…) -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="DossierQuébec">
+<meta property="og:site_name" content="DossierNBrunswick">
 <meta property="og:locale" content="fr_CA">
-<meta property="og:title" content="Ministres du Québec : le Conseil des ministres — DossierQuébec">
-<meta property="og:description" content="Combien de ministres au Québec et qui sont-ils : le Conseil des ministres, le ministère de chacun et les député·e·s de l'Assemblée nationale.">
-<meta property="og:url" content="https://dossierquebec.ca/ministres">
+<meta property="og:title" content="Le Conseil exécutif du Nouveau-Brunswick — DossierNBrunswick">
+<meta property="og:description" content="Qui siège au Conseil exécutif du Nouveau-Brunswick : chaque ministre et ses portefeuilles, puis les 49 député·e·s de l'Assemblée législative, parti par parti.">
+<meta property="og:url" content="https://dossiernbrunswick.ca/ministres">
 <meta property="og:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
 <meta property="og:image:width" content="1702">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="DossierQuébec — veille citoyenne de l'Assemblée nationale du Québec">
+<meta property="og:image:alt" content="DossierNBrunswick — veille citoyenne de l'Assemblée législative du Nouveau-Brunswick">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ministres du Québec : le Conseil des ministres — DossierQuébec">
-<meta name="twitter:description" content="Combien de ministres au Québec et qui sont-ils : le Conseil des ministres, le ministère de chacun et les député·e·s de l'Assemblée nationale.">
+<meta name="twitter:title" content="Le Conseil exécutif du Nouveau-Brunswick — DossierNBrunswick">
+<meta name="twitter:description" content="Qui siège au Conseil exécutif du Nouveau-Brunswick : chaque ministre et ses portefeuilles, puis les 49 député·e·s de l'Assemblée législative, parti par parti.">
 <meta name="twitter:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
 
 <link rel="icon" type="image/svg+xml" href="/commun/dq.svg">
@@ -86,36 +86,21 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Accueil",
-      "item": "https://dossierquebec.ca/"
+      "item": "https://dossiernbrunswick.ca/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Ministres et député·e·s",
-      "item": "https://dossierquebec.ca/ministres"
+      "item": "https://dossiernbrunswick.ca/ministres"
     }
   ]
 }
 </script>
-<!-- Les DEUX préconnexions sont nécessaires et ce n'est pas un doublon :
-     googleapis.com sert la feuille CSS, gstatic.com sert les ~258 ko de
-     fichiers de police. Sans la seconde, le navigateur n'ouvre la connexion
-     vers gstatic qu'APRÈS avoir lu le CSS — un DNS + TLS en série, soit 100 à
-     300 ms perdus sur mobile à la première visite. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- ⚠️ « wght@400..900 » (deux points) demande la POLICE VARIABLE : un seul
-     fichier couvrant toutes les graisses, au lieu d'un fichier par graisse.
-     Mesuré : Archivo passe de 6 fichiers / 205 ko à 1 fichier / 34 ko, et
-     Archivo Narrow de 3 fichiers / 55 ko à 1 fichier / 18 ko — 260 ko et
-     9 requêtes ramenés à 52 ko et 2 requêtes, sans perdre aucune graisse.
-     Ne pas revenir à la liste « 400;500;600 » (points-virgules) : c'est la
-     syntaxe des fichiers statiques.
-     IBM Plex Mono a été retirée : utilisée nulle part. Aucun octet économisé
-     pour autant — un navigateur ne télécharge une police que si elle sert au
-     rendu, donc elle ne partait déjà pas. C'était du ménage, pas un gain. -->
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Archivo+Narrow:wght@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/commun/dq.css">
+<!-- Le design du Nouveau-Brunswick, posé par-dessus dq.css. Il apporte ses polices (Barlow,
+     servies par le site, commun/polices/) : plus rien n'est chargé chez Google Fonts. -->
+<link rel="stylesheet" href="/commun/nb.css">
 </head>
 <body data-page="ministres" data-donnees="ministers,deputesRaw,deputeEmails,presences,historiqueLeg,billsParrains,stats">
 
@@ -123,8 +108,8 @@
      données par renderTicker() (appelé une fois les datasets chargés). -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span class="ticker-text" id="tickerA">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
-    <span class="ticker-text" id="tickerB">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerA">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerB">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
 
@@ -139,7 +124,7 @@
            (Pas de balise écrite en toutes lettres dans ce commentaire : elle
            fausserait les outils qui comptent les titres à l'expression
            régulière.) -->
-      <div class="brand-title">Dossier<span class="brand-blue">Québec</span></div>
+      <div class="brand-title">Dossier<span class="brand-blue">NBrunswick</span></div>
       <p>Qui siège, qui légifère, qui vote quoi</p>
     </div>
     <!-- Feuille d'érable : passerelle vers le site fédéral DossierCanada.
@@ -157,16 +142,6 @@
          se résolvent depuis la racine du site. Plus de rel="nofollow" depuis le
          21 sept. 2026 : les volets sont ouverts aux moteurs de recherche. Le chemin dit /quebec/ : c'est la
          liste, sous « Villes », qui dit qu'il s'agit de la ville. -->
-    <details class="villes-menu" id="villesMenu">
-      <summary class="city-flip" title="Les volets municipaux" aria-label="Les volets municipaux">
-        <span data-i18n="nav.villes">Villes</span>
-      </summary>
-      <ul>
-        <li><a href="/quebec/">Québec <small>DossierVilleDeQuébec</small></a></li>
-        <li><a href="/montreal/">Montréal <small>DossierVilleDeMontréal</small></a></li>
-        <!-- Lévis, Longueuil et Laval : en pause depuis le 7 oct. 2026 (commun/navigation.js, VILLES_EN_PAUSE). -->
-      </ul>
-    </details>
   </div>
   <!-- Nav DANS la ligne du header (maquette : logo | menu | contrôles sur
        UNE seule rangée). Sur mobile, le nav devient le panneau plein écran
@@ -180,9 +155,21 @@
     <a href="/projets-de-loi" data-view="projets"><span class="n">03</span><span data-i18n="nav.projets">Projets de loi</span></a>
     <!-- Votes a quitté la barre le 30 oct. 2026 : les votes vivent dans les cartes des projets de
          loi, et /votes reste lié du pied de page et de la page des projets. -->
-    <a href="/archives" data-view="archives"><span class="n">04</span><span data-i18n="nav.archives">Archives</span></a>
-    <a href="/lexique" data-view="lexique"><span class="n">05</span><span data-i18n="nav.lexique">Lexique</span></a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : pas d'onglet Archives ni de page Promesses tant que le site n'a
+         ni législature terminée ni promesses du Nouveau-Brunswick. -->
+    <a href="/lexique" data-view="lexique"><span class="n">04</span><span data-i18n="nav.lexique">Lexique</span></a>
     <a href="/mon-dossier" data-view="mondossier" class="nav-mondossier"><span class="n">★</span><span data-i18n="nav.mondossier">Mon dossier</span></a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : le menu des villes est un onglet, après Mon dossier,
+         au lieu d'une pastille à côté du nom du site. Même menu déroulant que DQ. -->
+    <details class="villes-menu" id="villesMenu">
+      <summary class="nav-villes" title="Les volets municipaux" aria-label="Les volets municipaux">
+        <span data-i18n="nav.villes">Villes</span>
+      </summary>
+      <ul>
+        <!-- N.-B. : aucune ville encore ; le seul lien mène au formulaire de DossierQuébec (guide, étape 9). -->
+        <li class="villes-rtv"><a id="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Représentez votre ville</span></a></li>
+      </ul>
+    </details>
   </nav>
   <div class="header-ctrls">
     <div class="font-size-ctrl" id="fontSizeCtrl">
@@ -252,18 +239,18 @@ function goToFederal(evt){
     <!-- Hero de vue (refonte brutaliste) -->
     <div class="view-hero">
       <h1 class="hero-h1 hero-h1-md">
-        <span class="hero-sujet" data-i18n="sujet.ministres">Ministres et député·e·s du Québec</span>
-        <span data-i18n="minhero.l1">Conseil des ministres</span>
+        <span class="hero-sujet" data-i18n="sujet.ministres">Ministres et député·e·s du Nouveau-Brunswick</span>
+        <span data-i18n="minhero.l1">Conseil exécutif</span>
         <span class="hero-outline" data-i18n="minhero.l2">&amp; toute l'Assemblée.</span>
       </h1>
-      <p class="view-hero-sub" data-i18n="minhero.sub">Les ministres, puis les 125 député·e·s de tous les partis (<b>les député·e·s sont plus bas</b>) — <b>une seule recherche pour les deux.</b></p>
+      <p class="view-hero-sub" data-i18n="minhero.sub">Les membres du Conseil exécutif, puis les député·e·s de tous les partis (<b>les député·e·s sont plus bas</b>) — <b>une seule recherche pour les deux.</b></p>
 
       <!-- Grande recherche façon maquette : loupe sur cellule jaune. Même rangée
            que sur Projets de loi (.projets-controls = flex + retour à la ligne). -->
       <div class="projets-controls">
         <div class="brutal-search">
           <span class="bs-icon" aria-hidden="true">🔍</span>
-          <input type="text" id="searchMinistres" data-i18n-placeholder="ph.searchMinistres" placeholder="Nom, circonscription, ville, code postal…">
+          <input type="text" id="searchMinistres" data-i18n-placeholder="ph.searchMinistres" placeholder="Nom, circonscription, parti…">
         </div>
         <!-- Ce que la recherche a trouvé, juste sous la boîte (retourRecherche, commun/dq.js) : les
              résultats s'affichent plus bas, hors de l'écran, et rien ne bougeait près de la boîte. -->
@@ -279,9 +266,9 @@ function goToFederal(evt){
     <div class="band band-white bleed" id="band-composition">
     <div class="section-head" id="sec-composition">
       <div>
-        <h2 data-i18n="h.composition">Composition — 125 sièges</h2>
+        <h2 data-i18n="h.composition">Composition de l'Assemblée</h2>
       </div>
-      <span class="head-note" data-i18n="apercu.composition.sub">43e législature · répartition par groupe parlementaire</span>
+      <span class="head-note" data-i18n="apercu.composition.sub">Répartition des sièges par parti</span>
     </div>
     <div class="compo-wrap">
       <div class="compo-bar" id="compoBar"></div>
@@ -299,16 +286,16 @@ function goToFederal(evt){
         <b class="lp-titre" data-i18n="lp.titre">Lire la présence aux votes</b>
         <a class="lp-lien" href="/lexique" data-i18n="lp.lien">Définition complète → Lexique</a>
       </div>
-      <p class="lp-formule" data-i18n="lp.formule"><b>88 %</b> : sur 100 votes par appel nominal tenus depuis son premier vote de la législature, la personne a voté à 88 — pour, contre ou abstention, peu importe le sens.</p>
+      <p class="lp-formule" data-i18n="lp.formule"><b>88 %</b> : sur 100 votes par appel nominal tenus depuis son premier vote de la législature, la personne a voté à 88 — pour ou contre, peu importe le sens.</p>
       <div class="lp-echelle" id="lpEchelle"></div>
       <ul class="lp-notes">
         <li data-i18n="lp.debut">Le compte part du premier vote de chacun : une personne élue en cours de mandat n'est pas comptée absente des votes tenus avant son arrivée.</li>
-        <li data-i18n="lp.pres"><b>—</b> : la présidence de l'Assemblée* et ses trois vice-présidences. Par neutralité, elles votent peu ou pas du tout : un taux bas ne voudrait pas dire une absence.</li>
+        <li data-i18n="lp.pres"><b>—</b> : la présidence de l'Assemblée*. Par neutralité, elle ne vote que pour départager une égalité : un taux bas ne voudrait pas dire une absence.</li>
         <li data-i18n="lp.nd"><b>n/d</b> : aucun vote enregistré pour cette personne.</li>
         <li data-i18n="lp.officiel">Ce n'est pas une mesure officielle : l'Assemblée ne publie pas d'assiduité, et un vote manqué n'en dit pas la raison.</li>
       </ul>
       <p class="lp-asterisque" data-i18n="lp.aster">* La présidence de l'Assemblée n'est pas la même chose que le ou la première ministre : elle dirige les débats et reste neutre, alors que le ou la première ministre dirige le gouvernement et vote comme les autres élus. <a href="/lexique#role-presidence">Voir la présidence de l'Assemblée dans le Lexique →</a></p>
-      <p class="lp-asterisque lp-asterisque-suite" data-i18n="lp.aster2">** Mis à jour chaque matin : le site relit le registre des votes de l'Assemblée et recalcule le taux de chacun, puis la médiane, les couleurs et les nombres ci-dessus. Un vote tenu un jour apparaît le lendemain ; pendant la dissolution, rien ne bouge.</p>
+      <p class="lp-asterisque lp-asterisque-suite" data-i18n="lp.aster2">** Mis à jour chaque semaine : le site relit les votes nominatifs consignés dans les Journaux de l'Assemblée et recalcule le taux de chacun, puis la médiane, les couleurs et les nombres ci-dessus. Un vote apparaît ici une fois son Journal publié.</p>
     </div>
 
     <div class="role-group-title" id="combinedTitle" style="display:none;"></div>
@@ -319,178 +306,78 @@ function goToFederal(evt){
            d'abord ; un second clic sur la flèche active revient à l'ordre habituel. Remplie par
            updateMinistresSortLabel (commun/dq.js). -->
       <div class="tri-vote-rang"><h2 data-i18n="h.ministres2">Les ministres</h2><span class="tri-vote" id="triVoteMinistres"></span></div>
-      <span class="head-note"><span id="ministresCount"></span><span data-i18n="min.sub2b"> ministres — conseil en fonction (quebec.ca ou fiches de l’Assemblée)</span><br><span data-i18n="min.legende43">Présence et PL parrainés : 43<sup>e</sup> législature (2022-2026) seulement. « n/d » et 0 pour qui n’y siégeait pas, même avec plusieurs mandats plus anciens.</span></span>
+      <span class="head-note"><span id="ministresCount"></span><span data-i18n="min.sub2b"> membres du Conseil exécutif en fonction (legnb.ca)</span><br><span data-i18n="min.legende43">Présence et projets parrainés : la législature en cours seulement. « n/d » et 0 pour qui n'y a pas encore voté ni parrainé de projet.</span></span>
     </div>
     <div class="grid" id="ministresGrid"></div>
     <div class="prerendu" data-prerendu="ministers">
-      <ul aria-label="Conseil des ministres">
-        <li><b><a href="/ministres/paul-st-pierre-plamondon">Paul St-Pierre Plamondon</a></b> — Premier ministre · Ministre responsable de la Lutte contre l'itinérance <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/catherine-gentilcore">Catherine Gentilcore</a></b> — Vice-première ministre · Ministre de l’Immigration et de l’Intégration · Ministre responsable de l’Accession du Québec à l’Indépendance · Leader parlementaire du gouvernement <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/nicolas-marceau">Nicolas Marceau</a></b> — Ministre des Finances · Ministre responsable des Infrastructures <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/stephane-paquet">Stéphane Paquet</a></b> — Ministre du Développement économique, de l’Innovation et de l’Énergie · Ministre responsable de la Métropole et de la région de Montréal <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/alain-therrien">Alain Therrien</a></b> — Ministre responsable de l’Administration gouvernementale et président du Conseil du trésor · Ministre responsable de l'Action communautaire · Leader parlementaire adjoint du gouvernement <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/marie-karlynn-laflamme">Marie-Karlynn Laflamme</a></b> — Ministre de la Santé, de la Prévention et des Aînés · Ministre responsable de la région du Saguenay–Lac-Saint-Jean <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/joel-arseneau">Joël Arseneau</a></b> — Ministre de l’Éducation nationale <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/pascal-berube">Pascal Bérubé</a></b> — Ministre de la Culture, du Patrimoine, des Communications et de la Langue française · Ministre responsable de la région du Bas-Saint-Laurent <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/marie-claude-sarrazin">Marie-Claude Sarrazin</a></b> — Ministre de la Justice · Ministre responsable des Affaires intergouvernementales canadiennes · Ministre responsable des Relations avec les Québécois d’expression anglaise · Ministre responsable de la Lutte contre le racisme · Ministre responsable de la Lutte contre la discrimination envers les personnes LGBTQ+ · Ministre responsable de l’Accès à l’information et de la Protection des renseignements personnels · Ministre responsable de la Laïcité <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/nicolas-girard">Nicolas Girard</a></b> — Ministre des Transports et de la Mobilité durable · Ministre des Affaires municipales · Ministre responsable de la région de la Capitale-Nationale <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/elsie-lefebvre">Elsie Lefebvre</a></b> — Ministre de l’Enseignement supérieur · Ministre responsable de l'Habitation · Ministre responsable de la Condition féminine · Ministre responsable de la région de Lanaudière <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/jean-pellerin">Jean Pellerin</a></b> — Ministre de l’Environnement, de la Lutte contre les changements climatiques, de la Protection de la biodiversité, de la Faune et des Parcs · Ministre responsable de la région de la Mauricie <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/guy-jr-lapointe">Guy Jr Lapointe</a></b> — Ministre de la Sécurité intérieure · Ministre responsable de la région de la Montérégie <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/natalie-bisaillon">Natalie Bisaillon</a></b> — Ministre des Ressources naturelles et des Forêts · Ministre responsable de la région du Centre-du-Québec et de la région de la Chaudière-Appalaches <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/bernard-sevigny">Bernard Sévigny</a></b> — Ministre de l’Agriculture, des Pêcheries et de l’Alimentation · Ministre responsable de la région de l’Estrie <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/dieudonne-ella-oyono">Dieudonné Ella Oyono</a></b> — Ministre des Relations internationales, de la Francophonie et du Commerce extérieur · Ministre responsable de la région de Laval <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/mathieu-lebrun">Mathieu Lebrun</a></b> — Ministre du Travail, de l’Emploi et de la Solidarité sociale <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/meganne-perry-melancon">Méganne Perry Mélançon</a></b> — Ministre de la Famille et de la Jeunesse · Ministre responsable des Sports et des Loisirs · Ministre responsable de la région de la Gaspésie–Îles-de-la-Madeleine <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/simon-pierre-savard-tremblay">Simon-Pierre Savard-Tremblay</a></b> — Ministre responsable des Relations avec les Premières Nations et les Inuit <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/camille-pellerin-forget">Camille Pellerin-Forget</a></b> — Ministre responsable des Institutions démocratiques · Ministre déléguée à la Santé mentale et aux Services sociaux · Ministre responsable de la région de l’Outaouais <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/meggie-richard">Meggie Richard</a></b> — Ministre responsable des Régions et de l’Occupation du territoire · Ministre responsable de la région de la Côte-Nord <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/sebastien-d-astous">Sébastien D'Astous</a></b> — Ministre délégué à l’Efficacité gouvernementale et à l’Allègement réglementaire de l’État · Ministre responsable de la région de l’Abitibi-Témiscamingue et de la région du Nord-du-Québec <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/anne-nguyen">Anne Nguyen</a></b> — Ministre déléguée à l’Intelligence artificielle et au Numérique · Ministre responsable de la région des Laurentides <span class="pr-meta">(PQ)</span></li>
-        <li><b><a href="/ministres/nadine-le-gal">Nadine Le Gal</a></b> — Présidente du caucus du gouvernement <span class="pr-meta">(PQ)</span></li>
+      <ul aria-label="Conseil exécutif">
+        <li><b><a href="/ministres/susan-holt">Susan Holt</a></b> — Première ministre · Présidente du Conseil exécutif · Ministre responsable des Langues officielles <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/lyne-chantal-boudreau">Lyne Chantal Boudreau</a></b> — Ministre des Aînés · Ministre responsable de l’équité des femmes et des genres <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/chuck-chiasson">Chuck Chiasson</a></b> — Ministre des Transports et de l'Infrastructure <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/keith-chiasson">Keith Chiasson</a></b> — Ministre des Affaires autochtones <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/jean-claude-d-amours">Jean-Claude D'Amours</a></b> — Ministre de l'Éducation postsecondaire, de la Formation et du Travail · Ministre des Affaires intergouvernementales · Ministre responsable de l'Immigration · Ministre responsable des Affaires militaires · Ministre responsable du Conseil de la recherche et de la productivité <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/john-dornan">John Dornan</a></b> — Ministre de la Santé <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/pat-finnigan">Pat Finnigan</a></b> — Ministre de l'Agriculture, de l’Aquaculture et des Pêches <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/robert-gauvin">Robert Gauvin</a></b> — Ministre de la Sécurité publique · Ministre responsable de la Francophonie <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/john-herron">John Herron</a></b> — Ministre des Ressources naturelles <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/david-hickey">David Hickey</a></b> — Ministre responsable de la Société d’habitation du Nouveau-Brunswick <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/claire-johnson">Claire Johnson</a></b> — Ministre de l’Éducation et du Développement de la petite enfance <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/aaron-kennedy">Aaron Kennedy</a></b> — Ministre des Gouvernements locaux · Ministre responsable de Services Nouveau-Brunswick <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/rene-legacy">René Legacy</a></b> — Vice-premier ministre · Ministre des Finances et du Conseil du Trésor · Ministre de l’Énergie · Ministre responsable de la Loi sur le droit à l’information et la protection de la vie privée <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/gilles-lepage">Gilles LePage</a></b> — Ministre de l'Environnement et du Changement climatique · Ministre responsable de la Société de développement régional <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/robert-mckee">Robert McKee</a></b> — Ministre de la Justice · Procureur général · Ministre responsable des Services de santé mentale et de traitement des dépendances <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/cindy-miles">Cindy Miles</a></b> — Ministre du Développement social · Ministre responsable de la Société de l’inclusion économique et sociale <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/luke-randall">Luke Randall</a></b> — Ministre responsable d’Opportunités NB · Ministre responsable du Développement économique et des Petites Entreprises · Ministre responsable d’Alcool NB et de Cannabis NB · Ministre responsable de la Loi sur la responsabilisation et la présentation de rapports en matière de réglementation <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/isabelle-theriault">Isabelle Thériault</a></b> — Ministre du Tourisme, du Patrimoine et de la Culture <span class="pr-meta">(LIB)</span></li>
+        <li><b><a href="/ministres/alyson-townsend">Alyson Townsend</a></b> — Ministre responsable du Travail <span class="pr-meta">(LIB)</span></li>
       </ul>
-      <p class="pr-note">Le Conseil des ministres du Québec compte 24 membres, dont le premier ministre Paul St-Pierre Plamondon (au 6 novembre 2026). Source officielle : <a href="https://www.quebec.ca/premiere-ministre/equipe/conseil-des-ministres" rel="noopener">quebec.ca</a>.<noscript> Les filtres, la recherche et le détail de chaque fiche demandent JavaScript.</noscript></p>
+      <p class="pr-note">Le Conseil exécutif du Nouveau-Brunswick compte 19 membres, dont Susan Holt, première ministre (au 8 novembre 2026). Source officielle : <a href="https://www.legnb.ca/fr/parlementaires/conseil-executif" rel="noopener">legnb.ca</a>.<noscript> Les filtres, la recherche et le détail de chaque fiche demandent JavaScript.</noscript></p>
     </div>
 
-    <!-- FINANCES PUBLIQUES : bande BLEUE pleine largeur, à la place de l'ancien comparateur de
-         ministres (Martin, 6 oct. 2026 : « au lieu d'avoir un comparateur qui sert à rien, un tableau
-         où on sélectionne un député et toutes les finances publiques attachées à lui ou à sa
-         fonction »). On choisit une personne ; trois blocs : ce qu'elle gagne (barème), ce qui est
-         alloué à sa circonscription (barème), ce qu'elle a déclaré avoir dépensé (son rapport).
-         Données : data/finances.json (scrapers/finances.js), tout vient de l'Assemblée nationale.
-         JAMAIS un classement, jamais un total que l'Assemblée ne donne pas. Le bouton « $ » de
-         chaque fiche mène ici (voirFinances, commun/dq.js). -->
-    <div class="band band-blue bleed" id="band-finances">
-    <div class="section-head" id="sec-finances">
-      <div>
-        <h2 data-i18n="h.finances">Finances publiques</h2>
-        <div class="sub" data-i18n="fin.sub">Choisissez une personne : ce qu'elle gagne, ce qui lui est alloué, ce qu'elle a déclaré avoir dépensé — jamais un classement</div>
-      </div>
-    </div>
-    <div class="toolbar comparateur-toolbar finances-toolbar">
-      <select id="financesSelect" aria-label="Choisir un·e député·e" onchange="renderFinances()"></select>
-      <!-- Le bouton « $ » d'une fiche fait descendre jusqu'ici : cette flèche ramène aux ministres d'un
-           clic (Martin, 6 oct. 2026 : d'abord en haut de la page, puis « faudrait que ça ramène aux
-           ministres »). -->
-      <button type="button" class="fin-haut" id="financesHaut" aria-label="Revenir aux ministres" title="Revenir aux ministres" onclick="retourMinistres()">↑</button>
-    </div>
-    <div id="financesTable"></div>
-    </div>
+    <!-- N.-B. (Martin, 7 nov. 2026) : pas de bande « Finances publiques » : ses données sont celles de
+         l'Assemblée nationale du Québec. Les boutons « $ » des fiches sont retirés avec elle (finBouton). -->
 
     <div class="section-head min-group-head" id="deputesTitle">
       <div><h2 data-i18n="min.restTitle">Le reste de l'Assemblée</h2></div>
-      <span class="head-note" data-i18n="min.restNote">Tous les partis — 125 sièges au total</span>
+      <span class="head-note" data-i18n="min.restNote">Tous les partis</span>
     </div>
     <div class="grid" id="deputesList"></div>
     <div class="prerendu" data-prerendu="deputesRaw">
       <ul aria-label="Le reste de l’Assemblée">
-        <li>Alexandre Leduc — Hochelaga-Maisonneuve <span class="pr-meta">(QS)</span></li>
-        <li>Andrés Fontecilla — Laurier-Dorion <span class="pr-meta">(QS)</span></li>
-        <li>Sol Zanetti — Jean-Lesage <span class="pr-meta">(QS)</span></li>
-        <li>Etienne Grandmont — Taschereau <span class="pr-meta">(QS)</span></li>
-        <li>Madwa-Nika Cadet — Bourassa-Sauvé <span class="pr-meta">(PLQ)</span></li>
-        <li>Brigitte B . Garceau — Robert-Baldwin <span class="pr-meta">(PLQ)</span></li>
-        <li>Gregory Kelley — Jacques-Cartier <span class="pr-meta">(PLQ)</span></li>
-        <li>Elisabeth Prass — D'Arcy-McGee <span class="pr-meta">(PLQ)</span></li>
-        <li>Michelle Setlakwe — Mont-Royal–Outremont <span class="pr-meta">(PLQ)</span></li>
-        <li>Valérie Assouline — Saint-Laurent <span class="pr-meta">(PLQ)</span></li>
-        <li>David Bowles — Pierre-Laporte <span class="pr-meta">(PLQ)</span></li>
-        <li>Pier-Luc Bujold — Bonaventure <span class="pr-meta">(PQ)</span></li>
-        <li>Benoit Clermont — Saint-Henri–Sainte-Anne <span class="pr-meta">(PLQ)</span></li>
-        <li>Geneviève Couture — Mirabel <span class="pr-meta">(PQ)</span></li>
-        <li>Catherine Drouin — Labelle <span class="pr-meta">(PQ)</span></li>
-        <li>Éric Duhaime — Bellechasse <span class="pr-meta">(PCQ)</span></li>
-        <li>Madeleine Féquière — Chomedey <span class="pr-meta">(PLQ)</span></li>
-        <li>Marie Claude Fournier — Fabre <span class="pr-meta">(PLQ)</span></li>
-        <li>Cédric Gagnon-Ducharme — Borduas <span class="pr-meta">(PQ)</span></li>
-        <li>Frédéric Laplante — Huntingdon <span class="pr-meta">(PQ)</span></li>
-        <li>Odette Lavigne — René-Lévesque <span class="pr-meta">(PQ)</span></li>
-        <li>Michel Leblanc — Marguerite-Bourgeoys <span class="pr-meta">(PLQ)</span></li>
-        <li>Roxane Milot — Sainte-Marie–Saint-Jacques <span class="pr-meta">(QS)</span></li>
-        <li>Élodie Murphy-Gauthier — Laviolette–Saint-Maurice <span class="pr-meta">(PQ)</span></li>
-        <li>Nicolas Plourde — Anjou–Louis-Riel <span class="pr-meta">(PLQ)</span></li>
-        <li>Gisèle Pouhe Njall — Rosemont <span class="pr-meta">(QS)</span></li>
-        <li>Émile Simard — Dubuc <span class="pr-meta">(PQ)</span></li>
-        <li>Isabelle Thibeault — Roberval <span class="pr-meta">(PQ)</span></li>
-        <li>Stéphanie Vachon — Sherbrooke <span class="pr-meta">(QS)</span></li>
-        <li>Julie White — Jean-Talon <span class="pr-meta">(PLQ)</span></li>
-        <li>William Fradette — Lac-Saint-Jean <span class="pr-meta">(PQ)</span></li>
-        <li>Sylvie Tanguay — Saint-François <span class="pr-meta">(PQ)</span></li>
-        <li>Antoine Dionne Charest — Verdun <span class="pr-meta">(PLQ)</span></li>
-        <li>Désirée McGraw — Notre-Dame-de-Grâce <span class="pr-meta">(PLQ)</span></li>
-        <li>Frédéric Beauchemin — Brome-Missisquoi <span class="pr-meta">(PLQ)</span></li>
-        <li>Nada Boumeftah — Maurice-Richard <span class="pr-meta">(PLQ)</span></li>
-        <li>Linda Caron — La Pinière <span class="pr-meta">(PLQ)</span></li>
-        <li>André Fortin — Pontiac <span class="pr-meta">(PLQ)</span></li>
-        <li>James Hughes — Vaudreuil <span class="pr-meta">(PLQ)</span></li>
-        <li>Michel Langevin — Chapleau <span class="pr-meta">(PLQ)</span></li>
-        <li>Mathieu Lavoie — Montarville <span class="pr-meta">(PLQ)</span></li>
-        <li>David Logue — Gatineau <span class="pr-meta">(PLQ)</span></li>
-        <li>Félix Rhéaume — Châteauguay <span class="pr-meta">(PLQ)</span></li>
-        <li>Filomena Rotiroti — Jeanne-Mance–Viger <span class="pr-meta">(PLQ)</span></li>
-        <li>Olivier Bertin-Mahieux — Soulanges <span class="pr-meta">(PLQ)</span></li>
-        <li>Sacha Cannon — Hull <span class="pr-meta">(PLQ)</span></li>
-        <li>Caroline De Guire — Laval-des-Rapides <span class="pr-meta">(PLQ)</span></li>
-        <li>Monsef Derraji — Nelligan <span class="pr-meta">(PLQ)</span></li>
-        <li>Virginie Dufour — Mille-Îles <span class="pr-meta">(PLQ)</span></li>
-        <li>Louis Ialenti — Vimont-Auteuil <span class="pr-meta">(PLQ)</span></li>
-        <li>Sonia Ziadé — La Prairie <span class="pr-meta">(PLQ)</span></li>
-        <li>Alexandre Girard-Duchaine — Bertrand <span class="pr-meta">(PQ)</span></li>
-        <li>Ruba Ghazal — Mercier <span class="pr-meta">(QS)</span></li>
-        <li>Julie Guyot — Chambly <span class="pr-meta">(PQ)</span></li>
-        <li>Isabelle Blais — Maskinongé <span class="pr-meta">(PQ)</span></li>
-        <li>Jimmy Bouchard — Jonquière <span class="pr-meta">(PQ)</span></li>
-        <li>Ariane Boyer — Rivière-du-Loup–Témiscouata–Les Basques <span class="pr-meta">(PQ)</span></li>
-        <li>Diane Dallaire — Rouyn-Noranda–Témiscamingue <span class="pr-meta">(PQ)</span></li>
-        <li>Alexandre Daneau — Beauharnois <span class="pr-meta">(PQ)</span></li>
-        <li>Jocelyn Desjardins — Richelieu <span class="pr-meta">(PQ)</span></li>
-        <li>Sandra Hernández — Taillon <span class="pr-meta">(PQ)</span></li>
-        <li>Stephan Fogaing — Vachon <span class="pr-meta">(PQ)</span></li>
-        <li>Maxime Laporte — L'Assomption <span class="pr-meta">(PQ)</span></li>
-        <li>Sandrine Michon — Saint-Jérôme <span class="pr-meta">(PQ)</span></li>
-        <li>Pierre Nantel — Argenteuil <span class="pr-meta">(PQ)</span></li>
-        <li>Charles Page — Drummond–Bois-Francs <span class="pr-meta">(PQ)</span></li>
-        <li>Yohann St-Pierre — Rimouski <span class="pr-meta">(PQ)</span></li>
-        <li>Stéphane Tremblay — Abitibi-Est <span class="pr-meta">(PQ)</span></li>
-        <li>Linda Vaillant — Deux-Montagnes <span class="pr-meta">(PQ)</span></li>
-        <li>Véronique Venne — Joliette <span class="pr-meta">(PQ)</span></li>
-        <li>Sonia Caron — Ungava <span class="pr-meta">(PQ)</span></li>
-        <li>Isabelle Millette — Papineau <span class="pr-meta">(PQ)</span></li>
-        <li>Karim Elayoubi — Chauveau <span class="pr-meta">(PCQ)</span></li>
-        <li>Renaud Labrecque — Lotbinière-Frontenac <span class="pr-meta">(PCQ)</span></li>
-        <li>Patrick Paquet — Vanier-Les Rivières <span class="pr-meta">(PCQ)</span></li>
-        <li>Frédéric Poulin — Côte-du-Sud <span class="pr-meta">(PCQ)</span></li>
-        <li>Caroline Simard — Charlevoix–Côte-de-Beaupré <span class="pr-meta">(PCQ)</span></li>
-        <li>Adriana Szalontai — Champlain <span class="pr-meta">(PCQ)</span></li>
-        <li>Cécile Tremblay — Sainte-Rose <span class="pr-meta">(PLQ)</span></li>
-        <li>Tarek Henoud — Arthabaska-L’Érable <span class="pr-meta">(PCQ)</span></li>
-        <li>Jonathan Poulin — Beauce-Sud <span class="pr-meta">(PCQ)</span></li>
-        <li>Maïté Blanchette Vézina — La Peltrie <span class="pr-meta">(PCQ)</span></li>
-        <li>Marie-Josée Hélie — Montmorency <span class="pr-meta">(PCQ)</span></li>
-        <li>Karine Laflamme — Lévis <span class="pr-meta">(PCQ)</span></li>
-        <li>Jimmy Gagnon — Mégantic <span class="pr-meta">(PCQ)</span></li>
-        <li>Patricia Drouin — Beauce-Nord <span class="pr-meta">(PCQ)</span></li>
-        <li>Marcos Archambault — Louis-Hébert <span class="pr-meta">(PCQ)</span></li>
-        <li>Jean-François Arsenault — Granby <span class="pr-meta">(PQ)</span></li>
-        <li>Marc Tanguay — LaFontaine <span class="pr-meta">(PLQ)</span></li>
-        <li>Enrico Ciccone — Marquette <span class="pr-meta">(PLQ)</span></li>
-        <li>Frantz Benjamin — Viau <span class="pr-meta">(PLQ)</span></li>
-        <li>Audrey Bujold — Bellefeuille <span class="pr-meta">(PQ)</span></li>
-        <li>Dominique Dumas — Chutes-de-la-Chaudière <span class="pr-meta">(PCQ)</span></li>
-        <li>André Albert Morin — Acadie <span class="pr-meta">(PLQ)</span></li>
-        <li>Guillaume Langlois — Nicolet-Bécancour <span class="pr-meta">(PCQ)</span></li>
-        <li>Jennifer Maccarone — Westmount–Saint-Louis <span class="pr-meta">(PLQ)</span></li>
-        <li>Alexandre Boulerice — Gouin <span class="pr-meta">(QS)</span></li>
-        <li>Nathalie Boisclair — Daniel-Johnson <span class="pr-meta">(PQ)</span></li>
-        <li>Éloïse Coulombe — Charlesbourg <span class="pr-meta">(PCQ)</span></li>
-        <li>Marcel Bouchard — Portneuf <span class="pr-meta">(PCQ)</span></li>
-        <li>Charles Milliard — Orford <span class="pr-meta">(PLQ)</span></li>
-        <li>Gaétan Bédard — Saint-Jean <span class="pr-meta">(PQ)</span></li>
-        <li>Stéphane Handfield — Masson <span class="pr-meta">(PQ)</span></li>
+        <li>Richard Ames — Carleton-York <span class="pr-meta">(PC)</span></li>
+        <li>Guy Arseneault — Restigouche-Est <span class="pr-meta">(LIB)</span></li>
+        <li>Kris Austin — Fredericton-Grand Lake <span class="pr-meta">(PC)</span></li>
+        <li>Kathy Bockus — Sainte-Croix <span class="pr-meta">(PC)</span></li>
+        <li>Benoît Bourque — Beausoleil-Grand-Bouctouche-Kent <span class="pr-meta">(LIB)</span></li>
+        <li>Michelle Conroy — Miramichi-Est <span class="pr-meta">(PC)</span></li>
+        <li>David Coon — Fredericton-Lincoln <span class="pr-meta">(VERT)</span></li>
+        <li>Ryan Cullins — Fredericton-York <span class="pr-meta">(PC)</span></li>
+        <li>Alexandre Cédric Doucet — Moncton-Est <span class="pr-meta">(LIB)</span></li>
+        <li>Bill Hogan — Woodstock-Hartland <span class="pr-meta">(PC)</span></li>
+        <li>Margaret Johnson — Carleton-Victoria <span class="pr-meta">(PC)</span></li>
+        <li>Sam Johnston — Baie-de-Miramichi-Neguac <span class="pr-meta">(LIB)</span></li>
+        <li>Francine Landry — Madawaska-Les-Lacs-Edmundston <span class="pr-meta">(LIB)</span></li>
+        <li>Jacques LeBlanc — Shediac-Cap-Acadie <span class="pr-meta">(LIB)</span></li>
+        <li>Marco LeBlanc — Belle-Baie-Belledune <span class="pr-meta">(LIB)</span></li>
+        <li>Ian Lee — Fundy-The Isles-Saint John Lorneville <span class="pr-meta">(PC)</span></li>
+        <li>Eric Mallet — Shippagan-Les-Îles <span class="pr-meta">(LIB)</span></li>
+        <li>Megan Mitton — Tantramar <span class="pr-meta">(VERT)</span></li>
+        <li>Don Monahan — Arcadia-Butternut Valley-Maple Hills <span class="pr-meta">(PC)</span></li>
+        <li>Bill Oliver — Kings-Centre <span class="pr-meta">(PC)</span></li>
+        <li>Luc Robichaud — Hautes-Terres-Nepisiguit <span class="pr-meta">(LIB)</span></li>
+        <li>Kevin Russell — Miramichi-Ouest <span class="pr-meta">(PC)</span></li>
+        <li>Glen Savoie — Saint John-Est <span class="pr-meta">(PC)</span></li>
+        <li>Tammy Scott-Wallace — Sussex-Three Rivers <span class="pr-meta">(PC)</span></li>
+        <li>Tania Sodhi — Moncton-Nord-Ouest <span class="pr-meta">(LIB)</span></li>
+        <li>Natacha Vautour — Dieppe-Memramcook <span class="pr-meta">(LIB)</span></li>
+        <li>Rob Weir — Riverview <span class="pr-meta">(PC)</span></li>
+        <li>Kate Wilcott — Saint John-Ouest-Lancaster <span class="pr-meta">(LIB)</span></li>
+        <li>Mary Wilson — Oromocto-Sunbury <span class="pr-meta">(PC)</span></li>
+        <li>Sherry Wilson — Albert-Riverview <span class="pr-meta">(PC)</span></li>
       </ul>
-      <p class="pr-note">Les 103 autres député·e·s. Source officielle : <a href="https://www.assnat.qc.ca/" rel="noopener">assnat.qc.ca</a>.<noscript> Les filtres, la recherche et le détail de chaque fiche demandent JavaScript.</noscript></p>
+      <p class="pr-note">Les 30 autres député·e·s. Source officielle : <a href="https://www.legnb.ca/" rel="noopener">legnb.ca</a>.<noscript> Les filtres, la recherche et le détail de chaque fiche demandent JavaScript.</noscript></p>
     </div>
-    <div class="info-box" id="deputesInfoBox" data-i18n="trouve.info">Ces 125 entrées viennent directement de la liste officielle des députés en fonction de l'Assemblée nationale. Certains sièges peuvent changer entre deux mises à jour (démission, élection partielle) — cette liste est une photo prise au moment de la dernière mise à jour, pas un flux automatiquement à jour.</div>
+    <div class="info-box" id="deputesInfoBox" data-i18n="trouve.info">Ces entrées viennent directement de la liste officielle des député·e·s en fonction à l'Assemblée législative du Nouveau-Brunswick. Certains sièges peuvent changer entre deux mises à jour (démission, élection partielle) — cette liste est une photo prise au moment de la dernière mise à jour, pas un flux automatiquement à jour.</div>
   </section>
 
   <!-- MINISTRES & DÉPUTÉS -->
@@ -502,19 +389,13 @@ function goToFederal(evt){
   <!-- VOTES -->
   
 
-  <!-- ARCHIVES (Martin, 30 oct. 2026) : les législatures terminées, une carte chacune (projets de
-       loi, votes), puis les promesses de l'élection de 2026. Dessiné par commun/dq.js (renderArchives)
-       depuis data/archives/index.json : la 43e y entre seule à l'ouverture de la 44e. -->
-  
-
-  <!-- COMPTE & ABONNEMENT -->
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+  <!-- N.-B. (Martin, 7 nov. 2026) : vue de l'abonnement retirée pour l'instant (à reprendre de DossierQuébec). -->
 
   <!-- LEXIQUE (fusion : personnes, lexique, apropos) -->
-  <!-- PROMESSES — vue sans onglet (comme view-bd). Accessible par /promesses,
-       par le bouton de la bande de dissolution et par le bloc du Lexique.
-       Contenu saisi à la main dans data/promises.json (voir la note du fichier). -->
-  
-
   
 
   <!-- PAGE CACHÉE — la BD « l'idée derrière le site ». Aucun onglet n'y mène :
@@ -542,7 +423,6 @@ function goToFederal(evt){
        le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
        porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
        gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
-  
 
   
 
@@ -558,27 +438,19 @@ function goToFederal(evt){
     <a href="/ministres" data-i18n="nav.ministres">Ministres</a>
     <a href="/projets-de-loi" data-i18n="nav.projets">Projets de loi</a>
     <a href="/votes" data-i18n="nav.votes">Votes</a>
-    <a href="/promesses" data-i18n="fil.promesses">Promesses</a>
-    <a href="/archives" data-i18n="nav.archives">Archives</a>
     <a href="/lexique" data-i18n="nav.lexique">Lexique</a>
     <a href="/sources" data-i18n="fil.bd">Mises à jour du site</a>
     <a href="/mon-dossier" data-i18n="nav.mondossier">Mon dossier</a>
     <span class="footer-nav-villes"><span data-i18n="footer.villes">Villes :</span>
-      <a href="/quebec/">Québec</a>
-      <a href="/montreal/">Montréal</a>
+      <a class="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Représentez votre ville</span></a>
     </span>
   </nav>
   <div class="footer-inner">
-  <span class="footer-left-line"><span id="footerLeft">Site non officiel — données publiques ANQ &amp; Données Québec ·</span> <span id="footerRight">Une réalisation de</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com" target="_blank" rel="noopener">DAFR Solution</a></span>
+  <span class="footer-left-line"><span id="footerLeft">Site non officiel — données publiques de l'Assemblée législative du Nouveau-Brunswick ·</span> <span id="footerRight">Une réalisation de</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com" target="_blank" rel="noopener">DAFR Solution</a></span>
   <span class="footer-right-group">
     <a class="footer-gh" href="/regles" data-i18n="footer.regles">Les règles</a>
-    <a class="footer-gh" href="/abonnement" data-i18n="footer.abonnement">Abonnement</a>
-    <a class="footer-gh" href="https://www.facebook.com/dossierquebec" target="_blank" rel="noopener" aria-label="DossierQuébec sur Facebook">Facebook</a>
-    <a class="footer-gh footer-coffee" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener" aria-label="Offre-moi un café" data-i18n="footer.coffee">Offre-moi un café</a>
-    <a class="footer-gh" href="/abonnement" data-i18n="footer.rss" title="Flux RSS : réservé aux abonné·e·s">Flux RSS</a>
-    <!-- Crédit exigé par la licence gratuite de Flaticon (icônes du bouton café, 3 nov. 2026). -->
-    <a class="footer-gh" href="https://www.flaticon.com/fr/icones-gratuites/cafe" target="_blank" rel="noopener" data-i18n="footer.flaticon">Icônes : Flaticon</a>
-    <a class="footer-gh" href="https://github.com/GrandFFormat/DossierQuebec" target="_blank" rel="noopener" data-i18n="footer.source">Code source</a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : abonnement, café, flux RSS des abonné·e·s et crédit Flaticon retirés pour l'instant. -->
+    <a class="footer-gh" href="https://github.com/GrandFFormat/dossiernbrunswick" target="_blank" rel="noopener" data-i18n="footer.source">Code source</a>
   </span>
   </div>
 </footer>

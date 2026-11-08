@@ -20,7 +20,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync } from 'node:fs';
 
-const SITE = 'https://dossierquebec.ca';
+const SITE = 'https://dossiernbrunswick.ca';
 const DOSSIER = 'projets-de-loi';
 const echapper = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const texte = (html) => String(html ?? '').replace(/<details[\s\S]*?<\/details>/g, '').replace(/([^.!?])\s*<\/li>/g, '$1. ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
@@ -80,8 +80,8 @@ export function construirePagesProjets() {
     const resume = texte(resumeHtml);
     const titreLong = `Projet de loi no ${b.num} — ${b.title}`;
     const titreCourt = b.title.length > 60 ? `${b.title.slice(0, 57).replace(/\s+\S*$/, '')}…` : b.title;
-    const titre = `PL ${b.num} — ${titreCourt} — DossierQuébec`;
-    const base = resume || `${b.title}. Son étape à l'Assemblée nationale, expliquée en langage clair.`;
+    const titre = `PL ${b.num} — ${titreCourt} — DossierNBrunswick`;
+    const base = resume || `${b.title}. Son étape à l'Assemblée législative du Nouveau-Brunswick, expliquée en langage clair.`;
     const desc = `PL ${b.num} : ${base.length > 150 ? `${base.slice(0, 147).replace(/\s+\S*$/, '')}…` : base}`;
     const ld = JSON.stringify({
       '@context': 'https://schema.org',
@@ -113,7 +113,7 @@ export function construirePagesProjets() {
 <h2>${echapper(titreLong)}</h2>
 <p>${echapper(b.note ?? '')}${b.sponsor ? ` · Parrain : ${echapper(b.sponsor)}` : ''}</p>
 ${resumePage}
-<p><a href="${echapper(b.url)}" rel="noopener">Le projet de loi sur le site de l'Assemblée nationale</a></p>
+<p><a href="${echapper(b.url)}" rel="noopener">Le projet de loi sur le site de l'Assemblée législative (legnb.ca)</a></p>
 </article>`;
     remplacer(/<div id="billsList"><\/div>/, `<div id="billsList">${fiche}</div>`);
     writeFileSync(`${DOSSIER}/${slug}.html`, h, 'utf8');

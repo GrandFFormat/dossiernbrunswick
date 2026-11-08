@@ -9,12 +9,12 @@
   gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
 </script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-87R1S6SR9Y"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6CZX26581K"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-87R1S6SR9Y', { content_group: 'Assemblée' });
+  gtag('config', 'G-6CZX26581K', { content_group: 'Assemblée' });
 </script>
 <script src="/commun/consentement.js" defer></script>
 <meta charset="UTF-8">
@@ -44,9 +44,9 @@
   }catch(e){}
 })();
 </script>
-<title>Votes nominatifs à l'Assemblée nationale — DossierQuébec</title>
-<meta name="description" content="Le registre des votes nominatifs de l'Assemblée nationale du Québec : qui a voté pour, contre ou s'est abstenu, député·e par député·e, sans interprétation.">
-<link rel="canonical" href="https://dossierquebec.ca/votes">
+<title>Votes nominatifs au Nouveau-Brunswick — DossierNBrunswick</title>
+<meta name="description" content="Les votes nominatifs de l'Assemblée législative du Nouveau-Brunswick, lus dans ses Journaux : qui a voté pour ou contre, député·e par député·e, sans interprétation.">
+<link rel="canonical" href="https://dossiernbrunswick.ca/votes">
 <!-- Plus de <link rel="alternate"> vers /feed.xml : le flux RSS est réservé aux abonné·e·s depuis le
      21 oct. 2026 (api/feed.js), chacun avec son adresse personnelle dans Mon dossier. -->
 <meta name="robots" content="index, follow">
@@ -54,20 +54,20 @@
 
 <!-- Open Graph (aperçu au partage : Facebook, LinkedIn, iMessage…) -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="DossierQuébec">
+<meta property="og:site_name" content="DossierNBrunswick">
 <meta property="og:locale" content="fr_CA">
-<meta property="og:title" content="Votes nominatifs à l'Assemblée nationale — DossierQuébec">
-<meta property="og:description" content="Le registre des votes nominatifs de l'Assemblée nationale du Québec : qui a voté pour, contre ou s'est abstenu, député·e par député·e, sans interprétation.">
-<meta property="og:url" content="https://dossierquebec.ca/votes">
+<meta property="og:title" content="Votes nominatifs au Nouveau-Brunswick — DossierNBrunswick">
+<meta property="og:description" content="Les votes nominatifs de l'Assemblée législative du Nouveau-Brunswick, lus dans ses Journaux : qui a voté pour ou contre, député·e par député·e, sans interprétation.">
+<meta property="og:url" content="https://dossiernbrunswick.ca/votes">
 <meta property="og:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
 <meta property="og:image:width" content="1702">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="DossierQuébec — veille citoyenne de l'Assemblée nationale du Québec">
+<meta property="og:image:alt" content="DossierNBrunswick — veille citoyenne de l'Assemblée législative du Nouveau-Brunswick">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Votes nominatifs à l'Assemblée nationale — DossierQuébec">
-<meta name="twitter:description" content="Le registre des votes nominatifs de l'Assemblée nationale du Québec : qui a voté pour, contre ou s'est abstenu, député·e par député·e, sans interprétation.">
+<meta name="twitter:title" content="Votes nominatifs au Nouveau-Brunswick — DossierNBrunswick">
+<meta name="twitter:description" content="Les votes nominatifs de l'Assemblée législative du Nouveau-Brunswick, lus dans ses Journaux : qui a voté pour ou contre, député·e par député·e, sans interprétation.">
 <meta name="twitter:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
 
 <link rel="icon" type="image/svg+xml" href="/commun/dq.svg">
@@ -86,36 +86,21 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Accueil",
-      "item": "https://dossierquebec.ca/"
+      "item": "https://dossiernbrunswick.ca/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Votes",
-      "item": "https://dossierquebec.ca/votes"
+      "item": "https://dossiernbrunswick.ca/votes"
     }
   ]
 }
 </script>
-<!-- Les DEUX préconnexions sont nécessaires et ce n'est pas un doublon :
-     googleapis.com sert la feuille CSS, gstatic.com sert les ~258 ko de
-     fichiers de police. Sans la seconde, le navigateur n'ouvre la connexion
-     vers gstatic qu'APRÈS avoir lu le CSS — un DNS + TLS en série, soit 100 à
-     300 ms perdus sur mobile à la première visite. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- ⚠️ « wght@400..900 » (deux points) demande la POLICE VARIABLE : un seul
-     fichier couvrant toutes les graisses, au lieu d'un fichier par graisse.
-     Mesuré : Archivo passe de 6 fichiers / 205 ko à 1 fichier / 34 ko, et
-     Archivo Narrow de 3 fichiers / 55 ko à 1 fichier / 18 ko — 260 ko et
-     9 requêtes ramenés à 52 ko et 2 requêtes, sans perdre aucune graisse.
-     Ne pas revenir à la liste « 400;500;600 » (points-virgules) : c'est la
-     syntaxe des fichiers statiques.
-     IBM Plex Mono a été retirée : utilisée nulle part. Aucun octet économisé
-     pour autant — un navigateur ne télécharge une police que si elle sert au
-     rendu, donc elle ne partait déjà pas. C'était du ménage, pas un gain. -->
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Archivo+Narrow:wght@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/commun/dq.css">
+<!-- Le design du Nouveau-Brunswick, posé par-dessus dq.css. Il apporte ses polices (Barlow,
+     servies par le site, commun/polices/) : plus rien n'est chargé chez Google Fonts. -->
+<link rel="stylesheet" href="/commun/nb.css">
 </head>
 <body data-page="votes" data-donnees="votes,deputesRaw,billsTitres,stats">
 
@@ -123,8 +108,8 @@
      données par renderTicker() (appelé une fois les datasets chargés). -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span class="ticker-text" id="tickerA">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
-    <span class="ticker-text" id="tickerB">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerA">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerB">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
 
@@ -139,7 +124,7 @@
            (Pas de balise écrite en toutes lettres dans ce commentaire : elle
            fausserait les outils qui comptent les titres à l'expression
            régulière.) -->
-      <div class="brand-title">Dossier<span class="brand-blue">Québec</span></div>
+      <div class="brand-title">Dossier<span class="brand-blue">NBrunswick</span></div>
       <p>Qui siège, qui légifère, qui vote quoi</p>
     </div>
     <!-- Feuille d'érable : passerelle vers le site fédéral DossierCanada.
@@ -157,16 +142,6 @@
          se résolvent depuis la racine du site. Plus de rel="nofollow" depuis le
          21 sept. 2026 : les volets sont ouverts aux moteurs de recherche. Le chemin dit /quebec/ : c'est la
          liste, sous « Villes », qui dit qu'il s'agit de la ville. -->
-    <details class="villes-menu" id="villesMenu">
-      <summary class="city-flip" title="Les volets municipaux" aria-label="Les volets municipaux">
-        <span data-i18n="nav.villes">Villes</span>
-      </summary>
-      <ul>
-        <li><a href="/quebec/">Québec <small>DossierVilleDeQuébec</small></a></li>
-        <li><a href="/montreal/">Montréal <small>DossierVilleDeMontréal</small></a></li>
-        <!-- Lévis, Longueuil et Laval : en pause depuis le 7 oct. 2026 (commun/navigation.js, VILLES_EN_PAUSE). -->
-      </ul>
-    </details>
   </div>
   <!-- Nav DANS la ligne du header (maquette : logo | menu | contrôles sur
        UNE seule rangée). Sur mobile, le nav devient le panneau plein écran
@@ -180,9 +155,21 @@
     <a href="/projets-de-loi" data-view="projets"><span class="n">03</span><span data-i18n="nav.projets">Projets de loi</span></a>
     <!-- Votes a quitté la barre le 30 oct. 2026 : les votes vivent dans les cartes des projets de
          loi, et /votes reste lié du pied de page et de la page des projets. -->
-    <a href="/archives" data-view="archives"><span class="n">04</span><span data-i18n="nav.archives">Archives</span></a>
-    <a href="/lexique" data-view="lexique"><span class="n">05</span><span data-i18n="nav.lexique">Lexique</span></a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : pas d'onglet Archives ni de page Promesses tant que le site n'a
+         ni législature terminée ni promesses du Nouveau-Brunswick. -->
+    <a href="/lexique" data-view="lexique"><span class="n">04</span><span data-i18n="nav.lexique">Lexique</span></a>
     <a href="/mon-dossier" data-view="mondossier" class="nav-mondossier"><span class="n">★</span><span data-i18n="nav.mondossier">Mon dossier</span></a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : le menu des villes est un onglet, après Mon dossier,
+         au lieu d'une pastille à côté du nom du site. Même menu déroulant que DQ. -->
+    <details class="villes-menu" id="villesMenu">
+      <summary class="nav-villes" title="Les volets municipaux" aria-label="Les volets municipaux">
+        <span data-i18n="nav.villes">Villes</span>
+      </summary>
+      <ul>
+        <!-- N.-B. : aucune ville encore ; le seul lien mène au formulaire de DossierQuébec (guide, étape 9). -->
+        <li class="villes-rtv"><a id="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Représentez votre ville</span></a></li>
+      </ul>
+    </details>
   </nav>
   <div class="header-ctrls">
     <div class="font-size-ctrl" id="fontSizeCtrl">
@@ -252,7 +239,7 @@ function goToFederal(evt){
     <!-- Hero de vue (refonte brutaliste) -->
     <div class="view-hero">
       <h1 class="hero-h1 hero-h1-md">
-        <span class="hero-sujet" data-i18n="sujet.votes">Votes nominatifs à l'Assemblée nationale</span>
+        <span class="hero-sujet" data-i18n="sujet.votes">Votes nominatifs à l'Assemblée législative</span>
         <span data-i18n="votehero.l1">Qui a voté</span>
         <span class="hero-outline" data-i18n="votehero.l2">pour, contre, absent.</span>
       </h1>
@@ -262,7 +249,7 @@ function goToFederal(evt){
     <div class="section-head">
       <div>
         <h2 data-i18n="h.votes" class="visually-hidden-title">Registre des votes</h2>
-        <div class="sub" data-i18n="votes.sub">43e législature (sessions 1 à 3) — décomptes et détail nominatif officiels</div>
+        <div class="sub" data-i18n="votes.sub">La législature en cours — décomptes et noms lus dans les Journaux officiels</div>
       </div>
       <div class="toolbar">
         <input type="text" id="searchVotes" data-i18n-placeholder="ph.searchVotes" placeholder="Mot-clé : sujet, numéro de projet de loi…">
@@ -274,41 +261,41 @@ function goToFederal(evt){
     <div id="votesList"></div>
     <div class="prerendu" data-prerendu="votes">
       <ul aria-label="Votes nominatifs récents">
-        <li><span class="pr-meta">11 juin 2026 —</span> Adoption — Projet de loi n° 4, Loi sur la communication de renseignements aux fins de protection contre la violence d’un partenaire intime et modifiant diverses dispositions législatives <span class="pr-meta">· pour 75, contre 0, abstentions 0</span></li>
-        <li><span class="pr-meta">11 juin 2026 —</span> Nomination — Motion proposée par Mme Fréchette, première ministre, afin de nommer Mme Nicole Léger membre à temps partiel de la Commission des droits de la personne et des droits de la jeunesse <span class="pr-meta">· pour 105, contre 0, abstentions 0</span></li>
-        <li><span class="pr-meta">11 juin 2026 —</span> Nomination — Motion proposée par Mme Fréchette, première ministre, afin de nommer Mme Marie-Claude Girard membre à temps partiel de la Commission des droits de la personne et des droits de la jeunesse <span class="pr-meta">· pour 97, contre 7, abstentions 0</span></li>
-        <li><span class="pr-meta">11 juin 2026 —</span> Adoption — Projet de loi n° 10, Loi protégeant les consommateurs contre les pratiques abusives de revente de billets et de renouvellement d’abonnements en ligne <span class="pr-meta">· pour 103, contre 1, abstentions 1</span></li>
-        <li><span class="pr-meta">11 juin 2026 —</span> Adoption — Projet de loi n° 11, Loi modifiant diverses dispositions principalement aux fins d’allègement du fardeau réglementaire et administratif <span class="pr-meta">· pour 89, contre 7, abstentions 9</span></li>
-        <li><span class="pr-meta">11 juin 2026 —</span> Adoption — Projet de loi n° 9, Loi visant à prévenir les effets nocifs de la boisson énergisante sur la santé des jeunes <span class="pr-meta">· pour 103, contre 1, abstentions 2</span></li>
-        <li><span class="pr-meta">10 juin 2026 —</span> Motion sans préavis — Motion proposée par M. Arseneau (Îles-de-la-Madeleine) afin de demander à Santé Québec de prendre les mesures nécessaires afin d’assurer le maintien des services d’urgence au CLSC de Portneuf <span class="pr-meta">· pour 96, contre 0, abstentions 0</span></li>
-        <li><span class="pr-meta">10 juin 2026 —</span> Motion sans préavis — Motion proposée par M. Ciccone (Marquette) afin de rendre hommage à l’équipe de la Victoire de Montréal, gagnante de la Coupe Walter <span class="pr-meta">· pour 101, contre 0, abstentions 0</span></li>
-        <li><span class="pr-meta">10 juin 2026 —</span> Adoption du principe — Projet de loi n° 2, Loi permettant au Parlement du Québec de préserver le principe de la souveraineté parlementaire à l’égard de la Charte de la langue française et de la Loi sur la langue officielle et commune du Québec, le français <span class="pr-meta">· pour 76, contre 26, abstentions 3</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Motion sans préavis — Motion proposée par Mme Ghazal, cheffe du deuxième groupe d’opposition, afin de réaffirmer la pertinence d’encadrer la vente de boissons énergisantes aux mineurs <span class="pr-meta">· pour 78, contre 0, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Motion proposant que l’Assemblée approuve la politique générale du gouvernement <span class="pr-meta">· pour 62, contre 25, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de M. Arseneau (Îles-de-la-Madeleine) <span class="pr-meta">· pour 24, contre 63, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de M. Tanguay, leader de l’opposition officielle <span class="pr-meta">· pour 24, contre 63, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de Mme Gentilcore (Terrebonne) <span class="pr-meta">· pour 25, contre 62, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de Mme Laflamme (Chicoutimi) <span class="pr-meta">· pour 26, contre 62, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de Mme Dufour (Mille-Îles) <span class="pr-meta">· pour 24, contre 63, abstentions 1</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de M. Grandmont (Taschereau) <span class="pr-meta">· pour 24, contre 63, abstentions 1</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de M. Boissonneault (Arthabaska) <span class="pr-meta">· pour 25, contre 63, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de Mme Maccarone (Westmount–Saint-Louis) <span class="pr-meta">· pour 25, contre 63, abstentions 1</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de Mme Caron (La Pinière) <span class="pr-meta">· pour 25, contre 64, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de M. Bouazzi (Maurice-Richard) <span class="pr-meta">· pour 25, contre 64, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de Mme McGraw (Notre-Dame-de-Grâce) <span class="pr-meta">· pour 26, contre 63, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de Mme Massé (Sainte-Marie–Saint-Jacques) <span class="pr-meta">· pour 24, contre 64, abstentions 1</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de Mme Rotiroti (Jeanne-Mance–Viger) <span class="pr-meta">· pour 25, contre 64, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de M. Paradis (Jean-Talon) <span class="pr-meta">· pour 24, contre 65, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de M. Beauchemin (Marguerite-Bourgeoys) <span class="pr-meta">· pour 25, contre 63, abstentions 1</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de M. Zanetti (Jean-Lesage) <span class="pr-meta">· pour 21, contre 66, abstentions 2</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de M. Kelley (Jacques-Cartier) <span class="pr-meta">· pour 25, contre 63, abstentions 1</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de M. Fontecilla (Laurier-Dorion) <span class="pr-meta">· pour 25, contre 64, abstentions 0</span></li>
-        <li><span class="pr-meta">5 juin 2026 —</span> Débat sur le discours d’ouverture — Motion pour formuler un grief de M. Morin (Acadie) <span class="pr-meta">· pour 24, contre 63, abstentions 2</span></li>
+        <li><span class="pr-meta">29 octobre 2026 —</span> Motion — on of such a program in collaboration with Atlantic governments. And the question being put, Motion 4 as amended was resolved in the affirmative on the following recorded division after leave was granted to dispense with the ten-minute time allotted for the ringing of the bells: 6 5-6 Charles III, 2026-2027 October 29 <span class="pr-meta">· pour 23, contre 16, abstentions </span></li>
+        <li><span class="pr-meta">29 octobre 2026 —</span> Amendement — . Johnson Hon. Mr. Kennedy Ms. Sodhi Hon. Mr. LePage Hon. Mr. Hickey Mr. Robichaud Hon. Mr. D’Amours Ms. Wilcott Mr. Deputy Speaker put the question on the amendment and it was adopted on the following recorded division after leave was granted to dispense with the ten-minute time allotted for the ringing of the bells: <span class="pr-meta">· pour 23, contre 16, abstentions </span></li>
+        <li><span class="pr-meta">29 octobre 2026 —</span> Sous-amendement — sub-amendment was out of order. Mr. Savoie spoke on the point of order. At 4.04 p.m. the House recessed. At 4.18 p.m. the House resumed. Mr. Deputy Speaker ruled the sub-amendment to be in order. And the debate being ended, and the question being put, the sub-amendment was defeated on the following recorded division: <span class="pr-meta">· pour 16, contre 23, abstentions </span></li>
+        <li><span class="pr-meta">11 juin 2026 —</span> Motion — erits of adding the shingles vaccine to the publicly funded immunization program, taking into consideration other immunizations, healthcare priorities, and cost pressures. June 11 Journal of Assembly 19 And the question being put, Motion 39 as amended was resolved in the affirmative on the following recorded division: <span class="pr-meta">· pour 23, contre 15, abstentions </span></li>
+        <li><span class="pr-meta">10 juin 2026 —</span> Motion — amentary language when he used the phrase “cannot spell Liberal without L-I-E”. Madam Speaker ruled the point well taken and requested that Mr. Austin withdraw the remark, which he did. And the debate being ended, and the question being put, Motion 45 was resolved in the affirmative on the following recorded division: <span class="pr-meta">· pour 26, contre 17, abstentions </span></li>
+        <li><span class="pr-meta">5 juin 2026 —</span> Amendement — he Bill referred to the Standing Committee on Law Amendments.” 2 4- 5 Charles III, 2025- 2026 June 5 Madam Speaker put the question on the proposed amendment and a debate ensued. And the debate being ended, and the question being put on the amendment, it was resolved in the negative on the following recorded division: <span class="pr-meta">· pour 13, contre 21, abstentions </span></li>
+        <li><span class="pr-meta">4 juin 2026 —</span> Motion — t out of order as the subject matter proposed exceeded the scope of the original motion. Debated resumed. And after some time, Madam Speaker resumed the chair. June 4 Journal of Assembly 5 And the debate being ended, and the question being put, Motion 43 was resolved in the negative on the following recorded division: <span class="pr-meta">· pour 14, contre 23, abstentions </span></li>
+        <li><span class="pr-meta">4 juin 2026 —</span> Motion — f electricity, harm communities, or harm the environment. 2 4- 5 Charles III, 2025- 2026 June 4 Debate resumed on Motion 37, moved by Ms. M. Wilson, seconded by Mr. Hogan, on May 14, 2026. And the debate being ended, and the question being put, Motion 37 was resolved in the negative on the following recorded division: <span class="pr-meta">· pour 17, contre 25, abstentions </span></li>
+        <li><span class="pr-meta">28 mai 2026 —</span> Sous-amendement — ndependent members”. Madam Speaker put the question on the proposed sub-amendment and a debate ensued. May 28 Journal of Assembly 3 At 3.46 p.m. the House recessed. At 3.56 p.m. the House resumed. And the debate being ended, and the question being put, the sub- amendment was adopted on the following recorded division: <span class="pr-meta">· pour 43, contre 0, abstentions </span></li>
+        <li><span class="pr-meta">26 mai 2026 —</span> Amendement — tted that Ms. Conroy was reading from an electronic device during her speech. Mr. Deputy Speaker ruled the point well taken. And after some time, Madam Speaker resumed the chair. And the debate being ended, and the question being put on the amendment, it was resolved in the negative on the following recorded division: <span class="pr-meta">· pour 13, contre 26, abstentions </span></li>
+        <li><span class="pr-meta">15 mai 2026 —</span> Troisième lecture — projet de loi n° 39 — Projet de loi 39, Loi concernant la Loi de l’impôt sur le revenu du Nouveau-Brunswick et la Loi sur le crédit d’impôt pour les investisseurs dans les petites entreprises <span class="pr-meta">· pour 27, contre 10, abstentions </span></li>
+        <li><span class="pr-meta">14 mai 2026 —</span> Motion — ually acceptable cost-recovery model for veterinary and veterinary laboratory fees and secure these critical public services for the long term. And the question being put, a debate ensued. And the debate being ended, and the question being put, Motion 35 was resolved in the negative on the following recorded division: <span class="pr-meta">· pour 16, contre 24, abstentions </span></li>
+        <li><span class="pr-meta">14 mai 2026 —</span> Motion — ay 15, 2026, Bill 45 would be called for second reading. Debate resumed on Motion 13, moved by Ms. M. Wilson, seconded by Ms. S. Wilson, on May 7, 2026. And the debate being ended, and the question being put, Motion 13 was resolved in the negative on the following recorded division: 2 4-5 Charles III, 2025-2026 May 14 <span class="pr-meta">· pour 13, contre 25, abstentions </span></li>
+        <li><span class="pr-meta">27 mars 2026 —</span> Motion — eral the budgetary policy of the government, having been read, The debate was resumed. And the debate being ended, and the question being put, Motion 24 was resolved in the affirmative on the following recorded division after leave was granted to dispense with the ten-minute time allotted for the ringing of the bells: <span class="pr-meta">· pour 30, contre 17, abstentions </span></li>
+        <li><span class="pr-meta">26 mars 2026 —</span> Deuxième lecture — projet de loi n° 23 — Projet de loi 23, Loi concernant le droit à un environnement sain <span class="pr-meta">· pour 2, contre 46, abstentions </span></li>
+        <li><span class="pr-meta">26 mars 2026 —</span> Motion — ew Brunswick midwifery students to return to the province upon completion of their training. Debate resumed on Motion 10, moved by Mr. Austin, seconded by Mr. Savoie, on December 11, 2025. And the debate being ended, and the question being put, Motion 10 was resolved in the negative on the following recorded division: <span class="pr-meta">· pour 16, contre 31, abstentions </span></li>
+        <li><span class="pr-meta">11 décembre 2025 —</span> Motion — he Government of New Brunswick to establish a framework for complex care housing with wraparound services including mental health support, addiction treatment, employment assistance, and case management. And the question being put, Motion 9 as amended was resolved in the affirmative on the following recorded division: <span class="pr-meta">· pour 29, contre 15, abstentions </span></li>
+        <li><span class="pr-meta">11 décembre 2025 —</span> Amendement — ion. And after some time, Mr. Savoie rose on a point of order and submitted that Mr. Bourque questioned the ability of the Official Opposition to communicate in French. Mr. Bourque withdrew the remark. And the debate being ended, and the question being put, the amendment was adopted on the following recorded division: <span class="pr-meta">· pour 29, contre 15, abstentions </span></li>
+        <li><span class="pr-meta">4 décembre 2025 —</span> Motion — them to work toward a healthy future, free from substance-use disorder during and after their sentence. And the question being put, Motion 1 as amended was resolved in the affirmative on the following recorded division after leave was granted to dispense with the ten-minute time allotted for the ringing of the bells: <span class="pr-meta">· pour 41, contre 0, abstentions </span></li>
+        <li><span class="pr-meta">4 décembre 2025 —</span> Amendement — ter “addiction can”. Mr. Deputy Speaker put the question on the proposed amendment and a debate ensued. At 2.49 p.m. the House recessed. At 2.53 p.m. the House resumed. December 4 Journal of Assembly 3 And the debate being ended, and the question being put, the amendment was adopted on the following recorded division: <span class="pr-meta">· pour 41, contre 0, abstentions </span></li>
+        <li><span class="pr-meta">20 novembre 2025 —</span> Motion — SOLVED that the Legislative Assembly urge the government to continue to provide access to training for police, EMS, ER staff, and social workers in mental health crisis response and trauma-informed care. And the question being put, Motion 3 as amended was resolved in the affirmative on the following recorded division: <span class="pr-meta">· pour 23, contre 17, abstentions </span></li>
+        <li><span class="pr-meta">18 novembre 2025 —</span> Deuxième lecture — projet de loi n° 15 — Projet de loi 15, Loi concernant les prestations de pension <span class="pr-meta">· pour 27, contre 16, abstentions </span></li>
+        <li><span class="pr-meta">18 novembre 2025 —</span> Troisième lecture — projet de loi n° 2 — Projet de loi 2, Loi modifiant la Loi sur la santé publique <span class="pr-meta">· pour 25, contre 18, abstentions </span></li>
+        <li><span class="pr-meta">6 novembre 2025 —</span> Motion — House, that the report be concurred in, and it was resolved in the affirmative. Debate resumed on Motion 11, moved by Ms. S. Wilson, seconded by Mr. Austin, on Thursday, October 30, 2025. And the debate being ended, and the question being put, Motion 11 was resolved in the negative on the following recorded division: <span class="pr-meta">· pour 16, contre 28, abstentions </span></li>
+        <li><span class="pr-meta">30 octobre 2025 —</span> Amendement — .m. the House resumed. Mr. Deputy Speaker ruled the sub-amendment to be in order. And the debate being ended, and the question being put, the sub-amendment was defeated. Mr. Deputy Speaker put the question on the amendment and it was adopted on the following recorded division: 4 4- 5 Charles III, 2025- 2026 October 30 <span class="pr-meta">· pour 27, contre 17, abstentions </span></li>
+        <li><span class="pr-meta">4 juin 2025 —</span> Amendement — umed on the amendment to Motion 38, moved by Mr. Coon, seconded by Ms. Mitton, on May 29, 2025. And the debate being ended, and the question being put on the amendment, it was defeated on the following recorded division after leave was granted to dispense with the ten-minute time allotted for the ringing of the bells: <span class="pr-meta">· pour 16, contre 24, abstentions </span></li>
+        <li><span class="pr-meta">29 mai 2025 —</span> Amendement — r of the Bill referred to the Standing Committee on Law Amendments.” Madam Speaker put the question on the proposed amendment and a debate ensued. May 29 Journal of Assembly 3 And the debate being ended, and the question being put on the amendment, it was resolved in the affirmative on the following recorded division: <span class="pr-meta">· pour 42, contre 0, abstentions </span></li>
+        <li><span class="pr-meta">28 mai 2025 —</span> Troisième lecture — projet de loi n° 12 — Projet de loi 12, Loi abrogeant la Loi sur la pérennité et le transfert de régimes de pension <span class="pr-meta">· pour 27, contre 15, abstentions </span></li>
+        <li><span class="pr-meta">15 mai 2025 —</span> Amendement — rns on Friday, May 16, 2025, it stand adjourned until Tuesday, May 27, 2025. Debate resumed on the amendment to Motion 7, moved by Hon. Mr. Kennedy, seconded by Hon. Mr. Finnigan, on December 12, 2024. And the debate being ended, and the question being put, the amendment was adopted on the following recorded division: <span class="pr-meta">· pour 36, contre 0, abstentions </span></li>
+        <li><span class="pr-meta">8 mai 2025 —</span> Motion — sponsible distribution, safety, and health regulations. And the question being put, a debate ensued. And after some time, Mr. Bourque, the Deputy Speaker, took the chair as Acting Speaker. And the debate being ended, and the question being put, Motion 21 was resolved in the negative on the following recorded division: <span class="pr-meta">· pour 12, contre 25, abstentions </span></li>
       </ul>
-      <p class="pr-note">Les 30 votes les plus récents, sur 735. Source officielle : le registre des votes, <a href="https://www.assnat.qc.ca/" rel="noopener">assnat.qc.ca</a>.<noscript> Les filtres, la recherche et le détail de chaque fiche demandent JavaScript.</noscript></p>
+      <p class="pr-note">Les 30 votes les plus récents, sur 32. Source officielle : les Journaux de l’Assemblée, <a href="https://www.legnb.ca/" rel="noopener">legnb.ca</a>.<noscript> Les filtres, la recherche et le détail de chaque fiche demandent JavaScript.</noscript></p>
     </div>
     <div class="info-box">
-      <b data-i18n="votes.info.b">Sur le détail « qui a voté quoi »</b> <span data-i18n="votes.info.text">— l'Assemblée nationale publie le nom de chaque député pour chaque vote nominal dans son registre des votes officiel. Le détail nominatif ci-dessus (bouton « Voir le détail nominatif ») vient de ce registre officiel, pas d'une estimation. Le parti affiché à côté de chaque nom est celui inscrit au registre au moment du vote — il peut différer du parti actuel d'un·e député·e ayant changé d'allégeance depuis.</span>
+      <b data-i18n="votes.info.b">Sur le détail « qui a voté quoi »</b> <span data-i18n="votes.info.text">— l'Assemblée législative ne tient pas de registre des votes : le nom de chaque député·e n'est consigné que dans ses Journaux quotidiens, lors d'un vote par appel nominal. Le détail nominatif ci-dessus vient de ces Journaux, pas d'une estimation. Un vote dont un seul nom ne se rattache pas à la liste des député·e·s n'est pas publié. Le parti affiché est le parti actuel de chaque député·e.</span>
     </div>
 
     <!-- « Comment lire un vote » : bande bleue pédagogique (maquette) -->
@@ -317,7 +304,7 @@ function goToFederal(evt){
       <div class="lire-grid">
         <div class="lire-box">
           <h3 data-i18n="lire.1.h">Vote nominal</h3>
-          <p data-i18n="lire.1.p">Chaque député·e se lève et son choix est consigné au Journal des débats. C'est le seul type de vote qu'on peut attribuer à une personne.</p>
+          <p data-i18n="lire.1.p">Chaque député·e se lève et son choix est consigné aux Journaux de l'Assemblée. C'est le seul type de vote qu'on peut attribuer à une personne.</p>
         </div>
         <div class="lire-box">
           <h3 data-i18n="lire.2.h">Adopté ≠ loi</h3>
@@ -340,19 +327,13 @@ function goToFederal(evt){
   <!-- VOTES -->
   
 
-  <!-- ARCHIVES (Martin, 30 oct. 2026) : les législatures terminées, une carte chacune (projets de
-       loi, votes), puis les promesses de l'élection de 2026. Dessiné par commun/dq.js (renderArchives)
-       depuis data/archives/index.json : la 43e y entre seule à l'ouverture de la 44e. -->
-  
-
-  <!-- COMPTE & ABONNEMENT -->
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+  <!-- N.-B. (Martin, 7 nov. 2026) : vue de l'abonnement retirée pour l'instant (à reprendre de DossierQuébec). -->
 
   <!-- LEXIQUE (fusion : personnes, lexique, apropos) -->
-  <!-- PROMESSES — vue sans onglet (comme view-bd). Accessible par /promesses,
-       par le bouton de la bande de dissolution et par le bloc du Lexique.
-       Contenu saisi à la main dans data/promises.json (voir la note du fichier). -->
-  
-
   
 
   <!-- PAGE CACHÉE — la BD « l'idée derrière le site ». Aucun onglet n'y mène :
@@ -380,7 +361,6 @@ function goToFederal(evt){
        le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
        porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
        gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
-  
 
   
 
@@ -396,27 +376,19 @@ function goToFederal(evt){
     <a href="/ministres" data-i18n="nav.ministres">Ministres</a>
     <a href="/projets-de-loi" data-i18n="nav.projets">Projets de loi</a>
     <a href="/votes" data-i18n="nav.votes">Votes</a>
-    <a href="/promesses" data-i18n="fil.promesses">Promesses</a>
-    <a href="/archives" data-i18n="nav.archives">Archives</a>
     <a href="/lexique" data-i18n="nav.lexique">Lexique</a>
     <a href="/sources" data-i18n="fil.bd">Mises à jour du site</a>
     <a href="/mon-dossier" data-i18n="nav.mondossier">Mon dossier</a>
     <span class="footer-nav-villes"><span data-i18n="footer.villes">Villes :</span>
-      <a href="/quebec/">Québec</a>
-      <a href="/montreal/">Montréal</a>
+      <a class="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Représentez votre ville</span></a>
     </span>
   </nav>
   <div class="footer-inner">
-  <span class="footer-left-line"><span id="footerLeft">Site non officiel — données publiques ANQ &amp; Données Québec ·</span> <span id="footerRight">Une réalisation de</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com" target="_blank" rel="noopener">DAFR Solution</a></span>
+  <span class="footer-left-line"><span id="footerLeft">Site non officiel — données publiques de l'Assemblée législative du Nouveau-Brunswick ·</span> <span id="footerRight">Une réalisation de</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com" target="_blank" rel="noopener">DAFR Solution</a></span>
   <span class="footer-right-group">
     <a class="footer-gh" href="/regles" data-i18n="footer.regles">Les règles</a>
-    <a class="footer-gh" href="/abonnement" data-i18n="footer.abonnement">Abonnement</a>
-    <a class="footer-gh" href="https://www.facebook.com/dossierquebec" target="_blank" rel="noopener" aria-label="DossierQuébec sur Facebook">Facebook</a>
-    <a class="footer-gh footer-coffee" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener" aria-label="Offre-moi un café" data-i18n="footer.coffee">Offre-moi un café</a>
-    <a class="footer-gh" href="/abonnement" data-i18n="footer.rss" title="Flux RSS : réservé aux abonné·e·s">Flux RSS</a>
-    <!-- Crédit exigé par la licence gratuite de Flaticon (icônes du bouton café, 3 nov. 2026). -->
-    <a class="footer-gh" href="https://www.flaticon.com/fr/icones-gratuites/cafe" target="_blank" rel="noopener" data-i18n="footer.flaticon">Icônes : Flaticon</a>
-    <a class="footer-gh" href="https://github.com/GrandFFormat/DossierQuebec" target="_blank" rel="noopener" data-i18n="footer.source">Code source</a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : abonnement, café, flux RSS des abonné·e·s et crédit Flaticon retirés pour l'instant. -->
+    <a class="footer-gh" href="https://github.com/GrandFFormat/dossiernbrunswick" target="_blank" rel="noopener" data-i18n="footer.source">Code source</a>
   </span>
   </div>
 </footer>

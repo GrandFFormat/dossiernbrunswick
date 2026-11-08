@@ -1,151 +1,141 @@
 {
-  "source": "https://www.quebec.ca/premier-ministre/equipe/conseil-des-ministres",
-  "scrapedAt": "2026-11-06T16:02:03.005Z",
-  "count": 24,
+  "source": "https://www.legnb.ca/en/members/executive-council",
+  "sourceFr": "https://www.legnb.ca/fr/parlementaires/conseil-executif",
+  "scrapedAt": "2026-11-07T15:53:58.035Z",
+  "count": 19,
   "ministers": [
     {
-      "name": "Paul St-Pierre Plamondon",
-      "role": "Premier ministre · Ministre responsable de la Lutte contre l'itinérance",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Susan Holt",
+      "role": "Première ministre · Présidente du Conseil exécutif · Ministre responsable des Langues officielles",
+      "roleEn": "Premier · President of the Executive Council · Minister responsible for Official Languages",
+      "party": "LIB",
+      "assnatId": 182
     },
     {
-      "name": "Catherine Gentilcore",
-      "role": "Vice-première ministre · Ministre de l’Immigration et de l’Intégration · Ministre responsable de l’Accession du Québec à l’Indépendance · Leader parlementaire du gouvernement",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Lyne Chantal Boudreau",
+      "role": "Ministre des Aînés · Ministre responsable de l’équité des femmes et des genres",
+      "roleEn": "Minister of Seniors · Minister responsible for Women and Gender Equity",
+      "party": "LIB",
+      "assnatId": 208
     },
     {
-      "name": "Nicolas Marceau",
-      "role": "Ministre des Finances · Ministre responsable des Infrastructures",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Chuck Chiasson",
+      "role": "Ministre des Transports et de l'Infrastructure",
+      "roleEn": "Minister of Transportation and Infrastructure",
+      "party": "LIB",
+      "assnatId": 11
     },
     {
-      "name": "Stéphane Paquet",
-      "role": "Ministre du Développement économique, de l’Innovation et de l’Énergie · Ministre responsable de la Métropole et de la région de Montréal",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Keith Chiasson",
+      "role": "Ministre des Affaires autochtones",
+      "roleEn": "Minister of Indigenous Affairs",
+      "party": "LIB",
+      "assnatId": 49
     },
     {
-      "name": "Alain Therrien",
-      "role": "Ministre responsable de l’Administration gouvernementale et président du Conseil du trésor · Ministre responsable de l'Action communautaire · Leader parlementaire adjoint du gouvernement",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Jean-Claude D'Amours",
+      "role": "Ministre de l'Éducation postsecondaire, de la Formation et du Travail · Ministre des Affaires intergouvernementales · Ministre responsable de l'Immigration · Ministre responsable des Affaires militaires · Ministre responsable du Conseil de la recherche et de la productivité",
+      "roleEn": "Minister of Post-Secondary Education, Training and Labour · Minister of Intergovernmental Affairs · Minister responsible for Immigration · Minister responsible for Military Affairs · Minister responsible for the Research and Productivity Council",
+      "party": "LIB",
+      "assnatId": 9
     },
     {
-      "name": "Marie-Karlynn Laflamme",
-      "role": "Ministre de la Santé, de la Prévention et des Aînés · Ministre responsable de la région du Saguenay–Lac-Saint-Jean",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "John Dornan",
+      "role": "Ministre de la Santé",
+      "roleEn": "Minister of Health",
+      "party": "LIB",
+      "assnatId": 202
     },
     {
-      "name": "Joël Arseneau",
-      "role": "Ministre de l’Éducation nationale",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Pat Finnigan",
+      "role": "Ministre de l'Agriculture, de l’Aquaculture et des Pêches",
+      "roleEn": "Minister of Agriculture, Aquaculture and Fisheries",
+      "party": "LIB",
+      "assnatId": 192
     },
     {
-      "name": "Pascal Bérubé",
-      "role": "Ministre de la Culture, du Patrimoine, des Communications et de la Langue française · Ministre responsable de la région du Bas-Saint-Laurent",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Robert Gauvin",
+      "role": "Ministre de la Sécurité publique · Ministre responsable de la Francophonie",
+      "roleEn": "Minister of Public Safety · Minister responsible for La Francophonie",
+      "party": "LIB",
+      "assnatId": 46
     },
     {
-      "name": "Marie-Claude Sarrazin",
-      "role": "Ministre de la Justice · Ministre responsable des Affaires intergouvernementales canadiennes · Ministre responsable des Relations avec les Québécois d’expression anglaise · Ministre responsable de la Lutte contre le racisme · Ministre responsable de la Lutte contre la discrimination envers les personnes LGBTQ+ · Ministre responsable de l’Accès à l’information et de la Protection des renseignements personnels · Ministre responsable de la Laïcité",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "John Herron",
+      "role": "Ministre des Ressources naturelles",
+      "roleEn": "Minister of Natural Resources",
+      "party": "LIB",
+      "assnatId": 199
     },
     {
-      "name": "Nicolas Girard",
-      "role": "Ministre des Transports et de la Mobilité durable · Ministre des Affaires municipales · Ministre responsable de la région de la Capitale-Nationale",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "David Hickey",
+      "role": "Ministre responsable de la Société d’habitation du Nouveau-Brunswick",
+      "roleEn": "Minister responsible for the New Brunswick Housing Corporation",
+      "party": "LIB",
+      "assnatId": 203
     },
     {
-      "name": "Elsie Lefebvre",
-      "role": "Ministre de l’Enseignement supérieur · Ministre responsable de l'Habitation · Ministre responsable de la Condition féminine · Ministre responsable de la région de Lanaudière",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Claire Johnson",
+      "role": "Ministre de l’Éducation et du Développement de la petite enfance",
+      "roleEn": "Minister of Education and Early Childhood Development",
+      "party": "LIB",
+      "assnatId": 194
     },
     {
-      "name": "Jean Pellerin",
-      "role": "Ministre de l’Environnement, de la Lutte contre les changements climatiques, de la Protection de la biodiversité, de la Faune et des Parcs · Ministre responsable de la région de la Mauricie",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Aaron Kennedy",
+      "role": "Ministre des Gouvernements locaux · Ministre responsable de Services Nouveau-Brunswick",
+      "roleEn": "Minister of Local Government · Minister responsible for Service New Brunswick",
+      "party": "LIB",
+      "assnatId": 200
     },
     {
-      "name": "Guy Jr Lapointe",
-      "role": "Ministre de la Sécurité intérieure · Ministre responsable de la région de la Montérégie",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "René Legacy",
+      "role": "Vice-premier ministre · Ministre des Finances et du Conseil du Trésor · Ministre de l’Énergie · Ministre responsable de la Loi sur le droit à l’information et la protection de la vie privée",
+      "roleEn": "Deputy Premier · Minister of Finance and Treasury Board · Minister of Energy · Minister responsible for the Right to Information and Protection of Privacy Act",
+      "party": "LIB",
+      "assnatId": 157
     },
     {
-      "name": "Natalie Bisaillon",
-      "role": "Ministre des Ressources naturelles et des Forêts · Ministre responsable de la région du Centre-du-Québec et de la région de la Chaudière-Appalaches",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Gilles LePage",
+      "role": "Ministre de l'Environnement et du Changement climatique · Ministre responsable de la Société de développement régional",
+      "roleEn": "Minister of Environment and Climate Change · Minister responsible for the Regional Development Corporation",
+      "party": "LIB",
+      "assnatId": 37
     },
     {
-      "name": "Bernard Sévigny",
-      "role": "Ministre de l’Agriculture, des Pêcheries et de l’Alimentation · Ministre responsable de la région de l’Estrie",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Robert McKee",
+      "role": "Ministre de la Justice · Procureur général · Ministre responsable des Services de santé mentale et de traitement des dépendances",
+      "roleEn": "Minister of Justice · Attorney General · Minister responsible for Addictions and Mental Health Services",
+      "party": "LIB",
+      "assnatId": 30
     },
     {
-      "name": "Dieudonné Ella Oyono",
-      "role": "Ministre des Relations internationales, de la Francophonie et du Commerce extérieur · Ministre responsable de la région de Laval",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Cindy Miles",
+      "role": "Ministre du Développement social · Ministre responsable de la Société de l’inclusion économique et sociale",
+      "roleEn": "Minister of Social Development · Minister responsible for the Economic and Social Inclusion Corporation",
+      "party": "LIB",
+      "assnatId": 207
     },
     {
-      "name": "Mathieu Lebrun",
-      "role": "Ministre du Travail, de l’Emploi et de la Solidarité sociale",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Luke Randall",
+      "role": "Ministre responsable d’Opportunités NB · Ministre responsable du Développement économique et des Petites Entreprises · Ministre responsable d’Alcool NB et de Cannabis NB · Ministre responsable de la Loi sur la responsabilisation et la présentation de rapports en matière de réglementation",
+      "roleEn": "Minister responsible for Opportunities NB · Minister responsible for Economic Development and Small Business · Minister responsible for NB Liquor and Cannabis NB · Minister responsible for the Regulatory Accountability and Reporting Act",
+      "party": "LIB",
+      "assnatId": 206
     },
     {
-      "name": "Méganne Perry Mélançon",
-      "role": "Ministre de la Famille et de la Jeunesse · Ministre responsable des Sports et des Loisirs · Ministre responsable de la région de la Gaspésie–Îles-de-la-Madeleine",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Isabelle Thériault",
+      "role": "Ministre du Tourisme, du Patrimoine et de la Culture",
+      "roleEn": "Minister of Tourism, Heritage and Culture",
+      "party": "LIB",
+      "assnatId": 5
     },
     {
-      "name": "Simon-Pierre Savard-Tremblay",
-      "role": "Ministre responsable des Relations avec les Premières Nations et les Inuit",
-      "roleEn": "",
-      "party": "PQ"
-    },
-    {
-      "name": "Camille Pellerin-Forget",
-      "role": "Ministre responsable des Institutions démocratiques · Ministre déléguée à la Santé mentale et aux Services sociaux · Ministre responsable de la région de l’Outaouais",
-      "roleEn": "",
-      "party": "PQ"
-    },
-    {
-      "name": "Meggie Richard",
-      "role": "Ministre responsable des Régions et de l’Occupation du territoire · Ministre responsable de la région de la Côte-Nord",
-      "roleEn": "",
-      "party": "PQ"
-    },
-    {
-      "name": "Sébastien D'Astous",
-      "role": "Ministre délégué à l’Efficacité gouvernementale et à l’Allègement réglementaire de l’État · Ministre responsable de la région de l’Abitibi-Témiscamingue et de la région du Nord-du-Québec",
-      "roleEn": null,
-      "party": "PQ"
-    },
-    {
-      "name": "Anne Nguyen",
-      "role": "Ministre déléguée à l’Intelligence artificielle et au Numérique · Ministre responsable de la région des Laurentides",
-      "roleEn": "",
-      "party": "PQ"
-    },
-    {
-      "name": "Nadine Le Gal",
-      "role": "Présidente du caucus du gouvernement",
-      "roleEn": "",
-      "party": "PQ"
+      "name": "Alyson Townsend",
+      "role": "Ministre responsable du Travail",
+      "roleEn": "Minister responsible for Labour",
+      "party": "LIB",
+      "assnatId": 201
     }
   ]
 }
