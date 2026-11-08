@@ -279,7 +279,7 @@ const ORGANISATION = {
   '@id': `${BASE}/#organisation`,
   name: 'DossierNBrunswick',
   url: `${BASE}/`,
-  logo: { '@type': 'ImageObject', url: `${BASE}/commun/dq-512.png`, width: 512, height: 512 },
+  logo: { '@type': 'ImageObject', url: `${BASE}/commun/nb-512.png`, width: 512, height: 512 },
   sameAs: ['https://github.com/GrandFFormat/dossiernbrunswick'],
 };
 function jsonLd(page) {
