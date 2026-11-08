@@ -320,8 +320,8 @@ h1, h2, h3, .hero-h1, .section-head h2, .view h2, .stat-cell b{
 .brand-blue{color:var(--nb-rouge);}
 html[data-theme="dark"] .brand-blue{color:#ff8a9b;}
 /* L'étoile jaune du drapeau devant le nom, à la place de la feuille d'érable de DQ (Martin,
-   7 nov. 2026). Décor seulement. */
-.maple-flip{display:none;}
+   7 nov. 2026). Décor seulement. La feuille d'érable reste après le nom : c'est la passerelle
+   vers DossierCanada (Martin, 8 nov. 2026). */
 .brand-text .brand-title::before{content:'★'; color:var(--nb-jaune); margin-right:8px;}
 
 /* Les onglets : numérotés, le numéro en rouge ; l'onglet courant en bleu, sans pastille. */
