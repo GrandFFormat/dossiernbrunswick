@@ -656,3 +656,8 @@ html[data-theme="dark"] .nb-ligne-num, html[data-theme="dark"] .nb-ligne-fleche,
 
 /* Mon dossier, « Pour commencer » : deux cartes (pas de projet de ville au N.-B.). */
 @media (min-width:761px){ .mdr-cartes{grid-template-columns:repeat(2, minmax(0,1fr));} }
+
+/* La feuille d'érable collée au nom, à la même distance que l'étoile (Martin, 8 nov. 2026). */
+#dq-topbar .brand .maple-flip{margin-left:-6px;}
+html.entete-etroite #dq-topbar .brand .maple-flip,
+html.etroit #dq-topbar .brand .maple-flip{margin-left:0;}
