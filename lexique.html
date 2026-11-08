@@ -9,12 +9,12 @@
   gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
 </script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-87R1S6SR9Y"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6CZX26581K"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-87R1S6SR9Y', { content_group: 'Assemblée' });
+  gtag('config', 'G-6CZX26581K', { content_group: 'Assemblée' });
 </script>
 <script src="/commun/consentement.js" defer></script>
 <meta charset="UTF-8">
@@ -44,9 +44,9 @@
   }catch(e){}
 })();
 </script>
-<title>Lexique de l'Assemblée nationale en clair — DossierQuébec</title>
-<meta name="description" content="Sanction royale, étude détaillée, vote par appel nominal : le vocabulaire de l'Assemblée nationale du Québec expliqué simplement, avec les sources officielles.">
-<link rel="canonical" href="https://dossierquebec.ca/lexique">
+<title>Lexique de l'Assemblée législative — DossierNBrunswick</title>
+<meta name="description" content="Première lecture, sanction royale, vote par appel nominal : le vocabulaire de l'Assemblée législative du Nouveau-Brunswick expliqué simplement, sources à l'appui.">
+<link rel="canonical" href="https://dossiernbrunswick.ca/lexique">
 <!-- Plus de <link rel="alternate"> vers /feed.xml : le flux RSS est réservé aux abonné·e·s depuis le
      21 oct. 2026 (api/feed.js), chacun avec son adresse personnelle dans Mon dossier. -->
 <meta name="robots" content="index, follow">
@@ -54,20 +54,20 @@
 
 <!-- Open Graph (aperçu au partage : Facebook, LinkedIn, iMessage…) -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="DossierQuébec">
+<meta property="og:site_name" content="DossierNBrunswick">
 <meta property="og:locale" content="fr_CA">
-<meta property="og:title" content="Lexique de l'Assemblée nationale en clair — DossierQuébec">
-<meta property="og:description" content="Sanction royale, étude détaillée, vote par appel nominal : le vocabulaire de l'Assemblée nationale du Québec expliqué simplement, avec les sources officielles.">
-<meta property="og:url" content="https://dossierquebec.ca/lexique">
+<meta property="og:title" content="Lexique de l'Assemblée législative — DossierNBrunswick">
+<meta property="og:description" content="Première lecture, sanction royale, vote par appel nominal : le vocabulaire de l'Assemblée législative du Nouveau-Brunswick expliqué simplement, sources à l'appui.">
+<meta property="og:url" content="https://dossiernbrunswick.ca/lexique">
 <meta property="og:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
 <meta property="og:image:width" content="1702">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="DossierQuébec — veille citoyenne de l'Assemblée nationale du Québec">
+<meta property="og:image:alt" content="DossierNBrunswick — veille citoyenne de l'Assemblée législative du Nouveau-Brunswick">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lexique de l'Assemblée nationale en clair — DossierQuébec">
-<meta name="twitter:description" content="Sanction royale, étude détaillée, vote par appel nominal : le vocabulaire de l'Assemblée nationale du Québec expliqué simplement, avec les sources officielles.">
+<meta name="twitter:title" content="Lexique de l'Assemblée législative — DossierNBrunswick">
+<meta name="twitter:description" content="Première lecture, sanction royale, vote par appel nominal : le vocabulaire de l'Assemblée législative du Nouveau-Brunswick expliqué simplement, sources à l'appui.">
 <meta name="twitter:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
 
 <link rel="icon" type="image/svg+xml" href="/commun/dq.svg">
@@ -86,36 +86,21 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Accueil",
-      "item": "https://dossierquebec.ca/"
+      "item": "https://dossiernbrunswick.ca/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Lexique",
-      "item": "https://dossierquebec.ca/lexique"
+      "item": "https://dossiernbrunswick.ca/lexique"
     }
   ]
 }
 </script>
-<!-- Les DEUX préconnexions sont nécessaires et ce n'est pas un doublon :
-     googleapis.com sert la feuille CSS, gstatic.com sert les ~258 ko de
-     fichiers de police. Sans la seconde, le navigateur n'ouvre la connexion
-     vers gstatic qu'APRÈS avoir lu le CSS — un DNS + TLS en série, soit 100 à
-     300 ms perdus sur mobile à la première visite. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- ⚠️ « wght@400..900 » (deux points) demande la POLICE VARIABLE : un seul
-     fichier couvrant toutes les graisses, au lieu d'un fichier par graisse.
-     Mesuré : Archivo passe de 6 fichiers / 205 ko à 1 fichier / 34 ko, et
-     Archivo Narrow de 3 fichiers / 55 ko à 1 fichier / 18 ko — 260 ko et
-     9 requêtes ramenés à 52 ko et 2 requêtes, sans perdre aucune graisse.
-     Ne pas revenir à la liste « 400;500;600 » (points-virgules) : c'est la
-     syntaxe des fichiers statiques.
-     IBM Plex Mono a été retirée : utilisée nulle part. Aucun octet économisé
-     pour autant — un navigateur ne télécharge une police que si elle sert au
-     rendu, donc elle ne partait déjà pas. C'était du ménage, pas un gain. -->
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Archivo+Narrow:wght@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/commun/dq.css">
+<!-- Le design du Nouveau-Brunswick, posé par-dessus dq.css. Il apporte ses polices (Barlow,
+     servies par le site, commun/polices/) : plus rien n'est chargé chez Google Fonts. -->
+<link rel="stylesheet" href="/commun/nb.css">
 </head>
 <body data-page="lexique" data-donnees="stats">
 
@@ -123,8 +108,8 @@
      données par renderTicker() (appelé une fois les datasets chargés). -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span class="ticker-text" id="tickerA">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
-    <span class="ticker-text" id="tickerB">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerA">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerB">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
 
@@ -139,7 +124,7 @@
            (Pas de balise écrite en toutes lettres dans ce commentaire : elle
            fausserait les outils qui comptent les titres à l'expression
            régulière.) -->
-      <div class="brand-title">Dossier<span class="brand-blue">Québec</span></div>
+      <div class="brand-title">Dossier<span class="brand-blue">NBrunswick</span></div>
       <p>Qui siège, qui légifère, qui vote quoi</p>
     </div>
     <!-- Feuille d'érable : passerelle vers le site fédéral DossierCanada.
@@ -157,16 +142,6 @@
          se résolvent depuis la racine du site. Plus de rel="nofollow" depuis le
          21 sept. 2026 : les volets sont ouverts aux moteurs de recherche. Le chemin dit /quebec/ : c'est la
          liste, sous « Villes », qui dit qu'il s'agit de la ville. -->
-    <details class="villes-menu" id="villesMenu">
-      <summary class="city-flip" title="Les volets municipaux" aria-label="Les volets municipaux">
-        <span data-i18n="nav.villes">Villes</span>
-      </summary>
-      <ul>
-        <li><a href="/quebec/">Québec <small>DossierVilleDeQuébec</small></a></li>
-        <li><a href="/montreal/">Montréal <small>DossierVilleDeMontréal</small></a></li>
-        <!-- Lévis, Longueuil et Laval : en pause depuis le 7 oct. 2026 (commun/navigation.js, VILLES_EN_PAUSE). -->
-      </ul>
-    </details>
   </div>
   <!-- Nav DANS la ligne du header (maquette : logo | menu | contrôles sur
        UNE seule rangée). Sur mobile, le nav devient le panneau plein écran
@@ -180,9 +155,21 @@
     <a href="/projets-de-loi" data-view="projets"><span class="n">03</span><span data-i18n="nav.projets">Projets de loi</span></a>
     <!-- Votes a quitté la barre le 30 oct. 2026 : les votes vivent dans les cartes des projets de
          loi, et /votes reste lié du pied de page et de la page des projets. -->
-    <a href="/archives" data-view="archives"><span class="n">04</span><span data-i18n="nav.archives">Archives</span></a>
-    <a class="active" aria-current="page" href="/lexique" data-view="lexique"><span class="n">05</span><span data-i18n="nav.lexique">Lexique</span></a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : pas d'onglet Archives ni de page Promesses tant que le site n'a
+         ni législature terminée ni promesses du Nouveau-Brunswick. -->
+    <a class="active" aria-current="page" href="/lexique" data-view="lexique"><span class="n">04</span><span data-i18n="nav.lexique">Lexique</span></a>
     <a href="/mon-dossier" data-view="mondossier" class="nav-mondossier"><span class="n">★</span><span data-i18n="nav.mondossier">Mon dossier</span></a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : le menu des villes est un onglet, après Mon dossier,
+         au lieu d'une pastille à côté du nom du site. Même menu déroulant que DQ. -->
+    <details class="villes-menu" id="villesMenu">
+      <summary class="nav-villes" title="Les volets municipaux" aria-label="Les volets municipaux">
+        <span data-i18n="nav.villes">Villes</span>
+      </summary>
+      <ul>
+        <!-- N.-B. : aucune ville encore ; le seul lien mène au formulaire de DossierQuébec (guide, étape 9). -->
+        <li class="villes-rtv"><a id="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Représentez votre ville</span></a></li>
+      </ul>
+    </details>
   </nav>
   <div class="header-ctrls">
     <div class="font-size-ctrl" id="fontSizeCtrl">
@@ -252,11 +239,11 @@ function goToFederal(evt){
     <!-- Hero de vue (refonte brutaliste) -->
     <div class="view-hero">
       <h1 class="hero-h1 hero-h1-md">
-        <span class="hero-sujet" data-i18n="sujet.lexique">Lexique de l'Assemblée nationale</span>
+        <span class="hero-sujet" data-i18n="sujet.lexique">Lexique de l'Assemblée législative</span>
         <span data-i18n="lexhero.l1">Le jargon,</span>
         <span class="hero-outline" data-i18n="lexhero.l2">décodé.</span>
       </h1>
-      <p class="view-hero-sub" data-i18n="lexhero.sub">« Sanction royale », « étude détaillée », « bâillon »… Le Parlement a son vocabulaire. <b>Ici, chaque terme est expliqué comme à un·e ami·e.</b></p>
+      <p class="view-hero-sub" data-i18n="lexhero.sub">« Première lecture », « comité plénier », « sanction royale »… L'Assemblée a son vocabulaire. <b>Ici, chaque terme est expliqué comme à un·e ami·e.</b></p>
     </div>
 
     <!-- Connexion — remontee tout en haut de Lexique -->
@@ -276,14 +263,6 @@ function goToFederal(evt){
     <!-- Les messages de « Ce qui vous préoccupe », admins seulement (renderAdminPreoccupations). -->
     <div id="adminPreoccupations"></div>
 
-    <!-- Entrée permanente vers /promesses (la vue n'a pas d'onglet — voir la
-         décision : on lui en donnera un si la page est visitée souvent). -->
-    <div class="section-head" id="sec-promesses"><div><h2 data-i18n="h.promesses">Promesses électorales</h2></div></div>
-    <div class="info-box">
-      <span data-i18n="prom.lex">Les engagements des partis pour l'élection du 5 octobre 2026, chacun avec sa source — et, à mesure que la nouvelle Assemblée légiférera, ce qui en aura réellement été fait. Aucun verdict : la promesse et l'action, côte à côte.</span>
-      <div><a class="diss-cta" href="/promesses" data-i18n="prom.lex.cta" style="margin-top:12px;">Voir les promesses →</a></div>
-    </div>
-
     <div class="quick-nav" id="quickNavLexique">
       <span class="quick-nav-label" data-i18n="quicknav.label">Aller à :</span>
       <a data-jump="sec-personnes" data-i18n="quicknav.personnes">Qui gravite autour</a>
@@ -301,18 +280,18 @@ function goToFederal(evt){
          « la présidence » s'y confondait avec la première ministre (Martin, 22 sept. 2026). -->
     <div class="role-card" id="role-presidence">
       <div>
-        <div class="role" data-i18n="pers.1.role">Présidente de l'Assemblée nationale</div>
-        <h3>Nathalie Roy</h3>
-        <p data-i18n="pers.1.desc">Préside les séances et applique le Règlement. Députée de Montarville (CAQ), mais son rôle de présidence exige la neutralité.</p>
+        <div class="role" data-i18n="pers.1.role">Présidente de l'Assemblée législative</div>
+        <h3>Francine Landry</h3>
+        <p data-i18n="pers.1.desc">Élue par la Chambre, elle préside les débats et y fait respecter l'ordre. Députée de Madawaska Les Lacs-Edmundston (Parti libéral), mais son rôle de présidence exige la neutralité.</p>
       </div>
     </div>
 
     <div class="role-group-title" data-i18n="pers.g2">Représentante de la Couronne</div>
     <div class="role-card">
       <div>
-        <div class="role" data-i18n="pers.2.role">Lieutenante-gouverneure du Québec</div>
-        <h3>Manon Jeannotte</h3>
-        <p data-i18n="pers.2.desc">30e titulaire du poste, en fonction depuis le 25 janvier 2024 — première personne issue des Premières Nations à l'occuper. C'est elle qui donne la sanction royale citée dans chaque fiche de projet de loi de ce site.</p>
+        <div class="role" data-i18n="pers.2.role">Lieutenante-gouverneure du Nouveau-Brunswick</div>
+        <h3>Louise Imbeault</h3>
+        <p data-i18n="pers.2.desc">33e titulaire du poste, installée le 22 janvier 2025. Elle représente le Roi au Nouveau-Brunswick, et c'est elle qui donne la sanction royale citée dans chaque fiche de projet de loi de ce site.</p>
       </div>
       <span class="role-badge" data-i18n="pers.2.badge">Cérémoniel + sanction des lois</span>
     </div>
@@ -320,49 +299,49 @@ function goToFederal(evt){
     <div class="role-group-title" data-i18n="pers.g3">Chiens de garde indépendants — nommés par l'Assemblée, pas par le gouvernement</div>
     <div class="role-card">
       <div>
-        <div class="role" data-i18n="pers.3.role">Vérificatrice générale du Québec</div>
-        <h3>Christine Roy</h3>
-        <p data-i18n="pers.3.desc">Audite les dépenses et la gestion de l'État. En poste depuis décembre 2025, mandat de 10 ans non renouvelable.</p>
+        <div class="role" data-i18n="pers.3.role">Vérificateur général du Nouveau-Brunswick</div>
+        <h3>Paul Martin</h3>
+        <p data-i18n="pers.3.desc">Rend compte à l'Assemblée et à la population de la gestion des fonds et des ressources publics. En poste depuis janvier 2022.</p>
       </div>
       <span class="role-badge" data-i18n="pers.badge.designee">Personne désignée</span>
     </div>
     <div class="role-card">
       <div>
-        <div class="role" data-i18n="pers.4.role">Protecteur du citoyen</div>
-        <h3>Marc-André Dowd</h3>
-        <p data-i18n="pers.4.desc">Traite les plaintes des citoyens contre l'administration publique.</p>
+        <div class="role" data-i18n="pers.4.role">Ombud du Nouveau-Brunswick</div>
+        <h3>Marie-France Pelletier</h3>
+        <p data-i18n="pers.4.desc">Examine les plaintes contre le secteur public provincial et veille aussi à l'accès à l'information et à la protection de la vie privée. En poste depuis le 1er janvier 2022.</p>
       </div>
       <span class="role-badge" data-i18n="pers.badge.designee">Personne désignée</span>
     </div>
     <div class="role-card">
       <div>
-        <div class="role" data-i18n="pers.5.role">Directeur général des élections du Québec</div>
-        <h3>Jean-François Blanchet</h3>
-        <p data-i18n="pers.5.desc">Supervise les élections et la délimitation de la carte électorale.</p>
+        <div class="role" data-i18n="pers.5.role">Directrice générale des élections</div>
+        <h3>Kimberly Poffenroth</h3>
+        <p data-i18n="pers.5.desc">Dirige les élections provinciales de façon impartiale, ainsi que les élections municipales, et contrôle le financement politique. En poste depuis mars 2017.</p>
       </div>
       <span class="role-badge" data-i18n="pers.badge.designee">Personne désignée</span>
     </div>
     <div class="role-card">
       <div>
-        <div class="role" data-i18n="pers.6.role">Commissaire à l'éthique et à la déontologie</div>
-        <h3>Ariane Mignolet</h3>
-        <p data-i18n="pers.6.desc">Conseille et enquête sur la conduite des députés en matière d'éthique.</p>
+        <div class="role" data-i18n="pers.6.role">Commissaire à l'intégrité</div>
+        <h3>Charles Murray</h3>
+        <p data-i18n="pers.6.desc">Veille aux règles sur les conflits d'intérêts des député·e·s et des hauts fonctionnaires, et tient le Registre des lobbyistes. En poste depuis le 1er janvier 2020.</p>
       </div>
       <span class="role-badge" data-i18n="pers.badge.designee">Personne désignée</span>
     </div>
     <div class="role-card">
       <div>
-        <div class="role" data-i18n="pers.7.role">Commissaire au lobbyisme</div>
-        <h3>Jean-François Routhier</h3>
-        <p data-i18n="pers.7.desc">Administre le registre des lobbyistes — le lien direct avec la tâche « registre des lobbyistes » de notre feuille de route.</p>
+        <div class="role" data-i18n="pers.7.role">Défenseur des enfants, des jeunes et des aînés</div>
+        <h3>Kelly Lamrock</h3>
+        <p data-i18n="pers.7.desc">Protège et défend les droits des enfants, des jeunes, des adultes vulnérables et des aînés. En poste depuis le 7 février 2022.</p>
       </div>
       <span class="role-badge" data-i18n="pers.badge.designee">Personne désignée</span>
     </div>
     <div class="role-card">
       <div>
-        <div class="role" data-i18n="pers.8.role">Commissaire au bien-être et aux droits des enfants</div>
-        <h3>Marie-Eve Brunet</h3>
-        <p data-i18n="pers.8.desc">Institution la plus récente de ce groupe, créée en 2023.</p>
+        <div class="role" data-i18n="pers.8.role">Commissaire aux langues officielles</div>
+        <h3>Shirley C. MacLean</h3>
+        <p data-i18n="pers.8.desc">Enquête sur les plaintes liées à la Loi sur les langues officielles et fait la promotion des deux langues officielles. En poste depuis le 2 janvier 2020.</p>
       </div>
       <span class="role-badge" data-i18n="pers.badge.designee">Personne désignée</span>
     </div>
@@ -382,10 +361,10 @@ function goToFederal(evt){
 
     <div class="section-head" id="sec-lobby"><div><h2 data-i18n="h.lobby">Le registre des lobbyistes</h2><div class="sub" data-i18n="lobby.sub">Qui est payé pour influencer les décisions publiques — et comment le consulter</div></div></div>
     <div class="info-box" style="scroll-margin-top:12px;">
-      <p data-i18n="lobby.body" style="margin:0 0 8px;">Toute personne payée pour communiquer avec des <b>titulaires de charge publique</b> (ministres, député·e·s, hauts fonctionnaires…) au sujet de lois, règlements, subventions ou contrats doit s'inscrire à un <b>registre public</b>, supervisé par le <b>Commissaire au lobbyisme du Québec</b>, une institution indépendante. Les lobbyistes doivent y déclarer leurs mandats.</p>
-      <p data-i18n="lobby.note" style="margin:0 0 10px; color:var(--slate); font-size:12.5px;">Pourquoi ce site ne reproduit pas ce registre : ses données ne sont pas offertes en données ouvertes (rien sur Données Québec) et ne sont consultables qu'à travers l'outil de recherche officiel. Plutôt que d'en faire une copie qui ne serait pas fiable ni à jour, on renvoie directement aux outils publics officiels.</p>
+      <p data-i18n="lobby.body" style="margin:0 0 8px;">Toute personne payée pour communiquer avec des <b>titulaires de charge publique</b> (ministres, député·e·s, hauts fonctionnaires…) afin d'influencer une décision doit s'inscrire au <b>Registre des lobbyistes</b>, tenu par le <b>Bureau du commissaire à l'intégrité</b>, un bureau indépendant. Les lobbyistes doivent y déclarer leurs activités.</p>
+      <p data-i18n="lobby.note" style="margin:0 0 10px; color:var(--slate); font-size:12.5px;">Pourquoi ce site ne reproduit pas ce registre : il n'est consultable qu'à travers l'outil de recherche officiel. Plutôt que d'en faire une copie qui ne serait ni fiable ni à jour, on renvoie directement aux outils publics officiels.</p>
       <div style="font-size:12.5px; display:flex; flex-wrap:wrap; align-items:center; gap:2px 0;">
-        <a href="https://www.carrefourlobby.quebec/recherche-mandats" target="_blank" rel="noopener" style="color:var(--gold); white-space:nowrap;" data-i18n="lobby.link1">Rechercher dans le registre ↗</a><span style="color:var(--line); margin:0 8px;">·</span><a href="https://www.carrefourlobby.quebec/mandats-publies" target="_blank" rel="noopener" style="color:var(--gold); white-space:nowrap;" data-i18n="lobby.link2">Mandats récemment publiés ↗</a><span style="color:var(--line); margin:0 8px;">·</span><a href="https://lobbyisme.quebec/" target="_blank" rel="noopener" style="color:var(--gold); white-space:nowrap;" data-i18n="lobby.link3">Commissaire au lobbyisme ↗</a>
+        <a href="https://www.pxw1.snb.ca/snb9000/product.aspx?productid=A001PLOBBYSearch&amp;l=f" target="_blank" rel="noopener" style="color:var(--gold); white-space:nowrap;" data-i18n="lobby.link1">Rechercher dans le registre ↗</a><span style="color:var(--line); margin:0 8px;">·</span><a href="https://www.pxw1.snb.ca/snb9000/product.aspx?productid=A001PSNBCATLOBBY&amp;l=f" target="_blank" rel="noopener" style="color:var(--gold); white-space:nowrap;" data-i18n="lobby.link2">Accueil du registre ↗</a><span style="color:var(--line); margin:0 8px;">·</span><a href="https://oic-bci.ca/lobbyist-registry/?lang=fr" target="_blank" rel="noopener" style="color:var(--gold); white-space:nowrap;" data-i18n="lobby.link3">Commissaire à l'intégrité ↗</a>
       </div>
     </div>
 
@@ -400,54 +379,54 @@ function goToFederal(evt){
         <dd data-i18n="lex.1.d">Le texte qu'un député ou le gouvernement soumet à l'Assemblée pour qu'il devienne une loi. Il devient une vraie loi seulement une fois adopté puis sanctionné.</dd>
       </div>
       <div class="lexique-item">
-        <dt data-i18n="lex.2.t">Adoption du principe</dt>
+        <dt data-i18n="lex.2.t">Deuxième lecture</dt>
         <span class="lex-badge cat-proc" data-i18n="lexcat.proc">Processus</span>
-        <dd data-i18n="lex.2.d">La première grande étape : l'Assemblée vote pour dire si elle est d'accord avec l'idée générale du projet de loi, avant d'en étudier le détail article par article.</dd>
+        <dd data-i18n="lex.2.d">La première grande étape : l'Assemblée débat de l'idée générale du projet de loi et vote pour dire si elle l'accepte, avant d'en étudier le détail article par article.</dd>
       </div>
       <div class="lexique-item" id="etape-etude">
-        <dt data-i18n="lex.3.t">Étude détaillée</dt>
+        <dt data-i18n="lex.3.t">Étude en comité</dt>
         <span class="lex-badge cat-proc" data-i18n="lexcat.proc">Processus</span>
-        <dd data-i18n="lex.3.d">L'étape où une commission parlementaire (un petit groupe de députés) passe le projet de loi au peigne fin, article par article, et peut y proposer des amendements.</dd>
+        <dd data-i18n="lex.3.d">L'étape où le projet de loi est passé au peigne fin, article par article, le plus souvent en comité plénier (toute l'Assemblée siégeant comme comité), parfois par un comité permanent. Des amendements peuvent y être proposés.</dd>
       </div>
       <div class="lexique-item" id="etape-adoption">
-        <dt data-i18n="lex.4.t">Adoption</dt>
+        <dt data-i18n="lex.4.t">Troisième lecture</dt>
         <span class="lex-badge cat-proc" data-i18n="lexcat.proc">Processus</span>
-        <dd data-i18n="lex.4.d">Le vote final en Chambre sur l'ensemble du projet de loi, une fois toutes les étapes précédentes complétées.</dd>
+        <dd data-i18n="lex.4.d">Le vote final de l'Assemblée sur l'ensemble du projet de loi, une fois l'étude en comité terminée.</dd>
       </div>
       <div class="lexique-item">
-        <dt data-i18n="lex.5.t">Sanction</dt>
+        <dt data-i18n="lex.5.t">Sanction royale</dt>
         <span class="lex-badge cat-proc" data-i18n="lexcat.proc">Processus</span>
-        <dd data-i18n="lex.5.d">La toute dernière étape administrative : le lieutenant-gouverneur donne son assentiment officiel, et le projet de loi devient formellement une loi du Québec.</dd>
+        <dd data-i18n="lex.5.d">La toute dernière étape : le ou la lieutenant-gouverneur·e donne son assentiment officiel, et le projet de loi devient formellement une loi du Nouveau-Brunswick.</dd>
       </div>
       <div class="lexique-item">
-        <dt data-i18n="lex.6.t">Commission parlementaire</dt>
+        <dt data-i18n="lex.6.t">Comité</dt>
         <span class="lex-badge cat-proc" data-i18n="lexcat.proc">Processus</span>
-        <dd data-i18n="lex.6.d">Un groupe plus restreint de députés (une dizaine, en général) qui étudie un sujet ou un projet de loi en profondeur, entend des experts et des citoyens, avant que ça revienne devant l'Assemblée au complet.</dd>
+        <dd data-i18n="lex.6.d">Un groupe plus restreint de député·e·s qui étudie un sujet ou un projet de loi en profondeur, peut entendre des expert·e·s et des citoyen·ne·s, puis fait rapport à l'Assemblée au complet.</dd>
       </div>
       <div class="lexique-item">
-        <dt data-i18n="lex.14.t">Mémoire (en commission)</dt>
+        <dt data-i18n="lex.14.t">Mémoire (en comité)</dt>
         <span class="lex-badge cat-proc" data-i18n="lexcat.proc">Processus</span>
-        <dd data-i18n="lex.14.d">Un texte qu’un organisme, une entreprise ou un·e citoyen·ne envoie à une commission parlementaire pour dire ce qu’il pense d’un projet de loi : ce qu’il appuie, ce qu’il faudrait changer, ce qui l’inquiète. Certains sont invités à venir le présenter devant les député·e·s. Le mémoire est public : il est publié sur le site de l’Assemblée nationale, avec le nom de son auteur.</dd>
+        <dd data-i18n="lex.14.d">Un texte qu’un organisme, une entreprise ou un·e citoyen·ne soumet à un comité de l’Assemblée pour dire ce qu’il pense d’un projet de loi ou d’un sujet à l’étude : ce qu’il appuie, ce qu’il faudrait changer, ce qui l’inquiète. Certains sont invités à venir le présenter devant les député·e·s.</dd>
       </div>
       <div class="lexique-item">
         <dt data-i18n="lex.15.t">Mémoire ou lobbyisme?</dt>
         <span class="lex-badge cat-proc" data-i18n="lexcat.proc">Processus</span>
-        <dd data-i18n="lex.15.d">Les deux cherchent à influencer une décision, pas de la même façon. Le <b>mémoire</b> est une prise de position publique, dans le cadre officiel d’une commission : on sait qui parle et sur quel projet de loi. On peut lire tout ce qu’il dit. Le <b>lobbyisme</b> se fait en privé : rencontres, appels ou courriels auprès d’un ministre, d’un cabinet, de fonctionnaires ou d’une municipalité. La loi oblige seulement à l’inscrire au Registre des lobbyistes du Québec, qui dit qui fait pression, pour qui et sur quel sujet, jamais ce qui s’est dit.</dd>
+        <dd data-i18n="lex.15.d">Les deux cherchent à influencer une décision, pas de la même façon. Le <b>mémoire</b> est une prise de position publique, dans le cadre officiel d’un comité : on sait qui parle et sur quel sujet. Le <b>lobbyisme</b> se fait en privé : rencontres, appels ou courriels auprès d’un ministre, d’un cabinet ou de fonctionnaires. La loi oblige seulement à l’inscrire au registre des lobbyistes de la province, qui dit qui fait pression, pour qui et sur quel sujet, jamais ce qui s’est dit.</dd>
       </div>
       <div class="lexique-item">
         <dt data-i18n="lex.7.t">Vote par appel nominal</dt>
         <span class="lex-badge cat-votes" data-i18n="lexcat.votes">Votes</span>
-        <dd data-i18n="lex.7.d">Un vote où le nom de chaque député et son choix (Pour/Contre/Abstention) sont officiellement consignés — par opposition à un vote à main levée, où seul le résultat global est noté.</dd>
+        <dd data-i18n="lex.7.d">Un vote où le nom de chaque député·e et son choix (pour ou contre) sont consignés dans les Journaux de l'Assemblée — par opposition à un vote de vive voix, où seul le résultat est noté. Au Nouveau-Brunswick, la plupart des projets de loi passent de vive voix.</dd>
       </div>
       <div class="lexique-item">
-        <dt data-i18n="lex.8.t">Procès-verbal</dt>
+        <dt data-i18n="lex.8.t">Journal de l'Assemblée</dt>
         <span class="lex-badge cat-votes" data-i18n="lexcat.votes">Votes</span>
-        <dd data-i18n="lex.8.d">Le compte rendu officiel, mais résumé, de tout ce qui s'est passé pendant une séance : décisions, votes, dépôts de documents.</dd>
+        <dd data-i18n="lex.8.d">Le compte rendu officiel, mais résumé, de chaque séance : décisions, votes, dépôts de documents. C'est là, et seulement là, que sont consignés les noms lors d'un vote par appel nominal.</dd>
       </div>
       <div class="lexique-item">
         <dt data-i18n="lex.9.t">Journal des débats</dt>
         <span class="lex-badge cat-votes" data-i18n="lexcat.votes">Votes</span>
-        <dd data-i18n="lex.9.d">La transcription complète, mot pour mot, de tout ce qui a été dit en Chambre — contrairement au procès-verbal, qui ne fait que résumer les décisions.</dd>
+        <dd data-i18n="lex.9.d">La transcription complète, mot pour mot, de tout ce qui a été dit en Chambre — contrairement au Journal de l'Assemblée, qui ne fait que résumer les décisions.</dd>
       </div>
       <div class="lexique-item">
         <dt data-i18n="lex.10.t">Leader parlementaire</dt>
@@ -467,7 +446,7 @@ function goToFederal(evt){
       <div class="lexique-item">
         <dt data-i18n="lex.13.t">Présence (%)</dt>
         <span class="lex-badge cat-outils" data-i18n="lexcat.outils">Outils citoyens</span>
-        <dd data-i18n="lex.13.d">Le chiffre affiché sous chaque ministre (ex. « présence : 88 % (647/735) ») : sur les 735 votes par appel nominal enregistrés dans les 3 sessions de la législature, 647 sont ceux où cette personne apparaît comme Pour, Contre ou Abstention — donc était présente pour voter, peu importe le sens de son vote. Le compte débute à son tout premier vote détecté (une façon d'approximer le début de son mandat actuel sans donnée externe). L'Assemblée ne publie pas d'assiduité officielle ; c'est un indicateur de présence, pas une mesure officielle — même méthode que certains médias (ex. Radio-Canada).</dd>
+        <dd data-i18n="lex.13.d">Le chiffre affiché sous chaque député·e : sur les votes par appel nominal consignés dans les Journaux de la législature, la part de ceux où cette personne apparaît comme pour ou contre — donc était présente pour voter, peu importe le sens de son vote. Le compte débute au premier vote de la législature, ou au jour de l'élection partielle pour une personne élue en cours de route. L'Assemblée ne publie pas d'assiduité officielle ; c'est un indicateur de présence, pas une mesure officielle. Les votes par appel nominal sont rares au Nouveau-Brunswick : le chiffre repose sur peu de votes.</dd>
       </div>
     </dl>
     </div>
@@ -482,14 +461,13 @@ function goToFederal(evt){
     <div class="bill">
       <h3 data-i18n="apropos.sources.h">Sources publiques utilisées ici</h3>
       <p style="font-size:13px; line-height:1.7; color:var(--slate);" data-i18n="apropos.sources.p">
-        <b style="color:var(--ink)">Projets de loi</b> — Données Québec, jeu de données officiel de l'Assemblée nationale, mis à jour en temps réel.<br>
-        <b style="color:var(--ink)">Détails des projets de loi</b> (parrain, étape en cours, texte intégral en PDF) — assnat.qc.ca, pages individuelles de chaque projet de loi.<br>
-        <b style="color:var(--ink)">Résumés des projets de loi</b> — générés par intelligence artificielle (API Claude) à partir du texte intégral officiel tel que déposé ; chaque résumé est identifié comme tel sur le site.<br>
-        <b style="color:var(--ink)">Registre des votes</b> — assnat.qc.ca, pages de détail de chaque vote nominal des 3 sessions de la 43e législature, incluant le nom et le parti de chaque député·e.<br>
-        <b style="color:var(--ink)">Conseil des ministres</b> — quebec.ca, page officielle du Conseil des ministres, scrapée en direct.<br>
-        <b style="color:var(--ink)">Député·e·s et courriels officiels</b> — assnat.qc.ca, liste officielle des député·e·s en fonction.<br>
-        <b style="color:var(--ink)">Pétitions</b> — assnat.qc.ca, liste officielle des pétitions ouvertes.<br>
-        <b style="color:var(--ink)">Présence (%)</b> — calculée à partir du registre des votes ci-dessus (voir la définition dans le lexique) ; aucune source externe.
+        <b style="color:var(--ink)">Projets de loi</b> — legnb.ca, « État des projets de loi » de chaque session de la législature, en français et en anglais : étapes, dates de chaque lecture.<br>
+        <b style="color:var(--ink)">Détails des projets de loi</b> (type, parrain, texte officiel) — legnb.ca, fiche de chaque projet dans les deux langues.<br>
+        <b style="color:var(--ink)">Résumés des projets de loi</b> — générés par intelligence artificielle (API Claude) à partir du texte officiel tel que déposé, une passe par langue ; chaque résumé est identifié comme tel sur le site.<br>
+        <b style="color:var(--ink)">Votes nominatifs</b> — les Journaux quotidiens de l'Assemblée (PDF, legnb.ca), le seul endroit où les noms sont consignés.<br>
+        <b style="color:var(--ink)">Conseil exécutif</b> — legnb.ca, page du Conseil exécutif, en français et en anglais.<br>
+        <b style="color:var(--ink)">Député·e·s</b> — legnb.ca, liste officielle des parlementaires en fonction. Leurs courriels ne sont pas repris : legnb.ca les masque.<br>
+        <b style="color:var(--ink)">Présence (%)</b> — calculée à partir des votes nominatifs ci-dessus (voir la définition dans le lexique) ; aucune source externe.
       </p>
     </div>
 
@@ -506,19 +484,13 @@ function goToFederal(evt){
   <!-- VOTES -->
   
 
-  <!-- ARCHIVES (Martin, 30 oct. 2026) : les législatures terminées, une carte chacune (projets de
-       loi, votes), puis les promesses de l'élection de 2026. Dessiné par commun/dq.js (renderArchives)
-       depuis data/archives/index.json : la 43e y entre seule à l'ouverture de la 44e. -->
-  
-
-  <!-- COMPTE & ABONNEMENT -->
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+  <!-- N.-B. (Martin, 7 nov. 2026) : vue de l'abonnement retirée pour l'instant (à reprendre de DossierQuébec). -->
 
   <!-- LEXIQUE (fusion : personnes, lexique, apropos) -->
-  <!-- PROMESSES — vue sans onglet (comme view-bd). Accessible par /promesses,
-       par le bouton de la bande de dissolution et par le bloc du Lexique.
-       Contenu saisi à la main dans data/promises.json (voir la note du fichier). -->
-  
-
   
 
   <!-- PAGE CACHÉE — la BD « l'idée derrière le site ». Aucun onglet n'y mène :
@@ -546,7 +518,6 @@ function goToFederal(evt){
        le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
        porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
        gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
-  
 
   
 
@@ -562,27 +533,19 @@ function goToFederal(evt){
     <a href="/ministres" data-i18n="nav.ministres">Ministres</a>
     <a href="/projets-de-loi" data-i18n="nav.projets">Projets de loi</a>
     <a href="/votes" data-i18n="nav.votes">Votes</a>
-    <a href="/promesses" data-i18n="fil.promesses">Promesses</a>
-    <a href="/archives" data-i18n="nav.archives">Archives</a>
     <a href="/lexique" data-i18n="nav.lexique">Lexique</a>
     <a href="/sources" data-i18n="fil.bd">Mises à jour du site</a>
     <a href="/mon-dossier" data-i18n="nav.mondossier">Mon dossier</a>
     <span class="footer-nav-villes"><span data-i18n="footer.villes">Villes :</span>
-      <a href="/quebec/">Québec</a>
-      <a href="/montreal/">Montréal</a>
+      <a class="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Représentez votre ville</span></a>
     </span>
   </nav>
   <div class="footer-inner">
-  <span class="footer-left-line"><span id="footerLeft">Site non officiel — données publiques ANQ &amp; Données Québec ·</span> <span id="footerRight">Une réalisation de</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com" target="_blank" rel="noopener">DAFR Solution</a></span>
+  <span class="footer-left-line"><span id="footerLeft">Site non officiel — données publiques de l'Assemblée législative du Nouveau-Brunswick ·</span> <span id="footerRight">Une réalisation de</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com" target="_blank" rel="noopener">DAFR Solution</a></span>
   <span class="footer-right-group">
     <a class="footer-gh" href="/regles" data-i18n="footer.regles">Les règles</a>
-    <a class="footer-gh" href="/abonnement" data-i18n="footer.abonnement">Abonnement</a>
-    <a class="footer-gh" href="https://www.facebook.com/dossierquebec" target="_blank" rel="noopener" aria-label="DossierQuébec sur Facebook">Facebook</a>
-    <a class="footer-gh footer-coffee" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener" aria-label="Offre-moi un café" data-i18n="footer.coffee">Offre-moi un café</a>
-    <a class="footer-gh" href="/abonnement" data-i18n="footer.rss" title="Flux RSS : réservé aux abonné·e·s">Flux RSS</a>
-    <!-- Crédit exigé par la licence gratuite de Flaticon (icônes du bouton café, 3 nov. 2026). -->
-    <a class="footer-gh" href="https://www.flaticon.com/fr/icones-gratuites/cafe" target="_blank" rel="noopener" data-i18n="footer.flaticon">Icônes : Flaticon</a>
-    <a class="footer-gh" href="https://github.com/GrandFFormat/DossierQuebec" target="_blank" rel="noopener" data-i18n="footer.source">Code source</a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : abonnement, café, flux RSS des abonné·e·s et crédit Flaticon retirés pour l'instant. -->
+    <a class="footer-gh" href="https://github.com/GrandFFormat/dossiernbrunswick" target="_blank" rel="noopener" data-i18n="footer.source">Code source</a>
   </span>
   </div>
 </footer>

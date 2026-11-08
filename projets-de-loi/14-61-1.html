@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consentement (Loi 25) : par défaut, Google Analytics n'a PAS le droit de déposer de témoins.
+     La bannière (commun/consentement.js) passe analytics_storage à « granted » après « Accepter ». -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6CZX26581K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6CZX26581K', { content_group: 'Assemblée' });
+</script>
+<script src="/commun/consentement.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* La langue, avant d'afficher quoi que ce soit — EXACTEMENT la décision de langueDeDepart
+   (commun/dq.js) : « ?lang=en » dans l'adresse, sinon le choix gardé dans dvq:langue (commun à
+   tout le site) ; en revenant par Précédent ou Suivant, le choix gardé passe avant l'adresse.
+   En anglais, la page reste cachée le temps que dq.js la traduise : 1,5 s au plus, même s'il
+   échoue. lang="en" n'est posé qu'au moment de traduire (dq.js) : si la traduction n'arrive pas,
+   la page française ne s'annonce pas en anglais.
+   Tout est dans une fonction : une variable globale ici entrerait en collision avec les
+   déclarations de dq.js et le ferait planter en entier. */
+(function(){
+  try{
+    var valide = function(l){ return l === 'en' || l === 'fr'; };
+    var gardee = null;
+    try{ gardee = localStorage.getItem('dvq:langue'); }catch(e){}
+    var q = new URLSearchParams(location.search).get('lang');
+    var nav = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+    var parHistorique = !!nav && nav.type === 'back_forward';
+    var choix = (parHistorique && valide(gardee)) ? gardee : (valide(q) ? q : gardee);
+    if(choix !== 'en') return;
+    var racine = document.documentElement;
+    racine.classList.add('dq-en');
+    setTimeout(function(){ racine.classList.add('dq-pret'); }, 1500);
+  }catch(e){}
+})();
+</script>
+<title>PL 14 — Loi modifiant la Loi sur les pratiques d’inscription… — DossierNBrunswick</title>
+<meta name="description" content="PL 14 : Pas encore de résumé en langage clair pour ce projet : le texte officiel, sur legnb.ca, fait foi.">
+<link rel="canonical" href="https://dossiernbrunswick.ca/projets-de-loi/14-61-1">
+<!-- Plus de <link rel="alternate"> vers /feed.xml : le flux RSS est réservé aux abonné·e·s depuis le
+     21 oct. 2026 (api/feed.js), chacun avec son adresse personnelle dans Mon dossier. -->
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0E4FC1">
+
+<!-- Open Graph (aperçu au partage : Facebook, LinkedIn, iMessage…) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DossierNBrunswick">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:title" content="PL 14 — Loi modifiant la Loi sur les pratiques d’inscription… — DossierNBrunswick">
+<meta property="og:description" content="PL 14 : Pas encore de résumé en langage clair pour ce projet : le texte officiel, sur legnb.ca, fait foi.">
+<meta property="og:url" content="https://dossiernbrunswick.ca/projets-de-loi/14-61-1">
+<meta property="og:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
+<meta property="og:image:width" content="1702">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DossierNBrunswick — veille citoyenne de l'Assemblée législative du Nouveau-Brunswick">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PL 14 — Loi modifiant la Loi sur les pratiques d’inscription… — DossierNBrunswick">
+<meta name="twitter:description" content="PL 14 : Pas encore de résumé en langage clair pour ce projet : le texte officiel, sur legnb.ca, fait foi.">
+<meta name="twitter:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
+
+<link rel="icon" type="image/svg+xml" href="/commun/dq.svg">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/commun/dq-48.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/commun/dq-512.png">
+<link rel="apple-touch-icon" href="/commun/dq-512.png">
+
+<!-- Données structurées (aide Google à comprendre le site) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://dossiernbrunswick.ca/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Projets de loi",
+      "item": "https://dossiernbrunswick.ca/projets-de-loi"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "PL 14",
+      "item": "https://dossiernbrunswick.ca/projets-de-loi/14-61-1"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/commun/dq.css">
+<!-- Le design du Nouveau-Brunswick, posé par-dessus dq.css. Il apporte ses polices (Barlow,
+     servies par le site, commun/polices/) : plus rien n'est chargé chez Google Fonts. -->
+<link rel="stylesheet" href="/commun/nb.css">
+</head>
+<body data-page="projets" data-donnees="bills,deputesRaw,stats">
+
+<!-- Ticker brutaliste : bande noire défilante — contenu rempli avec les VRAIES
+     données par renderTicker() (appelé une fois les datasets chargés). -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-text" id="tickerA">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerB">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<div id="dq-topbar">
+<header class="top">
+  <div class="brand">
+    <div class="brand-text" role="button" tabindex="0" aria-label="Retour à l'aperçu" onclick="goToTab('apercu')">
+      <!-- Volontairement un div, et non un titre de niveau 1 : le nom du site se
+           répète sur chaque page, alors que le titre de niveau 1 doit annoncer
+           le sujet de LA page. C'est le titre de une de la vue active qui joue
+           ce rôle, et le générateur de pages de section s'en assure.
+           (Pas de balise écrite en toutes lettres dans ce commentaire : elle
+           fausserait les outils qui comptent les titres à l'expression
+           régulière.) -->
+      <div class="brand-title">Dossier<span class="brand-blue">NBrunswick</span></div>
+      <p>Qui siège, qui légifère, qui vote quoi</p>
+    </div>
+    <!-- Feuille d'érable : passerelle vers le site fédéral DossierCanada.
+         Flippe jaune ↔ rouge toutes les 20 s (voir le script plus bas). -->
+    <a class="maple-flip" id="mapleFlip" role="button" tabindex="0"
+       title="Aller au site fédéral — DossierCanada"
+       aria-label="Aller au site fédéral — DossierCanada"
+       onclick="goToFederal(event)">
+      <svg viewBox="-2015 -2000 4030 4030" aria-hidden="true"><path fill="currentColor" d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z"/></svg>
+    </a>
+    <!-- Les volets municipaux (DossierVille) : un bouton « Villes » qui ouvre la liste.
+         Vrais liens <a href> : le clavier, le clic du milieu et « ouvrir dans un
+         nouvel onglet » fonctionnent sans une ligne de code. La barre oblique finale
+         est OBLIGATOIRE — sans elle, les chemins relatifs du volet (assets/, data/)
+         se résolvent depuis la racine du site. Plus de rel="nofollow" depuis le
+         21 sept. 2026 : les volets sont ouverts aux moteurs de recherche. Le chemin dit /quebec/ : c'est la
+         liste, sous « Villes », qui dit qu'il s'agit de la ville. -->
+  </div>
+  <!-- Nav DANS la ligne du header (maquette : logo | menu | contrôles sur
+       UNE seule rangée). Sur mobile, le nav devient le panneau plein écran
+       du hamburger (position:fixed), peu importe où il vit dans le DOM. -->
+  <nav class="tabs">
+    <div class="close-menu" id="closeMenuBtn"><span data-i18n="nav.close">Fermer</span> ✕</div>
+    <!-- De vrais liens, pas des <button> : un moteur de recherche ne suit pas un bouton, et
+         /ministres, /projets-de-loi, /votes et /lexique n'avaient aucun lien qu'il puisse suivre. -->
+    <a href="/" data-view="apercu"><span class="n">01</span><span data-i18n="nav.apercu">Aperçu</span></a>
+    <a href="/ministres" data-view="ministres"><span class="n">02</span><span data-i18n="nav.ministres">Ministres</span></a>
+    <a class="active" aria-current="page" href="/projets-de-loi" data-view="projets"><span class="n">03</span><span data-i18n="nav.projets">Projets de loi</span></a>
+    <!-- Votes a quitté la barre le 30 oct. 2026 : les votes vivent dans les cartes des projets de
+         loi, et /votes reste lié du pied de page et de la page des projets. -->
+    <!-- N.-B. (Martin, 7 nov. 2026) : pas d'onglet Archives ni de page Promesses tant que le site n'a
+         ni législature terminée ni promesses du Nouveau-Brunswick. -->
+    <a href="/lexique" data-view="lexique"><span class="n">04</span><span data-i18n="nav.lexique">Lexique</span></a>
+    <a href="/mon-dossier" data-view="mondossier" class="nav-mondossier"><span class="n">★</span><span data-i18n="nav.mondossier">Mon dossier</span></a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : le menu des villes est un onglet, après Mon dossier,
+         au lieu d'une pastille à côté du nom du site. Même menu déroulant que DQ. -->
+    <details class="villes-menu" id="villesMenu">
+      <summary class="nav-villes" title="Les volets municipaux" aria-label="Les volets municipaux">
+        <span data-i18n="nav.villes">Villes</span>
+      </summary>
+      <ul>
+        <!-- N.-B. : aucune ville encore ; le seul lien mène au formulaire de DossierQuébec (guide, étape 9). -->
+        <li class="villes-rtv"><a id="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Représentez votre ville</span></a></li>
+      </ul>
+    </details>
+  </nav>
+  <div class="header-ctrls">
+    <div class="font-size-ctrl" id="fontSizeCtrl">
+      <button id="fontMinus" aria-label="Réduire le texte">A−</button>
+      <span id="fontPct">100%</span>
+      <button id="fontPlus" aria-label="Agrandir le texte">A+</button>
+    </div>
+    <!-- Aucun contenu textuel : l'icône est dessinée en CSS. Le nom accessible
+         vient donc entièrement de aria-label, que le JS tient à jour. -->
+    <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Passer au thème sombre" title="Passer au thème sombre"></button>
+    <button class="lang-toggle" id="langToggle">English</button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+</div>
+
+<script>
+/* Bascule le bloc logo+menu en mode compact après un peu de défilement.
+   Hystérésis (80 vs 20) pour éviter le clignotement autour du seuil. */
+(function(){
+  var bar = document.getElementById('dq-topbar');
+  var compact = false;
+  function onScroll(){
+    var y = window.scrollY;
+    if(!compact && y > 80){ compact = true; bar.classList.add('compact'); }
+    else if(compact && y < 20){ compact = false; bar.classList.remove('compact'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+
+// Ouvre le site fédéral DossierCanada dans un nouvel onglet.
+function goToFederal(evt){
+  if(evt) evt.stopPropagation();
+  window.open('https://dossiercanada.ca/', '_blank', 'noopener');
+}
+// Feuille d'érable : flippe jaune ↔ rouge toutes les 20 secondes.
+(function(){
+  var leaf = document.getElementById('mapleFlip');
+  if(!leaf) return;
+  setInterval(function(){ leaf.classList.toggle('is-red'); }, 20000);
+})();
+
+// Menu « Villes » : compte les clics vers chaque volet municipal (événement
+// personnalisé Vercel Web Analytics — onglet « Events » du tableau de bord), et
+// referme le menu quand on clique ailleurs ou qu'on appuie sur Échap.
+(function(){
+  var menu = document.getElementById('villesMenu');
+  if(!menu) return;
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(window.va) window.va('event', { name: 'clic_icone_ville', data: { ville: a.getAttribute('href') } });
+    });
+  });
+  document.addEventListener('click', function(e){ if(menu.open && !menu.contains(e.target)) menu.open = false; });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && menu.open){ menu.open = false; menu.querySelector('summary').focus(); } });
+})();
+</script>
+
+<div class="app">
+
+  <!-- APERÇU -->
+  <section class="view active" id="view-projets">
+    <nav class="fil-ariane" aria-label="Fil d'Ariane"><a href="/" data-i18n="fil.accueil">Accueil</a><span class="sep" aria-hidden="true">›</span><span aria-current="page" data-i18n="fil.projets">Projets de loi</span></nav>
+    <!-- Hero de vue (refonte brutaliste) -->
+    <div class="view-hero">
+      <h1 class="hero-h1 hero-h1-md">
+        <span class="hero-sujet" data-i18n="sujet.projets">Projets de loi du Nouveau-Brunswick</span>
+        <span data-i18n="projhero.l1">Projets de loi,</span>
+        <span class="hero-outline" data-i18n="projhero.l2">traduits en clair.</span>
+      </h1>
+      <p class="view-hero-sub" data-i18n="projhero.sub">Chaque projet avec son étape réelle et la date de chaque lecture. <b>Le texte intégral reste toujours à un clic, sur legnb.ca.</b></p>
+
+      <!-- Recherche façon maquette + 4 filtres rapides (actif = noir/jaune) -->
+      <div class="projets-controls">
+        <div class="brutal-search">
+          <span class="bs-icon" aria-hidden="true">🔍</span>
+          <input type="text" id="searchBills" data-i18n-placeholder="ph.searchBills" placeholder="Numéro, titre ou mot-clé…">
+        </div>
+        <!-- Tri par activité. La logique existait déjà (toggleBillsSort) mais
+             AUCUN bouton ne la déclenchait : la liste était figée sur « activité
+             la plus récente » sans que personne puisse en sortir. -->
+        <button class="sort-toggle" id="sortToggle" onclick="toggleBillsSort()">↓ Activité récente</button>
+        <div class="quick-filters" id="billsQuickFilters"></div>
+      </div>
+    </div>
+
+    <!-- Bande légende : le chemin d'un projet (les 3 étapes RÉELLES du site) -->
+    <div class="legend-strip bleed">
+      <span class="legend-label" data-i18n="legend.label">Le chemin d'un projet de loi :</span>
+      <span class="legend-chips">
+        <span class="bstep">Première lecture</span><span class="legend-arrow">→</span>
+        <a class="bstep bstep-lien" href="/lexique#etape-etude">Deuxième lecture et comité</a><span class="legend-arrow">→</span>
+        <a class="bstep bstep-lien" href="/lexique#etape-adoption">Troisième lecture / Sanction</a>
+      </span>
+      <!-- #etapes : les étapes du Lexique, plutôt que le haut de la page (lobbyistes d'abord). -->
+      <a class="legend-link" href="/lexique#etapes" data-i18n="legend.link">C'est quoi ces étapes ? → Lexique</a>
+    </div>
+    <!-- Les votes nominaux sont dans chaque carte (« Qui a voté… ») ; la liste complète, motions
+         comprises, reste sur /votes (30 oct. 2026). -->
+    <p class="archives-note" id="lienTousVotes"><a href="/votes" data-i18n="projets.tousvotes">Tous les votes nominaux, motions comprises →</a></p>
+
+    <!-- Titre de résultats (change avec le filtre actif) -->
+    <div class="section-head min-group-head" id="billsResultHead">
+      <div><h2 id="billsResultTitle">Tous les projets</h2></div>
+      <span class="head-note" id="billsResultNote"></span>
+    </div>
+
+    <div id="billsList"><article class="bill-prerendu">
+<h2>Projet de loi no 14 — Loi modifiant la Loi sur les pratiques d’inscription équitables dans les professions réglementées</h2>
+<p>Sanctionné le 2025-06-06 · Parrain : D'Amours, Jean-Claude</p>
+<p><em>Pas encore de résumé en langage clair pour ce projet : le texte officiel, sur legnb.ca, fait foi.</em></p><details class="bill-votes"><summary>Qui a voté pour ou contre</summary><p class="bill-votes-note"><b>Il n’existe pas de liste de noms pour cette loi.</b> Elle a été adoptée de vive voix : les député·e·s répondent de leur place, et seule l’issue est consignée au Journal de l’Assemblée. Personne n’est compté.</p><p class="bill-votes-note">Une liste nom par nom existe seulement lors d’un <b>vote par appel nominal</b> : chaque député·e est alors compté·e pour ou contre, et son nom est inscrit au Journal. <a href="https://www.legnb.ca/fr/législation/projets-de-loi/61/1/14/loi-modifiant-la-loi-sur-les-pratiques-dinscr" target="_blank" rel="noopener">Le projet sur le site de l’Assemblée</a>.</p></details>
+<p><a href="https://www.legnb.ca/fr/législation/projets-de-loi/61/1/14/loi-modifiant-la-loi-sur-les-pratiques-dinscr" rel="noopener">Le projet de loi sur le site de l'Assemblée législative (legnb.ca)</a></p>
+</article></div>
+    <div class="prerendu" data-prerendu="bills">
+      <ul aria-label="Projets de loi">
+        <li><b>Projet de loi n° 14</b> — Loi concernant les mesures de réforme de l’impôt foncier <span class="pr-meta">· Adopté en deuxième lecture le 2026-11-06</span></li>
+        <li><b>Projet de loi n° 13</b> — Loi modifiant la Loi sur l’Université de Moncton <span class="pr-meta">· Adopté en troisième lecture le 2026-11-06, en attente de la sanction royale</span></li>
+        <li><b>Projet de loi n° 12</b> — Loi concernant les jeunes, les marchés numériques et l’utilisation de la technologie <span class="pr-meta">· Adopté en deuxième lecture le 2026-11-06</span></li>
+        <li><b>Projet de loi n° 6</b> — Loi modifiant la Loi sur les normes d’emploi <span class="pr-meta">· Étude en comité terminée le 2026-11-06</span></li>
+        <li><b>Projet de loi n° 5</b> — Loi sur les accords de non-divulgation <span class="pr-meta">· Adopté en troisième lecture le 2026-11-06, en attente de la sanction royale</span></li>
+        <li><b>Projet de loi n° 4</b> — Loi modifiant la Loi sur la Cour provinciale <span class="pr-meta">· Adopté en troisième lecture le 2026-11-06, en attente de la sanction royale</span></li>
+        <li><b>Projet de loi n° 3</b> — Loi concernant le défenseur des enfants, des jeunes, des aînés et de la santé mentale <span class="pr-meta">· Adopté en troisième lecture le 2026-11-06, en attente de la sanction royale</span></li>
+        <li><b>Projet de loi n° 2</b> — Loi modifiant la Loi sur le recouvrement des dommages-intérêts et des coûts des soins de santé imputables aux opioïdes <span class="pr-meta">· Adopté en troisième lecture le 2026-11-06, en attente de la sanction royale</span></li>
+        <li><b>Projet de loi n° 11</b> — Loi sur les permis visant les services de traitement des dépendances <span class="pr-meta">· Adopté en deuxième lecture le 2026-11-04</span></li>
+        <li><b>Projet de loi n° 10</b> — Loi modifiant la Loi sur l’éducation <span class="pr-meta">· Adopté en deuxième lecture le 2026-11-03</span></li>
+        <li><b>Projet de loi n° 9</b> — Loi modifiant la Loi sur l’électricité <span class="pr-meta">· Adopté en deuxième lecture le 2026-11-03</span></li>
+        <li><b>Projet de loi n° 8</b> — Loi modifiant la Loi sur la réglementation des jeux <span class="pr-meta">· Adopté en deuxième lecture le 2026-11-03</span></li>
+        <li><b>Projet de loi n° 7</b> — Loi modifiant la Loi sur les licences de brocanteurs <span class="pr-meta">· Adopté en deuxième lecture le 2026-10-28</span></li>
+        <li><b>Projet de loi n° 1</b> — Loi perpétuant un droit traditionnel spécifique <span class="pr-meta">· Déposé le 2026-10-20</span></li>
+        <li><b>Projet de loi n° 51</b> — Loi relative à l’Association des agents immobiliers du Nouveau-Brunswick <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 50</b> — Loi concernant l’application des textes législatifs des Premières Nations et la poursuite des infractions qui y sont prévues <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 49</b> — Loi concernant la réforme du régime d’impôt foncier <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 48</b> — Loi sur les emprunts de 2026 <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 47</b> — Loi concernant le défenseur des consommateurs du secteur énergétique <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 46</b> — Loi sur le défenseur des consommateurs du secteur énergétique <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 45</b> — Loi sur les ressources minérales <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 44</b> — Loi modifiant la Loi sur l’inscription des lobbyistes <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 43</b> — Loi modifiant la Loi sur la voirie <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 42</b> — Loi concernant la communication de renseignements aux organismes de réglementation professionnelle <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 41</b> — Loi modifiant la Loi sur la gouvernance locale <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 40</b> — Loi concernant la qualité des soins de santé et la sécurité des patients <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 39</b> — Loi concernant la Loi de l’impôt sur le revenu du Nouveau-Brunswick et la Loi sur le crédit d’impôt pour les investisseurs dans les petites entreprises <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 38</b> — Loi de 2026-2027 portant affectation de crédits <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 37</b> — Loi supplémentaire de 2024-2025 (2) portant affectation de crédits <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 36</b> — Loi modifiant la Loi sur les véhicules à moteur <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 35</b> — Loi modifiant la Loi sur la Cour des successions <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 34</b> — Loi concernant la Loi sur la voirie et la Loi sur les licences de brocanteurs <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 33</b> — Loi concernant la Loi sur l’apprentissage et la certification professionnelle <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 32</b> — Loi modifiant la Loi sur l’organisation judiciaire <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 31</b> — Loi sur le processus relatif au traitement des plaintes contre les juges à la Cour provinciale et les adjudicateurs <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 30</b> — Loi concernant la Loi sur la Cour des successions et la Loi sur le curateur public <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 29</b> — Loi sur la compétence des tribunaux et la transmission des instances <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 28</b> — Loi sur l’exécution des jugements canadiens <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 27</b> — Loi modifiant la Loi sur la prescription <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 26</b> — Loi modifiant la Loi sur les normes d’emploi <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 25</b> — Loi modifiant la Loi sur les sages-femmes <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 24</b> — Loi sur la transparence salariale <span class="pr-meta">· Sanctionné le 2026-06-12</span></li>
+        <li><b>Projet de loi n° 23</b> — Loi concernant le droit à un environnement sain <span class="pr-meta">· Rejeté le 2026-03-26</span></li>
+        <li><b>Projet de loi n° 22</b> — Loi supplémentaire de 2025-2026 (1) portant affectation de crédits <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 21</b> — Loi modifiant la Loi sur le bien-être des enfants et des jeunes <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 20</b> — Loi modifiant la Loi concernant certains parcs et certaines rues dans la cité de Fredericton <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 19</b> — Loi relative à l’Association des ergothérapeutes du Nouveau-Brunswick <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 18</b> — Loi sur le projet d’atteinte de durée de vie utile de la centrale de Mactaquac <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 17</b> — Loi modifiant la Loi sur les véhicules à moteur <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 16</b> — Loi modifiant la Loi sur la réglementation des alcools <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 15</b> — Loi concernant les prestations de pension <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 14</b> — Loi sur le libre-échange au Canada <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 13</b> — Loi modifiant la Loi sur les testaments <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 12</b> — Loi modifiant la Loi sur les commissaires à la prestation des serments <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 11</b> — Loi modifiant la Loi sur la statistique <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 10</b> — Loi modifiant la Loi sur la réglementation des jeux <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 9</b> — Loi concernant la Loi sur le service d’urgence 911 <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 8</b> — Loi modifiant la Loi créant l’Ordre du Nouveau-Brunswick <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 7</b> — Loi concernant la Loi sur les services à la petite enfance <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 6</b> — Loi modifiant la Loi sur l’Université du Nouveau-Brunswick <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 5</b> — Loi modifiant la Loi constituant Opportunités Nouveau-Brunswick <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 4</b> — Loi concernant la Loi sur la Commission d’appel du secteur agricole et la Loi sur les abeilles <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 3</b> — Loi modifiant la Loi sur les valeurs mobilières <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 2</b> — Loi modifiant la Loi sur la santé publique <span class="pr-meta">· Sanctionné le 2025-12-12</span></li>
+        <li><b>Projet de loi n° 1</b> — Loi perpétuant un droit traditionnel spécifique <span class="pr-meta">· Mort au Feuilleton à la fin de la session 2, dernière activité le 2025-10-21</span></li>
+        <li><b>Projet de loi n° 36</b> — Loi sur l’ostéopathie <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 35</b> — Loi sur le statut de l’artiste <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 34</b> — Loi sur la massothérapie <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 33</b> — Loi modifiant la Loi sur le financement communautaire <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 32</b> — Loi supplémentaire de 2023-2024 (1) portant affectation de crédits <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 31</b> — Loi de 2025-2026 portant affectation de crédits <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 30</b> — Loi sur les emprunts de 2025 <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 29</b> — Loi modifiant la Loi sur le Conseil exécutif <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 28</b> — Loi modifiant la Loi sur les actes d’intrusion <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 27</b> — Loi modifiant la Loi sur la Cour provinciale <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 26</b> — Loi modifiant la Loi sur la Commission des courses attelées des provinces de l’Atlantique <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 25</b> — Loi concernant les fonctionnaires de justice <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 24</b> — Loi modifiant la Loi sur la santé mentale <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 23</b> — Loi concernant la Loi sur la surveillance pharmaceutique <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 22</b> — Loi concernant les mesures favorisant l’abordabilité à l’impôt foncier <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 21</b> — Loi modifiant la Loi de l’impôt sur le revenu du Nouveau-Brunswick <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 20</b> — Loi spéciale de 2025 portant affectation de crédits <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 18</b> — Loi modifiant la Loi constituant l’Association des orthophonistes et audiologistes du Nouveau-Brunswick <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 17</b> — Loi concernant les bandes de motards hors la loi <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 16</b> — Loi modifiant la Loi sur l’organisation judiciaire <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 15</b> — Loi concernant la Loi sur la voirie <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 14</b> — Loi modifiant la Loi sur les pratiques d’inscription équitables dans les professions réglementées <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 13</b> — Loi concernant la Loi sur l’indemnisation des pompiers et la Loi sur les accidents du travail <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 12</b> — Loi abrogeant la Loi sur la pérennité et le transfert de régimes de pension <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 11</b> — Loi modifiant la Loi sur les véhicules à moteur <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 10</b> — Loi concernant la sécurité à motocyclette <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 9</b> — Loi modifiant la Loi sur l’organisation judiciaire <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 8</b> — Loi concernant la Loi sur l’attribution de grades universitaires <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 7</b> — Loi concernant les soins infirmiers itinérants <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 6</b> — Loi modifiant la Loi sur la réglementation des alcools <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 4</b> — Loi concernant la fixation des prix des produits pétroliers <span class="pr-meta">· Sanctionné le 2025-06-06</span></li>
+        <li><b>Projet de loi n° 19</b> — Loi concernant le droit à un environnement sain <span class="pr-meta">· Mort au Feuilleton à la fin de la session 1, dernière activité le 2025-05-29</span></li>
+        <li><b>Projet de loi n° 5</b> — Loi supplémentaire de 2024-2025 (1) portant affectation de crédits <span class="pr-meta">· Sanctionné le 2024-12-13</span></li>
+        <li><b>Projet de loi n° 3</b> — Loi modifiant la Loi sur la location de locaux d’habitation <span class="pr-meta">· Sanctionné le 2024-12-13</span></li>
+        <li><b>Projet de loi n° 2</b> — Loi modifiant la Loi sur le Conseil exécutif <span class="pr-meta">· Sanctionné le 2024-12-13</span></li>
+        <li><b>Projet de loi n° 1</b> — Loi abrogeant la Loi sur les récipients à boisson <span class="pr-meta">· Mort au Feuilleton à la fin de la session 1, dernière activité le 2024-11-20</span></li>
+      </ul>
+      <p class="pr-note">Les 101 projets de loi, du plus récemment actif au plus ancien. Texte intégral de chacun : <a href="https://www.legnb.ca/" rel="noopener">legnb.ca</a>.<noscript> Les filtres, la recherche et le détail de chaque fiche demandent JavaScript.</noscript></p>
+    </div>
+
+    <!-- Explainer « challenger » : adapté au VRAI mécanisme du site (compte
+         requis, 1 demande par personne, paliers 500/1000) — la maquette disait
+         « pas de compte requis », ce qui ne correspond pas à la réalité.
+         N.-B. (Martin, 7 nov. 2026) : gardée, avec le bouton des cartes. -->
+    <div class="band band-yellow bleed" id="band-challenge-explainer">
+      <h2 data-i18n="chexp.h">✋ C'est quoi, « challenger » ?</h2>
+      <p data-i18n="chexp.p1">Un clic sur « Demander une explication » = une demande citoyenne pour que le parrain du projet l'explique en langage clair, et pour qu'on le garde à l'œil ensemble.</p>
+      <p data-i18n="chexp.p2"><b>Un compte (courriel) est requis</b> — une demande par personne, aucune demande anonyme.</p>
+      <p data-i18n="chexp.p3">Au Nouveau-Brunswick, ces demandes ne mènent à rien d'officiel : l'Assemblée n'a pas de pétition en ligne, contrairement au Québec ou à la Chambre des communes. Pour l'instant, c'est une façon simple de voir quelles lois posent problème aux gens. Un jour, un·e élu·e y verra peut-être un outil.</p>
+    </div>
+
+    <!-- Reste des projets (3e et suivants) — la bande jaune ci-dessus
+         s'intercale ainsi entre le 2e et le 3e projet. -->
+    <div id="billsListRest"></div>
+  </section>
+
+  <!-- MINISTRES & DÉPUTÉS -->
+  
+
+  <!-- PROJETS DE LOI -->
+  
+
+  <!-- VOTES -->
+  
+
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+  <!-- N.-B. (Martin, 7 nov. 2026) : vue de l'abonnement retirée pour l'instant (à reprendre de DossierQuébec). -->
+
+  <!-- LEXIQUE (fusion : personnes, lexique, apropos) -->
+  
+
+  <!-- PAGE CACHÉE — la BD « l'idée derrière le site ». Aucun onglet n'y mène :
+       accessible seulement par le « et moi » du bas de page (à côté de
+       « Construit avec Claude »). goToTab('bd') fonctionne sans bouton d'onglet. -->
+  <!-- /mon-dossier : l'espace de la personne connectée, côté ASSEMBLÉE seulement (Martin,
+       22 sept. 2026 : « mes dossiers provincial et les villes doivent être complètement séparés »).
+       Les villes y ont leur section (#villes) depuis le 30 sept. 2026 ; avant, /mes-dossiers. Tout le contenu
+       est rempli par commun/dq.js (renderMonDossier) : rien de personnel n'est dans le HTML. -->
+  <!-- LES RÈGLES (Martin, 5 oct. 2026 : « on pourrait quasiment faire une page de ça… à côté de
+       Facebook »). Les règles de sources du site, écrites une fois pour être montrées à quelqu'un :
+       tout ce que les encadrés de méthode disent page par page, réuni. Lien dans le pied de page. -->
+  
+
+  <!-- LA PAGE 404 (Martin, 6 oct. 2026 : « faut une page drôle 404 », puis : avec le jaune et tout
+       le kit du site, « morte dans l'œuf », et pas de blanc sur noir). Vercel sert 404.html, avec le
+       code 404, pour toute adresse qui n'existe pas ; avant, c'était le message brut de l'hébergeur,
+       en anglais. Fabriquée comme les autres pages (scripts/build-section-pages.js, vue
+       « introuvable »), donc avec l'en-tête, le menu et le pied du site.
+       « Morte dans l'œuf » est le libellé des projets de loi jamais rendus plus loin que la
+       présentation. Le faux vote est ÉTIQUETÉ comme une blague : ce site n'invente jamais de donnée. -->
+  
+
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+
+  
+
+  
+
+</div>
+
+<!-- Footer maquette : texte à gauche (avec « construit avec Claude » suivi du
+     lien caché « et moi » vers la BD), liens texte en majuscules à droite. -->
+<footer>
+  <nav class="footer-nav" aria-label="Plan du site">
+    <a href="/" data-i18n="nav.apercu">Aperçu</a>
+    <a href="/ministres" data-i18n="nav.ministres">Ministres</a>
+    <a href="/projets-de-loi" data-i18n="nav.projets">Projets de loi</a>
+    <a href="/votes" data-i18n="nav.votes">Votes</a>
+    <a href="/lexique" data-i18n="nav.lexique">Lexique</a>
+    <a href="/sources" data-i18n="fil.bd">Mises à jour du site</a>
+    <a href="/mon-dossier" data-i18n="nav.mondossier">Mon dossier</a>
+    <span class="footer-nav-villes"><span data-i18n="footer.villes">Villes :</span>
+      <a class="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Représentez votre ville</span></a>
+    </span>
+  </nav>
+  <div class="footer-inner">
+  <span class="footer-left-line"><span id="footerLeft">Site non officiel — données publiques de l'Assemblée législative du Nouveau-Brunswick ·</span> <span id="footerRight">Une réalisation de</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com" target="_blank" rel="noopener">DAFR Solution</a></span>
+  <span class="footer-right-group">
+    <a class="footer-gh" href="/regles" data-i18n="footer.regles">Les règles</a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : abonnement, café, flux RSS des abonné·e·s et crédit Flaticon retirés pour l'instant. -->
+    <a class="footer-gh" href="https://github.com/GrandFFormat/dossiernbrunswick" target="_blank" rel="noopener" data-i18n="footer.source">Code source</a>
+  </span>
+  </div>
+</footer>
+
+<button id="backToTop" class="dq-remonter" aria-label="Remonter en haut" title="Remonter en haut" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/commun/apercu.js"></script>
+<script src="/commun/dq.js"></script>
+<!-- Vercel Web Analytics — sans cookie, sans donnée personnelle (donc pas de
+     bannière de consentement requise). Le script est servi automatiquement par
+     Vercel quand Web Analytics est activé dans le tableau de bord du projet. -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

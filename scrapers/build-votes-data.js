@@ -49,7 +49,7 @@ const END_MARKER = '/* VOTES_DATA_END */';
 
 // Les partis pris en compte pour juger qu'un vote « divise ». Même liste que
 // celle qui vivait dans commun/dq.js.
-const PARTIS = ['CAQ', 'PLQ', 'QS', 'PQ', 'PCQ'];
+const PARTIS = ['LIB', 'PC', 'VERT'];   // N.-B. : les partis de l'Assemblée législative
 
 // Un vote divise quand les partis ne penchent pas tous du même côté. Le camp
 // d'un parti est celui où il a le plus de voix ; à égalité, c'est l'ordre
@@ -67,6 +67,12 @@ function voteDivise(nominal) {
   const camps = new Set(Object.values(pos).map((o) => Object.entries(o).sort((a, b) => b[1] - a[1])[0][0]));
   return camps.size > 1;
 }
+
+// N.-B. : député·e·s arrivé·e·s en cours de législature, par élection partielle (numéro de fiche
+// legnb → jour de l'élection). Leur présence se compte à partir de là.
+//   209 Kevin Russell, Miramichi-Ouest : partielle du 6 oct. 2025 (rapport du directeur général
+//   des élections, déposé le 11 févr. 2026 : legnb.ca/content/house_business/61/2/tabled_documents/).
+const ELU_LE = { 209: '2025-10-06' };
 
 // Taux de participation par député. L'Assemblée ne publie pas d'assiduité :
 // le meilleur indicateur public est la présence aux votes nominaux, comptée
@@ -87,7 +93,11 @@ function calculerPresences(out) {
     if (apparus.size === 0) continue;
     const siens = parDate.filter((v) => apparus.has(v.id));
     if (siens.length === 0) continue;
-    const depuis = siens[0].date;
+    // N.-B. (7 nov. 2026) : le compte part du premier vote de la législature pour tout le monde.
+    // Partir du premier vote de la personne (calcul de DQ) effaçait ses absences du début : six
+    // député·e·s élu·e·s en 2024 passaient à 79-84 % au lieu de leur vrai taux. Seule exception :
+    // une élection partielle, dont la date vient d'Élections N.-B. (ELU_LE plus haut).
+    const depuis = ELU_LE[id] || parDate[0].date;
     const eligibles = parDate.filter((v) => v.date >= depuis);
     const participes = eligibles.filter((v) => apparus.has(v.id)).length;
     presences[id] = { participated: participes, total: eligibles.length, rate: Math.round((participes / eligibles.length) * 100), depuis };   // depuis : date du premier vote nominal (partage des fiches, 22 oct. 2026)

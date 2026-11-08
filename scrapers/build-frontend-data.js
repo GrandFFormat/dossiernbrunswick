@@ -22,7 +22,7 @@
 // sanctionné / à l'étude / sur la glace.
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
-import { comptes } from '../api/_consultations.js';
+// N.-B. : pas de mémoires de commission (outil des abonné·e·s de DossierQuébec, api/ retiré).
 
 const IN_PATH = 'data/bills.json';
 const HTML_PATH = 'gabarit.html';   // le MODÈLE, jamais servi : les pages en sont tirées
@@ -80,7 +80,7 @@ function omnibusToHtml(text, en) {
 
 function summaryToHtml(bill) {
   if (bill.omnibus && bill.summary) return omnibusToHtml(bill.summary, false);
-  return bulletsToHtml(bill.summary, '<p><em>Résumé non disponible pour ce projet de loi.</em></p>');
+  return bulletsToHtml(bill.summary, '<p><em>Pas encore de résumé en langage clair pour ce projet : le texte officiel, sur legnb.ca, fait foi.</em></p>');   // N.-B.
 }
 
 function main() {
@@ -100,7 +100,7 @@ function main() {
     urlEn: b.urlEn || null,
     titleEn: b.titleEn || null,
     noteEn: b.noteEn || null,
-    summaryEn: b.summaryEn ? (b.omnibus ? omnibusToHtml(b.summaryEn, true) : bulletsToHtml(b.summaryEn, null)) : null,
+    summaryEn: b.summaryEn ? (b.omnibus ? omnibusToHtml(b.summaryEn, true) : bulletsToHtml(b.summaryEn, null)) : '<p><em>No plain-language summary for this bill yet: the official text, on legnb.ca, is the reference.</em></p>',   // N.-B. : le message existe aussi en anglais
     lastActivity: b.lastActivity,
     presentedOn: b.presentedOn || null,
     // La législature et la session de dépôt : l'adresse de la page du projet (/projets-de-loi/3-43-3,
@@ -165,15 +165,16 @@ function main() {
     .sort((x, y) => (x.date || '').localeCompare(y.date || '') || (Number(x.num) || 0) - (Number(y.num) || 0));
   const caseVotes = (b, en) => {
     const liste = votesDuProjet(b);
-    const titre = en ? 'Who voted for, against or abstained' : 'Qui a voté pour, contre ou s’est abstenu';
+    // N.-B. : les Journaux ne consignent que « pour » et « contre », jamais d'abstention.
+    const titre = en ? 'Who voted for or against' : 'Qui a voté pour ou contre';
     // Sans vote nominal, on explique comment la loi a été adoptée (Martin, 18 oct. 2026 : « que les
     // gens comprennent »). Le mode exact (unanimité ou majorité) est sur la fiche de l'Assemblée.
     // Un projet non sanctionné sans vote nominal n'a pas de case : il n'y a rien à expliquer.
     if (!liste.length) return b.status !== 'sanctionne' ? '' : `<details class="bill-votes"><summary>${titre}</summary><p class="bill-votes-note">${en
-      ? '<b>No list of names exists for this law.</b> It was passed by voice: the Speaker asks “Is this motion carried?” and members answer from their seats. If no one objects, it passes unanimously. If a party answers “On division”, it passes by a majority, without anyone being counted.'
-      : '<b>Il n’existe pas de liste de noms pour cette loi.</b> Elle a été adoptée de vive voix : le président demande « Cette motion est-elle adoptée ? » et les députés répondent de leur place. Si personne ne s’oppose, elle passe à l’unanimité. Si un parti répond « Sur division », elle passe à la majorité des voix, sans que personne soit compté.'}</p><p class="bill-votes-note">${en
-      ? 'A list of names exists only when a party asks for a <b>recorded division</b>: each member then stands for, against or abstaining, and their name is written down.'
-      : 'Une liste nom par nom existe seulement quand un parti demande un <b>vote par appel nominal</b> : chaque député se lève alors pour, contre ou abstention, et son nom est inscrit.'} <a href="${echapper(en ? (b.urlEn || b.url) : b.url)}" target="_blank" rel="noopener">${en ? 'How it was passed, on the Assembly’s website' : 'Comment elle a été adoptée, sur la fiche de l’Assemblée'}</a>.</p></details>`;
+      ? '<b>No list of names exists for this law.</b> It was passed by voice: members answer from their seats, and only the outcome is written in the Assembly’s Journal. No one is counted.'
+      : '<b>Il n’existe pas de liste de noms pour cette loi.</b> Elle a été adoptée de vive voix : les député·e·s répondent de leur place, et seule l’issue est consignée au Journal de l’Assemblée. Personne n’est compté.'}</p><p class="bill-votes-note">${en
+      ? 'A list of names exists only for a <b>recorded division</b>: each member is then counted for or against, and their name is written in the Journal.'
+      : 'Une liste nom par nom existe seulement lors d’un <b>vote par appel nominal</b> : chaque député·e est alors compté·e pour ou contre, et son nom est inscrit au Journal.'} <a href="${echapper(en ? (b.urlEn || b.url) : b.url)}" target="_blank" rel="noopener">${en ? 'The bill on the Assembly’s website' : 'Le projet sur le site de l’Assemblée'}</a>.</p></details>`;
     const objet = encodeURIComponent((en ? 'Bill ' : 'Projet de loi n° ') + b.num + ' — ' + (en ? (b.titleEn || b.title) : b.title));
     // Une carte par vote, dessinée comme celles de /votes (renderVotes, commun/dq.js). Seuls la tête
     // et la barre sont ici : les noms (125 par vote, avec ✉ et ⧉) pesaient 1,6 Mo dans ce fichier.
@@ -185,20 +186,20 @@ function main() {
       const seg = (g) => (total ? (t[g] / total * 100).toFixed(1) : 0);
       const adopte = t.pour > t.contre;
       const etape = v.stage || (en ? 'Recorded division' : 'Vote nominal');
-      return `<div class="vote-card bill-vote-card"><div class="vc-head"><span class="result-badge ${adopte ? 'adopte' : 'rejete'}">${adopte ? (en ? 'Passed' : 'Adopté') : (en ? 'Rejected' : 'Rejeté')}</span><div class="vc-head-main"><h3>${echapper(etape)}</h3><div class="vc-meta">${echapper(v.date)} · ${en ? 'Recorded division' : 'Vote nominal'}</div></div><div class="vc-counts"><span class="vcc pour"><b>${t.pour}</b> ${en ? 'yea' : 'pour'}</span><span class="vcc contre"><b>${t.contre}</b> ${en ? 'nay' : 'contre'}</span><span class="vcc abst"><b>${t.abstentions}</b> abst.</span></div></div><div class="bar"><div class="seg pour" style="width:${seg('pour')}%"></div><div class="seg contre" style="width:${seg('contre')}%"></div><div class="seg abst" style="width:${seg('abstentions')}%"></div></div><div class="vc-detail open" data-vote="${v.session}-${v.num}" data-leg="${v.legislature}"><div class="vc-pgrid"></div><div class="vc-ncols"></div><div class="vc-foot"><span class="vc-foot-note">${en ? 'An abstention is not a « no » vote — mission, illness, scheduling.' : 'Une abstention n’est pas un vote « non » — mission, maladie, horaire.'}</span><a class="bill-more" href="${echapper(v.url)}" target="_blank" rel="noopener">${en ? 'Full record → assnat.qc.ca' : 'Procès-verbal complet → assnat.qc.ca'}</a></div></div></div>`;
+      return `<div class="vote-card bill-vote-card"><div class="vc-head"><span class="result-badge ${adopte ? 'adopte' : 'rejete'}">${adopte ? (en ? 'Passed' : 'Adopté') : (en ? 'Rejected' : 'Rejeté')}</span><div class="vc-head-main"><h3>${echapper(etape)}</h3><div class="vc-meta">${echapper(v.date)} · ${en ? 'Recorded division' : 'Vote nominal'}</div></div><div class="vc-counts"><span class="vcc pour"><b>${t.pour}</b> ${en ? 'yea' : 'pour'}</span><span class="vcc contre"><b>${t.contre}</b> ${en ? 'nay' : 'contre'}</span></div></div><div class="bar"><div class="seg pour" style="width:${seg('pour')}%"></div><div class="seg contre" style="width:${seg('contre')}%"></div><div class="seg abst" style="width:${seg('abstentions')}%"></div></div><div class="vc-detail open" data-vote="${v.session}-${v.num}" data-leg="${v.legislature}"><div class="vc-pgrid"></div><div class="vc-ncols"></div><div class="vc-foot"><span class="vc-foot-note">${en ? 'Not on the list is not a « no » vote — mission, illness, scheduling.' : 'Ne pas figurer sur la liste n’est pas un vote « non » — mission, maladie, horaire.'}</span><a class="bill-more" href="${echapper(v.url)}" target="_blank" rel="noopener">${en ? 'The Journal → legnb.ca' : 'Le Journal → legnb.ca'}</a></div></div></div>`;
     };
     const n = liste.length;
     // Le décompte du dernier vote dans le titre de la case, « pour / contre / abst. » dans l'ordre du titre (Martin, 30 oct. 2026 : « les gens sont pas
     // obligés de cliquer pour rien »). Avec plusieurs votes, l'étape du dernier suit entre parenthèses.
-    const decompte = (v) => `${v.pour.length} / ${v.contre.length} / ${v.abstentions.length}`;
+    const decompte = (v) => `${v.pour.length} / ${v.contre.length}`;   // N.-B. : pas d'abstention consignée
     return `<details class="bill-votes" data-objet="${objet}"><summary>${titre}${en ? ': ' : ' : '}${decompte(liste[n - 1])}${n > 1 ? ` (${liste[n - 1].stage ? liste[n - 1].stage + ' · ' : ''}${n} ${en ? 'recorded votes' : 'votes nominaux'})` : ''}</summary><p class="bill-votes-note">${en
-      ? 'Every recorded division on this bill, oldest first. ✉ opens your email app, with the bill’s name as subject; ⧉ copies the address, to paste in Gmail or elsewhere. A name in grey, without ✉: this person no longer sits in the Assembly.'
-      : 'Chaque vote nom par nom sur ce projet, du plus ancien au plus récent. ✉ ouvre votre logiciel de courriel, avec le nom du projet en objet ; ⧉ copie l’adresse, à coller dans Gmail ou ailleurs. Un nom en gris, sans ✉ : cette personne ne siège plus à l’Assemblée.'}</p>${liste.map(carte).join('')}</details>`;
+      ? 'Every recorded division on this bill, oldest first, as written in the Assembly’s Journal. A name in grey: this person no longer sits in the Assembly.'
+      : 'Chaque vote nom par nom sur ce projet, du plus ancien au plus récent, tel que consigné au Journal de l’Assemblée. Un nom en gris : cette personne ne siège plus à l’Assemblée.'}</p>${liste.map(carte).join('')}</details>`;
   };
   // « Mémoires déposés » (21 oct. 2026, cinquième outil de l'abonnement). Seul le NOMBRE est public :
   // la liste est servie aux abonné·e·s par api/export.js?jeu=consultations, que commun/dq.js
   // (remplirMemoires) appelle au dépliement de la carte. Source : api/consultations-data.json.
-  const nbMemoires = existsSync('api/consultations-data.json') ? comptes(JSON.parse(readFileSync('api/consultations-data.json', 'utf-8'))) : {};
+  const nbMemoires = {};
   const caseMemoires = (b, en) => {
     const n = nbMemoires[b.id];
     if (!n) return '';

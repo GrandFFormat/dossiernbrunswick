@@ -1,1023 +1,696 @@
 {
-  "source": "https://www.assnat.qc.ca/fr/deputes/index.html",
-  "scrapedAt": "2026-11-06T16:01:58.463Z",
-  "count": 127,
+  "source": "https://www.legnb.ca/en/members/current",
+  "sourceFr": "https://www.legnb.ca/fr/parlementaires/actuel",
+  "scrapedAt": "2026-11-07T15:15:07.539Z",
+  "sieges": 49,
+  "count": 49,
   "deputes": [
     {
-      "name": "Alexandre Leduc",
-      "riding": "Hochelaga-Maisonneuve",
-      "region": "Montréal",
-      "party": "QS",
-      "partyFull": "Québec solidaire",
-      "assnatId": 17935
-    },
-    {
-      "name": "Andrés Fontecilla",
-      "riding": "Laurier-Dorion",
-      "region": "Montréal",
-      "party": "QS",
-      "partyFull": "Québec solidaire",
-      "assnatId": 17953
-    },
-    {
-      "name": "Sol Zanetti",
-      "riding": "Jean-Lesage",
-      "region": "Capitale-Nationale",
-      "party": "QS",
-      "partyFull": "Québec solidaire",
-      "assnatId": 17955
-    },
-    {
-      "name": "Etienne Grandmont",
-      "riding": "Taschereau",
-      "region": "Capitale-Nationale",
-      "party": "QS",
-      "partyFull": "Québec solidaire",
-      "assnatId": 19267
-    },
-    {
-      "name": "Madwa-Nika Cadet",
-      "riding": "Bourassa-Sauvé",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 19261
-    },
-    {
-      "name": "Paul St-Pierre Plamondon",
-      "riding": "Camille-Laurin",
-      "region": "Montréal",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 19289
-    },
-    {
-      "name": "Brigitte B . Garceau",
-      "riding": "Robert-Baldwin",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 19271
-    },
-    {
-      "name": "Gregory Kelley",
-      "riding": "Jacques-Cartier",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 17951
-    },
-    {
-      "name": "Elisabeth Prass",
-      "riding": "D'Arcy-McGee",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 19301
-    },
-    {
-      "name": "Michelle Setlakwe",
-      "riding": "Mont-Royal–Outremont",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 19285
-    },
-    {
-      "name": "Valérie Assouline",
-      "riding": "Saint-Laurent",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20373
-    },
-    {
-      "name": "David Bowles",
-      "riding": "Pierre-Laporte",
+      "name": "Richard Ames",
+      "officiel": "Ames, Richard",
+      "riding": "Carleton-York",
+      "ridingEn": "Carleton-York",
       "region": null,
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20443
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 165,
+      "fiche": "https://www.legnb.ca/en/members/current/165/ames-richard",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/165/ames-richard",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Richard_Ames_sm.jpg"
     },
     {
-      "name": "Pier-Luc Bujold",
-      "riding": "Bonaventure",
-      "region": "Gaspésie–Îles-de-la-Madeleine",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20363
-    },
-    {
-      "name": "Benoit Clermont",
-      "riding": "Saint-Henri–Sainte-Anne",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20521
-    },
-    {
-      "name": "Geneviève Couture",
-      "riding": "Mirabel",
-      "region": "Laurentides",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20481
-    },
-    {
-      "name": "Catherine Drouin",
-      "riding": "Labelle",
-      "region": "Laurentides",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20451
-    },
-    {
-      "name": "Éric Duhaime",
-      "riding": "Bellechasse",
-      "region": "Chaudière-Appalaches",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20345
-    },
-    {
-      "name": "Madeleine Féquière",
-      "riding": "Chomedey",
-      "region": "Laval",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20383
-    },
-    {
-      "name": "Marie Claude Fournier",
-      "riding": "Fabre",
-      "region": "Laval",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20405
-    },
-    {
-      "name": "Cédric Gagnon-Ducharme",
-      "riding": "Borduas",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20361
-    },
-    {
-      "name": "Frédéric Laplante",
-      "riding": "Huntingdon",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20425
-    },
-    {
-      "name": "Odette Lavigne",
-      "riding": "René-Lévesque",
-      "region": "Côte-Nord",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20427
-    },
-    {
-      "name": "Michel Leblanc",
-      "riding": "Marguerite-Bourgeoys",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20473
-    },
-    {
-      "name": "Roxane Milot",
-      "riding": "Sainte-Marie–Saint-Jacques",
-      "region": "Montréal",
-      "party": "QS",
-      "partyFull": "Québec solidaire",
-      "assnatId": 20385
-    },
-    {
-      "name": "Élodie Murphy-Gauthier",
-      "riding": "Laviolette–Saint-Maurice",
+      "name": "Guy Arseneault",
+      "officiel": "Arseneault, Guy",
+      "riding": "Restigouche-Est",
+      "ridingEn": "Restigouche East",
       "region": null,
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20459
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 4,
+      "fiche": "https://www.legnb.ca/en/members/current/4/arseneault-guy",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/4/arseneault-guy",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Guy_Arseneault_sm.jpg"
     },
     {
-      "name": "Nicolas Plourde",
-      "riding": "Anjou–Louis-Riel",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20325
-    },
-    {
-      "name": "Gisèle Pouhe Njall",
-      "riding": "Rosemont",
-      "region": "Montréal",
-      "party": "QS",
-      "partyFull": "Québec solidaire",
-      "assnatId": 20391
-    },
-    {
-      "name": "Émile Simard",
-      "riding": "Dubuc",
-      "region": "Saguenay–Lac-Saint-Jean",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20401
-    },
-    {
-      "name": "Isabelle Thibeault",
-      "riding": "Roberval",
-      "region": "Saguenay–Lac-Saint-Jean",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20407
-    },
-    {
-      "name": "Stéphanie Vachon",
-      "riding": "Sherbrooke",
-      "region": "Estrie",
-      "party": "QS",
-      "partyFull": "Québec solidaire",
-      "assnatId": 20519
-    },
-    {
-      "name": "Julie White",
-      "riding": "Jean-Talon",
-      "region": "Capitale-Nationale",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20433
-    },
-    {
-      "name": "William Fradette",
-      "riding": "Lac-Saint-Jean",
-      "region": "Saguenay–Lac-Saint-Jean",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20453
-    },
-    {
-      "name": "Nadine Le Gal",
-      "riding": "Blainville",
-      "region": "Laurentides",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20357
-    },
-    {
-      "name": "Sylvie Tanguay",
-      "riding": "Saint-François",
-      "region": "Estrie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20351
-    },
-    {
-      "name": "Antoine Dionne Charest",
-      "riding": "Verdun",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20323
-    },
-    {
-      "name": "Désirée McGraw",
-      "riding": "Notre-Dame-de-Grâce",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 19283
-    },
-    {
-      "name": "Frédéric Beauchemin",
-      "riding": "Brome-Missisquoi",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 19307
-    },
-    {
-      "name": "Nada Boumeftah",
-      "riding": "Maurice-Richard",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20515
-    },
-    {
-      "name": "Linda Caron",
-      "riding": "La Pinière",
-      "region": "Montérégie",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 19313
-    },
-    {
-      "name": "André Fortin",
-      "riding": "Pontiac",
-      "region": "Outaouais",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 15383
-    },
-    {
-      "name": "James Hughes",
-      "riding": "Vaudreuil",
-      "region": "Montérégie",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20333
-    },
-    {
-      "name": "Michel Langevin",
-      "riding": "Chapleau",
-      "region": "Outaouais",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20369
-    },
-    {
-      "name": "Mathieu Lavoie",
-      "riding": "Montarville",
-      "region": "Montérégie",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20517
-    },
-    {
-      "name": "David Logue",
-      "riding": "Gatineau",
-      "region": "Outaouais",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20411
-    },
-    {
-      "name": "Félix Rhéaume",
-      "riding": "Châteauguay",
-      "region": "Montérégie",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20375
-    },
-    {
-      "name": "Filomena Rotiroti",
-      "riding": "Jeanne-Mance–Viger",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 1171
-    },
-    {
-      "name": "Olivier Bertin-Mahieux",
-      "riding": "Soulanges",
-      "region": "Montérégie",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20377
-    },
-    {
-      "name": "Sacha Cannon",
-      "riding": "Hull",
-      "region": "Outaouais",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20421
-    },
-    {
-      "name": "Caroline De Guire",
-      "riding": "Laval-des-Rapides",
-      "region": "Laval",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20455
-    },
-    {
-      "name": "Monsef Derraji",
-      "riding": "Nelligan",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 17923
-    },
-    {
-      "name": "Virginie Dufour",
-      "riding": "Mille-Îles",
-      "region": "Laval",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 19287
-    },
-    {
-      "name": "Louis Ialenti",
-      "riding": "Vimont-Auteuil",
+      "name": "Kris Austin",
+      "officiel": "Austin, Kris",
+      "riding": "Fredericton-Grand Lake",
+      "ridingEn": "Fredericton-Grand Lake",
       "region": null,
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20321
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 16,
+      "fiche": "https://www.legnb.ca/en/members/current/16/austin-kris",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/16/austin-kris",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Kris_Austin_sm.jpg"
     },
     {
-      "name": "Sonia Ziadé",
-      "riding": "La Prairie",
-      "region": "Montérégie",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20447
-    },
-    {
-      "name": "Alexandre Girard-Duchaine",
-      "riding": "Bertrand",
-      "region": "Lanaudière / Laurentides",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20353
-    },
-    {
-      "name": "Ruba Ghazal",
-      "riding": "Mercier",
-      "region": "Montréal",
-      "party": "QS",
-      "partyFull": "Québec solidaire",
-      "assnatId": 17933
-    },
-    {
-      "name": "Julie Guyot",
-      "riding": "Chambly",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20367
-    },
-    {
-      "name": "Nicolas Marceau",
-      "riding": "Marie-Victorin",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 7289
-    },
-    {
-      "name": "Isabelle Blais",
-      "riding": "Maskinongé",
-      "region": "Mauricie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20479
-    },
-    {
-      "name": "Jimmy Bouchard",
-      "riding": "Jonquière",
-      "region": "Saguenay–Lac-Saint-Jean",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20439
-    },
-    {
-      "name": "Ariane Boyer",
-      "riding": "Rivière-du-Loup–Témiscouata–Les Basques",
+      "name": "Kathy Bockus",
+      "officiel": "Bockus, Kathy",
+      "riding": "Sainte-Croix",
+      "ridingEn": "Saint Croix",
       "region": null,
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20409
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 162,
+      "fiche": "https://www.legnb.ca/en/members/current/162/bockus-kathy",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/162/bockus-kathy",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Kathy_Bockus_sm.jpg"
     },
     {
-      "name": "Diane Dallaire",
-      "riding": "Rouyn-Noranda–Témiscamingue",
-      "region": "Abitibi-Témiscamingue",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20399
-    },
-    {
-      "name": "Alexandre Daneau",
-      "riding": "Beauharnois",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20341
-    },
-    {
-      "name": "Jocelyn Desjardins",
-      "riding": "Richelieu",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20423
-    },
-    {
-      "name": "Sandra Hernández",
-      "riding": "Taillon",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20347
-    },
-    {
-      "name": "Stephan Fogaing",
-      "riding": "Vachon",
+      "name": "Lyne Chantal Boudreau",
+      "officiel": "Boudreau, Lyne Chantal",
+      "riding": "Champdoré-Irishtown",
+      "ridingEn": "Champdoré-Irishtown",
       "region": null,
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20599
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 208,
+      "fiche": "https://www.legnb.ca/en/members/current/208/boudreau-lyne-chantal",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/208/boudreau-lyne-chantal",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Lyne_Chantal_Boudreau_sm.jpg"
     },
     {
-      "name": "Maxime Laporte",
-      "riding": "L'Assomption",
-      "region": "Lanaudière",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20445
-    },
-    {
-      "name": "Sandrine Michon",
-      "riding": "Saint-Jérôme",
-      "region": "Laurentides",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20365
-    },
-    {
-      "name": "Pierre Nantel",
-      "riding": "Argenteuil",
-      "region": "Laurentides",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20327
-    },
-    {
-      "name": "Charles Page",
-      "riding": "Drummond–Bois-Francs",
-      "region": "Centre-du-Québec",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20523
-    },
-    {
-      "name": "Yohann St-Pierre",
-      "riding": "Rimouski",
-      "region": "Bas-Saint-Laurent",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20415
-    },
-    {
-      "name": "Stéphane Tremblay",
-      "riding": "Abitibi-Est",
-      "region": "Abitibi-Témiscamingue",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20319
-    },
-    {
-      "name": "Linda Vaillant",
-      "riding": "Deux-Montagnes",
-      "region": "Laurentides",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20397
-    },
-    {
-      "name": "Véronique Venne",
-      "riding": "Joliette",
-      "region": "Lanaudière",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20435
-    },
-    {
-      "name": "Sonia Caron",
-      "riding": "Ungava",
+      "name": "Benoît Bourque",
+      "officiel": "Bourque, Benoît",
+      "riding": "Beausoleil-Grand-Bouctouche-Kent",
+      "ridingEn": "Beausoleil-Grand-Bouctouche-Kent",
       "region": null,
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20337
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 23,
+      "fiche": "https://www.legnb.ca/en/members/current/23/bourque-benoit",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/23/bourque-benoit",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Benoit_Bourque_sm.jpg"
     },
     {
-      "name": "Isabelle Millette",
-      "riding": "Papineau",
-      "region": "Outaouais",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20457
-    },
-    {
-      "name": "Karim Elayoubi",
-      "riding": "Chauveau",
-      "region": "Capitale-Nationale",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20379
-    },
-    {
-      "name": "Renaud Labrecque",
-      "riding": "Lotbinière-Frontenac",
-      "region": "Chaudière-Appalaches",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20467
-    },
-    {
-      "name": "Patrick Paquet",
-      "riding": "Vanier-Les Rivières",
-      "region": "Capitale-Nationale",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20527
-    },
-    {
-      "name": "Frédéric Poulin",
-      "riding": "Côte-du-Sud",
-      "region": "Bas-Saint-Laurent / Chaudière-Appalaches",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20389
-    },
-    {
-      "name": "Caroline Simard",
-      "riding": "Charlevoix–Côte-de-Beaupré",
-      "region": "Capitale-Nationale",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 15367
-    },
-    {
-      "name": "Adriana Szalontai",
-      "riding": "Champlain",
+      "name": "Chuck Chiasson",
+      "officiel": "Chiasson, Chuck",
+      "riding": "Grand Sault-Vallée-des-Rivières-Saint-Quentin",
+      "ridingEn": "Grand Falls-Vallée-des-Rivières-Saint-Quentin",
       "region": null,
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20513
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 11,
+      "fiche": "https://www.legnb.ca/en/members/current/11/chiasson-chuck",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/11/chiasson-chuck",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Chuck_Chiasson_sm.jpg"
     },
     {
-      "name": "Cécile Tremblay",
-      "riding": "Sainte-Rose",
-      "region": "Laval",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20381
-    },
-    {
-      "name": "Stéphane Paquet",
-      "riding": "Pointe-aux-Trembles",
-      "region": "Montréal",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20441
-    },
-    {
-      "name": "Alain Therrien",
-      "riding": "Sanguinet",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 12189
-    },
-    {
-      "name": "Marie-Karlynn Laflamme",
-      "riding": "Chicoutimi",
-      "region": "Saguenay–Lac-Saint-Jean",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20193
-    },
-    {
-      "name": "Joël Arseneau",
-      "riding": "Îles-de-la-Madeleine",
+      "name": "Keith Chiasson",
+      "officiel": "Chiasson, Keith",
+      "riding": "Tracadie",
+      "ridingEn": "Tracadie",
       "region": null,
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 17947
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 49,
+      "fiche": "https://www.legnb.ca/en/members/current/49/chiasson-keith",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/49/chiasson-keith",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Keith_Chiasson_sm.jpg"
     },
     {
-      "name": "Marie-Claude Sarrazin",
-      "riding": "Groulx",
-      "region": "Saguenay–Lac-Saint-Jean",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20419
-    },
-    {
-      "name": "Elsie Lefebvre",
-      "riding": "Berthier",
-      "region": "Lanaudière",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 5845
-    },
-    {
-      "name": "Jean Pellerin",
-      "riding": "Trois-Rivières",
-      "region": "Mauricie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20343
-    },
-    {
-      "name": "Guy Jr Lapointe",
-      "riding": "Verchères",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20329
-    },
-    {
-      "name": "Bernard Sévigny",
-      "riding": "Richmond",
-      "region": "Estrie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20529
-    },
-    {
-      "name": "Dieudonné Ella Oyono",
-      "riding": "Les Plaines",
-      "region": "Lanaudière / Laurentides",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20461
-    },
-    {
-      "name": "Méganne Perry Mélançon",
-      "riding": "Gaspé",
+      "name": "Michelle Conroy",
+      "officiel": "Conroy, Michelle",
+      "riding": "Miramichi-Est",
+      "ridingEn": "Miramichi East",
       "region": null,
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 18217
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 29,
+      "fiche": "https://www.legnb.ca/en/members/current/29/conroy-michelle",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/29/conroy-michelle",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Michelle_Conroy_sm.jpg"
     },
     {
-      "name": "Simon-Pierre Savard-Tremblay",
-      "riding": "Saint-Hyacinthe",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20355
-    },
-    {
-      "name": "Camille Pellerin-Forget",
-      "riding": "Iberville",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20429
-    },
-    {
-      "name": "Sébastien D'Astous",
-      "riding": "Abitibi-Ouest",
-      "region": "Abitibi-Témiscamingue",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20497
-    },
-    {
-      "name": "Anne Nguyen",
-      "riding": "Prévost",
-      "region": "Laurentides",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20431
-    },
-    {
-      "name": "Tarek Henoud",
-      "riding": "Arthabaska-L’Érable",
+      "name": "David Coon",
+      "officiel": "Coon, David",
+      "riding": "Fredericton-Lincoln",
+      "ridingEn": "Fredericton Lincoln",
       "region": null,
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20331
+      "party": "VERT",
+      "partyFull": "Parti vert",
+      "partyFullEn": "Green Party",
+      "assnatId": 14,
+      "fiche": "https://www.legnb.ca/en/members/current/14/coon-david",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/14/coon-david",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/David_Coon_sm.jpg"
     },
     {
-      "name": "Jonathan Poulin",
-      "riding": "Beauce-Sud",
-      "region": "Chaudière-Appalaches / Estrie",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20339
-    },
-    {
-      "name": "Maïté Blanchette Vézina",
-      "riding": "La Peltrie",
-      "region": "Bas-Saint-Laurent",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 19275
-    },
-    {
-      "name": "Marie-Josée Hélie",
-      "riding": "Montmorency",
-      "region": "Capitale-Nationale",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20469
-    },
-    {
-      "name": "Karine Laflamme",
-      "riding": "Lévis",
-      "region": "Chaudière-Appalaches",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20465
-    },
-    {
-      "name": "Jimmy Gagnon",
-      "riding": "Mégantic",
-      "region": "Chaudière-Appalaches / Estrie",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20475
-    },
-    {
-      "name": "Patricia Drouin",
-      "riding": "Beauce-Nord",
-      "region": "Chaudière-Appalaches",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20335
-    },
-    {
-      "name": "Marcos Archambault",
-      "riding": "Louis-Hébert",
-      "region": "Capitale-Nationale",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20471
-    },
-    {
-      "name": "Jean-François Arsenault",
-      "riding": "Granby",
-      "region": "Estrie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20417
-    },
-    {
-      "name": "Marc Tanguay",
-      "riding": "LaFontaine",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 11789
-    },
-    {
-      "name": "Enrico Ciccone",
-      "riding": "Marquette",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 17943
-    },
-    {
-      "name": "Frantz Benjamin",
-      "riding": "Viau",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 17909
-    },
-    {
-      "name": "Audrey Bujold",
-      "riding": "Bellefeuille",
+      "name": "Ryan Cullins",
+      "officiel": "Cullins, Ryan",
+      "riding": "Fredericton-York",
+      "ridingEn": "Fredericton-York",
       "region": null,
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20349
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 164,
+      "fiche": "https://www.legnb.ca/en/members/current/164/cullins-ryan",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/164/cullins-ryan",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Ryan_Cullins_lg.jpg"
     },
     {
-      "name": "Dominique Dumas",
-      "riding": "Chutes-de-la-Chaudière",
-      "region": "Chaudière-Appalaches",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20387
-    },
-    {
-      "name": "André Albert Morin",
-      "riding": "Acadie",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 19253
-    },
-    {
-      "name": "Guillaume Langlois",
-      "riding": "Nicolet-Bécancour",
-      "region": "Centre-du-Québec",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20463
-    },
-    {
-      "name": "Natalie Bisaillon",
-      "riding": "Marie-Lacoste-Gérin-Lajoie",
+      "name": "Jean-Claude D'Amours",
+      "officiel": "D'Amours, Jean-Claude",
+      "riding": "Edmundston-Vallée-des-Rivières",
+      "ridingEn": "Edmundston-Vallée-des-Rivières",
       "region": null,
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20477
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 9,
+      "fiche": "https://www.legnb.ca/en/members/current/9/damours-jean-claude",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/9/damours-jean-claude",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/JC_DAmours_sm.jpg"
     },
     {
-      "name": "Jennifer Maccarone",
-      "riding": "Westmount–Saint-Louis",
-      "region": "Montréal",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 17911
-    },
-    {
-      "name": "Alexandre Boulerice",
-      "riding": "Gouin",
-      "region": "Montréal",
-      "party": "QS",
-      "partyFull": "Québec solidaire",
-      "assnatId": 20413
-    },
-    {
-      "name": "Nathalie Boisclair",
-      "riding": "Daniel-Johnson",
+      "name": "John Dornan",
+      "officiel": "Dornan, John",
+      "riding": "Saint John Portland-Simonds",
+      "ridingEn": "Saint John Portland-Simonds",
       "region": null,
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20393
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 202,
+      "fiche": "https://www.legnb.ca/en/members/current/202/dornan-john",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/202/dornan-john",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/John_Dornan_sm.jpg"
     },
     {
-      "name": "Éloïse Coulombe",
-      "riding": "Charlesbourg",
-      "region": "Capitale-Nationale",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20371
-    },
-    {
-      "name": "Marcel Bouchard",
-      "riding": "Portneuf",
-      "region": "Capitale-Nationale",
-      "party": "PCQ",
-      "partyFull": "Parti conservateur du Québec",
-      "assnatId": 20437
-    },
-    {
-      "name": "Charles Milliard",
-      "riding": "Orford",
-      "region": "Estrie",
-      "party": "PLQ",
-      "partyFull": "Parti libéral du Québec",
-      "assnatId": 20449
-    },
-    {
-      "name": "Nicolas Girard",
-      "riding": "Repentigny",
-      "region": "Lanaudière",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 1253
-    },
-    {
-      "name": "Gaétan Bédard",
-      "riding": "Saint-Jean",
-      "region": "Montérégie",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20359
-    },
-    {
-      "name": "Mathieu Lebrun",
-      "riding": "Rousseau",
-      "region": "Lanaudière",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20395
-    },
-    {
-      "name": "Pascal Bérubé",
-      "riding": "Matane-Matapédia-Mitis",
-      "region": "Bas-Saint-Laurent",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 991
-    },
-    {
-      "name": "Catherine Gentilcore",
-      "riding": "Terrebonne",
-      "region": "Lanaudière",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20131
-    },
-    {
-      "name": "Meggie Richard",
-      "riding": "Duplessis",
+      "name": "Alexandre Cédric Doucet",
+      "officiel": "Doucet, Alexandre Cédric",
+      "riding": "Moncton-Est",
+      "ridingEn": "Moncton East",
       "region": null,
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20403
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 196,
+      "fiche": "https://www.legnb.ca/en/members/current/196/doucet-alexandre-cedric",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/196/doucet-alexandre-cedric",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Alexandre_Cedric_Doucet_sm.jpg"
     },
     {
-      "name": "Stéphane Handfield",
-      "riding": "Masson",
-      "region": "Lanaudière",
-      "party": "PQ",
-      "partyFull": "Parti québécois",
-      "assnatId": 20483
+      "name": "Pat Finnigan",
+      "officiel": "Finnigan, Pat",
+      "riding": "Kent-Nord",
+      "ridingEn": "Kent North",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 192,
+      "fiche": "https://www.legnb.ca/en/members/current/192/finnigan-pat",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/192/finnigan-pat",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Pat_Finnigan_sm.jpg"
+    },
+    {
+      "name": "Robert Gauvin",
+      "officiel": "Gauvin, Robert",
+      "riding": "Baie-de-Shediac-Dieppe",
+      "ridingEn": "Shediac Bay-Dieppe",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 46,
+      "fiche": "https://www.legnb.ca/en/members/current/46/gauvin-robert",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/46/gauvin-robert",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Robert_Gauvin_lg.jpg"
+    },
+    {
+      "name": "John Herron",
+      "officiel": "Herron, John",
+      "riding": "Hampton-Fundy-St. Martins",
+      "ridingEn": "Hampton-Fundy-St. Martins",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 199,
+      "fiche": "https://www.legnb.ca/en/members/current/199/herron-john",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/199/herron-john",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/john_herron_sm.jpg"
+    },
+    {
+      "name": "David Hickey",
+      "officiel": "Hickey, David",
+      "riding": "Saint John Harbour",
+      "ridingEn": "Saint John Harbour",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 203,
+      "fiche": "https://www.legnb.ca/en/members/current/203/hickey-david",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/203/hickey-david",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/DAVID_HICKEY_sm2.jpg"
+    },
+    {
+      "name": "Bill Hogan",
+      "officiel": "Hogan, Bill",
+      "riding": "Woodstock-Hartland",
+      "ridingEn": "Woodstock-Hartland",
+      "region": null,
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 166,
+      "fiche": "https://www.legnb.ca/en/members/current/166/hogan-bill",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/166/hogan-bill",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Bill_Hogan_sm.jpg"
+    },
+    {
+      "name": "Susan Holt",
+      "officiel": "Holt, Susan",
+      "riding": "Fredericton-Sud-Silverwood",
+      "ridingEn": "Fredericton South-Silverwood",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 182,
+      "fiche": "https://www.legnb.ca/en/members/current/182/holt-susan",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/182/holt-susan",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Susan_Holt__lg.jpg"
+    },
+    {
+      "name": "Claire Johnson",
+      "officiel": "Johnson, Claire",
+      "riding": "Moncton-Sud",
+      "ridingEn": "Moncton South",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 194,
+      "fiche": "https://www.legnb.ca/en/members/current/194/johnson-claire",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/194/johnson-claire",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Claire_Johnson_sm.jpg"
+    },
+    {
+      "name": "Margaret Johnson",
+      "officiel": "Johnson, Margaret",
+      "riding": "Carleton-Victoria",
+      "ridingEn": "Carleton-Victoria",
+      "region": null,
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 167,
+      "fiche": "https://www.legnb.ca/en/members/current/167/johnson-margaret",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/167/johnson-margaret",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Margaret_Johnson_sm.jpg"
+    },
+    {
+      "name": "Sam Johnston",
+      "officiel": "Johnston, Sam",
+      "riding": "Baie-de-Miramichi-Neguac",
+      "ridingEn": "Miramichi Bay-Neguac",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 191,
+      "fiche": "https://www.legnb.ca/en/members/current/191/johnston-sam",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/191/johnston-sam",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Sam_Johnston_sm.jpg"
+    },
+    {
+      "name": "Aaron Kennedy",
+      "officiel": "Kennedy, Aaron",
+      "riding": "Quispamsis",
+      "ridingEn": "Quispamsis",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 200,
+      "fiche": "https://www.legnb.ca/en/members/current/200/kennedy-aaron",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/200/kennedy-aaron",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Aaron_Kennedy_lg.jpg"
+    },
+    {
+      "name": "Francine Landry",
+      "officiel": "Landry, Francine",
+      "riding": "Madawaska-Les-Lacs-Edmundston",
+      "ridingEn": "Madawaska Les Lacs-Edmundston",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 26,
+      "role": "speaker",
+      "fiche": "https://www.legnb.ca/en/members/current/26/landry-francine",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/26/landry-francine",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Francine_Landry_sm.jpg"
+    },
+    {
+      "name": "Jacques LeBlanc",
+      "officiel": "LeBlanc, Jacques",
+      "riding": "Shediac-Cap-Acadie",
+      "ridingEn": "Shediac-Cap-Acadie",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 45,
+      "fiche": "https://www.legnb.ca/en/members/current/45/leblanc-jacques",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/45/leblanc-jacques",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Jacques_LeBlanc_lg.jpg"
+    },
+    {
+      "name": "Marco LeBlanc",
+      "officiel": "LeBlanc, Marco",
+      "riding": "Belle-Baie-Belledune",
+      "ridingEn": "Belle-Baie-Belledune",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 180,
+      "fiche": "https://www.legnb.ca/en/members/current/180/leblanc-marco",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/180/leblanc-marco",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Marco_LeBlanc_sm.jpg"
+    },
+    {
+      "name": "Ian Lee",
+      "officiel": "Lee, Ian",
+      "riding": "Fundy-The Isles-Saint John Lorneville",
+      "ridingEn": "Fundy-The Isles-Saint John Lorneville",
+      "region": null,
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 205,
+      "fiche": "https://www.legnb.ca/en/members/current/205/lee-ian",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/205/lee-ian",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Ian_Lee_lg.jpg"
+    },
+    {
+      "name": "René Legacy",
+      "officiel": "Legacy, René",
+      "riding": "Bathurst",
+      "ridingEn": "Bathurst",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 157,
+      "fiche": "https://www.legnb.ca/en/members/current/157/legacy-rene",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/157/legacy-rene",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/RENE_LEGACY_sm.jpg"
+    },
+    {
+      "name": "Gilles LePage",
+      "officiel": "LePage, Gilles",
+      "riding": "Restigouche-Ouest",
+      "ridingEn": "Restigouche West",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 37,
+      "fiche": "https://www.legnb.ca/en/members/current/37/lepage-gilles",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/37/lepage-gilles",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Gilles_LePage_sm.jpg"
+    },
+    {
+      "name": "Eric Mallet",
+      "officiel": "Mallet, Eric",
+      "riding": "Shippagan-Les-Îles",
+      "ridingEn": "Shippagan-Les-Îles",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 158,
+      "fiche": "https://www.legnb.ca/en/members/current/158/mallet-eric",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/158/mallet-eric",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Eric_Mallet_lg.jpg"
+    },
+    {
+      "name": "Robert McKee",
+      "officiel": "McKee, K.C., Robert",
+      "riding": "Moncton-Centre",
+      "ridingEn": "Moncton Centre",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 30,
+      "fiche": "https://www.legnb.ca/en/members/current/30/mckee-robert",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/30/mckee-robert",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Rob_McKee_sm.jpg"
+    },
+    {
+      "name": "Cindy Miles",
+      "officiel": "Miles, Cindy",
+      "riding": "Hanwell-New Maryland",
+      "ridingEn": "Hanwell-New Maryland",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 207,
+      "fiche": "https://www.legnb.ca/en/members/current/207/miles-cindy",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/207/miles-cindy",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Cindy_Miles_lg.jpg"
+    },
+    {
+      "name": "Megan Mitton",
+      "officiel": "Mitton, Megan",
+      "riding": "Tantramar",
+      "ridingEn": "Tantramar",
+      "region": null,
+      "party": "VERT",
+      "partyFull": "Parti vert",
+      "partyFullEn": "Green Party",
+      "assnatId": 27,
+      "fiche": "https://www.legnb.ca/en/members/current/27/mitton-megan",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/27/mitton-megan",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Megan_Mitton_sm.jpg"
+    },
+    {
+      "name": "Don Monahan",
+      "officiel": "Monahan, Don",
+      "riding": "Arcadia-Butternut Valley-Maple Hills",
+      "ridingEn": "Arcadia-Butternut Valley-Maple Hills",
+      "region": null,
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 198,
+      "fiche": "https://www.legnb.ca/en/members/current/198/monahan-don",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/198/monahan-don",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Don_Monahan_sm.jpg"
+    },
+    {
+      "name": "Bill Oliver",
+      "officiel": "Oliver, Bill",
+      "riding": "Kings-Centre",
+      "ridingEn": "Kings Centre",
+      "region": null,
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 24,
+      "fiche": "https://www.legnb.ca/en/members/current/24/oliver-bill",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/24/oliver-bill",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Bill_Oliver_sm.jpg"
+    },
+    {
+      "name": "Luke Randall",
+      "officiel": "Randall, Luke",
+      "riding": "Fredericton-Nord",
+      "ridingEn": "Fredericton North",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 206,
+      "fiche": "https://www.legnb.ca/en/members/current/206/randall-luke",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/206/randall-luke",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Luke_Randall_sm.jpg"
+    },
+    {
+      "name": "Luc Robichaud",
+      "officiel": "Robichaud, Luc",
+      "riding": "Hautes-Terres-Nepisiguit",
+      "ridingEn": "Hautes-Terres-Nepisiguit",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 190,
+      "fiche": "https://www.legnb.ca/en/members/current/190/robichaud-luc",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/190/robichaud-luc",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Luc_Robichaud_sm.jpg"
+    },
+    {
+      "name": "Kevin Russell",
+      "officiel": "Russell, Kevin",
+      "riding": "Miramichi-Ouest",
+      "ridingEn": "Miramichi West",
+      "region": null,
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 209,
+      "fiche": "https://www.legnb.ca/en/members/current/209/russell-kevin",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/209/russell-kevin",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Kevin_Russel_sm.jpg"
+    },
+    {
+      "name": "Glen Savoie",
+      "officiel": "Savoie, Glen",
+      "riding": "Saint John-Est",
+      "ridingEn": "Saint John East",
+      "region": null,
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 21,
+      "fiche": "https://www.legnb.ca/en/members/current/21/savoie-glen",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/21/savoie-glen",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Glen_Savoie_sm.jpg"
+    },
+    {
+      "name": "Tammy Scott-Wallace",
+      "officiel": "Scott-Wallace, Tammy",
+      "riding": "Sussex-Three Rivers",
+      "ridingEn": "Sussex-Three Rivers",
+      "region": null,
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 161,
+      "fiche": "https://www.legnb.ca/en/members/current/161/scott-wallace-tammy",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/161/scott-wallace-tammy",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Tammy_Scott-Wallace_sm.jpg"
+    },
+    {
+      "name": "Tania Sodhi",
+      "officiel": "Sodhi, Tania",
+      "riding": "Moncton-Nord-Ouest",
+      "ridingEn": "Moncton Northwest",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 195,
+      "fiche": "https://www.legnb.ca/en/members/current/195/sodhi-tania",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/195/sodhi-tania",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Tanya_Sodhi_sm.jpg"
+    },
+    {
+      "name": "Isabelle Thériault",
+      "officiel": "Thériault, Isabelle",
+      "riding": "Caraquet",
+      "ridingEn": "Caraquet",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 5,
+      "fiche": "https://www.legnb.ca/en/members/current/5/theriault-isabelle",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/5/theriault-isabelle",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Isabelle_Theriault_sm.jpg"
+    },
+    {
+      "name": "Alyson Townsend",
+      "officiel": "Townsend, Alyson",
+      "riding": "Rothesay",
+      "ridingEn": "Rothesay",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 201,
+      "fiche": "https://www.legnb.ca/en/members/current/201/townsend-alyson",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/201/townsend-alyson",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Alyson_Townsend_lg.jpg"
+    },
+    {
+      "name": "Natacha Vautour",
+      "officiel": "Vautour, Natacha",
+      "riding": "Dieppe-Memramcook",
+      "ridingEn": "Dieppe-Memramcook",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 193,
+      "fiche": "https://www.legnb.ca/en/members/current/193/vautour-natacha",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/193/vautour-natacha",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Natacha_Vautour_lg.jpg"
+    },
+    {
+      "name": "Rob Weir",
+      "officiel": "Weir, Rob",
+      "riding": "Riverview",
+      "ridingEn": "Riverview",
+      "region": null,
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 197,
+      "fiche": "https://www.legnb.ca/en/members/current/197/weir-rob",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/197/weir-rob",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Rob_Weir_sm.jpg"
+    },
+    {
+      "name": "Kate Wilcott",
+      "officiel": "Wilcott, Kate",
+      "riding": "Saint John-Ouest-Lancaster",
+      "ridingEn": "Saint John West-Lancaster",
+      "region": null,
+      "party": "LIB",
+      "partyFull": "Parti libéral",
+      "partyFullEn": "Liberal Party",
+      "assnatId": 204,
+      "fiche": "https://www.legnb.ca/en/members/current/204/wilcott-kate",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/204/wilcott-kate",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Kate_Wilcott_lg.jpg"
+    },
+    {
+      "name": "Mary Wilson",
+      "officiel": "Wilson, Mary",
+      "riding": "Oromocto-Sunbury",
+      "ridingEn": "Oromocto-Sunbury",
+      "region": null,
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 35,
+      "fiche": "https://www.legnb.ca/en/members/current/35/wilson-mary",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/35/wilson-mary",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Mary_Wilson_sm.jpg"
+    },
+    {
+      "name": "Sherry Wilson",
+      "officiel": "Wilson, Sherry",
+      "riding": "Albert-Riverview",
+      "ridingEn": "Albert-Riverview",
+      "region": null,
+      "party": "PC",
+      "partyFull": "Parti progressiste-conservateur",
+      "partyFullEn": "Progressive Conservative Party",
+      "assnatId": 33,
+      "fiche": "https://www.legnb.ca/en/members/current/33/wilson-sherry",
+      "ficheFr": "https://www.legnb.ca/fr/parlementaires/actuel/33/wilson-sherry",
+      "photo": "https://www.legnb.ca/content/members/portraits/61-1/Sherry_Wilson_sm.jpg"
     }
   ]
 }

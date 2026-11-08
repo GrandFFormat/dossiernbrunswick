@@ -9,12 +9,12 @@
   gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
 </script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-87R1S6SR9Y"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6CZX26581K"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-87R1S6SR9Y', { content_group: 'Assemblée' });
+  gtag('config', 'G-6CZX26581K', { content_group: 'Assemblée' });
 </script>
 <script src="/commun/consentement.js" defer></script>
 <meta charset="UTF-8">
@@ -44,9 +44,9 @@
   }catch(e){}
 })();
 </script>
-<title>Mon dossier — DossierQuébec</title>
-<meta name="description" content="Votre espace à l'Assemblée nationale : les projets de loi que vous suivez, les ministres et député·e·s suivis, vos mots-clés et votre alerte du matin.">
-<link rel="canonical" href="https://dossierquebec.ca/mon-dossier">
+<title>Mon dossier — DossierNBrunswick</title>
+<meta name="description" content="Votre espace à l'Assemblée législative : les projets de loi que vous suivez, les ministres et député·e·s suivis, vos mots-clés et votre alerte du matin.">
+<link rel="canonical" href="https://dossiernbrunswick.ca/mon-dossier">
 <!-- Plus de <link rel="alternate"> vers /feed.xml : le flux RSS est réservé aux abonné·e·s depuis le
      21 oct. 2026 (api/feed.js), chacun avec son adresse personnelle dans Mon dossier. -->
 <meta name="robots" content="noindex, follow">
@@ -54,20 +54,20 @@
 
 <!-- Open Graph (aperçu au partage : Facebook, LinkedIn, iMessage…) -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="DossierQuébec">
+<meta property="og:site_name" content="DossierNBrunswick">
 <meta property="og:locale" content="fr_CA">
-<meta property="og:title" content="Mon dossier — DossierQuébec">
-<meta property="og:description" content="Votre espace à l'Assemblée nationale : les projets de loi que vous suivez, les ministres et député·e·s suivis, vos mots-clés et votre alerte du matin.">
-<meta property="og:url" content="https://dossierquebec.ca/mon-dossier">
+<meta property="og:title" content="Mon dossier — DossierNBrunswick">
+<meta property="og:description" content="Votre espace à l'Assemblée législative : les projets de loi que vous suivez, les ministres et député·e·s suivis, vos mots-clés et votre alerte du matin.">
+<meta property="og:url" content="https://dossiernbrunswick.ca/mon-dossier">
 <meta property="og:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
 <meta property="og:image:width" content="1702">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="DossierQuébec — veille citoyenne de l'Assemblée nationale du Québec">
+<meta property="og:image:alt" content="DossierNBrunswick — veille citoyenne de l'Assemblée législative du Nouveau-Brunswick">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mon dossier — DossierQuébec">
-<meta name="twitter:description" content="Votre espace à l'Assemblée nationale : les projets de loi que vous suivez, les ministres et député·e·s suivis, vos mots-clés et votre alerte du matin.">
+<meta name="twitter:title" content="Mon dossier — DossierNBrunswick">
+<meta name="twitter:description" content="Votre espace à l'Assemblée législative : les projets de loi que vous suivez, les ministres et député·e·s suivis, vos mots-clés et votre alerte du matin.">
 <meta name="twitter:image" content="https://dossierquebec.ca/dossierquebec-cover-2026.png">
 
 <link rel="icon" type="image/svg+xml" href="/commun/dq.svg">
@@ -86,36 +86,21 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Accueil",
-      "item": "https://dossierquebec.ca/"
+      "item": "https://dossiernbrunswick.ca/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Mon dossier",
-      "item": "https://dossierquebec.ca/mon-dossier"
+      "item": "https://dossiernbrunswick.ca/mon-dossier"
     }
   ]
 }
 </script>
-<!-- Les DEUX préconnexions sont nécessaires et ce n'est pas un doublon :
-     googleapis.com sert la feuille CSS, gstatic.com sert les ~258 ko de
-     fichiers de police. Sans la seconde, le navigateur n'ouvre la connexion
-     vers gstatic qu'APRÈS avoir lu le CSS — un DNS + TLS en série, soit 100 à
-     300 ms perdus sur mobile à la première visite. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- ⚠️ « wght@400..900 » (deux points) demande la POLICE VARIABLE : un seul
-     fichier couvrant toutes les graisses, au lieu d'un fichier par graisse.
-     Mesuré : Archivo passe de 6 fichiers / 205 ko à 1 fichier / 34 ko, et
-     Archivo Narrow de 3 fichiers / 55 ko à 1 fichier / 18 ko — 260 ko et
-     9 requêtes ramenés à 52 ko et 2 requêtes, sans perdre aucune graisse.
-     Ne pas revenir à la liste « 400;500;600 » (points-virgules) : c'est la
-     syntaxe des fichiers statiques.
-     IBM Plex Mono a été retirée : utilisée nulle part. Aucun octet économisé
-     pour autant — un navigateur ne télécharge une police que si elle sert au
-     rendu, donc elle ne partait déjà pas. C'était du ménage, pas un gain. -->
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Archivo+Narrow:wght@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/commun/dq.css">
+<!-- Le design du Nouveau-Brunswick, posé par-dessus dq.css. Il apporte ses polices (Barlow,
+     servies par le site, commun/polices/) : plus rien n'est chargé chez Google Fonts. -->
+<link rel="stylesheet" href="/commun/nb.css">
 </head>
 <body data-page="mondossier" data-donnees="bills,stats">
 
@@ -123,8 +108,8 @@
      données par renderTicker() (appelé une fois les datasets chargés). -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span class="ticker-text" id="tickerA">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
-    <span class="ticker-text" id="tickerB">● DossierQuébec — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerA">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerB">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
 
@@ -139,7 +124,7 @@
            (Pas de balise écrite en toutes lettres dans ce commentaire : elle
            fausserait les outils qui comptent les titres à l'expression
            régulière.) -->
-      <div class="brand-title">Dossier<span class="brand-blue">Québec</span></div>
+      <div class="brand-title">Dossier<span class="brand-blue">NBrunswick</span></div>
       <p>Qui siège, qui légifère, qui vote quoi</p>
     </div>
     <!-- Feuille d'érable : passerelle vers le site fédéral DossierCanada.
@@ -157,16 +142,6 @@
          se résolvent depuis la racine du site. Plus de rel="nofollow" depuis le
          21 sept. 2026 : les volets sont ouverts aux moteurs de recherche. Le chemin dit /quebec/ : c'est la
          liste, sous « Villes », qui dit qu'il s'agit de la ville. -->
-    <details class="villes-menu" id="villesMenu">
-      <summary class="city-flip" title="Les volets municipaux" aria-label="Les volets municipaux">
-        <span data-i18n="nav.villes">Villes</span>
-      </summary>
-      <ul>
-        <li><a href="/quebec/">Québec <small>DossierVilleDeQuébec</small></a></li>
-        <li><a href="/montreal/">Montréal <small>DossierVilleDeMontréal</small></a></li>
-        <!-- Lévis, Longueuil et Laval : en pause depuis le 7 oct. 2026 (commun/navigation.js, VILLES_EN_PAUSE). -->
-      </ul>
-    </details>
   </div>
   <!-- Nav DANS la ligne du header (maquette : logo | menu | contrôles sur
        UNE seule rangée). Sur mobile, le nav devient le panneau plein écran
@@ -180,9 +155,21 @@
     <a href="/projets-de-loi" data-view="projets"><span class="n">03</span><span data-i18n="nav.projets">Projets de loi</span></a>
     <!-- Votes a quitté la barre le 30 oct. 2026 : les votes vivent dans les cartes des projets de
          loi, et /votes reste lié du pied de page et de la page des projets. -->
-    <a href="/archives" data-view="archives"><span class="n">04</span><span data-i18n="nav.archives">Archives</span></a>
-    <a href="/lexique" data-view="lexique"><span class="n">05</span><span data-i18n="nav.lexique">Lexique</span></a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : pas d'onglet Archives ni de page Promesses tant que le site n'a
+         ni législature terminée ni promesses du Nouveau-Brunswick. -->
+    <a href="/lexique" data-view="lexique"><span class="n">04</span><span data-i18n="nav.lexique">Lexique</span></a>
     <a class="nav-mondossier active" aria-current="page" href="/mon-dossier" data-view="mondossier"><span class="n">★</span><span data-i18n="nav.mondossier">Mon dossier</span></a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : le menu des villes est un onglet, après Mon dossier,
+         au lieu d'une pastille à côté du nom du site. Même menu déroulant que DQ. -->
+    <details class="villes-menu" id="villesMenu">
+      <summary class="nav-villes" title="Les volets municipaux" aria-label="Les volets municipaux">
+        <span data-i18n="nav.villes">Villes</span>
+      </summary>
+      <ul>
+        <!-- N.-B. : aucune ville encore ; le seul lien mène au formulaire de DossierQuébec (guide, étape 9). -->
+        <li class="villes-rtv"><a id="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Représentez votre ville</span></a></li>
+      </ul>
+    </details>
   </nav>
   <div class="header-ctrls">
     <div class="font-size-ctrl" id="fontSizeCtrl">
@@ -261,7 +248,7 @@ function goToFederal(evt){
     </div>
 
     <div id="mdCompteurs" class="mdr-compteurs"></div>
-    <p class="mdr-gratuit" data-i18n="mdr.gratuit"><b>Gratuit : 3 suivis en tout.</b> Illimité pour les abonné·e·s.</p>
+    <p class="mdr-gratuit" data-i18n="mdr.gratuit"><b>Gratuit : 3 suivis en tout.</b></p>
 
     <div id="mdDebut" class="md-bloc"></div>
     <div id="mdSuivis" hidden>
@@ -270,13 +257,7 @@ function goToFederal(evt){
     </div>
 
     <div id="mdPlus" class="mdr-plus"></div>
-    <!-- Offrir un abonnement : toujours visible (Martin, 4 nov. 2026) ; sans connexion, le clic sur un prix demande de se connecter. -->
-    <div class="md-bloc mdr-offrir" id="offrir-mon-dossier"><div class="md-cadeau-discret mdr-offrir-carte" id="mdOffrirPli">
-      <h3 class="mdr-offrir-titre" data-i18n="mdr.offrir.h">Offrir un abonnement</h3>
-      <div data-i18n="mdcadeau.html"><span class="md-cadeau-titre">Une fois</span><span class="md-cadeau-puces"><button type="button" class="md-cadeau-puce ab-cadeau" data-duree="mensuel" onclick="abOffrir(this.dataset.duree, this)">1 mois · 9,99 $</button> <button type="button" class="md-cadeau-puce ab-cadeau" data-duree="trimestriel" onclick="abOffrir(this.dataset.duree, this)">3 mois · 26,99 $</button> <button type="button" class="md-cadeau-puce ab-cadeau" data-duree="annuel" onclick="abOffrir(this.dataset.duree, this)">1 an · 99 $</button> <input type="number" class="md-cadeau-qte" min="1" max="100" step="1" inputmode="numeric" placeholder="×1" aria-label="Combien de codes" title="Combien de codes (jusqu’à 100)"></span><span class="md-note">Paiement unique. Le code arrive par courriel.</span></div>
-      <div class="md-cadeau-ligne" data-i18n="mdoffert.html"><span class="md-cadeau-titre">Récurrent</span><span class="md-cadeau-puces"><button type="button" class="md-cadeau-puce ab-offert" data-forfait="mensuel" onclick="abOffrirAbonnement(this.dataset.forfait, this)">9,99 $/mois</button> <button type="button" class="md-cadeau-puce ab-offert" data-forfait="trimestriel" onclick="abOffrirAbonnement(this.dataset.forfait, this)">26,99 $/3 mois</button> <button type="button" class="md-cadeau-puce ab-offert" data-forfait="annuel" onclick="abOffrirAbonnement(this.dataset.forfait, this)">99 $/an</button> <input type="number" class="md-cadeau-qte" min="1" max="100" step="1" inputmode="numeric" placeholder="×1" aria-label="Combien de codes" title="Combien de codes (jusqu’à 100)"></span><span class="md-note">Jusqu’à ce que vous annuliez : boutons « Gérer » et « Annuler » dans Mon dossier, sous Votre compte. Le code arrive par courriel.</span></div>
-      <p class="md-note ab-cadeau-etat" aria-live="polite"></p>
-    </div></div>
+    <!-- N.-B. (Martin, 7 nov. 2026) : pas d'« Offrir un abonnement » pour l'instant. -->
     <div id="mdOutils" class="mdr-outils">
       <div id="mdAlertes" class="md-bloc" hidden></div>
       <div id="mdVeille" class="md-bloc" hidden></div>
@@ -320,19 +301,13 @@ function goToFederal(evt){
   <!-- VOTES -->
   
 
-  <!-- ARCHIVES (Martin, 30 oct. 2026) : les législatures terminées, une carte chacune (projets de
-       loi, votes), puis les promesses de l'élection de 2026. Dessiné par commun/dq.js (renderArchives)
-       depuis data/archives/index.json : la 43e y entre seule à l'ouverture de la 44e. -->
-  
-
-  <!-- COMPTE & ABONNEMENT -->
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+  <!-- N.-B. (Martin, 7 nov. 2026) : vue de l'abonnement retirée pour l'instant (à reprendre de DossierQuébec). -->
 
   <!-- LEXIQUE (fusion : personnes, lexique, apropos) -->
-  <!-- PROMESSES — vue sans onglet (comme view-bd). Accessible par /promesses,
-       par le bouton de la bande de dissolution et par le bloc du Lexique.
-       Contenu saisi à la main dans data/promises.json (voir la note du fichier). -->
-  
-
   
 
   <!-- PAGE CACHÉE — la BD « l'idée derrière le site ». Aucun onglet n'y mène :
@@ -360,7 +335,6 @@ function goToFederal(evt){
        le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
        porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
        gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
-  
 
   
 
@@ -376,27 +350,19 @@ function goToFederal(evt){
     <a href="/ministres" data-i18n="nav.ministres">Ministres</a>
     <a href="/projets-de-loi" data-i18n="nav.projets">Projets de loi</a>
     <a href="/votes" data-i18n="nav.votes">Votes</a>
-    <a href="/promesses" data-i18n="fil.promesses">Promesses</a>
-    <a href="/archives" data-i18n="nav.archives">Archives</a>
     <a href="/lexique" data-i18n="nav.lexique">Lexique</a>
     <a href="/sources" data-i18n="fil.bd">Mises à jour du site</a>
     <a href="/mon-dossier" data-i18n="nav.mondossier">Mon dossier</a>
     <span class="footer-nav-villes"><span data-i18n="footer.villes">Villes :</span>
-      <a href="/quebec/">Québec</a>
-      <a href="/montreal/">Montréal</a>
+      <a class="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Représentez votre ville</span></a>
     </span>
   </nav>
   <div class="footer-inner">
-  <span class="footer-left-line"><span id="footerLeft">Site non officiel — données publiques ANQ &amp; Données Québec ·</span> <span id="footerRight">Une réalisation de</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com" target="_blank" rel="noopener">DAFR Solution</a></span>
+  <span class="footer-left-line"><span id="footerLeft">Site non officiel — données publiques de l'Assemblée législative du Nouveau-Brunswick ·</span> <span id="footerRight">Une réalisation de</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com" target="_blank" rel="noopener">DAFR Solution</a></span>
   <span class="footer-right-group">
     <a class="footer-gh" href="/regles" data-i18n="footer.regles">Les règles</a>
-    <a class="footer-gh" href="/abonnement" data-i18n="footer.abonnement">Abonnement</a>
-    <a class="footer-gh" href="https://www.facebook.com/dossierquebec" target="_blank" rel="noopener" aria-label="DossierQuébec sur Facebook">Facebook</a>
-    <a class="footer-gh footer-coffee" href="https://donate.stripe.com/6oU5kDg8b91a3sY8RK9fW00" target="_blank" rel="noopener" aria-label="Offre-moi un café" data-i18n="footer.coffee">Offre-moi un café</a>
-    <a class="footer-gh" href="/abonnement" data-i18n="footer.rss" title="Flux RSS : réservé aux abonné·e·s">Flux RSS</a>
-    <!-- Crédit exigé par la licence gratuite de Flaticon (icônes du bouton café, 3 nov. 2026). -->
-    <a class="footer-gh" href="https://www.flaticon.com/fr/icones-gratuites/cafe" target="_blank" rel="noopener" data-i18n="footer.flaticon">Icônes : Flaticon</a>
-    <a class="footer-gh" href="https://github.com/GrandFFormat/DossierQuebec" target="_blank" rel="noopener" data-i18n="footer.source">Code source</a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : abonnement, café, flux RSS des abonné·e·s et crédit Flaticon retirés pour l'instant. -->
+    <a class="footer-gh" href="https://github.com/GrandFFormat/dossiernbrunswick" target="_blank" rel="noopener" data-i18n="footer.source">Code source</a>
   </span>
   </div>
 </footer>

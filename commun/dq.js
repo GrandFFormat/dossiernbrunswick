@@ -70,7 +70,9 @@ async function chargerDonnees(){
       _echecs.add(nom);
     }
   }));
-  deputes = deputesRaw.map(d => ({ name: d[0], riding: d[1], region: d[2], party: d[3], assnatId: d[4], mandats: d[5] ?? null, wiki: d[6] ?? null }));
+  deputes = deputesRaw.map(d => ({ name: d[0], riding: d[1], region: d[2], party: d[3], assnatId: d[4], mandats: d[5] ?? null, wiki: d[6] ?? null, role: d[7] ?? null }));
+  // N.-B. : la présidence vient des données (deputes.js la lit sur legnb.ca), pas d'une liste écrite à la main.
+  for(const d of deputes) if(d.role === 'speaker') presidingRoles[norm(d.name)] = { fr: "Présidence de l'Assemblée législative", en: 'Speaker of the Legislative Assembly' };
   deputeById = new Map(deputes.map(d => [d.assnatId, d]));
   voteById = new Map(votes.map(v => [v.id, v]));
   if(newsItems.length) newsAnchor = newsItems.reduce((max, n) => (n.date > max ? n.date : max), newsItems[0].date);
@@ -82,6 +84,7 @@ async function chargerDonnees(){
     poser('statProjets', stats.projets);
     poser('statVotes', stats.votes);
   }
+  poserSessionAffiche();
 }
 
 // ARCHIVES DES PROJETS DE LOI (4 oct. 2026). scrapers/bills.js ne garde que la législature la plus
@@ -179,11 +182,11 @@ function renderArchives(){
 /* ---------------- I18N ---------------- */
 const translations = {
   fr: {
-    'nav.close':"Fermer",'nav.villes':"Villes",'nav.apercu':"Aperçu",'nav.ministres':"Ministres",'nav.projets':"Projets de loi",
+    'nav.close':"Fermer",'nav.villes':"Villes",'nav.rtv':"Représentez votre ville",'nav.apercu':"Aperçu",'nav.ministres':"Ministres",'nav.projets':"Projets de loi",
     'nav.votes':"Votes",'nav.archives':"Archives",'nav.quoideneuf':"Quoi de neuf",'nav.compte':"Compte & à propos",'nav.trouve':"Trouvez votre député",
     'nav.lexique':"Lexique",'nav.personnes':"Qui gravite autour",'nav.petitions':"Pétitions",'nav.apropos':"D'où viennent ces données",
     'stat.ministres':"Ministres",'stat.projets':"Projets de loi",'stat.votes':"Votes enregistrés",
-    'h.composition':"Composition — 125 sièges",
+    'h.composition':"Composition de l'Assemblée",
     'h.billsrecent':"Projets de loi récemment actifs",
     'h.ministres':"Ministres et député·e·s",
     'h.projets':"Projets de loi",
@@ -191,13 +194,13 @@ const translations = {
     'h.compte':"Compte",
     'h.trouve':"Trouvez votre député",
     'h.quoideneuf':"Quoi de neuf",
-    'h.quoideneuf.sub':"Dernières activités réelles à l'Assemblée nationale",
+    'h.quoideneuf.sub':"Dernières activités réelles à l'Assemblée",
     'h.lexique':"Lexique du jargon parlementaire",
     'h.lexique.sub':"Pour comprendre le reste du site sans avoir fait un cours de science politique",
     'h.personnes':"Qui gravite autour de l'Assemblée",
-    'h.petitions':"Pétitions ouvertes à l'Assemblée nationale",
+    'h.petitions':"Pétitions à l'Assemblée législative",
     'h.apropos':"D'où viennent ces données, et comment aller plus loin",
-    'ph.searchMinistres':"Nom, circonscription, ville, code postal…",
+    'ph.searchMinistres':"Nom, circonscription, parti…",
     'ph.searchBills':"Numéro, titre ou mot-clé…",
     // Voir la note du côté anglais : la bande « C'est quoi, challenger ? » change de deuxième
     // ligne pendant la dissolution. Le français a besoin de SA clé, sinon applyLanguage
@@ -208,25 +211,27 @@ const translations = {
     'ph.searchVotes':"Mot-clé : sujet, numéro de projet de loi…",
     'btn.follow':"+ Suivre",'btn.following':"✓ Suivi",
     'btn.viewSummary':"+ Voir le résumé",'btn.hideSummary':"− Masquer le résumé",
-    'btn.viewFull':"Voir le texte complet sur assnat.qc.ca →",
-    'footer.left':"Site non officiel — données publiques ANQ & Données Québec ·",
+    'btn.viewFull':"Voir la fiche officielle sur legnb.ca →",
+    'footer.left':"Site non officiel — données publiques de l'Assemblée législative du Nouveau-Brunswick ·",
     'footer.right':"Une réalisation de",
     'footer.source':"Code source",
   },
   en: {
-    'nav.close':"Close",'nav.villes':"Cities",'nav.apercu':"Overview",'nav.ministres':"Ministers",'nav.projets':"Bills",
-    'nav.votes':"Votes",'nav.archives':"Archives",'nav.quoideneuf':"What's new",'nav.compte':"Account & about",'nav.trouve':"Find your MNA",
+    'nav.close':"Close",'nav.villes':"Cities",'nav.rtv':"Represent your city",
+    'signales.avis':"<b>No online petitions in New Brunswick.</b> The Assembly only accepts paper petitions, tabled by an MLA. Flagging a bill here has no official value: it is a citizen counter that shows what worries people, and points you to how to act.",
+    'signales.agir':"To act officially:",'signales.depute':"write to your MLA",'quoideneuf.fil':"A timeline, newest first.",'nav.apercu':"Overview",'nav.ministres':"Ministers",'nav.projets':"Bills",
+    'nav.votes':"Votes",'nav.archives':"Archives",'nav.quoideneuf':"What's new",'nav.compte':"Account & about",'nav.trouve':"Find your MLA",
     'nav.lexique':"Glossary",'nav.personnes':"Who's involved",'nav.petitions':"Petitions",'nav.apropos':"Where this data comes from",
     'stat.ministres':"Ministers",'stat.projets':"Bills",'stat.votes':"Votes recorded",
-    'h.composition':"Composition — 125 seats",
+    'h.composition':"Composition of the Assembly",
     'h.billsrecent':"Recently active bills",
-    'h.ministres':"Ministers and MNAs",
+    'h.ministres':"Ministers and MLAs",
     'h.ministres2':"The ministers",
     'min.merged.sub':"The Cabinet, then all 125 MNAs from every party — one search box for both",
-    'min.sub2b':" ministers — Council in office (quebec.ca or National Assembly profiles)",
-    'min.legende43':"Attendance and bills sponsored: 43rd legislature (2022-2026) only. “n/a” and 0 for anyone who did not sit then, even with several earlier terms.",
+    'min.sub2b':" members of the Executive Council in office (legnb.ca)",
+    'min.legende43':"Attendance and bills sponsored: the current legislature only. “n/a” and 0 for anyone who has not yet voted or sponsored a bill in it.",
     'min.restTitle':"The rest of the Assembly",
-    'min.restNote':"Every party — 125 seats total",
+    'min.restNote':"Every party",
     'h.comparateur':"Comparator",
     'h.finances':"Public finances",
     'fin.sub':"Pick a person: what they earn, what is allocated to them, what they reported spending — never a ranking",
@@ -234,45 +239,47 @@ const translations = {
     'h.projets':"Bills",
     'h.votes':"Vote registry",
     'h.compte':"Account",
-    'h.trouve':"Find your MNA",
+    'h.trouve':"Find your MLA",
     'h.quoideneuf':"What's new",
-    'h.quoideneuf.sub':"Real, recent activity from the National Assembly",
+    'h.quoideneuf.sub':"Latest real activity at the Assembly",
     'h.lexique':"Parliamentary glossary",
     'h.lexique.sub':"To understand the rest of the site without a political science degree",
     'h.personnes':"Who's involved around the Assembly",
-    'h.petitions':"Petitions open at the National Assembly",
+    'h.petitions':"Petitions to the Legislative Assembly",
     'h.apropos':"Where this data comes from, and how to go further",
-    'ph.searchMinistres':"Name, riding, town, postal code…",
+    'ph.searchMinistres':"Name, riding, party…",
     'ph.searchBills':"Number, title or keyword…",
     // Refonte brutaliste — heroes de vues et bandes explicatives
     'hero.l1':"Who sits,",
     'hero.l2':"who legislates,",
     'hero.l3':"who votes what.",
-    'hero.manifesto':"Québec's National Assembly, reorganized by person and translated into plain language — no judgment, no verdict. Independent citizen site, real public data.",
+    'hero.manifesto':"New Brunswick's Legislative Assembly, reorganized by person and translated into plain language — no judgment, no verdict. Independent citizen site, real public data.",
     'hero.cta':"Explore →",
+    'hero.cta2':"The members",
     'projhero.l1':"Bills,",
     'projhero.l2':"translated plainly.",
-    'projhero.sub':"Every bill summarized in everyday language, with its real stage in the process. The full text is always one click away on assnat.qc.ca.",
+    'projhero.sub':"Every bill with its real stage and the date of each reading. The full text is always one click away on legnb.ca.",
     'votehero.l1':"Who voted",
     'votehero.l2':"for, against, absent.",
     'votehero.sub':"The recorded-division registry, as is. We don't interpret — we show. An absence can be an official mission, an illness, a scheduling conflict.",
-    'minhero.l1':"The Cabinet",
+    'minhero.l1':"Executive Council",
     'minhero.l2':"& the whole Assembly.",
-    'minhero.sub':"The ministers, then all 125 MNAs from every party (<b>the MNAs are further down</b>) — <b>one search for both.</b>",
+    'minhero.sub':"The members of the Executive Council, then the MLAs from every party (<b>the MLAs are further down</b>) — <b>one search for both.</b>",
     'lexhero.l1':"The jargon,",
     'lexhero.l2':"decoded.",
-    'lexhero.sub':"“Royal assent”, “clause-by-clause study”, “closure”… Parliament has its own vocabulary. Here, every term is explained like you'd explain it to a friend.",
+    'lexhero.sub':"“First reading”, “Committee of the Whole”, “Royal Assent”… The Assembly has its own vocabulary. Here, every term is explained like you'd explain it to a friend.",
     'legend.label':"A bill's path:",
     'legend.link':"What are these stages? → Glossary",
     'chexp.h':"✋ What is “challenging”?",
     'chexp.p1':"One click on “Ask for an explanation” = a citizen request for the bill's sponsor to explain it in plain language, and for us to keep an eye on it together.",
-    'chexp.p2':"An account (email) is required — one request per person, no anonymous requests. 🔥 At 1,000, we push for an official petition.",
+    'chexp.p2':"<b>An account (email) is required</b> — one request per person, no anonymous requests.",
+    'chexp.p3':"In New Brunswick, these requests lead to nothing official: the Assembly has no online petitions, unlike Quebec or the House of Commons. For now, it is a simple way to see which laws trouble people. Some day, an elected member may find a use for it.",
     // Pendant la dissolution : même geste, promesse différente. Aucune Assemblée ne peut
     // recevoir une pétition avant la rentrée — on dit donc ce qui arrive vraiment aux demandes.
     'chexp.p2.dissous':"<b>An account (email) is required</b> — one request per person, no anonymous requests. The Assembly is dissolved: these bills died on the order paper. Requests are still recorded and counted — when it returns on 17 November, they will show what people wanted explained.",
     'lire.h':"How to read a vote",
     'lire.1.h':"Recorded division",
-    'lire.1.p':"Each MNA stands and their choice is recorded in the Journal des débats. It's the only kind of vote that can be attributed to a person.",
+    'lire.1.p':"Each MLA stands and their choice is recorded in the Journals of the Legislative Assembly. It's the only kind of vote that can be attributed to a person.",
     'lire.2.h':"Passed ≠ law",
     'lire.2.p':"A winning vote moves the bill one stage forward. It only becomes law after assent by the Lieutenant-Governor.",
     'lire.3.h':"Party line",
@@ -283,15 +290,15 @@ const translations = {
     'ch.more':"See more →",
     'lexcat.proc':"Process", 'lexcat.votes':"Votes", 'lexcat.pers':"People & roles", 'lexcat.outils':"Citizen tools",
     'mission.eyebrow':"Our mission",
-    'mission.st1':"The Assembly's official site is the most reliable source there is. This one just makes it ",
+    'mission.st1':"The official site is the most reliable source. This one just makes it ",
     'mission.st2':"easier to follow.",
     'filter.statuts':"Statuses", 'filter.etapes':"Stages",
     'ph.searchDeputes':"Name, riding, or region…",
     'ph.searchVotes':"Keyword: subject, bill number…",
     'btn.follow':"+ Follow",'btn.following':"✓ Following",
     'btn.viewSummary':"+ View summary",'btn.hideSummary':"− Hide summary",
-    'btn.viewFull':"View full text on assnat.qc.ca →",
-    'footer.left':"Unofficial site — public data ANQ & Données Québec ·",
+    'btn.viewFull':"See the official page on legnb.ca →",
+    'footer.left':"Unofficial site — public data from New Brunswick's Legislative Assembly ·",
     'footer.right':"A project by",
     'footer.source':"Source code",
 
@@ -304,14 +311,14 @@ const translations = {
     // Bills
     'proj.sub':"43rd Legislature — real status as of June 12, 2026 (adjournment)",
     // Votes
-    'votes.sub':"43rd Legislature (sessions 1 to 3) — official counts and by-MNA breakdown",
+    'votes.sub':"The current legislature — counts and names read in the official Journals",
     'votes.info.b':"On the \u201cwho voted what\u201d detail",
-    'votes.info.text':"— the National Assembly publishes each MNA's name for every recorded vote in its official vote registry. The by-MNA breakdown above (“View names by MNA” button) comes from that official registry, not an estimate. The party shown next to each name is the one on record at the time of the vote — it may differ from an MNA's current party if they have since changed allegiance.",
+    'votes.info.text':"— the Legislative Assembly keeps no register of votes: each MLA's name is only written in its daily Journals, during a recorded division. The by-member breakdown above comes from those Journals, not an estimate. A vote where even one name can't be matched to the list of MLAs is not published. The party shown is each MLA's current party.",
     // Find your MNA
     'trouve.sub':"125 ridings — full list, real National Assembly data",
-    'trouve.info':"These 125 entries come directly from the official list of sitting MNAs at the National Assembly. Some seats may change between updates (resignation, by-election) — this list is a snapshot taken at the last update, not an automatically updated feed.",
+    'trouve.info':"These entries come directly from the official list of sitting MLAs at New Brunswick's Legislative Assembly. Some seats may change between updates (resignation, by-election) — this list is a snapshot taken at the last update, not an automatically updated feed.",
     // What's new / calendar
-    'cal.status':"\u25CF Assembly dissolved on August 27, 2026 \u00B7 election held October 5 · new legislature November 17",
+    'cal.status':"● Legislative Assembly of New Brunswick",
     'cal.title':"Sitting calendar",
     // Dissolution de la 43e législature (2026-08-27) — à retirer le 17 nov. 2026.
     'diss.h':"📅 New bills arrive on November 17",
@@ -349,62 +356,62 @@ const translations = {
     'cal.p2':"This page outlines the main working periods, not the daily schedule. For a day-by-day view of upcoming sittings and committees, the Assembly's official calendar remains the reference.",
     // Lexicon
     'lex.1.t':"Bill", 'lex.1.d':"The text a member or the government submits to the Assembly to become a law. It only becomes a real law once passed and then assented to.",
-    'lex.2.t':"Passage in principle", 'lex.2.d':"The first big stage: the Assembly votes on whether it agrees with the general idea of the bill, before studying it in clause-by-clause detail.",
-    'lex.3.t':"Clause-by-clause review", 'lex.3.d':"The stage where a parliamentary committee (a small group of MNAs) goes through the bill in detail, clause by clause, and can propose amendments.",
-    'lex.4.t':"Passage", 'lex.4.d':"The final vote in the Chamber on the entire bill, once all previous stages are complete.",
-    'lex.5.t':"Assent", 'lex.5.d':"The very last administrative step: the Lieutenant Governor gives official assent, and the bill formally becomes a law of Québec.",
-    'lex.6.t':"Parliamentary committee", 'lex.6.d':"A smaller group of MNAs (usually around ten) who study a topic or bill in depth, hear experts and citizens, before it comes back before the full Assembly.",
-    'lex.14.t':"Brief (to a committee)", 'lex.14.d':"A text that an organization, a company or a citizen sends to a parliamentary committee to say what they think of a bill: what they support, what should change, what worries them. Some are invited to present it to the MNAs. The brief is public: it is published on the National Assembly website, with its author’s name.",
-    'lex.15.t':"Brief or lobbying?", 'lex.15.d':"Both try to influence a decision, in different ways. A <b>brief</b> is a public position, within the official setting of a committee: you know who is speaking, on which bill, and you can read everything it says. <b>Lobbying</b> happens in private: meetings, calls or emails with a minister, a political office, public servants or a municipality. The law only requires it to be entered in the Québec Lobbyists Registry, which says who is lobbying, for whom and on what subject, never what was said.",
-    'lex.7.t':"Recorded vote", 'lex.7.d':"A vote where each MNA's name and choice (Yea/Nay/Abstention) are officially recorded — as opposed to a voice vote, where only the overall result is noted.",
-    'lex.8.t':"Minutes (Procès-verbal)", 'lex.8.d':"The official but summarized record of everything that happened during a sitting: decisions, votes, tabled documents.",
-    'lex.9.t':"Debates journal (Journal des débats)", 'lex.9.d':"The complete, word-for-word transcript of everything said in the Chamber — unlike the minutes, which only summarize decisions.",
-    'lex.10.t':"House leader", 'lex.10.d':"The MNA responsible for organizing their group's proceedings at the Assembly — a bit like the conductor of the calendar and debates for their party.",
-    'lex.11.t':"Whip", 'lex.11.d':"The MNA in charge of making sure members of their parliamentary group are present for votes and follow the party line.",
+    'lex.2.t':"Second reading", 'lex.2.d':"The first big step: the Assembly debates the general idea of the bill and votes on whether it accepts it, before studying the details clause by clause.",
+    'lex.3.t':"Committee stage", 'lex.3.d':"The step where the bill is gone over clause by clause, most often in Committee of the Whole (the entire Assembly sitting as a committee), sometimes by a standing committee. Amendments can be proposed there.",
+    'lex.4.t':"Third reading", 'lex.4.d':"The Assembly's final vote on the bill as a whole, once the committee stage is over.",
+    'lex.5.t':"Royal Assent", 'lex.5.d':"The very last step: the Lieutenant-Governor gives official assent, and the bill formally becomes a law of New Brunswick.",
+    'lex.6.t':"Committee", 'lex.6.d':"A smaller group of MLAs who study a subject or a bill in depth, may hear from experts and citizens, then report back to the full Assembly.",
+    'lex.14.t':"Brief (to a committee)", 'lex.14.d':"A document that an organization, a business or a citizen submits to an Assembly committee to say what they think of a bill or a subject under study: what they support, what should change, what worries them. Some are invited to present it in person to the MLAs.",
+    'lex.15.t':"Brief or lobbying?", 'lex.15.d':"Both try to influence a decision, but not in the same way. A <b>brief</b> is a public position, within a committee's official process: you know who is speaking and on what subject. <b>Lobbying</b> happens in private: meetings, calls or emails with a minister, a minister's office or public servants. The law only requires that it be entered in the province's lobbyists' registry, which says who is lobbying, for whom and on what subject, never what was said.",
+    'lex.7.t':"Recorded vote", 'lex.7.d':"A vote where each MLA's name and choice (for or against) are written in the Assembly's Journals — as opposed to a voice vote, where only the result is noted. In New Brunswick, most bills pass by voice vote.",
+    'lex.8.t':"Journal of the Assembly", 'lex.8.d':"The official, summarized record of each sitting: decisions, votes, documents tabled. It is there, and only there, that names are written down during a recorded division.",
+    'lex.9.t':"Debates journal (Journal des débats)", 'lex.9.d':"The complete, word-for-word transcript of everything said in the House — unlike the Journal of the Assembly, which only summarizes the decisions.",
+    'lex.10.t':"House leader", 'lex.10.d':"The MLA responsible for organizing their group's proceedings at the Assembly — a bit like the conductor of the calendar and debates for their party.",
+    'lex.11.t':"Whip", 'lex.11.d':"The MLA in charge of making sure members of their parliamentary group are present for votes and follow the party line.",
     'lex.12.t':"Minister Delegate / Minister Responsible for", 'lex.12.d':"A minister who isn't the main head of a department, but who officially holds responsibility for a specific file within or alongside it.",
-    'lex.13.t':"Attendance (%)", 'lex.13.d':"The figure shown under each minister (e.g. “attendance: 88% (647/735)”): out of the 735 recorded votes across the legislature's 3 sessions, 647 are ones where this person appears as Yea, Nay, or Abstention — meaning they were present to vote, regardless of which way. The count starts from their very first detected vote (a way to approximate the start of their current term without external data). The Assembly does not publish official attendance; this is a presence proxy, not an official measure — the same method used by some media outlets (e.g. Radio-Canada).",
+    'lex.13.t':"Attendance (%)", 'lex.13.d':"The figure shown under each MLA: out of the recorded divisions written in the legislature's Journals, the share in which this person appears as for or against — meaning they were present to vote, whichever way they voted. The count starts with the legislature's first recorded division, or on the day of a by-election for a member elected later. The Assembly publishes no official attendance; this is an indicator of presence, not an official measure. Recorded divisions are rare in New Brunswick: the figure rests on few votes.",
     // Who's involved
     'pers.sub':"The public roles we hadn't covered yet — real names, real current functions",
     'pers.g1':"Inside the Assembly",
     'pers.g2':"The Crown's representative",
     'pers.g3':"Independent watchdogs — appointed by the Assembly, not the government",
-    'pers.1.role':"President of the National Assembly", 'pers.1.desc':"Presides over sittings and enforces the Standing Orders. MNA for Montarville (CAQ), but the presiding role requires neutrality.",
-    'pers.2.role':"Lieutenant Governor of Québec", 'pers.2.desc':"30th holder of the office, in place since January 25, 2024 — the first person of First Nations heritage to hold it. She gives the royal assent cited on every bill card on this site.",
+    'pers.1.role':"Speaker of the Legislative Assembly", 'pers.1.desc':"Elected by the House, she presides over its debates and keeps order. MLA for Madawaska Les Lacs-Edmundston (Liberal Party), but the role of Speaker requires neutrality.",
+    'pers.2.role':"Lieutenant Governor of New Brunswick", 'pers.2.desc':"33rd holder of the office, installed on January 22, 2025. She represents the King in New Brunswick, and she gives the Royal Assent noted on each bill page of this site.",
     'pers.2.badge':"Ceremonial + assent to laws",
-    'pers.3.role':"Auditor General of Québec", 'pers.3.desc':"Audits state spending and management. In office since December 2025, 10-year non-renewable term.",
-    'pers.4.role':"Québec Ombudsperson", 'pers.4.desc':"Handles citizen complaints against the public administration.",
-    'pers.5.role':"Chief Electoral Officer of Québec", 'pers.5.desc':"Oversees elections and the electoral map.",
-    'pers.6.role':"Ethics Commissioner", 'pers.6.desc':"Advises on and investigates MNA conduct on ethics matters.",
-    'pers.7.role':"Lobbying Commissioner", 'pers.7.desc':"Administers the lobbyist registry — the direct link to the \u201clobbyist registry\u201d task on our roadmap.",
-    'pers.8.role':"Commissioner for the Well-Being and Rights of Children", 'pers.8.desc':"The most recent institution in this group, created in 2023.",
+    'pers.3.role':"Auditor General of New Brunswick", 'pers.3.desc':"Reports to the Assembly and the public on how public funds and resources are managed. In office since January 2022.",
+    'pers.4.role':"Ombud New Brunswick", 'pers.4.desc':"Reviews complaints about the provincial public sector and also oversees access to information and privacy. In office since January 1, 2022.",
+    'pers.5.role':"Chief Electoral Officer", 'pers.5.desc':"Runs provincial elections impartially, as well as municipal elections, and supervises political financing. In office since March 2017.",
+    'pers.6.role':"Integrity Commissioner", 'pers.6.desc':"Oversees conflict-of-interest rules for MLAs and senior officials, and keeps the Lobbyists' Registry. In office since January 1, 2020.",
+    'pers.7.role':"Child, Youth and Senior Advocate", 'pers.7.desc':"Protects and defends the rights of children, youth, vulnerable adults and older adults. In office since February 7, 2022.",
+    'pers.8.role':"Commissioner of Official Languages", 'pers.8.desc':"Investigates complaints under the Official Languages Act and promotes both official languages. In office since January 2, 2020.",
     'pers.badge.designee':"Appointed officer",
     'pers.info':"These people hold official public functions and are appointed through a legally defined process — that's what makes the information above public. That doesn't mean everything about them becomes public: I stick to their official function here, as with the rest of the site.",
     'h.lobby':"The lobbyist registry",
     'lobby.sub':"Who's paid to influence public decisions — and how to look it up",
-    'lobby.body':"Anyone paid to communicate with <b>public office holders</b> (ministers, MNAs, senior officials…) about laws, regulations, grants or contracts must register in a <b>public registry</b>, overseen by the <b>Quebec Lobbying Commissioner</b>, an independent institution. Lobbyists must declare their mandates there.",
-    'lobby.note':"Why this site doesn't reproduce the registry: its data isn't offered as open data (nothing on Données Québec) and is only accessible through the official search tool. Rather than make a copy that wouldn't be reliable or up to date, we link straight to the official public tools.",
+    'lobby.body':"Anyone paid to communicate with <b>public office holders</b> (ministers, MLAs, senior officials…) to influence a decision must register in the <b>Lobbyists' Registry</b>, kept by the <b>Office of the Integrity Commissioner</b>, an independent office. Lobbyists must declare their activities there.",
+    'lobby.note':"Why this site does not reproduce the registry: it can only be consulted through the official search tool. Rather than make a copy that would be neither reliable nor up to date, we link directly to the official public tools.",
     'lobby.link1':"Search the registry ↗",
-    'lobby.link2':"Recently published mandates ↗",
-    'lobby.link3':"Lobbying Commissioner ↗",
+    'lobby.link2':"Registry home ↗",
+    'lobby.link3':"Integrity Commissioner ↗",
     // Petitions
-    'pet.sub':"Real e-petitions currently open for signature — recorded June 23, 2026",
+    'pet.sub':"In New Brunswick, on paper only",
     'pet.info':"Each petition above is reproduced as-is from the National Assembly's official list, with a link to the official page where you can find and sign it. The signature count shown is the one recorded at the last update — for the exact, current count, or to sign, use the \u201cFind and sign on assnat.qc.ca\u201d link on each card.",
     // Where this data comes from
     'apropos.sources.h':"Public sources used here",
-    'apropos.sources.p':"<b style=\"color:var(--ink)\">Bills</b> — Données Québec, the National Assembly's official dataset, updated in real time.<br><b style=\"color:var(--ink)\">Bill details</b> (sponsor, current stage, full text as PDF) — assnat.qc.ca, each bill's individual page.<br><b style=\"color:var(--ink)\">Bill summaries</b> — generated by artificial intelligence (Claude API) from the official full text as introduced; every summary is labelled as such on the site.<br><b style=\"color:var(--ink)\">Vote registry</b> — assnat.qc.ca, the detail page of every recorded vote across the 3 sessions of the 43rd Legislature, including each MNA's name and party.<br><b style=\"color:var(--ink)\">Cabinet</b> — quebec.ca, the official Council of Ministers page, scraped live.<br><b style=\"color:var(--ink)\">MNAs and official emails</b> — assnat.qc.ca, the official list of sitting MNAs.<br><b style=\"color:var(--ink)\">Petitions</b> — assnat.qc.ca, the official list of open petitions.<br><b style=\"color:var(--ink)\">Attendance (%)</b> — computed from the vote registry above (see the glossary definition); no external source.",
+    'apropos.sources.p':"<b style=\"color:var(--ink)\">Bills</b> — legnb.ca, “Status of Legislation” for each session of the legislature, in French and English: stages, dates of each reading.<br><b style=\"color:var(--ink)\">Bill details</b> (type, sponsor, official text) — legnb.ca, each bill's page in both languages.<br><b style=\"color:var(--ink)\">Bill summaries</b> — generated by artificial intelligence (Claude API) from the official text as introduced, one pass per language; each summary is labelled as such on the site.<br><b style=\"color:var(--ink)\">Recorded divisions</b> — the Assembly's daily Journals (PDF, legnb.ca), the only place where names are recorded.<br><b style=\"color:var(--ink)\">Executive Council</b> — legnb.ca, Executive Council page, in French and English.<br><b style=\"color:var(--ink)\">MLAs</b> — legnb.ca, official list of sitting members. Their email addresses are not shown: legnb.ca masks them.<br><b style=\"color:var(--ink)\">Attendance (%)</b> — calculated from the recorded divisions above (see the definition in the glossary); no outside source.",
     'apropos.missing.h':"What's missing for a real production site",
     'apropos.missing.p':"1. <b style=\"color:var(--ink)\">A backend that queries these sources automatically</b> (e.g. a scheduled task that re-reads the vote registry and the bill feed every day) and writes them to a real database.<br>2. <b style=\"color:var(--ink)\">Hosting</b> for this backend and database (e.g. Vercel + Supabase/Postgres, or a classic Node server).<br>3. <b style=\"color:var(--ink)\">The by-MNA vote detail</b>, to be extracted from the official registry — the single biggest missing piece for fully answering \u201cwho voted for what.\u201d<br>4. <b style=\"color:var(--ink)\">An attendance proxy</b>: the Assembly doesn't publish attendance as such; the best public indicator is an MNA's participation rate in recorded votes (the method used by media outlets such as Radio-Canada and The Canadian Press).",
     'apropos.claude.p':"I can write this backend and help you deploy it when you're ready — this is exactly the kind of project where <b style=\"color:var(--ink)\">Claude Code</b> is especially useful, because it can work directly inside a repository, run sync scripts, and iterate on deployment with you.",
     // Overview page
-    'apercu.composition.sub':"43rd Legislature · breakdown by parliamentary group",
-    'apercu.recent.sub':"↓ Click anywhere in the white square to see the summary ↓",
+    'apercu.composition.sub':"Seats by party",
+    'apercu.recent.sub':"Click a bill to read its plain-language summary, its stage and the votes.",
     'maj.h':"Site updates",
-    'sujet.apercu':"Quebec's National Assembly in plain language",
-    'sujet.ministres':"Quebec ministers and MNAs",
-    'sujet.projets':"Quebec bills",
-    'sujet.votes':"Recorded divisions at the National Assembly",
+    'sujet.apercu':"New Brunswick's Legislative Assembly in plain language",
+    'sujet.ministres':"New Brunswick ministers and MLAs",
+    'sujet.projets':"New Brunswick bills",
+    'sujet.votes':"Recorded divisions at the Legislative Assembly",
     'sujet.promesses':"2026 election promises",
-    'sujet.lexique':"National Assembly glossary",
+    'sujet.lexique':"Legislative Assembly glossary",
     'fil.accueil':"Home",
     'fil.ministres':"Ministers and MNAs",
     'fil.projets':"Bills",
@@ -418,7 +425,7 @@ const translations = {
     'mdvilles.h':"Your city projects",
     'mdvilles.sub':"The projects you follow, all cities combined. Click a project to see its decisions, most recent first. To add one, pick it further down, or click “Project: …” on a decision in a city section.",
     'mdr.titre':"What you follow, in one place",
-'mdr.gratuit':"<b>Free: 3 follows in all.</b> Unlimited for subscribers.",
+'mdr.gratuit':"<b>Free: 3 follows in all.</b>",   // N.-B. : sans abonnement
 'mdr.bande':"<b>An idea, an error?</b> Every message is read.",
 'mdr.ecrire':"Write to us",'mdr.offrir.h':"Give a subscription",
 'mdhero.l1':"Your bills,",
@@ -426,27 +433,30 @@ const translations = {
     'mdhero.sub':"What you follow at the National Assembly and in the cities, with one account. <b><a class=\"md-lien\" href=\"#villes\">Your city projects</a> are further down.</b>",
     'lp.titre':"How to read vote attendance",
     'lp.lien':"Full definition → Glossary",
-    'lp.formule':"<b>88%</b>: out of 100 recorded votes held since their first vote of the legislature, the person voted in 88 — yea, nay or abstention, whichever way.",
+    'lp.formule':"<b>88%</b>: out of 100 recorded divisions held since their first vote of the legislature, the person voted in 88 — yea or nay, whichever way.",
     'lp.debut':"The count starts at each person's first vote: someone elected mid-term is not counted absent from votes held before they arrived.",
-    'lp.pres':"<b>—</b>: the Assembly's President* and its three Vice-Presidents. To stay neutral, they vote little or not at all: a low rate would not mean they were absent.",
-    'lp.aster2':"** Updated every morning: the site rereads the Assembly's register of votes and recalculates each person's rate, then the median, the colours and the numbers above. A vote held one day shows up the next; during the dissolution, nothing changes.",
+    'lp.pres':"<b>—</b>: the Speaker of the Assembly*. To stay neutral, the Speaker only votes to break a tie: a low rate would not mean an absence.",
+    'lp.aster2':"** Updated every week: the site rereads the recorded divisions written in the Assembly's Journals and recalculates each person's rate, then the median, the colours and the numbers above. A vote shows up here once its Journal is published.",
     'lp.aster':"* The Assembly's President is not the same as the Premier: the President runs the debates and stays neutral, while the Premier heads the government and votes like the other members. <a href=\"/lexique#role-presidence\">See the Assembly's presidency in the Glossary →</a>",
     'lp.nd':"<b>n/a</b>: no recorded vote for this person.",
     'lp.officiel':"This is not an official measure: the Assembly does not publish attendance, and a missed vote does not tell why.",
     'promo.sur':"Free account",
-    'mdavenir.html':"<div class=\"md-carte-tete\"><h2>Coming soon</h2><span class=\"md-etiquette\">Soon</span></div><p>All the text on the site will stay free: bills and their summaries, ministers and MNAs, votes, promises. Extra tools are coming soon, for subscribers:</p><ul class=\"ab-outils\"><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Custom alerts</b> — an email when a bill touches a keyword you care about, when a member introduces a bill or votes, or when a bill moves to a new stage.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Custom RSS feeds</b> — the feed of all the news, and a feed per keyword, per MNA or per ministry, in your RSS reader.</div></li><li><span class=\"ab-etat ab-bientot\">Soon</span><div><b>Consultation deadlines</b> — for groups and lobbies: the deadline to file a brief with a parliamentary committee, with a reminder before it closes.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Topic watch</b> — every week, everything that moved in your field: bills, votes, consultations.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Who filed a brief on what</b> — the groups that spoke up on each bill in committee.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Data export</b> — votes, attendance and bills as Excel or CSV files, ready to analyze.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Follow a company or an organization</b> — its briefs filed in committee at the National Assembly, in one place, and an alert for each new brief.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>No ad badges</b> — on DossierQuébec, the « ☕ Support us » buttons on bills disappear.</div></li><li><span class=\"ab-etat ab-bientot\">Soon</span><div><b>Monthly recap, subscriber edition</b> — the Québec City and Montréal council recap, with the “Where the money goes” section.</div></li></ul><p><a class=\"md-lien\" href=\"/abonnement\">See the optional subscription and the status of each tool →</a></p>",
+    'mdavenir.html':"<div class=\"md-carte-tete\"><h2>Coming soon</h2><span class=\"md-etiquette\">Soon</span></div><p>All the text on the site will stay free: bills and their summaries, ministers and MNAs, votes, promises. Extra tools are coming soon, for subscribers:</p><ul class=\"ab-outils\"><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Custom alerts</b> — an email when a bill touches a keyword you care about, when a member introduces a bill or votes, or when a bill moves to a new stage.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Custom RSS feeds</b> — the feed of all the news, and a feed per keyword, per MNA or per ministry, in your RSS reader.</div></li><li><span class=\"ab-etat ab-bientot\">Soon</span><div><b>Consultation deadlines</b> — for groups and lobbies: the deadline to file a brief with a parliamentary committee, with a reminder before it closes.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Topic watch</b> — every week, everything that moved in your field: bills, votes, consultations.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Who filed a brief on what</b> — the groups that spoke up on each bill in committee.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Data export</b> — votes, attendance and bills as Excel or CSV files, ready to analyze.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Follow a company or an organization</b> — its briefs filed in committee at the National Assembly, in one place, and an alert for each new brief.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>No ad badges</b> — on DossierNBrunswick, the « ☕ Support us » buttons on bills disappear.</div></li><li><span class=\"ab-etat ab-bientot\">Soon</span><div><b>Monthly recap, subscriber edition</b> — the Québec City and Montréal council recap, with the “Where the money goes” section.</div></li></ul><p><a class=\"md-lien\" href=\"/abonnement\">See the optional subscription and the status of each tool →</a></p>",
     'promo.h':"Follow the bills that matter to you",
-    'promo.p':"A free account, no password: follow up to 3 bills or city projects, and find them in My file, with their current stage.",
+    'promo.p':"No password: a link arrives by email. Up to 3 bills followed in My file.",
+    'apercu.voirtout':"See all →",'apercu.source':'Official source: <a href="https://www.legnb.ca/en" target="_blank" rel="noopener">legnb.ca</a>',
+    'commandite.villes':"Edmundston, Miramichi, Campbellton… still without coverage",
+    'commandite.sur':"Sponsorship",'commandite.h':"Sponsor your city",'commandite.p':"Open the follow-up of your city's council: agendas, votes and resolutions in plain language. A local sponsorship funds a city's coverage.",'commandite.cta':"Sponsor →",
     'promo.diss':"The bills of the 43rd legislature died when the Assembly was dissolved on August 27: following will resume with the first bills of the new legislature, convened on November 17, 2026.",
     'promo.compte.h':"Your account",
     'promo.mesdossiers':"My file →",
     'footer.villes':"Cities:",
-    'maj.sub':"What changed on DossierQuébec, newest first",
+    'maj.sub':"What changed on DossierNBrunswick, newest first",
     'bd.intro1':"Hi! My name is",
-    'bd.intro3':"I'm 45, and dossierquebec.ca is your first step into democracy!",
+    'bd.intro3':"I'm 45, and dossiernbrunswick.ca is your first step into democracy!",
     'bd.mot1':"If we want people to understand politics, it has to be brought down to their level.",
     'bd.mot2':"When I first tried to take an interest in it, on top of not knowing the jargon, bills came as two lines… and fifty PDFs. Most people would simply walk away.",
-    'bd.mot3':"So I had an idea: use artificial intelligence first to read through all of it, then to put it in plain words. That's how DossierQuébec was born.",
+    'bd.mot3':"So I had an idea: use artificial intelligence first to read through all of it, then to put it in plain words. That's how DossierQuébec was born — and now DossierNBrunswick.",
     'bd.mot4':"Alongside the AI recap, I've given people a lexicon that explains the basics of political jargon. Plain-language law exists — think of this as its equivalent for politics!",
     'h.petitionsrecent':"Petitions open right now",
     'apercu.petitions.sub':"Click the \u201cPetitions\u201d tab for the full list",
@@ -459,8 +469,8 @@ const translations = {
     'abhero.l2':"the tools are extra.",
     'abhero.sub':"All the text on the site is free and will stay free. The subscription is optional: it gives extra tools. <b>Cancel anytime, prices in Canadian dollars.</b>",
     'abgratuit.html':"<div class=\"md-carte-tete\"><h2>What stays free, for everyone</h2><span class=\"md-etiquette\">Free</span></div><p>Bills and their summaries, ministers and MNAs, votes, promises, the glossary, city decisions, and the features already on those pages. Following too: 3 follows per account, bills, members and city projects, subscriber or not.</p>",
-    'aboutils.html':"<div class=\"md-carte-tete\"><h2>What the subscription gives</h2></div><p>The planned tools, each with its status. A tool marked “Soon” does not exist yet: subscribers get it at no extra cost as soon as it is released, at the same price for as long as the subscription stays active. Tools on city decisions await the cities’ approval: until then they stay free or upcoming.</p><ul class=\"ab-outils\"><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Custom alerts</b> — an email when a bill touches a keyword you care about, when a member introduces a bill or votes, or when a bill moves to a new stage.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>RSS feeds</b> — the feed of all the news, plus custom feeds per keyword, per MNA or per ministry.</div></li><li><span class=\"ab-etat ab-bientot\">Soon</span><div><b>Consultation deadlines</b> — the deadline to file a brief with a parliamentary committee, with a reminder before it closes.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Topic watch</b> — every week, everything that moved in your field: bills, votes, consultations.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Who filed a brief on what</b> — the groups that spoke up on each bill in committee.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Data export</b> — the Assembly's votes, attendance and bills as Excel or CSV files.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Follow a company or an organization</b> — its briefs filed in committee at the National Assembly, in one place, and an alert for each new brief.</div></li><li><span class=\"ab-etat ab-bientot ab-selon\">Depends on subscriptions</span><div><b>Money details</b> — the amounts in each Ville de Québec item, read from the official documents. Stopped on October 22, 2026 for lack of funds: it will come back if subscriptions allow it.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>No ad badges</b> — on DossierQuébec, the « ☕ Support us » buttons on bills disappear.</div></li><li><span class=\"ab-etat ab-bientot\">Soon</span><div><b>Monthly recap, subscriber edition</b> — the Québec City and Montréal council recap, with the “Where the money goes” section.</div></li></ul>",
-    'abforfaits.html':"<div class=\"md-carte-tete\"><h2>The plans</h2></div><ul class=\"ab-forfaits\"><li class=\"ab-forfait\" data-forfait=\"mensuel\" role=\"button\" tabindex=\"0\" onclick=\"abChoisirForfait(this.dataset.forfait)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abChoisirForfait(this.dataset.forfait)}\"><b class=\"ab-montant\">$9.99</b><span>a month</span></li><li class=\"ab-forfait\" data-forfait=\"trimestriel\" role=\"button\" tabindex=\"0\" onclick=\"abChoisirForfait(this.dataset.forfait)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abChoisirForfait(this.dataset.forfait)}\"><b class=\"ab-montant\">$26.99</b><span>every 3 months</span></li><li class=\"ab-forfait\" data-forfait=\"annuel\" role=\"button\" tabindex=\"0\" onclick=\"abChoisirForfait(this.dataset.forfait)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abChoisirForfait(this.dataset.forfait)}\"><b class=\"ab-montant\">$99</b><span>a year — two months free</span></li></ul><p class=\"md-note\">Prices in Canadian dollars, with no taxes added: the amount shown is the amount paid. Card payment on Stripe's secure page: DossierQuébec never sees your card. Cancel anytime, from this page or My file, in two clicks: the subscription stays active until the end of the paid period, then stops with no further charge.</p>",
+    'aboutils.html':"<div class=\"md-carte-tete\"><h2>What the subscription gives</h2></div><p>The planned tools, each with its status. A tool marked “Soon” does not exist yet: subscribers get it at no extra cost as soon as it is released, at the same price for as long as the subscription stays active. Tools on city decisions await the cities’ approval: until then they stay free or upcoming.</p><ul class=\"ab-outils\"><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Custom alerts</b> — an email when a bill touches a keyword you care about, when a member introduces a bill or votes, or when a bill moves to a new stage.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>RSS feeds</b> — the feed of all the news, plus custom feeds per keyword, per MNA or per ministry.</div></li><li><span class=\"ab-etat ab-bientot\">Soon</span><div><b>Consultation deadlines</b> — the deadline to file a brief with a parliamentary committee, with a reminder before it closes.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Topic watch</b> — every week, everything that moved in your field: bills, votes, consultations.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Who filed a brief on what</b> — the groups that spoke up on each bill in committee.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Data export</b> — the Assembly's votes, attendance and bills as Excel or CSV files.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>Follow a company or an organization</b> — its briefs filed in committee at the National Assembly, in one place, and an alert for each new brief.</div></li><li><span class=\"ab-etat ab-bientot ab-selon\">Depends on subscriptions</span><div><b>Money details</b> — the amounts in each Ville de Québec item, read from the official documents. Stopped on October 22, 2026 for lack of funds: it will come back if subscriptions allow it.</div></li><li><span class=\"ab-etat ab-dispo\">Available</span><div><b>No ad badges</b> — on DossierNBrunswick, the « ☕ Support us » buttons on bills disappear.</div></li><li><span class=\"ab-etat ab-bientot\">Soon</span><div><b>Monthly recap, subscriber edition</b> — the Québec City and Montréal council recap, with the “Where the money goes” section.</div></li></ul>",
+    'abforfaits.html':"<div class=\"md-carte-tete\"><h2>The plans</h2></div><ul class=\"ab-forfaits\"><li class=\"ab-forfait\" data-forfait=\"mensuel\" role=\"button\" tabindex=\"0\" onclick=\"abChoisirForfait(this.dataset.forfait)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abChoisirForfait(this.dataset.forfait)}\"><b class=\"ab-montant\">$9.99</b><span>a month</span></li><li class=\"ab-forfait\" data-forfait=\"trimestriel\" role=\"button\" tabindex=\"0\" onclick=\"abChoisirForfait(this.dataset.forfait)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abChoisirForfait(this.dataset.forfait)}\"><b class=\"ab-montant\">$26.99</b><span>every 3 months</span></li><li class=\"ab-forfait\" data-forfait=\"annuel\" role=\"button\" tabindex=\"0\" onclick=\"abChoisirForfait(this.dataset.forfait)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abChoisirForfait(this.dataset.forfait)}\"><b class=\"ab-montant\">$99</b><span>a year — two months free</span></li></ul><p class=\"md-note\">Prices in Canadian dollars, with no taxes added: the amount shown is the amount paid. Card payment on Stripe's secure page: DossierNBrunswick never sees your card. Cancel anytime, from this page or My file, in two clicks: the subscription stays active until the end of the paid period, then stops with no further charge.</p>",
     'abcadeau.html':"<div class=\"md-carte-tete\"><h2>Give 1 month, 3 months or 1 year</h2><span class=\"md-etiquette\">Gift</span></div><p>A fixed length: you pay once, with no renewal. The code arrives in your email and in My file: give it to anyone you like.</p><ul class=\"ab-forfaits\"><li class=\"ab-forfait ab-cadeau\" data-duree=\"mensuel\" role=\"button\" tabindex=\"0\" onclick=\"abOffrir(this.dataset.duree, this)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abOffrir(this.dataset.duree, this)}\"><b class=\"ab-montant\">$9.99</b><span>1 month</span></li><li class=\"ab-forfait ab-cadeau\" data-duree=\"trimestriel\" role=\"button\" tabindex=\"0\" onclick=\"abOffrir(this.dataset.duree, this)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abOffrir(this.dataset.duree, this)}\"><b class=\"ab-montant\">$26.99</b><span>3 months</span></li><li class=\"ab-forfait ab-cadeau\" data-duree=\"annuel\" role=\"button\" tabindex=\"0\" onclick=\"abOffrir(this.dataset.duree, this)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abOffrir(this.dataset.duree, this)}\"><b class=\"ab-montant\">$99</b><span>1 year</span></li></ul><p class=\"md-note\">You need to be signed in to give. Card payment on Stripe's secure page, with no taxes added.</p>",
     'mdcadeau.html':"<span class=\"md-cadeau-titre\">One time</span><span class=\"md-cadeau-puces\"><button type=\"button\" class=\"md-cadeau-puce ab-cadeau\" data-duree=\"mensuel\" onclick=\"abOffrir(this.dataset.duree, this)\">1 month · $9.99</button> <button type=\"button\" class=\"md-cadeau-puce ab-cadeau\" data-duree=\"trimestriel\" onclick=\"abOffrir(this.dataset.duree, this)\">3 months · $26.99</button> <button type=\"button\" class=\"md-cadeau-puce ab-cadeau\" data-duree=\"annuel\" onclick=\"abOffrir(this.dataset.duree, this)\">1 year · $99</button> <input type=\"number\" class=\"md-cadeau-qte\" min=\"1\" max=\"100\" step=\"1\" inputmode=\"numeric\" placeholder=\"×1\" aria-label=\"How many codes\" title=\"How many codes (up to 100)\"></span><span class=\"md-note\">One-time payment. The code arrives by email.</span>",
     'aboffert.html':"<div class=\"md-carte-tete\"><h2>Give a subscription</h2><span class=\"md-etiquette\">Recurring</span></div><p>You pay every month, every 3 months or every year for someone else, until you cancel. The code arrives in your email and in My file: the person pastes it in the “Enter your code here” box. Their access follows your payments and stops if you cancel.</p><ul class=\"ab-forfaits\"><li class=\"ab-forfait ab-offert\" data-forfait=\"mensuel\" role=\"button\" tabindex=\"0\" onclick=\"abOffrirAbonnement(this.dataset.forfait, this)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abOffrirAbonnement(this.dataset.forfait, this)}\"><b class=\"ab-montant\">$9.99</b><span>per month</span></li><li class=\"ab-forfait ab-offert\" data-forfait=\"trimestriel\" role=\"button\" tabindex=\"0\" onclick=\"abOffrirAbonnement(this.dataset.forfait, this)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abOffrirAbonnement(this.dataset.forfait, this)}\"><b class=\"ab-montant\">$26.99</b><span>every 3 months</span></li><li class=\"ab-forfait ab-offert\" data-forfait=\"annuel\" role=\"button\" tabindex=\"0\" onclick=\"abOffrirAbonnement(this.dataset.forfait, this)\" onkeydown=\"if(event.key==='Enter'||event.key===' '){event.preventDefault();abOffrirAbonnement(this.dataset.forfait, this)}\"><b class=\"ab-montant\">$99</b><span>per year</span></li></ul><p class=\"md-note\">The first period starts with your payment, even if the code has not been used yet. You cancel at any time in My file, at no cost. You need to be signed in to give.</p>",
@@ -479,18 +489,18 @@ const translations = {
     'arch.min.h':"Former ministers of the Legault and Fréchette governments",
     'arch.min.p':"One profile per minister of the 43rd Legislature (2022-2026): roles, bills sponsored and vote attendance.",
     'projets.tousvotes':"All recorded votes, motions included →",
-    'sujet.regles':"DossierQuébec's sourcing rules",
+    'sujet.regles':"DossierNBrunswick's sourcing rules",
     'regleshero.l1':"The rules,",
     'regleshero.l2':"in black and white.",
     'regleshero.sub':"The site only publishes what an institution or a party has itself published, as is, with a link to the original. <b>And it says clearly what is missing.</b>",
     'regles.1.h':"No invented data",
     'regles.1.p':"This is rule number one. If a piece of information is missing, the field stays empty or the site says so. We do not guess and we do not fill in.",
     'regles.2.h':"Primary sources only",
-    'regles.2.p':"We quote the institution or the party itself, never someone talking about it: the <b>National Assembly</b> and <b>Données Québec</b> for bills, votes and MNAs; the <b>cities</b> (decision portals, minutes) for municipal decisions; <b>Élections Québec</b> for election results and to find the riding of a postal code or a municipality (© Directeur général des élections du Québec, reproduced for non-profit purposes); the <b>parties' official documents</b> (platform, commitments page, announcements on their website) for promises.",
+    'regles.2.p':"We quote the institution itself, never someone talking about it: New Brunswick's <b>Legislative Assembly</b> (legnb.ca) for bills, their stages, the recorded divisions written in its Journals, the MLAs and the Executive Council.",
     'regles.3.h':"No news media",
     'regles.3.p':"Nothing is taken from the Québec or Canadian press. News outlets have withdrawn their content from use by artificial intelligence, and our requests for permission went unanswered. A promise made at a press conference but never published by the party therefore does not appear on the site.",
     'regles.4.h':"We respect a website's refusal",
-    'regles.4.p':"If a website asks automated tools not to read it, we do not read it, even when it would be technically possible: that is why the <b>Coalition avenir Québec</b> is absent from the promises page. We never work around a CAPTCHA or an anti-bot protection. When access is blocked, we write to the organization to ask for permission.",
+    'regles.4.p':"If a website asks automated tools not to read it, we do not read it, even when it would be technically possible. We also respect the pace it asks for: legnb.ca asks for ten seconds between two reads, and the site waits for them. We never work around a CAPTCHA or an anti-bot protection: that is why the MLAs' email addresses, which legnb.ca masks, do not appear here. When access is blocked, we write to the organization to ask for permission.",
     'regles.5.h':"Promises are quoted word for word",
     'regles.5.p':"Every promise is an exact quote from the party's document. A quote that cannot be found as is in the source is rejected automatically, and so is a quote cut off mid-word. Every card carries a “See the source” link to the original document. This safeguard exists because, in the very first batch, two promises out of four were wrong.",
     'regles.6.h':"The same rule for every party",
@@ -501,11 +511,11 @@ const translations = {
     'regles.8.p':"Plain-language summaries are made from the official text, and the full text is always one click away. If anything differs, the original document is the one that counts. The site is independent and has no official status.",
     'regles.9.h':"We explain what is missing",
     'regles.9.p':"When a source is absent or incomplete, the page says so and says why. An absence must never be read as silence from the party or the city.",
-    'regles.suite':"These rules apply everywhere on the site. See them at work on the <a href=\"/promesses\">Promises</a> page, and follow what changes in the <a href=\"/sources\">site updates</a>. All the content on the site is free. An <a href=\"/abonnement\">optional subscription</a> offers extra tools.",
+    'regles.suite':"These rules apply everywhere on the site. Follow what changes in the <a href=\"/sources\">site updates</a>. All the content on the site is free.",   // N.-B. : sans abonnement
     'fil.introuvable':"Page not found",
     'sujet.introuvable':"Page not found",
     'p404.bande.h':"⚠️ Error 404 — this address leads nowhere",
-    'p404.bande.p':"The page you asked for does not exist on DossierQuébec, or its address has changed. No harm done: <b>the real bills are one click away.</b>",
+    'p404.bande.p':"The page you asked for doesn't exist on DossierNBrunswick, or its address has changed. No big deal: <b>the real bills are one click away.</b>",
     'p404.l1':"This page was dead",
     'p404.l2':"on arrival.",
     'p404.sub':"Like many bills: introduced with the best intentions, never passed. <b>Or the address has a typo, which happens even to legislative drafters.</b>",
@@ -515,13 +525,13 @@ const translations = {
     'p404.contre':"Nays",
     'p404.abst':"Abstentions",
     'p404.verdict':"Motion defeated. Not even close.",
-    'p404.e1':"Introduction ✓",
-    'p404.e2':"Passage in principle",
-    'p404.e3':"Clause-by-clause study",
-    'p404.e4':"Assent",
-    'p404.blague':"This vote is a joke: it never took place, and there are not 404 MNAs. On this site, it is the only invented data. <a href=\"/votes\">The real votes are here.</a>",
+    'p404.e1':"First reading ✓",
+    'p404.e2':"Second reading",
+    'p404.e3':"Committee stage",
+    'p404.e4':"Royal Assent",
+    'p404.blague':"This vote is a joke: it never took place, and there are not 404 MLAs. On this site, it is the only invented data. <a href=\"/votes\">The real votes are here.</a>",
     'p404.lien1':"The ones that actually exist, in plain language.",
-    'p404.lien2':"Who voted for what, MNA by MNA.",
+    'p404.lien2':"Who voted for what, MLA by MLA.",
     'p404.lien3':"What the parties promised, word for word.",
     'p404.accueil':"Home",
     'p404.lien4':"Let's start over, no hard feelings.",
@@ -546,7 +556,7 @@ const translations = {
     'mission.h':"Our mission — why this isn't just a copy of the National Assembly's website",
     'mission.intro':"<b>This is an independent citizen-run site built with real public data from the Assemblée nationale du Québec and Données Québec.</b>",
     'mission.p':"The National Assembly's official site is the most reliable source that exists, and this site never tries to replace it — only to make it easier to follow for someone who doesn't have time to dig through parliamentary procedure menus.",
-    'mission.assnat.tag':"What assnat.qc.ca does",
+    'mission.assnat.tag':"What legnb.ca does",
     'mission.assnat.1':"Organizes everything by official document",
     'mission.assnat.2':"The complete, legally authoritative source for everything",
     'mission.assnat.3':"Neutral — never compares or summarizes",
@@ -730,6 +740,41 @@ function traduireTextesFixes(){
   // Les noms d'onglets changent de longueur avec la langue : l'en-tête se remesure.
   if(typeof majEnteteDeuxRangees === 'function') majEnteteDeuxRangees();
 }
+// N.-B. (7 nov. 2026) : le surtitre de l'affiche, « 61e législature · 3e session », tiré des
+// projets de loi chargés (la législature la plus récente, puis sa session la plus récente).
+// Rien n'est écrit à la main : sans projet chargé, le surtitre reste caché.
+function poserSessionAffiche(){
+  const e = document.getElementById('heroSession');
+  if(!e || typeof bills === 'undefined' || !bills.length) return;
+  const leg = Math.max(...bills.map(b => Number(b.legislature) || 0));
+  const ses = Math.max(...bills.filter(b => Number(b.legislature) === leg).map(b => Number(b.introSession) || 0));
+  if(!leg || !ses) return;
+  const ordFr = (n) => n === 1 ? '1<sup>re</sup>' : n + '<sup>e</sup>';
+  const ordEn = (n) => n + ({1:'st', 2:'nd', 3:'rd'}[(n % 100 >= 11 && n % 100 <= 13) ? 0 : n % 10] || 'th');
+  e.innerHTML = currentLang === 'en'
+    ? ordEn(leg) + ' Legislature · ' + ordEn(ses) + ' Session'
+    : leg + '<sup>e</sup> législature · ' + ordFr(ses) + ' session';
+  e.hidden = false;
+  // N.-B. : l'encadré de l'accueil (et la bande défilante, qui le lit) dit la même chose.
+  const cal = document.querySelector('.calendar-box .status');
+  if(cal && !ASSEMBLY.dissolved){
+    cal.innerHTML = (cal.closest('.nb-etat') ? '' : '● ') + (currentLang === 'en'
+      ? ordEn(leg) + ' Legislature · ' + ordEn(ses) + ' Session under way'
+      : leg + '<sup>e</sup> législature · ' + ordFr(ses) + ' session en cours');
+    if(typeof renderTicker === 'function') renderTicker();
+  }
+  // N.-B. (maquette) : dans le bandeau de l'accueil, la prochaine séance lue au calendrier de
+  // legnb.ca (scrapers/calendrier.js). Une date passée ne s'affiche pas : le bandeau garde la session.
+  const etat = document.querySelector('.nb-etat .status');
+  const s = stats && stats.prochaineSeance;
+  if(etat && s && !ASSEMBLY.dissolved && s.date >= new Date().toLocaleDateString('en-CA')){
+    const [a, m, j] = s.date.split('-').map(Number);
+    const jour = new Date(a, m - 1, j).toLocaleDateString(currentLang === 'en' ? 'en-CA' : 'fr-CA', { day:'numeric', month:'long', year:'numeric' });
+    etat.innerHTML = currentLang === 'en'
+      ? '<b>Next sitting: ' + jour + '.</b> New bills appear here as soon as they are tabled in Fredericton.'
+      : '<b>Prochaine séance le ' + jour + '.</b> Les nouveaux projets de loi apparaîtront ici dès leur dépôt à Fredericton.';
+  }
+}
 function applyLanguage(){
   traduireTextesFixes();
   // Re-render dynamic lists so their JS-generated buttons pick up the new language
@@ -767,6 +812,10 @@ function applyLanguage(){
   // Le <title> suit la langue ET l'onglet courant (déduit de l'URL).
   if(typeof syncTitle === 'function') syncTitle(viewFromPath());
   if(typeof applyAssemblyState === 'function') applyAssemblyState();
+  poserSessionAffiche();
+  // N.-B. : « + Représentez votre ville » ouvre le formulaire de DossierQuébec dans la langue de la page.
+  const rtv = document.getElementById('lienRtv');
+  for(const a of [rtv, ...document.querySelectorAll('.lienRtv')]) if(a) a.href = 'https://dossierquebec.ca/represente-ta-ville?province=nb' + (currentLang === 'en' ? '&lang=en' : '');  // N.-B. : garder ?province=nb
   // L'infobulle de la bascule de thème suit la langue elle aussi.
   if(typeof appliquerTheme === 'function') appliquerTheme();
 }
@@ -849,21 +898,23 @@ document.getElementById('langToggle')?.addEventListener('click', ()=>{
 // Couleurs des partis — au plus proche des vraies identités visuelles, tout en
 // restant distinguables (CAQ cyan clair, PCQ bleu royal, PQ bleu foncé : trois
 // bleus séparés par la clarté, comme dans la vraie vie politique québécoise).
-const partyColors = { CAQ:'#00A5CF', PLQ:'#E23A3A', QS:'#FF7B33', PQ:'#12429B', PCQ:'#3E63B0', IND:'#8B8578' };
+const partyColors = { LIB:'#C0161D', PC:'#005DAC', VERT:'#3D9B35', IND:'#8B8578' };   // N.-B. : les couleurs que legnb.ca donne à chaque parti
 // Refonte : badges de parti à fond PLEIN — couleur de texte lisible par parti
 // (noir sur cyan/orange clairs, blanc sur les foncés).
-const partyTextColors = { CAQ:'#131313', QS:'#131313', PLQ:'#fff', PQ:'#fff', PCQ:'#fff', IND:'#fff' };
+const partyTextColors = { LIB:'#fff', PC:'#fff', VERT:'#fff', IND:'#fff' };
 function partyText(p){ return partyTextColors[p] || '#fff'; }
 
-// Répartition réelle approximative des groupes à la 43e législature (Ass. nat. du Québec)
+// N.-B. : les groupes de l'Assemblée législative. Le nombre de sièges n'est écrit nulle part : il se
+// compte sur la liste des député·e·s (deputesRaw), lue à chaque rafraîchissement sur legnb.ca.
 const seats = [
-  {party:'CAQ', label:'Coalition avenir Québec (gouvernement)', labelEn:'Coalition avenir Québec (government)', n:79},
-  {party:'PLQ', label:'Parti libéral du Québec (opposition officielle)', labelEn:'Québec Liberal Party (official opposition)', n:18},
-  {party:'QS', label:'Québec solidaire', labelEn:'Québec solidaire', n:11},
-  {party:'IND', label:'Indépendants', labelEn:'Independents', n:9},
-  {party:'PQ', label:'Parti québécois', labelEn:'Parti Québécois', n:7},
-  {party:'PCQ', label:'Parti conservateur du Québec', labelEn:'Conservative Party of Québec', n:1},
-];
+  {party:'LIB', label:'Parti libéral (gouvernement)', labelEn:'Liberal Party (government)'},
+  {party:'PC', label:'Parti progressiste-conservateur (opposition officielle)', labelEn:'Progressive Conservative Party (official opposition)'},
+  {party:'VERT', label:'Parti vert', labelEn:'Green Party'},
+  {party:'IND', label:'Indépendant·e·s', labelEn:'Independents'},
+].map((s) => Object.defineProperty(s, 'n', {
+  get(){ return (typeof deputesRaw !== 'undefined' ? deputesRaw : []).filter((d) => d[3] === s.party).length; },
+  enumerable: true,
+}));
 
 
 
@@ -875,8 +926,8 @@ const seats = [
 // displayStep() replie « Adoption du principe » (2) et « Prise en considération » (4)
 // dans « Étude détaillée » — assez précis pour un lecteur pressé, et le détail réel
 // reste visible dans la note de chaque carte (« Adoption du principe le … »).
-const steps = ['Présentation','Étude détaillée','Adoption / Sanction'];
-const stepsEn = ['Introduction','Detailed study','Passage / Assent'];
+const steps = ['Première lecture','Deuxième lecture et comité','Troisième lecture / Sanction'];   // N.-B. : les lectures de l'Assemblée législative
+const stepsEn = ['First reading','Second reading & committee','Third reading / Assent'];
 function displayStep(step){
   if(step === null || step === undefined) return step;
   return step <= 1 ? 1 : (step >= 5 ? 3 : 2);
@@ -1024,7 +1075,7 @@ const loiVivante = (b) => !ASSEMBLY.dissolved && String(b.lastActivity || '') >=
 // gens veulent des explications. On laisse donc challenger les projets morts au feuilleton :
 // la demande est enregistrée, comptée, et elle dira à la rentrée ce que les gens voulaient
 // voir expliqué. Seul un projet SANCTIONNÉ (devenu loi) ne se challenge pas.
-const peutEtreChallenge = (b) => archiveLeg !== null ? false : ASSEMBLY.dissolved
+const peutEtreChallenge = (b) => !ASSEMBLY.challenge ? false : archiveLeg !== null ? false : ASSEMBLY.dissolved
   ? b.status !== 'sanctionne'
   : (b.status === 'encours' && loiVivante(b));
 
@@ -1124,7 +1175,7 @@ function renderFinancesSelect(){
   const tri = [...noms.values()].sort((a, b) => a.split(' ').pop().localeCompare(b.split(' ').pop(), 'fr'));
   sel.innerHTML = `<option value="">${isEn ? 'Choose a person…' : 'Choisir une personne…'}</option>`
     + tri.map(n => `<option value="${n.replace(/"/g, '&quot;')}">${n}</option>`).join('');
-  sel.setAttribute('aria-label', isEn ? 'Choose an MNA' : 'Choisir un·e député·e');
+  sel.setAttribute('aria-label', isEn ? 'Choose an MLA' : 'Choisir un·e député·e');
   const haut = document.getElementById('financesHaut');
   if(haut){ const e = isEn ? 'Back to the ministers' : 'Revenir aux ministres'; haut.title = e; haut.setAttribute('aria-label', e); }
   if(garde && tri.includes(garde)) sel.value = garde;
@@ -1255,7 +1306,7 @@ const partageBouton = (nom) => `<span class="part-elu"><button class="part-btn" 
 function resumeElu(nom, isEn){
   const dep = resolveDepute(nom);
   const ministre = ministers.find((m) => m.name === nom);
-  const role = ministre ? (isEn ? (ministre.roleEn || ministre.role) : ministre.role) : (isEn ? 'MNA' : 'Député·e');
+  const role = ministre ? (isEn ? (ministre.roleEn || ministre.role) : ministre.role) : (isEn ? 'MLA' : 'Député·e');
   const att = dep ? attendanceForAssnatId(dep.assnatId) : null;
   const parraines = billsSponsoredBy(nom);
   const pl = parraines.length;
@@ -1265,12 +1316,12 @@ function resumeElu(nom, isEn){
   const depuis = att?.depuis ? new Date(att.depuis + 'T12:00:00') : null;
   const ans = depuis ? Math.floor((Date.now() - depuis) / (365.25 * 864e5)) : null;
   const anciennete = ans !== null
-    ? (ans < 1 ? (isEn ? 'MNA for less than a year' : 'Député·e depuis moins d’un an')
-      : (isEn ? `MNA for at least ${ans} year${ans > 1 ? 's' : ''}` : `Député·e depuis au moins ${ans} an${ans > 1 ? 's' : ''}`))
+    ? (ans < 1 ? (isEn ? 'MLA for less than a year' : 'Député·e depuis moins d’un an')
+      : (isEn ? `MLA for at least ${ans} year${ans > 1 ? 's' : ''}` : `Député·e depuis au moins ${ans} an${ans > 1 ? 's' : ''}`))
     : (dep ? (isEn ? 'Newly elected on October 5, 2026' : 'Élu·e le 5 octobre 2026') : '');
   const morceaux = [
     ministre ? `${nom}, ${role},` : `${nom},`,
-    dep ? (isEn ? `MNA for ${dep.riding}` : `député·e de ${dep.riding}`) : '',
+    dep ? (isEn ? `MLA for ${dep.riding}` : `député·e de ${dep.riding}`) : '',
     (ministre?.party || dep?.party) ? `(${ministre?.party || dep.party})` : '',
   ].filter(Boolean).join(' ');
   const faits = [
@@ -1287,7 +1338,7 @@ const slugElu = (n) => String(n || '').normalize('NFD').replace(/[̀-ͯ]/g, '').
 // Un clic copie le résumé et le lien, sans menu (Martin, 22 oct. 2026) ; ✓ le confirme.
 function ouvrirPartageElu(bouton, nom){
   const isEn = currentLang === 'en';
-  const lien = `https://dossierquebec.ca/ministres?elu=${slugElu(nom)}${isEn ? '&lang=en' : ''}`;
+  const lien = `https://dossiernbrunswick.ca/ministres?elu=${slugElu(nom)}${isEn ? '&lang=en' : ''}`;
   const texte = `${resumeElu(nom, isEn)} ${lien}`;
   const fait = () => {
     const avant = bouton.innerHTML;
@@ -1329,7 +1380,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // pastille devient un jeu d'arcade. La première carte est Pac-Girl, les autres un chemin de points
 // qu'elle va manger, saupoudré de fantômes et de fruits. Le parti et son sort au survol (et pour les
 // lecteurs d'écran). Dessins pixel maison. Un parti dissous s'ajoute ici avec sa phrase.
-const PARTIS_DISPARUS = { CAQ: { fr: 'disparue de l’Assemblée le 5 octobre 2026 (aucun siège)', en: 'gone from the Assembly on October 5, 2026 (no seats)' } };
+const PARTIS_DISPARUS = {};   // N.-B. : aucun parti disparu de l'Assemblée
 const SPRITES = {
   // . vide, 1 couleur principale, 2 blanc, 3 bleu foncé (yeux), 4 rose, 5 vert, 6 rouge, 7 noir
   // Pac-Girl en 16 × 16 (Martin, 22 oct. 2026) : boucle rouge, yeux à cils, lèvres rouges, bouche vers la droite.
@@ -1404,7 +1455,9 @@ function pastilleMinistre(party, nom, styleCouleur){
 // Le « W » à côté du $ (Martin, 23 oct. 2026) : la page Wikipédia de la personne, quand une page sûre
 // existe (scrapers/wikipedia.js) ; sinon rien. Wikipédia raconte le parcours que l'Assemblée n'explique pas.
 const wikiBouton = (nom) => { const w = resolveDepute(nom)?.wiki; return w ? `<a class="wiki-btn" href="${w}" target="_blank" rel="noopener" title="Wikipédia" aria-label="${currentLang === 'en' ? 'Wikipedia page of' : 'Page Wikipédia de'} ${nom.replace(/"/g, '&quot;')}">W</a>` : ''; };
-const finBouton = (nom) => `<button class="fin-btn" type="button" title="${currentLang === 'en' ? 'Public finances' : 'Finances publiques'}" aria-label="${currentLang === 'en' ? 'Public finances of' : 'Finances publiques de'} ${nom.replace(/"/g, '&quot;')}" onclick="voirFinances('${nom.replace(/'/g, "\\'")}')">$</button>`;
+// N.-B. (Martin, 7 nov. 2026) : pas de finances au N.-B. pour l'instant, donc pas de bouton « $ ».
+const finBouton = () => '';
+const finBoutonDQ = (nom) => `<button class="fin-btn" type="button" title="${currentLang === 'en' ? 'Public finances' : 'Finances publiques'}" aria-label="${currentLang === 'en' ? 'Public finances of' : 'Finances publiques de'} ${nom.replace(/"/g, '&quot;')}" onclick="voirFinances('${nom.replace(/'/g, "\\'")}')">$</button>`;
 
 /* ---------------- COMPTES (Supabase) ---------------- */
 // Auth par lien magique (courriel) — voir scripts/supabase-schema.sql pour la
@@ -1610,6 +1663,7 @@ function renderPromoCompte(){
     : (isEn ? 'Get the link' : 'Recevoir le lien');
   const note = promoEnvoi?.etat === 'envoye'
     ? (isEn ? 'Check your inbox for the sign-in link.' : 'Vérifiez vos courriels : le lien de connexion vous attend.')
+    : box.closest('.nb-boite') ? ''   // N.-B. : la boîte de l'accueil le dit déjà (maquette)
     : (isEn ? 'No password: a sign-in link arrives by email. A free account follows 3 things in all.' : 'Pas de mot de passe : un lien de connexion arrive par courriel. Le compte gratuit suit 3 choses en tout.');
   box.innerHTML = `<div class="promo-compte-ligne">
       <input type="email" id="promoEmail" placeholder="${isEn ? 'Your email' : 'Votre courriel'}" aria-label="${isEn ? 'Your email' : 'Votre courriel'}"${occupe ? ' readonly' : ''}>
@@ -1738,11 +1792,13 @@ async function mdRefonte(isEn, quota){
     debut.innerHTML = `<h2 class="mdr-h2">${isEn ? 'Getting started' : 'Pour commencer'}</h2>
       <div class="mdr-cartes">
         ${carte(1, isEn ? 'A bill' : 'Un projet de loi', isEn ? 'An alert at every stage' : 'Une alerte à chaque étape', [['/projets-de-loi', isEn ? 'Choose a bill →' : 'Choisir un projet →']])}
-        ${carte(2, isEn ? 'A member' : 'Un·e élu·e', isEn ? 'Their votes and bills' : 'Ses votes et ses projets', [['/ministres', isEn ? 'Find my MNA →' : 'Trouver mon député →']])}
-        ${carte(3, isEn ? 'A city project' : 'Un projet de ville', isEn ? 'Québec City or Montréal' : 'Québec ou Montréal', [['/quebec', isEn ? 'Québec City →' : 'Québec →'], ['/montreal', 'Montréal →']])}
+        ${carte(2, isEn ? 'A member' : 'Un·e élu·e', isEn ? 'Their votes and bills' : 'Ses votes et ses projets', [['/ministres', isEn ? 'Find my MLA →' : 'Trouver mon député →']])}
+        ${''/* N.-B. (Martin) : pas de carte « Un projet de ville » (Québec ou Montréal) */}
       </div>`;
   }
 
+  // N.-B. (Martin, 7 nov. 2026) : abonnement éteint, pas de tuiles des abonné·e·s.
+  if(ASSEMBLY.abonnement === false){ const p = document.getElementById("mdPlus"); if(p){ p.innerHTML = ""; p.hidden = true; } if(location.hash === "#ecrire") mdBasculerEcrire(true); return; }
   const abonne = await estAbonne();
   const tuiles = [
     ['mdAlertes', 'cloche', isEn ? 'Keyword alerts' : 'Alertes par mot-clé', isEn ? 'An email in the morning' : 'Un courriel le matin'],
@@ -2474,6 +2530,7 @@ function abPhraseActive(etat, isEn){
 
 async function mdAbonnement(isEn, avisCode){
   const zone = document.getElementById('mdAbonnement');
+  if(ASSEMBLY.abonnement === false){ if(zone){ zone.innerHTML = ''; zone.hidden = true; } return; }   // N.-B. : abonnement éteint
   if(!zone) return;
   const [etat, codes] = await Promise.all([abEtatServeur(), abMesCodes(isEn)]);
   if(!document.body.contains(zone)) return;   // la carte a été redessinée entre-temps
@@ -2766,15 +2823,15 @@ window.abUtiliserCode = abUtiliserCode;
 function abMessageCode(code, quoi, isEn){
   const lien = `${location.origin}/abonnement?code=${encodeURIComponent(code.replace(/-/g, ''))}${isEn ? '&lang=en' : ''}#code`;
   return {
-    sujet: isEn ? 'A DossierQuébec subscription for you' : 'Un abonnement à DossierQuébec pour vous',
+    sujet: isEn ? 'A DossierNBrunswick subscription for you' : 'Un abonnement à DossierNBrunswick pour vous',  // N.-B.
     corps: isEn
-      ? `I am giving you ${quoi} of DossierQuébec: bills, votes and MNAs of the National Assembly, with the subscriber tools.
+      ? `I am giving you ${quoi} of DossierNBrunswick: bills, votes and MLAs of the New Brunswick Legislative Assembly, with the subscriber tools.
 
 Click to activate it (the code is already filled in):
 ${lien}
 
 Code: ${code}`
-      : `Je vous offre ${quoi} à DossierQuébec : projets de loi, votes et élus de l’Assemblée nationale, avec les outils des abonné·e·s.
+      : `Je vous offre ${quoi} à DossierNBrunswick : projets de loi, votes et élu·e·s de l’Assemblée législative du Nouveau-Brunswick, avec les outils des abonné·e·s.
 
 Cliquez pour l’activer (le code est déjà inscrit) :
 ${lien}
@@ -2900,7 +2957,7 @@ function mdElus(isEn){
       <h2>${isEn ? 'Members you follow' : 'Élus suivis'}</h2>
       <span class="md-etiquette">${ministres.length + deps.length}</span>
     </div>
-    ${lignes ? `<ul class="md-liste">${lignes}</ul>` : `<p>${isEn ? 'No minister or MNA followed yet.' : 'Aucun ministre ni député suivi.'} <a class="md-lien" href="/ministres">${isEn ? 'Follow someone from the Ministers and MNAs page' : 'Suivez quelqu’un depuis la page Ministres et député·e·s'}</a></p>`}
+    ${lignes ? `<ul class="md-liste">${lignes}</ul>` : `<p>${isEn ? 'No minister or MLA followed yet.' : 'Aucun ministre ni député suivi.'} <a class="md-lien" href="/ministres">${isEn ? 'Follow someone from the Ministers and MLAs page' : 'Suivez quelqu’un depuis la page Ministres et député·e·s'}</a></p>`}
   </div>`;
 }
 
@@ -2940,7 +2997,7 @@ function renderAccountBox(){
         <span>${isEn ? 'Signed in as' : 'Connecté·e comme'} <span class="account-email">${displayName}</span></span>
         <button class="account-btn" onclick="signOutUser()">${isEn ? 'Sign out' : 'Se déconnecter'}</button>
       </div>
-      <div class="account-note">${isEn ? 'The ministers, MNAs, and bills you follow are now synced to your account, across devices.' : 'Les ministres, député·e·s et projets de loi que vous suivez sont maintenant synchronisés à votre compte, entre tous vos appareils.'}</div>
+      <div class="account-note">${isEn ? 'The ministers, MLAs, and bills you follow are now synced to your account, across devices.' : 'Les ministres, député·e·s et projets de loi que vous suivez sont maintenant synchronisés à votre compte, entre tous vos appareils.'}</div>
     `;
   } else {
     const saisie = document.getElementById('accountEmailInput')?.value || '';
@@ -2949,7 +3006,7 @@ function renderAccountBox(){
         <input type="email" id="accountEmailInput" placeholder="${isEn ? 'Your email' : 'Votre courriel'}">
         <button class="account-btn" id="magicLinkBtn" onclick="handleMagicLinkClick()">${isEn ? 'Send magic link' : 'Envoyer un lien de connexion'}</button>
       </div>
-      <div class="account-note" id="accountStatusNote">${isEn ? 'Sign in to sync the ministers, MNAs, and bills you follow across devices.' : 'Connectez-vous pour synchroniser les ministres, député·e·s et projets de loi que vous suivez entre vos appareils.'}</div>
+      <div class="account-note" id="accountStatusNote">${isEn ? 'Sign in to sync the ministers, MLAs, and bills you follow across devices.' : 'Connectez-vous pour synchroniser les ministres, député·e·s et projets de loi que vous suivez entre vos appareils.'}</div>
     `;
     const champ = document.getElementById('accountEmailInput');
     if(champ && saisie) champ.value = saisie;
@@ -3269,7 +3326,7 @@ function renderPromises(){
 
 /* ---------------- RENDER ---------------- */
 const mailIconSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>';
-const deputesDirectoryUrl = 'https://www.assnat.qc.ca/fr/deputes/index.html';
+const deputesDirectoryUrl = 'https://www.legnb.ca/fr/parlementaires/actuel';   // N.-B. : les courriels sont masqués sur legnb.ca, la fiche reste le chemin
 
 
 
@@ -3280,7 +3337,7 @@ function findDeputeEmail(name){
 }
 
 let partyFilter = '';
-const partyOrder = ['CAQ','PLQ','PQ','QS','PCQ','IND'];
+const partyOrder = ['LIB','PC','VERT','IND'];   // N.-B.
 
 function renderPartyFilters(){
   const el = document.getElementById('partyFilters');
@@ -3371,7 +3428,7 @@ function majEnteteDeuxRangees(){
   const style = getComputedStyle(entete);
   const dispo = entete.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
   if(dispo < 200) return;   // onglet caché, vignette : rien de crédible à mesurer
-  const liens = [...onglets.querySelectorAll('a[data-view]')];
+  const liens = [...onglets.querySelectorAll('a[data-view], .villes-menu')];   // N.-B. : l'onglet Villes compte aussi
   const ecart = parseFloat(getComputedStyle(onglets).columnGap) || 0;
   const largeurOnglets = liens.reduce((s, a) => s + a.offsetWidth, 0) + Math.max(0, liens.length - 1) * ecart;
   const besoin = logo.offsetWidth + largeurOnglets + boutons.offsetWidth + 2 * (parseFloat(style.columnGap) || 0);
@@ -3578,16 +3635,18 @@ function renderPetitions(targetId){
     return;
   }
   if(petitions.length === 0){
+    // N.-B. : il n'existe pas de pétition en ligne. L'Assemblée n'accepte que les pétitions sur papier,
+    // signées à la main et déposées par un·e député·e ; ses Journaux n'en donnent que le numéro et l'objet.
     const emptyMsg = isEn
-      ? "I couldn't retrieve the real list of open petitions — the official page loads its content dynamically, like the vote registry. Rather than invent petitions, I'm leaving this tab empty for now. Use the link below to see the real petitions right now."
-      : "Je n'ai pas pu récupérer la vraie liste des pétitions ouvertes — la page officielle charge son contenu dynamiquement, comme le registre des votes. Plutôt que d'inventer des pétitions, je laisse cet onglet vide pour l'instant. Utilisez le lien ci-dessous pour voir les vraies pétitions en ce moment.";
-    const emptyLinkText = isEn ? "See the real open petitions on assnat.qc.ca →" : "Voir les vraies pétitions ouvertes sur assnat.qc.ca →";
-    const emptyUrl = isEn ? "https://www.assnat.qc.ca/en/exprimez-votre-opinion/petition/signer-petition/index.html" : "https://www.assnat.qc.ca/fr/exprimez-votre-opinion/petition/signer-petition/index.html";
+      ? "There are no online petitions in New Brunswick. The Legislative Assembly only accepts paper petitions, signed by hand and tabled by an MLA. No button, here or elsewhere, has official value: the way in is through your MLA."
+      : "Il n'y a pas de pétition en ligne au Nouveau-Brunswick. L'Assemblée législative n'accepte que les pétitions sur papier, signées à la main et déposées par un·e député·e. Aucun bouton, ici ou ailleurs, n'a de valeur officielle : le chemin passe par votre député·e.";
+    const emptyLinkText = isEn ? "Find your MLA →" : "Trouver votre député·e →";
+    const emptyUrl = isEn ? "/ministres?lang=en" : "/ministres";
     el.innerHTML = `<div class="no-results">${emptyMsg}</div>
     <a class="bill-more" href="${emptyUrl}" target="_blank" rel="noopener" style="display:inline-block; margin-top:12px;">${emptyLinkText}</a>`;
     return;
   }
-  const sponsorLabel = isEn ? "Sponsoring MNA" : "Députée ou député intermédiaire";
+  const sponsorLabel = isEn ? "Sponsoring MLA" : "Députée ou député intermédiaire";
   const openLabel = isEn ? "Open from" : "Ouverte du";
   const toLabel = isEn ? "to" : "au";
   const signatureLabel = isEn ? "signature" : "signature";
@@ -3687,7 +3746,7 @@ function renderDeputes(filter){
       ${g.members.map(d => {
         const email = findDeputeEmail(d.name);
         const mailHref = email ? 'mailto:'+email : deputesDirectoryUrl;
-        const mailText = email ? email : (isEn ? 'Official email on assnat.qc.ca' : 'Courriel officiel sur assnat.qc.ca');
+        const mailText = email ? email : (isEn ? 'Contact details on legnb.ca' : 'Coordonnées sur legnb.ca');
         const followKey = d.name + '|' + d.riding;
         const isFollowed = !!followedDeputes[followKey];
         const att = attendanceForAssnatId(d.assnatId);
@@ -3718,7 +3777,8 @@ function renderDeputes(filter){
 // réunie dans un seul type de carte puisque le classement mélange les deux
 // groupes plutôt que de garder la priorité "Conseil des ministres" en premier.
 // Chefs de l'opposition qui ont leur fiche /deputes/<slug> (data/site/chefsOpposition.json, scripts/build-chefs-opposition.js).
-const CHEFS_OPPOSITION = ['Charles Milliard', 'Éric Duhaime', 'Ruba Ghazal', 'Sol Zanetti'];
+// N.-B. : la cheffe de l'opposition officielle et le chef du tiers parti (fiches de legnb.ca, 7 nov. 2026).
+const CHEFS_OPPOSITION = ['Margaret Johnson', 'David Coon'];
 // Même slug que scripts/build-minister-pages.js (slugMinistre).
 function slugMinistre(nom){ return String(nom).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
 function personCard(p){
@@ -3730,12 +3790,12 @@ function personCard(p){
   // un même pied d'égalité plutôt que de garder le titre de portefeuille.
   const minDep = isMin && p.combined ? resolveDepute(name) : null;
   const subtitle = isMin
-    ? (p.combined ? (minDep ? `${minDep.riding} — ${minDep.region}` : '') : (isEn ? (p.m.roleEn||p.m.role) : p.m.role))
-    : `${p.d.riding} — ${p.d.region}`;
+    ? (p.combined ? (minDep ? [minDep.riding, minDep.region].filter(Boolean).join(' — ') : '') : (isEn ? (p.m.roleEn||p.m.role) : p.m.role))
+    : [p.d.riding, p.d.region].filter(Boolean).join(' — ');   // N.-B. : pas de région
   const party = isMin ? p.m.party : p.d.party;
   const email = findDeputeEmail(name);
   const mailHref = email ? 'mailto:'+email : deputesDirectoryUrl;
-  const mailTitle = email ? email : (isEn ? 'Find the official email on assnat.qc.ca' : 'Trouver le courriel officiel sur assnat.qc.ca');
+  const mailTitle = email ? email : (isEn ? 'Contact details on legnb.ca' : 'Coordonnées sur legnb.ca');
   const followKey = isMin ? name : (p.d.name + '|' + p.d.riding);
   const isFollowed = isMin ? !!followed[name] : !!followedDeputes[followKey];
   const followOnclick = isMin
@@ -3748,8 +3808,8 @@ function personCard(p){
   const attTitle = presidingNote
     ? (isEn ? 'The Assembly\'s President and Vice-Presidents referee the debates (nothing to do with the Premier). To stay neutral, they vote little or not at all — so a low or absent vote count does not mean they were absent.' : 'La présidence et les vice-présidences de l\'Assemblée arbitrent les débats (rien à voir avec la ou le premier ministre). Par neutralité, elles votent peu ou pas du tout — un faible taux ou une absence de vote ne veut donc pas dire qu\'elles étaient absentes.')
     : isEn
-    ? 'Share of recorded votes (all 3 sessions of the 43rd Legislature) this MNA appears in (Yea/Nay/Abstention), counted since their first recorded vote — a proxy for attendance, since the Assembly does not publish attendance directly.'
-    : "Part des votes nominaux enregistrés (3 sessions de la 43e législature) où cette personne apparaît (Pour/Contre/Abstention), comptée depuis son premier vote enregistré — un indicateur de présence, l'Assemblée ne publiant pas l'assiduité directement.";
+    ? 'Share of the recorded divisions of the 61st Legislature in which this MLA appears (for or against), counted from the start of the legislature, or from their by-election — an indicator of presence; the Assembly publishes no attendance.'
+    : "Part des votes par appel nominal de la 61e législature où cette personne apparaît (pour ou contre), comptée depuis le début de la législature, ou depuis son élection partielle — un indicateur de présence ; l'Assemblée ne publie pas d'assiduité.";
   // Carte au format de la maquette (Ministres.dc.html) : badge parti + Suivre
   // en tête, nom 800 uppercase, portefeuille bleu, puis les faits en rangées
   // étiquette/valeur (circonscription, présence, PL parrainés) et le courriel.
@@ -3775,7 +3835,7 @@ function personCard(p){
         <div class="m-row"><span class="m-label">${labels.riding}</span><span class="m-val">${riding}</span></div>
         ${dep?.mandats ? `<div class="m-row"><span class="m-label">${isEn ? 'Term' : 'Mandat'}</span><span class="m-val">${isEn ? ordinalLeg(dep.mandats, true) : (dep.mandats === 1 ? '1er' : dep.mandats + 'e')}</span></div>` : ''}
         <div title="${presidingNote ? attTitle : (isEn ? 'Attendance: share of recorded votes taken part in. PL: bills sponsored.' : 'Présence : part des votes nominaux où la personne a voté. PL : projets de loi parrainés.')}">${pastillesLegislatures(name, dep, p.att, presidingShort, isEn)}</div>
-        <a class="m-mail" href="${mailHref}" ${email ? '' : 'target="_blank" rel="noopener"'} onclick="event.stopPropagation()" title="${mailTitle}">✉ ${email ? email : (isEn ? 'Official email on assnat.qc.ca' : 'Courriel officiel sur assnat.qc.ca')}</a>
+        <a class="m-mail" href="${mailHref}" ${email ? '' : 'target="_blank" rel="noopener"'} onclick="event.stopPropagation()" title="${mailTitle}">✉ ${email ? email : (isEn ? 'Contact details on legnb.ca' : 'Coordonnées sur legnb.ca')}</a>
       </div>
     </div>
   `;
@@ -3905,8 +3965,8 @@ function renderMinistres(filter){
     combinedTitle.innerHTML = `<span>${isEn
       ? `All elected members — ${ministresSortMode === 'desc' ? 'most present at votes first' : 'least present at votes first'} (${combined.length} shown)`
       : `Tou·te·s les élu·e·s — ${ministresSortMode === 'desc' ? 'les plus présents aux votes d’abord' : 'les moins présents aux votes d’abord'} (${combined.length} affiché·e·s)`}</span><span class="tri-vote">${triVoteHtml()}</span><span class="tri-vote-avis">${isEn
-      ? '<b>A low rank does not always mean absent by choice.</b> A missed vote can be an official mission, an illness or a scheduling conflict: the Assembly’s register does not give the reason. Distance can also play a part: some ridings are very far from Québec City. The Speaker and Deputy Speakers vote little or not at all, out of neutrality.'
-      : '<b>Un bas de classement ne veut pas toujours dire absent par choix.</b> Un vote manqué peut être une mission officielle, une maladie ou un conflit d’horaire : le registre de l’Assemblée n’en donne pas la raison. La distance peut entrer en compte aussi : certaines circonscriptions sont très loin de Québec. La présidence et les vice-présidences votent peu ou pas du tout, par neutralité.'}</span>`;
+      ? '<b>A low rank does not always mean absent by choice.</b> A missed vote can be an official mission, an illness or a scheduling conflict: the Assembly’s register does not give the reason. Distance can also play a part: some ridings are very far from Fredericton. The Speaker and Deputy Speakers vote little or not at all, out of neutrality.'
+      : '<b>Un bas de classement ne veut pas toujours dire absent par choix.</b> Un vote manqué peut être une mission officielle, une maladie ou un conflit d’horaire : le registre de l’Assemblée n’en donne pas la raison. La distance peut entrer en compte aussi : certaines circonscriptions sont très loin de Fredericton. La présidence et les vice-présidences votent peu ou pas du tout, par neutralité.'}</span>`;
     grid.innerHTML = combined.length
       ? combined.map(personCard).join('')
       : `<div class="no-results">${isEn ? 'No results for this search.' : 'Aucun résultat pour cette recherche.'}</div>`;
@@ -4018,32 +4078,25 @@ function renderComparateurTable(){
    ➜ Quand la nouvelle législature commencera (17 nov. 2026), remettre
      `dissolved: false` et mettre à jour la ligne « cal.status ». */
 const ASSEMBLY = {
-  dissolved: true,
-  dissolvedOn: '2026-08-27',
-  electionOn: '2026-10-05',
-  newLegislatureOn: '2026-11-17',
-  // À remplir À LA MAIN le soir du 5 octobre : UNE phrase, factuelle, sans
-  // adjectif — p. ex. « Le Parti Québécois forme un gouvernement majoritaire
-  // (63 sièges). » Vide tant que ce n'est pas officiel : la bande passe au
-  // passé toute seule (voir phase), mais n'invente jamais de résultat.
-  // Publiée le 6 oct. 2026 sur l'OK de Martin, d'après les résultats finaux d'Élections Québec.
-  resultat: "Selon les résultats d'Élections Québec, le Parti Québécois a remporté le plus de sièges : 60 sur 127. Le Parti libéral en a 39, le Parti conservateur 19 et Québec solidaire 9.",
-  resultatEn: "According to Élections Québec's results, the Parti Québécois won the most seats: 60 of 127. The Liberal Party has 39, the Conservative Party 19 and Québec solidaire 9.",
-  // Le sigle du parti qui forme le gouvernement ('PQ', 'PLQ', 'CAQ', 'QS', 'PCQ'), à remplir en même
-  // temps que resultat, d'après Élections Québec. Sur la page Promesses, ses engagements passent
-  // alors en tête, les autres partis plus bas (Martin, 5 oct. 2026). Vide : aucun parti n'est mis
-  // devant, l'ordre reste celui des sources.
-  // 6 oct. 2026, données d'Élections Québec (donnees.electionsquebec.qc.ca, résultats finaux,
-  // mise à jour du 6 oct. à 11 h 18) : PQ 59 circonscriptions sur 127, PLQ 40, PCQ 19, QS 9.
-  // Élections Québec dit qui a remporté le plus de sièges, PAS qui forme le gouvernement : la
-  // mention affichée s'en tient donc au nombre de sièges (gagnantNote).
-  gagnant: 'PQ',
-  gagnantNote: 'Le plus de sièges : 60 sur 127',
-  gagnantNoteEn: 'Most seats: 60 of 127',
-  ordrePartis: ['PQ', 'PLQ', 'PCQ', 'QS'],   // par nombre de sièges : 60, 39, 19, 9 (Vachon passée au PQ au dépouillement judiciaire du 21 oct. 2026)
-  // Les mêmes chiffres, pour la barre « Composition » entre le scrutin et l'ouverture (16 oct. 2026).
-  // Ce sont des sièges REMPORTÉS, pas des députés assermentés : la barre le dit.
-  sieges: { PQ: 60, PLQ: 39, PCQ: 19, QS: 9 },
+  // N.-B. (7 nov. 2026) : l'Assemblée législative siège ; aucune élection en cours. Les champs
+  // d'élection de DossierQuébec restent, vides, pour que les fonctions qui les lisent ne changent pas.
+  dissolved: false,
+  challenge: true,     // Martin, 7 nov. 2026 : le bouton « Demander une explication » et la bande jaune restent sur les projets
+  filtreChallenge: false,   // … mais pas de filtre « 🔥 Challengés » (l'accueil garde ses « projets signalés », maquette)
+  abonnement: false,   // Martin, 7 nov. 2026 (soir) : abonnement éteint au N.-B. pour l'instant
+  cafe: false,         // … et les pastilles « ☕ Appuyez-nous » aussi
+  dissolvedOn: null,
+  electionOn: null,
+  // Le premier dépôt de la 61e législature, lu dans data/bills.json (session 1) : un projet
+  // actif depuis cette date appartient à la législature en cours (loiVivante).
+  newLegislatureOn: '2024-11-20',
+  resultat: '',
+  resultatEn: '',
+  gagnant: '',
+  gagnantNote: '',
+  gagnantNoteEn: '',
+  ordrePartis: ['LIB', 'PC', 'VERT'],
+  sieges: {},
 };
 // Phase déduite de la DATE LOCALE du visiteur, pour que le site ne dise pas
 // « élections le 5 octobre » le matin du 6 sans que personne n'ait à y toucher —
@@ -4324,7 +4377,7 @@ async function remplirResume(el){
   let texte = m ? m[el.dataset.bill] : null;
   if(!texte && isEn) texte = (await chargerResumes('fr'))?.[el.dataset.bill] || null;
   corps.innerHTML = texte
-    || `<p><em>${isEn ? 'Summary not available for this bill.' : 'Résumé non disponible pour ce projet de loi.'}</em></p>`;
+    || `<p><em>${isEn ? 'No plain-language summary for this bill yet: the official text, on legnb.ca, is the reference.' : 'Pas encore de résumé en langage clair pour ce projet : le texte officiel, sur legnb.ca, fait foi.'}</em></p>`;   // N.-B. : les résumés viendront plus tard (guide, étape 8)
   if(texte) el.dataset.rempli = '1';
   remplirMemoires(corps);
   remplirVotesProjet(corps);
@@ -4639,9 +4692,9 @@ function renderBillsQuickFilters(){
     ['tous', isEn ? 'All' : 'Tous'],
     ['encours', legislatureFinie() ? (isEn ? 'Not passed' : 'Non adoptés') : (isEn ? 'Active' : 'En cours')],
     ['adoptes', isEn ? 'Passed' : 'Adoptés'],
-    ['challenges', isEn ? '🔥 Challenged' : '🔥 Challengés'],
+    ...(ASSEMBLY.filtreChallenge ? [['challenges', isEn ? '🔥 Challenged' : '🔥 Challengés']] : []),   // N.-B. : pas de filtre (Martin, 7 nov. 2026)
     // Omnibus (25 sept. 2026) : un projet qui touche plusieurs lois sous un seul titre.
-    ['omnibus', 'Omnibus'],
+    ...((typeof bills !== 'undefined' && bills.some((b) => b.omnibus)) ? [['omnibus', 'Omnibus']] : []),   // N.-B. : le filtre n'apparaît que si un projet est omnibus
   ];
   el.innerHTML = defs.map(([k, label]) =>
     `<button class="qf-btn ${(billsQuickFilter===k || billsExtras.has(k))?'active':''}"${BILLS_EXTRAS.includes(k) ? ` aria-pressed="${billsExtras.has(k)}"` : ''} onclick="setBillsQuickFilter('${k}')">${label}</button>`
@@ -4723,6 +4776,15 @@ function renderBills(keyword){
           ? `All ${list.length} shown` : `Les ${list.length} affichés`}</div>`;
       }
     }
+    // N.-B. (Martin, 7 nov. 2026) : le premier projet arrive ouvert, comme sur l'accueil ;
+    // l'accordéon de toggleBillSummary le referme quand on en ouvre un autre.
+    const premier = el.querySelector('.bill-summary');
+    if(premier && !document.querySelector('.bill-summary.open')){
+      premier.classList.add('open');
+      remplirResume(premier);
+      const h = document.getElementById('hint-' + premier.id);
+      if(h) h.textContent = t('btn.hideSummary');
+    }
     // La bande explicative suit le bouton : tant qu'on peut challenger, on explique ce que
     // ça veut dire. Pendant la dissolution, la deuxième ligne change — on ne promet pas une
     // pétition qu'aucune Assemblée ne peut recevoir avant la rentrée.
@@ -4764,7 +4826,36 @@ function renderBills(keyword){
 
 function renderApercuBills(){
   if(!document.getElementById('apercuBills')) return;   // vue absente de cette page
-  { const _e = document.getElementById('apercuBills'); if(_e) _e.innerHTML = bills.slice(0,4).map(b=>billCard(b,'apercu')).join(''); }
+  // N.-B. (maquette, 7 nov. 2026) : des rangées compactes — numéro, titre, étape — qui se
+  // déplient ; la première est ouverte. Le détail complet reste sur la fiche du projet.
+  // Une seule ouverte à la fois (Martin) : en ouvrir une referme les autres.
+  { const _e = document.getElementById('apercuBills'); if(_e){
+    _e.innerHTML = bills.slice(0,4).map((b, i) => ligneProjetAccueil(b, i === 0)).join('');
+    for(const d of _e.querySelectorAll('details.nb-ligne')) d.addEventListener('toggle', () => {
+      // isConnected : la liste est redessinée au changement de langue, et l'événement d'une
+      // ancienne rangée arrive après coup ; il ne doit pas refermer la nouvelle.
+      if(d.open && d.isConnected) for(const autre of _e.querySelectorAll('details.nb-ligne[open]')) if(autre !== d) autre.open = false;
+    });
+  } }
+}
+function ligneProjetAccueil(b, ouvert){
+  const isEn = currentLang === 'en';
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+  const etapes = isEn ? ['1st reading', '2nd reading · committee', '3rd reading'] : ['1<sup>re</sup> lecture', '2<sup>e</sup> lecture · comité', '3<sup>e</sup> lecture'];
+  const [etiquette, genre] = b.status === 'sanctionne' ? [statusLabel(b.status, b.step), 'sanctionne']
+    : b.status === 'laisse_de_cote' ? [statusLabel(b.status, b.step), 'arret']
+    : [etapes[Math.min(Math.max(Number(b.step) || 1, 1), 3) - 1], 'etape'];
+  const jour = (iso) => { const [a, m, j] = String(iso).split('-').map(Number); return new Date(a, m - 1, j).toLocaleDateString(isEn ? 'en-CA' : 'fr-CA', { day:'numeric', month:'short', year:'numeric' }); };
+  const fiche = b.legislature && b.introSession ? `/projets-de-loi/${b.num}-${b.legislature}-${b.introSession}${paramLangue(true)}` : `/projets-de-loi?pl=${encodeURIComponent(b.num)}${paramLangue(false)}`;
+  const resume = (isEn ? b.enClairEn : null) || b.enClair;
+  const v = b.dernierVote;
+  return `<details class="nb-ligne"${ouvert ? ' open' : ''}>
+    <summary><span class="nb-ligne-num">${isEn ? 'No.' : 'N°'} ${esc(String(b.num))}</span><span class="nb-ligne-titre">${esc(isEn ? (b.titleEn || b.title) : b.title)}</span><span class="nb-ligne-etape nb-ligne-${genre}">${etiquette}</span><svg class="nb-ligne-fleche" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></summary>
+    <div class="nb-ligne-corps">
+      <div><div class="nb-ligne-sur">${isEn ? 'Plain language' : 'En clair'}</div><p>${resume ? esc(resume) : (isEn ? 'No plain-language summary yet: the official text, on legnb.ca, is the reference.' : 'Pas encore de résumé en langage clair : le texte officiel, sur legnb.ca, fait foi.')}</p></div>
+      <div class="nb-ligne-meta">${b.presentedOn ? `<div>${isEn ? 'Introduced' : 'Dépôt'} · ${jour(b.presentedOn)}</div>` : ''}${v ? `<div>${isEn ? 'Last vote' : 'Dernier vote'} · <b>${v.pour} ${isEn ? 'yea' : 'pour'} · ${v.contre} ${isEn ? 'nay' : 'contre'}</b></div>` : ''}<a href="${fiche}">${isEn ? 'Open the bill →' : 'Ouvrir la fiche →'}</a></div>
+    </div>
+  </details>`;
 }
 
 // Projets « challengés » : affiche PUBLIQUEMENT les projets de loi ayant atteint
@@ -4822,6 +4913,7 @@ const projetChallenge = (billId) =>
 // donc un filtre « 🔥 Challengés » qui ne renvoyait jamais rien et des cartes sans badge.
 async function chargerChallenges(){
   if(challengedCache !== null) return challengedCache;
+  if(!ASSEMBLY.challenge) return (challengedCache = []);   // N.-B. : aucun compteur à charger
   try{
     const { data, error } = await supabaseClient.rpc('flag_counts');
     challengedCache = (!error && Array.isArray(data)) ? data : [];
@@ -4849,7 +4941,7 @@ function shareChallenge(billId, count, platform, evt){
   const num = b ? b.num : '';
   const title = b ? (isEn ? (b.titleEn || b.title) : b.title) : '';
   const n = Number(count).toLocaleString(isEn ? 'en-CA' : 'fr-CA');
-  const url = 'https://dossierquebec.ca/' + paramLangue(true);
+  const url = 'https://dossiernbrunswick.ca/' + paramLangue(true);
   const text = isEn
     ? `${n} people are challenging Bill no. ${num} — ${title}. Sign in to support this request:`
     : `${n} personnes contestent le projet de loi n° ${num} — ${title}. Connectez-vous pour appuyer cette demande :`;
@@ -4948,7 +5040,7 @@ function boiteAbonnement(isEn){
     <div class="bill-abo-ligne"><input type="email" required autocomplete="email" placeholder="${isEn ? 'Your email' : 'Votre courriel'}" aria-label="${isEn ? 'Your email' : 'Votre courriel'}">
     <button type="submit" class="bill-abo-btn">${isEn ? 'Get the link' : 'Recevoir le lien'}</button></div>
     <p class="bill-abo-note" aria-live="polite">${isEn ? 'Free. No password: a link arrives by email.' : 'Gratuit. Pas de mot de passe : un lien arrive par courriel.'}</p></form>
-  <a class="bill-more bill-abo-devenir" href="/abonnement${isEn ? '?lang=en' : ''}" onclick="event.stopPropagation()">${isEn ? 'Become DossierQuébec' : 'Devenez DossierQuébec'} →</a>`;
+  ` + (ASSEMBLY.abonnement === false ? '' : `<a class="bill-more bill-abo-devenir" href="/abonnement${isEn ? '?lang=en' : ''}" onclick="event.stopPropagation()">${isEn ? 'Become DossierNBrunswick' : 'Devenez DossierNBrunswick'} →</a>`);   // N.-B. : nom du site
 }
 async function billEnvoyerLien(form){
   const isEn = currentLang === 'en';
@@ -4970,6 +5062,7 @@ async function billEnvoyerLien(form){
 }
 window.billEnvoyerLien = billEnvoyerLien;
 function boutonCafe(b, isEn){
+  if(ASSEMBLY.cafe === false) return '';   // N.-B. : pastilles éteintes
   const rangIcone = ORDRE_ICONES[_rangCafe % ORDRE_ICONES.length];
   const [fr, en] = LIBELLES_CAFE[ORDRE_CAFE[_rangCafe++ % ORDRE_CAFE.length]];
   return `<div class="bill-cafe-row"><a class="bill-cafe-btn" href="${LIEN_CAFE}" target="_blank" rel="noopener" onclick="event.stopPropagation()" aria-label="${isEn ? 'Buy us a coffee (opens in a new tab)' : 'Offrez-nous un café (s’ouvre dans un nouvel onglet)'}"><img class="icone" src="${ICONES_CAFE[rangIcone]}" data-rang="${rangIcone}" width="24" height="24" alt="">${isEn ? en : fr}<span class="bulle" aria-hidden="true">${'<i class="pt" style="animation:none"></i>'.repeat(5)}</span></a></div>`;
@@ -4988,7 +5081,7 @@ const CAFES_BULLE = [CAFE_tasse, CAFE_emporter, CAFE_brune, CAFE_glace];
 // le passage des cafés dans la bulle, jamais en même temps :
 // croissant et tasse d'abord, puis carafe, moulin, filtre, tasse au cœur, et on recommence.
 // Préchargées : sans ça, la première fois, l'icône clignotait le temps que l'image arrive.
-ICONES_CAFE.forEach((u) => { const p = new Image(); p.src = u; });
+if(ASSEMBLY.cafe !== false) ICONES_CAFE.forEach((u) => { const p = new Image(); p.src = u; });   // N.-B. : rien à précharger sans pastilles
 function flipIcone(bouton){
   const i = bouton.querySelector('.icone');
   if(!i) return;
@@ -5024,7 +5117,7 @@ function shareBill(billId, platform, evt){
   if(!b) return;
   const title = isEn ? (b.titleEn || b.title) : b.title;
   // L'adresse de la page du projet (scripts/build-bill-pages.js) : c'est elle que Google indexe.
-  const url = (b.legislature && b.introSession ? `https://dossierquebec.ca/projets-de-loi/${b.num}-${b.legislature}-${b.introSession}` : `https://dossierquebec.ca/projets-de-loi?pl=${encodeURIComponent(b.num)}`) + paramLangue(false);
+  const url = (b.legislature && b.introSession ? `https://dossiernbrunswick.ca/projets-de-loi/${b.num}-${b.legislature}-${b.introSession}` : `https://dossiernbrunswick.ca/projets-de-loi?pl=${encodeURIComponent(b.num)}`) + paramLangue(false);
   const text = isEn
     ? `Bill no. ${b.num} — ${title}`
     : `Projet de loi n° ${b.num} — ${title}`;
@@ -5093,7 +5186,7 @@ async function renderChallenged(){
   const subEl = document.getElementById('challengedSub');
   if(titleEl) titleEl.textContent = ASSEMBLY.dissolved
     ? (isEn ? 'Bills citizens had challenged' : 'Projets que les citoyen·ne·s avaient challengés')
-    : (isEn ? 'Bills challenged by citizens' : 'Projets challengés par les citoyen·ne·s');
+    : (isEn ? 'Bills flagged by citizens' : 'Projets signalés par les citoyen·ne·s');   // N.-B. : le mot de la maquette
   // Pendant la dissolution, on ne promet plus de pétition : ces projets sont morts
   // au feuilleton, on présente donc la section comme une trace de la législature.
   if(subEl) subEl.textContent = ASSEMBLY.dissolved
@@ -5214,12 +5307,8 @@ function showMoreChallenged(){
 // taux de présence très bas ou nul pour ces 4 personnes ne veut donc pas dire
 // « absent·e », contrairement à tout le monde d'autre. Sources : élection de la
 // présidence du 29 novembre 2022 (quebec.ca) et fiches assnat.qc.ca de chacun·e.
-const presidingRoles = {
-  'nathalie roy': { fr: "Présidente de l'Assemblée nationale", en: 'President of the National Assembly' },
-  'chantal soucy': { fr: '1ère vice-présidente de l\'Assemblée', en: '1st Vice-President of the Assembly' },
-  'sylvain levesque': { fr: '2e vice-président de l\'Assemblée', en: '2nd Vice-President of the Assembly' },
-  'frantz benjamin': { fr: '3e vice-président de l\'Assemblée', en: '3rd Vice-President of the Assembly' },
-};
+// N.-B. : rempli au chargement des député·e·s (rôle « speaker » de data/deputes.json).
+const presidingRoles = {};
 function presidingRoleNote(name, isEn){
   const bareName = name.replace(/\s*\([^)]*\)\s*/g, '').trim();
   const role = presidingRoles[norm(bareName)];
@@ -5483,7 +5572,7 @@ function renderVotes(keyword){
           <div class="vc-ncols"></div>
           <div class="vc-foot">
             <span class="vc-foot-note">${isEn ? 'An abstention is not a « no » vote — mission, illness, scheduling.' : 'Une abstention n\'est pas un vote « non » — mission, maladie, horaire.'}</span>
-            <a class="bill-more" href="${v.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${isEn ? 'Full record → assnat.qc.ca' : 'Procès-verbal complet → assnat.qc.ca'}</a>
+            <a class="bill-more" href="${v.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${isEn ? 'The Journal → legnb.ca' : 'Le Journal → legnb.ca'}</a>
           </div>
         </div>
       </div>
@@ -5616,22 +5705,22 @@ const VIEW_SLUGS = { apercu:'/', ministres:'/ministres', ministre:'/ministres', 
 const SLUG_VIEWS = { '':'apercu', 'ministres':'ministres', 'ministres/':'ministre', 'projets-de-loi':'projets', 'votes':'votes', 'archives':'archives', 'archives/':'ancien', 'deputes/':'ministre', 'lexique':'lexique', 'promesses':'promesses', 'sources':'bd', 'mon-dossier':'mondossier', 'regles':'regles', 'abonnement':'abonnement' };
 // Titres ANGLAIS seulement : le français vient du <title> de la page (voir syncTitle).
 const PAGE_META = {
-  bd:        { en:"Site updates — DossierQuébec" },
-  apercu:    { en:"Quebec's National Assembly in plain language — DossierQuébec" },
-  ministres: { en:"Quebec ministers and MNAs — DossierQuébec" },
+  bd:        { en:"Site updates — DossierNBrunswick" },
+  apercu:    { en:"New Brunswick's Legislative Assembly in plain language — DossierNBrunswick" },
+  ministres: { en:"New Brunswick's Executive Council and MLAs — DossierNBrunswick" },
   // Page d'un ministre (/ministres/nicolas-marceau, scripts/build-minister-pages.js) : son titre anglais est dans la page.
-  ministre:  { get en(){ return document.getElementById('view-ministre')?.dataset.titreEn || 'Quebec minister — DossierQuébec'; } },
+  ministre:  { get en(){ return document.getElementById('view-ministre')?.dataset.titreEn || 'New Brunswick minister — DossierNBrunswick'; } },
   // Anciens ministres (/archives/43/ministres…, scripts/build-anciens-ministres.js) : titre anglais dans la page.
-  ancien:    { get en(){ return document.getElementById('view-ancien')?.dataset.titreEn || 'Former minister — DossierQuébec'; } },
-  projets:   { en:"Quebec bills explained in plain language — DossierQuébec" },
-  votes:     { en:"Recorded divisions at the National Assembly — DossierQuébec" },
-  lexique:   { en:"National Assembly glossary in plain language — DossierQuébec" },
+  ancien:    { get en(){ return document.getElementById('view-ancien')?.dataset.titreEn || 'Former minister — DossierNBrunswick'; } },
+  projets:   { en:"New Brunswick bills — DossierNBrunswick" },
+  votes:     { en:"Recorded divisions in New Brunswick — DossierNBrunswick" },
+  lexique:   { en:"Legislative Assembly glossary — DossierNBrunswick" },
   archives:  { en:"National Assembly archives — DossierQuébec" },
   promesses: { en:"2026 Quebec election promises — DossierQuébec" },
-  mondossier:{ en:"My file — DossierQuébec" },
-  introuvable:{ en:"Page not found (404) — DossierQuébec" },
-  regles:    { en:"DossierQuébec's sourcing rules — DossierQuébec" },
-  abonnement:{ en:"The optional subscription — DossierQuébec" },
+  mondossier:{ en:"My file — DossierNBrunswick" },
+  introuvable:{ en:"Page not found (404) — DossierNBrunswick" },
+  regles:    { en:"DossierNBrunswick's sourcing rules — DossierNBrunswick" },
+  abonnement:{ en:"The optional subscription — DossierNBrunswick" },
 };
 function viewFromPath(){
   // La page 404 est servie à N'IMPORTE quelle adresse inconnue : c'est sa présence qui la désigne,
@@ -6142,7 +6231,7 @@ function nbSuivisDecorer(){
     const texte = ` (${n < 1000 ? n : n < 100000 ? `${Math.floor(n / 1000)}k+` : '100k+'})`;
     if(!pastille){ pastille = document.createElement('span'); pastille.className = 'nb-suivis'; b.append(pastille); }
     if(pastille.textContent !== texte) pastille.textContent = texte;
-    b.title = isEn ? `${n} ${n > 1 ? 'people follow' : 'person follows'} ${nom} on DossierQuébec` : `${n} personne${n > 1 ? 's suivent' : ' suit'} ${nom} sur DossierQuébec`;
+    b.title = isEn ? `${n} ${n > 1 ? 'people follow' : 'person follows'} ${nom} on DossierNBrunswick` : `${n} personne${n > 1 ? 's suivent' : ' suit'} ${nom} sur DossierNBrunswick`;
   });
 }
 (() => {

@@ -1,515 +1,253 @@
 {
-  "source": "https://www.assnat.qc.ca/fr/deputes/index.html",
-  "scrapedAt": "2026-11-06T16:01:59.339Z",
-  "count": 127,
+  "source": "https://www.legnb.ca/en/members/current",
+  "scrapedAt": "2026-11-07T15:53:58.090Z",
+  "note": "Courriels non publiés ici : legnb.ca les masque derrière la protection anti-collecte de Cloudflare, et on ne la contourne pas. Chaque député·e garde le lien vers sa fiche officielle.",
+  "count": 49,
   "contacts": [
     {
-      "name": "Alexandre Leduc",
-      "email": "Alexandre.Leduc.HOCH@assnat.qc.ca"
+      "name": "Richard Ames",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/165/ames-richard"
     },
     {
-      "name": "Andrés Fontecilla",
-      "email": "Andres.Fontecilla.LADO@assnat.qc.ca"
+      "name": "Guy Arseneault",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/4/arseneault-guy"
     },
     {
-      "name": "Sol Zanetti",
-      "email": "Sol.Zanetti.JELE@assnat.qc.ca"
+      "name": "Kris Austin",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/16/austin-kris"
     },
     {
-      "name": "Etienne Grandmont",
-      "email": "Etienne.Grandmont.TASC@assnat.qc.ca"
+      "name": "Kathy Bockus",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/162/bockus-kathy"
     },
     {
-      "name": "Madwa-Nika Cadet",
-      "email": "Madwa-Nika.Cadet.BOSA@assnat.qc.ca"
+      "name": "Lyne Chantal Boudreau",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/208/boudreau-lyne-chantal"
     },
     {
-      "name": "Paul St-Pierre Plamondon",
-      "email": "pspp.CALA@assnat.qc.ca"
+      "name": "Benoît Bourque",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/23/bourque-benoit"
     },
     {
-      "name": "Brigitte B . Garceau",
-      "email": "Brigitte.Garceau.ROBA@assnat.qc.ca"
+      "name": "Chuck Chiasson",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/11/chiasson-chuck"
     },
     {
-      "name": "Gregory Kelley",
-      "email": "Gregory.Kelley.JACA@assnat.qc.ca"
+      "name": "Keith Chiasson",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/49/chiasson-keith"
     },
     {
-      "name": "Elisabeth Prass",
-      "email": "Elisabeth.Prass.DMG@assnat.qc.ca"
+      "name": "Michelle Conroy",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/29/conroy-michelle"
     },
     {
-      "name": "Michelle Setlakwe",
-      "email": "Michelle.Setlakwe.MROU@assnat.qc.ca"
+      "name": "David Coon",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/14/coon-david"
     },
     {
-      "name": "Valérie Assouline",
-      "email": "Valerie.Assouline.STLO@assnat.qc.ca"
+      "name": "Ryan Cullins",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/164/cullins-ryan"
     },
     {
-      "name": "David Bowles",
-      "email": "Isabelle.Poulet.LAPO@assnat.qc.ca"
+      "name": "Jean-Claude D'Amours",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/9/damours-jean-claude"
     },
     {
-      "name": "Pier-Luc Bujold",
-      "email": "Pier-Luc.Bujold.BONA@assnat.qc.ca"
+      "name": "John Dornan",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/202/dornan-john"
     },
     {
-      "name": "Benoit Clermont",
-      "email": "Benoit.Clermont.SHSA@assnat.qc.ca"
+      "name": "Alexandre Cédric Doucet",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/196/doucet-alexandre-cedric"
     },
     {
-      "name": "Geneviève Couture",
-      "email": "Genevieve.Couture.MIRA@assnat.qc.ca"
+      "name": "Pat Finnigan",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/192/finnigan-pat"
     },
     {
-      "name": "Catherine Drouin",
-      "email": "Catherine.Drouin.LABE@assnat.qc.ca"
+      "name": "Robert Gauvin",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/46/gauvin-robert"
     },
     {
-      "name": "Éric Duhaime",
-      "email": "Eric.Duhaime.BELL@assnat.qc.ca"
+      "name": "John Herron",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/199/herron-john"
     },
     {
-      "name": "Madeleine Féquière",
-      "email": "Madeleine.Fequiere.CHOM@assnat.qc.ca"
+      "name": "David Hickey",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/203/hickey-david"
     },
     {
-      "name": "Marie Claude Fournier",
-      "email": "MarieClaude.Fournier.FABR@assnat.qc.ca"
+      "name": "Bill Hogan",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/166/hogan-bill"
     },
     {
-      "name": "Cédric Gagnon-Ducharme",
-      "email": "Cedric.Gagnon-Ducharme.BORD@assnat.qc.ca"
+      "name": "Susan Holt",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/182/holt-susan"
     },
     {
-      "name": "Frédéric Laplante",
-      "email": "Frederic.Laplante.HUNT@assnat.qc.ca"
+      "name": "Claire Johnson",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/194/johnson-claire"
     },
     {
-      "name": "Odette Lavigne",
-      "email": "Odette.Lavigne.RELE@assnat.qc.ca"
+      "name": "Margaret Johnson",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/167/johnson-margaret"
     },
     {
-      "name": "Michel Leblanc",
-      "email": "Michel.Leblanc.MABO@assnat.qc.ca"
+      "name": "Sam Johnston",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/191/johnston-sam"
     },
     {
-      "name": "Roxane Milot",
-      "email": "Roxane.Milot.SMSJ@assnat.qc.ca"
+      "name": "Aaron Kennedy",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/200/kennedy-aaron"
     },
     {
-      "name": "Élodie Murphy-Gauthier",
-      "email": "Elodie.Murphy-Gauthier.LASM@assnat.qc.ca"
+      "name": "Francine Landry",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/26/landry-francine"
     },
     {
-      "name": "Nicolas Plourde",
-      "email": "Nicolas.Plourde.ANJO@assnat.qc.ca"
+      "name": "Jacques LeBlanc",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/45/leblanc-jacques"
     },
     {
-      "name": "Gisèle Pouhe Njall",
-      "email": "Gisele.PouheNjall.ROSE@assnat.qc.ca"
+      "name": "Marco LeBlanc",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/180/leblanc-marco"
     },
     {
-      "name": "Émile Simard",
-      "email": "Emile.Simard.DUBU@assnat.qc.ca"
+      "name": "Ian Lee",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/205/lee-ian"
     },
     {
-      "name": "Isabelle Thibeault",
-      "email": "Isabelle.Thibeault.ROBE@assnat.qc.ca"
+      "name": "René Legacy",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/157/legacy-rene"
     },
     {
-      "name": "Stéphanie Vachon",
-      "email": "Stephanie.Vachon.SHER@assnat.qc.ca"
+      "name": "Gilles LePage",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/37/lepage-gilles"
     },
     {
-      "name": "Julie White",
-      "email": "Julie.White.JETA@assnat.qc.ca"
+      "name": "Eric Mallet",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/158/mallet-eric"
     },
     {
-      "name": "William Fradette",
-      "email": "William.Fradette.LSJ@assnat.qc.ca"
+      "name": "Robert McKee",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/30/mckee-robert"
     },
     {
-      "name": "Nadine Le Gal",
-      "email": "Nadine.LeGal.BLAI@assnat.qc.ca"
+      "name": "Cindy Miles",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/207/miles-cindy"
     },
     {
-      "name": "Sylvie Tanguay",
-      "email": "Sylvie.Tanguay.SAFR@assnat.qc.ca"
+      "name": "Megan Mitton",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/27/mitton-megan"
     },
     {
-      "name": "Antoine Dionne Charest",
-      "email": "Antoine.Dionne-Charest.VERD@assnat.qc.ca"
+      "name": "Don Monahan",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/198/monahan-don"
     },
     {
-      "name": "Désirée McGraw",
-      "email": "Desiree.McGraw.NDG@assnat.qc.ca"
+      "name": "Bill Oliver",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/24/oliver-bill"
     },
     {
-      "name": "Frédéric Beauchemin",
-      "email": "Frederic.Beauchemin.BRMI@assnat.qc.ca"
+      "name": "Luke Randall",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/206/randall-luke"
     },
     {
-      "name": "Nada Boumeftah",
-      "email": "Nada.Boumeftah.MAUR@assnat.qc.ca"
+      "name": "Luc Robichaud",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/190/robichaud-luc"
     },
     {
-      "name": "Linda Caron",
-      "email": "Linda.Caron.LAPI@assnat.qc.ca"
+      "name": "Kevin Russell",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/209/russell-kevin"
     },
     {
-      "name": "André Fortin",
-      "email": "Andre.Fortin.PONT@assnat.qc.ca"
+      "name": "Glen Savoie",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/21/savoie-glen"
     },
     {
-      "name": "James Hughes",
-      "email": "James.Hughes.VAUD@assnat.qc.ca"
+      "name": "Tammy Scott-Wallace",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/161/scott-wallace-tammy"
     },
     {
-      "name": "Michel Langevin",
-      "email": "Michel.Langevin.CHAP@assnat.qc.ca"
+      "name": "Tania Sodhi",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/195/sodhi-tania"
     },
     {
-      "name": "Mathieu Lavoie",
-      "email": "Mathieu.Lavoie.MOTA@assnat.qc.ca"
+      "name": "Isabelle Thériault",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/5/theriault-isabelle"
     },
     {
-      "name": "David Logue",
-      "email": "David.Logue.GATI@assnat.qc.ca"
+      "name": "Alyson Townsend",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/201/townsend-alyson"
     },
     {
-      "name": "Félix Rhéaume",
-      "email": "Felix.Rheaume.CHAT@assnat.qc.ca"
+      "name": "Natacha Vautour",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/193/vautour-natacha"
     },
     {
-      "name": "Filomena Rotiroti",
-      "email": "Filomena.Rotiroti.JMV@assnat.qc.ca"
+      "name": "Rob Weir",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/197/weir-rob"
     },
     {
-      "name": "Olivier Bertin-Mahieux",
-      "email": "Olivier.Bertin-Mahieux.SOUL@assnat.qc.ca"
+      "name": "Kate Wilcott",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/204/wilcott-kate"
     },
     {
-      "name": "Sacha Cannon",
-      "email": "Sacha.Cannon.HULL@assnat.qc.ca"
+      "name": "Mary Wilson",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/35/wilson-mary"
     },
     {
-      "name": "Caroline De Guire",
-      "email": "Caroline.DeGuire.LDR@assnat.qc.ca"
-    },
-    {
-      "name": "Monsef Derraji",
-      "email": "Monsef.Derraji.NELL@assnat.qc.ca"
-    },
-    {
-      "name": "Virginie Dufour",
-      "email": "Virginie.Dufour.MIIL@assnat.qc.ca"
-    },
-    {
-      "name": "Louis Ialenti",
-      "email": "Valerie.Schmaltz.VIMO@assnat.qc.ca"
-    },
-    {
-      "name": "Sonia Ziadé",
-      "email": "Sonia.Ziade.LAPR@assnat.qc.ca"
-    },
-    {
-      "name": "Alexandre Girard-Duchaine",
-      "email": "Alexandre.Girard-Duchaine.BERR@assnat.qc.ca"
-    },
-    {
-      "name": "Ruba Ghazal",
-      "email": "Ruba.Ghazal.MERC@assnat.qc.ca"
-    },
-    {
-      "name": "Julie Guyot",
-      "email": "Julie.Guyot.CHMB@assnat.qc.ca"
-    },
-    {
-      "name": "Nicolas Marceau",
-      "email": "Nicolas.Marceau.MAVI@assnat.qc.ca"
-    },
-    {
-      "name": "Isabelle Blais",
-      "email": "Isabelle.Blais.MASK@assnat.qc.ca"
-    },
-    {
-      "name": "Jimmy Bouchard",
-      "email": "Jimmy.Bouchard.JONQ@assnat.qc.ca"
-    },
-    {
-      "name": "Ariane Boyer",
-      "email": "Ariane.Boyer.RLTB@assnat.qc.ca"
-    },
-    {
-      "name": "Diane Dallaire",
-      "email": "Diane.Dallaire.RNT@assnat.qc.ca"
-    },
-    {
-      "name": "Alexandre Daneau",
-      "email": "Alexandre.Daneau.BEAU@assnat.qc.ca"
-    },
-    {
-      "name": "Jocelyn Desjardins",
-      "email": "Jocelyn.Desjardins.RICL@assnat.qc.ca"
-    },
-    {
-      "name": "Sandra Hernández",
-      "email": "Sandra.Hernandez.TAIL@assnat.qc.ca"
-    },
-    {
-      "name": "Stephan Fogaing",
-      "email": "Stephan.Fogaing.VACHON@assnat.qc.ca"
-    },
-    {
-      "name": "Maxime Laporte",
-      "email": "Maxime.Laporte.ASSO@assnat.qc.ca"
-    },
-    {
-      "name": "Sandrine Michon",
-      "email": "Sandrine.Michon.STJE@assnat.qc.ca"
-    },
-    {
-      "name": "Pierre Nantel",
-      "email": "Pierre.Nantel.ARGE@assnat.qc.ca"
-    },
-    {
-      "name": "Charles Page",
-      "email": "Charles.Page.DRUM@assnat.qc.ca"
-    },
-    {
-      "name": "Yohann St-Pierre",
-      "email": "Yohann.St-Pierre.RIMO@assnat.qc.ca"
-    },
-    {
-      "name": "Stéphane Tremblay",
-      "email": "Stephane.Tremblay.ABES@assnat.qc.ca"
-    },
-    {
-      "name": "Linda Vaillant",
-      "email": "Linda.Vaillant.DEMO@assnat.qc.ca"
-    },
-    {
-      "name": "Véronique Venne",
-      "email": "Veronique.Venne.JOLI@assnat.qc.ca"
-    },
-    {
-      "name": "Sonia Caron",
-      "email": "Sonia.Caron.UNGA@assnat.qc.ca"
-    },
-    {
-      "name": "Isabelle Millette",
-      "email": "Isabelle.Millette.PAPI@assnat.qc.ca"
-    },
-    {
-      "name": "Karim Elayoubi",
-      "email": "Karim.Elayoubi.CHAU@assnat.qc.ca"
-    },
-    {
-      "name": "Renaud Labrecque",
-      "email": "Renaud.Labrecque.LOFR@assnat.qc.ca"
-    },
-    {
-      "name": "Patrick Paquet",
-      "email": "Patrick.Paquet.VANI@assnat.qc.ca"
-    },
-    {
-      "name": "Frédéric Poulin",
-      "email": "Frederic.Poulin.CDS@assnat.qc.ca"
-    },
-    {
-      "name": "Caroline Simard",
-      "email": "Caroline.Simard.CHCB@assnat.qc.ca"
-    },
-    {
-      "name": "Adriana Szalontai",
-      "email": "Adriana.Szalontai.CHMP@assnat.qc.ca"
-    },
-    {
-      "name": "Cécile Tremblay",
-      "email": "Cecile.Tremblay.SARO@assnat.qc.ca"
-    },
-    {
-      "name": "Stéphane Paquet",
-      "email": "Stephane.Paquet.PAT@assnat.qc.ca"
-    },
-    {
-      "name": "Alain Therrien",
-      "email": "Alain.Therrien.SAGU@assnat.qc.ca"
-    },
-    {
-      "name": "Marie-Karlynn Laflamme",
-      "email": "Marie-Karlynn.Laflamme.CHIC@assnat.qc.ca"
-    },
-    {
-      "name": "Joël Arseneau",
-      "email": "Joel.Arseneau.IDLM@assnat.qc.ca"
-    },
-    {
-      "name": "Marie-Claude Sarrazin",
-      "email": "Marie-Claude.Sarrazin.GROU@assnat.qc.ca"
-    },
-    {
-      "name": "Elsie Lefebvre",
-      "email": "Elsie.Lefebvre.BERH@assnat.qc.ca"
-    },
-    {
-      "name": "Jean Pellerin",
-      "email": "Jean.Pellerin.TRRI@assnat.qc.ca"
-    },
-    {
-      "name": "Guy Jr Lapointe",
-      "email": "GuyJr.Lapointe.VERC@assnat.qc.ca"
-    },
-    {
-      "name": "Bernard Sévigny",
-      "email": "Bernard.Sevigny.RICM@assnat.qc.ca"
-    },
-    {
-      "name": "Dieudonné Ella Oyono",
-      "email": "Dieudonne.EllaOyono.LPLA@assnat.qc.ca"
-    },
-    {
-      "name": "Méganne Perry Mélançon",
-      "email": "Meganne.PerryMelancon.GASP@assnat.qc.ca"
-    },
-    {
-      "name": "Simon-Pierre Savard-Tremblay",
-      "email": "Simon-Pierre.Savard-Tremblay.SAHY@assnat.qc.ca"
-    },
-    {
-      "name": "Camille Pellerin-Forget",
-      "email": "Camille.Pellerin-Forget.IBER@assnat.qc.ca"
-    },
-    {
-      "name": "Sébastien D'Astous",
-      "email": "Sebastien.DAstous.ABOU@assnat.qc.ca"
-    },
-    {
-      "name": "Anne Nguyen",
-      "email": "Anne.Nguyen.PREV@assnat.qc.ca"
-    },
-    {
-      "name": "Tarek Henoud",
-      "email": "Alex.Boissonneault.ARTH@assnat.qc.ca"
-    },
-    {
-      "name": "Jonathan Poulin",
-      "email": "Jonathan.Poulin.BESU@assnat.qc.ca"
-    },
-    {
-      "name": "Maïté Blanchette Vézina",
-      "email": "Maite.BlanchetteVezina.LAPE@assnat.qc.ca"
-    },
-    {
-      "name": "Marie-Josée Hélie",
-      "email": "Marie-Josee.Helie.MONT@assnat.qc.ca"
-    },
-    {
-      "name": "Karine Laflamme",
-      "email": "Karine.Laflamme.LEVI@assnat.qc.ca"
-    },
-    {
-      "name": "Jimmy Gagnon",
-      "email": "Jimmy.Gagnon.MEGA@assnat.qc.ca"
-    },
-    {
-      "name": "Patricia Drouin",
-      "email": "Patricia.Drouin.BENO@assnat.qc.ca"
-    },
-    {
-      "name": "Marcos Archambault",
-      "email": "Marcos.Archambault.LOHE@assnat.qc.ca"
-    },
-    {
-      "name": "Jean-François Arsenault",
-      "email": "Jean-Francois.Arsenault.GRAN@assnat.qc.ca"
-    },
-    {
-      "name": "Marc Tanguay",
-      "email": "Marc.Tanguay-LAFO@assnat.qc.ca"
-    },
-    {
-      "name": "Enrico Ciccone",
-      "email": "Enrico.Ciccone.MARQ@assnat.qc.ca"
-    },
-    {
-      "name": "Frantz Benjamin",
-      "email": "Frantz.Benjamin.VIAU@assnat.qc.ca"
-    },
-    {
-      "name": "Audrey Bujold",
-      "email": "Audrey.Bujold.BELF@assnat.qc.ca"
-    },
-    {
-      "name": "Dominique Dumas",
-      "email": "Dominique.Dumas.CDLC@assnat.qc.ca"
-    },
-    {
-      "name": "André Albert Morin",
-      "email": "Andre-A.Morin.ACAD@assnat.qc.ca"
-    },
-    {
-      "name": "Guillaume Langlois",
-      "email": "Guillaume.Langlois.NICO@assnat.qc.ca"
-    },
-    {
-      "name": "Natalie Bisaillon",
-      "email": "Natalie.Bisaillon.MLGL@assnat.qc.ca"
-    },
-    {
-      "name": "Jennifer Maccarone",
-      "email": "Jennifer.Maccarone.WSL@assnat.qc.ca"
-    },
-    {
-      "name": "Alexandre Boulerice",
-      "email": "Alexandre.Boulerice.GOUI@assnat.qc.ca"
-    },
-    {
-      "name": "Nathalie Boisclair",
-      "email": "Andre.Lamontagne.JOHN@assnat.qc.ca"
-    },
-    {
-      "name": "Éloïse Coulombe",
-      "email": "Eloise.Coulombe.CHLB@assnat.qc.ca"
-    },
-    {
-      "name": "Marcel Bouchard",
-      "email": "Marcel.Bouchard.PORT@assnat.qc.ca"
-    },
-    {
-      "name": "Charles Milliard",
-      "email": "Charles.Milliard.ORFO@assnat.qc.ca"
-    },
-    {
-      "name": "Nicolas Girard",
-      "email": "Nicolas.Girard.REPE@assnat.qc.ca"
-    },
-    {
-      "name": "Gaétan Bédard",
-      "email": "Gaetan.Bedard.SAJE@assnat.qc.ca"
-    },
-    {
-      "name": "Mathieu Lebrun",
-      "email": "Mathieu.Lebrun.ROUS@assnat.qc.ca"
-    },
-    {
-      "name": "Pascal Bérubé",
-      "email": "Pascal.Berube.MATN@assnat.qc.ca"
-    },
-    {
-      "name": "Catherine Gentilcore",
-      "email": "Catherine.Gentilcore.TERR@assnat.qc.ca"
-    },
-    {
-      "name": "Meggie Richard",
-      "email": "Meggie.Richard.DUPL@assnat.qc.ca"
-    },
-    {
-      "name": "Stéphane Handfield",
-      "email": "Stephane.Handfield.MASS@assnat.qc.ca"
+      "name": "Sherry Wilson",
+      "email": null,
+      "fiche": "https://www.legnb.ca/en/members/current/33/wilson-sherry"
     }
   ]
 }

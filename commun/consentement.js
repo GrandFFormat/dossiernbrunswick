@@ -45,8 +45,8 @@
     b.setAttribute('role', 'dialog');
     b.setAttribute('aria-label', en ? 'Cookies' : 'Témoins');
     b.innerHTML = '<p>' + (en
-      ? 'DossierQuébec would like to use <strong>Google Analytics</strong> to count visits. It sets cookies. Nothing else changes if you decline.'
-      : 'DossierQuébec aimerait utiliser <strong>Google Analytics</strong> pour compter les visites. Il dépose des témoins (cookies). Rien d’autre ne change si vous refusez.')
+      ? 'DossierNBrunswick would like to use <strong>Google Analytics</strong> to count visits. It sets cookies. Nothing else changes if you decline.'
+      : 'DossierNBrunswick aimerait utiliser <strong>Google Analytics</strong> pour compter les visites. Il dépose des témoins (cookies). Rien d’autre ne change si vous refusez.')
       + '</p><div class="dq-temoins-boutons"><button type="button" data-choix="oui">' + (en ? 'Accept' : 'Accepter')
       + '</button><button type="button" data-choix="non">' + (en ? 'Decline' : 'Refuser') + '</button></div>';
     b.addEventListener('click', function (e) {
@@ -73,12 +73,15 @@
   function lienPied() {
     var pied = document.querySelector('footer');
     if (!pied || pied.querySelector('[data-temoins]')) return;
-    var cible = pied.querySelector('p:last-of-type') || pied;
+    // N.-B. : le pied n'a pas de <p> ; le lien va avec les autres liens du pied, sans « · ».
+    var groupe = pied.querySelector('.footer-right-group');
+    var cible = groupe || pied.querySelector('p:last-of-type') || pied;
     var a = document.createElement('a');
     a.href = '#';
     a.setAttribute('data-temoins', '');
+    if (groupe) a.className = 'footer-gh';
     a.textContent = anglais() ? 'Cookies' : 'Témoins';
-    cible.appendChild(document.createTextNode(' · '));
+    if (!groupe) cible.appendChild(document.createTextNode(' · '));
     cible.appendChild(a);
   }
 

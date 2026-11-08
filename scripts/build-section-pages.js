@@ -18,7 +18,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { slugMinistre } from './build-minister-pages.js';
 
-const BASE = 'https://dossierquebec.ca';
+const BASE = 'https://dossiernbrunswick.ca';
 const SRC = 'gabarit.html';
 const CSS_PATH = 'commun/dq.css';
 const JS_PATH = 'commun/dq.js';
@@ -111,8 +111,32 @@ function extraireDonnees() {
       ministres: valeurs.ministers.length,
       projets: valeurs.bills.length,
       votes: valeurs.votes.length,
+      // N.-B. : la prochaine séance de la Chambre (scrapers/calendrier.js), pour le bandeau d'état.
+      prochaineSeance: (() => {
+        try {
+          const s = JSON.parse(readFileSync('data/calendrier.json', 'utf8')).prochaineSeance;
+          return s ? { date: s.date, heure: s.heure, source: s.source } : null;
+        } catch { return null; }
+      })(),
     },
-    apercuBills: valeurs.bills.slice(0, 4),
+    // N.-B. (maquette) : la rangée ouverte de l'accueil montre « En clair » (les deux premières
+    // puces du résumé) et le dernier vote du projet. Pris ici pour que l'accueil ne charge ni les
+    // résumés complets ni tous les votes.
+    apercuBills: (() => {
+      const puces = (fichier) => {
+        try {
+          const r = JSON.parse(readFileSync(fichier, 'utf8'));
+          return (id) => [...String(r[id] || '').matchAll(/<li>([\s\S]*?)<\/li>/g)].slice(0, 2)
+            .map((m) => m[1].replace(/<[^>]+>/g, '').trim().replace(/[.;]?$/, '.')).join(' ') || null;
+        } catch { return () => null; }
+      };
+      const fr = puces('data/bills-resumes-fr.json'), en = puces('data/bills-resumes-en.json');
+      return valeurs.bills.slice(0, 4).map((b) => {
+        const v = valeurs.votes.filter((x) => x.billId === b.id && x.totals).sort((a, c) => (a.date < c.date ? 1 : -1))[0];
+        return { ...b, enClair: fr(b.id), enClairEn: en(b.id),
+          dernierVote: v ? { date: v.date, pour: v.totals.pour, contre: v.totals.contre } : null };
+      });
+    })(),
     billsTitres: valeurs.bills.map((b) => ({ id: b.id, title: b.title, titleEn: b.titleEn, sponsor: b.sponsor })),
     // billsParrains : le parrain de chaque projet et son rôle, pour « PL parrainés » de la page
     // Ministres (qui affichait 0 partout depuis le découpage : elle ne chargeait aucun projet). Le
@@ -157,7 +181,7 @@ function extraireDonnees() {
 // affiche les trois compteurs partout. Elle les comptait dans les jeux complets, que la plupart
 // des pages ne chargent plus — elle affichait « 0 vote nominatif » depuis le découpage.
 //
-// RÉFÉRENCEMENT (21 sept. 2026). `title` suit la formule « Sujet — DossierQuébec », 65 caractères
+// RÉFÉRENCEMENT (21 sept. 2026). `title` suit la formule « Sujet — DossierNBrunswick », 65 caractères
 // au plus ; `desc` fait entre 120 et 165 caractères. Le <h1> de chaque page s'ouvre sur le même
 // sujet (span .hero-sujet dans gabarit.html). `fil` est le nom de la page dans le fil d'Ariane
 // (visible et JSON-LD) ; `cle` sa traduction. `frequence` et `priorite` vont au sitemap. Les
@@ -167,22 +191,22 @@ const PAGES = [
   {
     fichier: 'index.html', vue: 'apercu', onglet: 'apercu', url: '/',
     donnees: ['newsItems', 'petitions', 'apercuBills', 'deputesRaw', 'stats'],
-    title: "L'Assemblée nationale du Québec en clair — DossierQuébec",
-    desc: "Suivez l'Assemblée nationale du Québec en langage clair : projets de loi résumés, votes nominatifs de chaque député·e, ministres et promesses électorales 2026.",
+    title: "L'Assemblée du Nouveau-Brunswick en clair — DossierNBrunswick",
+    desc: "Suivez l'Assemblée législative du Nouveau-Brunswick en langage clair : projets de loi et leurs étapes, votes nominatifs de chaque député·e, Conseil exécutif.",
     frequence: 'daily', priorite: '1.0',
   },
   {
     fichier: 'ministres.html', vue: 'ministres', onglet: 'ministres', url: '/ministres',
     donnees: ['ministers', 'deputesRaw', 'deputeEmails', 'presences', 'historiqueLeg', 'billsParrains'],
-    title: 'Ministres du Québec : le Conseil des ministres — DossierQuébec',
-    desc: "Combien de ministres au Québec et qui sont-ils : le Conseil des ministres, le ministère de chacun et les député·e·s de l'Assemblée nationale.",
+    title: 'Le Conseil exécutif du Nouveau-Brunswick — DossierNBrunswick',
+    desc: "Qui siège au Conseil exécutif du Nouveau-Brunswick : chaque ministre et ses portefeuilles, puis les 49 député·e·s de l'Assemblée législative, parti par parti.",
     fil: 'Ministres et député·e·s', cle: 'fil.ministres', frequence: 'weekly', priorite: '0.8',
   },
   {
     fichier: 'projets-de-loi.html', vue: 'projets', onglet: 'projets', url: '/projets-de-loi',
     donnees: ['bills', 'deputesRaw'],
-    title: 'Projets de loi du Québec expliqués en clair — DossierQuébec',
-    desc: "Les projets de loi de l'Assemblée nationale du Québec résumés en langage courant, avec leur étape réelle dans le processus et le lien vers le texte officiel.",
+    title: 'Projets de loi du Nouveau-Brunswick — DossierNBrunswick',
+    desc: "Les projets de loi de l'Assemblée législative du Nouveau-Brunswick, avec leur étape réelle et la date de chaque lecture, et le lien vers le texte officiel.",
     fil: 'Projets de loi', cle: 'fil.projets', frequence: 'daily', priorite: '0.9',
   },
   {
@@ -190,31 +214,15 @@ const PAGES = [
     // La page reste en ligne et indexée, liée du pied de page et de /projets-de-loi.
     fichier: 'votes.html', vue: 'votes', onglet: null, url: '/votes',
     donnees: ['votes', 'deputesRaw', 'billsTitres'],
-    title: "Votes nominatifs à l'Assemblée nationale — DossierQuébec",
-    desc: "Le registre des votes nominatifs de l'Assemblée nationale du Québec : qui a voté pour, contre ou s'est abstenu, député·e par député·e, sans interprétation.",
+    title: "Votes nominatifs au Nouveau-Brunswick — DossierNBrunswick",
+    desc: "Les votes nominatifs de l'Assemblée législative du Nouveau-Brunswick, lus dans ses Journaux : qui a voté pour ou contre, député·e par député·e, sans interprétation.",
     fil: 'Votes', cle: 'fil.votes', frequence: 'daily', priorite: '0.9',
-  },
-  {
-    // Les législatures terminées (30 oct. 2026) : leurs projets de loi, leurs votes, et les
-    // promesses de l'élection de 2026. La liste se dessine depuis data/archives/index.json.
-    fichier: 'archives.html', vue: 'archives', onglet: 'archives', url: '/archives',
-    donnees: [],
-    title: "Archives de l'Assemblée nationale — DossierQuébec",
-    desc: "Les législatures terminées de l'Assemblée nationale du Québec : leurs projets de loi, leurs votes nominaux et les promesses électorales de 2026, tels quels.",
-    fil: 'Archives', cle: 'fil.archives', frequence: 'monthly', priorite: '0.6',
-  },
-  {
-    fichier: 'promesses.html', vue: 'promesses', onglet: null, url: '/promesses',
-    donnees: ['promises', 'deputesRaw'],
-    title: 'Promesses électorales 2026 au Québec — DossierQuébec',
-    desc: "Les engagements des partis pour l'élection québécoise du 5 octobre 2026, chacun avec sa source officielle. Aucun verdict : la promesse et l'action, côte à côte.",
-    fil: 'Promesses', cle: 'fil.promesses', frequence: 'weekly', priorite: '0.8',
   },
   {
     fichier: 'lexique.html', vue: 'lexique', onglet: 'lexique', url: '/lexique',
     donnees: [],
-    title: "Lexique de l'Assemblée nationale en clair — DossierQuébec",
-    desc: "Sanction royale, étude détaillée, vote par appel nominal : le vocabulaire de l'Assemblée nationale du Québec expliqué simplement, avec les sources officielles.",
+    title: "Lexique de l'Assemblée législative — DossierNBrunswick",
+    desc: "Première lecture, sanction royale, vote par appel nominal : le vocabulaire de l'Assemblée législative du Nouveau-Brunswick expliqué simplement, sources à l'appui.",
     fil: 'Lexique', cle: 'fil.lexique', frequence: 'monthly', priorite: '0.6',
   },
   {
@@ -225,8 +233,8 @@ const PAGES = [
     // séparés ».
     fichier: 'mon-dossier.html', vue: 'mondossier', onglet: 'mondossier', url: '/mon-dossier', prive: true,
     donnees: ['bills'],
-    title: 'Mon dossier — DossierQuébec',
-    desc: "Votre espace à l'Assemblée nationale : les projets de loi que vous suivez, les ministres et député·e·s suivis, vos mots-clés et votre alerte du matin.",
+    title: 'Mon dossier — DossierNBrunswick',
+    desc: "Votre espace à l'Assemblée législative : les projets de loi que vous suivez, les ministres et député·e·s suivis, vos mots-clés et votre alerte du matin.",
     fil: 'Mon dossier', cle: 'fil.mondossier', frequence: 'weekly', priorite: '0.1',
   },
   {
@@ -234,31 +242,24 @@ const PAGES = [
     // hors du sitemap.
     fichier: '404.html', vue: 'introuvable', onglet: null, url: '/404', prive: true,
     donnees: [],
-    title: 'Page introuvable (404) — DossierQuébec',
-    desc: "Cette page n'existe pas sur DossierQuébec, ou son adresse a changé. Les projets de loi, les votes et les promesses électorales sont à un clic d'ici.",
+    title: 'Page introuvable (404) — DossierNBrunswick',
+    desc: "Cette page n'existe pas sur DossierNBrunswick, ou son adresse a changé. Les projets de loi, les votes et le Conseil exécutif sont à un clic d'ici.",
     fil: 'Page introuvable', cle: 'fil.introuvable', frequence: 'yearly', priorite: '0.1',
   },
   {
     // Les règles de sources du site (5 oct. 2026), lien dans le pied de page.
     fichier: 'regles.html', vue: 'regles', onglet: null, url: '/regles',
     donnees: [],
-    title: 'Les règles de sources du site — DossierQuébec',
-    desc: "Les neuf règles de DossierQuébec sur ses sources : jamais de donnée inventée, sources primaires seulement, aucun média, citations mot pour mot, aucun verdict.",
+    title: 'Les règles de sources du site — DossierNBrunswick',
+    desc: "Les neuf règles de DossierNBrunswick sur ses sources : jamais de donnée inventée, sources primaires seulement, aucun média, citations mot pour mot, aucun verdict.",
     fil: 'Les règles', cle: 'fil.regles', frequence: 'monthly', priorite: '0.5',
   },
-  {
-    // L'abonnement facultatif (remis le 21 oct. 2026) : le contenu reste gratuit, les outils en plus.
-    fichier: 'abonnement.html', vue: 'abonnement', onglet: null, url: '/abonnement',
-    donnees: [],
-    title: "L'abonnement facultatif — DossierQuébec",
-    desc: "Tout le contenu de DossierQuébec reste gratuit. L'abonnement facultatif donne des outils en plus, chacun avec son état. Prix en dollars canadiens, résiliable.",
-    fil: 'Abonnement', cle: 'fil.abonnement', frequence: 'monthly', priorite: '0.3',
-  },
+  // N.-B. (Martin, 7 nov. 2026) : pas de page /abonnement pour l'instant.
   {
     fichier: 'sources.html', vue: 'bd', onglet: null, url: '/sources',
     donnees: ['journal'],
-    title: 'Mises à jour du site — DossierQuébec',
-    desc: "Ce qui change sur DossierQuébec, site citoyen indépendant qui rend lisibles l'Assemblée nationale et les conseils municipaux du Québec, et qui est derrière.",
+    title: 'Mises à jour du site — DossierNBrunswick',
+    desc: "Ce qui change sur DossierNBrunswick, site citoyen indépendant qui rend lisible l'Assemblée législative du Nouveau-Brunswick, et qui est derrière le projet.",
     fil: 'Mises à jour du site', cle: 'fil.bd', frequence: 'weekly', priorite: '0.4',
   },
 ];
@@ -276,10 +277,10 @@ const ht = (x) => String(x ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<'
 const ORGANISATION = {
   '@type': 'Organization',
   '@id': `${BASE}/#organisation`,
-  name: 'DossierQuébec',
+  name: 'DossierNBrunswick',
   url: `${BASE}/`,
   logo: { '@type': 'ImageObject', url: `${BASE}/commun/dq-512.png`, width: 512, height: 512 },
-  sameAs: ['https://www.facebook.com/dossierquebec', 'https://github.com/GrandFFormat/DossierQuebec'],
+  sameAs: ['https://github.com/GrandFFormat/dossiernbrunswick'],
 };
 function jsonLd(page) {
   const donnees = page.url === '/'
@@ -287,7 +288,7 @@ function jsonLd(page) {
       '@context': 'https://schema.org',
       '@graph': [
         {
-          '@type': 'WebSite', '@id': `${BASE}/#site`, name: 'DossierQuébec', url: `${BASE}/`,
+          '@type': 'WebSite', '@id': `${BASE}/#site`, name: 'DossierNBrunswick', url: `${BASE}/`,
           description: page.desc, inLanguage: 'fr-CA', publisher: { '@id': `${BASE}/#organisation` },
         },
         ORGANISATION,
@@ -314,8 +315,9 @@ function jsonLd(page) {
 // retire dès que les vraies cartes sont affichées (voir [data-prerendu]).
 //
 // Même source que les cartes (les JSON de data/site/) : rien ici n'est rédigé à la main.
-const ASSNAT = '<a href="https://www.assnat.qc.ca/" rel="noopener">assnat.qc.ca</a>';
-const QUEBEC_CA = '<a href="https://www.quebec.ca/premiere-ministre/equipe/conseil-des-ministres" rel="noopener">quebec.ca</a>';
+// N.-B. : une seule source, l'Assemblée législative (le nom ASSNAT est gardé pour suivre DQ).
+const ASSNAT = '<a href="https://www.legnb.ca/" rel="noopener">legnb.ca</a>';
+const QUEBEC_CA = '<a href="https://www.legnb.ca/fr/parlementaires/conseil-executif" rel="noopener">legnb.ca</a>';
 // Le mot sur JavaScript n'a sa place que là où il y a des filtres ou une recherche.
 const SANS_JS = '<noscript> Les filtres, la recherche et le détail de chaque fiche demandent JavaScript.</noscript>';
 // `jeu` : le fichier de data/site/ dont dépend la liste. commun/dq.js ne retire une liste que si
@@ -346,13 +348,13 @@ function prerendus(valeurs) {
   return {
     apercuBills: bloc('apercuBills', 'Projets de loi récemment actifs', bills.slice(0, 4).map(projet),
       `Source officielle : ${ASSNAT}.`),
-    newsList: bloc('newsItems', 'Quoi de neuf à l’Assemblée nationale',
+    newsList: bloc('newsItems', 'Quoi de neuf à l’Assemblée législative',
       [...valeurs.newsItems].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 8)
         .map((n) => `<span class="pr-meta">${ht(n.label || dateFr(n.date))} —</span> ${ht(n.text)}`),
       `Source officielle : ${ASSNAT}.`),
-    ministresGrid: bloc('ministers', 'Conseil des ministres',
+    ministresGrid: bloc('ministers', 'Conseil exécutif',
       valeurs.ministers.map((m) => `<b><a href="/ministres/${slugMinistre(m.name)}">${ht(m.name)}</a></b> — ${ht(m.role)} <span class="pr-meta">(${ht(m.party)})</span>`),
-      `Le Conseil des ministres du Québec compte ${valeurs.ministers.length} membres, dont le premier ministre ${ht(valeurs.ministers[0].name)} (au ${dateFr(new Date().toISOString().slice(0, 10))}). Source officielle : ${QUEBEC_CA}.`, true),
+      `Le Conseil exécutif du Nouveau-Brunswick compte ${valeurs.ministers.length} membres, dont ${ht(valeurs.ministers[0].name)}, ${ht(String(valeurs.ministers[0].role || '').split(' · ')[0].toLowerCase())} (au ${dateFr(new Date().toISOString().slice(0, 10))}). Source officielle : ${QUEBEC_CA}.`, true),
     deputesList: bloc('deputesRaw', 'Le reste de l’Assemblée',
       deputes.map((d) => `${ht(d[0])} — ${ht(d[1])} <span class="pr-meta">(${ht(d[3])})</span>`),
       `Les ${deputes.length} autres député·e·s. Source officielle : ${ASSNAT}.`, true),
@@ -361,10 +363,7 @@ function prerendus(valeurs) {
     // Le sujet d'un vote commence souvent déjà par « Projet de loi n° X » : on ne le répète pas.
     votesList: bloc('votes', 'Votes nominatifs récents', votesRecents.map((v) =>
       `<span class="pr-meta">${ht(dateFr(v.date))} —</span> ${v.stage ? `${ht(v.stage)} — ` : ''}${v.billNum && !/^projet de loi n[°o]\s*\d/i.test(String(v.subject || '')) ? `projet de loi n° ${ht(v.billNum)} — ` : ''}${ht(v.subject)} <span class="pr-meta">· pour ${ht(v.totals?.pour)}, contre ${ht(v.totals?.contre)}, abstentions ${ht(v.totals?.abstentions)}</span>`),
-      `Les ${votesRecents.length} votes les plus récents, sur ${valeurs.votes.length}. Source officielle : le registre des votes, ${ASSNAT}.`, true),
-    promisesList: bloc('promises', 'Promesses électorales 2026', valeurs.promises.filter((p) => !p.draft).map((p) =>
-      `<b>${ht(p.party)}</b> <span class="pr-meta">· ${ht(p.theme)}</span> — « ${ht(p.quote)} » <span class="pr-meta">(source : ${p.sourceUrl ? `<a href="${esc(p.sourceUrl)}" rel="noopener">${ht(p.sourceLabel)}</a>` : ht(p.sourceLabel)})</span>`),
-      'Chaque promesse est citée mot pour mot, avec sa source.', true),
+      `Les ${votesRecents.length} votes les plus récents, sur ${valeurs.votes.length}. Source officielle : les Journaux de l’Assemblée, ${ASSNAT}.`, true),
     // Les 20 plus récentes seulement, comme la page vivante : sans plafond, le journal ferait
     // grossir /sources sans fin.
     journal: bloc('journal', 'Mises à jour du site', journalTrie.slice(0, JOURNAL_PREMIERES).map((e) =>
@@ -613,7 +612,7 @@ for (const { page, html } of produites) {
     const f = page.fichier;
     const titre = (html.match(/<title>([^<]*)<\/title>/) || [])[1];
     must(titre === page.title, `${f} : <title> inattendu`);
-    must(titre.length <= 65 && titre.endsWith(' — DossierQuébec'), `${f} : le titre doit suivre « Sujet — DossierQuébec » en 65 caractères au plus (${titre.length})`);
+    must(titre.length <= 65 && titre.endsWith(' — DossierNBrunswick'), `${f} : le titre doit suivre « Sujet — DossierNBrunswick » en 65 caractères au plus (${titre.length})`);
     must(page.desc.length >= 120 && page.desc.length <= 165, `${f} : description de ${page.desc.length} caractères (attendu 120 à 165)`);
     const h1 = html.match(/<h1[\s>][\s\S]*?<\/h1>/g) || [];
     must(h1.length === 1, `${f} : ${h1.length} <h1> (attendu 1)`);
@@ -773,9 +772,7 @@ construireLlms();
 const { construirePagesMinistres } = await import('./build-minister-pages.js');
 construirePagesMinistres();
 
-// Les anciens ministres de la 43e (/archives/43/ministres), à partir d'archives.html : scripts/build-anciens-ministres.js.
-const { construirePagesAnciensMinistres } = await import('./build-anciens-ministres.js');
-construirePagesAnciensMinistres();
+// N.-B. : pas de page des anciens ministres (aucune législature terminée sur ce site).
 
 // Les chefs de l'opposition qui siègent (/deputes/charles-milliard) : scripts/build-chefs-opposition.js.
 const { construirePagesChefs } = await import('./build-chefs-opposition.js');

@@ -14,7 +14,7 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync } from 'node:fs';
 import { slugProjet } from './build-bill-pages.js';
 
-const SITE = 'https://dossierquebec.ca';
+const SITE = 'https://dossiernbrunswick.ca';
 const DOSSIER = 'ministres';
 export const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 export const norm = (s) => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z]/g, '');
@@ -54,8 +54,11 @@ export const citeSource = (p) => {
   const mot = deux('Source', 'Source');
   return (p.sourceUrl ? `<a href="${esc(p.sourceUrl + fragmentTexte(p.quote))}" target="_blank" rel="noopener">${mot}</a>` : mot) + (d ? `, ${esc(d)}` : '');
 };
+// N.-B. : la législature en cours, tirée des projets de loi (pas écrite à la main).
+export const LEG = Math.max(0, ...(() => { try { return JSON.parse(readFileSync('data/site/bills.json', 'utf8')); } catch { return []; } })().map((b) => Number(b.legislature) || 0));
+export const LEG_EN = LEG + ({ 1: 'st', 2: 'nd', 3: 'rd' }[(LEG % 100 >= 11 && LEG % 100 <= 13) ? 0 : LEG % 10] || 'th');
 export const deux = (fr, en) => `<span class="fr-txt">${fr}</span><span class="en-txt">${en}</span>`;
-export const PARTIS = { PQ: ['Parti québécois', 'Parti Québécois'], CAQ: ['Coalition avenir Québec', 'Coalition Avenir Québec'], PLQ: ['Parti libéral du Québec', 'Quebec Liberal Party'], QS: ['Québec solidaire', 'Québec solidaire'], PCQ: ['Parti conservateur du Québec', 'Conservative Party of Quebec'] };
+export const PARTIS = { LIB: ['Parti libéral', 'Liberal Party'], PC: ['Parti progressiste-conservateur', 'Progressive Conservative Party'], VERT: ['Parti vert', 'Green Party'], IND: ['Indépendant·e', 'Independent'], PQ: ['Parti québécois', 'Parti Québécois'], CAQ: ['Coalition avenir Québec', 'Coalition Avenir Québec'], PLQ: ['Parti libéral du Québec', 'Quebec Liberal Party'], QS: ['Québec solidaire', 'Québec solidaire'], PCQ: ['Parti conservateur du Québec', 'Conservative Party of Quebec'] };
 
 // Ministère → thèmes de promesses. Prudent : seulement des correspondances franches, sur le titre
 // du ministère (pas sur « responsable de la région de… »).
@@ -143,31 +146,31 @@ export function construirePagesMinistres() {
     if (w.metiers?.length) { bioFr.push(`Avant ou à côté de la politique : ${w.metiers.join(', ')}.`); bioEn.push(`Occupation outside politics: ${w.metiersEn.join(', ')}.`); }
     if (riding) {
       bioFr.push(`Député${/e$/.test(roles[0] ?? '') || /ministre déléguée|première|vice-première/i.test(m.role) ? 'e' : ''} de ${riding} (${partiFr})${mandats ? `, ${mandats === 1 ? 'premier mandat' : `${mandats}e mandat`}` : ''}.`);
-      bioEn.push(`MNA for ${riding} (${partiEn})${mandats ? `, ${mandats === 1 ? 'first term' : `term no. ${mandats}`}` : ''}.`);
+      bioEn.push(`MLA for ${riding} (${partiEn})${mandats ? `, ${mandats === 1 ? 'first term' : `term no. ${mandats}`}` : ''}.`);
     }
 
     const ligne = (lbl, val) => `<div class="m-row"><span class="m-label">${lbl}</span><span class="m-val">${val}</span></div>`;
     const titreCourt = roles[0]?.length && `${m.name}, ${roles[0]}`.length <= 46 ? `${m.name}, ${roles[0]}` : `${m.name}, ministre`;
-    const titre = `${titreCourt} — DossierQuébec`;
+    const titre = `${titreCourt} — DossierNBrunswick`;
     let desc = `${m.name} (${m.party}${riding ? `, ${riding}` : ''}) : ${roles[0]}. Ses fonctions, ses projets de loi, sa présence aux votes et sa biographie.`;
     if (desc.length > 165) desc = `${m.name} : ${roles[0]}`.slice(0, 100).replace(/\s+\S*$/, '') + '. Fonctions, projets de loi, votes, biographie.';
-    if (desc.length < 120) desc += ' Gouvernement du Québec.';
-    if (desc.length < 120) desc += ' Fiche à jour sur DossierQuébec.';
+    if (desc.length < 120) desc += ' Gouvernement du Nouveau-Brunswick.';
+    if (desc.length < 120) desc += ' Fiche à jour sur DossierNBrunswick.';
 
-    // Photo officielle du parti en premier (Martin, 3 nov. 2026 : pq.org/notre-equipe, permission demandée
-    // au PQ le même jour), sinon celle de Wikimedia Commons.
-    const photoParti = existsSync(`${DOSSIER}/photos/${slug}-pq.jpg`) ? `/${DOSSIER}/photos/${slug}-pq.jpg` : null;
+    // N.-B. : le portrait officiel de l'Assemblée législative (legnb.ca), en WebP à 200 et 400 px
+    // (ministres/photos/<slug>.webp, repris de la version du 7 nov. 2026), sinon Wikimedia Commons.
+    const photoParti = existsSync(`${DOSSIER}/photos/${slug}.webp`) ? `/${DOSSIER}/photos/${slug}.jpg` : null;
     if (photoParti) w.photo = null;
-    const photo = photoParti ? `<figure class="min-photo"><img src="${photoParti.replace(/.jpg$/, '.webp')}" srcset="${photoParti.replace(/.jpg$/, '.webp')} 1x, ${photoParti.replace(/.jpg$/, '@2x.webp')} 2x" width="200" height="200" alt="${esc(m.name)}"><figcaption>${deux('Photo', 'Photo')} : <a href="https://pq.org/notre-equipe/" rel="noopener">Parti Québécois</a></figcaption></figure>`
+    const photo = photoParti ? `<figure class="min-photo"><img src="${photoParti.replace(/.jpg$/, '.webp')}" srcset="${photoParti.replace(/.jpg$/, '.webp')} 1x, ${photoParti.replace(/.jpg$/, '@2x.webp')} 2x" width="200" height="200" alt="${esc(m.name)}"><figcaption>${deux('Photo', 'Photo')} : <a href="https://www.legnb.ca/" rel="noopener">${deux('Assemblée législative du Nouveau-Brunswick', 'Legislative Assembly of New Brunswick')}</a></figcaption></figure>`
       : w.photo ?`<figure class="min-photo"><img src="${esc(w.photo.src)}" width="${w.photo.largeur}" height="${w.photo.hauteur}" alt="${esc(m.name)}"><figcaption>${esc(w.photo.auteur)}, ${w.photo.licenceUrl ? `<a href="${esc(w.photo.licenceUrl)}" rel="noopener license">${esc(w.photo.licence)}</a>` : esc(w.photo.licence)} · <a href="${esc(w.photo.fiche)}" rel="noopener">Wikimedia Commons</a></figcaption></figure>` : '';
 
-    const fiche = `<section class="view active" id="view-ministre" data-titre-en="${esc(`${m.name}, minister — DossierQuébec`)}">
+    const fiche = `<section class="view active" id="view-ministre" data-titre-en="${esc(`${m.name}, minister — DossierNBrunswick`)}">
     <nav class="fil-ariane" aria-label="Fil d'Ariane"><a href="/" data-i18n="fil.accueil">Accueil</a><span class="sep" aria-hidden="true">›</span><a href="/ministres" data-i18n="fil.ministres">Ministres et député·e·s</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">${esc(m.name)}</span></nav>
     <div class="view-hero min-hero">
       <div class="min-colphoto">${photo}${(reseaux[slug] || []).length ? `<p class="min-reseaux">${reseaux[slug].map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener" title="${nomReseau(u)}" aria-label="${nomReseau(u)}">${ICONES_RESEAUX[nomReseau(u)] || nomReseau(u)}</a>`).join('')}</p>` : ''}</div>
       <div class="min-tete">
-        <h1 class="hero-h1 hero-h1-md"><span class="hero-sujet">${deux('Ministre du Québec', 'Quebec minister')}</span><span>${esc(m.name)}</span></h1>
-        <p class="view-hero-sub">${deux(`${esc(m.name)} est ${esc(joint)} dans le gouvernement St-Pierre Plamondon (au ${dateFr(auj)}).`, `${esc(m.name)} is a member of the St-Pierre Plamondon government’s cabinet (as of ${dateEn(auj)}). Official titles are listed below in French.`)}</p>
+        <h1 class="hero-h1 hero-h1-md"><span class="hero-sujet">${deux('Ministre du Nouveau-Brunswick', 'New Brunswick minister')}</span><span>${esc(m.name)}</span></h1>
+        <p class="view-hero-sub">${deux(`${esc(m.name)} est ${esc(joint)} dans le gouvernement Holt (au ${dateFr(auj)}).`, `${esc(m.name)} is a member of the Holt government’s Executive Council (as of ${dateEn(auj)}). Official titles are listed below in French.`)}</p>
         <button class="follow-btn" onclick="toggleFollow('${esc(m.name.replace(/'/g, "\\'"))}')" data-i18n="btn.follow">Suivre</button>
       </div>
     </div>
@@ -185,11 +188,11 @@ export function construirePagesMinistres() {
         : `<p>${deux('Aucun projet de loi parrainé dans les données du site pour l’instant.', 'No bill sponsored in the site’s data so far.')}</p>`}
 
       <h2>${deux('Présence aux votes', 'Vote attendance')}</h2>
-      ${att ? `<p>${deux(`<b class="presence-pastille ${classePresence(att.rate)}">${att.rate} %</b> des votes nominaux depuis le ${dateFr(att.depuis)} : ${att.participated} sur ${att.total}, soit ${att.total - att.participated} votes manqués (43e législature).`, `<b class="presence-pastille ${classePresence(att.rate)}">${att.rate}%</b> of recorded divisions since ${dateEn(att.depuis)}: ${att.participated} of ${att.total}, i.e. ${att.total - att.participated} votes missed (43rd Legislature).`)}</p><p class="pr-meta">${deux('Un vote manqué peut être une mission officielle, une maladie ou un conflit d’horaire : le registre n’en donne pas la raison.', 'A missed vote can be an official mission, an illness or a scheduling conflict: the register does not give the reason.')}</p>`
-        : `<p><b class="presence-pastille presence-avenir">${deux('À venir', 'Coming')}</b> ${deux('Aucun vote nominal encore : les premiers votes de la 44e législature suivront la rentrée du 17 novembre 2026.', 'No recorded division yet: the first votes of the 44th Legislature will follow the return on November 17, 2026.')}</p>`}
+      ${att ? `<p>${deux(`<b class="presence-pastille ${classePresence(att.rate)}">${att.rate} %</b> des votes nominaux depuis le ${dateFr(att.depuis)} : ${att.participated} sur ${att.total}, soit ${att.total - att.participated} votes manqués (${LEG}e législature).`, `<b class="presence-pastille ${classePresence(att.rate)}">${att.rate}%</b> of recorded divisions since ${dateEn(att.depuis)}: ${att.participated} of ${att.total}, i.e. ${att.total - att.participated} votes missed (${LEG_EN} Legislature).`)}</p><p class="pr-meta">${deux('Un vote manqué peut être une mission officielle, une maladie ou un conflit d’horaire : le registre n’en donne pas la raison.', 'A missed vote can be an official mission, an illness or a scheduling conflict: the register does not give the reason.')}</p>`
+        : `<p><b class="presence-pastille presence-avenir">${deux('À venir', 'Coming')}</b> ${deux('Aucun vote nominal encore pour cette personne.', 'No recorded division yet for this person.')}</p>`}
 
-      <h2>${deux('Historique', 'History')}</h2>
-      <p>${mandats ? deux(mandats === 1 ? 'Premier mandat à l’Assemblée nationale.' : `${mandats}e mandat à l’Assemblée nationale.`, mandats === 1 ? 'First term in the National Assembly.' : `Term no. ${mandats} in the National Assembly.`) : ''}${passees ? ` ${deux(`Présence aux votes de la ${historique.courante - 1}e législature : ${esc(passees.rate ?? '')} %.`, `Attendance in the previous Legislature: ${esc(passees.rate ?? '')}%.`)}` : ''}</p>
+      ${mandats || passees ? `<h2>${deux('Historique', 'History')}</h2>` : ''}
+      <p>${mandats ? deux(mandats === 1 ? 'Premier mandat à l’Assemblée législative.' : `${mandats}e mandat à l’Assemblée législative.`, mandats === 1 ? 'First term in the Legislative Assembly.' : `Term no. ${mandats} in the Legislative Assembly.`) : ''}${passees ? ` ${deux(`Présence aux votes de la ${historique.courante - 1}e législature : ${esc(passees.rate ?? '')} %.`, `Attendance in the previous Legislature: ${esc(passees.rate ?? '')}%.`)}` : ''}</p>
 
       ${proms.length ? `<h2>${deux(`Promesses du ${esc(partiFr)} qui touchent son ministère`, `${esc(partiEn)} promises related to this portfolio`)}</h2>
       <ul class="min-liste">${proms.map((p) => `<li class="min-promesse"><q>${esc(p.quote)}</q><span class="min-prom-source">${citeSource(p)}</span></li>`).join('')}</ul>
@@ -198,7 +201,7 @@ export function construirePagesMinistres() {
       ${bioFr.length ? `<h2>${deux('Biographie', 'Biography')}</h2><p>${deux(esc(bioFr.join(' ')), esc(bioEn.join(' ')))}</p>` : ''}
 
       <h2>${deux('Coordonnées officielles', 'Official contact')}</h2>
-      <p>${courriel ? `<a class="m-mail" href="mailto:${esc(courriel)}">✉ ${esc(courriel)}</a>` : `<a href="https://www.assnat.qc.ca/fr/deputes/index.html" rel="noopener">${deux('Coordonnées sur assnat.qc.ca', 'Contact details on assnat.qc.ca')}</a>`}</p>
+      <p>${courriel ? `<a class="m-mail" href="mailto:${esc(courriel)}">✉ ${esc(courriel)}</a>` : `${deux('<a href="https://www.legnb.ca/fr/parlementaires/actuel" rel="noopener">Coordonnées sur legnb.ca</a>', '<a href="https://www.legnb.ca/en/members/current" rel="noopener">Contact details on legnb.ca</a>')}`}</p>
       ${w.url ? `<p class="min-source">${deux('Source', 'Source')} : <a href="${esc(w.url)}" rel="noopener">Wikipédia</a></p>` : ''}
     </div></div>
   </section>`;
@@ -211,8 +214,8 @@ export function construirePagesMinistres() {
           { '@type': 'ListItem', position: 2, name: 'Ministres et député·e·s', item: `${SITE}/ministres` },
           { '@type': 'ListItem', position: 3, name: m.name, item: url },
         ] },
-        { '@type': 'Person', name: m.name, url, jobTitle: roles, memberOf: [{ '@type': 'PoliticalParty', name: partiFr }, { '@type': 'GovernmentOrganization', name: 'Conseil des ministres du Québec' }],
-          ...(photoParti || w.photo ? { image: SITE + (photoParti || w.photo.src) } : {}), ...((w.url || reseaux[slug]) ? { sameAs: [...(w.url ? [w.url] : []), ...(w.wikidata ? [`https://www.wikidata.org/wiki/${w.wikidata}`] : []), ...(reseaux[slug] || [])] } : {}) },
+        { '@type': 'Person', name: m.name, url, jobTitle: roles, memberOf: [{ '@type': 'PoliticalParty', name: partiFr }, { '@type': 'GovernmentOrganization', name: 'Conseil exécutif du Nouveau-Brunswick' }],
+          ...(photoParti || w.photo ? { image: SITE + (photoParti ? photoParti.replace(/.jpg$/, '.webp') : w.photo.src) } : {}), ...((w.url || reseaux[slug]) ? { sameAs: [...(w.url ? [w.url] : []), ...(w.wikidata ? [`https://www.wikidata.org/wiki/${w.wikidata}`] : []), ...(reseaux[slug] || [])] } : {}) },
       ],
     }, null, 1).replace(/</g, '\\u003c');
 
