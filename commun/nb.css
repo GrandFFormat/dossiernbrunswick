@@ -761,3 +761,5 @@ html[lang="en"][data-theme="dark"] .nb-ligne-sur{color:#ff7a8a;}
 /* « Cities » à côté du nom, en anglais : la pastille rouge, plus grosse (Martin). */
 html[lang="en"] .brand .city-flip{height:32px; padding:0 16px; border-radius:16px !important; font-size:13px; gap:7px;}
 html[lang="en"] .brand .city-flip::after{border-left-width:5px; border-right-width:5px; border-top-width:6px;}
+/* « Villes », en français : un peu plus d'air à gauche du mot (Martin). */
+html:not([lang="en"]) .brand .city-flip{padding-left:16px;}
