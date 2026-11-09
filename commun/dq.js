@@ -914,7 +914,7 @@ function applyAssemblyState(){
 
 /* N.-B. : LA BASCULE DE LANGUE EN DRAPEAUX (Martin, 9 nov. 2026, maquette du design).
    Une seule case, celle de l'AUTRE langue, comme le mot « English » avant (Martin) : FR porte
-   le drapeau du N.-B. et le drapeau acadien, EN le drapeau du N.-B. seul. Les dessins sont ici,
+   le drapeau acadien, EN le drapeau du N.-B. (un seul drapeau chacun, Martin). Les dessins sont ici,
    dans la fonction : applyLanguage l'appelle avant que le reste du fichier soit lu. */
 function poserBasculeLangue(b){
   const nb = '<img class="lg-drapeau" src="/commun/drapeau-nb.svg" alt="" width="22" height="14">';   // le vrai drapeau (Wikimedia Commons, domaine public)
@@ -922,7 +922,7 @@ function poserBasculeLangue(b){
   const fr = currentLang !== 'en';
   b.classList.add('lang-drapeaux');
   b.innerHTML = fr ? '<span class="lg" lang="en">' + nb + '<b>EN</b></span>'
-                  : '<span class="lg" lang="fr">' + nb + acadie + '<b>FR</b></span>';
+                  : '<span class="lg" lang="fr">' + acadie + '<b>FR</b></span>';
   const t = fr ? 'English version' : 'Version française';
   b.setAttribute('aria-label', t);
   b.setAttribute('title', t);
