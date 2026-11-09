@@ -661,3 +661,101 @@ html[data-theme="dark"] .nb-ligne-num, html[data-theme="dark"] .nb-ligne-fleche,
 #dq-topbar .brand .maple-flip{margin-left:-6px;}
 html.entete-etroite #dq-topbar .brand .maple-flip,
 html.etroit #dq-topbar .brand .maple-flip{margin-left:0;}
+
+
+/* ---------- LA BASCULE DE LANGUE EN DRAPEAUX (Martin, 9 nov. 2026) ----------
+   Deux cases (posées par commun/dq.js) : FR = drapeau du N.-B. + drapeau acadien, EN = drapeau
+   du N.-B. La case de la langue courante est surlignée en jaune pâle. */
+.lang-toggle.lang-drapeaux{display:inline-flex; align-items:stretch; gap:0; padding:0; border:1px solid var(--nb-filet); background:transparent;}
+.lang-toggle.lang-drapeaux:hover{background:transparent;}
+.lang-drapeaux .lg{display:inline-flex; align-items:center; gap:4px; padding:4px 8px; color:var(--ink);}
+.lang-drapeaux .lg + .lg{border-left:1px solid var(--nb-filet);}
+.lang-drapeaux .lg b{font-family:var(--nb-titre); font-weight:600; font-size:13px; letter-spacing:.04em; margin-left:2px;}
+.lang-drapeaux .lg-drapeau{display:block; height:14px; width:auto; box-shadow:0 0 0 1px rgba(0,0,0,.15);}
+.lang-drapeaux .lg-active{background:#fff4c2; color:#1d1f20;}
+.lang-drapeaux .lg:not(.lg-active):hover{background:var(--paper-2);}
+html[data-theme="dark"] .lang-drapeaux .lg-active{background:#5a4a1a; color:#fff;}
+
+
+/* ---------- LE DESIGN ANGLAIS : LE DRAPEAU DU NOUVEAU-BRUNSWICK (Martin, 9 nov. 2026) ----------
+   Le français garde le drapeau acadien (bleu, étoile) ; l'anglais prend le rouge et l'or du
+   drapeau du N.-B., d'après la maquette du design. Tout passe par html[lang="en"], que dq.js
+   tient à jour. Les jetons --nb-bleu* gardent leur nom : ici, ils portent le rouge. */
+html[lang="en"]{
+  --nb-bleu:#cf142b;
+  --nb-bleu-fonce:#a50f22;
+  --nb-bleu-nuit:#3d0a10;
+  --nb-rouge:#cf142b;
+  --nb-rouge-fonce:#a50f22;
+  --nb-jaune:#ffd200;
+  --yellow:#ffd200;
+  --sur-clair:#1d1f20;
+  --gold:#cf142b;
+  --gold-soft:#fff4c2;
+  --gold-bg:#cf142b;
+  --gold-hover:#a50f22;
+  --gold-pale:#f3bab4;
+  --gold-paler:#fdeaec;
+  --ink-bg:#3d0a10;
+  --nb-vagues:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 90'%3E%3Cg fill='none' stroke='%23ffd200' stroke-width='9' stroke-linecap='round'%3E%3Cpath d='M6 15q22-13 44 0t44 0 44 0 44 0'/%3E%3Cpath d='M6 45q22-13 44 0t44 0 44 0 44 0'/%3E%3Cpath d='M6 75q22-13 44 0t44 0 44 0 44 0'/%3E%3C/g%3E%3C/svg%3E");
+}
+html[lang="en"][data-theme="dark"]{
+  --paper:#262122;
+  --paper-2:#2e2829;
+  --card:#352e30;
+  --line-soft:#4a4143;
+  --slate:#aaa1a3;
+  --nb-filet:rgba(255,255,255,.18);
+  --gold:#ff7a8a;
+  --gold-soft:#4a3d3e;
+  --gold-bg:#cf142b;
+  --gold-hover:#a50f22;
+  --ink-bg:#3d0a10;
+  --red-soft:#5a1420;
+}
+html[lang="en"][data-theme="dark"] .band-yellow{--gold:#cf142b; --gold-soft:#fff4c2;}
+html[lang="en"][data-theme="dark"] .band-blue{--gold:#ffd200;}
+
+/* L'en-tête : pas d'étoile acadienne devant le nom. */
+html[lang="en"] .brand-text .brand-title::before{content:none;}
+
+/* L'affiche : bloc rouge aux vagues dorées, chiffres sur le jaune, chapô sans surligneur. */
+html[lang="en"] #view-apercu .hero-h1::after{
+  right:-12px; bottom:-18px; width:250px; height:112px; opacity:1; clip-path:none;
+  background:var(--nb-vagues) no-repeat center / contain;
+}
+html[lang="en"] #view-apercu .hero-manifesto p b{background:none; padding:0; color:var(--ink);}
+html[lang="en"] #view-apercu .stat-band{background:var(--nb-jaune); color:#1d1f20;}
+html[lang="en"] #view-apercu .stat-cell + .stat-cell{border-color:rgba(29,31,32,.22);}
+html[lang="en"] #view-apercu .stat-cell b,
+html[lang="en"] #view-apercu .stat-cell span{color:#1d1f20;}
+@media (max-width:900px){ html[lang="en"] #view-apercu .hero-h1::after{width:170px; height:76px; right:-8px; bottom:-12px;} }
+
+/* Le bandeau d'état : jaune pâle, texte rouge foncé. */
+html[lang="en"] #view-apercu .calendar-box.nb-etat,
+html[lang="en"] #view-apercu .calendar-box.nb-etat .status{color:#8a0d1d;}
+html[lang="en"][data-theme="dark"] #view-apercu .calendar-box.nb-etat{background:#4a3d3e;}
+html[lang="en"][data-theme="dark"] #view-apercu .calendar-box.nb-etat,
+html[lang="en"][data-theme="dark"] #view-apercu .calendar-box.nb-etat .status{color:#f3e9e9;}
+
+/* Les étapes des projets récents : pastille jaune pâle. */
+html[lang="en"] .nb-ligne-etape{background:#fff1b8; color:#6b4f00;}
+html[lang="en"] .nb-ligne-sanctionne{background:#1d1f20; color:#fff;}
+
+/* Les deux boîtes : « Follow » en rouge aux vagues, la commandite en jaune. */
+html[lang="en"] .nb-boite.promo-accueil::after{
+  top:-14px; right:-16px; width:140px; height:63px; clip-path:none;
+  background:var(--nb-vagues) no-repeat center / contain;
+}
+html[lang="en"] .nb-boite.promo-accueil .promo-compte .account-btn{background:transparent;}
+html[lang="en"] .nb-boite.nb-commandite{background:var(--nb-jaune); color:#1d1f20;}
+html[lang="en"] .nb-boite.nb-commandite .promo-sur{color:#a50f22;}
+html[lang="en"] .nb-boite.nb-commandite h2,
+html[lang="en"] .nb-boite.nb-commandite .promo-texte,
+html[lang="en"] .nb-commandite-villes{color:#1d1f20;}
+html[lang="en"] #view-apercu .nb-boite.nb-commandite .hero-cta{background:var(--nb-rouge); color:#fff;}
+html[lang="en"] #view-apercu .nb-boite.nb-commandite .hero-cta:hover{background:var(--nb-rouge-fonce); color:#fff;}
+
+/* Le pied : filet rouge à gauche, jaune à droite. */
+html[lang="en"] footer::before{background:linear-gradient(90deg, var(--nb-rouge) 0 33.333%, transparent 33.333% 66.666%, var(--nb-jaune) 66.666%);}
+html[lang="en"][data-theme="dark"] .nb-ligne-sur{color:#ff7a8a;}
