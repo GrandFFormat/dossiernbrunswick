@@ -845,6 +845,7 @@ function applyLanguage(){
   for(const a of [rtv, ...document.querySelectorAll('.lienRtv')]) if(a) a.href = 'https://dossierquebec.ca/represente-ta-ville?province=nb' + (currentLang === 'en' ? '&lang=en' : '');  // N.-B. : garder ?province=nb
   // L'infobulle de la bascule de thème suit la langue elle aussi.
   if(typeof appliquerTheme === 'function') appliquerTheme();
+  if(typeof appliquerDrapeau === 'function') appliquerDrapeau();   // N.-B.
 }
 
 /* Corrige les textes statiques qui deviennent FAUX pendant une dissolution —
@@ -3525,6 +3526,44 @@ async function basculerTheme(){
 document.getElementById('themeToggle')?.addEventListener('click', basculerTheme);
 document.getElementById('fontMinus')?.addEventListener('click', ()=> changeFontZoom(-10));
 document.getElementById('fontPlus')?.addEventListener('click', ()=> changeFontZoom(10));
+
+/* N.-B. : LE DRAPEAU (Martin, 9 nov. 2026, à l'essai). Le site porte les couleurs du drapeau
+   acadien (bleu, blanc, rouge, étoile jaune). Un petit drapeau à côté de A−/A+ fait passer le
+   site aux couleurs du drapeau du Nouveau-Brunswick (rouge et or, vagues bleues), et retour.
+   Le bouton est posé ici plutôt que dans le gabarit : pas de pages à reconstruire pour l'essai.
+   L'attribut vit sur <html>, comme data-theme ; nb.css fait le reste. */
+const DRAPEAU_ACADIE = '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#0033a0"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#e4002b"/><path fill="#ffd100" d="M5 2.2l.9 2.6h2.7l-2.2 1.6.8 2.6L5 7.4 2.8 9l.8-2.6-2.2-1.6h2.7z"/></svg>';
+const DRAPEAU_NB = '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#ffcd00"/><rect width="30" height="7" fill="#da291c"/><path fill="#ffcd00" d="M9 4.4h8.5l1.6-1.4.9 1-1 1.4v1.2h-1.3V5.6h-6.6v1H9.8V5.4L8.6 4.2z"/><path fill="#1d1f20" d="M9 12.6h12l-1.6 2H10.6z M14.7 8h.6v4.6h-.6z"/><rect y="15" width="30" height="5" fill="#0033a0"/><path fill="none" stroke="#fff" stroke-width="1" d="M0 16.4q2.5-1.2 5 0t5 0 5 0 5 0 5 0 5 0M0 18.6q2.5-1.2 5 0t5 0 5 0 5 0 5 0 5 0"/></svg>';
+let drapeauNB = false;
+function appliquerDrapeau(){
+  // Le bouton d'abord : applyLanguage peut appeler ceci avant que drapeauNB existe.
+  const b = document.getElementById('drapeauToggle');
+  if(!b) return;
+  document.documentElement.setAttribute('data-drapeau', drapeauNB ? 'nb' : 'acadie');
+  const isEn = currentLang === 'en';
+  b.innerHTML = drapeauNB ? DRAPEAU_NB : DRAPEAU_ACADIE;
+  b.setAttribute('aria-pressed', drapeauNB ? 'true' : 'false');
+  const t = drapeauNB
+    ? (isEn ? 'Switch to the Acadian flag colours' : 'Passer aux couleurs du drapeau acadien')
+    : (isEn ? 'Switch to the New Brunswick flag colours' : 'Passer aux couleurs du drapeau du Nouveau-Brunswick');
+  b.setAttribute('aria-label', t);
+  b.setAttribute('title', t);
+}
+(function(){
+  const ctrl = document.getElementById('fontSizeCtrl');
+  if(ctrl && !document.getElementById('drapeauToggle')){
+    const b = document.createElement('button');
+    b.className = 'drapeau-toggle'; b.id = 'drapeauToggle'; b.type = 'button';
+    ctrl.after(b);
+    b.addEventListener('click', ()=>{
+      drapeauNB = !drapeauNB;
+      appliquerDrapeau();
+      try{ localStorage.setItem('nb:drapeau', drapeauNB ? 'nb' : 'acadie'); }catch(e){}
+    });
+  }
+  try{ drapeauNB = localStorage.getItem('nb:drapeau') === 'nb'; }catch(e){}
+  appliquerDrapeau();
+})();
 
 let snoozedSections = {};
 async function loadSnoozedSections(){
