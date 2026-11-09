@@ -917,7 +917,7 @@ function applyAssemblyState(){
    le drapeau du N.-B. et le drapeau acadien, EN le drapeau du N.-B. seul. Les dessins sont ici,
    dans la fonction : applyLanguage l'appelle avant que le reste du fichier soit lu. */
 function poserBasculeLangue(b){
-  const nb = '<svg class="lg-drapeau" viewBox="0 0 32 20" aria-hidden="true"><rect width="32" height="20" fill="#ffd200"/><rect width="32" height="7" fill="#cf142b"/><path fill="#ffd200" d="M10 4.4h9l1.7-1.4.9 1-1 1.4v1.2h-1.3V5.6h-7v1h-1.4V5.4L9.6 4.2z"/><path fill="#1d1f20" d="M10 12.4h12.4l-1.6 2.2H11.6z M15.8 7.8h.7v4.6h-.7z"/><rect y="15" width="32" height="5" fill="#0033a0"/><path fill="none" stroke="#fff" stroke-width="1" d="M0 16.4q2-1.2 4 0t4 0 4 0 4 0 4 0 4 0 4 0 4 0M0 18.6q2-1.2 4 0t4 0 4 0 4 0 4 0 4 0 4 0 4 0"/></svg>';
+  const nb = '<img class="lg-drapeau" src="/commun/drapeau-nb.svg" alt="" width="22" height="14">';   // le vrai drapeau (Wikimedia Commons, domaine public)
   const acadie = '<svg class="lg-drapeau" viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#0033a0"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#e4002b"/><path fill="#ffd100" d="M5 2.2l.9 2.6h2.7l-2.2 1.6.8 2.6L5 7.4 2.8 9l.8-2.6-2.2-1.6h2.7z"/></svg>';
   const fr = currentLang !== 'en';
   b.classList.add('lang-drapeaux');
