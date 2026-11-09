@@ -756,3 +756,12 @@ html[lang="en"] #view-apercu .nb-boite.nb-commandite .hero-cta:hover{background:
 /* Le pied : filet rouge à gauche, jaune à droite. */
 html[lang="en"] footer::before{background:linear-gradient(90deg, var(--nb-rouge) 0 33.333%, transparent 33.333% 66.666%, var(--nb-jaune) 66.666%);}
 html[lang="en"][data-theme="dark"] .nb-ligne-sur{color:#ff7a8a;}
+
+/* « Cities » à côté du nom, en anglais : pas de pastille rouge, un mot et sa flèche comme les
+   onglets (maquette du design), rouge au survol. */
+html[lang="en"] .brand .city-flip{
+  height:auto; padding:6px 5px; border-radius:0 !important; background:transparent; color:var(--ink);
+  font-family:var(--nb-titre); font-weight:600; font-size:14px; letter-spacing:.04em;
+}
+html[lang="en"] .brand .city-flip:hover,
+html[lang="en"] .brand .villes-menu[open] .city-flip{transform:none; background:transparent; color:var(--nb-rouge);}
