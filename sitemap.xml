@@ -3,30 +3,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dossiernbrunswick.ca/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://dossiernbrunswick.ca/ministres</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dossiernbrunswick.ca/votes</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/votes</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dossiernbrunswick.ca/lexique</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/lexique</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -38,13 +68,31 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://dossiernbrunswick.ca/sources</loc>
+    <loc>https://dossiernbrunswick.ca/en/regles</loc>
     <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/sources</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/sources</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/14-61-3</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/14-61-3</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -56,7 +104,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/13-61-3</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/12-61-3</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/12-61-3</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -68,7 +128,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/6-61-3</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/5-61-3</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/5-61-3</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -80,7 +152,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/4-61-3</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/3-61-3</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/3-61-3</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -92,7 +176,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/2-61-3</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/11-61-3</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/11-61-3</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -104,7 +200,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/10-61-3</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/9-61-3</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/9-61-3</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -116,7 +224,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/8-61-3</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/7-61-3</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/7-61-3</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -128,7 +248,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/1-61-3</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/51-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/51-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -140,7 +272,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/50-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/49-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/49-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -152,7 +296,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/48-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/47-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/47-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -164,7 +320,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/46-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/45-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/45-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -176,7 +344,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/44-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/43-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/43-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -188,7 +368,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/42-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/41-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/41-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -200,7 +392,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/40-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/39-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/39-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -212,7 +416,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/38-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/37-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/37-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -224,7 +440,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/36-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/35-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/35-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -236,7 +464,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/34-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/33-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/33-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -248,7 +488,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/32-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/31-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/31-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -260,7 +512,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/30-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/29-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/29-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -272,7 +536,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/28-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/27-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/27-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -284,7 +560,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/26-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/25-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/25-61-2</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -296,7 +584,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/24-61-2</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/23-61-2</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/23-61-2</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -308,7 +608,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/22-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/21-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/21-61-2</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -320,7 +632,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/20-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/19-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/19-61-2</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -332,7 +656,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/18-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/17-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/17-61-2</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -344,7 +680,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/16-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/15-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/15-61-2</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -356,7 +704,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/14-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/13-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/13-61-2</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -368,7 +728,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/12-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/11-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/11-61-2</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -380,7 +752,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/10-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/9-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/9-61-2</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -392,7 +776,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/8-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/7-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/7-61-2</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -404,7 +800,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/6-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/5-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/5-61-2</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -416,7 +824,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/4-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/3-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/3-61-2</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -428,7 +848,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/2-61-2</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/1-61-2</loc>
+    <lastmod>2025-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/1-61-2</loc>
     <lastmod>2025-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -440,7 +872,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/36-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/35-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/35-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -452,7 +896,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/34-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/33-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/33-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -464,7 +920,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/32-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/31-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/31-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -476,7 +944,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/30-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/29-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/29-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -488,7 +968,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/28-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/27-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/27-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -500,7 +992,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/26-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/25-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/25-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -512,7 +1016,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/24-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/23-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/23-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -524,7 +1040,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/22-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/21-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/21-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -536,7 +1064,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/20-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/18-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/18-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -548,7 +1088,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/17-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/16-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/16-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -560,7 +1112,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/15-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/14-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/14-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -572,7 +1136,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/13-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/12-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/12-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -584,7 +1160,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/11-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/10-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/10-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -596,7 +1184,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/9-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/8-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/8-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -608,7 +1208,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/7-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/6-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/6-61-1</loc>
     <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -620,7 +1232,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/4-61-1</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/19-61-1</loc>
+    <lastmod>2025-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/19-61-1</loc>
     <lastmod>2025-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -632,7 +1256,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/5-61-1</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/3-61-1</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/3-61-1</loc>
     <lastmod>2024-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -644,7 +1280,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/2-61-1</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/projets-de-loi/1-61-1</loc>
+    <lastmod>2024-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/projets-de-loi/1-61-1</loc>
     <lastmod>2024-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -655,7 +1303,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/susan-holt</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/ministres/lyne-chantal-boudreau</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/lyne-chantal-boudreau</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -665,7 +1323,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/chuck-chiasson</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/ministres/keith-chiasson</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/keith-chiasson</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -675,7 +1343,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/jean-claude-d-amours</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/ministres/john-dornan</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/john-dornan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -685,7 +1363,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/pat-finnigan</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/ministres/robert-gauvin</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/robert-gauvin</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -695,7 +1383,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/john-herron</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/ministres/david-hickey</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/david-hickey</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -705,7 +1403,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/claire-johnson</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/ministres/aaron-kennedy</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/aaron-kennedy</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -715,7 +1423,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/rene-legacy</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/ministres/gilles-lepage</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/gilles-lepage</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -725,7 +1443,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/robert-mckee</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/ministres/cindy-miles</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/cindy-miles</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -735,7 +1463,17 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/luke-randall</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/ministres/isabelle-theriault</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/isabelle-theriault</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -745,12 +1483,27 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/ministres/alyson-townsend</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/deputes/margaret-johnson</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dossiernbrunswick.ca/en/deputes/margaret-johnson</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dossiernbrunswick.ca/deputes/david-coon</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dossiernbrunswick.ca/en/deputes/david-coon</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

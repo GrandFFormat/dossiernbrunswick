@@ -19,6 +19,8 @@
 // « Archives de la 43e législature ». Rien à faire à la main, ni cette fois ni les suivantes.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync } from 'node:fs';
+import { PAGES_EN } from './pages-en.js';
+import { slugMinistre, norm } from './build-minister-pages.js';
 
 const SITE = 'https://dossiernbrunswick.ca';
 const DOSSIER = 'projets-de-loi';
@@ -66,6 +68,36 @@ export function construirePagesProjets() {
   if (existsSync(DOSSIER)) for (const f of readdirSync(DOSSIER)) if (f.endsWith('.html')) rmSync(`${DOSSIER}/${f}`);
   mkdirSync(DOSSIER, { recursive: true });
 
+  // N.-B. (8 nov. 2026, audit de Kyle) : le parrain mène à sa fiche, quand il en a une (ministre ou
+  // chef de parti). « Kennedy, Aaron » ou « McKee, K.C., Robert » : nom de famille, puis prénom.
+  const fiches = new Map([
+    ...lire('data/site/ministers.json', []).map((m) => [norm(m.name), `/ministres/${slugMinistre(m.name)}`]),
+    ...lire('data/site/chefsOpposition.json', []).map((c) => [norm(c.name), `/deputes/${slugMinistre(c.name)}`]),
+  ]);
+  const partiesDuNom = (sponsor) => String(sponsor ?? '').split(' — ')[0].split(',').map((x) => x.trim()).filter(Boolean);
+  const ficheDuParrain = (sponsor) => {
+    const p = partiesDuNom(sponsor);
+    return p.length >= 2 ? fiches.get(norm(p.at(-1) + p[0])) ?? null : null;
+  };
+  const nomDuParrain = (sponsor) => {
+    const p = partiesDuNom(sponsor);
+    return p.length >= 2 ? `${p.at(-1)} ${p[0]}` : String(sponsor ?? '');
+  };
+  // Un numéro qui revient d'une session à l'autre (PL 1, PL 2…) : le titre dit alors la session.
+  const parNumero = new Map();
+  for (const { bills } of lots) for (const b of bills) parNumero.set(`${b.legislature}-${b.num}`, (parNumero.get(`${b.legislature}-${b.num}`) ?? 0) + 1);
+  const ordFr = (n) => (Number(n) === 1 ? '1re' : `${n}e`);
+  const ordEn = (n) => `${n}${({ 1: 'st', 2: 'nd', 3: 'rd' }[(n % 100 >= 11 && n % 100 <= 13) ? 0 : n % 10] || 'th')}`;
+  const couper = (t, n) => (t.length > n ? `${t.slice(0, n - 1).replace(/\s+\S*$/, '').replace(/[.,;:]$/, '')}…` : t);
+  const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+  const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const dateFr = (iso) => { const [y, m, d] = String(iso).split('-').map(Number); return y && m && d ? `${d === 1 ? '1er' : d} ${MOIS[m - 1]} ${y}` : iso; };
+  const dateEn = (iso) => { const [y, m, d] = String(iso).split('-').map(Number); return y && m && d ? `${MONTHS[m - 1]} ${d}, ${y}` : iso; };
+  const resumesEn = [lire('data/bills-resumes-en.json', {}), ...(archive?.anciennes ?? []).map((leg) => lire(`${ARCHIVES}/${leg}/bills-resumes-en.json`, {}))];
+  const resumeEnDe = (id) => resumesEn.map((r) => r[id]).find(Boolean) ?? '';
+  // « Pas encore de résumé » n'est pas un résumé : la description se tire alors des données.
+  const vraiResume = (html) => (/^\s*<p><em>/.test(html ?? '') ? '' : (html ?? ''));
+
   const vues = new Set();
   const adresses = [];
   for (const { bills, resumes } of lots) for (const b of bills) {
@@ -73,30 +105,59 @@ export function construirePagesProjets() {
     if (!slug || vues.has(slug)) continue;
     vues.add(slug);
     const url = `${SITE}/${DOSSIER}/${slug}`;
+    const urlEn = `${SITE}/en/${DOSSIER}/${slug}`;
     const resumeHtml = resumes[b.id] ?? '';
-    // Les sous-titres du résumé (h4 à h6) passent en h3 sous le h2 du projet : un moteur lit un plan
+    const resumeHtmlEn = resumeEnDe(b.id);
+    // Les sous-titres du résumé (h4 à h6) passent en h3 sous le titre du projet : un moteur lit un plan
     // sans niveau sauté. Seule la copie écrite dans la page change ; commun/dq.js refait la carte.
     const resumePage = resumeHtml.replace(/<(\/?)h[4-6]\b/g, '<$1h3');
-    const resume = texte(resumeHtml);
-    const titreLong = `Projet de loi no ${b.num} — ${b.title}`;
-    const titreCourt = b.title.length > 60 ? `${b.title.slice(0, 57).replace(/\s+\S*$/, '')}…` : b.title;
-    const titre = `PL ${b.num} — ${titreCourt} — DossierNBrunswick`;
-    const base = resume || `${b.title}. Son étape à l'Assemblée législative du Nouveau-Brunswick, expliquée en langage clair.`;
-    const desc = `PL ${b.num} : ${base.length > 150 ? `${base.slice(0, 147).replace(/\s+\S*$/, '')}…` : base}`;
-    const ld = JSON.stringify({
-      '@context': 'https://schema.org',
+    const resumePageEn = resumeHtmlEn.replace(/<(\/?)h[4-6]\b/g, '<$1h3');
+    const resume = texte(vraiResume(resumeHtml));
+    const resumeEn = texte(vraiResume(resumeHtmlEn));
+    const titreEn = b.titleEn || b.title;
+    const doublon = (parNumero.get(`${b.legislature}-${b.num}`) ?? 0) > 1;
+    // N.-B. (8 nov. 2026) : « Projet de loi 12 », pas « PL 12 » : c'est ce qu'on tape dans Google.
+    // Un numéro repris d'une session à l'autre porte sa session, sinon deux pages auraient le même titre.
+    const nomFr = `Projet de loi ${b.num}`;
+    const nomEn = `Bill ${b.num}`;
+    const titre = `${nomFr} (N.-B.${doublon ? `, ${ordFr(b.introSession)} session` : ''}) : ${couper(b.title, 60)} — DossierNBrunswick`;
+    const titreEnPage = `${nomEn} (N.B.${doublon ? `, ${ordEn(b.introSession)} session` : ''}): ${couper(titreEn, 60)} — DossierNBrunswick`;
+    const parrain = nomDuParrain(b.sponsor);
+    const etapeFr = (b.note || '').replace(/ le (\d{4}-\d{2}-\d{2})/g, (_, d) => ` le ${dateFr(d)}`);
+    const etapeEn = (b.noteEn || '').replace(/ on (\d{4}-\d{2}-\d{2})/g, (_, d) => ` on ${dateEn(d)}`);
+    const baseFr = resume || [`${b.title}.`, etapeFr ? `${etapeFr}.` : '', parrain ? `Parrain : ${parrain}.` : '', 'Assemblée législative du Nouveau-Brunswick.'].filter(Boolean).join(' ');
+    const baseEn = resumeEn || [`${titreEn}.`, etapeEn ? `${etapeEn}.` : '', parrain ? `Sponsor: ${parrain}.` : '', 'Legislative Assembly of New Brunswick.'].filter(Boolean).join(' ');
+    const desc = couper(`${nomFr} : ${baseFr}`, 160);
+    const descEn = couper(`${nomEn}: ${baseEn}`, 160);
+    const lienParrain = ficheDuParrain(b.sponsor);
+
+    const legislation = (en) => ({
+      '@type': 'Legislation',
+      name: en ? titreEn : b.title,
+      alternateName: en ? nomEn : nomFr,
+      legislationIdentifier: `${b.legislature}-${b.introSession}-${b.num}`,
+      legislationJurisdiction: en ? 'New Brunswick' : 'Nouveau-Brunswick',
+      legislationType: en ? (b.typeEn || 'Bill') : (b.type || 'Projet de loi'),
+      inLanguage: en ? 'en-CA' : 'fr-CA',
+      ...(b.presentedOn ? { legislationDate: b.presentedOn } : {}),
+      ...(parrain ? { author: { '@type': 'Person', name: parrain, ...(lienParrain ? { url: `${SITE}${en ? '/en' : ''}${lienParrain}` } : {}) } } : {}),
+      sameAs: en ? (b.urlEn || b.url) : b.url,
+      url: en ? urlEn : url,
+    });
+    const filAriane = (en) => ({
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE}/` },
-        { '@type': 'ListItem', position: 2, name: 'Projets de loi', item: `${SITE}/${DOSSIER}` },
-        { '@type': 'ListItem', position: 3, name: `PL ${b.num}`, item: url },
+        { '@type': 'ListItem', position: 1, name: en ? 'Home' : 'Accueil', item: `${SITE}${en ? '/en' : ''}/` },
+        { '@type': 'ListItem', position: 2, name: en ? 'Bills' : 'Projets de loi', item: `${SITE}${en ? '/en' : ''}/${DOSSIER}` },
+        { '@type': 'ListItem', position: 3, name: en ? nomEn : nomFr, item: en ? urlEn : url },
       ],
-    }, null, 2).replace(/</g, '\\u003c');
+    });
+    const ld = (en) => JSON.stringify({ '@context': 'https://schema.org', '@graph': [filAriane(en), legislation(en)] }, null, 2).replace(/</g, '\\u003c');
 
     let h = modele;
     const remplacer = (motif, valeur) => {
       if (!motif.test(h)) throw new Error(`build-bill-pages : ${motif} introuvable dans ${DOSSIER}.html`);
-      h = h.replace(motif, valeur);
+      h = h.replace(motif, () => valeur);
     };
     remplacer(/<title>[^<]*<\/title>/, `<title>${echapper(titre)}</title>`);
     remplacer(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${echapper(desc)}">`);
@@ -104,20 +165,50 @@ export function construirePagesProjets() {
     remplacer(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${echapper(titre)}">`);
     remplacer(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${echapper(desc)}">`);
     remplacer(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${url}">`);
-    h = h.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${echapper(titre)}">`)
-      .replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${echapper(desc)}">`);
-    remplacer(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, `<script type="application/ld+json">\n${ld}\n</script>`);
+    h = h.replace(/<meta name="twitter:title" content="[^"]*">/, () => `<meta name="twitter:title" content="${echapper(titre)}">`)
+      .replace(/<meta name="twitter:description" content="[^"]*">/, () => `<meta name="twitter:description" content="${echapper(desc)}">`);
+    remplacer(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, `<script type="application/ld+json">\n${ld(false)}\n</script>`);
+    // N.-B. (8 nov. 2026) : le titre de la page est le projet. L'affiche garde son allure : le
+    // bandeau jaune du sujet devient le <h1> (nom du projet), le slogan reste à côté, hors du titre.
+    const affiche = (en) => `<div class="hero-h1 hero-h1-md">
+        <h1 class="hero-sujet">${echapper(en ? `${nomEn}: ${titreEn}` : `${nomFr} : ${b.title}`)}</h1>
+        <span data-i18n="projhero.l1">${en ? 'Bills,' : 'Projets de loi,'}</span>
+        <span class="hero-outline" data-i18n="projhero.l2">${en ? 'translated plainly.' : 'traduits en clair.'}</span>
+      </div>`;
+    remplacer(/<h1 class="hero-h1 hero-h1-md">[\s\S]*?<\/h1>/, affiche(false));
+    const fil = (en) => `<nav class="fil-ariane" aria-label="${en ? 'Breadcrumb' : 'Fil d’Ariane'}"><a href="${en ? '/en/' : '/'}" data-i18n="fil.accueil">${en ? 'Home' : 'Accueil'}</a><span class="sep" aria-hidden="true">›</span><a href="${en ? '/en' : ''}/${DOSSIER}" data-i18n="fil.projets">${en ? 'Bills' : 'Projets de loi'}</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">${echapper(en ? nomEn : nomFr)}</span></nav>`;
+    remplacer(/<nav class="fil-ariane"[\s\S]*?<\/nav>/, fil(false));
     // Le projet, écrit dans la page. commun/dq.js remplace le contenu de #billsList au chargement,
     // puis ouvre la carte de ce projet (openBillFromQuery lit le chemin).
-    const fiche = `<article class="bill-prerendu">
-<h2>${echapper(titreLong)}</h2>
-<p>${echapper(b.note ?? '')}${b.sponsor ? ` · Parrain : ${echapper(b.sponsor)}` : ''}</p>
-${resumePage}
-<p><a href="${echapper(b.url)}" rel="noopener">Le projet de loi sur le site de l'Assemblée législative (legnb.ca)</a></p>
-</article>`;
-    remplacer(/<div id="billsList"><\/div>/, `<div id="billsList">${fiche}</div>`);
+    const fiche = (en) => {
+      const p = lienParrain ? `<a href="${en ? '/en' : ''}${lienParrain}">${echapper(parrain)}</a>` : echapper(parrain);
+      const etape = echapper(en ? etapeEn : etapeFr);
+      const ligneParrain = parrain ? `${etape ? ' · ' : ''}${en ? 'Sponsor: ' : 'Parrain : '}${p}` : '';
+      return `<div id="billsList"><article class="bill-prerendu">
+<h2>${echapper(en ? `${nomEn}: ${titreEn}` : `${nomFr} : ${b.title}`)}</h2>
+<p>${etape}${ligneParrain}</p>
+${en ? resumePageEn : resumePage}
+<p><a href="${echapper(en ? (b.urlEn || b.url) : b.url)}" rel="noopener">${en ? 'The bill on the Legislative Assembly website (legnb.ca)' : 'Le projet de loi sur le site de l’Assemblée législative (legnb.ca)'}</a></p>
+</article></div>`;
+    };
+    remplacer(/<div id="billsList"><\/div>/, fiche(false));
+    // La liste écrite sous le projet : les autres projets de la MÊME session, en liens, plutôt que
+    // les 101 du site recopiés sur chaque page (audit de Kyle).
+    const memeSession = bills.filter((x) => x !== b && x.legislature === b.legislature && x.introSession === b.introSession && slugProjet(x));
+    const autres = (en) => `<div class="prerendu" data-prerendu="bills">
+      <h2>${en ? `Other bills of the ${ordEn(b.introSession)} session` : `Les autres projets de la ${ordFr(b.introSession)} session`}</h2>
+      <ul aria-label="${en ? 'Bills' : 'Projets de loi'}">
+${memeSession.map((x) => `        <li><a href="${en ? '/en' : ''}/${DOSSIER}/${slugProjet(x)}">${echapper(en ? `Bill ${x.num}` : `Projet de loi ${x.num}`)}</a> — ${echapper(en ? (x.titleEn || x.title) : x.title)}</li>`).join('\n')}
+      </ul>
+      <p class="pr-note"><a href="${en ? '/en' : ''}/${DOSSIER}">${en ? 'All bills →' : 'Tous les projets de loi →'}</a></p>
+    </div>`;
+    remplacer(/<div class="prerendu" data-prerendu="bills">[\s\S]*?<\/div>/, autres(false));
     writeFileSync(`${DOSSIER}/${slug}.html`, h, 'utf8');
     adresses.push({ url, lastmod: b.lastActivity ?? null });
+    PAGES_EN.set(`${DOSSIER}/${slug}.html`, {
+      title: titreEnPage, desc: descEn, ld: ld(true),
+      blocs: { '.view-hero .hero-h1': affiche(true), 'nav.fil-ariane': fil(true), '#billsList': fiche(true), '[data-prerendu="bills"]': autres(true) },
+    });
   }
 
   // Au sitemap, à la suite des pages du site (build-section-pages.js vient de l'écrire).

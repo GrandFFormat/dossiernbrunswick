@@ -13,6 +13,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync } from 'node:fs';
 import { slugProjet } from './build-bill-pages.js';
+import { PAGES_EN } from './pages-en.js';
 
 const SITE = 'https://dossiernbrunswick.ca';
 const DOSSIER = 'ministres';
@@ -120,6 +121,7 @@ export function construirePagesMinistres() {
     const d = deputes.find((x) => norm(x[0]) === norm(m.name));
     const [, riding, region, , assnatId, mandats] = d ?? [];
     const roles = String(m.role).split('·').map((r) => r.trim()).filter(Boolean);
+    const rolesEn = String(m.roleEn || '').split('·').map((r) => r.trim()).filter(Boolean);
     const rolesTxt = roles.map((r, i) => (i === 0 && /^premier ministre/i.test(r) ? r.toLowerCase() : r.charAt(0).toLowerCase() + r.slice(1)));
     const joint = rolesTxt.length > 1 ? `${rolesTxt.slice(0, -1).join(', ')} et ${rolesTxt.at(-1)}` : rolesTxt[0];
     const [partiFr, partiEn] = PARTIS[m.party] ?? [m.party, m.party];
@@ -161,7 +163,7 @@ export function construirePagesMinistres() {
     // (ministres/photos/<slug>.webp, repris de la version du 7 nov. 2026), sinon Wikimedia Commons.
     const photoParti = existsSync(`${DOSSIER}/photos/${slug}.webp`) ? `/${DOSSIER}/photos/${slug}.jpg` : null;
     if (photoParti) w.photo = null;
-    const photo = photoParti ? `<figure class="min-photo"><img src="${photoParti.replace(/.jpg$/, '.webp')}" srcset="${photoParti.replace(/.jpg$/, '.webp')} 1x, ${photoParti.replace(/.jpg$/, '@2x.webp')} 2x" width="200" height="200" alt="${esc(m.name)}"><figcaption>${deux('Photo', 'Photo')} : <a href="https://www.legnb.ca/" rel="noopener">${deux('Assemblée législative du Nouveau-Brunswick', 'Legislative Assembly of New Brunswick')}</a></figcaption></figure>`
+    const photo = photoParti ? `<figure class="min-photo"><img src="${photoParti.replace(/.jpg$/, '.webp')}" srcset="${photoParti.replace(/.jpg$/, '.webp')} 1x, ${photoParti.replace(/.jpg$/, '@2x.webp')} 2x" width="200" height="200" alt="${esc(m.name)}"><figcaption>${deux('Photo :', 'Photo:')} <a href="https://www.legnb.ca/" rel="noopener">${deux('Assemblée législative du Nouveau-Brunswick', 'Legislative Assembly of New Brunswick')}</a></figcaption></figure>`
       : w.photo ?`<figure class="min-photo"><img src="${esc(w.photo.src)}" width="${w.photo.largeur}" height="${w.photo.hauteur}" alt="${esc(m.name)}"><figcaption>${esc(w.photo.auteur)}, ${w.photo.licenceUrl ? `<a href="${esc(w.photo.licenceUrl)}" rel="noopener license">${esc(w.photo.licence)}</a>` : esc(w.photo.licence)} · <a href="${esc(w.photo.fiche)}" rel="noopener">Wikimedia Commons</a></figcaption></figure>` : '';
 
     const fiche = `<section class="view active" id="view-ministre" data-titre-en="${esc(`${m.name}, minister — DossierNBrunswick`)}">
@@ -170,21 +172,21 @@ export function construirePagesMinistres() {
       <div class="min-colphoto">${photo}${(reseaux[slug] || []).length ? `<p class="min-reseaux">${reseaux[slug].map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener" title="${nomReseau(u)}" aria-label="${nomReseau(u)}">${ICONES_RESEAUX[nomReseau(u)] || nomReseau(u)}</a>`).join('')}</p>` : ''}</div>
       <div class="min-tete">
         <h1 class="hero-h1 hero-h1-md"><span class="hero-sujet">${deux('Ministre du Nouveau-Brunswick', 'New Brunswick minister')}</span><span>${esc(m.name)}</span></h1>
-        <p class="view-hero-sub">${deux(`${esc(m.name)} est ${esc(joint)} dans le gouvernement Holt (au ${dateFr(auj)}).`, `${esc(m.name)} is a member of the Holt government’s Executive Council (as of ${dateEn(auj)}). Official titles are listed below in French.`)}</p>
+        <p class="view-hero-sub">${deux(`${esc(m.name)} est ${esc(joint)} dans le gouvernement Holt (au ${dateFr(auj)}).`, `${esc(m.name)} is a member of the Holt government’s Executive Council (as of ${dateEn(auj)}).`)}</p>
         <button class="follow-btn" onclick="toggleFollow('${esc(m.name.replace(/'/g, "\\'"))}')" data-i18n="btn.follow">Suivre</button>
       </div>
     </div>
     <div class="band band-white bleed"><div class="min-fiche">
       <h2>${deux('Fonctions', 'Roles')}</h2>
-      <ul class="min-liste">${roles.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
+      <ul class="min-liste">${roles.map((r, i) => `<li>${rolesEn[i] ? deux(esc(r), esc(rolesEn[i])) : esc(r)}</li>`).join('')}</ul>
       <div class="min-faits">
-        ${ligne(deux('Parti', 'Party'), esc(`${partiFr} (${m.party})`))}
+        ${ligne(deux('Parti', 'Party'), deux(esc(`${partiFr} (${m.party})`), esc(`${partiEn} (${m.party})`)))}
         ${riding ? ligne(deux('Circonscription', 'Riding'), esc(riding + (region ? ` — ${region}` : ''))) : ''}
         ${mandats ? ligne(deux('Mandat', 'Term'), deux(mandats === 1 ? '1er' : `${mandats}e`, mandats === 1 ? '1st' : `no. ${mandats}`)) : ''}
       </div>
 
       <h2>${deux('Projets de loi parrainés', 'Bills sponsored')}</h2>
-      ${projets.length ? `<ul class="min-liste">${projets.map((b) => { const s = slugProjet(b); return `<li><a href="${s ? `/projets-de-loi/${s}` : `/projets-de-loi?pl=${b.num}`}">${deux(`PL ${esc(b.num)} — ${esc(b.title)}`, `Bill ${esc(b.num)} — ${esc(b.titleEn || b.title)}`)}</a> <span class="pr-meta">· ${b.legislature ? deux(`${b.legislature}e législature`, `${b.legislature}th Legislature`) + ' · ' : ''}${deux(esc(b.note ?? ''), esc(b.noteEn ?? b.note ?? ''))}</span></li>`; }).join('')}</ul>`
+      ${projets.length ? `<ul class="min-liste">${projets.map((b) => { const s = slugProjet(b); return `<li><a href="${s ? `/projets-de-loi/${s}` : `/projets-de-loi?pl=${b.num}`}">${deux(`Projet de loi ${esc(b.num)} — ${esc(b.title)}`, `Bill ${esc(b.num)} — ${esc(b.titleEn || b.title)}`)}</a> <span class="pr-meta">· ${b.legislature ? deux(`${b.legislature}e législature`, `${b.legislature}${({ 1: 'st', 2: 'nd', 3: 'rd' }[(b.legislature % 100 >= 11 && b.legislature % 100 <= 13) ? 0 : b.legislature % 10] || 'th')} Legislature`) + ' · ' : ''}${deux(esc(b.note ?? ''), esc(b.noteEn ?? b.note ?? ''))}</span></li>`; }).join('')}</ul>`
         : `<p>${deux('Aucun projet de loi parrainé dans les données du site pour l’instant.', 'No bill sponsored in the site’s data so far.')}</p>`}
 
       <h2>${deux('Présence aux votes', 'Vote attendance')}</h2>
@@ -194,15 +196,11 @@ export function construirePagesMinistres() {
       ${mandats || passees ? `<h2>${deux('Historique', 'History')}</h2>` : ''}
       <p>${mandats ? deux(mandats === 1 ? 'Premier mandat à l’Assemblée législative.' : `${mandats}e mandat à l’Assemblée législative.`, mandats === 1 ? 'First term in the Legislative Assembly.' : `Term no. ${mandats} in the Legislative Assembly.`) : ''}${passees ? ` ${deux(`Présence aux votes de la ${historique.courante - 1}e législature : ${esc(passees.rate ?? '')} %.`, `Attendance in the previous Legislature: ${esc(passees.rate ?? '')}%.`)}` : ''}</p>
 
-      ${proms.length ? `<h2>${deux(`Promesses du ${esc(partiFr)} qui touchent son ministère`, `${esc(partiEn)} promises related to this portfolio`)}</h2>
-      <ul class="min-liste">${proms.map((p) => `<li class="min-promesse"><q>${esc(p.quote)}</q><span class="min-prom-source">${citeSource(p)}</span></li>`).join('')}</ul>
-      <p><a href="/promesses">${deux('Toutes les promesses 2026 →', 'All 2026 promises →')}</a></p>` : ''}
-
       ${bioFr.length ? `<h2>${deux('Biographie', 'Biography')}</h2><p>${deux(esc(bioFr.join(' ')), esc(bioEn.join(' ')))}</p>` : ''}
 
       <h2>${deux('Coordonnées officielles', 'Official contact')}</h2>
       <p>${courriel ? `<a class="m-mail" href="mailto:${esc(courriel)}">✉ ${esc(courriel)}</a>` : `${deux('<a href="https://www.legnb.ca/fr/parlementaires/actuel" rel="noopener">Coordonnées sur legnb.ca</a>', '<a href="https://www.legnb.ca/en/members/current" rel="noopener">Contact details on legnb.ca</a>')}`}</p>
-      ${w.url ? `<p class="min-source">${deux('Source', 'Source')} : <a href="${esc(w.url)}" rel="noopener">Wikipédia</a></p>` : ''}
+      ${w.url ? `<p class="min-source">${deux('Source :', 'Source:')} <a href="${esc(w.url)}" rel="noopener">Wikipédia</a></p>` : ''}
     </div></div>
   </section>`;
 
@@ -242,6 +240,25 @@ export function construirePagesMinistres() {
     if ((h.match(/<h1[\s>]/g) || []).length !== 1) throw new Error(`build-minister-pages : ${m.name} n'a pas exactement un <h1>`);
     writeFileSync(`${DOSSIER}/${slug}.html`, h, 'utf8');
     adresses.push(url);
+    // N.-B. (8 nov. 2026) : la page anglaise (scripts/build-en.js). Le texte anglais est déjà dans la fiche.
+    const roleEn = rolesEn[0] || 'minister';
+    let descEn = `${m.name} (${m.party}${riding ? `, ${riding}` : ''}): ${roleEn}. Roles, bills sponsored, vote attendance and biography.`;
+    if (descEn.length > 165) descEn = `${m.name}: ${roleEn}`.slice(0, 100).replace(/\s+\S*$/, '') + '. Roles, bills, votes, biography.';
+    if (descEn.length < 120) descEn += ' Government of New Brunswick.';
+    const urlEn = `${SITE}/en/${DOSSIER}/${slug}`;
+    PAGES_EN.set(`${DOSSIER}/${slug}.html`, {
+      title: `${m.name}, ${roleEn}`.length <= 46 ? `${m.name}, ${roleEn} — DossierNBrunswick` : `${m.name}, minister — DossierNBrunswick`,
+      desc: descEn,
+      ld: JSON.stringify({ '@context': 'https://schema.org', '@graph': [
+        { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/en/` },
+          { '@type': 'ListItem', position: 2, name: 'Ministers and MLAs', item: `${SITE}/en/ministres` },
+          { '@type': 'ListItem', position: 3, name: m.name, item: urlEn },
+        ] },
+        { '@type': 'Person', name: m.name, url: urlEn, jobTitle: rolesEn.length ? rolesEn : roles,
+          memberOf: [{ '@type': 'PoliticalParty', name: partiEn }, { '@type': 'GovernmentOrganization', name: 'Executive Council of New Brunswick' }] },
+      ] }, null, 1).replace(/</g, '\\u003c'),
+    });
   }
 
   const plan = readFileSync('sitemap.xml', 'utf8').replace(/\r\n/g, '\n');

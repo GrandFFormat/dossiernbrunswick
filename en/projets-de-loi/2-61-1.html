@@ -1,0 +1,465 @@
+<!DOCTYPE html><html lang="en"><head>
+<!-- Consentement (Loi 25) : par défaut, Google Analytics n'a PAS le droit de déposer de témoins.
+     La bannière (commun/consentement.js) passe analytics_storage à « granted » après « Accepter ». -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6CZX26581K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6CZX26581K', { content_group: 'Assemblée' });
+</script>
+<script src="/commun/consentement.js" defer=""></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* La langue, avant d'afficher quoi que ce soit — EXACTEMENT la décision de langueDeDepart
+   (commun/dq.js) : « ?lang=en » dans l'adresse, sinon le choix gardé dans dvq:langue (commun à
+   tout le site) ; en revenant par Précédent ou Suivant, le choix gardé passe avant l'adresse.
+   En anglais, la page reste cachée le temps que dq.js la traduise : 1,5 s au plus, même s'il
+   échoue. lang="en" n'est posé qu'au moment de traduire (dq.js) : si la traduction n'arrive pas,
+   la page française ne s'annonce pas en anglais.
+   Tout est dans une fonction : une variable globale ici entrerait en collision avec les
+   déclarations de dq.js et le ferait planter en entier. */
+(function(){
+  try{
+    var valide = function(l){ return l === 'en' || l === 'fr'; };
+    var gardee = null;
+    try{ gardee = localStorage.getItem('dvq:langue'); }catch(e){}
+    var q = new URLSearchParams(location.search).get('lang');
+    var nav = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+    var parHistorique = !!nav && nav.type === 'back_forward';
+    var choix = (parHistorique && valide(gardee)) ? gardee : (valide(q) ? q : gardee);
+    if(choix !== 'en') return;
+    var racine = document.documentElement;
+    racine.classList.add('dq-en');
+    setTimeout(function(){ racine.classList.add('dq-pret'); }, 1500);
+  }catch(e){}
+})();
+</script>
+<title>Bill 2 (N.B., 1st session): An Act to Amend the Executive Council Act — DossierNBrunswick</title>
+<meta name="description" content="Bill 2: An Act to Amend the Executive Council Act. Received Royal Assent on December 13, 2024. Sponsor: Susan Holt. Legislative Assembly of New Brunswick.">
+<link rel="canonical" href="https://dossiernbrunswick.ca/en/projets-de-loi/2-61-1">
+<link rel="alternate" hreflang="fr-CA" href="https://dossiernbrunswick.ca/projets-de-loi/2-61-1">
+<link rel="alternate" hreflang="en-CA" href="https://dossiernbrunswick.ca/en/projets-de-loi/2-61-1">
+<link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/projets-de-loi/2-61-1">
+
+
+
+<!-- Plus de <link rel="alternate"> vers /feed.xml : le flux RSS est réservé aux abonné·e·s depuis le
+     21 oct. 2026 (api/feed.js), chacun avec son adresse personnelle dans Mon dossier. -->
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0E4FC1">
+
+<!-- Open Graph (aperçu au partage : Facebook, LinkedIn, iMessage…) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DossierNBrunswick">
+<meta property="og:locale" content="en_CA">
+<meta property="og:locale:alternate" content="fr_CA">
+<meta property="og:title" content="Bill 2 (N.B., 1st session): An Act to Amend the Executive Council Act — DossierNBrunswick">
+<meta property="og:description" content="Bill 2: An Act to Amend the Executive Council Act. Received Royal Assent on December 13, 2024. Sponsor: Susan Holt. Legislative Assembly of New Brunswick.">
+<meta property="og:url" content="https://dossiernbrunswick.ca/en/projets-de-loi/2-61-1">
+<meta property="og:image" content="https://dossiernbrunswick.ca/dossiernbrunswick-cover.png">
+<meta property="og:image:width" content="1702">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DossierNBrunswick — veille citoyenne de l'Assemblée législative du Nouveau-Brunswick">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bill 2 (N.B., 1st session): An Act to Amend the Executive Council Act — DossierNBrunswick">
+<meta name="twitter:description" content="Bill 2: An Act to Amend the Executive Council Act. Received Royal Assent on December 13, 2024. Sponsor: Susan Holt. Legislative Assembly of New Brunswick.">
+<meta name="twitter:image" content="https://dossiernbrunswick.ca/dossiernbrunswick-cover.png">
+
+<link rel="icon" type="image/svg+xml" href="/commun/nb.svg">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/commun/nb-48.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/commun/nb-512.png">
+<link rel="apple-touch-icon" href="/commun/nb-512.png">
+
+<!-- Données structurées (aide Google à comprendre le site) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://dossiernbrunswick.ca/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bills",
+          "item": "https://dossiernbrunswick.ca/en/projets-de-loi"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bill 2",
+          "item": "https://dossiernbrunswick.ca/en/projets-de-loi/2-61-1"
+        }
+      ]
+    },
+    {
+      "@type": "Legislation",
+      "name": "An Act to Amend the Executive Council Act",
+      "alternateName": "Bill 2",
+      "legislationIdentifier": "61-1-2",
+      "legislationJurisdiction": "New Brunswick",
+      "legislationType": "Government Bill",
+      "inLanguage": "en-CA",
+      "legislationDate": "2024-11-20",
+      "author": {
+        "@type": "Person",
+        "name": "Susan Holt",
+        "url": "https://dossiernbrunswick.ca/en/ministres/susan-holt"
+      },
+      "sameAs": "https://www.legnb.ca/en/legislation/bills/61/1/2/an-act-to-amend-the-executive-council-act",
+      "url": "https://dossiernbrunswick.ca/en/projets-de-loi/2-61-1"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/commun/dq.css">
+<!-- Le design du Nouveau-Brunswick, posé par-dessus dq.css. Il apporte ses polices (Barlow,
+     servies par le site, commun/polices/) : plus rien n'est chargé chez Google Fonts. -->
+<link rel="stylesheet" href="/commun/nb.css">
+</head>
+<body data-page="projets" data-donnees="bills,deputesRaw,stats" class="lang-en">
+
+<!-- Ticker brutaliste : bande noire défilante — contenu rempli avec les VRAIES
+     données par renderTicker() (appelé une fois les datasets chargés). -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-text" id="tickerA">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerB">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<div id="dq-topbar">
+<header class="top">
+  <div class="brand">
+    <div class="brand-text" role="button" tabindex="0" aria-label="Retour à l'aperçu" onclick="goToTab('apercu')">
+      <!-- Volontairement un div, et non un titre de niveau 1 : le nom du site se
+           répète sur chaque page, alors que le titre de niveau 1 doit annoncer
+           le sujet de LA page. C'est le titre de une de la vue active qui joue
+           ce rôle, et le générateur de pages de section s'en assure.
+           (Pas de balise écrite en toutes lettres dans ce commentaire : elle
+           fausserait les outils qui comptent les titres à l'expression
+           régulière.) -->
+      <div class="brand-title">Dossier<span class="brand-blue">NBrunswick</span></div>
+      <p>Qui siège, qui légifère, qui vote quoi</p>
+    </div>
+    <!-- Feuille d'érable : passerelle vers le site fédéral DossierCanada.
+         Flippe jaune ↔ rouge toutes les 20 s (voir le script plus bas). -->
+    <a class="maple-flip" id="mapleFlip" role="button" tabindex="0" title="Aller au site fédéral — DossierCanada" aria-label="Aller au site fédéral — DossierCanada" onclick="goToFederal(event)">
+      <svg viewBox="-2015 -2000 4030 4030" aria-hidden="true"><path fill="currentColor" d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z"></path></svg>
+    </a>
+    <!-- Les volets municipaux (DossierVille) : un bouton « Villes » qui ouvre la liste.
+         Vrais liens <a href> : le clavier, le clic du milieu et « ouvrir dans un
+         nouvel onglet » fonctionnent sans une ligne de code. La barre oblique finale
+         est OBLIGATOIRE — sans elle, les chemins relatifs du volet (assets/, data/)
+         se résolvent depuis la racine du site. Plus de rel="nofollow" depuis le
+         21 sept. 2026 : les volets sont ouverts aux moteurs de recherche. Le chemin dit /quebec/ : c'est la
+         liste, sous « Villes », qui dit qu'il s'agit de la ville. -->
+  </div>
+  <!-- Nav DANS la ligne du header (maquette : logo | menu | contrôles sur
+       UNE seule rangée). Sur mobile, le nav devient le panneau plein écran
+       du hamburger (position:fixed), peu importe où il vit dans le DOM. -->
+  <nav class="tabs">
+    <div class="close-menu" id="closeMenuBtn"><span data-i18n="nav.close">Close</span> ✕</div>
+    <!-- De vrais liens, pas des <button> : un moteur de recherche ne suit pas un bouton, et
+         /ministres, /projets-de-loi, /votes et /lexique n'avaient aucun lien qu'il puisse suivre. -->
+    <a href="/en/" data-view="apercu"><span class="n">01</span><span data-i18n="nav.apercu">Overview</span></a>
+    <a href="/en/ministres" data-view="ministres"><span class="n">02</span><span data-i18n="nav.ministres">Ministers</span></a>
+    <a class="active" aria-current="page" href="/en/projets-de-loi" data-view="projets"><span class="n">03</span><span data-i18n="nav.projets">Bills</span></a>
+    <!-- Votes a quitté la barre le 30 oct. 2026 : les votes vivent dans les cartes des projets de
+         loi, et /votes reste lié du pied de page et de la page des projets. -->
+    <!-- N.-B. (Martin, 7 nov. 2026) : pas d'onglet Archives ni de page Promesses tant que le site n'a
+         ni législature terminée ni promesses du Nouveau-Brunswick. -->
+    <a href="/en/lexique" data-view="lexique"><span class="n">04</span><span data-i18n="nav.lexique">Glossary</span></a>
+    <a href="/mon-dossier?lang=en" data-view="mondossier" class="nav-mondossier"><span class="n">★</span><span data-i18n="nav.mondossier">My file</span></a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : le menu des villes est un onglet, après Mon dossier,
+         au lieu d'une pastille à côté du nom du site. Même menu déroulant que DQ. -->
+    <details class="villes-menu" id="villesMenu">
+      <summary class="nav-villes" title="Les volets municipaux" aria-label="Les volets municipaux">
+        <span data-i18n="nav.villes">Cities</span>
+      </summary>
+      <ul>
+        <!-- N.-B. : aucune ville encore ; le seul lien mène au formulaire de DossierQuébec (guide, étape 9). -->
+        <li class="villes-rtv"><a id="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Represent your city</span></a></li>
+      </ul>
+    </details>
+  </nav>
+  <div class="header-ctrls">
+    <div class="font-size-ctrl" id="fontSizeCtrl">
+      <button id="fontMinus" aria-label="Réduire le texte">A−</button>
+      <span id="fontPct">100%</span>
+      <button id="fontPlus" aria-label="Agrandir le texte">A+</button>
+    </div>
+    <!-- Aucun contenu textuel : l'icône est dessinée en CSS. Le nom accessible
+         vient donc entièrement de aria-label, que le JS tient à jour. -->
+    <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Passer au thème sombre" title="Passer au thème sombre"></button>
+    <button class="lang-toggle" id="langToggle">Français</button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+</div>
+
+<script>
+/* Bascule le bloc logo+menu en mode compact après un peu de défilement.
+   Hystérésis (80 vs 20) pour éviter le clignotement autour du seuil. */
+(function(){
+  var bar = document.getElementById('dq-topbar');
+  var compact = false;
+  function onScroll(){
+    var y = window.scrollY;
+    if(!compact && y > 80){ compact = true; bar.classList.add('compact'); }
+    else if(compact && y < 20){ compact = false; bar.classList.remove('compact'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+
+// Ouvre le site fédéral DossierCanada dans un nouvel onglet.
+function goToFederal(evt){
+  if(evt) evt.stopPropagation();
+  window.open('https://dossiercanada.ca/', '_blank', 'noopener');
+}
+// Feuille d'érable : flippe jaune ↔ rouge toutes les 20 secondes.
+(function(){
+  var leaf = document.getElementById('mapleFlip');
+  if(!leaf) return;
+  setInterval(function(){ leaf.classList.toggle('is-red'); }, 20000);
+})();
+
+// Menu « Villes » : compte les clics vers chaque volet municipal (événement
+// personnalisé Vercel Web Analytics — onglet « Events » du tableau de bord), et
+// referme le menu quand on clique ailleurs ou qu'on appuie sur Échap.
+(function(){
+  var menu = document.getElementById('villesMenu');
+  if(!menu) return;
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(window.va) window.va('event', { name: 'clic_icone_ville', data: { ville: a.getAttribute('href') } });
+    });
+  });
+  document.addEventListener('click', function(e){ if(menu.open && !menu.contains(e.target)) menu.open = false; });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && menu.open){ menu.open = false; menu.querySelector('summary').focus(); } });
+})();
+</script>
+
+<div class="app">
+
+  <!-- APERÇU -->
+  <section class="view active" id="view-projets">
+    <nav class="fil-ariane" aria-label="Breadcrumb"><a href="/en/" data-i18n="fil.accueil">Home</a><span class="sep" aria-hidden="true">›</span><a href="/en/projets-de-loi" data-i18n="fil.projets">Bills</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">Bill 2</span></nav>
+    <!-- Hero de vue (refonte brutaliste) -->
+    <div class="view-hero">
+      <div class="hero-h1 hero-h1-md">
+        <h1 class="hero-sujet">Bill 2: An Act to Amend the Executive Council Act</h1>
+        <span data-i18n="projhero.l1">Bills,</span>
+        <span class="hero-outline" data-i18n="projhero.l2">translated plainly.</span>
+      </div>
+      <p class="view-hero-sub" data-i18n="projhero.sub">Every bill with its real stage and the date of each reading. The full text is always one click away on legnb.ca.</p>
+
+      <!-- Recherche façon maquette + 4 filtres rapides (actif = noir/jaune) -->
+      <div class="projets-controls">
+        <div class="brutal-search">
+          <span class="bs-icon" aria-hidden="true">🔍</span>
+          <input type="text" id="searchBills" data-i18n-placeholder="ph.searchBills" placeholder="Number, title or keyword…">
+        </div>
+        <!-- Tri par activité. La logique existait déjà (toggleBillsSort) mais
+             AUCUN bouton ne la déclenchait : la liste était figée sur « activité
+             la plus récente » sans que personne puisse en sortir. -->
+        <button class="sort-toggle" id="sortToggle" onclick="toggleBillsSort()">↓ Activité récente</button>
+        <div class="quick-filters" id="billsQuickFilters"></div>
+      </div>
+    </div>
+
+    <!-- Bande légende : le chemin d'un projet (les 3 étapes RÉELLES du site) -->
+    <div class="legend-strip bleed">
+      <span class="legend-label" data-i18n="legend.label">A bill's path:</span>
+      <span class="legend-chips">
+        <span class="bstep">Première lecture</span><span class="legend-arrow">→</span>
+        <a class="bstep bstep-lien" href="/en/lexique#etape-etude">Deuxième lecture et comité</a><span class="legend-arrow">→</span>
+        <a class="bstep bstep-lien" href="/en/lexique#etape-adoption">Troisième lecture / Sanction</a>
+      </span>
+      <!-- #etapes : les étapes du Lexique, plutôt que le haut de la page (lobbyistes d'abord). -->
+      <a class="legend-link" href="/en/lexique#etapes" data-i18n="legend.link">What are these stages? → Glossary</a>
+    </div>
+    <!-- Les votes nominaux sont dans chaque carte (« Qui a voté… ») ; la liste complète, motions
+         comprises, reste sur /votes (30 oct. 2026). -->
+    <p class="archives-note" id="lienTousVotes"><a href="/en/votes" data-i18n="projets.tousvotes">All recorded votes, motions included →</a></p>
+
+    <!-- Titre de résultats (change avec le filtre actif) -->
+    <div class="section-head min-group-head" id="billsResultHead">
+      <div><h2 id="billsResultTitle">Tous les projets</h2></div>
+      <span class="head-note" id="billsResultNote"></span>
+    </div>
+
+    <div id="billsList"><article class="bill-prerendu">
+<h2>Bill 2: An Act to Amend the Executive Council Act</h2>
+<p>Received Royal Assent on December 13, 2024 · Sponsor: <a href="/en/ministres/susan-holt">Susan Holt</a></p>
+<p><em>No plain-language summary for this bill yet: the official text, on legnb.ca, is the reference.</em></p><details class="bill-votes"><summary>Who voted for or against</summary><p class="bill-votes-note"><b>No list of names exists for this law.</b> It was passed by voice: members answer from their seats, and only the outcome is written in the Assembly’s Journal. No one is counted.</p><p class="bill-votes-note">A list of names exists only for a <b>recorded division</b>: each member is then counted for or against, and their name is written in the Journal. <a href="https://www.legnb.ca/en/legislation/bills/61/1/2/an-act-to-amend-the-executive-council-act" target="_blank" rel="noopener">The bill on the Assembly’s website</a>.</p></details>
+<p><a href="https://www.legnb.ca/en/legislation/bills/61/1/2/an-act-to-amend-the-executive-council-act" rel="noopener">The bill on the Legislative Assembly website (legnb.ca)</a></p>
+</article></div>
+    <div class="prerendu" data-prerendu="bills">
+      <h2>Other bills of the 1st session</h2>
+      <ul aria-label="Bills">
+        <li><a href="/en/projets-de-loi/36-61-1">Bill 36</a> — Osteopathy Act</li>
+        <li><a href="/en/projets-de-loi/35-61-1">Bill 35</a> — Status of the Artist Act</li>
+        <li><a href="/en/projets-de-loi/34-61-1">Bill 34</a> — Massage Therapy Act</li>
+        <li><a href="/en/projets-de-loi/33-61-1">Bill 33</a> — An Act to Amend the Community Funding Act</li>
+        <li><a href="/en/projets-de-loi/32-61-1">Bill 32</a> — Supplementary Appropriations Act 2023-2024 (1)</li>
+        <li><a href="/en/projets-de-loi/31-61-1">Bill 31</a> — Appropriations Act 2025-2026</li>
+        <li><a href="/en/projets-de-loi/30-61-1">Bill 30</a> — Loan Act 2025</li>
+        <li><a href="/en/projets-de-loi/29-61-1">Bill 29</a> — An Act to Amend the Executive Council Act</li>
+        <li><a href="/en/projets-de-loi/28-61-1">Bill 28</a> — An Act to Amend the Trespass Act</li>
+        <li><a href="/en/projets-de-loi/27-61-1">Bill 27</a> — An Act to Amend the Provincial Court Act</li>
+        <li><a href="/en/projets-de-loi/26-61-1">Bill 26</a> — An Act to Amend the Atlantic Provinces Harness Racing Commission Act</li>
+        <li><a href="/en/projets-de-loi/25-61-1">Bill 25</a> — An Act Respecting Subordinate Judicial Officials</li>
+        <li><a href="/en/projets-de-loi/24-61-1">Bill 24</a> — An Act to Amend the Mental Health Act</li>
+        <li><a href="/en/projets-de-loi/23-61-1">Bill 23</a> — An Act Respecting the Prescription Monitoring Act</li>
+        <li><a href="/en/projets-de-loi/22-61-1">Bill 22</a> — An Act Respecting Property Tax Affordability Measures</li>
+        <li><a href="/en/projets-de-loi/21-61-1">Bill 21</a> — An Act to Amend the New Brunswick Income Tax Act</li>
+        <li><a href="/en/projets-de-loi/20-61-1">Bill 20</a> — Special Appropriation Act 2025</li>
+        <li><a href="/en/projets-de-loi/18-61-1">Bill 18</a> — An Act to Amend An Act Incorporating the New Brunswick Association of Speech-Language Pathologists and Audiologists</li>
+        <li><a href="/en/projets-de-loi/17-61-1">Bill 17</a> — An Act Respecting Outlaw Motorcycle Gangs</li>
+        <li><a href="/en/projets-de-loi/16-61-1">Bill 16</a> — An Act to Amend the Judicature Act</li>
+        <li><a href="/en/projets-de-loi/15-61-1">Bill 15</a> — An Act Respecting the Highway Act</li>
+        <li><a href="/en/projets-de-loi/14-61-1">Bill 14</a> — An Act to Amend the Fair Registration Practices in Regulated Professions Act</li>
+        <li><a href="/en/projets-de-loi/13-61-1">Bill 13</a> — An Act Respecting the Firefighters’ Compensation Act and the Workers’ Compensation Act</li>
+        <li><a href="/en/projets-de-loi/12-61-1">Bill 12</a> — An Act to Repeal the Pension Plan Sustainability and Transfer Act</li>
+        <li><a href="/en/projets-de-loi/11-61-1">Bill 11</a> — An Act to Amend the Motor Vehicle Act</li>
+        <li><a href="/en/projets-de-loi/10-61-1">Bill 10</a> — An Act Respecting Motorcycle Safety</li>
+        <li><a href="/en/projets-de-loi/9-61-1">Bill 9</a> — An Act to Amend the Judicature Act</li>
+        <li><a href="/en/projets-de-loi/8-61-1">Bill 8</a> — An Act Respecting the Degree Granting Act</li>
+        <li><a href="/en/projets-de-loi/7-61-1">Bill 7</a> — An Act Respecting Travel Nurses</li>
+        <li><a href="/en/projets-de-loi/6-61-1">Bill 6</a> — An Act to Amend the Liquor Control Act</li>
+        <li><a href="/en/projets-de-loi/4-61-1">Bill 4</a> — An Act Respecting Petroleum Products Pricing</li>
+        <li><a href="/en/projets-de-loi/19-61-1">Bill 19</a> — An Act Respecting the Right to a Healthy Environment</li>
+        <li><a href="/en/projets-de-loi/5-61-1">Bill 5</a> — Supplementary Appropriations Act 2024-2025 (1)</li>
+        <li><a href="/en/projets-de-loi/3-61-1">Bill 3</a> — An Act to Amend The Residential Tenancies Act</li>
+        <li><a href="/en/projets-de-loi/1-61-1">Bill 1</a> — An Act to Perpetuate a Certain Ancient Right</li>
+      </ul>
+      <p class="pr-note"><a href="/en/projets-de-loi">All bills →</a></p>
+    </div>
+
+    <!-- Explainer « challenger » : adapté au VRAI mécanisme du site (compte
+         requis, 1 demande par personne, paliers 500/1000) — la maquette disait
+         « pas de compte requis », ce qui ne correspond pas à la réalité.
+         N.-B. (Martin, 7 nov. 2026) : gardée, avec le bouton des cartes. -->
+    <div class="band band-yellow bleed" id="band-challenge-explainer">
+      <h2 data-i18n="chexp.h">✋ What is “challenging”?</h2>
+      <p data-i18n="chexp.p1">One click on “Ask for an explanation” = a citizen request for the bill's sponsor to explain it in plain language, and for us to keep an eye on it together.</p>
+      <p data-i18n="chexp.p2"><b>An account (email) is required</b> — one request per person, no anonymous requests.</p>
+      <p data-i18n="chexp.p3">In New Brunswick, these requests lead to nothing official: the Assembly has no online petitions, unlike Quebec or the House of Commons. For now, it is a simple way to see which laws trouble people. Some day, an elected member may find a use for it.</p>
+    </div>
+
+    <!-- Reste des projets (3e et suivants) — la bande jaune ci-dessus
+         s'intercale ainsi entre le 2e et le 3e projet. -->
+    <div id="billsListRest"></div>
+  </section>
+
+  <!-- MINISTRES & DÉPUTÉS -->
+  
+
+  <!-- PROJETS DE LOI -->
+  
+
+  <!-- VOTES -->
+  
+
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+  <!-- N.-B. (Martin, 7 nov. 2026) : vue de l'abonnement retirée pour l'instant (à reprendre de DossierQuébec). -->
+
+  <!-- LEXIQUE (fusion : personnes, lexique, apropos) -->
+  
+
+  <!-- PAGE CACHÉE — la BD « l'idée derrière le site ». Aucun onglet n'y mène :
+       accessible seulement par le « et moi » du bas de page (à côté de
+       « Construit avec Claude »). goToTab('bd') fonctionne sans bouton d'onglet. -->
+  <!-- /mon-dossier : l'espace de la personne connectée, côté ASSEMBLÉE seulement (Martin,
+       22 sept. 2026 : « mes dossiers provincial et les villes doivent être complètement séparés »).
+       Les villes y ont leur section (#villes) depuis le 30 sept. 2026 ; avant, /mes-dossiers. Tout le contenu
+       est rempli par commun/dq.js (renderMonDossier) : rien de personnel n'est dans le HTML. -->
+  <!-- LES RÈGLES (Martin, 5 oct. 2026 : « on pourrait quasiment faire une page de ça… à côté de
+       Facebook »). Les règles de sources du site, écrites une fois pour être montrées à quelqu'un :
+       tout ce que les encadrés de méthode disent page par page, réuni. Lien dans le pied de page. -->
+  
+
+  <!-- LA PAGE 404 (Martin, 6 oct. 2026 : « faut une page drôle 404 », puis : avec le jaune et tout
+       le kit du site, « morte dans l'œuf », et pas de blanc sur noir). Vercel sert 404.html, avec le
+       code 404, pour toute adresse qui n'existe pas ; avant, c'était le message brut de l'hébergeur,
+       en anglais. Fabriquée comme les autres pages (scripts/build-section-pages.js, vue
+       « introuvable »), donc avec l'en-tête, le menu et le pied du site.
+       « Morte dans l'œuf » est le libellé des projets de loi jamais rendus plus loin que la
+       présentation. Le faux vote est ÉTIQUETÉ comme une blague : ce site n'invente jamais de donnée. -->
+  
+
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+
+  
+
+  
+
+</div>
+
+<!-- Footer maquette : texte à gauche (avec « construit avec Claude » suivi du
+     lien caché « et moi » vers la BD), liens texte en majuscules à droite. -->
+<footer>
+  <nav class="footer-nav" aria-label="Plan du site">
+    <a href="/en/" data-i18n="nav.apercu">Overview</a>
+    <a href="/en/ministres" data-i18n="nav.ministres">Ministers</a>
+    <a href="/en/projets-de-loi" data-i18n="nav.projets">Bills</a>
+    <a href="/en/votes" data-i18n="nav.votes">Votes</a>
+    <a href="/en/lexique" data-i18n="nav.lexique">Glossary</a>
+    <a href="/en/sources" data-i18n="fil.bd">Site updates</a>
+    <a href="/mon-dossier?lang=en" data-i18n="nav.mondossier">My file</a>
+    <span class="footer-nav-villes"><span data-i18n="footer.villes">Cities:</span>
+      <a class="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Represent your city</span></a>
+    </span>
+  </nav>
+  <div class="footer-inner">
+  <span class="footer-left-line"><span id="footerLeft">Unofficial site — public data from New Brunswick's Legislative Assembly ·</span> <span id="footerRight">A project by</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com/en" target="_blank" rel="noopener">DAFR Solution</a></span>
+  <span class="footer-right-group">
+    <a class="footer-gh" href="/en/regles" data-i18n="footer.regles">The rules</a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : abonnement, café, flux RSS des abonné·e·s et crédit Flaticon retirés pour l'instant. -->
+    <a class="footer-gh" href="https://github.com/GrandFFormat/dossiernbrunswick" target="_blank" rel="noopener" data-i18n="footer.source">Source code</a>
+  </span>
+  </div>
+</footer>
+
+<button id="backToTop" class="dq-remonter" aria-label="Remonter en haut" title="Remonter en haut" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/commun/apercu.js"></script>
+<script src="/commun/dq.js"></script>
+<!-- Vercel Web Analytics — sans cookie, sans donnée personnelle (donc pas de
+     bannière de consentement requise). Le script est servi automatiquement par
+     Vercel quand Web Analytics est activé dans le tableau de bord du projet. -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer="" src="/_vercel/insights/script.js"></script>
+
+
+</body></html>

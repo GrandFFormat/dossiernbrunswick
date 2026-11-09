@@ -10,7 +10,7 @@
 // Fabriqué à chaque build (scripts/build-section-pages.js, à la fin), pour que les nombres suivent
 // les données. Aucune date dedans : le fichier ne change que si le site change.
 //
-// Nouveau-Brunswick : pas de volet de ville ni de promesses. L'abonnement facultatif reste (Martin,
+// Nouveau-Brunswick : pas de volet de ville ni de promesses. Abonnement éteint pour l'instant (Martin,
 // 7 nov. 2026).
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -30,7 +30,7 @@ export function construireLlms() {
   const lignes = [
     '# DossierNBrunswick',
     '',
-    "> Site citoyen indépendant et NON OFFICIEL qui rend lisibles, en langage clair, les travaux de l'Assemblée législative du Nouveau-Brunswick (projets de loi et leurs étapes, votes nominatifs, Conseil exécutif et député·e·s). Tout le contenu est gratuit ; un abonnement facultatif offre des outils en plus (https://dossiernbrunswick.ca/abonnement). Site en français, avec une version anglaise (ajouter ?lang=en à l'adresse).",
+    "> Site citoyen indépendant et NON OFFICIEL qui rend lisibles, en langage clair, les travaux de l'Assemblée législative du Nouveau-Brunswick (projets de loi et leurs étapes, votes nominatifs, Conseil exécutif et député·e·s). Tout le contenu est gratuit. Site en français, avec une version anglaise sous https://dossiernbrunswick.ca/en/ (même chemin, précédé de /en).",
     '',
     'À savoir avant de citer ce site :',
     '',
@@ -64,7 +64,7 @@ export function construireLlms() {
     '',
     '## In English',
     '',
-    "DossierNBrunswick is an independent, UNOFFICIAL citizen website that makes the work of New Brunswick's Legislative Assembly (bills and their stages, recorded divisions, Executive Council and MLAs) readable in plain language. It only publishes what the Assembly itself published, with a link to the original; nothing is invented and nothing comes from news media. All content is free; an optional subscription offers extra tools. When citing it, cite the official source as well. Add `?lang=en` to any address for the English version.",
+    "DossierNBrunswick is an independent, UNOFFICIAL citizen website that makes the work of New Brunswick's Legislative Assembly (bills and their stages, recorded divisions, Executive Council and MLAs) readable in plain language. It only publishes what the Assembly itself published, with a link to the original; nothing is invented and nothing comes from news media. All content is free. When citing it, cite the official source as well. The English version lives under https://dossiernbrunswick.ca/en/ (same path, prefixed with /en).",
     '',
   ];
   const contenu = lignes.join('\n');
