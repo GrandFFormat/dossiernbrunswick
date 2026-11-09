@@ -43,6 +43,14 @@
   --nb-bleu-fonce:#00226b;
   --nb-bleu-nuit:#001a52;
   --nb-rouge:#e4002b;
+  /* Le rouge quand il sert d’ENCRE (un lien, un chiffre, un filet) et non de fond plein : les
+     deux usages ne peuvent pas partager un jeton, puisqu’en thème sombre l’encre doit
+     s’éclaircir et le fond rester profond. */
+  --nb-rouge-encre:var(--nb-rouge);
+  /* Deux jetons que dq.css appelle sans que personne ne les définisse — il tombait sur ses
+     replis #5B6570 et #fff, les mêmes dans les deux thèmes. */
+  --muted:var(--slate);
+  --bg:var(--card);
   --nb-rouge-fonce:#9a001c;
   --nb-jaune:#ffd100;
   --nb-filet:rgba(29,31,32,.16);
@@ -76,6 +84,7 @@
 }
 /* Le sombre du cahier : un bleu nuit, pas un gris. */
 html[data-theme="dark"]{
+  --nb-rouge-encre:#ff8a9b;
   --nb-filet:rgba(255,255,255,.18);
   --ink:#f1f1f3;
   --ink-2:#c9cbd1;
@@ -317,7 +326,7 @@ h1, h2, h3, .hero-h1, .section-head h2, .view h2, .stat-cell b{
    en rouge. */
 #dq-topbar{border-bottom:1px solid var(--nb-filet);}
 .brand-text .brand-title{font-family:var(--nb-titre); font-weight:600; font-size:22px; letter-spacing:.02em; text-transform:none; white-space:nowrap;}
-.brand-blue{color:var(--nb-rouge);}
+.brand-blue{color:var(--nb-rouge-encre);}
 html[data-theme="dark"] .brand-blue{color:#ff8a9b;}
 /* L'étoile jaune du drapeau devant le nom, à la place de la feuille d'érable de DQ (Martin,
    7 nov. 2026). Décor seulement. La feuille d'érable reste après le nom : c'est la passerelle
@@ -336,12 +345,12 @@ nav.tabs .villes-menu{margin-left:0;}
 }
 .nav-villes::-webkit-details-marker{display:none;}
 .nav-villes::after{content:""; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid currentColor; opacity:.85;}
-.nav-villes:hover, .villes-menu[open] .nav-villes{color:var(--nb-rouge);}
+.nav-villes:hover, .villes-menu[open] .nav-villes{color:var(--nb-rouge-encre);}
 .villes-menu ul{border:1px solid var(--nb-filet); box-shadow:var(--shadow-lg);}
 nav.tabs .villes-menu ul{left:auto; right:0;}
-nav.tabs a .n{display:inline; color:var(--nb-rouge); font-size:11px; margin-right:4px;}
+nav.tabs a .n{display:inline; color:var(--nb-rouge-encre); font-size:11px; margin-right:4px;}
 nav.tabs a.active{background:transparent; color:var(--gold); border-color:transparent;}
-nav.tabs a:hover:not(.active){background:transparent; color:var(--nb-rouge); border-color:transparent;}
+nav.tabs a:hover:not(.active){background:transparent; color:var(--nb-rouge-encre); border-color:transparent;}
 
 /* Les petits contrôles : carrés à filet, fond transparent ; le survol passe au bleu. */
 .font-size-ctrl button, .lang-toggle, .theme-toggle, .hamburger{
@@ -477,11 +486,11 @@ footer::before{
 }
 .footer-nav{margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid var(--nb-filet); gap:6px 20px;}
 .footer-nav a, .footer-nav-villes > span:first-child{color:var(--ink-2); font-weight:400;}
-.footer-nav a:hover{color:var(--nb-rouge);}
+.footer-nav a:hover{color:var(--nb-rouge-encre);}
 .footer-inner{justify-content:flex-start; gap:8px 20px;}
 .footer-right-group{gap:8px 20px;}
 .footer-gh, .footer-etmoi{color:var(--ink); font-weight:400; text-decoration:underline; text-underline-offset:3px;}
-.footer-gh:hover, .footer-etmoi:hover{color:var(--nb-rouge);}
+.footer-gh:hover, .footer-etmoi:hover{color:var(--nb-rouge-encre);}
 
 /* Le bouton « remonter » : jaune du drapeau, sans trait noir. */
 .dq-remonter{border:0; box-shadow:var(--shadow-lg); background:var(--nb-jaune); color:var(--nb-bleu-nuit);}
@@ -491,7 +500,7 @@ footer::before{
    bleu dessous, comme sur l'accueil du cahier. Plus d'étiquette jaune ni de lettres
    évidées. */
 .hero-h1 .hero-sujet{
-  color:var(--nb-rouge); background:transparent; border:0; padding:0; margin:0 0 10px;
+  color:var(--nb-rouge-encre); background:transparent; border:0; padding:0; margin:0 0 10px;
   font-family:var(--nb-titre); font-weight:600; font-size:13px; letter-spacing:.1em;
 }
 html[data-theme="dark"] .hero-h1 .hero-sujet{color:#ff8a9b;}
@@ -519,11 +528,11 @@ html[data-theme="dark"] .hero-h1-md, html[data-theme="dark"] .section-head{borde
    bleue, mission sur trois colonnes. Les identifiants de DQ restent : commun/dq.js remplit tout. */
 
 /* Titres de section de l'accueil : Barlow Condensed 28 px, majuscules, filet de couleur dessous. */
-#view-apercu .nb-signales .section-head, #view-apercu .nb-recents .section-head{display:flex; align-items:flex-end; justify-content:space-between; padding:0 0 8px; margin:0 0 6px; border-bottom:2px solid var(--nb-rouge);}
+#view-apercu .nb-signales .section-head, #view-apercu .nb-recents .section-head{display:flex; align-items:flex-end; justify-content:space-between; padding:0 0 8px; margin:0 0 6px; border-bottom:2px solid var(--nb-rouge-encre);}
 #view-apercu .nb-recents .section-head{border-bottom-color:var(--nb-bleu);}
 #view-apercu .nb-signales .section-head h2, #view-apercu .nb-recents .section-head h2{font-family:var(--nb-titre); font-weight:600; font-size:28px; line-height:1.1; letter-spacing:.01em; text-transform:uppercase; color:var(--ink); margin:0;}
 #view-apercu .nb-recents .section-head .sub{font-size:12px; color:var(--slate); margin:6px 0 0; font-weight:400;}
-#view-apercu .ch-more{font-size:13px; font-weight:600; color:var(--nb-rouge); text-decoration:none;}
+#view-apercu .ch-more{font-size:13px; font-weight:600; color:var(--nb-rouge-encre); text-decoration:none;}
 
 /* 1. Le bandeau d'état, sous l'affiche. */
 #view-apercu .calendar-box.nb-etat{display:flex; align-items:center; gap:16px; background:var(--gold-soft); color:var(--nb-bleu-fonce); border:0; border-radius:0; box-shadow:none; padding:14px 20px; margin:36px 0 0;}
@@ -536,11 +545,11 @@ html[data-theme="dark"] #view-apercu .calendar-box.nb-etat .status{color:#dbe4ff
 #view-apercu .nb-signales{margin:40px 0 0;}
 #view-apercu .nb-signales #challengedSub{display:none;}
 #view-apercu .nb-avis-petition{display:flex; gap:10px; align-items:flex-start; margin:0 0 18px; font-size:13px; line-height:1.5; color:var(--ink-2);}
-#view-apercu .nb-avis-petition::before{content:'!'; flex:none; width:14px; height:14px; margin-top:2px; border:1.5px solid var(--nb-rouge); border-radius:50%; color:var(--nb-rouge); font-size:10px; font-weight:700; line-height:12px; text-align:center;}
+#view-apercu .nb-avis-petition::before{content:'!'; flex:none; width:14px; height:14px; margin-top:2px; border:1.5px solid var(--nb-rouge-encre); border-radius:50%; color:var(--nb-rouge-encre); font-size:10px; font-weight:700; line-height:12px; text-align:center;}
 #view-apercu #challengedList.ch-grid{grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px;}
 #view-apercu .ch-card{background:var(--card); border:0; border-top:4px solid var(--nb-rouge); border-radius:0; box-shadow:0 1px 2px rgba(43,43,45,.14); padding:18px 20px 18px;}
 #view-apercu .ch-num{font-family:var(--nb-titre); font-weight:600; font-size:22px; color:var(--nb-bleu);}
-#view-apercu .ch-badge{background:transparent; border:0; color:var(--nb-rouge); font-family:var(--nb-titre); font-weight:700; font-size:22px; padding:0; box-shadow:none;}
+#view-apercu .ch-badge{background:transparent; border:0; color:var(--nb-rouge-encre); font-family:var(--nb-titre); font-weight:700; font-size:22px; padding:0; box-shadow:none;}
 #view-apercu .ch-title{font-size:15px; font-weight:500; line-height:1.35; color:var(--ink); margin:8px 0 0;}
 #view-apercu .ch-stage{display:inline-block; margin-top:12px; background:var(--red-soft); color:var(--nb-rouge-fonce); border:0; font-size:11px; letter-spacing:.04em; text-transform:uppercase; padding:3px 10px;}
 #view-apercu .ch-demand{background:transparent; border:0; color:var(--nb-bleu); font-size:12px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; padding:0; margin-top:14px; box-shadow:none;}
@@ -598,7 +607,7 @@ html[data-theme="dark"] #view-apercu .ch-stage{background:#5a1420; color:#ffd0d7
 #band-mission{background:transparent; color:var(--ink); border:0;}
 #band-mission #introBlock{padding:48px 0;}
 #band-mission .mission-box{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2fr); gap:0; background:transparent; border:0; box-shadow:none; padding:0; margin:0;}
-#band-mission .mission-eyebrow{grid-column:1; margin:0 0 8px; font-family:'Barlow',system-ui,sans-serif; font-weight:600; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--nb-rouge);}
+#band-mission .mission-eyebrow{grid-column:1; margin:0 0 8px; font-family:'Barlow',system-ui,sans-serif; font-weight:600; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--nb-rouge-encre);}
 #band-mission .mission-statement{grid-column:1; margin:0; padding-right:36px; font-family:var(--nb-titre); font-weight:600; font-size:30px; line-height:1.02; letter-spacing:-.015em; text-transform:uppercase; color:var(--ink);}
 #band-mission .mission-statement .hl{background:none; color:inherit; padding:0;}
 #band-mission .compare{grid-column:2; grid-row:1 / span 2; display:grid; grid-template-columns:1fr 1fr; gap:0; margin:0;}
@@ -619,7 +628,7 @@ html[data-theme="dark"] #band-mission .compare-col:last-child .tag{color:var(--g
 /* 6. Les projets récents de l'accueil (maquette) : rangées compactes qui se déplient, la
    première ouverte (ligneProjetAccueil dans commun/dq.js). */
 #view-apercu .nb-recents .section-head{align-items:baseline;}
-.nb-voir-tout{font-size:13px; font-weight:600; color:var(--nb-rouge); text-decoration:none; white-space:nowrap;}
+.nb-voir-tout{font-size:13px; font-weight:600; color:var(--nb-rouge-encre); text-decoration:none; white-space:nowrap;}
 .nb-voir-tout:hover{text-decoration:underline;}
 .nb-recents-sub{font-size:12px; color:var(--slate); margin:0 0 14px;}
 .nb-recents-source{font-size:12px; color:var(--slate); margin:14px 0 0;}
@@ -638,7 +647,7 @@ html[data-theme="dark"] #band-mission .compare-col:last-child .tag{color:var(--g
 .nb-ligne-fleche{color:var(--nb-bleu); transition:transform .15s;}
 .nb-ligne[open] .nb-ligne-fleche{transform:rotate(90deg);}
 .nb-ligne-corps{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px; align-items:start; padding:0 20px 18px 110px;}
-.nb-ligne-sur{font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--nb-rouge); margin:0 0 6px;}
+.nb-ligne-sur{font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--nb-rouge-encre); margin:0 0 6px;}
 .nb-ligne-corps p{margin:0; font-size:14px; line-height:1.55; color:var(--ink-2);}
 .nb-ligne-meta{font-size:12px; line-height:1.7; color:var(--slate); white-space:nowrap;}
 .nb-ligne-meta b{color:var(--ink);}
@@ -663,6 +672,58 @@ html.entete-etroite #dq-topbar .brand .maple-flip,
 html.etroit #dq-topbar .brand .maple-flip{margin-left:0;}
 
 
+/* ---------- LES VILLES, EN PASTILLE (Martin, 9 novembre 2026) ----------
+   Le menu est sorti de la barre d'onglets pour revenir à côté du nom du site, comme chez
+   DossierQuébec. Deux raisons : il ne mène pas à une section du site mais à d'AUTRES sites, et
+   dans la barre il vivait dans un conteneur qui défile (nav.tabs, overflow-x:auto) — or
+   overflow-x:auto force overflow-y:auto, donc le panneau qui descend sous la barre était découpé.
+   Il ne s'ouvrait pas : on ne voyait qu'une barre de défilement grise en travers des onglets.
+
+   La pastille de dq.css prend var(--gold), qui vaut le bleu du drapeau ici : on la laisse bleue et
+   on la fait virer au rouge au survol. Les règles de .nav-villes (texte encre, rouge au survol)
+   restent pour la version en onglet, d'où la portée .brand qui les bat sans les effacer. */
+.brand .city-flip{background:var(--nb-bleu); color:#fff;}
+.brand .city-flip:hover,
+.brand .villes-menu[open] .city-flip{background:var(--nb-rouge); color:#fff;}
+.brand .villes-menu ul{left:0; right:auto;}
+
+
+/* ---------- « REPRÉSENTEZ VOTRE VILLE » (9 novembre 2026) ----------
+   Le tableau des quinze villes et les quatre états relevés le 8 novembre : permission écrite
+   exigée, accès bloqué, rien de publié depuis 2023, procès-verbaux numérisés. Une ville sans
+   marque se livre telle quelle — on ne décore pas ce qui va bien. */
+.rtv-menu{border-top:1px solid var(--line-soft); padding:12px 0 4px;}
+.rtv-menu-titre{cursor:pointer; font-weight:700; font-family:var(--nb-titre); font-size:17px; color:var(--ink);}
+.rtv-villes{width:100%; border-collapse:collapse; font-size:13.5px; margin-top:10px;}
+.rtv-villes th{
+  text-align:left; padding:6px 8px; font-size:11px; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--slate);
+  border-bottom:1px solid var(--line-soft);
+}
+.rtv-villes td{padding:7px 8px; border-bottom:1px solid var(--line-soft);}
+.rtv-villes th:first-child, .rtv-villes td:first-child{width:34px; color:var(--slate);}
+.rtv-villes th:last-child, .rtv-villes td:last-child{text-align:right; white-space:nowrap;}
+.rtv-villes-titre{margin:16px 0 0; font-size:14px;}
+.rtv-archaique-legende{display:block; margin-top:4px; font-weight:400; font-size:12px; color:var(--slate);}
+
+/* Les étiquettes d'état. */
+.rtv-etat{
+  display:inline-block; padding:1px 6px; border:1px solid currentColor;
+  font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  white-space:nowrap; text-decoration:none;
+}
+.rtv-permission .rtv-etat{background:var(--nb-jaune); color:var(--sur-clair); border-color:var(--sur-clair);}
+.rtv-bloquee .rtv-etat{color:var(--nb-rouge-encre); border-color:var(--nb-rouge-encre);}
+.rtv-bloquee td{color:var(--slate);}
+.rtv-barree td{color:var(--slate); text-decoration:line-through;}
+.rtv-barree .rtv-etat{color:var(--slate); border-color:var(--slate);}
+.rtv-archaique td{background:var(--paper);}
+.rtv-archaique-puce{display:inline-block; width:12px; height:12px; background:var(--paper); border:1px solid var(--line-soft); vertical-align:-2px;}
+.rtv-legende{list-style:none; margin:14px 0 0; padding:0; display:grid; gap:7px; font-size:12.5px; color:var(--slate);}
+.rtv-legende .rtv-etat{margin-right:7px;}
+.rtv-legende li{text-decoration:none;}
+
+
 /* ---------- LA BASCULE DE LANGUE EN DRAPEAUX (Martin, 9 nov. 2026) ----------
    Une case, celle de l'autre langue (posée par commun/dq.js) : FR = drapeau acadien, EN = drapeau
    du N.-B. */
@@ -680,6 +741,7 @@ html.etroit #dq-topbar .brand .maple-flip{margin-left:0;}
    drapeau du N.-B., d'après la maquette du design. Tout passe par html[lang="en"], que dq.js
    tient à jour. Les jetons --nb-bleu* gardent leur nom : ici, ils portent le rouge. */
 html[lang="en"]{
+  --nb-rouge-encre:#cf142b;
   --nb-bleu:#cf142b;
   --nb-bleu-fonce:#a50f22;
   --nb-bleu-nuit:#3d0a10;
@@ -698,6 +760,7 @@ html[lang="en"]{
   --nb-vagues:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 90'%3E%3Cg fill='none' stroke='%23ffd200' stroke-width='9' stroke-linecap='round'%3E%3Cpath d='M6 15q22-13 44 0t44 0 44 0 44 0'/%3E%3Cpath d='M6 45q22-13 44 0t44 0 44 0 44 0'/%3E%3Cpath d='M6 75q22-13 44 0t44 0 44 0 44 0'/%3E%3C/g%3E%3C/svg%3E");
 }
 html[lang="en"][data-theme="dark"]{
+  --nb-rouge-encre:#ff7a8a;
   --paper:#262122;
   --paper-2:#2e2829;
   --card:#352e30;

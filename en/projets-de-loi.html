@@ -137,6 +137,22 @@
     <a class="maple-flip" id="mapleFlip" role="button" tabindex="0" title="Aller au site fédéral — DossierCanada" aria-label="Aller au site fédéral — DossierCanada" onclick="goToFederal(event)">
       <svg viewBox="-2015 -2000 4030 4030" aria-hidden="true"><path fill="currentColor" d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z"></path></svg>
     </a>
+    <!-- LES VILLES, EN PASTILLE (Martin, 9 novembre 2026). Elle était devenue un onglet le
+         7 novembre. Deux raisons de la ramener ici : ce menu ne mène pas à une section du site
+         mais à d'AUTRES sites, et dans la barre il vivait à l'intérieur d'un conteneur qui défile
+         (nav.tabs, overflow-x:auto). Or overflow-x:auto force overflow-y:auto : le panneau qui
+         descend sous la barre était découpé, donc invisible, et son débordement faisait
+         apparaître une barre de défilement grise en travers des onglets. Hors de la barre, le
+         conflit n'existe pas. -->
+    <details class="villes-menu" id="villesMenu">
+      <summary class="city-flip nav-villes" title="Les volets municipaux" aria-label="Les volets municipaux">
+        <span data-i18n="nav.villes">Cities</span>
+      </summary>
+      <ul>
+        <!-- Aucune ville encore : le seul lien mène à la page Représentez votre ville du site. -->
+        <li class="villes-rtv"><a id="lienRtv" href="/en/represente-ta-ville">+ <span data-i18n="nav.rtv">Represent your city</span></a></li>
+      </ul>
+    </details>
     <!-- Les volets municipaux (DossierVille) : un bouton « Villes » qui ouvre la liste.
          Vrais liens <a href> : le clavier, le clic du milieu et « ouvrir dans un
          nouvel onglet » fonctionnent sans une ligne de code. La barre oblique finale
@@ -157,21 +173,13 @@
     <a class="active" aria-current="page" href="/en/projets-de-loi" data-view="projets"><span class="n">03</span><span data-i18n="nav.projets">Bills</span></a>
     <!-- Votes a quitté la barre le 30 oct. 2026 : les votes vivent dans les cartes des projets de
          loi, et /votes reste lié du pied de page et de la page des projets. -->
-    <!-- N.-B. (Martin, 7 nov. 2026) : pas d'onglet Archives ni de page Promesses tant que le site n'a
-         ni législature terminée ni promesses du Nouveau-Brunswick. -->
-    <a href="/en/lexique" data-view="lexique"><span class="n">04</span><span data-i18n="nav.lexique">Glossary</span></a>
+    <!-- N.-B. : l'onglet Archives, comme chez DQ (Martin, 9 nov. 2026), même avant la première
+         législature terminée. Toujours pas de page Promesses : aucune promesse du N.-B. -->
+    <a href="/en/archives" data-view="archives"><span class="n">04</span><span data-i18n="nav.archives">Archives</span></a>
+    <a href="/en/lexique" data-view="lexique"><span class="n">05</span><span data-i18n="nav.lexique">Glossary</span></a>
     <a href="/mon-dossier?lang=en" data-view="mondossier" class="nav-mondossier"><span class="n">★</span><span data-i18n="nav.mondossier">My file</span></a>
-    <!-- N.-B. (Martin, 7 nov. 2026) : le menu des villes est un onglet, après Mon dossier,
-         au lieu d'une pastille à côté du nom du site. Même menu déroulant que DQ. -->
-    <details class="villes-menu" id="villesMenu">
-      <summary class="nav-villes" title="Les volets municipaux" aria-label="Les volets municipaux">
-        <span data-i18n="nav.villes">Cities</span>
-      </summary>
-      <ul>
-        <!-- N.-B. : aucune ville encore ; le seul lien mène au formulaire de DossierQuébec (guide, étape 9). -->
-        <li class="villes-rtv"><a id="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Represent your city</span></a></li>
-      </ul>
-    </details>
+    <!-- Le menu des villes a quitté la barre d'onglets le 9 novembre 2026 : il est redevenu la
+         pastille à côté du nom du site, comme chez DossierQuébec. Voir .brand plus haut. -->
   </nav>
   <div class="header-ctrls">
     <div class="font-size-ctrl" id="fontSizeCtrl">
@@ -421,6 +429,21 @@ function goToFederal(evt){
        gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
   <!-- N.-B. (Martin, 7 nov. 2026) : vue de l'abonnement retirée pour l'instant (à reprendre de DossierQuébec). -->
 
+  <!-- REPRÉSENTEZ VOTRE VILLE (Martin, 9 novembre 2026). Jusqu'ici la pastille « Villes »
+       envoyait vers le formulaire de DossierQuébec, avec une liste de villes québécoises :
+       quelqu'un de Bathurst n'y trouvait rien. DossierNBrunswick a maintenant la sienne, avec les
+       quinze villes de la province et l'état de chacune, relevé le 8 novembre 2026.
+       Les textes vivent en double (.fr-txt / .en-txt) : c'est une page à part, qui ne sert
+       qu'ici, et scripts/build-en.js en tire la version anglaise. Le formulaire poste sur
+       /api/represente, qui envoie le tout par courriel. -->
+  
+
+  <!-- ARCHIVES (N.-B., Martin, 9 nov. 2026) : copiée de DQ. Les législatures terminées, une carte
+       chacune (projets de loi, votes), dessinées par commun/dq.js (renderArchives) depuis
+       data/archives/index.json. La 61e y entrera seule à l'ouverture de la 62e ; d'ici là, la
+       page le dit. Pas de promesses ni d'anciens ministres, contrairement à DQ. -->
+  
+
   <!-- LEXIQUE (fusion : personnes, lexique, apropos) -->
   
 
@@ -464,11 +487,12 @@ function goToFederal(evt){
     <a href="/en/ministres" data-i18n="nav.ministres">Ministers</a>
     <a href="/en/projets-de-loi" data-i18n="nav.projets">Bills</a>
     <a href="/en/votes" data-i18n="nav.votes">Votes</a>
+    <a href="/en/archives" data-i18n="nav.archives">Archives</a>
     <a href="/en/lexique" data-i18n="nav.lexique">Glossary</a>
     <a href="/en/sources" data-i18n="fil.bd">Site updates</a>
     <a href="/mon-dossier?lang=en" data-i18n="nav.mondossier">My file</a>
     <span class="footer-nav-villes"><span data-i18n="footer.villes">Cities:</span>
-      <a class="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Represent your city</span></a>
+      <a class="lienRtv" href="/en/represente-ta-ville">+ <span data-i18n="nav.rtv">Represent your city</span></a>
     </span>
   </nav>
   <div class="footer-inner">
