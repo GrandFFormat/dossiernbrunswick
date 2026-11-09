@@ -664,8 +664,8 @@ html.etroit #dq-topbar .brand .maple-flip{margin-left:0;}
 
 
 /* ---------- LA BASCULE DE LANGUE EN DRAPEAUX (Martin, 9 nov. 2026) ----------
-   Une case, celle de l'autre langue (posée par commun/dq.js) : FR = drapeau du N.-B. + drapeau
-   acadien, EN = drapeau du N.-B. */
+   Une case, celle de l'autre langue (posée par commun/dq.js) : FR = drapeau acadien, EN = drapeau
+   du N.-B. */
 .lang-toggle.lang-drapeaux{display:inline-flex; align-items:stretch; gap:0; padding:0; border:1px solid var(--nb-filet); background:transparent;}
 .lang-toggle.lang-drapeaux:hover{background:transparent;}
 .lang-drapeaux .lg{display:inline-flex; align-items:center; gap:4px; padding:4px 8px; color:var(--ink);}
