@@ -671,7 +671,8 @@ html.etroit #dq-topbar .brand .maple-flip{margin-left:0;}
 .lang-drapeaux .lg{display:inline-flex; align-items:center; gap:4px; padding:4px 8px; color:var(--ink);}
 .lang-drapeaux .lg b{font-family:var(--nb-titre); font-weight:600; font-size:13px; letter-spacing:.04em; margin-left:2px;}
 .lang-drapeaux .lg-drapeau{display:block; height:14px; width:auto; box-shadow:0 0 0 1px rgba(0,0,0,.15);}
-.lang-drapeaux:hover .lg{background:#fff4c2; color:#1d1f20;}
+.lang-drapeaux:hover{border-color:var(--gold);}
+.lang-drapeaux:hover .lg{color:var(--gold);}
 
 
 /* ---------- LE DESIGN ANGLAIS : LE DRAPEAU DU NOUVEAU-BRUNSWICK (Martin, 9 nov. 2026) ----------
@@ -757,11 +758,6 @@ html[lang="en"] #view-apercu .nb-boite.nb-commandite .hero-cta:hover{background:
 html[lang="en"] footer::before{background:linear-gradient(90deg, var(--nb-rouge) 0 33.333%, transparent 33.333% 66.666%, var(--nb-jaune) 66.666%);}
 html[lang="en"][data-theme="dark"] .nb-ligne-sur{color:#ff7a8a;}
 
-/* « Cities » à côté du nom, en anglais : pas de pastille rouge, un mot et sa flèche comme les
-   onglets (maquette du design), rouge au survol. */
-html[lang="en"] .brand .city-flip{
-  height:auto; padding:6px 5px; border-radius:0 !important; background:transparent; color:var(--ink);
-  font-family:var(--nb-titre); font-weight:600; font-size:14px; letter-spacing:.04em;
-}
-html[lang="en"] .brand .city-flip:hover,
-html[lang="en"] .brand .villes-menu[open] .city-flip{transform:none; background:transparent; color:var(--nb-rouge);}
+/* « Cities » à côté du nom, en anglais : la pastille rouge, plus grosse (Martin). */
+html[lang="en"] .brand .city-flip{height:32px; padding:0 16px; border-radius:16px !important; font-size:13px; gap:7px;}
+html[lang="en"] .brand .city-flip::after{border-left-width:5px; border-right-width:5px; border-top-width:6px;}
