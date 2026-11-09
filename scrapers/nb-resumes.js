@@ -225,6 +225,15 @@ async function main() {
 
   let faits = 0;
   let coutReel = 0;
+  const enregistrer = () => ecrireJson(SORTIE, {
+    luLe: new Date().toISOString(),
+    modele: MODELE,
+    versionConsigne: VERSION_CONSIGNE,
+    legislature: deja.legislature ?? 61,   // ceux de l'ancienne clé (« 14-fr ») : cette législature et cette session
+    session: deja.session ?? 3,
+    avis: 'Résumés écrits par un modèle de langage à partir du texte officiel de l\'Assemblée. Ils ne sont pas officiels.',
+    resumes,
+  });
   for (const x of aFaire.slice(0, limite)) {
     const consigne = CONSIGNES[x.langue];
     const entete = x.tronque
@@ -248,10 +257,14 @@ async function main() {
     // Le schéma annonce un TABLEAU de puces, mais le modèle rend parfois ce tableau
     // sérialisé en texte (vu sur le projet 11 en français, le 7 nov. 2026). Sans ce
     // contrôle, la page affichait un seul pavé de 874 caractères à la place des puces.
-    sortie.puces = normaliserPuces(sortie.puces, x);
-
+    // N.-B. (8 nov. 2026) : un projet « sans contenu » rend une liste vide, et c'est voulu ; une
+    // réponse mal formée ne fait sauter que ce résumé-là, pas tout le lot.
     const u = reponse.usage;
     coutReel += (u.input_tokens / 1e6) * TARIF.entree + (u.output_tokens / 1e6) * TARIF.sortie;
+    if (!sortie.sansContenu) {
+      try { sortie.puces = normaliserPuces(sortie.puces, x); }
+      catch (e) { console.log(`  ${x.projet.numero} (${x.langue}) — ÉCARTÉ : ${e.message}`); continue; }
+    }
 
     resumes[x.cle] = {
       numero: x.projet.numero,
@@ -266,17 +279,9 @@ async function main() {
     faits += 1;
     const etat = sortie.sansContenu ? 'sans contenu à résumer' : `${resumes[x.cle].puces.length} puces`;
     console.log(`  ${x.projet.numero} (${x.langue}) — ${etat}${x.tronque ? ', texte tronqué' : ''}`);
+    enregistrer();   // après chaque résumé : un arrêt en cours de route ne fait rien repayer
   }
-
-  ecrireJson(SORTIE, {
-    luLe: new Date().toISOString(),
-    modele: MODELE,
-    versionConsigne: VERSION_CONSIGNE,
-    legislature: deja.legislature ?? 61,   // ceux de l'ancienne clé (« 14-fr ») : cette législature et cette session
-    session: deja.session ?? 3,
-    avis: 'Résumés écrits par un modèle de langage à partir du texte officiel de l\'Assemblée. Ils ne sont pas officiels.',
-    resumes,
-  });
+  enregistrer();
   console.log(`\n${faits} résumés écrits, ${coutReel.toFixed(2)} $ US réellement dépensés.`);
 }
 

@@ -166,7 +166,12 @@ function resumeDe(leg, ses, num) {
     ?? (RESUMES.legislature === leg && RESUMES.session === ses ? RESUMES.resumes[`${num}-${langue}`] : null);
   const lire = (langue) => {
     const r = entree(langue);
-    return r && !r.sansContenu && r.puces?.length ? r.puces.map((p) => `- ${p}`).join('\n') : null;
+    if (!r || r.sansContenu || !r.puces?.length) return null;
+    // Texte trop long, lu en partie seulement : la fiche le dit (règle 2 du guide).
+    const tronque = r.tronque ? [langue === 'en'
+      ? '(Summary based on the start of the official text only: the bill is too long to be read in full.)'
+      : '(Résumé tiré du début du texte officiel seulement : le projet est trop long pour être lu en entier.)'] : [];
+    return [...r.puces, ...tronque].map((p) => `- ${p}`).join('\n');
   };
   const summary = lire('fr');
   const summaryEn = lire('en');
