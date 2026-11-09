@@ -351,6 +351,8 @@ nav.tabs .villes-menu ul{left:auto; right:0;}
 nav.tabs a .n{display:inline; color:var(--nb-rouge-encre); font-size:11px; margin-right:4px;}
 nav.tabs a.active{background:transparent; color:var(--gold); border-color:transparent;}
 nav.tabs a:hover:not(.active){background:transparent; color:var(--nb-rouge-encre); border-color:transparent;}
+/* En sombre, DQ passe l'onglet survolé au texte foncé (fait pour son fond jaune) : illisible ici. */
+html[data-theme="dark"] nav.tabs a:hover:not(.active){color:var(--nb-rouge-encre);}
 
 /* Les petits contrôles : carrés à filet, fond transparent ; le survol passe au bleu. */
 .font-size-ctrl button, .lang-toggle, .theme-toggle, .hamburger{
