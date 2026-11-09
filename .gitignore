@@ -22,3 +22,6 @@ montreal/data/details.json
 levis/data/details.json
 longueuil/data/details.json
 laval/data/details.json
+
+# N.-B. : textes officiels des projets de loi, cache de scrapers/nb-resumes.js (relus sur legnb.ca au besoin).
+data/textes/

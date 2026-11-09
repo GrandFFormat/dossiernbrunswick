@@ -159,9 +159,13 @@ function officielDepuisFiche(nom) {
 const RESUMES = existsSync('data/resumes.json') ? JSON.parse(readFileSync('data/resumes.json', 'utf-8')) : null;
 function resumeDe(leg, ses, num) {
   const vide = { summary: null, summaryEn: null };
-  if (!RESUMES || RESUMES.legislature !== leg || RESUMES.session !== ses) return vide;
+  if (!RESUMES) return vide;
+  // Clé « 61-2-45-fr » (scrapers/nb-resumes.js, toutes sessions, 8 nov. 2026), sinon l'ancienne
+  // clé « 14-fr » des résumés du 7 nov., valable pour la législature et la session du fichier.
+  const entree = (langue) => RESUMES.resumes[`${leg}-${ses}-${num}-${langue}`]
+    ?? (RESUMES.legislature === leg && RESUMES.session === ses ? RESUMES.resumes[`${num}-${langue}`] : null);
   const lire = (langue) => {
-    const r = RESUMES.resumes[`${num}-${langue}`];
+    const r = entree(langue);
     return r && !r.sansContenu && r.puces?.length ? r.puces.map((p) => `- ${p}`).join('\n') : null;
   };
   const summary = lire('fr');
@@ -171,7 +175,7 @@ function resumeDe(leg, ses, num) {
     summary, summaryEn,
     summaryAiGenerated: true,
     summarySource: 'texte officiel tel que déposé, une passe par langue',
-    summaryGeneratedAt: RESUMES.resumes[`${num}-fr`]?.faitLe ?? RESUMES.luLe ?? null,
+    summaryGeneratedAt: entree('fr')?.faitLe ?? RESUMES.luLe ?? null,
   };
 }
 
