@@ -7,13 +7,13 @@
 //   node scripts/indexnow.js --essai    affiche ce qui partirait, sans rien envoyer
 //
 // La clé n'est PAS un secret : IndexNow la veut publique, dans un fichier à la racine du site
-// (<clé>.txt, qui contient la clé), pour prouver qu'on parle bien au nom de dossierquebec.ca.
+// (<clé>.txt, qui contient la clé), pour prouver qu'on parle bien au nom de dossiernbrunswick.ca.
 // Lancé par .github/workflows/indexnow.yml.
 
 import { readFileSync } from 'node:fs';
 
 const HOTE = 'dossiernbrunswick.ca';
-const CLE = '11c9d53816cf182c6f38b2604d6d8444';
+const CLE = '8a48b683e2bc1511d24e28602cc5efc6';   // N.-B. : clé propre au site (8 nov. 2026), fichier 8a48b683e2bc1511d24e28602cc5efc6.txt à la racine
 
 const adresses = [...readFileSync('sitemap.xml', 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
 if (!adresses.length) throw new Error('sitemap.xml ne contient aucune adresse');
