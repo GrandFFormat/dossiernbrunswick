@@ -220,6 +220,25 @@ const PAGES = [
     fil: 'Votes', cle: 'fil.votes', frequence: 'daily', priorite: '0.9',
   },
   {
+    // « Représentez votre ville » (9 nov. 2026) : pas d'onglet, on y arrive par la pastille
+    // Villes et par le pied de page. Avant, cette pastille envoyait sur dossierquebec.ca, avec
+    // une liste de villes québécoises.
+    fichier: 'represente-ta-ville.html', vue: 'represente', onglet: null, url: '/represente-ta-ville',
+    donnees: [],
+    title: 'Représentez votre ville — DossierNBrunswick',
+    desc: "Mettez les décisions de votre conseil municipal en langage clair sur DossierNBrunswick : comment ça marche, ce que ça coûte, et le prix de chaque ville.",
+    fil: 'Représentez votre ville', cle: 'fil.rtv', frequence: 'monthly', priorite: '0.6',
+  },
+  {
+    // Les législatures terminées (N.-B., 9 nov. 2026, comme chez DQ) : leurs projets de loi et leurs
+    // votes. La liste se dessine depuis data/archives/index.json ; vide jusqu'à la 62e législature.
+    fichier: 'archives.html', vue: 'archives', onglet: 'archives', url: '/archives',
+    donnees: [],
+    title: "Archives de l'Assemblée législative — DossierNBrunswick",
+    desc: "Les législatures terminées de l'Assemblée législative du Nouveau-Brunswick : leurs projets de loi et leurs votes nominaux, tels qu'ils étaient à la dernière séance.",
+    fil: 'Archives', cle: 'fil.archives', frequence: 'monthly', priorite: '0.5',
+  },
+  {
     fichier: 'lexique.html', vue: 'lexique', onglet: 'lexique', url: '/lexique',
     donnees: [],
     title: "Lexique de l'Assemblée législative — DossierNBrunswick",
@@ -796,6 +815,8 @@ const EN = {
   "/ministres": ["New Brunswick’s Executive Council and MLAs — DossierNBrunswick", "Who sits on New Brunswick’s Executive Council: each minister and their portfolios, then the 49 MLAs of the Legislative Assembly, party by party."],
   "/projets-de-loi": ["New Brunswick bills — DossierNBrunswick", "Bills before New Brunswick’s Legislative Assembly, with their actual stage, the date of each reading and a link to the official text on legnb.ca."],
   "/votes": ["Recorded divisions in New Brunswick — DossierNBrunswick", "Recorded divisions of New Brunswick’s Legislative Assembly, read from its Journals: who voted for or against, MLA by MLA, without interpretation."],
+  "/represente-ta-ville": ["Represent your city — DossierNBrunswick", "Put your city council’s decisions in plain language on DossierNBrunswick: how it works, what it costs, and the price for every New Brunswick city."],
+  "/archives": ["Legislative Assembly archives — DossierNBrunswick", "Past legislatures of New Brunswick’s Legislative Assembly: their bills and recorded divisions, as they stood at the last sitting."],
   "/lexique": ["Legislative Assembly glossary — DossierNBrunswick", "First reading, royal assent, recorded division: the vocabulary of New Brunswick’s Legislative Assembly explained simply, with sources."],
   "/regles": ["DossierNBrunswick’s sourcing rules — DossierNBrunswick", "DossierNBrunswick’s nine sourcing rules: never invented data, primary sources only, no media, word-for-word quotes, no verdict."],
   "/sources": ["Site updates — DossierNBrunswick", "What changes on DossierNBrunswick, an independent citizen site that makes New Brunswick’s Legislative Assembly readable, and who is behind it."],

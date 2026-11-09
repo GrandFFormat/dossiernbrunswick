@@ -413,6 +413,7 @@ const translations = {
     'sujet.promesses':"2026 election promises",
     'sujet.lexique':"Legislative Assembly glossary",
     'fil.accueil':"Home",
+    'fil.rtv':"Represent your city",
     'fil.ministres':"Ministers and MLAs",   // N.-B.
     'fil.projets':"Bills",
     'fil.votes':"Votes",
@@ -480,7 +481,7 @@ const translations = {
     'abcode.btn':"Use the code",
     'fil.regles':"The rules",
     'fil.archives':"Archives",
-    'sujet.archives':"National Assembly archives",
+    'sujet.archives':"Legislative Assembly archives",   // N.-B.
     'archhero.l1':"The archives,",
     'archhero.l2':"legislature by legislature.",
     'archhero.sub':"Bills and recorded votes of past legislatures, as they stood at the last sitting. <b>Nothing changes afterwards.</b>",
@@ -651,7 +652,7 @@ const PAGE_EN = /^\/en(\/|$)/.test(location.pathname);
 function cheminFr(){ return location.pathname.replace(/^\/en(?=\/|$)/, '') || '/'; }
 function aUneJumelle(chemin){
   const p = String(chemin).replace(/\.html$/, '').replace(/(.)\/$/, '$1') || '/';
-  return /^\/(ministres|projets-de-loi|votes|lexique|regles|sources)?$/.test(p) || /^\/(ministres|projets-de-loi|deputes)\/[^/]+$/.test(p);
+  return /^\/(ministres|projets-de-loi|votes|archives|represente-ta-ville|lexique|regles|sources)?$/.test(p) || /^\/(ministres|projets-de-loi|deputes)\/[^/]+$/.test(p);
 }
 // L'adresse de cette page dans l'autre langue, ou null si elle n'a pas de jumelle.
 function adresseDansLaLangue(lang){
@@ -842,7 +843,9 @@ function applyLanguage(){
   poserSessionAffiche();
   // N.-B. : « + Représentez votre ville » ouvre le formulaire de DossierQuébec dans la langue de la page.
   const rtv = document.getElementById('lienRtv');
-  for(const a of [rtv, ...document.querySelectorAll('.lienRtv')]) if(a) a.href = 'https://dossierquebec.ca/represente-ta-ville?province=nb' + (currentLang === 'en' ? '&lang=en' : '');  // N.-B. : garder ?province=nb
+  // Depuis le 9 novembre 2026, DossierNBrunswick a SA page : la pastille et le pied de page
+  // n'envoient plus sur dossierquebec.ca, qui montrait une liste de villes québécoises.
+  for(const a of [rtv, ...document.querySelectorAll('.lienRtv')]) if(a) a.href = (currentLang === 'en' ? '/en' : '') + '/represente-ta-ville';
   // L'infobulle de la bascule de thème suit la langue elle aussi.
   if(typeof appliquerTheme === 'function') appliquerTheme();
 }
@@ -5745,8 +5748,31 @@ function toggleVoteCard(id, evt){
    sur une de ces adresses. */
 // /mon-dossier y est aussi : sans lui, la page se prenait pour l'accueil et portait son titre
 // anglais (arrivé avec l'anglais qui suit enfin la navigation, 24 sept. 2026).
-const VIEW_SLUGS = { apercu:'/', ministres:'/ministres', ministre:'/ministres', projets:'/projets-de-loi', votes:'/votes', archives:'/archives', ancien:'/archives', lexique:'/lexique', promesses:'/promesses', bd:'/sources', mondossier:'/mon-dossier', regles:'/regles', abonnement:'/abonnement' };
-const SLUG_VIEWS = { '':'apercu', 'ministres':'ministres', 'ministres/':'ministre', 'projets-de-loi':'projets', 'votes':'votes', 'archives':'archives', 'archives/':'ancien', 'deputes/':'ministre', 'lexique':'lexique', 'promesses':'promesses', 'sources':'bd', 'mon-dossier':'mondossier', 'regles':'regles', 'abonnement':'abonnement' };
+// « Représentez votre ville » (/represente-ta-ville, 9 novembre 2026) : le formulaire d'intérêt.
+// Il poste sur /api/represente, qui envoie le tout par courriel à Martin. Rien n'est promis à
+// personne : on mesure la demande, ville par ville.
+async function rtvEnvoyer(f){
+  const isEn = currentLang === 'en';
+  const note = f.querySelector('.rtv-note'), btn = f.querySelector('button');
+  btn.disabled = true;
+  note.textContent = isEn ? 'Sending…' : 'Envoi…';
+  try{
+    const d = Object.fromEntries(new FormData(f));
+    const r = await fetch('/api/represente', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(d) });
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    f.innerHTML = isEn
+      ? '<p class="rtv-merci"><b>Thank you.</b> We will email you once we have looked at your city.</p>'
+      : "<p class=\"rtv-merci\"><b>Merci.</b> On vous revient par courriel dès qu'on a regardé votre ville.</p>";
+  }catch(e){
+    btn.disabled = false;
+    note.textContent = isEn
+      ? 'Sending failed. Please try again in a moment.'
+      : "L'envoi n'a pas fonctionné. Réessayez dans un moment.";
+  }
+}
+
+const VIEW_SLUGS = { apercu:'/', ministres:'/ministres', ministre:'/ministres', projets:'/projets-de-loi', votes:'/votes', archives:'/archives', ancien:'/archives', lexique:'/lexique', represente:'/represente-ta-ville', promesses:'/promesses', bd:'/sources', mondossier:'/mon-dossier', regles:'/regles', abonnement:'/abonnement' };
+const SLUG_VIEWS = { '':'apercu', 'ministres':'ministres', 'ministres/':'ministre', 'projets-de-loi':'projets', 'votes':'votes', 'archives':'archives', 'archives/':'ancien', 'deputes/':'ministre', 'lexique':'lexique', 'represente-ta-ville':'represente', 'promesses':'promesses', 'sources':'bd', 'mon-dossier':'mondossier', 'regles':'regles', 'abonnement':'abonnement' };
 // Titres ANGLAIS seulement : le français vient du <title> de la page (voir syncTitle).
 const PAGE_META = {
   bd:        { en:"Site updates — DossierNBrunswick" },
@@ -5759,7 +5785,8 @@ const PAGE_META = {
   projets:   { en:"New Brunswick bills — DossierNBrunswick" },
   votes:     { en:"Recorded divisions in New Brunswick — DossierNBrunswick" },
   lexique:   { en:"Legislative Assembly glossary — DossierNBrunswick" },
-  archives:  { en:"National Assembly archives — DossierQuébec" },
+  represente:{ en:"Represent your city — DossierNBrunswick" },
+  archives:  { en:"Legislative Assembly archives — DossierNBrunswick" },   // N.-B.
   promesses: { en:"2026 Quebec election promises — DossierQuébec" },
   mondossier:{ en:"My file — DossierNBrunswick" },
   introuvable:{ en:"Page not found (404) — DossierNBrunswick" },
