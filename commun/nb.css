@@ -664,17 +664,14 @@ html.etroit #dq-topbar .brand .maple-flip{margin-left:0;}
 
 
 /* ---------- LA BASCULE DE LANGUE EN DRAPEAUX (Martin, 9 nov. 2026) ----------
-   Deux cases (posées par commun/dq.js) : FR = drapeau du N.-B. + drapeau acadien, EN = drapeau
-   du N.-B. La case de la langue courante est surlignée en jaune pâle. */
+   Une case, celle de l'autre langue (posée par commun/dq.js) : FR = drapeau du N.-B. + drapeau
+   acadien, EN = drapeau du N.-B. */
 .lang-toggle.lang-drapeaux{display:inline-flex; align-items:stretch; gap:0; padding:0; border:1px solid var(--nb-filet); background:transparent;}
 .lang-toggle.lang-drapeaux:hover{background:transparent;}
 .lang-drapeaux .lg{display:inline-flex; align-items:center; gap:4px; padding:4px 8px; color:var(--ink);}
-.lang-drapeaux .lg + .lg{border-left:1px solid var(--nb-filet);}
 .lang-drapeaux .lg b{font-family:var(--nb-titre); font-weight:600; font-size:13px; letter-spacing:.04em; margin-left:2px;}
 .lang-drapeaux .lg-drapeau{display:block; height:14px; width:auto; box-shadow:0 0 0 1px rgba(0,0,0,.15);}
-.lang-drapeaux .lg-active{background:#fff4c2; color:#1d1f20;}
-.lang-drapeaux .lg:not(.lg-active):hover{background:var(--paper-2);}
-html[data-theme="dark"] .lang-drapeaux .lg-active{background:#5a4a1a; color:#fff;}
+.lang-drapeaux:hover .lg{background:#fff4c2; color:#1d1f20;}
 
 
 /* ---------- LE DESIGN ANGLAIS : LE DRAPEAU DU NOUVEAU-BRUNSWICK (Martin, 9 nov. 2026) ----------
