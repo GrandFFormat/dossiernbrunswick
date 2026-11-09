@@ -102,7 +102,7 @@ async function chargerArchive(){
   const surProjets = !!document.getElementById('billsList');
   const surVotes = !!document.getElementById('votesList');
   if(!surProjets && !surVotes && !document.getElementById('archivesListe')) return;   // rien d'archivable ici
-  const page = location.pathname.match(/^\/projets-de-loi\/\d+-(\d+)-\d+/);
+  const page = cheminFr().match(/^\/projets-de-loi\/\d+-(\d+)-\d+/);
   const demandee = Number(page ? page[1] : new URLSearchParams(location.search).get('archives')) || 0;
   try {
     const idx = await fetch('/data/archives/index.json').then(r => r.ok ? r.json() : null);
@@ -413,7 +413,7 @@ const translations = {
     'sujet.promesses':"2026 election promises",
     'sujet.lexique':"Legislative Assembly glossary",
     'fil.accueil':"Home",
-    'fil.ministres':"Ministers and MNAs",
+    'fil.ministres':"Ministers and MLAs",   // N.-B.
     'fil.projets':"Bills",
     'fil.votes':"Votes",
     'fil.promesses':"Promises",
@@ -643,7 +643,27 @@ function langueGardee(){ try{ return localStorage.getItem(CLE_LANGUE); }catch(e)
 function arriveeParHistorique(){
   try{ const n = performance.getEntriesByType('navigation')[0]; return !!n && n.type === 'back_forward'; }catch(e){ return false; }
 }
+// N.-B. (8 nov. 2026) : chaque page publique a sa jumelle anglaise écrite au build, sous /en/
+// (scripts/build-en.js). Une page sous /en/ est en anglais, point ; ailleurs, la langue choisie
+// mène à la bonne jumelle au lieu de traduire sur place. cheminFr() : le chemin sans /en, pour tout
+// ce qui lit l'adresse (vue, projet ouvert, législature).
+const PAGE_EN = /^\/en(\/|$)/.test(location.pathname);
+function cheminFr(){ return location.pathname.replace(/^\/en(?=\/|$)/, '') || '/'; }
+function aUneJumelle(chemin){
+  const p = String(chemin).replace(/\.html$/, '').replace(/(.)\/$/, '$1') || '/';
+  return /^\/(ministres|projets-de-loi|votes|lexique|regles|sources)?$/.test(p) || /^\/(ministres|projets-de-loi|deputes)\/[^/]+$/.test(p);
+}
+// L'adresse de cette page dans l'autre langue, ou null si elle n'a pas de jumelle.
+function adresseDansLaLangue(lang){
+  const p = cheminFr();
+  if(!aUneJumelle(p) || document.getElementById('view-introuvable')) return null;
+  const url = new URL(location.href);
+  url.searchParams.delete('lang');
+  url.pathname = lang === 'en' ? (p === '/' ? '/en/' : '/en' + p) : p;
+  return url.pathname + url.search + url.hash;
+}
 function langueDeDepart(){
+  if(PAGE_EN){ try{ localStorage.setItem(CLE_LANGUE, 'en'); }catch(e){} return 'en'; }   // N.-B.
   let demandee = null;
   try{ demandee = new URLSearchParams(location.search).get('lang'); }catch(e){}
   const gardee = langueGardee();
@@ -655,12 +675,14 @@ function langueDeDepart(){
   return gardee === 'en' ? 'en' : 'fr';
 }
 let currentLang = langueDeDepart();
+// N.-B. : une page française demandée en anglais (?lang=en ou choix gardé) passe à sa jumelle.
+if(!PAGE_EN && currentLang === 'en'){ const cible = adresseDansLaLangue('en'); if(cible) location.replace(cible); }
 
 // Écrit la langue dans l'adresse, sans recharger ni ajouter d'entrée à l'historique.
 function langueDansAdresse(){
   try{
     const url = new URL(location.href);
-    if(currentLang === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
+    if(currentLang === 'en' && !PAGE_EN) url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');   // N.-B. : /en/ suffit
     const cible = url.pathname + url.search + url.hash;
     if(cible !== location.pathname + location.search + location.hash) history.replaceState(history.state, '', cible);
   }catch(e){}
@@ -680,14 +702,18 @@ function lienDansLaLangue(e){
   let url;
   try{ url = new URL(a.href); }catch(_){ return; }
   if(url.origin !== location.origin) return;
+  const avant = url.href;
+  const versEn = /^\/en(\/|$)/.test(url.pathname);
+  // N.-B. : en anglais, un lien vers une page qui a sa jumelle mène à la jumelle (/en/…) ; en
+  // français, un lien vers /en/… mène à la page française.
   if(currentLang === 'en'){
-    if(url.searchParams.get('lang') === 'en') return;
-    url.searchParams.set('lang', 'en');
+    if(!versEn && aUneJumelle(url.pathname)){ url.pathname = url.pathname === '/' ? '/en/' : '/en' + url.pathname; url.searchParams.delete('lang'); }
+    else if(!versEn) url.searchParams.set('lang', 'en');
   }else{
-    if(!url.searchParams.has('lang')) return;
+    if(versEn) url.pathname = url.pathname.replace(/^\/en(?=\/|$)/, '') || '/';
     url.searchParams.delete('lang');
   }
-  a.href = url.href;
+  if(url.href !== avant) a.href = url.href;
 }
 ['click', 'auxclick', 'contextmenu'].forEach((type) => document.addEventListener(type, lienDansLaLangue, true));
 
@@ -698,6 +724,7 @@ let demarrageFini = false;
 function suivreLaLangueGardee(){
   const gardee = langueGardee();
   if(!langueValide(gardee) || gardee === currentLang) return;
+  { const cible = adresseDansLaLangue(gardee); if(cible){ location.replace(cible); return; } }   // N.-B.
   currentLang = gardee;
   langueDansAdresse();
   if(!demarrageFini) return;
@@ -888,6 +915,7 @@ function applyAssemblyState(){
 document.getElementById('langToggle')?.addEventListener('click', ()=>{
   currentLang = currentLang === 'fr' ? 'en' : 'fr';
   try{ localStorage.setItem(CLE_LANGUE, currentLang); }catch(e){}
+  { const cible = adresseDansLaLangue(currentLang); if(cible){ location.href = cible; return; } }   // N.-B. : la jumelle
   langueDansAdresse();
   applyLanguage();
   if(typeof renderTicker === 'function') renderTicker(); // le ticker suit la langue
@@ -5134,7 +5162,7 @@ function shareBill(billId, platform, evt){
 function openBillFromQuery(){
   const params = new URLSearchParams(location.search);
   // Page d'un projet : /projets-de-loi/NUM-LÉGISLATURE-SESSION (scripts/build-bill-pages.js).
-  const page = location.pathname.match(/^\/projets-de-loi\/(\d+)-(\d+)-(\d+)\/?(?:\.html)?$/);
+  const page = cheminFr().match(/^\/projets-de-loi\/(\d+)-(\d+)-(\d+)\/?(?:\.html)?$/);
   const pl = page ? page[1] : params.get('pl');
   if(!pl) return;
   // Le numéro n'est pas unique (PL 1, PL 2… reviennent à chaque session) : quand le lien porte
@@ -5726,7 +5754,7 @@ function viewFromPath(){
   // La page 404 est servie à N'IMPORTE quelle adresse inconnue : c'est sa présence qui la désigne,
   // pas le chemin (sinon elle se prendrait pour l'accueil).
   if(document.getElementById('view-introuvable')) return 'introuvable';
-  const seg = location.pathname.replace(/^\/+|\/+$/g, '').replace(/\.html$/, '');
+  const seg = cheminFr().replace(/^\/+|\/+$/g, '').replace(/\.html$/, '');
   // Une page de projet de loi (/projets-de-loi/3-43-3, scripts/build-bill-pages.js) est la vue Projets.
   if(seg.startsWith('projets-de-loi/')) return 'projets';
   if(seg.startsWith('ministres/')) return SLUG_VIEWS['ministres/'];
@@ -5737,6 +5765,7 @@ function viewFromPath(){
 }
 const _titreFr = document.title;
 function syncTitle(viewName){
+  if(PAGE_EN) return;   // N.-B. : la page anglaise porte déjà son titre (celui d'un projet, d'un ministre…)
   const m = PAGE_META[viewName]; if(!m) return;
   document.title = (typeof currentLang !== 'undefined' && currentLang === 'en') ? m.en : _titreFr;
 }
@@ -5763,7 +5792,7 @@ function goToTab(viewName, opts){
   // Met l'URL à jour au clic (mais pas quand on répond à un back/forward).
   if(!opts.fromHistory && VIEW_SLUGS[viewName]){
     const url = VIEW_SLUGS[viewName];
-    const here = (location.pathname.replace(/\.html$/, '') || '/');
+    const here = (cheminFr().replace(/\.html$/, '') || '/');
     if(here !== url){ history.pushState({ view: viewName }, '', url + paramLangue(true)); }
   }
   syncTitle(viewName);
@@ -6238,7 +6267,7 @@ function nbSuivisDecorer(){
   let attente = null;
   const relancer = () => { clearTimeout(attente); attente = setTimeout(nbSuivisDecorer, 120); };
   const demarrer = () => {
-    if(!document.querySelector('.follow-btn') && !/^\/(ministres|deputes|archives)/.test(location.pathname)) return;
+    if(!document.querySelector('.follow-btn') && !/^\/(ministres|deputes|archives)/.test(cheminFr())) return;
     nbSuivisCharger().then(() => { nbSuivisDecorer(); new MutationObserver(relancer).observe(document.body, { childList: true, subtree: true }); });
   };
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(demarrer, 600)); else setTimeout(demarrer, 600);

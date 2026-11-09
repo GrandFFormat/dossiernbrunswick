@@ -1,0 +1,507 @@
+<!DOCTYPE html><html lang="en"><head>
+<!-- Consentement (Loi 25) : par défaut, Google Analytics n'a PAS le droit de déposer de témoins.
+     La bannière (commun/consentement.js) passe analytics_storage à « granted » après « Accepter ». -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6CZX26581K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6CZX26581K', { content_group: 'Assemblée' });
+</script>
+<script src="/commun/consentement.js" defer=""></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* La langue, avant d'afficher quoi que ce soit — EXACTEMENT la décision de langueDeDepart
+   (commun/dq.js) : « ?lang=en » dans l'adresse, sinon le choix gardé dans dvq:langue (commun à
+   tout le site) ; en revenant par Précédent ou Suivant, le choix gardé passe avant l'adresse.
+   En anglais, la page reste cachée le temps que dq.js la traduise : 1,5 s au plus, même s'il
+   échoue. lang="en" n'est posé qu'au moment de traduire (dq.js) : si la traduction n'arrive pas,
+   la page française ne s'annonce pas en anglais.
+   Tout est dans une fonction : une variable globale ici entrerait en collision avec les
+   déclarations de dq.js et le ferait planter en entier. */
+(function(){
+  try{
+    var valide = function(l){ return l === 'en' || l === 'fr'; };
+    var gardee = null;
+    try{ gardee = localStorage.getItem('dvq:langue'); }catch(e){}
+    var q = new URLSearchParams(location.search).get('lang');
+    var nav = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+    var parHistorique = !!nav && nav.type === 'back_forward';
+    var choix = (parHistorique && valide(gardee)) ? gardee : (valide(q) ? q : gardee);
+    if(choix !== 'en') return;
+    var racine = document.documentElement;
+    racine.classList.add('dq-en');
+    setTimeout(function(){ racine.classList.add('dq-pret'); }, 1500);
+  }catch(e){}
+})();
+</script>
+<title>New Brunswick’s Legislative Assembly in plain language — DossierNBrunswick</title>
+<meta name="description" content="Follow New Brunswick’s Legislative Assembly in plain language: bills and their stages, how each MLA voted on recorded divisions, and the Executive Council.">
+<link rel="canonical" href="https://dossiernbrunswick.ca/en/">
+<link rel="alternate" hreflang="fr-CA" href="https://dossiernbrunswick.ca/">
+<link rel="alternate" hreflang="en-CA" href="https://dossiernbrunswick.ca/en/">
+<link rel="alternate" hreflang="x-default" href="https://dossiernbrunswick.ca/">
+
+
+
+<!-- Plus de <link rel="alternate"> vers /feed.xml : le flux RSS est réservé aux abonné·e·s depuis le
+     21 oct. 2026 (api/feed.js), chacun avec son adresse personnelle dans Mon dossier. -->
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0E4FC1">
+
+<!-- Open Graph (aperçu au partage : Facebook, LinkedIn, iMessage…) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DossierNBrunswick">
+<meta property="og:locale" content="en_CA">
+<meta property="og:locale:alternate" content="fr_CA">
+<meta property="og:title" content="New Brunswick’s Legislative Assembly in plain language — DossierNBrunswick">
+<meta property="og:description" content="Follow New Brunswick’s Legislative Assembly in plain language: bills and their stages, how each MLA voted on recorded divisions, and the Executive Council.">
+<meta property="og:url" content="https://dossiernbrunswick.ca/en/">
+<meta property="og:image" content="https://dossiernbrunswick.ca/dossiernbrunswick-cover.png">
+<meta property="og:image:width" content="1702">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DossierNBrunswick — veille citoyenne de l'Assemblée législative du Nouveau-Brunswick">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="New Brunswick’s Legislative Assembly in plain language — DossierNBrunswick">
+<meta name="twitter:description" content="Follow New Brunswick’s Legislative Assembly in plain language: bills and their stages, how each MLA voted on recorded divisions, and the Executive Council.">
+<meta name="twitter:image" content="https://dossiernbrunswick.ca/dossiernbrunswick-cover.png">
+
+<link rel="icon" type="image/svg+xml" href="/commun/nb.svg">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="48x48" href="/commun/nb-48.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/commun/nb-512.png">
+<link rel="apple-touch-icon" href="/commun/nb-512.png">
+
+<!-- Données structurées (aide Google à comprendre le site) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://dossiernbrunswick.ca/#site",
+      "name": "DossierNBrunswick",
+      "url": "https://dossiernbrunswick.ca/en/",
+      "description": "Follow New Brunswick’s Legislative Assembly in plain language: bills and their stages, how each MLA voted on recorded divisions, and the Executive Council.",
+      "inLanguage": "en-CA",
+      "publisher": {
+        "@id": "https://dossiernbrunswick.ca/#organisation"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://dossiernbrunswick.ca/#organisation",
+      "name": "DossierNBrunswick",
+      "url": "https://dossiernbrunswick.ca/en/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://dossiernbrunswick.ca/commun/nb-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": [
+        "https://github.com/GrandFFormat/dossiernbrunswick"
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/commun/dq.css">
+<!-- Le design du Nouveau-Brunswick, posé par-dessus dq.css. Il apporte ses polices (Barlow,
+     servies par le site, commun/polices/) : plus rien n'est chargé chez Google Fonts. -->
+<link rel="stylesheet" href="/commun/nb.css">
+</head>
+<body data-page="apercu" data-donnees="newsItems,petitions,apercuBills,deputesRaw,stats" class="lang-en">
+
+<!-- Ticker brutaliste : bande noire défilante — contenu rempli avec les VRAIES
+     données par renderTicker() (appelé une fois les datasets chargés). -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-text" id="tickerA">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+    <span class="ticker-text" id="tickerB">● DossierNBrunswick — site citoyen indépendant · vraies données publiques&nbsp;&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<div id="dq-topbar">
+<header class="top">
+  <div class="brand">
+    <div class="brand-text" role="button" tabindex="0" aria-label="Retour à l'aperçu" onclick="goToTab('apercu')">
+      <!-- Volontairement un div, et non un titre de niveau 1 : le nom du site se
+           répète sur chaque page, alors que le titre de niveau 1 doit annoncer
+           le sujet de LA page. C'est le titre de une de la vue active qui joue
+           ce rôle, et le générateur de pages de section s'en assure.
+           (Pas de balise écrite en toutes lettres dans ce commentaire : elle
+           fausserait les outils qui comptent les titres à l'expression
+           régulière.) -->
+      <div class="brand-title">Dossier<span class="brand-blue">NBrunswick</span></div>
+      <p>Qui siège, qui légifère, qui vote quoi</p>
+    </div>
+    <!-- Feuille d'érable : passerelle vers le site fédéral DossierCanada.
+         Flippe jaune ↔ rouge toutes les 20 s (voir le script plus bas). -->
+    <a class="maple-flip" id="mapleFlip" role="button" tabindex="0" title="Aller au site fédéral — DossierCanada" aria-label="Aller au site fédéral — DossierCanada" onclick="goToFederal(event)">
+      <svg viewBox="-2015 -2000 4030 4030" aria-hidden="true"><path fill="currentColor" d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z"></path></svg>
+    </a>
+    <!-- Les volets municipaux (DossierVille) : un bouton « Villes » qui ouvre la liste.
+         Vrais liens <a href> : le clavier, le clic du milieu et « ouvrir dans un
+         nouvel onglet » fonctionnent sans une ligne de code. La barre oblique finale
+         est OBLIGATOIRE — sans elle, les chemins relatifs du volet (assets/, data/)
+         se résolvent depuis la racine du site. Plus de rel="nofollow" depuis le
+         21 sept. 2026 : les volets sont ouverts aux moteurs de recherche. Le chemin dit /quebec/ : c'est la
+         liste, sous « Villes », qui dit qu'il s'agit de la ville. -->
+  </div>
+  <!-- Nav DANS la ligne du header (maquette : logo | menu | contrôles sur
+       UNE seule rangée). Sur mobile, le nav devient le panneau plein écran
+       du hamburger (position:fixed), peu importe où il vit dans le DOM. -->
+  <nav class="tabs">
+    <div class="close-menu" id="closeMenuBtn"><span data-i18n="nav.close">Close</span> ✕</div>
+    <!-- De vrais liens, pas des <button> : un moteur de recherche ne suit pas un bouton, et
+         /ministres, /projets-de-loi, /votes et /lexique n'avaient aucun lien qu'il puisse suivre. -->
+    <a class="active" aria-current="page" href="/en/" data-view="apercu"><span class="n">01</span><span data-i18n="nav.apercu">Overview</span></a>
+    <a href="/en/ministres" data-view="ministres"><span class="n">02</span><span data-i18n="nav.ministres">Ministers</span></a>
+    <a href="/en/projets-de-loi" data-view="projets"><span class="n">03</span><span data-i18n="nav.projets">Bills</span></a>
+    <!-- Votes a quitté la barre le 30 oct. 2026 : les votes vivent dans les cartes des projets de
+         loi, et /votes reste lié du pied de page et de la page des projets. -->
+    <!-- N.-B. (Martin, 7 nov. 2026) : pas d'onglet Archives ni de page Promesses tant que le site n'a
+         ni législature terminée ni promesses du Nouveau-Brunswick. -->
+    <a href="/en/lexique" data-view="lexique"><span class="n">04</span><span data-i18n="nav.lexique">Glossary</span></a>
+    <a href="/mon-dossier?lang=en" data-view="mondossier" class="nav-mondossier"><span class="n">★</span><span data-i18n="nav.mondossier">My file</span></a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : le menu des villes est un onglet, après Mon dossier,
+         au lieu d'une pastille à côté du nom du site. Même menu déroulant que DQ. -->
+    <details class="villes-menu" id="villesMenu">
+      <summary class="nav-villes" title="Les volets municipaux" aria-label="Les volets municipaux">
+        <span data-i18n="nav.villes">Cities</span>
+      </summary>
+      <ul>
+        <!-- N.-B. : aucune ville encore ; le seul lien mène au formulaire de DossierQuébec (guide, étape 9). -->
+        <li class="villes-rtv"><a id="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Represent your city</span></a></li>
+      </ul>
+    </details>
+  </nav>
+  <div class="header-ctrls">
+    <div class="font-size-ctrl" id="fontSizeCtrl">
+      <button id="fontMinus" aria-label="Réduire le texte">A−</button>
+      <span id="fontPct">100%</span>
+      <button id="fontPlus" aria-label="Agrandir le texte">A+</button>
+    </div>
+    <!-- Aucun contenu textuel : l'icône est dessinée en CSS. Le nom accessible
+         vient donc entièrement de aria-label, que le JS tient à jour. -->
+    <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Passer au thème sombre" title="Passer au thème sombre"></button>
+    <button class="lang-toggle" id="langToggle">Français</button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+</div>
+
+<script>
+/* Bascule le bloc logo+menu en mode compact après un peu de défilement.
+   Hystérésis (80 vs 20) pour éviter le clignotement autour du seuil. */
+(function(){
+  var bar = document.getElementById('dq-topbar');
+  var compact = false;
+  function onScroll(){
+    var y = window.scrollY;
+    if(!compact && y > 80){ compact = true; bar.classList.add('compact'); }
+    else if(compact && y < 20){ compact = false; bar.classList.remove('compact'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+
+// Ouvre le site fédéral DossierCanada dans un nouvel onglet.
+function goToFederal(evt){
+  if(evt) evt.stopPropagation();
+  window.open('https://dossiercanada.ca/', '_blank', 'noopener');
+}
+// Feuille d'érable : flippe jaune ↔ rouge toutes les 20 secondes.
+(function(){
+  var leaf = document.getElementById('mapleFlip');
+  if(!leaf) return;
+  setInterval(function(){ leaf.classList.toggle('is-red'); }, 20000);
+})();
+
+// Menu « Villes » : compte les clics vers chaque volet municipal (événement
+// personnalisé Vercel Web Analytics — onglet « Events » du tableau de bord), et
+// referme le menu quand on clique ailleurs ou qu'on appuie sur Échap.
+(function(){
+  var menu = document.getElementById('villesMenu');
+  if(!menu) return;
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(window.va) window.va('event', { name: 'clic_icone_ville', data: { ville: a.getAttribute('href') } });
+    });
+  });
+  document.addEventListener('click', function(e){ if(menu.open && !menu.contains(e.target)) menu.open = false; });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && menu.open){ menu.open = false; menu.querySelector('summary').focus(); } });
+})();
+</script>
+
+<div class="app">
+
+  <!-- APERÇU -->
+  <section class="view active" id="view-apercu">
+
+    <!-- Hero poster brutaliste : la devise du site devient l'affiche.
+         (La ligne du header .brand-text p est masquée en échange.) -->
+    <div class="hero-poster">
+      <!-- N.-B. : la législature et la session en cours, posées par poserSessionAffiche(). -->
+      <p class="hero-session" id="heroSession" hidden=""></p>
+      <h1 class="hero-h1">
+        <span class="hero-sujet" data-i18n="sujet.apercu">New Brunswick's Legislative Assembly in plain language</span>
+        <span data-i18n="hero.l1">Who sits,</span>
+        <span class="hero-outline" data-i18n="hero.l2">who legislates,</span>
+        <span class="hero-blue" data-i18n="hero.l3">who votes what.</span>
+      </h1>
+      <div class="hero-row">
+        <div class="hero-manifesto">
+          <p data-i18n="hero.manifesto">New Brunswick's Legislative Assembly, reorganized <b>by person</b> and translated into <b>plain language</b> — <b>no judgment, no verdict</b>. Independent citizen site, real public data.</p>
+        </div>
+        <a class="hero-cta" href="/en/projets-de-loi" data-i18n="hero.cta">Explore →</a>
+        <a class="hero-cta hero-cta-ligne" href="/en/ministres" data-i18n="hero.cta2">The members</a>
+      </div>
+    </div>
+
+    <!-- Bande de stats (vraies données — mêmes ids qu'avant, peuplés par le JS) -->
+    <div class="stat-band bleed">
+      <div class="stat-cell"><b id="statMinistres">19</b><span data-i18n="stat.ministres">Ministers</span></div>
+      <div class="stat-cell"><b id="statProjets">101</b><span data-i18n="stat.projets">Bills</span></div>
+      <div class="stat-cell"><b id="statVotes">32</b><span data-i18n="stat.votes">Votes recorded</span></div>
+    </div>
+
+    <!-- N.-B. (maquette, Martin, 7 nov. 2026) : l'état de l'Assemblée, sous l'affiche. renderTicker()
+         lit .calendar-box .status : la classe reste. -->
+    <div class="calendar-box nb-etat">
+      <div class="status" data-i18n="cal.status">● Legislative Assembly of New Brunswick</div>
+    </div>
+
+    <!-- Les projets signalés (le palmarès « challengés » de DQ, renderChallenged), avec ce qu'il faut
+         savoir au N.-B. : pas de pétition en ligne, et les chemins qui ont une valeur officielle. -->
+    <div class="nb-signales" id="band-challenged">
+    <div class="section-head" id="sec-challenged">
+      <div>
+        <h2 id="challengedTitle">Projets signalés par les citoyen·ne·s</h2>
+        <div class="sub" id="challengedSub"></div>
+      </div>
+      <a class="ch-more" id="chMoreBtn" role="button" tabindex="0" onclick="showMoreChallenged()" data-i18n="ch.more" style="display:none;">See more →</a>
+    </div>
+    <p class="nb-avis-petition"><span data-i18n="signales.avis"><b>No online petitions in New Brunswick.</b> The Assembly only accepts paper petitions, tabled by an MLA. Flagging a bill here has no official value: it is a citizen counter that shows what worries people, and points you to how to act.</span></p>
+    <div id="challengedList"></div>
+    <p class="nb-agir"><span data-i18n="signales.agir">To act officially:</span> <a href="/en/ministres" data-i18n="signales.depute">write to your MLA</a></p>
+    </div>
+
+
+    <!-- N.-B. (Martin, 7 nov. 2026, d'après la maquette) : les projets récents sur la moitié gauche,
+         sans la colonne de droite de leur carte, et deux boîtes à droite : le compte gratuit (la bande
+         « Compte gratuit » de DQ, mêmes identifiants, remplie par renderPromoCompte) et la commandite
+         d'une ville. -->
+    <div class="nb-recents">
+    <div class="nb-recents-projets">
+    <div class="section-head" id="sec-projets-recents">
+      <div>
+        <h2 data-i18n="h.billsrecent">Recently active bills</h2>
+      </div>
+      <a class="nb-voir-tout" href="/en/projets-de-loi" data-i18n="apercu.voirtout">See all →</a>
+    </div>
+    <div class="nb-recents-sub" data-i18n="apercu.recent.sub">Click a bill to read its plain-language summary, its stage and the votes.</div>
+    <div id="body-projets-recents">
+    <div id="apercuBills"></div>
+    <div class="prerendu" data-prerendu="apercuBills">
+      <ul aria-label="Recently active bills">
+        <li><b><a href="/en/projets-de-loi/14-61-3">Bill 14</a></b> — An Act Respecting Property Tax Reform Measures <span class="pr-meta">· Passed second reading on 2026-11-06</span></li>
+        <li><b><a href="/en/projets-de-loi/13-61-3">Bill 13</a></b> — An Act to Amend the Université de Moncton Act <span class="pr-meta">· Passed third reading on 2026-11-06, awaiting Royal Assent</span></li>
+        <li><b><a href="/en/projets-de-loi/12-61-3">Bill 12</a></b> — An Act Respecting Young Persons, Digital Markets and Technology Use <span class="pr-meta">· Passed second reading on 2026-11-06</span></li>
+        <li><b><a href="/en/projets-de-loi/6-61-3">Bill 6</a></b> — An Act to Amend the Employment Standards Act <span class="pr-meta">· Committee stage completed on 2026-11-06</span></li>
+      </ul>
+      <p class="pr-note">Official source: <a href="https://www.legnb.ca/" rel="noopener">legnb.ca</a>.</p>
+    </div>
+    </div>
+    <p class="nb-recents-source" data-i18n="apercu.source">Official source: <a href="https://www.legnb.ca/en" target="_blank" rel="noopener">legnb.ca</a></p>
+    </div>
+
+    <aside class="nb-recents-cote">
+    <div class="nb-boite promo-alertes promo-accueil" id="band-alertes-accueil" role="region" aria-labelledby="promoAccueilTitre">
+      <p class="promo-sur" data-i18n="promo.sur">Free account</p>
+      <h2 id="promoAccueilTitre" data-i18n="promo.h">Follow the bills that matter to you</h2>
+      <p class="promo-texte" data-i18n="promo.p">No password: a link arrives by email. Up to 3 bills followed in My file.</p>
+      <div class="promo-compte">
+        <div id="promoCompte">
+          <div class="promo-compte-ligne">
+            <input type="email" id="promoEmail" placeholder="Votre courriel" aria-label="Votre courriel" disabled="">
+            <button class="account-btn" id="promoLienBtn" onclick="handlePromoLink()" disabled="">Recevoir le lien</button>
+          </div>
+          
+        </div>
+        <a class="promo-mes-dossiers" href="/mon-dossier?lang=en" data-i18n="promo.mesdossiers">My file →</a>
+      </div>
+    </div>
+
+    <div class="nb-boite nb-commandite" role="region" aria-labelledby="commanditeTitre">
+      <p class="promo-sur" data-i18n="commandite.sur">Sponsorship</p>
+      <h2 id="commanditeTitre" data-i18n="commandite.h">Sponsor your city</h2>
+      <p class="promo-texte" data-i18n="commandite.p">Open the follow-up of your city's council: agendas, votes and resolutions in plain language. A local sponsorship funds a city's coverage.</p>
+      <a class="hero-cta lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener" data-i18n="commandite.cta">Sponsor →</a>
+      <p class="nb-commandite-villes" data-i18n="commandite.villes">Edmundston, Miramichi, Campbellton… still without coverage</p>
+    </div>
+    </aside>
+    </div>
+
+    <!-- Bande blanche : Quoi de neuf + Pétitions côte à côte (maquette) -->
+    <div class="band band-white bleed" id="band-actu">
+    <div class="actu-grid">
+    <div>
+    <!-- Le flux RSS (api/feed-data.xml) reprend exactement ces événements ; il est réservé aux
+         abonné·e·s depuis le 21 oct. 2026 (adresse personnelle dans Mon dossier). -->
+    <div class="section-head" id="sec-quoideneuf"><div><h2 data-i18n="h.quoideneuf">What's new</h2><div class="sub" data-i18n="h.quoideneuf.sub">Latest real activity at the Assembly</div><p class="nb-fil" data-i18n="quoideneuf.fil">A timeline, newest first.</p></div></div>
+
+    <div id="body-quoideneuf">
+    <div id="newsList"></div>
+    <div class="prerendu" data-prerendu="newsItems">
+      <ul aria-label="What’s new at the Legislative Assembly">
+        <li><span class="pr-meta">November 4, 2026 —</span> Bill 14 introduced — An Act Respecting Property Tax Reform Measures</li>
+        <li><span class="pr-meta">November 3, 2026 —</span> Bill 11 introduced — Addiction Treatment Services Licensing Act</li>
+        <li><span class="pr-meta">November 3, 2026 —</span> Bill 12 introduced — An Act Respecting Young Persons, Digital Markets and Technology Use</li>
+        <li><span class="pr-meta">November 3, 2026 —</span> Bill 13 introduced — An Act to Amend the Université de Moncton Act</li>
+        <li><span class="pr-meta">October 29, 2026 —</span> 3 recorded divisions held in the Assembly.</li>
+        <li><span class="pr-meta">October 28, 2026 —</span> Bill 10 introduced — An Act to Amend the Education Act</li>
+        <li><span class="pr-meta">October 27, 2026 —</span> Bill 7 introduced — An Act to Amend the Salvage Dealers Licensing Act</li>
+        <li><span class="pr-meta">October 27, 2026 —</span> Bill 8 introduced — An Act to Amend the Gaming Control Act</li>
+      </ul>
+      <p class="pr-note">Official source: <a href="https://www.legnb.ca/" rel="noopener">legnb.ca</a>.</p>
+    </div>
+    </div>
+    </div>
+
+    <!-- N.-B. (Martin, 7 nov. 2026) : pas de bloc Pétitions ; il n'y a pas de pétition en ligne au N.-B. -->
+    </div><!-- /actu-grid -->
+    </div><!-- /band-actu -->
+
+    <!-- Mission : bande BLEUE pleine largeur en pied de page (maquette) -->
+    <div class="band band-blue bleed" id="band-mission">
+    <div id="introBlock">
+      <div class="mission-box" id="sec-mission">
+        <div class="mission-eyebrow" data-i18n="mission.eyebrow">Our mission</div>
+        <p class="mission-statement"><span data-i18n="mission.st1">The official site is the most reliable source. This one just makes it </span><span class="hl" data-i18n="mission.st2">easier to follow.</span></p>
+        <div class="compare">
+          <div class="compare-col">
+            <span class="tag" data-i18n="mission.assnat.tag">What legnb.ca does</span>
+            <ul>
+              <li data-i18n="mission.assnat.1">Organizes everything by official document</li>
+              <li data-i18n="mission.assnat.2">The complete, legally authoritative source for everything</li>
+              <li data-i18n="mission.assnat.3">Neutral — never compares or summarizes</li>
+            </ul>
+          </div>
+          <div class="compare-col">
+            <span class="tag" data-i18n="mission.site.tag">What this site tries to do</span>
+            <ul>
+              <li data-i18n="mission.site.1">Organizes everything by person: one profile, all their files</li>
+              <li data-i18n="mission.site.2">Translates the jargon into plain language (see the Glossary)</li>
+              <li data-i18n="mission.site.3">Lets you follow what affects you, with no judgment or verdict</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div><!-- /band-mission -->
+
+  </section>
+
+  <!-- MINISTRES & DÉPUTÉS -->
+  
+
+  <!-- PROJETS DE LOI -->
+  
+
+  <!-- VOTES -->
+  
+
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+  <!-- N.-B. (Martin, 7 nov. 2026) : vue de l'abonnement retirée pour l'instant (à reprendre de DossierQuébec). -->
+
+  <!-- LEXIQUE (fusion : personnes, lexique, apropos) -->
+  
+
+  <!-- PAGE CACHÉE — la BD « l'idée derrière le site ». Aucun onglet n'y mène :
+       accessible seulement par le « et moi » du bas de page (à côté de
+       « Construit avec Claude »). goToTab('bd') fonctionne sans bouton d'onglet. -->
+  <!-- /mon-dossier : l'espace de la personne connectée, côté ASSEMBLÉE seulement (Martin,
+       22 sept. 2026 : « mes dossiers provincial et les villes doivent être complètement séparés »).
+       Les villes y ont leur section (#villes) depuis le 30 sept. 2026 ; avant, /mes-dossiers. Tout le contenu
+       est rempli par commun/dq.js (renderMonDossier) : rien de personnel n'est dans le HTML. -->
+  <!-- LES RÈGLES (Martin, 5 oct. 2026 : « on pourrait quasiment faire une page de ça… à côté de
+       Facebook »). Les règles de sources du site, écrites une fois pour être montrées à quelqu'un :
+       tout ce que les encadrés de méthode disent page par page, réuni. Lien dans le pied de page. -->
+  
+
+  <!-- LA PAGE 404 (Martin, 6 oct. 2026 : « faut une page drôle 404 », puis : avec le jaune et tout
+       le kit du site, « morte dans l'œuf », et pas de blanc sur noir). Vercel sert 404.html, avec le
+       code 404, pour toute adresse qui n'existe pas ; avant, c'était le message brut de l'hébergeur,
+       en anglais. Fabriquée comme les autres pages (scripts/build-section-pages.js, vue
+       « introuvable »), donc avec l'en-tête, le menu et le pied du site.
+       « Morte dans l'œuf » est le libellé des projets de loi jamais rendus plus loin que la
+       présentation. Le faux vote est ÉTIQUETÉ comme une blague : ce site n'invente jamais de donnée. -->
+  
+
+  <!-- L'ABONNEMENT FACULTATIF (retiré le 27 sept. 2026, remis le 21 oct. 2026). Le texte du site et
+       le suivi restent gratuits ; l'abonnement vend des outils en plus, aucun municipal. Chaque outil
+       porte son état : « Disponible » seulement s'il est réellement livré. La zone #abEtat (s'abonner,
+       gérer, annuler) est remplie par renderAbonnement (commun/dq.js) depuis /api/abonnement. -->
+
+  
+
+  
+
+</div>
+
+<!-- Footer maquette : texte à gauche (avec « construit avec Claude » suivi du
+     lien caché « et moi » vers la BD), liens texte en majuscules à droite. -->
+<footer>
+  <nav class="footer-nav" aria-label="Plan du site">
+    <a href="/en/" data-i18n="nav.apercu">Overview</a>
+    <a href="/en/ministres" data-i18n="nav.ministres">Ministers</a>
+    <a href="/en/projets-de-loi" data-i18n="nav.projets">Bills</a>
+    <a href="/en/votes" data-i18n="nav.votes">Votes</a>
+    <a href="/en/lexique" data-i18n="nav.lexique">Glossary</a>
+    <a href="/en/sources" data-i18n="fil.bd">Site updates</a>
+    <a href="/mon-dossier?lang=en" data-i18n="nav.mondossier">My file</a>
+    <span class="footer-nav-villes"><span data-i18n="footer.villes">Cities:</span>
+      <a class="lienRtv" href="https://dossierquebec.ca/represente-ta-ville?province=nb" target="_blank" rel="noopener">+ <span data-i18n="nav.rtv">Represent your city</span></a>
+    </span>
+  </nav>
+  <div class="footer-inner">
+  <span class="footer-left-line"><span id="footerLeft">Unofficial site — public data from New Brunswick's Legislative Assembly ·</span> <span id="footerRight">A project by</span> <a class="footer-etmoi" id="footerDafr" href="https://www.dafrsolution.com/en" target="_blank" rel="noopener">DAFR Solution</a></span>
+  <span class="footer-right-group">
+    <a class="footer-gh" href="/en/regles" data-i18n="footer.regles">The rules</a>
+    <!-- N.-B. (Martin, 7 nov. 2026) : abonnement, café, flux RSS des abonné·e·s et crédit Flaticon retirés pour l'instant. -->
+    <a class="footer-gh" href="https://github.com/GrandFFormat/dossiernbrunswick" target="_blank" rel="noopener" data-i18n="footer.source">Source code</a>
+  </span>
+  </div>
+</footer>
+
+<button id="backToTop" class="dq-remonter" aria-label="Remonter en haut" title="Remonter en haut" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/commun/apercu.js"></script>
+<script src="/commun/dq.js"></script>
+<!-- Vercel Web Analytics — sans cookie, sans donnée personnelle (donc pas de
+     bannière de consentement requise). Le script est servi automatiquement par
+     Vercel quand Web Analytics est activé dans le tableau de bord du projet. -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer="" src="/_vercel/insights/script.js"></script>
+
+
+</body></html>

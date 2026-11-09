@@ -9,6 +9,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync } from 'node:fs';
 import { slugProjet } from './build-bill-pages.js';
+import { PAGES_EN } from './pages-en.js';
 import { slugMinistre, esc, norm, lire, dateFr, dateEn, ICONES_RESEAUX, nomReseau, citeSource, deux, PARTIS, classeurPresence, LEG, LEG_EN } from './build-minister-pages.js';
 
 const SITE = 'https://dossiernbrunswick.ca';
@@ -81,14 +82,15 @@ export function construirePagesChefs() {
     const ligne = (lbl, val) => `<div class="m-row"><span class="m-label">${lbl}</span><span class="m-val">${val}</span></div>`;
     const long = `${c.name}, ${c.bandeau[0].charAt(0).toLowerCase() + c.bandeau[0].slice(1)} — DossierNBrunswick`;
     const titre = long.length <= 65 ? long : `${c.name}, ${c.party} — DossierNBrunswick`;
-    let desc = `${c.name} (${c.party}, ${riding}) : ${c.roles[0].charAt(0).toLowerCase() + c.roles[0].slice(1)}. Projets de loi, présence aux votes, promesses et biographie.`;
-    if (desc.length > 165) desc = `${c.name} (${c.party}, ${riding}). Projets de loi, présence aux votes, promesses de son parti et biographie.`;
+    // N.-B. : pas de promesses (section retirée, Martin, 7 nov. 2026).
+    let desc = `${c.name} (${c.party}, ${riding}) : ${c.roles[0].charAt(0).toLowerCase() + c.roles[0].slice(1)}. Projets de loi, présence aux votes et biographie.`;
+    if (desc.length > 165) desc = `${c.name} (${c.party}, ${riding}). Projets de loi parrainés, présence aux votes et biographie.`;
     if (desc.length < 120) desc += ' Assemblée législative du Nouveau-Brunswick.';
     if (desc.length < 120) desc += ' Fiche à jour.';
 
     const base = `/${DOSSIER}/photos/${slug}`;
     const photo = existsSync(`${DOSSIER}/photos/${slug}.webp`)
-      ? `<figure class="min-photo"><img src="${base}.webp" srcset="${base}.webp 1x, ${base}@2x.webp 2x" width="200" height="200" alt="${esc(c.name)}"><figcaption>${deux('Photo', 'Photo')} : <a href="https://www.legnb.ca/" rel="noopener">${deux('Assemblée législative du Nouveau-Brunswick', 'Legislative Assembly of New Brunswick')}</a></figcaption></figure>` : '';
+      ? `<figure class="min-photo"><img src="${base}.webp" srcset="${base}.webp 1x, ${base}@2x.webp 2x" width="200" height="200" alt="${esc(c.name)}"><figcaption>${deux('Photo :', 'Photo:')} <a href="https://www.legnb.ca/" rel="noopener">${deux('Assemblée législative du Nouveau-Brunswick', 'Legislative Assembly of New Brunswick')}</a></figcaption></figure>` : '';
     const reseaux = c.reseaux ?? [];
 
     const fiche = `<section class="view active" id="view-ministre" data-titre-en="${esc(`${c.name}, ${c.bandeau[1]} — DossierNBrunswick`.length <= 65 ? `${c.name}, ${c.bandeau[1]} — DossierNBrunswick` : `${c.name}, ${c.party} — DossierNBrunswick`)}">
@@ -105,13 +107,13 @@ export function construirePagesChefs() {
       <h2>${deux('Fonctions', 'Roles')}</h2>
       <ul class="min-liste">${c.roles.map((r, i) => `<li>${deux(esc(r), esc(c.rolesEn[i] ?? r))}</li>`).join('')}</ul>
       <div class="min-faits">
-        ${ligne(deux('Parti', 'Party'), esc(`${partiFr} (${c.party})`))}
+        ${ligne(deux('Parti', 'Party'), deux(esc(`${partiFr} (${c.party})`), esc(`${partiEn} (${c.party})`)))}
         ${ligne(deux('Circonscription', 'Riding'), esc(riding + (region ? ` — ${region}` : '')))}
         ${mandats ? ligne(deux('Mandat', 'Term'), deux(mandats === 1 ? '1er' : `${mandats}e`, mandats === 1 ? '1st' : `no. ${mandats}`)) : ''}
       </div>
 
       <h2>${deux('Projets de loi parrainés', 'Bills sponsored')}</h2>
-      ${projets.length ? `<ul class="min-liste">${projets.map((b) => { const s = slugProjet(b); return `<li><a href="${s ? `/projets-de-loi/${s}` : `/projets-de-loi?pl=${b.num}`}">${deux(`PL ${esc(b.num)} — ${esc(b.title)}`, `Bill ${esc(b.num)} — ${esc(b.titleEn || b.title)}`)}</a> <span class="pr-meta">· ${b.legislature ? deux(`${b.legislature}e législature`, `${b.legislature}th Legislature`) + ' · ' : ''}${deux(esc(b.note ?? ''), esc(b.noteEn ?? b.note ?? ''))}</span></li>`; }).join('')}</ul>`
+      ${projets.length ? `<ul class="min-liste">${projets.map((b) => { const s = slugProjet(b); return `<li><a href="${s ? `/projets-de-loi/${s}` : `/projets-de-loi?pl=${b.num}`}">${deux(`Projet de loi ${esc(b.num)} — ${esc(b.title)}`, `Bill ${esc(b.num)} — ${esc(b.titleEn || b.title)}`)}</a> <span class="pr-meta">· ${b.legislature ? deux(`${b.legislature}e législature`, `${b.legislature}${({ 1: 'st', 2: 'nd', 3: 'rd' }[(b.legislature % 100 >= 11 && b.legislature % 100 <= 13) ? 0 : b.legislature % 10] || 'th')} Legislature`) + ' · ' : ''}${deux(esc(b.note ?? ''), esc(b.noteEn ?? b.note ?? ''))}</span></li>`; }).join('')}</ul>`
         : `<p>${deux('Aucun projet de loi parrainé dans les données du site pour l’instant.', 'No bill sponsored in the site’s data so far.')}</p>`}
 
       <h2>${deux('Présence aux votes', 'Vote attendance')}</h2>
@@ -121,15 +123,11 @@ export function construirePagesChefs() {
       ${mandats || passees ? `<h2>${deux('Historique', 'History')}</h2>` : ''}
       <p>${mandats ? deux(mandats === 1 ? 'Premier mandat à l’Assemblée législative.' : `${mandats}e mandat à l’Assemblée législative.`, mandats === 1 ? 'First term in the Legislative Assembly.' : `Term no. ${mandats} in the Legislative Assembly.`) : ''}${passees ? ` ${deux(`Présence aux votes de la ${historique.courante - 1}e législature : ${esc(passees.rate ?? '')} %.`, `Attendance in the previous Legislature: ${esc(passees.rate ?? '')}%.`)}` : ''}</p>
 
-      ${proms.length ? `<h2>${deux(`Promesses du ${esc(partiFr)} en 2026`, `${esc(partiEn)} 2026 promises`)}</h2>
-      <ul class="min-liste">${proms.map((p) => `<li class="min-promesse"><q>${esc(p.quote)}</q><span class="min-prom-source">${citeSource(p)}</span></li>`).join('')}</ul>
-      <p><a href="/promesses">${deux('Toutes les promesses 2026 →', 'All 2026 promises →')}</a></p>` : ''}
-
       ${bioFr.length ? `<h2>${deux('Biographie', 'Biography')}</h2><p>${deux(esc(bioFr.join(' ')), esc(bioEn.join(' ')))}</p>` : ''}
 
       <h2>${deux('Coordonnées officielles', 'Official contact')}</h2>
       <p>${courriel ? `<a class="m-mail" href="mailto:${esc(courriel)}">✉ ${esc(courriel)}</a>` : `${deux('<a href="https://www.legnb.ca/fr/parlementaires/actuel" rel="noopener">Coordonnées sur legnb.ca</a>', '<a href="https://www.legnb.ca/en/members/current" rel="noopener">Contact details on legnb.ca</a>')}`}</p>
-      ${w.url ? `<p class="min-source">${deux('Source', 'Source')} : <a href="${esc(w.url)}" rel="noopener">Wikipédia</a></p>` : ''}
+      ${w.url ? `<p class="min-source">${deux('Source :', 'Source:')} <a href="${esc(w.url)}" rel="noopener">Wikipédia</a></p>` : ''}
     </div></div>
   </section>`;
 
@@ -169,6 +167,26 @@ export function construirePagesChefs() {
     if ((h.match(/<h1[\s>]/g) || []).length !== 1) throw new Error(`build-chefs-opposition : ${c.name} n'a pas exactement un <h1>`);
     writeFileSync(`${DOSSIER}/${slug}.html`, h, 'utf8');
     adresses.push(url);
+    // N.-B. (8 nov. 2026) : la page anglaise (scripts/build-en.js). Le texte anglais est déjà dans la fiche.
+    const urlEn = `${SITE}/en/${DOSSIER}/${slug}`;
+    const longEn = `${c.name}, ${c.bandeau[1]} — DossierNBrunswick`;
+    let descEn = `${c.name} (${c.party}, ${riding}): ${c.rolesEn[0]}. Bills sponsored, vote attendance and biography.`;
+    if (descEn.length > 165) descEn = `${c.name} (${c.party}, ${riding}). Bills sponsored, vote attendance and biography.`;
+    if (descEn.length < 120) descEn += ' Legislative Assembly of New Brunswick.';
+    PAGES_EN.set(`${DOSSIER}/${slug}.html`, {
+      title: longEn.length <= 65 ? longEn : `${c.name}, ${c.party} — DossierNBrunswick`,
+      desc: descEn,
+      ld: JSON.stringify({ '@context': 'https://schema.org', '@graph': [
+        { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/en/` },
+          { '@type': 'ListItem', position: 2, name: 'Ministers and MLAs', item: `${SITE}/en/ministres` },
+          { '@type': 'ListItem', position: 3, name: c.name, item: urlEn },
+        ] },
+        { '@type': 'Person', name: c.name, url: urlEn, jobTitle: c.rolesEn, memberOf: [{ '@type': 'PoliticalParty', name: partiEn }],
+          ...(photo ? { image: `${SITE}${base}.webp` } : {}),
+          sameAs: [...(w.url ? [w.url] : []), ...(w.wikidata ? [`https://www.wikidata.org/wiki/${w.wikidata}`] : []), ...reseaux] },
+      ] }, null, 1).replace(/</g, '\\u003c'),
+    });
   }
 
   const plan = readFileSync('sitemap.xml', 'utf8').replace(/\r\n/g, '\n');

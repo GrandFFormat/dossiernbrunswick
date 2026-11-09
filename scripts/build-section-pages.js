@@ -17,6 +17,7 @@
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { slugMinistre } from './build-minister-pages.js';
+import { PAGES_EN } from './pages-en.js';
 
 const BASE = 'https://dossiernbrunswick.ca';
 const SRC = 'gabarit.html';
@@ -327,14 +328,26 @@ const bloc = (jeu, etiquette, items, note, filtres = false) =>
   `<div class="prerendu" data-prerendu="${jeu}">\n      <ul aria-label="${esc(etiquette)}">\n${items.map((i) => `        <li>${i}</li>`).join('\n')}\n      </ul>\n      <p class="pr-note">${note}${filtres ? SANS_JS : ''}</p>\n    </div>`;
 const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
 const dateFr = (iso) => { const [a, m, j] = String(iso).split('-').map(Number); return a && m && j ? `${j === 1 ? '1er' : j} ${MOIS[m - 1]} ${a}` : ht(iso); };
-const projet = (b) => `<b>Projet de loi n° ${ht(b.num)}</b> — ${ht(b.title)}${b.note ? ` <span class="pr-meta">· ${ht(b.note)}</span>` : ''}`;
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const dateEn = (iso) => { const [a, m, j] = String(iso).split('-').map(Number); return a && m && j ? `${MONTHS[m - 1]} ${j}, ${a}` : ht(iso); };
+// N.-B. (8 nov. 2026, audit de Kyle) : chaque projet de la liste mène à sa page. `en` : la même
+// liste pour la page anglaise (scripts/build-en.js), liens sous /en/.
+const slugDe = (b) => (b.legislature && b.introSession ? `${b.num}-${b.legislature}-${b.introSession}` : null);
+const projet = (b, en = false) => {
+  const s = slugDe(b);
+  const nom = en ? `Bill ${ht(b.num)}` : `Projet de loi n° ${ht(b.num)}`;
+  const titre = en ? (b.titleEn || b.title) : b.title;
+  const note = en ? (b.noteEn || b.note) : b.note;
+  return `<b>${s ? `<a href="${en ? '/en' : ''}/projets-de-loi/${s}">${nom}</a>` : nom}</b> — ${ht(titre)}${note ? ` <span class="pr-meta">· ${ht(note)}</span>` : ''}`;
+};
 // Même normalisation que norm() dans commun/dq.js : c'est elle qui sépare les ministres du reste
 // de l'Assemblée.
-const normNom = (s) => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[-–—']/g, ' ').replace(/\s+/g, ' ').trim();
+const normNom = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[-–—']/g, ' ').replace(/\s+/g, ' ').trim();
 const JOURNAL_PREMIERES = 20;   // même valeur que dans commun/dq.js : la page n'en montre pas plus
 
-function prerendus(valeurs) {
+function prerendus(valeurs, en = false) {
   const bills = valeurs.bills;
+  const parId = new Map(bills.map((b) => [b.id, b]));
   const votesRecents = [...valeurs.votes]
     .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : String(b.id).localeCompare(String(a.id), 'fr', { numeric: true })))
     .slice(0, 30);
@@ -345,30 +358,44 @@ function prerendus(valeurs) {
   catch (e) { console.warn(`⚠ data/journal.json illisible (${e.message.slice(0, 70)}) : /sources part sans sa liste écrite`); }
   if (!Array.isArray(journal)) journal = [];
   const journalTrie = [...journal].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+  const d = en ? dateEn : dateFr;
+  const source = en ? 'Official source' : 'Source officielle';
+  const prefixe = en ? '/en' : '';
+  // Le vote mène au projet qu'il touche, quand il en touche un.
+  const sujetVote = (v) => {
+    const b = v.billId ? parId.get(v.billId) : null;
+    const s = b ? slugDe(b) : null;
+    if (en) return b ? `<a href="/en/projets-de-loi/${s}">Bill ${ht(b.num)}</a> — ${ht(b.titleEn || b.title)}` : ht(v.subject);
+    const sujet = `${v.stage ? `${ht(v.stage)} — ` : ''}${v.billNum && !/^projet de loi n[°o]\s*\d/i.test(String(v.subject || '')) ? `projet de loi n° ${ht(v.billNum)} — ` : ''}${ht(v.subject)}`;
+    return s ? `<a href="/projets-de-loi/${s}">${sujet}</a>` : sujet;
+  };
   return {
-    apercuBills: bloc('apercuBills', 'Projets de loi récemment actifs', bills.slice(0, 4).map(projet),
-      `Source officielle : ${ASSNAT}.`),
-    newsList: bloc('newsItems', 'Quoi de neuf à l’Assemblée législative',
+    apercuBills: bloc('apercuBills', en ? 'Recently active bills' : 'Projets de loi récemment actifs', bills.slice(0, 4).map((b) => projet(b, en)),
+      `${source}${en ? ":" : " :"} ${ASSNAT}.`),
+    newsList: bloc('newsItems', en ? 'What’s new at the Legislative Assembly' : 'Quoi de neuf à l’Assemblée législative',
       [...valeurs.newsItems].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 8)
-        .map((n) => `<span class="pr-meta">${ht(n.label || dateFr(n.date))} —</span> ${ht(n.text)}`),
-      `Source officielle : ${ASSNAT}.`),
-    ministresGrid: bloc('ministers', 'Conseil exécutif',
-      valeurs.ministers.map((m) => `<b><a href="/ministres/${slugMinistre(m.name)}">${ht(m.name)}</a></b> — ${ht(m.role)} <span class="pr-meta">(${ht(m.party)})</span>`),
-      `Le Conseil exécutif du Nouveau-Brunswick compte ${valeurs.ministers.length} membres, dont ${ht(valeurs.ministers[0].name)}, ${ht(String(valeurs.ministers[0].role || '').split(' · ')[0].toLowerCase())} (au ${dateFr(new Date().toISOString().slice(0, 10))}). Source officielle : ${QUEBEC_CA}.`, true),
-    deputesList: bloc('deputesRaw', 'Le reste de l’Assemblée',
-      deputes.map((d) => `${ht(d[0])} — ${ht(d[1])} <span class="pr-meta">(${ht(d[3])})</span>`),
-      `Les ${deputes.length} autres député·e·s. Source officielle : ${ASSNAT}.`, true),
-    billsList: bloc('bills', 'Projets de loi', bills.map(projet),
-      `Les ${bills.length} projets de loi, du plus récemment actif au plus ancien. Texte intégral de chacun : ${ASSNAT}.`, true),
-    // Le sujet d'un vote commence souvent déjà par « Projet de loi n° X » : on ne le répète pas.
-    votesList: bloc('votes', 'Votes nominatifs récents', votesRecents.map((v) =>
-      `<span class="pr-meta">${ht(dateFr(v.date))} —</span> ${v.stage ? `${ht(v.stage)} — ` : ''}${v.billNum && !/^projet de loi n[°o]\s*\d/i.test(String(v.subject || '')) ? `projet de loi n° ${ht(v.billNum)} — ` : ''}${ht(v.subject)} <span class="pr-meta">· pour ${ht(v.totals?.pour)}, contre ${ht(v.totals?.contre)}, abstentions ${ht(v.totals?.abstentions)}</span>`),
-      `Les ${votesRecents.length} votes les plus récents, sur ${valeurs.votes.length}. Source officielle : les Journaux de l’Assemblée, ${ASSNAT}.`, true),
+        .map((n) => `<span class="pr-meta">${ht((en ? n.labelEn : n.label) || d(n.date))} —</span> ${ht(en ? (n.textEn || n.text) : n.text)}`),
+      `${source}${en ? ":" : " :"} ${ASSNAT}.`),
+    ministresGrid: bloc('ministers', en ? 'Executive Council' : 'Conseil exécutif',
+      valeurs.ministers.map((m) => `<b><a href="${prefixe}/ministres/${slugMinistre(m.name)}">${ht(m.name)}</a></b> — ${ht(en ? (m.roleEn || m.role) : m.role)} <span class="pr-meta">(${ht(m.party)})</span>`),
+      en
+        ? `New Brunswick’s Executive Council has ${valeurs.ministers.length} members, including ${ht(valeurs.ministers[0].name)}, ${ht(String(valeurs.ministers[0].roleEn || valeurs.ministers[0].role || '').split(' · ')[0])} (as of ${dateEn(new Date().toISOString().slice(0, 10))}). Official source: ${QUEBEC_CA}.`
+        : `Le Conseil exécutif du Nouveau-Brunswick compte ${valeurs.ministers.length} membres, dont ${ht(valeurs.ministers[0].name)}, ${ht(String(valeurs.ministers[0].role || '').split(' · ')[0].toLowerCase())} (au ${dateFr(new Date().toISOString().slice(0, 10))}). Source officielle : ${QUEBEC_CA}.`, !en),
+    deputesList: bloc('deputesRaw', en ? 'The rest of the Assembly' : 'Le reste de l’Assemblée',
+      deputes.map((x) => `${ht(x[0])} — ${ht(x[1])} <span class="pr-meta">(${ht(x[3])})</span>`),
+      en ? `The other ${deputes.length} MLAs. Official source: ${ASSNAT}.` : `Les ${deputes.length} autres député·e·s. Source officielle : ${ASSNAT}.`, !en),
+    billsList: bloc('bills', en ? 'Bills' : 'Projets de loi', bills.map((b) => projet(b, en)),
+      en ? `The ${bills.length} bills, most recently active first. Full text of each: ${ASSNAT}.` : `Les ${bills.length} projets de loi, du plus récemment actif au plus ancien. Texte intégral de chacun : ${ASSNAT}.`, !en),
+    votesList: bloc('votes', en ? 'Recent recorded divisions' : 'Votes nominatifs récents', votesRecents.map((v) =>
+      `<span class="pr-meta">${ht(d(v.date))} —</span> ${sujetVote(v)} <span class="pr-meta">· ${en ? 'yeas' : 'pour'} ${ht(v.totals?.pour)}, ${en ? 'nays' : 'contre'} ${ht(v.totals?.contre)}, ${en ? 'abstentions' : 'abstentions'} ${ht(v.totals?.abstentions)}</span>`),
+      en ? `The ${votesRecents.length} most recent divisions, out of ${valeurs.votes.length}. Official source: the Journals of the Assembly, ${ASSNAT}.` : `Les ${votesRecents.length} votes les plus récents, sur ${valeurs.votes.length}. Source officielle : les Journaux de l’Assemblée, ${ASSNAT}.`, !en),
     // Les 20 plus récentes seulement, comme la page vivante : sans plafond, le journal ferait
     // grossir /sources sans fin.
-    journal: bloc('journal', 'Mises à jour du site', journalTrie.slice(0, JOURNAL_PREMIERES).map((e) =>
-      `<span class="pr-meta">${ht(dateFr(e.date))} —</span> <b>${ht(e.fr?.titre)}</b> ${ht(e.fr?.texte)}`),
-      journalTrie.length > JOURNAL_PREMIERES ? `Les ${JOURNAL_PREMIERES} plus récentes, sur ${journalTrie.length}.` : 'Du plus récent au plus ancien.'),
+    journal: bloc('journal', en ? 'Site updates' : 'Mises à jour du site', journalTrie.slice(0, JOURNAL_PREMIERES).map((e) =>
+      `<span class="pr-meta">${ht(d(e.date))} —</span> <b>${ht(en ? (e.en?.titre || e.fr?.titre) : e.fr?.titre)}</b> ${ht(en ? (e.en?.texte || e.fr?.texte) : e.fr?.texte)}`),
+      journalTrie.length > JOURNAL_PREMIERES
+        ? (en ? `The ${JOURNAL_PREMIERES} most recent, out of ${journalTrie.length}.` : `Les ${JOURNAL_PREMIERES} plus récentes, sur ${journalTrie.length}.`)
+        : (en ? 'Most recent first.' : 'Du plus récent au plus ancien.')),
   };
 }
 
@@ -568,6 +595,7 @@ function fabriquer(page, tronc, vues, REPERE, pre) {
 // « modifiées » au passage suivant, et leur <lastmod> n'avancerait jamais.
 const { tailles, valeurs, reecrits } = extraireDonnees();
 const pre = prerendus(valeurs);
+const preEn = prerendus(valeurs, true);   // N.-B. : pour les pages anglaises (scripts/build-en.js)
 // Chaque liste a exactement UN repère dans le modèle. Un repère supprimé par mégarde ferait
 // disparaître la liste du HTML sans que rien ne le signale ; un repère en double, la doublerait.
 for (const nom of Object.keys(pre)) {
@@ -593,7 +621,8 @@ const produites = PAGES.map((page) => ({ page, html: fabriquer(page, troncSansDo
 const aEcrire = new Set();
 const changees = new Set();
 for (const { page, html } of produites) {
-  const avant = existsSync(page.fichier) ? readFileSync(page.fichier, 'utf8').replace(/\r\n/g, '\n') : null;
+  // N.-B. : les liens hreflang sont posés après coup par scripts/build-en.js ; on les ignore ici.
+  const avant = existsSync(page.fichier) ? readFileSync(page.fichier, 'utf8').replace(/\r\n/g, '\n').replace(/\n<link rel="alternate" hreflang="[^"]*" href="[^"]*">/g, '') : null;
   if (avant !== html) { aEcrire.add(page.fichier); changees.add(page.fichier); }
   if (page.donnees.some((d) => d !== 'stats' && reecrits.has(d))) changees.add(page.fichier);
 }
@@ -759,6 +788,26 @@ console.log(`✓ ${PAGES.length} pages fabriquées depuis ${SRC}.`);
 if (!existsSync('sitemap.xml') || readFileSync('sitemap.xml', 'utf8').replace(/\r\n/g, '\n') !== sitemap.xml) writeFileSync('sitemap.xml', sitemap.xml, 'utf8');
 console.log(`✓ sitemap.xml : ${sitemap.n} adresses (${sitemap.n - sitemap.villes} de l'Assemblée, ${sitemap.villes} des volets), aucune en noindex`);
 
+// N.-B. (8 nov. 2026, audit de Kyle) : la version anglaise de chaque page publique, fabriquée par
+// scripts/build-en.js à la fin du build. Titre et description anglais ici ; les listes écrites dans
+// le HTML, dans leur version anglaise (preEn).
+const EN = {
+  "/": ["New Brunswick’s Legislative Assembly in plain language — DossierNBrunswick", "Follow New Brunswick’s Legislative Assembly in plain language: bills and their stages, how each MLA voted on recorded divisions, and the Executive Council."],
+  "/ministres": ["New Brunswick’s Executive Council and MLAs — DossierNBrunswick", "Who sits on New Brunswick’s Executive Council: each minister and their portfolios, then the 49 MLAs of the Legislative Assembly, party by party."],
+  "/projets-de-loi": ["New Brunswick bills — DossierNBrunswick", "Bills before New Brunswick’s Legislative Assembly, with their actual stage, the date of each reading and a link to the official text on legnb.ca."],
+  "/votes": ["Recorded divisions in New Brunswick — DossierNBrunswick", "Recorded divisions of New Brunswick’s Legislative Assembly, read from its Journals: who voted for or against, MLA by MLA, without interpretation."],
+  "/lexique": ["Legislative Assembly glossary — DossierNBrunswick", "First reading, royal assent, recorded division: the vocabulary of New Brunswick’s Legislative Assembly explained simply, with sources."],
+  "/regles": ["DossierNBrunswick’s sourcing rules — DossierNBrunswick", "DossierNBrunswick’s nine sourcing rules: never invented data, primary sources only, no media, word-for-word quotes, no verdict."],
+  "/sources": ["Site updates — DossierNBrunswick", "What changes on DossierNBrunswick, an independent citizen site that makes New Brunswick’s Legislative Assembly readable, and who is behind it."],
+};
+const JEU_DE = { apercuBills: "apercuBills", newsList: "newsItems", ministresGrid: "ministers", deputesList: "deputesRaw", billsList: "bills", votesList: "votes", journal: "journal" };
+for (const { page, html } of produites) {
+  if (page.prive || !EN[page.url]) continue;
+  const blocs = {};
+  for (const [nom, jeu] of Object.entries(JEU_DE)) if (html.includes(`data-prerendu="${jeu}"`)) blocs[`[data-prerendu="${jeu}"]`] = preEn[nom];
+  PAGES_EN.set(page.fichier, { title: EN[page.url][0], desc: EN[page.url][1], blocs });
+}
+
 // Une page par projet de loi (/projets-de-loi/3-43-3), à partir de projets-de-loi.html qui vient
 // d'être écrit, et ajoutée au sitemap : scripts/build-bill-pages.js.
 const { construirePagesProjets } = await import('./build-bill-pages.js');
@@ -777,3 +826,7 @@ construirePagesMinistres();
 // Les chefs de l'opposition qui siègent (/deputes/charles-milliard) : scripts/build-chefs-opposition.js.
 const { construirePagesChefs } = await import('./build-chefs-opposition.js');
 construirePagesChefs();
+
+// N.-B. (8 nov. 2026) : les pages anglaises, sous /en/, et les liens hreflang entre les deux versions.
+const { construirePagesAnglaises } = await import('./build-en.js');
+construirePagesAnglaises();
