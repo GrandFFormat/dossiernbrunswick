@@ -316,9 +316,9 @@ export async function envoyerVeille({ apercu = false, essai = null, plafond = In
   // échouer le passage du matin (les alertes et l'infolettre partent quand même).
   let colonneAbsente = null;
   const [preferences, etats] = await Promise.all([
-    toutLire(`/rest/v1/alertes_preferences?select=user_id,veille_themes&user_id=in.(${liste})&veille_themes=neq.{}`, 'user_id')
+    toutLire(`/rest/v1/nb_alertes_preferences?select=user_id,veille_themes&user_id=in.(${liste})&veille_themes=neq.{}`, 'user_id')
       .catch((e) => { colonneAbsente = e.message; return []; }),
-    toutLire(`/rest/v1/alertes_etat?select=user_id,etat&user_id=in.(${liste})&ville=eq.${ASSEMBLEE}&projet=eq.${CLE_ETAT}`, 'user_id'),
+    toutLire(`/rest/v1/nb_alertes_etat?select=user_id,etat&user_id=in.(${liste})&ville=eq.${ASSEMBLEE}&projet=eq.${CLE_ETAT}`, 'user_id'),
   ]);
   if (colonneAbsente) return { ...rapport, raison: `thèmes illisibles (scripts/supabase-veille.sql exécuté ?) : ${colonneAbsente}` };
   const etatDe = new Map(etats.map((e) => [e.user_id, e.etat]));
@@ -381,7 +381,7 @@ export async function envoyerVeille({ apercu = false, essai = null, plafond = In
       // Seulement après un envoi réussi, ou s'il n'y avait rien à dire. Les clés gardées : celles de
       // la fenêtre (les plus vieilles en sortent d'elles-mêmes la semaine suivante).
       if (!essai) {
-        await supabase('/rest/v1/alertes_etat?on_conflict=user_id,ville,projet', {
+        await supabase('/rest/v1/nb_alertes_etat?on_conflict=user_id,ville,projet', {
           methode: 'POST',
           corps: [{ user_id: p.uid, ville: ASSEMBLEE, projet: CLE_ETAT, etat: { semaine, jusqua: aujourdhui, vus: v.aMemoriser }, mis_a_jour: new Date().toISOString() }],
           entetes: { Prefer: 'resolution=merge-duplicates,return=minimal' },

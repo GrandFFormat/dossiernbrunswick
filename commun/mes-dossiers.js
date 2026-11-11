@@ -219,8 +219,8 @@ async function majQuota() {
   // Abonné·e : aucune limite (Martin, 4 nov. 2026 ; scripts/supabase-suivis-illimites-abonnes.sql).
   const uid = (await client.auth.getUser())?.data?.user?.id;
   const [dossiers, organismes, abonne] = await Promise.all([
-    client.from('dossiers_suivis').select('id'),
-    client.from('organismes_suivis').select('id'),
+    client.from('nb_dossiers_suivis').select('id'),
+    client.from('nb_organismes_suivis').select('id'),
     uid ? client.rpc('est_abonne', { uid }) : Promise.resolve({ data: false }),
   ]);
   quota = dossiers.error || organismes.error
@@ -261,7 +261,7 @@ function carteDormante(zone, { titre, phrase, elements, table }) {
     if (erreur) { bouton.disabled = false; etat.textContent = tr('Impossible de le retirer. Réessayez.', "Couldn't remove it. Try again."); return; }
     bouton.closest('li').remove();
     // Les mots-clés ne comptent plus dans les suivis (21 oct. 2026) ; les organismes, oui.
-    if (table === 'alertes_mots_cles') etat.textContent = tr('Retiré.', 'Removed.');
+    if (table === 'nb_alertes_mots_cles') etat.textContent = tr('Retiré.', 'Removed.');
     else {
       quota.total -= 1;
       etat.textContent = tr('Retiré : une place de plus pour suivre un projet.', 'Removed: one more slot to follow a project.');
@@ -276,13 +276,13 @@ function carteDormante(zone, { titre, phrase, elements, table }) {
 async function motsCles(s) {
   const zone = $('#mots');
   if (!s) { zone.innerHTML = ''; return; }
-  const { data: tous, error } = await client.from('alertes_mots_cles').select('*').order('created_at');
+  const { data: tous, error } = await client.from('nb_alertes_mots_cles').select('*').order('created_at');
   if (error) { zone.innerHTML = ''; return; } // table absente
   carteDormante(zone, {
     titre: tr('Anciens mots-clés de ville', 'Former city keywords'),
     phrase: tr('Les alertes par mot-clé sur les décisions des villes ont été retirées : ces mots-clés ne servent plus. Vous pouvez les retirer.', 'Keyword alerts on city decisions have been removed: these keywords no longer do anything. You can remove them.'),
     elements: (tous ?? []).filter((m) => porteeDe(m) !== 'assemblee').map((m) => ({ id: m.id, nom: m.mot })),
-    table: 'alertes_mots_cles',
+    table: 'nb_alertes_mots_cles',
   });
 }
 
@@ -290,13 +290,13 @@ async function motsCles(s) {
 async function organismesSuivis(s) {
   const zone = $('#organismes');
   if (!s) { zone.innerHTML = ''; return; }
-  const { data, error } = await client.from('organismes_suivis').select('id, nom').order('created_at');
+  const { data, error } = await client.from('nb_organismes_suivis').select('id, nom').order('created_at');
   if (error) { zone.innerHTML = ''; return; } // table absente
   carteDormante(zone, {
     titre: tr('Anciens organismes suivis', 'Former followed organizations'),
     phrase: tr("Le suivi d'organismes a été retiré : ces noms ne servent plus, mais ils occupent une place dans vos suivis. Retirez-les pour suivre un projet à la place.", 'Following organizations has been removed: these names no longer do anything, but they still take up your follows. Remove them to follow a project instead.'),
     elements: data ?? [],
-    table: 'organismes_suivis',
+    table: 'nb_organismes_suivis',
   });
 }
 

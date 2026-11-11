@@ -353,7 +353,7 @@ export async function essaiPourSoi(jeton) {
   const [abonnement] = (await supabase(`/rest/v1/abonnements?user_id=eq.${uid}&select=statut,fin`)) ?? [];
   if (!estActive(abonnement)) return { statut: 403, corps: { erreur: 'réservé aux abonnés' } };
   const depuis = new Date(Date.now() - 24 * 3600e3).toISOString();
-  const essais = await supabase(`/rest/v1/alertes_envois?user_id=eq.${uid}&essai=eq.true&envoye_le=gte.${encodeURIComponent(depuis)}&select=id&limit=3`);
+  const essais = await supabase(`/rest/v1/nb_alertes_envois?user_id=eq.${uid}&essai=eq.true&envoye_le=gte.${encodeURIComponent(depuis)}&select=id&limit=3`);
   if ((essais ?? []).length >= 3) return { statut: 429, corps: { erreur: 'limite de 3 essais par 24 heures' } };
   return { uid, email: utilisateur.email };
 }
@@ -386,20 +386,20 @@ export async function envoyerAlertes({ apercu = false, essai = null, pourSoi = n
 
   const liste = abonnes.join(',');
   const [suivisLois, personnesSuivies, preferences, etats, mots, orgSuivis] = await Promise.all([
-    toutLire(`/rest/v1/dossiers_suivis?select=user_id,dossier_id&user_id=in.(${liste})&ville=eq.${ASSEMBLEE}&dossier_id=like.pl:*`, 'user_id,dossier_id'),
-    toutLire(`/rest/v1/follows?select=user_id,person_type,person_key&user_id=in.(${liste})&person_type=in.(minister,depute)`, 'user_id,person_type,person_key').catch((e) => {
+    toutLire(`/rest/v1/nb_dossiers_suivis?select=user_id,dossier_id&user_id=in.(${liste})&ville=eq.${ASSEMBLEE}&dossier_id=like.pl:*`, 'user_id,dossier_id'),
+    toutLire(`/rest/v1/nb_follows?select=user_id,person_type,person_key&user_id=in.(${liste})&person_type=in.(minister,depute)`, 'user_id,person_type,person_key').catch((e) => {
       rapport.erreurs.push(`personnes suivies ignorées : ${e.message}`);
       return [];
     }),
-    toutLire(`/rest/v1/alertes_preferences?select=user_id,actif&user_id=in.(${liste})`, 'user_id'),
-    toutLire(`/rest/v1/alertes_etat?select=user_id,projet,etat&user_id=in.(${liste})&ville=eq.${ASSEMBLEE}`, 'user_id,projet'),
-    toutLire(`/rest/v1/alertes_mots_cles?select=id,user_id,mot&user_id=in.(${liste})&portee=eq.${ASSEMBLEE}`, 'created_at,id').catch((e) => {
+    toutLire(`/rest/v1/nb_alertes_preferences?select=user_id,actif&user_id=in.(${liste})`, 'user_id'),
+    toutLire(`/rest/v1/nb_alertes_etat?select=user_id,projet,etat&user_id=in.(${liste})&ville=eq.${ASSEMBLEE}`, 'user_id,projet'),
+    toutLire(`/rest/v1/nb_alertes_mots_cles?select=id,user_id,mot&user_id=in.(${liste})&portee=eq.${ASSEMBLEE}`, 'created_at,id').catch((e) => {
       rapport.erreurs.push(`mots-clés ignorés : ${e.message}`);
       return [];
     }),
     // Seulement la portée « assemblee » : les anciennes lignes (noms cherchés dans les décisions des
     // villes, avant le 27 sept. 2026) ne déclenchent rien.
-    toutLire(`/rest/v1/organismes_suivis?select=user_id,nom&user_id=in.(${liste})&portee=eq.${ASSEMBLEE}`, 'user_id,nom').catch((e) => {
+    toutLire(`/rest/v1/nb_organismes_suivis?select=user_id,nom&user_id=in.(${liste})&portee=eq.${ASSEMBLEE}`, 'user_id,nom').catch((e) => {
       rapport.erreurs.push(`organismes ignorés : ${e.message}`);
       return [];
     }),
@@ -523,7 +523,7 @@ export async function envoyerAlertes({ apercu = false, essai = null, pourSoi = n
         } else {
           await envoyer(email, message);
           rapport.envoyes++;
-          await supabase('/rest/v1/alertes_envois', {
+          await supabase('/rest/v1/nb_alertes_envois', {
             methode: 'POST',
             corps: { user_id: uid, projets: a.sections.length, changements: message.total, essai: Boolean(essai) },
             entetes: { Prefer: 'return=minimal' },
@@ -532,7 +532,7 @@ export async function envoyerAlertes({ apercu = false, essai = null, pourSoi = n
       }
       // Seulement après un envoi réussi (ou s'il n'y avait rien à envoyer) : sinon on redira demain.
       if (!apercu && !essai && a.aMemoriser.length) {
-        await supabase('/rest/v1/alertes_etat?on_conflict=user_id,ville,projet', {
+        await supabase('/rest/v1/nb_alertes_etat?on_conflict=user_id,ville,projet', {
           methode: 'POST',
           corps: a.aMemoriser.map((m) => ({ user_id: uid, ville: ASSEMBLEE, ...m, mis_a_jour: maintenant.toISOString() })),
           entetes: { Prefer: 'resolution=merge-duplicates,return=minimal' },

@@ -1065,7 +1065,7 @@ let followedBills = {};
 async function loadFollowedBills(){
   followedBills = {};
   if(!currentUser) return;
-  const { data, error } = await supabaseClient.from('dossiers_suivis')
+  const { data, error } = await supabaseClient.from('nb_dossiers_suivis')
     .select('dossier_id').eq('user_id', currentUser.id).eq('ville', 'assemblee');
   if(error){ console.error('loadFollowedBills:', error); return; }
   for(const row of (data || [])){
@@ -1082,8 +1082,8 @@ async function toggleFollowBill(billId, btnId){
   if(btn) btn.disabled = true;
   const cle = { user_id: currentUser.id, ville: 'assemblee', dossier_id: 'pl:' + billId };
   const { error } = followedBills[billId]
-    ? await supabaseClient.from('dossiers_suivis').delete().eq('user_id', cle.user_id).eq('ville', cle.ville).eq('dossier_id', cle.dossier_id)
-    : await supabaseClient.from('dossiers_suivis').upsert(
+    ? await supabaseClient.from('nb_dossiers_suivis').delete().eq('user_id', cle.user_id).eq('ville', cle.ville).eq('dossier_id', cle.dossier_id)
+    : await supabaseClient.from('nb_dossiers_suivis').upsert(
         { ...cle, numero: 'PL ' + b.num, objet: String(b.title || '').slice(0, 600) },
         { onConflict: 'user_id,ville,dossier_id', ignoreDuplicates: true });
   if(error){
@@ -1533,12 +1533,12 @@ async function upsertFollow(personType, personKey, isFollowed){
   try{
     let error;
     if(isFollowed){
-      ({ error } = await supabaseClient.from('follows').upsert(
+      ({ error } = await supabaseClient.from('nb_follows').upsert(
         { user_id: currentUser.id, person_type: personType, person_key: personKey },
         { onConflict: 'user_id,person_type,person_key' }
       ));
     } else {
-      ({ error } = await supabaseClient.from('follows').delete()
+      ({ error } = await supabaseClient.from('nb_follows').delete()
         .eq('user_id', currentUser.id).eq('person_type', personType).eq('person_key', personKey));
     }
     if(error) console.error('Supabase follow sync error:', error);
@@ -1547,7 +1547,7 @@ async function upsertFollow(personType, personKey, isFollowed){
 
 async function loadFollowsFromSupabase(){
   if(!currentUser) return;
-  const { data, error } = await supabaseClient.from('follows')
+  const { data, error } = await supabaseClient.from('nb_follows')
     .select('person_type, person_key').eq('user_id', currentUser.id);
   if(error){ console.error(error); return; }
   followed = {};
@@ -1771,9 +1771,9 @@ async function mdQuota(){
   const plafond = MD_PLAFOND;
   if(!currentUser) return { total: 0, sur: null, parties: null };
   const [d, m, o] = await Promise.all([
-    supabaseClient.from('dossiers_suivis').select('ville'),
-    supabaseClient.from('alertes_mots_cles').select('portee'),
-    supabaseClient.from('organismes_suivis').select('id'),
+    supabaseClient.from('nb_dossiers_suivis').select('ville'),
+    supabaseClient.from('nb_alertes_mots_cles').select('portee'),
+    supabaseClient.from('nb_organismes_suivis').select('id'),
   ]);
   // (Les organismes non plus, depuis le 21 oct. 2026 : septième outil de l'abonnement, plafond à part,
   // scripts/supabase-organismes-retour.sql. On les lit encore pour le détail.)
@@ -1914,7 +1914,7 @@ async function mdOrganismes(isEn){
   }
   let suivis = [], d = null;
   try{
-    const { data, error } = await supabaseClient.from('organismes_suivis').select('id, nom').eq('portee', 'assemblee').order('created_at');
+    const { data, error } = await supabaseClient.from('nb_organismes_suivis').select('id, nom').eq('portee', 'assemblee').order('created_at');
     if(error) throw error;
     suivis = data || [];
     d = await organismesServeur(suivis.map((x) => 'c=' + encodeURIComponent(x.nom)).join('&'));
@@ -1972,7 +1972,7 @@ async function mdSuivreOrganisme(i){
   const o = _mdOrgResultats[i];
   const note = document.getElementById('mdOrgNote');
   if(!o || !currentUser) return;
-  const { error } = await supabaseClient.from('organismes_suivis').insert({ user_id: currentUser.id, nom: o.cle, portee: 'assemblee' });
+  const { error } = await supabaseClient.from('nb_organismes_suivis').insert({ user_id: currentUser.id, nom: o.cle, portee: 'assemblee' });
   if(error){
     note.textContent = /duplicate|23505/.test(error.message + error.code) ? (isEn ? 'Already followed.' : 'Déjà suivi.')
       : /limite de \d+ organismes/.test(error.message) ? (isEn ? `All ${MD_ORG_MAX} are used.` : `Vos ${MD_ORG_MAX} organismes sont utilisés.`)
@@ -1984,7 +1984,7 @@ async function mdSuivreOrganisme(i){
 }
 async function mdRetirerOrganisme(id){
   const isEn = currentLang === 'en';
-  const { error } = await supabaseClient.from('organismes_suivis').delete().eq('id', id);
+  const { error } = await supabaseClient.from('nb_organismes_suivis').delete().eq('id', id);
   if(error){ const n = document.getElementById('mdOrgNote'); if(n) n.textContent = isEn ? 'Could not remove it. Try again.' : 'Impossible de le retirer. Réessayez.'; return; }
   mdOrganismes(isEn);
 }
@@ -2007,7 +2007,7 @@ async function mdConsultations(isEn){
   }
   let d = null;
   try{
-    const { data } = await supabaseClient.from('dossiers_suivis').select('dossier_id').eq('ville', 'assemblee');
+    const { data } = await supabaseClient.from('nb_dossiers_suivis').select('dossier_id').eq('ville', 'assemblee');
     const ids = (data || []).map((x) => /^pl:(\d+)$/.exec(x.dossier_id)?.[1]).filter(Boolean);
     d = await consultationsServeur(ids);
   }catch(e){}
@@ -2047,7 +2047,7 @@ async function mdPreoccupations(isEn){
   // manque ou tombe, on retombe sur le tableau publié chaque matin (data/preoccupations.json).
   if(!_preoc){
     try{
-      const { data, error } = await supabaseClient.rpc('preoccupations_tableau');
+      const { data, error } = await supabaseClient.rpc('nb_preoccupations_tableau');
       if(error || !data) throw error || new Error('vide');
       const sujets = (data.sujets || []).map((s) => ({ fr: s.sujet, en: s.sujet, n: s.n }));
       _preoc = { recus: data.recus || 0, mentions: sujets.reduce((t, s) => t + s.n, 0), sujets, direct: true };
@@ -2091,7 +2091,7 @@ async function mdEnvoyerPreoccupation(){
     return;
   }
   btn.disabled = true;
-  const { error } = await supabaseClient.from('preoccupations').insert({ texte: texte.slice(0, 2000) });
+  const { error } = await supabaseClient.from('nb_preoccupations').insert({ texte: texte.slice(0, 2000) });
   btn.disabled = false;
   if(error){
     console.error('preoccupations:', error);
@@ -2120,7 +2120,7 @@ async function renderAdminPreoccupations(){
   if(!zone) return;
   if(!(await checkIsAdmin())){ zone.innerHTML = ''; return; }
   const isEn = currentLang === 'en';
-  const { data, error } = await supabaseClient.from('preoccupations').select('id, texte, statut, sujet, created_at').order('created_at', { ascending: false }).limit(200);
+  const { data, error } = await supabaseClient.from('nb_preoccupations').select('id, texte, statut, sujet, created_at').order('created_at', { ascending: false }).limit(200);
   if(error){ console.error('renderAdminPreoccupations:', error); zone.innerHTML = `<div class="account-note">${isEn ? 'Messages could not be read.' : 'Les messages n’ont pas pu être lus.'}</div>`; return; }
   // Les sujets : ceux déjà donnés à un message, plus ceux du tableau publié. Le sujet EST son libellé
   // (« Coût du logement ») : Martin les crée et les range lui-même, sans IA (18 oct. 2026).
@@ -2142,7 +2142,7 @@ async function renderAdminPreoccupations(){
     ${lignes ? `<div class="admin-preoc-defile"><table class="admin-preoc"><thead><tr><th>${isEn ? 'Date' : 'Date'}</th><th>Message</th><th>${isEn ? 'Status' : 'Statut'}</th><th>${isEn ? 'Approved' : 'Approuvé'}</th><th>${isEn ? 'Topic' : 'Sujet'}</th></tr></thead><tbody>${lignes}</tbody></table></div>` : `<p class="account-note">${isEn ? 'No message yet.' : 'Aucun message pour l’instant.'}</p>`}`;
 }
 async function adminPreocSpam(id, spam){
-  const { error } = await supabaseClient.from('preoccupations').update(spam ? { statut: 'spam', sujet: null } : { statut: 'nouveau', sujet: null }).eq('id', id);
+  const { error } = await supabaseClient.from('nb_preoccupations').update(spam ? { statut: 'spam', sujet: null } : { statut: 'nouveau', sujet: null }).eq('id', id);
   if(error){ console.error('adminPreocSpam:', error); alert(currentLang === 'en' ? 'Not saved.' : 'Pas enregistré.'); }
   renderAdminPreoccupations();
 }
@@ -2152,13 +2152,13 @@ async function adminPreocSujet(id, sujet, menu){
     if(libelle.length < 2){ if(menu) renderAdminPreoccupations(); return; }
     sujet = libelle;
   }
-  const { error } = await supabaseClient.from('preoccupations').update(sujet ? { sujet } : { statut: 'nouveau', sujet: null }).eq('id', id);
+  const { error } = await supabaseClient.from('nb_preoccupations').update(sujet ? { sujet } : { statut: 'nouveau', sujet: null }).eq('id', id);
   if(error){ console.error('adminPreocSujet:', error); alert(currentLang === 'en' ? 'Not saved.' : 'Pas enregistré.'); }
   renderAdminPreoccupations();
 }
 async function adminPreocApprouver(id, aUnSujet){
   if(!aUnSujet){ alert(currentLang === 'en' ? 'Pick a topic first, in the menu next to Spam.' : 'Choisissez d’abord un sujet, dans le menu à côté de Spam.'); return; }
-  const { error } = await supabaseClient.from('preoccupations').update({ statut: 'classe' }).eq('id', id);
+  const { error } = await supabaseClient.from('nb_preoccupations').update({ statut: 'classe' }).eq('id', id);
   if(error){ console.error('adminPreocApprouver:', error); alert(currentLang === 'en' ? 'Not saved.' : 'Pas enregistré.'); }
   renderAdminPreoccupations();
 }
@@ -2365,8 +2365,8 @@ async function mdAlertes(isEn){
     return;
   }
   const [m, p] = await Promise.all([
-    supabaseClient.from('alertes_mots_cles').select('id, mot').eq('portee', 'assemblee').order('created_at'),
-    supabaseClient.from('alertes_preferences').select('actif').maybeSingle(),
+    supabaseClient.from('nb_alertes_mots_cles').select('id, mot').eq('portee', 'assemblee').order('created_at'),
+    supabaseClient.from('nb_alertes_preferences').select('actif').maybeSingle(),
   ]);
   const mots = m.data ?? [];
   const actif = p.data?.actif !== false;
@@ -2406,7 +2406,7 @@ async function mdAjouterMot(){
   const note = document.getElementById('mdMotNote');
   const mot = (champ?.value || '').trim().replace(/\s+/g, ' ');
   if(mot.length < 2 || mot.length > 60){ note.textContent = isEn ? 'Between 2 and 60 characters.' : 'Entre 2 et 60 caractères.'; return; }
-  const { error } = await supabaseClient.from('alertes_mots_cles').insert({ user_id: currentUser.id, mot, portee: 'assemblee' });
+  const { error } = await supabaseClient.from('nb_alertes_mots_cles').insert({ user_id: currentUser.id, mot, portee: 'assemblee' });
   if(error){
     note.textContent = /duplicate|23505/.test(error.message + error.code) ? (isEn ? 'This keyword is already in your list.' : 'Ce mot-clé est déjà dans votre liste.')
       : /limite de \d+ mots/.test(error.message) ? (isEn ? `All ${MD_MOTS_MAX} keywords are used.` : `Vos ${MD_MOTS_MAX} mots-clés sont utilisés.`)
@@ -2418,13 +2418,13 @@ async function mdAjouterMot(){
 }
 async function mdRetirerMot(id){
   const isEn = currentLang === 'en';
-  const { error } = await supabaseClient.from('alertes_mots_cles').delete().eq('id', id);
+  const { error } = await supabaseClient.from('nb_alertes_mots_cles').delete().eq('id', id);
   if(error){ const n = document.getElementById('mdMotNote'); if(n) n.textContent = isEn ? 'Could not remove it. Try again.' : 'Impossible de le retirer. Réessayez.'; return; }
   mdAlertes(isEn);
 }
 async function mdAlertesActif(actif){
   const isEn = currentLang === 'en';
-  const { error } = await supabaseClient.from('alertes_preferences').upsert({ user_id: currentUser.id, actif, updated_at: new Date().toISOString() }, { onConflict: 'user_id' });
+  const { error } = await supabaseClient.from('nb_alertes_preferences').upsert({ user_id: currentUser.id, actif, updated_at: new Date().toISOString() }, { onConflict: 'user_id' });
   if(error){ const n = document.getElementById('mdMotNote'); if(n) n.textContent = isEn ? 'The change was not saved. Try again.' : 'Le changement n’a pas été enregistré. Réessayez.'; return; }
   mdAlertes(isEn);
 }
@@ -2488,7 +2488,7 @@ async function mdVeille(isEn){
     zone.innerHTML = `<div class="md-carte">${tete}<p class="md-note">${isEn ? 'Reserved for subscribers.' : 'Réservé aux abonné·e·s.'} <a class="md-lien" href="/abonnement">${isEn ? 'See the subscription' : 'Voir l’abonnement'}</a></p></div>`;
     return;
   }
-  const { data, error } = await supabaseClient.from('alertes_preferences').select('veille_themes').maybeSingle();
+  const { data, error } = await supabaseClient.from('nb_alertes_preferences').select('veille_themes').maybeSingle();
   if(error){
     zone.innerHTML = `<div class="md-carte">${tete}<p class="md-note">${isEn ? 'Topic watch is not available yet. Come back soon.' : 'La veille par thème n’est pas encore ouverte. Revenez bientôt.'}</p></div>`;
     return;
@@ -2508,7 +2508,7 @@ async function mdVeilleChoix(){
   const isEn = currentLang === 'en';
   const note = document.getElementById('mdVeilleNote');
   const themes = [...document.querySelectorAll('#mdVeille input[type="checkbox"]:checked')].map((c) => c.value);
-  const { error } = await supabaseClient.from('alertes_preferences').upsert({ user_id: currentUser.id, veille_themes: themes, updated_at: new Date().toISOString() }, { onConflict: 'user_id' });
+  const { error } = await supabaseClient.from('nb_alertes_preferences').upsert({ user_id: currentUser.id, veille_themes: themes, updated_at: new Date().toISOString() }, { onConflict: 'user_id' });
   if(error){
     if(note) note.textContent = /abonn/.test(error.message) ? (isEn ? 'Reserved for subscribers.' : 'Réservé aux abonné·e·s.') : (isEn ? 'The change was not saved. Try again.' : 'Le changement n’a pas été enregistré. Réessayez.');
     return;
@@ -6289,7 +6289,7 @@ function nbSuivisCharger(){
   _nbSuivisDemande = (async () => {
     try{
       if(typeof supabaseClient === 'undefined' || !supabaseClient?.rpc) return null;
-      const { data, error } = await supabaseClient.rpc('nb_suivis');
+      const { data, error } = await supabaseClient.rpc('nb_suivis_elus');
       if(error || !Array.isArray(data)) return null;
       _nbSuivis = new Map(data.map((r) => [norm(r.nom), Number(r.nb) || 0]));
       return _nbSuivis;

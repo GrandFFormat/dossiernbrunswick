@@ -63,7 +63,7 @@ async function couperVeille(req, res) {
     return res.status(400).send(page("<h1>Lien invalide</h1><p>Ce lien de désabonnement n'est pas valide.</p>"));
   }
   try {
-    await supabase(`/rest/v1/alertes_preferences?user_id=eq.${u}`, {
+    await supabase(`/rest/v1/nb_alertes_preferences?user_id=eq.${u}`, {
       methode: 'PATCH',
       corps: { veille_themes: [], updated_at: new Date().toISOString() },
       entetes: { Prefer: 'return=minimal' },
@@ -87,7 +87,7 @@ async function couperAlertes(req, res) {
     return res.status(400).send(page("<h1>Lien invalide</h1><p>Ce lien de désabonnement n'est pas valide.</p>"));
   }
   try {
-    await supabase('/rest/v1/alertes_preferences?on_conflict=user_id', {
+    await supabase('/rest/v1/nb_alertes_preferences?on_conflict=user_id', {
       methode: 'POST',
       corps: [{ user_id: u, actif: false, updated_at: new Date().toISOString() }],
       entetes: { Prefer: 'resolution=merge-duplicates,return=minimal' },
