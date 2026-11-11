@@ -1185,7 +1185,7 @@ function goToFederal(evt){
 <script>
 /* MINISTERS_DATA_START — généré automatiquement par scrapers/build-ministers-data.js
    à partir de data/ministers.json (voir scrapers/ministers.js). Scrapé en direct
-   depuis quebec.ca/premiere-ministre/equipe/conseil-des-ministres. Ne pas éditer
+   depuis la liste du Conseil exécutif sur legnb.ca. Ne pas éditer
    ce bloc à la main. */
 const ministers = [
   {name:'Susan Holt', role:'Première ministre · Présidente du Conseil exécutif · Ministre responsable des Langues officielles', party:'LIB', roleEn:'Premier · President of the Executive Council · Minister responsible for Official Languages'},
@@ -1211,11 +1211,11 @@ const ministers = [
 /* MINISTERS_DATA_END */
 
 /* BILLS_DATA_START — généré automatiquement par scrapers/build-frontend-data.js à partir de
-   data/bills.json (voir scrapers/bills.js, bill-details.js, bill-summaries.js). Ne pas éditer
+   data/bills.json (voir scrapers/bills.js et scrapers/nb-resumes.js). Ne pas éditer
    ce bloc à la main : relancer `node scrapers/build-frontend-data.js` à la place.
    Les résumés ne sont PAS ici : ils vivent dans data/bills-resumes-{fr,en}.json et se chargent
    au premier dépliement de carte ou à la première recherche.
-   Généré le 2026-11-09T11:22:58.896Z */
+   Généré le 2026-11-11T22:15:32.699Z */
 const bills = [
   {
     "id": 6103014,
@@ -3251,13 +3251,11 @@ const historiqueLeg = {"courante":61,"presences":{},"pl":{}};
 
 /* DEPUTES_DATA_START — généré automatiquement par scrapers/build-deputes-data.js à partir
    de data/deputes.json (voir scrapers/deputes.js). Nom, circonscription et parti sont
-   scrapés en direct depuis assnat.qc.ca/fr/deputes/index.html à chaque exécution ; la
-   région est préservée depuis la version précédente de ce tableau (pas dispo sur la
-   page source) — assignation géographique stable, ne change pas avec les élections.
-   L'ID assnat (5e valeur) sert à rapprocher chaque député·e du détail nominatif des
+   scrapés en direct depuis legnb.ca à chaque exécution.
+   L'ID de fiche legnb.ca (5e valeur) sert à rapprocher chaque député·e du détail nominatif des
    votes (voir scrapers/votes.js) sans dépendre du nom, qui peut être ambigu.
    [Nom complet, Circonscription, Région, Parti, ID de fiche, mandats, Wikipédia, rôle]. Ne pas éditer ce bloc à la main.
-   Généré le 2026-11-07T16:12:11.095Z */
+   Généré le 2026-11-11T22:15:32.533Z */
 const deputesRaw = [
 ["Richard Ames","Carleton-York","","PC",165,null,"https://en.wikipedia.org/wiki/Richard_Ames_(Canadian_politician)",null],["Guy Arseneault","Restigouche-Est","","LIB",4,null,"https://en.wikipedia.org/wiki/Guy_Arseneault",null],["Kris Austin","Fredericton-Grand Lake","","PC",16,null,"https://fr.wikipedia.org/wiki/Kris_Austin",null],["Kathy Bockus","Sainte-Croix","","PC",162,null,"https://fr.wikipedia.org/wiki/Kathy_Bockus",null],["Lyne Chantal Boudreau","Champdoré-Irishtown","","LIB",208,null,"https://fr.wikipedia.org/wiki/Lyne_Chantal_Boudreau",null],["Benoît Bourque","Beausoleil-Grand-Bouctouche-Kent","","LIB",23,null,"https://fr.wikipedia.org/wiki/Beno%C3%AEt_Bourque",null],["Chuck Chiasson","Grand Sault-Vallée-des-Rivières-Saint-Quentin","","LIB",11,null,"https://fr.wikipedia.org/wiki/Chuck_Chiasson",null],["Keith Chiasson","Tracadie","","LIB",49,null,"https://fr.wikipedia.org/wiki/Keith_Chiasson",null],["Michelle Conroy","Miramichi-Est","","PC",29,null,"https://fr.wikipedia.org/wiki/Michelle_Conroy",null],["David Coon","Fredericton-Lincoln","","VERT",14,null,"https://fr.wikipedia.org/wiki/David_Coon",null],["Ryan Cullins","Fredericton-York","","PC",164,null,"https://en.wikipedia.org/wiki/Ryan_Cullins",null],["Jean-Claude D'Amours","Edmundston-Vallée-des-Rivières","","LIB",9,null,"https://fr.wikipedia.org/wiki/Jean-Claude_D'Amours",null],["John Dornan","Saint John Portland-Simonds","","LIB",202,null,"https://fr.wikipedia.org/wiki/John_Dornan",null],["Alexandre Cédric Doucet","Moncton-Est","","LIB",196,null,"https://en.wikipedia.org/wiki/Alexandre_C%C3%A9dric_Doucet",null],["Pat Finnigan","Kent-Nord","","LIB",192,null,"https://fr.wikipedia.org/wiki/Pat_Finnigan",null],["Robert Gauvin","Baie-de-Shediac-Dieppe","","LIB",46,null,"https://fr.wikipedia.org/wiki/Robert_Gauvin",null],["John Herron","Hampton-Fundy-St. Martins","","LIB",199,null,"https://en.wikipedia.org/wiki/John_Herron_(New_Brunswick_politician)",null],["David Hickey","Saint John Harbour","","LIB",203,null,"https://en.wikipedia.org/wiki/David_Hickey_(politician)",null],["Bill Hogan","Woodstock-Hartland","","PC",166,null,"https://en.wikipedia.org/wiki/William_Hogan",null],["Susan Holt","Fredericton-Sud-Silverwood","","LIB",182,null,"https://fr.wikipedia.org/wiki/Susan_Holt",null],["Claire Johnson","Moncton-Sud","","LIB",194,null,"https://fr.wikipedia.org/wiki/Claire_Johnson",null],["Margaret Johnson","Carleton-Victoria","","PC",167,null,"https://fr.wikipedia.org/wiki/Margaret_Johnson_(femme_politique)",null],["Sam Johnston","Baie-de-Miramichi-Neguac","","LIB",191,null,"https://en.wikipedia.org/wiki/Sam_Johnston_(New_Brunswick_politician)",null],["Aaron Kennedy","Quispamsis","","LIB",200,null,"https://en.wikipedia.org/wiki/Aaron_Kennedy",null],["Francine Landry","Madawaska-Les-Lacs-Edmundston","","LIB",26,null,"https://fr.wikipedia.org/wiki/Francine_Landry","speaker"],["Jacques LeBlanc","Shediac-Cap-Acadie","","LIB",45,null,"https://en.wikipedia.org/wiki/Jacques_LeBlanc_(politician)",null],["Marco LeBlanc","Belle-Baie-Belledune","","LIB",180,null,"https://en.wikipedia.org/wiki/Marco_LeBlanc",null],["Ian Lee","Fundy-The Isles-Saint John Lorneville","","PC",205,null,"https://en.wikipedia.org/wiki/Ian_Lee_(politician)",null],["René Legacy","Bathurst","","LIB",157,null,"https://fr.wikipedia.org/wiki/Ren%C3%A9_Legacy",null],["Gilles LePage","Restigouche-Ouest","","LIB",37,null,"https://fr.wikipedia.org/wiki/Gilles_LePage",null],["Eric Mallet","Shippagan-Les-Îles","","LIB",158,null,"https://en.wikipedia.org/wiki/Eric_Mallet",null],["Robert McKee","Moncton-Centre","","LIB",30,null,"https://fr.wikipedia.org/wiki/Rob_McKee",null],["Cindy Miles","Hanwell-New Maryland","","LIB",207,null,"https://fr.wikipedia.org/wiki/Cindy_Miles",null],["Megan Mitton","Tantramar","","VERT",27,null,"https://fr.wikipedia.org/wiki/Megan_Mitton",null],["Don Monahan","Arcadia-Butternut Valley-Maple Hills","","PC",198,null,"https://en.wikipedia.org/wiki/Don_Monahan",null],["Bill Oliver","Kings-Centre","","PC",24,null,"https://fr.wikipedia.org/wiki/Bill_Oliver_(homme_politique)",null],["Luke Randall","Fredericton-Nord","","LIB",206,null,"https://fr.wikipedia.org/wiki/Jill_Green",null],["Luc Robichaud","Hautes-Terres-Nepisiguit","","LIB",190,null,"https://en.wikipedia.org/wiki/Luc_Robichaud",null],["Kevin Russell","Miramichi-Ouest","","PC",209,null,"https://en.wikipedia.org/wiki/Kevin_Russell_(politician)",null],["Glen Savoie","Saint John-Est","","PC",21,null,"https://fr.wikipedia.org/wiki/Glen_Savoie",null],["Tammy Scott-Wallace","Sussex-Three Rivers","","PC",161,null,"https://fr.wikipedia.org/wiki/Tammy_Scott-Wallace",null],["Tania Sodhi","Moncton-Nord-Ouest","","LIB",195,null,"https://fr.wikipedia.org/wiki/Tania_Sodhi",null],["Isabelle Thériault","Caraquet","","LIB",5,null,"https://fr.wikipedia.org/wiki/Isabelle_Th%C3%A9riault",null],["Alyson Townsend","Rothesay","","LIB",201,null,"https://en.wikipedia.org/wiki/Alyson_Townsend",null],["Natacha Vautour","Dieppe-Memramcook","","LIB",193,null,"https://en.wikipedia.org/wiki/Natacha_Vautour",null],["Rob Weir","Riverview","","PC",197,null,"https://en.wikipedia.org/wiki/Rob_Weir",null],["Kate Wilcott","Saint John-Ouest-Lancaster","","LIB",204,null,"https://en.wikipedia.org/wiki/Kate_Elman_Wilcott",null],["Mary Wilson","Oromocto-Sunbury","","PC",35,null,"https://fr.wikipedia.org/wiki/Mary_Wilson_(femme_politique)",null],["Sherry Wilson","Albert-Riverview","","PC",33,null,"https://fr.wikipedia.org/wiki/Sherry_Wilson",null]
 ];
@@ -3265,10 +3263,8 @@ const deputesRaw = [
 
 /* DEPUTE_EMAILS_START — généré automatiquement par scrapers/build-depute-emails-data.js
    à partir de data/deputes-contacts.json (voir scrapers/depute-emails.js). Courriel
-   officiel assnat.qc.ca uniquement — pas de réseaux sociaux (voir la conversation :
-   pas de façon fiable de vérifier qu'un compte Google trouvé par nom appartient
-   vraiment à la bonne personne). Ne pas éditer ce bloc à la main.
-   Généré le 2026-11-07T16:12:11.155Z */
+   officiel publié par legnb.ca seulement (masqué pour l'instant), jamais de réseaux sociaux. Ne pas éditer ce bloc à la main.
+   Généré le 2026-11-11T22:15:32.620Z */
 const deputeEmails = {};
 /* DEPUTE_EMAILS_END */
 
@@ -4002,49 +3998,8 @@ const newsItems = [
 /* PETITIONS_DATA_START — généré automatiquement par scrapers/build-petitions-data.js à partir de
    data/petitions.json (voir scrapers/petitions.js). Ne pas éditer ce bloc à la main :
    relancer `node scrapers/petitions.js && node scrapers/build-petitions-data.js`.
-   Généré le 2026-11-02T18:16:58.181Z */
-const petitions = [
-  {
-    "title": "Amélioration de la fluidité routière et maritime aux ponts du canal de Beauharnois",
-    "titleEn": "Improving road and marine traffic flow at the Beauharnois canal bridges",
-    "sponsor": "Claude Reid",
-    "start": "2026-05-29",
-    "end": "2026-08-29",
-    "count": 986,
-    "url": "https://www.assnat.qc.ca/fr/exprimez-votre-opinion/petition/signer-petition/index.html",
-    "urlEn": "https://www.assnat.qc.ca/en/exprimez-votre-opinion/petition/signer-petition/index.html"
-  },
-  {
-    "title": "Tenue d’une commission d’enquête publique sur le racisme systémique et le profilage racial au sein du Service de police de la Ville de Montréal",
-    "titleEn": "Holding a public inquiry commission on systemic racism and racial profiling within the Montréal police department (SPVM)",
-    "sponsor": "Madwa-Nika Cadet",
-    "start": "2026-06-19",
-    "end": "2026-09-19",
-    "count": 145,
-    "url": "https://www.assnat.qc.ca/fr/exprimez-votre-opinion/petition/signer-petition/index.html",
-    "urlEn": "https://www.assnat.qc.ca/en/exprimez-votre-opinion/petition/signer-petition/index.html"
-  },
-  {
-    "title": "Tenue d’audiences du Bureau d'audiences publiques sur l’environnement concernant la gestion des matières dangereuses résiduelles",
-    "titleEn": "Holding of Bureau d'audiences publiques sur l'environnement hearings concerning the management of residual hazardous materials",
-    "sponsor": "Etienne Grandmont",
-    "start": "2026-06-23",
-    "end": "2026-09-23",
-    "count": 503,
-    "url": "https://www.assnat.qc.ca/fr/exprimez-votre-opinion/petition/signer-petition/index.html",
-    "urlEn": "https://www.assnat.qc.ca/en/exprimez-votre-opinion/petition/signer-petition/index.html"
-  },
-  {
-    "title": "Retrait de la clause de non-concurrence du REM pour un meilleur service d'autobus pour les municipalités touchées par la mise en service du REM",
-    "titleEn": "Withdrawal of the REM non-competition clause for better bus service for municipalities affected by the REM's entry into service",
-    "sponsor": "Alejandra Zaga Mendez",
-    "start": "2026-08-17",
-    "end": "2026-11-17",
-    "count": 939,
-    "url": "https://www.assnat.qc.ca/fr/exprimez-votre-opinion/petition/signer-petition/index.html",
-    "urlEn": "https://www.assnat.qc.ca/en/exprimez-votre-opinion/petition/signer-petition/index.html"
-  }
-];
+   Généré le 2026-11-11T22:15:32.402Z */
+const petitions = [];
 /* PETITIONS_DATA_END */
 
 /* PROMISES_DATA_START — généré par scrapers/build-promises-data.js à partir de

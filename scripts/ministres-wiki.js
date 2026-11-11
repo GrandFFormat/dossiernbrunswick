@@ -16,7 +16,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { slugMinistre } from './build-minister-pages.js';
 
-const UA = 'DossierQuebec/1.0 (https://dossierquebec.ca; ministres-wiki.js)';
+const UA = 'DossierNBrunswick/1.0 (https://dossiernbrunswick.ca; ministres-wiki.js)';
 const attendre = (ms) => new Promise((r) => setTimeout(r, ms));
 async function json(url) {
   for (let essai = 0; essai < 3; essai++) {
@@ -43,7 +43,7 @@ const LICENCES_OK = /^(cc0|public domain|domaine public|pd\b|cc[- ]by(-sa)?[- ]\
 async function trouverArticle(nom) {
   const d = deputes.find((x) => norm(x[0]) === norm(nom));
   if (d?.[6]) return decodeURIComponent(d[6].split('/wiki/')[1]).replace(/_/g, ' ');
-  const r = await api('fr.wikipedia.org', { action: 'query', list: 'search', srsearch: `"${nom}" Assemblée nationale du Québec`, srlimit: '3' });
+  const r = await api('fr.wikipedia.org', { action: 'query', list: 'search', srsearch: `"${nom}" Assemblée législative du Nouveau-Brunswick`, srlimit: '3' });
   const hit = (r.query?.search ?? []).find((s) => norm(s.title.replace(/\s*\(.*\)$/, '')) === norm(nom));
   return hit?.title ?? null;
 }

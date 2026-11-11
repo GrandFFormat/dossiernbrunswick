@@ -18,7 +18,10 @@
 const SUJETS = { idee: 'Idée', suggestion: 'Suggestion', probleme: 'Problème sur le site', erreur: 'Erreur dans une donnée' };
 const VILLES = { quebec: 'Québec', montreal: 'Montréal', levis: 'Lévis', longueuil: 'Longueuil', laval: 'Laval' };
 const PAR_JOUR = 5;
-const SITE = 'https://dossierquebec.ca';
+// Le site d'où part le message (la table messages_utilisateurs est partagée avec DossierQuébec :
+// le message porte « [DossierNBrunswick] » en tête pour qu'on sache d'où il vient).
+const SITE = (process.env.PUBLIC_SITE_URL || 'https://dossiernbrunswick.ca').replace(/\/$/, '');
+const MARQUE = '[DossierNBrunswick]';
 
 const NUMERO = /^[\p{L}\p{N} ._\-/]{1,80}$/u;
 const PAGE = /^\/[\w\-./?=&%+~]{0,299}$/;
@@ -54,7 +57,7 @@ async function envoyerCourriel(m) {
   const { RESEND_API_KEY, DIGEST_FROM, MESSAGES_A } = process.env;
   if (!RESEND_API_KEY || !DIGEST_FROM || !MESSAGES_A) return false;
   const lieu = [VILLES[m.ville], m.numero].filter(Boolean).join(' ');
-  const sujet = `[DossierQuébec] ${SUJETS[m.sujet]}${lieu ? ` — ${lieu}` : ''}`;
+  const sujet = `${MARQUE} ${SUJETS[m.sujet]}${lieu ? ` — ${lieu}` : ''}`;
   const ligne = (etiquette, valeur) => (valeur ? `<tr><td style="padding:2px 12px 2px 0;vertical-align:top">${etiquette}</td><td style="padding:2px 0">${valeur}</td></tr>` : '');
   const fiche = m.ville && m.numero ? `${SITE}/${m.ville}/decisions-de-la-ville-de-${m.ville}?q=${encodeURIComponent(m.numero)}` : null;
   const html = `<div style="font-family:Arial,sans-serif;max-width:560px;color:#16191D;line-height:1.5">
@@ -117,7 +120,7 @@ export default async function handler(req, res) {
   if (!recents.ok) return res.status(503).json({ erreur: 'service indisponible' });
   if (recents.donnees.length >= PAR_JOUR) return res.status(429).json({ erreur: 'limite atteinte' });
 
-  const m = { user_id: id, email, abonne: false, sujet, message, ville, numero, page };
+  const m = { user_id: id, email, abonne: false, sujet, message: `${MARQUE} ${message}`, ville, numero, page };
   const courrielEnvoye = await envoyerCourriel(m);
   let insertion = await supabase('/rest/v1/messages_utilisateurs', {
     methode: 'POST',
@@ -129,7 +132,7 @@ export default async function handler(req, res) {
   if (!insertion.ok && sujet === 'suggestion') {
     insertion = await supabase('/rest/v1/messages_utilisateurs', {
       methode: 'POST',
-      corps: { ...m, sujet: 'idee', message: `[Suggestion] ${message}`, courriel_envoye: courrielEnvoye },
+      corps: { ...m, sujet: 'idee', message: `${MARQUE} [Suggestion] ${message}`, courriel_envoye: courrielEnvoye },
       entetes: { Prefer: 'return=minimal' },
     });
   }
