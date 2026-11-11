@@ -48,7 +48,7 @@ export async function envoyerLien(email) {
 }
 
 export async function chargerSuivis() {
-  const { data, error } = await client.from('dossiers_suivis').select('ville, dossier_id, numero, objet, created_at').order('created_at', { ascending: false });
+  const { data, error } = await client.from('nb_dossiers_suivis').select('ville, dossier_id, numero, objet, created_at').order('created_at', { ascending: false });
   if (error) {
     console.error('suivis :', error);
     return [];
@@ -57,7 +57,7 @@ export async function chargerSuivis() {
 }
 
 export async function suivre(s, { ville, dossier, numero, objet }) {
-  const { error } = await client.from('dossiers_suivis').upsert(
+  const { error } = await client.from('nb_dossiers_suivis').upsert(
     { user_id: s.user.id, ville, dossier_id: dossier, numero: numero || null, objet: (objet || '').slice(0, 600) || null },
     { onConflict: 'user_id,ville,dossier_id', ignoreDuplicates: true }
   );
@@ -76,7 +76,7 @@ export function limiteSuivis(erreur) {
 }
 
 export async function nePlusSuivre(s, { ville, dossier }) {
-  const { error } = await client.from('dossiers_suivis').delete().eq('user_id', s.user.id).eq('ville', ville).eq('dossier_id', dossier);
+  const { error } = await client.from('nb_dossiers_suivis').delete().eq('user_id', s.user.id).eq('ville', ville).eq('dossier_id', dossier);
   return error;
 }
 
@@ -194,7 +194,7 @@ export function formulaireMessage(boite, s, { sujet = 'idee', ville = null, nume
       bouton.disabled = false;
       if (mots > 300) { etat.textContent = tr(`Votre message compte ${mots} mots : 300 au plus.`, `Your message has ${mots} words: 300 at most.`); return; }
       bouton.disabled = true;
-      const { error } = await client.from('preoccupations').insert({ texte: texte.slice(0, 2000) });
+      const { error } = await client.from('nb_preoccupations').insert({ texte: texte.slice(0, 2000) });
       if (!error) {
         boite.innerHTML = `<p class="ab-merci">${tr('Reçu, merci. Votre message n’est jamais publié ; il sera compté au prochain classement.', 'Received, thank you. Your message is never published; it will be counted at the next sorting.')}</p>`;
         mesurer('message_envoye', { sujet: choix, ville: '' });
