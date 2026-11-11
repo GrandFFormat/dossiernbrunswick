@@ -5109,6 +5109,7 @@ async function billEnvoyerLien(form){
 }
 window.billEnvoyerLien = billEnvoyerLien;
 function boutonCafe(b, isEn){
+  return '';   // Bouton café retiré partout (Martin, 10 nov. 2026).
   if(ASSEMBLY.cafe === false) return '';   // N.-B. : pastilles éteintes
   const rangIcone = ORDRE_ICONES[_rangCafe % ORDRE_ICONES.length];
   const [fr, en] = LIBELLES_CAFE[ORDRE_CAFE[_rangCafe++ % ORDRE_CAFE.length]];
