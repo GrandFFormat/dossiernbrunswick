@@ -29,4 +29,4 @@ export function signatureValide(userId, sig, usage = 'alertes') {
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 
-export const site = () => (process.env.PUBLIC_SITE_URL || 'https://dossierquebec.ca').replace(/\/$/, '');
+export const site = () => (process.env.PUBLIC_SITE_URL || 'https://dossiernbrunswick.ca').replace(/\/$/, '');

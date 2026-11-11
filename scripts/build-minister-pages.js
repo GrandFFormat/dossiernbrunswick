@@ -59,7 +59,7 @@ export const citeSource = (p) => {
 export const LEG = Math.max(0, ...(() => { try { return JSON.parse(readFileSync('data/site/bills.json', 'utf8')); } catch { return []; } })().map((b) => Number(b.legislature) || 0));
 export const LEG_EN = LEG + ({ 1: 'st', 2: 'nd', 3: 'rd' }[(LEG % 100 >= 11 && LEG % 100 <= 13) ? 0 : LEG % 10] || 'th');
 export const deux = (fr, en) => `<span class="fr-txt">${fr}</span><span class="en-txt">${en}</span>`;
-export const PARTIS = { LIB: ['Parti libéral', 'Liberal Party'], PC: ['Parti progressiste-conservateur', 'Progressive Conservative Party'], VERT: ['Parti vert', 'Green Party'], IND: ['Indépendant·e', 'Independent'], PQ: ['Parti québécois', 'Parti Québécois'], CAQ: ['Coalition avenir Québec', 'Coalition Avenir Québec'], PLQ: ['Parti libéral du Québec', 'Quebec Liberal Party'], QS: ['Québec solidaire', 'Québec solidaire'], PCQ: ['Parti conservateur du Québec', 'Conservative Party of Quebec'] };
+export const PARTIS = { LIB: ['Parti libéral', 'Liberal Party'], PC: ['Parti progressiste-conservateur', 'Progressive Conservative Party'], VERT: ['Parti vert', 'Green Party'], IND: ['Indépendant·e', 'Independent'] };
 
 // Ministère → thèmes de promesses. Prudent : seulement des correspondances franches, sur le titre
 // du ministère (pas sur « responsable de la région de… »).

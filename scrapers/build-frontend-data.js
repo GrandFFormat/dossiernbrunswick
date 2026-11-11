@@ -229,7 +229,7 @@ function main() {
     throw new Error(`Marqueurs BILLS_DATA_START/END introuvables dans ${HTML_PATH}`);
   }
 
-  const block = `${START_MARKER} — généré automatiquement par scrapers/build-frontend-data.js à partir de\n   data/bills.json (voir scrapers/bills.js, bill-details.js, bill-summaries.js). Ne pas éditer\n   ce bloc à la main : relancer \`node scrapers/build-frontend-data.js\` à la place.\n   Les résumés ne sont PAS ici : ils vivent dans data/bills-resumes-{fr,en}.json et se chargent\n   au premier dépliement de carte ou à la première recherche.\n   Généré le ${new Date().toISOString()} */\nconst bills = ${JSON.stringify(allege, null, 2)};\n`;
+  const block = `${START_MARKER} — généré automatiquement par scrapers/build-frontend-data.js à partir de\n   data/bills.json (voir scrapers/bills.js et scrapers/nb-resumes.js). Ne pas éditer\n   ce bloc à la main : relancer \`node scrapers/build-frontend-data.js\` à la place.\n   Les résumés ne sont PAS ici : ils vivent dans data/bills-resumes-{fr,en}.json et se chargent\n   au premier dépliement de carte ou à la première recherche.\n   Généré le ${new Date().toISOString()} */\nconst bills = ${JSON.stringify(allege, null, 2)};\n`;
 
   const updated = html.slice(0, startIdx) + block + html.slice(endIdx);
   writeFileSync(HTML_PATH, updated);

@@ -998,13 +998,20 @@ function displayStep(step){
 // Remplacée ici par un vrai stockage local (localStorage), avec la même interface
 // (.get(key) -> {value} | null, .set(key, value)) pour ne pas toucher aux appels
 // existants plus bas. Préfixe pour éviter les collisions avec d'autres clés.
+// N.-B. (11 nov. 2026) : préfixe « dossiernb: ». L'ancienne clé « dossierquebec: » (héritée de la
+// copie) est encore lue puis recopiée sous la nouvelle, pour ne pas effacer les suivis déjà faits.
+const PREFIXE_STOCKAGE = 'dossiernb:', ANCIEN_PREFIXE = 'dossierquebec:';
 window.storage = {
   async get(key){
-    const value = localStorage.getItem('dossierquebec:' + key);
+    let value = localStorage.getItem(PREFIXE_STOCKAGE + key);
+    if(value === null){
+      value = localStorage.getItem(ANCIEN_PREFIXE + key);
+      if(value !== null){ try{ localStorage.setItem(PREFIXE_STOCKAGE + key, value); localStorage.removeItem(ANCIEN_PREFIXE + key); }catch(e){} }
+    }
     return value === null ? null : { value };
   },
   async set(key, value){
-    localStorage.setItem('dossierquebec:' + key, value);
+    localStorage.setItem(PREFIXE_STOCKAGE + key, value);
   }
 };
 
@@ -2642,7 +2649,7 @@ async function renderAbonnement(){
   document.querySelectorAll('.ab-forfaits').forEach((u) => { u.classList.toggle('ab-sans-compte', Boolean(etat && !etat.connecte)); u.querySelectorAll('.ab-forfait').forEach((li) => { li.dataset.avis = isEn ? 'Sign in first' : 'Identifiez-vous d’abord'; }); });
   _abEtat = etat;
   // Un forfait choisi avant la connexion reste marqué au retour du lien.
-  let garde = null; try{ garde = localStorage.getItem('dossierquebec:forfait'); }catch(e){}
+  let garde = null; try{ garde = localStorage.getItem('dossiernb:forfait'); }catch(e){}
   if(garde) abMarquerForfait(garde);
 }
 
@@ -2663,7 +2670,7 @@ function abChoisirForfait(f){
     abAction('paiement', document.querySelector(`.ab-forfait[data-forfait="${f}"]`), f);
     return;
   }
-  try{ localStorage.setItem('dossierquebec:forfait', f); }catch(e){}
+  try{ localStorage.setItem('dossiernb:forfait', f); }catch(e){}
   zone?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   document.getElementById('abEmail')?.focus();
   if(note && !_abEtat?.ouvert) note.textContent = isEn ? 'Payment is not open yet.' : 'Le paiement n’est pas encore ouvert.';
@@ -2698,7 +2705,7 @@ async function abAction(action, bouton, forfait){
     body: JSON.stringify({ langue: isEn ? 'en' : 'fr', forfait: forfait || 'mensuel' }),
   }).catch(() => null);
   const d = r ? await r.json().catch(() => ({})) : {};
-  if(d.url){ try{ localStorage.removeItem('dossierquebec:forfait'); }catch(e){} location.assign(d.url); return; }
+  if(d.url){ try{ localStorage.removeItem('dossiernb:forfait'); }catch(e){} location.assign(d.url); return; }
   if(bouton) bouton.disabled = false;
   if(note) note.textContent = r?.status === 409
     ? (isEn ? 'Your subscription is already active.' : 'Votre abonnement est déjà actif.')
@@ -2800,7 +2807,7 @@ window.abGererOffert = abGererOffert;
 function abCodeDuLien(){
   // Gardé le temps de s'identifier : le lien de connexion ramène sans le ?code=.
   let c = new URLSearchParams(location.search).get('code');
-  try{ if(c) localStorage.setItem('dossierquebec:code', c); else c = localStorage.getItem('dossierquebec:code'); }catch(e){}
+  try{ if(c) localStorage.setItem('dossiernb:code', c); else c = localStorage.getItem('dossiernb:code'); }catch(e){}
   if(!c) return;
   const champ = document.querySelector('#code .ab-code-champ');
   if(champ && !champ.value){ champ.value = c.replace(/[^A-Za-z0-9-]/g, '').slice(0, 40); champ.closest('#code')?.scrollIntoView({ block: 'center' }); }
@@ -2846,7 +2853,7 @@ async function abUtiliserCode(bouton){
   }).catch(() => null);
   const d = r ? await r.json().catch(() => ({})) : {};
   bouton.disabled = false;
-  if(d.ok){ try{ localStorage.removeItem('dossierquebec:code'); }catch(e){}
+  if(d.ok){ try{ localStorage.removeItem('dossiernb:code'); }catch(e){}
     const fait = d.offert
       ? (isEn
         ? '✓ Done: your subscription is active. It renews as long as the person giving it keeps paying.'
