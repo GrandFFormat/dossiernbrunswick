@@ -163,7 +163,7 @@ export default async function handler(req, res) {
   try {
     // 1. Comptes actuels par projet + état des projets (CSV) + état de campagne.
     const counts = new Map(
-      (await supaFetch('/rest/v1/rpc/flag_counts_all', { method: 'POST', body: {} }))
+      (await supaFetch('/rest/v1/rpc/nb_flag_counts_all', { method: 'POST', body: {} }))
         .map((r) => [Number(r.bill_id), Number(r.cnt)])
     );
     if (counts.size === 0) return res.status(200).json({ ok: true, emailsSent: 0, reason: 'no flags' });
@@ -171,7 +171,7 @@ export default async function handler(req, res) {
     const csv = await (await fetch(CSV_URL)).text();
     const billInfo = computeCurrentBills(parse(csv, { columns: true, skip_empty_lines: true }));
 
-    const campaignRows = await supaFetch('/rest/v1/bill_campaign?select=bill_id,last_count,threshold,escalation_pending,terminal_notified');
+    const campaignRows = await supaFetch('/rest/v1/nb_bill_campaign?select=bill_id,last_count,threshold,escalation_pending,terminal_notified');
     const campaign = new Map(campaignRows.map((r) => [Number(r.bill_id), r]));
 
     // 2. Pour chaque projet flaggé : y a-t-il une « nouvelle » depuis le dernier digest ?
@@ -208,7 +208,7 @@ export default async function handler(req, res) {
       };
     });
     if (upsert.length) {
-      await supaFetch('/rest/v1/bill_campaign?on_conflict=bill_id', {
+      await supaFetch('/rest/v1/nb_bill_campaign?on_conflict=bill_id', {
         method: 'POST',
         headers: { Prefer: 'resolution=merge-duplicates,return=minimal' },
         body: upsert,
@@ -219,7 +219,7 @@ export default async function handler(req, res) {
 
     // 4. Qui a demandé quoi (bill_flags) — seulement les projets avec une nouvelle.
     const newsIds = [...reportByBill.keys()];
-    const flags = await supaFetch(`/rest/v1/bill_flags?select=user_id,bill_id&bill_id=in.(${newsIds.join(',')})`);
+    const flags = await supaFetch(`/rest/v1/nb_bill_flags?select=user_id,bill_id&bill_id=in.(${newsIds.join(',')})`);
     const userBills = new Map(); // user_id -> [billId]
     for (const f of flags) {
       if (!userBills.has(f.user_id)) userBills.set(f.user_id, []);

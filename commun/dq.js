@@ -1565,7 +1565,7 @@ let myFlaggedBills = {};
 async function loadMyFlagsFromSupabase(){
   myFlaggedBills = {};
   if(!currentUser) return;
-  const { data, error } = await supabaseClient.from('bill_flags')
+  const { data, error } = await supabaseClient.from('nb_bill_flags')
     .select('bill_id').eq('user_id', currentUser.id);
   if(error){ console.error('loadMyFlagsFromSupabase failed:', error); return; }
   for(const row of (data || [])) myFlaggedBills[row.bill_id] = true;
@@ -1593,7 +1593,7 @@ async function requestExplanation(billId, btnId){
   }
   const uid = fresh.user.id;
 
-  const { error } = await supabaseClient.from('bill_flags').insert({ user_id: uid, bill_id: billId });
+  const { error } = await supabaseClient.from('nb_bill_flags').insert({ user_id: uid, bill_id: billId });
   if(error && error.code !== '23505'){
     console.error('requestExplanation insert error:', error);
     if(btn) btn.disabled = false;
@@ -1603,7 +1603,7 @@ async function requestExplanation(billId, btnId){
     let atLimit = false;
     try{
       const since = new Date(Date.now() - 30*864e5).toISOString();
-      const { count } = await supabaseClient.from('bill_flags')
+      const { count } = await supabaseClient.from('nb_bill_flags')
         .select('*', { count: 'exact', head: true }).gte('created_at', since);
       atLimit = (typeof count === 'number' && count >= 10);
     }catch(e){}
@@ -1636,7 +1636,7 @@ async function removeExplanation(billId, btnId){
   const isEn = currentLang === 'en';
   const btn = document.getElementById(btnId);
   if(btn) btn.disabled = true;
-  const { error } = await supabaseClient.from('bill_flags')
+  const { error } = await supabaseClient.from('nb_bill_flags')
     .delete().eq('user_id', currentUser.id).eq('bill_id', billId);
   if(error){
     console.error('removeExplanation delete error:', error);
@@ -3142,10 +3142,10 @@ async function renderAdminFlagCounts(){
   // des « #27053 ». Admins seulement, donc jamais payé par un visiteur ordinaire.
   await chargerChallenges();
 
-  const { data, error } = await supabaseClient.from('bill_flags').select('bill_id');
+  const { data, error } = await supabaseClient.from('nb_bill_flags').select('bill_id');
   if(error){ console.error('renderAdminFlagCounts failed:', error); container.innerHTML = ''; return; }
   // État de campagne (seuil courant + escalade en attente) — table bill_campaign.
-  const { data: campData } = await supabaseClient.from('bill_campaign').select('bill_id, threshold, escalation_pending');
+  const { data: campData } = await supabaseClient.from('nb_bill_campaign').select('bill_id, threshold, escalation_pending');
   const camp = {}; for(const r of (campData || [])) camp[r.bill_id] = r;
 
   const isEn = currentLang === 'en';
@@ -3179,11 +3179,11 @@ async function renderAdminFlagCounts(){
 // escalation_pending → le prochain digest aux 2 semaines annonce « le parrain a
 // répondu mais insuffisant, on continue jusqu'à X ». Mutation via la RLS admin.
 async function adminResend(billId){
-  const { data } = await supabaseClient.from('bill_campaign').select('threshold').eq('bill_id', billId).maybeSingle();
+  const { data } = await supabaseClient.from('nb_bill_campaign').select('threshold').eq('bill_id', billId).maybeSingle();
   const cur = data ? data.threshold : PETITION_TIERS[0];
   const next = PETITION_TIERS.find(t => t > cur) ?? cur;
   if(next === cur && !confirm('Seuil déjà au maximum. Renvoyer quand même un courriel d\'escalade au prochain digest ?')) return;
-  const { error } = await supabaseClient.from('bill_campaign').upsert(
+  const { error } = await supabaseClient.from('nb_bill_campaign').upsert(
     { bill_id: billId, threshold: next, escalation_pending: true, updated_at: new Date().toISOString() },
     { onConflict: 'bill_id' }
   );
@@ -3195,7 +3195,7 @@ async function adminResend(billId){
 // Reset (bouton admin) : efface la campagne de ce projet — repart à zéro.
 async function adminReset(billId){
   if(!confirm('Réinitialiser la campagne de ce projet (repart à zéro) ?')) return;
-  const { error } = await supabaseClient.from('bill_campaign').delete().eq('bill_id', billId);
+  const { error } = await supabaseClient.from('nb_bill_campaign').delete().eq('bill_id', billId);
   if(error){ alert('Erreur : ' + error.message); return; }
   renderAdminFlagCounts();
 }
@@ -4969,7 +4969,7 @@ async function chargerChallenges(){
   if(challengedCache !== null) return challengedCache;
   if(!ASSEMBLY.challenge) return (challengedCache = []);   // N.-B. : aucun compteur à charger
   try{
-    const { data, error } = await supabaseClient.rpc('flag_counts');
+    const { data, error } = await supabaseClient.rpc('nb_flag_counts');
     challengedCache = (!error && Array.isArray(data)) ? data : [];
   }catch(e){ challengedCache = []; }
   if(challengedCache.some(c => !bills.some(b => b.id === Number(c.bill_id)))){
