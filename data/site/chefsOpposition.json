@@ -3,9 +3,16 @@
   "name": "Margaret Johnson",
   "party": "PC",
   "femme": true,
-  "roles": ["Cheffe de l'opposition officielle"],
-  "rolesEn": ["Leader of the Official Opposition"],
-  "bandeau": ["Cheffe de l'opposition officielle", "Leader of the Official Opposition"],
+  "roles": [
+   "Cheffe de l'opposition officielle"
+  ],
+  "rolesEn": [
+   "Leader of the Official Opposition"
+  ],
+  "bandeau": [
+   "Cheffe de l'opposition officielle",
+   "Leader of the Official Opposition"
+  ],
   "source": "https://www.legnb.ca/fr/parlementaires/actuel/167/johnson-margaret",
   "reseaux": []
  },
@@ -13,10 +20,21 @@
   "name": "David Coon",
   "party": "VERT",
   "femme": false,
-  "roles": ["Chef du tiers parti (Parti vert)"],
-  "rolesEn": ["Leader of the Third Party (Green Party)"],
-  "bandeau": ["Chef du tiers parti", "Leader of the Third Party"],
+  "roles": [
+   "Chef du tiers parti (Parti vert)"
+  ],
+  "rolesEn": [
+   "Leader of the Third Party (Green Party)"
+  ],
+  "bandeau": [
+   "Chef du tiers parti",
+   "Leader of the Third Party"
+  ],
   "source": "https://www.legnb.ca/fr/parlementaires/actuel/14/coon-david",
-  "reseaux": []
+  "reseaux": [
+   "https://www.facebook.com/DavidCoonNB",
+   "https://www.instagram.com/davidccoon"
+  ],
+  "reseauxSource": "https://greencaucusvert.ca/press-kit/"
  }
 ]
