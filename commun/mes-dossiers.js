@@ -14,7 +14,8 @@ if (!document.querySelector('link[href="/commun/abonnes.css"]')) {
 import { client, VILLES, VILLES_PROJETS, VILLES_EN, VILLES_ATTENDUES, avisConsultation, marquerConsultation, echapper, dateFr, session, envoyerLien, chargerSuivis, suivre, limiteSuivis, nePlusSuivre, chargerDetail, rendreDetail, rendreDemande, demanderDetail, mesurer, formulaireMessage, dernierVolet, memoriserVolet, EN, tr } from '/commun/abonnes-client.js';
 import { boiteInfolettre } from '/commun/infolettre.js';
 const pl = (n, sing, plur) => (n > 1 ? plur : sing);
-import { libelleEn, themeEn } from '/quebec/assets/libelles-en.js';
+// Pas de volets de ville au N.-B. : les libellés anglais des volets du Québec (quebec/assets/libelles-en.js) n'existent pas ici.
+const libelleEn = (t) => t, themeEn = (cle, libelle) => libelle;
 
 // La ville d'où l'on arrive. Le site provincial réécrit « dernier volet » à chaque chargement, et
 // cette page est une des siennes : la mémoire dit toujours « assemblee ». L'adresse, elle, ne ment

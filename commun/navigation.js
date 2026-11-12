@@ -39,16 +39,17 @@ export const VILLES_EN_PAUSE = {
 // pas les octets, c'est que des erreurs permanentes dans la console masquent celles qui comptent.
 //
 // À faire quand un volet reçoit son scripts/projets-publics.js : ajouter sa clé ici.
-export const VILLES_PROJETS = ['quebec', 'montreal'];   // levis, longueuil, laval : en pause (VILLES_EN_PAUSE)
+// DossierNBrunswick n'a aucun volet de ville : ces trois listes sont vides, sinon Mon dossier demande les fichiers des volets du Québec (404).
+export const VILLES_PROJETS = [];
 
 // Les volets traduits en anglais (data/resumes-en.json). Lévis n'y est pas encore : sa liste
 // est donc plus courte que celle du dessus, et pas une copie.
-export const VILLES_EN = ['quebec', 'montreal'];
+export const VILLES_EN = [];
 
 // Les volets qui annoncent les décisions À VENIR (data/attendues.json). Encore un autre
 // ensemble : Montréal n'y est pas, alors qu'il est dans les deux listes précédentes. Chaque
 // fonction a été bâtie volet par volet ; ces trois listes disent l'état réel, pas un idéal.
-export const VILLES_ATTENDUES = ['quebec'];   // levis : en pause (VILLES_EN_PAUSE)
+export const VILLES_ATTENDUES = [];
 
 export const echapper = (s) =>
   String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
