@@ -3,7 +3,8 @@
 //   commun/nb.svg                        l'icône vectorielle (onglet du navigateur)
 //   commun/nb-48.png, nb-180.png, nb-512.png
 //   favicon.ico                          un .ico qui contient le PNG de 48 px
-//   dossiernbrunswick-cover.png          l'image de partage, 1702 × 630 (Facebook, Reddit, X…)
+//   dossiernbrunswick-partage.png        l'image de partage, 1200 × 630 (format exact de Facebook, Reddit, X ;
+//                                        l'ancienne dossiernbrunswick-cover.png de 1702 px reste en place)
 //
 // Même mise en page que l'image de partage de DossierQuébec ; l'étoile jaune du drapeau
 // remplace la feuille d'érable, comme dans l'en-tête (commun/nb.css).
@@ -31,23 +32,23 @@ const COUVERTURE = `<!doctype html><html><head><meta charset="utf-8"><style>
   @font-face{font-family:'Barlow';font-weight:700;src:url(${police('barlow-700.woff2')})}
   @font-face{font-family:'Barlow Condensed';font-weight:700;src:url(${police('barlow-condensed-700.woff2')})}
   *{box-sizing:border-box;margin:0}
-  body{width:1702px;height:630px;background:${ENCRE};padding:16px;font-family:Barlow,sans-serif}
-  .carte{position:relative;width:100%;height:100%;background:${PAPIER};padding:70px 84px}
-  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:150px;line-height:.9;letter-spacing:-.01em;color:${ENCRE};display:flex;align-items:center;gap:28px}
+  body{width:1200px;height:630px;background:${ENCRE};padding:16px;font-family:Barlow,sans-serif}
+  .carte{position:relative;width:100%;height:100%;background:${PAPIER};padding:58px 60px}
+  h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:124px;line-height:.9;letter-spacing:-.01em;color:${ENCRE};display:flex;align-items:center;gap:22px}
   h1 b{color:${BLEU};font-weight:700}
-  h1 svg{width:72px;height:72px;flex:none}
-  .filet{width:460px;height:8px;background:${ENCRE};margin:38px 0 34px}
-  h2{font-weight:700;font-size:60px;letter-spacing:-.01em;color:${ENCRE};text-transform:uppercase}
+  h1 svg{width:56px;height:56px;flex:none}
+  .filet{width:360px;height:7px;background:${ENCRE};margin:32px 0 30px}
+  h2{font-weight:700;font-size:52px;letter-spacing:-.01em;color:${ENCRE};text-transform:uppercase}
   h2 span{color:transparent;-webkit-text-stroke:2px ${ENCRE}}
-  .bas{position:absolute;left:84px;bottom:70px;font-weight:600;font-size:25px;letter-spacing:.06em;color:#555;text-transform:uppercase}
-  .adresse{position:absolute;right:84px;bottom:52px;background:${JAUNE};border:4px solid ${ENCRE};box-shadow:10px 10px 0 ${ENCRE};padding:14px 28px;font-weight:700;font-size:34px;letter-spacing:.06em;color:${ENCRE}}
+  .bas{position:absolute;left:60px;bottom:54px;max-width:470px;line-height:1.35;font-weight:600;font-size:22px;letter-spacing:.06em;color:#555;text-transform:uppercase}
+  .adresse{position:absolute;right:60px;bottom:48px;background:${JAUNE};border:4px solid ${ENCRE};box-shadow:10px 10px 0 ${ENCRE};padding:12px 24px;font-weight:700;font-size:30px;letter-spacing:.06em;color:${ENCRE}}
   .drapeau{position:absolute;left:0;right:0;top:0;height:10px;background:linear-gradient(90deg,${BLEU} 0 40%,${JAUNE} 40% 60%,${ROUGE} 60%)}
 </style></head><body><div class="carte">
   <div class="drapeau"></div>
   <h1><span>DOSSIER<b>NBRUNSWICK</b></span><svg viewBox="0 0 100 100"><polygon points="${ETOILE}" fill="${JAUNE}"/></svg></h1>
   <div class="filet"></div>
   <h2>Qui siège, <span>qui légifère,</span> qui vote quoi.</h2>
-  <p class="bas">Site citoyen indépendant · Vraies données publiques</p>
+  <p class="bas">Site citoyen indépendant<br>Vraies données publiques</p>
   <p class="adresse">DOSSIERNBRUNSWICK.CA</p>
 </div></body></html>`;
 
@@ -72,12 +73,12 @@ try {
   }
   writeFileSync('favicon.ico', ico(readFileSync('commun/nb-48.png'), 48));
 
-  await page.setViewportSize({ width: 1702, height: 630 });
+  await page.setViewportSize({ width: 1200, height: 630 });
   await page.goto(pathToFileURL('scripts/').href);   // les polices locales se chargent depuis file://
   await page.setContent(COUVERTURE, { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
-  await page.screenshot({ path: 'dossiernbrunswick-cover.png' });
-  console.log('images faites : commun/nb.svg, nb-48/180/512.png, favicon.ico, dossiernbrunswick-cover.png');
+  await page.screenshot({ path: 'dossiernbrunswick-partage.png' });
+  console.log('images faites : commun/nb.svg, nb-48/180/512.png, favicon.ico, dossiernbrunswick-partage.png');
 } finally {
   await navigateur.close();
 }
