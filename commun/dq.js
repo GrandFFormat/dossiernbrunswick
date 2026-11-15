@@ -218,7 +218,7 @@ const translations = {
   },
   en: {
     'nav.close':"Close",'nav.villes':"Cities",'nav.rtv':"Represent your city",
-    'signales.avis':"<b>No online petitions in New Brunswick.</b> The Assembly only accepts paper petitions, tabled by an MLA. Flagging a bill here has no official value: it is a citizen counter that shows what worries people, and points you to how to act.",
+    'signales.avis':"<b>No online petitions in New Brunswick.</b> The Assembly only accepts paper petitions, tabled by an MLA. Flagging a bill here has no official value: it is a citizen counter that shows what worries people, and points you to how to act. Quebec’s <a href=\"https://www.assnat.qc.ca/fr/exprimez-votre-opinion/petition/index.html\" target=\"_blank\" rel=\"noopener\">National Assembly</a> has accepted online petitions since 2009, the <a href=\"https://www.ourcommons.ca/procedure/procedure-and-practice-3/ch_22_4-e.html\" target=\"_blank\" rel=\"noopener\">House of Commons</a> since 2015.",
     'signales.agir':"To act officially:",'signales.depute':"write to your MLA",'quoideneuf.fil':"A timeline, newest first.",'nav.apercu':"Overview",'nav.ministres':"Ministers",'nav.projets':"Bills",
     'nav.votes':"Votes",'nav.archives':"Archives",'nav.quoideneuf':"What's new",'nav.compte':"Account & about",'nav.trouve':"Find your MLA",
     'nav.lexique':"Glossary",'nav.personnes':"Who's involved",'nav.petitions':"Petitions",'nav.apropos':"Where this data comes from",
