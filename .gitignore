@@ -25,3 +25,6 @@ laval/data/details.json
 
 # N.-B. : textes officiels des projets de loi, cache de scrapers/nb-resumes.js (relus sur legnb.ca au besoin).
 data/textes/
+
+# Fichiers de travail privés (retirés du site le 19 nov. 2026)
+/CHARTE-DOSSIER.md
