@@ -56,6 +56,11 @@
       "source": "/abonnement",
       "destination": "/",
       "permanent": false
+    },
+    {
+      "source": "/fredericton/",
+      "destination": "/fredericton",
+      "permanent": true
     }
   ]
 }
