@@ -28,3 +28,8 @@ data/textes/
 
 # Fichiers de travail privés (retirés du site le 19 nov. 2026)
 /CHARTE-DOSSIER.md
+
+# Volet Fredericton : les PDF de la Ville, téléchargés à la main, restent en local (pas de licence ouverte).
+fredericton/pv-a-la-main/
+fredericton/budget-pdf/
+fredericton/odj-a-la-main/

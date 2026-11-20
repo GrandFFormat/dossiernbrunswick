@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6CZX26581K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6CZX26581K', { content_group: 'Fredericton' });
+</script>
+<script src="/commun/consentement.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-fr="Sources des données de Fredericton : d’où vient chaque chiffre | DossierNBrunswick">Sources of the Fredericton data: where every number comes from | DossierNBrunswick</title>
+<meta name="description" content="Where the Fredericton City Council votes on this site come from, under which licence, what the data does not contain, and what a machine can miss. Independent citizen site." data-fr-content="D’où viennent les votes du conseil municipal de Fredericton affichés sur ce site, sous quelle licence, ce que les données ne contiennent pas, et ce qu’une machine peut manquer. Site citoyen indépendant.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://dossiernbrunswick.ca/fredericton/sources-of-the-fredericton-data">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DossierNBrunswick">
+<meta property="og:locale" content="en_CA">
+<meta property="og:title" content="Sources of the Fredericton data: where every number comes from | DossierNBrunswick">
+<meta property="og:description" content="Where the Fredericton City Council votes on this site come from, under which licence, and what the data does not contain.">
+<meta property="og:url" content="https://dossiernbrunswick.ca/fredericton/sources-of-the-fredericton-data">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Archivo+Narrow:wght@400..700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('dvq:theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair';
+      document.documentElement.dataset.theme = t;
+      var z = parseInt(localStorage.getItem('dvq:zoom'), 10);
+      if (z >= 80 && z <= 150) document.documentElement.style.zoom = z + '%';
+    } catch (e) {}
+  })();
+</script>
+<link rel="icon" href="/commun/nb.svg" type="image/svg+xml">
+<link rel="icon" href="/commun/nb-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/commun/nb-180.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "DossierNBrunswick", "item": "https://dossiernbrunswick.ca/" },
+    { "@type": "ListItem", "position": 2, "name": "City of Fredericton", "item": "https://dossiernbrunswick.ca/fredericton/" },
+    { "@type": "ListItem", "position": 3, "name": "Sources", "item": "https://dossiernbrunswick.ca/fredericton/sources-of-the-fredericton-data" }
+  ]
+}
+</script>
+<script>
+  /* Français choisi (?lang=fr ou dvq:langue) : la page est cachée le temps que assets/langue.js la traduise. */
+  (function () { try { var l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('dvq:langue'); if (l === 'fr') { document.documentElement.lang = 'fr'; document.documentElement.classList.add('dvq-fr'); } } catch (e) {} })();
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="sources" data-ville="fredericton">
+<header>
+  <div class="contenu">
+    <div class="titre-ligne">
+      <a href="./"><p class="logo-titre">Dossier<span class="marque">Fredericton</span></p></a><a class="lien-dq" href="/" title="DossierNBrunswick — the Legislative Assembly of New Brunswick in plain language" aria-label="DossierNBrunswick — the Legislative Assembly of New Brunswick in plain language" data-fr-title="DossierNBrunswick — l’Assemblée législative du Nouveau-Brunswick en clair" data-fr-aria-label="DossierNBrunswick — l’Assemblée législative du Nouveau-Brunswick en clair"></a>
+    </div>
+    <p class="sous-titre" data-fr="Les décisions du conseil municipal de Fredericton, rendues lisibles. Tirées telles quelles des procès-verbaux de la Ville.">Fredericton City Council decisions, made readable. Taken as is from the City’s minutes.</p>
+    <nav>
+      <a href="./" data-fr="Accueil">Home</a>
+      <a href="decisions-of-fredericton-city-council" data-fr="Décisions">Decisions</a>
+      <a href="fredericton-city-council" data-fr="Conseil municipal">City Council</a>
+      <a href="near-me-in-fredericton" data-fr="Près de chez moi">Near me</a>
+      <a href="fredericton-capital-budget" data-fr="Budget">Budget</a>
+      <a href="fredericton-council-glossary" data-fr="Lexique">Glossary</a>
+      <div class="outils">
+        <div class="taille-texte" role="group" aria-label="Text size" data-fr-aria-label="Taille du texte">
+          <button type="button" id="texte-moins" aria-label="Smaller text" data-fr-aria-label="Réduire le texte">A−</button>
+          <span id="texte-pct" aria-live="polite">100%</span>
+          <button type="button" id="texte-plus" aria-label="Larger text" data-fr-aria-label="Agrandir le texte">A+</button>
+        </div>
+        <button type="button" id="bascule-theme" class="bascule-theme" aria-pressed="false"
+                title="Switch to dark theme" aria-label="Switch to dark theme"></button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="contenu prose">
+  <div id="chargement" class="avis" hidden data-fr="Chargement des données…"></div>
+  <h1 class="page" data-fr="Sources des données de Fredericton">Sources of the Fredericton data</h1>
+  <p data-fr="Voici les sources des données de Fredericton. Ce site n’est pas la Ville de Fredericton et n’a aucun caractère officiel. En cas d’écart, le registre de la Ville fait foi — il est à un clic sur chaque fiche. Ces sources alimentent les &lt;a href=&quot;decisions-of-fredericton-city-council&quot;&gt;décisions du conseil municipal de Fredericton&lt;/a&gt; et les &lt;a href=&quot;fredericton-city-council&quot;&gt;fiches des membres&lt;/a&gt;.">
+    Here are the sources of the Fredericton data. This site is not the City of Fredericton and has no official status.
+    If anything differs, the City’s own record prevails — it is one click away on every card. These sources feed
+    the <a href="decisions-of-fredericton-city-council">decisions of Fredericton City Council</a> and the
+    <a href="fredericton-city-council">members’ pages</a>.
+  </p>
+
+  <h2 data-fr="D’où viennent les données">Where the data comes from</h2>
+  <ul>
+    <li data-fr="Décisions et séances viennent des &lt;strong&gt;procès-verbaux du conseil municipal&lt;/strong&gt;, que la Ville publie après chaque séance sur &lt;a href=&quot;https://pub-fredericton.escribemeetings.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;eSCRIBE&lt;/a&gt;, en anglais (&lt;em&gt;Minutes&lt;/em&gt;) et en français (&lt;em&gt;Procès-verbal&lt;/em&gt;). Chaque fiche renvoie au PDF de sa séance.">Decisions and meetings come from the <strong>minutes of City Council</strong>, which the City publishes after each meeting on <a href="https://pub-fredericton.escribemeetings.com/" target="_blank" rel="noopener">eSCRIBE</a>, in English (<em>Minutes</em>) and in French (<em>Procès-verbal</em>). Each card links to the PDF of its meeting.</li>
+    <li data-fr="&lt;strong&gt;Les ordres du jour.&lt;/strong&gt; La Ville publie le procès-verbal d’une séance environ trois mois plus tard, après l’avoir adopté. Pour les séances qui n’en ont pas encore, on montre l’ordre du jour, publié avant la séance sur &lt;a href=&quot;https://pub-fredericton.escribemeetings.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;eSCRIBE&lt;/a&gt; : ce qui était présenté au conseil, pas ce qu’il a décidé. Ces fiches sont marquées « à l’ordre du jour » et disparaissent quand le procès-verbal arrive."><strong>Agendas.</strong> The City publishes a meeting’s minutes about three months later, once adopted. For meetings that have none yet, we show the agenda, published before the meeting on <a href="https://pub-fredericton.escribemeetings.com/" target="_blank" rel="noopener">eSCRIBE</a>: what was put before Council, not what it decided. Those cards are marked “on the agenda” and are replaced when the minutes arrive.</li>
+    <li data-fr="&lt;strong&gt;Les informations.&lt;/strong&gt; Le procès-verbal rapporte aussi ce qui ne se vote pas : les rapports des comités, les présentations, les conflits d’intérêts déclarés, les questions des élus et le déroulement d’une séance extraordinaire. Ces fiches sont marquées « information » : ce ne sont pas des décisions."><strong>Information.</strong> The minutes also report what is not voted on: committee reports, presentations, declared conflicts of interest, members’ questions and the order of a special meeting. Those cards are marked “information”: they are not decisions.</li>
+    <li data-fr="Les membres du conseil, leurs quartiers et leurs coordonnées viennent de la page &lt;a href=&quot;https://www.fredericton.ca/city-government/mayor-council&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Mayor and Council&lt;/a&gt; du site de la Ville.">Council members, their wards and their contact details come from the City’s <a href="https://www.fredericton.ca/city-government/mayor-council" target="_blank" rel="noopener">Mayor and Council</a> page.</li>
+    <li data-fr="La Ville ne publie pas ces documents sous une licence ouverte. Nous lui avons demandé la permission de les reprendre ici ; si elle refuse, ce volet sera retiré.">The City does not publish these documents under an open licence. We have asked its permission to reproduce them here; if it says no, this section will be taken down.</li>
+  </ul>
+
+  <h2 data-fr="Ce que les procès-verbaux ne contiennent pas">What the minutes do not contain</h2>
+  <ul>
+    <li data-fr="&lt;strong&gt;Le décompte des votes.&lt;/strong&gt; Une résolution y est « adoptée » ou « rejetée ». Quand le vote est divisé (« Carried on division »), le procès-verbal nomme ceux qui ont voté contre, et la fiche aussi : sept fois en 2026. Sinon, il ne dit pas qui a voté pour ou contre. Il n’y a donc jamais de décompte complet sur les fiches."><strong>Vote counts.</strong> A resolution is “carried” or “defeated”. When the vote is divided (“Carried on division”), the minutes name those who voted against, and so does the card: seven times in 2026. Otherwise they do not say who voted for or against. So the cards never show a full count.</li>
+    <li data-fr="&lt;strong&gt;Les séances à huis clos.&lt;/strong&gt; Ce qui s’y discute n’est pas au procès-verbal public. Une résolution qui en sort est votée ensuite en séance publique ; c’est celle-là qu’on voit ici, avec la mention « From the … Closed Session »."><strong>Closed sessions.</strong> What is discussed there is not in the public minutes. A resolution that comes out of one is then voted on in public; that is the one shown here, marked “From the … Closed Session”.</li>
+    <li data-fr="&lt;strong&gt;Les séances sans résolution.&lt;/strong&gt; La séance extraordinaire du 1er juin 2026, l’assermentation du nouveau conseil, n’a adopté aucune résolution : elle n’a pas de fiche."><strong>Meetings without a resolution.</strong> The special meeting of June 1, 2026, the swearing-in of the new Council, adopted no resolution: it has no card.</li>
+  </ul>
+
+  <h2 data-fr="Ce que fait une machine, et ce qu’elle peut manquer">What a machine does, and what it can miss</h2>
+  <ul>
+    <li data-fr="&lt;strong&gt;La lecture des PDF.&lt;/strong&gt; Un programme découpe chaque procès-verbal en résolutions, de « Moved by » au résultat. Le titre d’une fiche est la ligne au-dessus de la résolution. Quelques mots peuvent sortir coupés du PDF anglais (« Cowpe rthwaite ») ; le PDF de la Ville fait foi."><strong>Reading the PDFs.</strong> A program splits each set of minutes into resolutions, from “Moved by” to the result. A card’s title is the line above the resolution. A few words may come out split from the English PDF (“Cowpe rthwaite”); the City’s PDF prevails.</li>
+    <li data-fr="&lt;strong&gt;Le français.&lt;/strong&gt; La version française est jumelée à l’anglaise dans l’ordre. Quand les deux n’ont pas le même nombre de résolutions (trois séances en 2026 : 10 mai, 19 mai et 8 juin), la séance reste en anglais seulement."><strong>French.</strong> The French version is paired with the English one in order. When the two do not have the same number of resolutions (three meetings in 2026: May 10, May 19 and June 8), the meeting stays in English only.</li>
+    <li data-fr="&lt;strong&gt;Les étiquettes de sujet&lt;/strong&gt; (zonage, transport, finances…) ne sont pas de la Ville : c’est un classement ajouté ici, par mots-clés. Une mauvaise étiquette est une erreur de notre part."><strong>Subject tags</strong> (zoning, transportation, finance…) are not the City’s: they are a classification added here, by keywords. A wrong tag is our mistake.</li>
+    <li data-fr="&lt;strong&gt;Les absences.&lt;/strong&gt; Un membre qui ne figure pas dans la liste des présents est noté absent pour toute la séance. Un départ en cours de séance n’est pas compté. Les absences ne sont comptées que pour le conseil actuel, assermenté le 1er juin 2026 : de janvier à mai, c’était le conseil précédent."><strong>Absences.</strong> A member missing from the list of members present is counted absent for the whole meeting. Leaving partway through is not counted. Absences are counted only for the current Council, sworn in on June 1, 2026: from January to May, it was the previous Council.</li>
+  </ul>
+
+  <h2 data-fr="À savoir">Things to know</h2>
+  <ul>
+    <li data-fr="&lt;strong&gt;La période.&lt;/strong&gt; Ce volet couvre les séances du &lt;strong&gt;12 janvier au 24 août 2026&lt;/strong&gt;, les procès-verbaux que la Ville avait publiés le 19 novembre 2026. Les procès-verbaux sont adoptés à une séance suivante, puis publiés : il y a toujours quelques semaines de retard."><strong>The period.</strong> This section covers meetings from <strong>January 12 to August 24, 2026</strong>, the minutes the City had published as of November 19, 2026. Minutes are adopted at a later meeting, then published: there is always a few weeks’ lag.</li>
+    <li data-fr="&lt;strong&gt;Les PDF sont téléchargés à la main.&lt;/strong&gt; Le site eSCRIBE de la Ville refuse les robots. On ne contourne pas ce blocage : chaque procès-verbal est téléchargé par une personne, puis lu par le programme."><strong>The PDFs are downloaded by hand.</strong> The City’s eSCRIBE site turns robots away. We do not get around that: each set of minutes is downloaded by a person, then read by the program.</li>
+  </ul>
+
+  <h2 data-fr="Ce qu’on a demandé à la Ville, et ce qu’elle a répondu">What we asked the City, and what it answered</h2>
+  <p data-fr="Nous écrivons au greffe de la Ville pour lui dire ce qu’on lit, à quel rythme, et comment nous joindre, et pour lui demander la permission de reprendre ses procès-verbaux. Ce paragraphe dira ce qui est revenu.">We are writing to the City Clerk’s office to say what we read, how often, and how to reach us, and to ask permission to reproduce its minutes. This paragraph will say what came back.</p>
+
+  <h2 data-fr="État des données">Data status</h2>
+  <div id="etat-donnees"></div>
+  <div id="etat-archive"></div>
+
+  <h2 id="mises-a-jour" data-fr="Mises à jour">Updates</h2>
+  <ul class="journal-ville">
+    <li data-fr="&lt;span class=&quot;pr-meta&quot;&gt;19 novembre 2026&lt;/span&gt; &lt;strong&gt;Fredericton sur DossierNBrunswick.&lt;/strong&gt; Les résolutions des séances du 12 janvier au 24 août 2026, lues dans les procès-verbaux anglais et français de la Ville."><span class="pr-meta">November 19, 2026</span> <strong>Fredericton on DossierNBrunswick.</strong> The resolutions of the meetings from January 12 to August 24, 2026, read in the City’s English and French minutes.</li>
+  </ul>
+</main>
+<footer>
+  <div class="contenu">
+    <p data-fr="Site citoyen indépendant. Aucun lien avec la Ville de Fredericton, aucun caractère officiel. En cas d’écart, le registre de la Ville fait foi. &lt;a href=&quot;sources-of-the-fredericton-data&quot;&gt;Sources&lt;/a&gt;.">Independent citizen site. No connection with the City of Fredericton, no official status. If anything differs, the City’s record prevails.</p>
+    <p data-fr="Source : procès-verbaux du conseil municipal de Fredericton, publiés par la Ville sur &lt;a href=&quot;https://pub-fredericton.escribemeetings.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;eSCRIBE&lt;/a&gt;. Ce site n’est pas celui de la Ville.">Source: minutes of Fredericton City Council, published by the City on <a href="https://pub-fredericton.escribemeetings.com/" target="_blank" rel="noopener">eSCRIBE</a>. This site is not the City’s.</p>
+    <p class="lien-dq-pied" data-fr="&lt;a href=&quot;/&quot;&gt;DossierNBrunswick — l’Assemblée législative du Nouveau-Brunswick en clair&lt;/a&gt; · &lt;a href=&quot;/regles&quot;&gt;Les règles du site&lt;/a&gt;"><a href="/">DossierNBrunswick — the Legislative Assembly of New Brunswick in plain language</a> · <a href="/regles">Rules of the site</a></p>
+  </div>
+</footer>
+<script type="module" src="assets/app.js"></script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script type="module" src="assets/langue.js"></script>
+<script src="assets/avis-pause.js" defer></script>
+</body>
+</html>

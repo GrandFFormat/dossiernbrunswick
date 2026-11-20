@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6CZX26581K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6CZX26581K', { content_group: 'Fredericton' });
+</script>
+<script src="/commun/consentement.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-fr="Près de chez moi à Fredericton : votre quartier et votre conseiller | DossierNBrunswick">Near me in Fredericton: your ward and your Councillor | DossierNBrunswick</title>
+<meta name="description" content="Type your Fredericton address to find your ward and your Councillor, from the City’s open data." data-fr-content="Tapez votre adresse à Fredericton pour trouver votre quartier et votre conseiller, d’après les données ouvertes de la Ville.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://dossiernbrunswick.ca/fredericton/near-me-in-fredericton">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DossierNBrunswick">
+<meta property="og:locale" content="en_CA">
+<meta property="og:title" content="Near me in Fredericton: your ward and your Councillor | DossierNBrunswick">
+<meta property="og:description" content="Find your Fredericton ward and Councillor from your address.">
+<meta property="og:url" content="https://dossiernbrunswick.ca/fredericton/near-me-in-fredericton">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Archivo+Narrow:wght@400..700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('dvq:theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair';
+      document.documentElement.dataset.theme = t;
+      var z = parseInt(localStorage.getItem('dvq:zoom'), 10);
+      if (z >= 80 && z <= 150) document.documentElement.style.zoom = z + '%';
+    } catch (e) {}
+  })();
+</script>
+<link rel="icon" href="/commun/nb.svg" type="image/svg+xml">
+<link rel="icon" href="/commun/nb-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/commun/nb-180.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "DossierNBrunswick", "item": "https://dossiernbrunswick.ca/" },
+    { "@type": "ListItem", "position": 2, "name": "City of Fredericton", "item": "https://dossiernbrunswick.ca/fredericton/" },
+    { "@type": "ListItem", "position": 3, "name": "Near me", "item": "https://dossiernbrunswick.ca/fredericton/near-me-in-fredericton" }
+  ]
+}
+</script>
+<script>
+  /* Français choisi (?lang=fr ou dvq:langue) : la page est cachée le temps que assets/langue.js la traduise. */
+  (function () { try { var l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('dvq:langue'); if (l === 'fr') { document.documentElement.lang = 'fr'; document.documentElement.classList.add('dvq-fr'); } } catch (e) {} })();
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="lexique" data-ville="fredericton">
+<header>
+  <div class="contenu">
+    <div class="titre-ligne">
+      <a href="./"><p class="logo-titre">Dossier<span class="marque">Fredericton</span></p></a><a class="lien-dq" href="/" title="DossierNBrunswick — the Legislative Assembly of New Brunswick in plain language" aria-label="DossierNBrunswick — the Legislative Assembly of New Brunswick in plain language" data-fr-title="DossierNBrunswick — l’Assemblée législative du Nouveau-Brunswick en clair" data-fr-aria-label="DossierNBrunswick — l’Assemblée législative du Nouveau-Brunswick en clair"></a>
+    </div>
+    <p class="sous-titre" data-fr="Les décisions du conseil municipal de Fredericton, rendues lisibles. Tirées telles quelles des procès-verbaux de la Ville.">Fredericton City Council decisions, made readable. Taken as is from the City’s minutes.</p>
+    <nav>
+      <a href="./" data-fr="Accueil">Home</a>
+      <a href="decisions-of-fredericton-city-council" data-fr="Décisions">Decisions</a>
+      <a href="fredericton-city-council" data-fr="Conseil municipal">City Council</a>
+      <a href="near-me-in-fredericton" aria-current="page" data-fr="Près de chez moi">Near me</a>
+      <a href="fredericton-capital-budget" data-fr="Budget">Budget</a>
+      <a href="fredericton-council-glossary" data-fr="Lexique">Glossary</a>
+      <div class="outils">
+        <div class="taille-texte" role="group" aria-label="Text size" data-fr-aria-label="Taille du texte">
+          <button type="button" id="texte-moins" aria-label="Smaller text" data-fr-aria-label="Réduire le texte">A−</button>
+          <span id="texte-pct" aria-live="polite">100%</span>
+          <button type="button" id="texte-plus" aria-label="Larger text" data-fr-aria-label="Agrandir le texte">A+</button>
+        </div>
+        <button type="button" id="bascule-theme" class="bascule-theme" aria-pressed="false"
+                title="Switch to dark theme" aria-label="Switch to dark theme"></button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="contenu prose" style="max-width:1180px">
+  <h1 class="page" data-fr="Près de chez moi à Fredericton">Near me in Fredericton</h1>
+  <p data-fr="Tapez votre adresse : votre quartier et votre conseiller ou conseillère, tels que la Ville les définit. Tout vient des données ouvertes de la Ville de Fredericton.">
+    Type your address: your ward and your Councillor, as the City defines them. Everything comes from the City of Fredericton’s open data.
+  </p>
+  <form class="qui-represente" id="qui-represente" autocomplete="off">
+    <label for="adresse" data-fr="Votre adresse">Your address</label>
+    <div class="ligne">
+      <input id="adresse" type="search" placeholder="E.g. 397 Queen Street" data-fr-placeholder="Ex. 397 Queen Street">
+      <button type="submit" data-fr="Chercher">Search</button>
+    </div>
+    <p class="compte" style="margin:6px 0 0" data-fr="Pas d’idée ? &lt;a href=&quot;#397 Queen Street&quot;&gt;Essayez 397 Queen Street&lt;/a&gt; — l’hôtel de ville.">No idea? <a href="#397 Queen Street">Try 397 Queen Street</a> — City Hall.</p>
+    <div id="resultat-adresse" aria-live="polite"></div>
+    <p class="compte" data-fr="Votre adresse reste dans votre navigateur. Elle n’est envoyée à personne. La recherche couvre la Ville de Fredericton seulement.">Your address stays in your browser. It is not sent to anyone. The search covers the City of Fredericton only.</p>
+  </form>
+  <style>
+    .qui-represente { background: var(--carte); border: var(--bordure-carte); border-radius: var(--rayon); padding: 14px 16px; margin: 16px 0 20px; }
+    .qui-represente label { font-weight: 600; display: block; margin-bottom: 6px; }
+    .qui-represente .ligne { display: flex; gap: 8px; }
+    .qui-represente input { flex: 1; min-width: 0; font: inherit; padding: 7px 10px; border: 1px solid var(--ligne-forte); border-radius: var(--rayon); background: var(--fond); color: var(--encre); }
+    .qui-represente button { font: inherit; padding: 7px 14px; border-radius: var(--rayon); border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; }
+    #resultat-adresse { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; align-items: start; }
+    .bloc-pres { background: var(--fond); border: 1px solid var(--ligne); border-radius: var(--rayon); padding: 12px 14px; }
+    .bloc-pres h3 { margin: 0 0 8px; font-size: 1rem; }
+    .bloc-pres ul { margin: 0; padding-left: 18px; }
+    .bloc-pres li { margin: 4px 0; font-size: .92rem; }
+    .genre-permis { display: inline-block; font-size: .75rem; font-weight: 600; color: #fff; border-radius: 999px; padding: 1px 8px; margin-right: 2px; }
+    .genre-permis.construction { background: var(--pour, #0B8A4B); }
+    .genre-permis.demolition { background: var(--contre, #D23B2C); }
+    .genre-permis.alteration { background: var(--t-transport, #1D4ED8); }
+    .genre-permis.en-cours { background: var(--t-transport, #1D4ED8); }
+    .genre-permis.a-venir { background: var(--t-urbanisme, #7C3AED); }
+    .genre-permis.fermeture { background: var(--contre, #D23B2C); }
+    #resultat-adresse.apercu { opacity: .45; filter: grayscale(1); max-height: 660px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 80%, transparent); mask-image: linear-gradient(#000 80%, transparent); }
+    .lien-carte { display: inline-flex; vertical-align: -2px; color: var(--accent); }
+    .zone-rayon { display: contents; }
+    .cadre-rayon, .carte-pres { grid-column: 1 / -1; }
+    .carte-pres { height: 380px; border-radius: var(--rayon); border: var(--bordure-carte); margin: 0 0 6px; z-index: 0; }
+    .carte-pres .leaflet-popup-content { font-size: 13px; line-height: 1.45; }
+    .cadre-rayon { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 14px 0 10px; padding: 10px 14px;
+      background: var(--carte); border: var(--bordure-carte); border-radius: var(--rayon); }
+    .cadre-rayon > span { font-weight: 600; }
+    .cadre-rayon .rayon-pm { display: inline-flex; align-items: center; gap: 10px; flex: none; }
+    .cadre-rayon .filtre-groupe { width: auto; height: auto; border-radius: 999px; padding: 5px 12px; font-size: .82rem; font-weight: 700;
+      background: var(--encre); color: var(--fond); border: 1.5px solid var(--encre); }
+    .cadre-rayon .filtre-groupe[aria-pressed="false"] { background: transparent; color: var(--encre); opacity: .5; text-decoration: line-through; }
+    .cadre-rayon .filtre-groupe[aria-pressed="mixed"] { background: transparent; color: var(--encre); }
+    .cadre-rayon .filtre-circulation { width: auto; height: auto; border-radius: 999px; padding: 5px 12px; font-size: .82rem; font-weight: 700;
+      background: transparent; color: var(--encre); border: 1.5px solid #E8742C; }
+    .cadre-rayon .filtre-circulation[aria-pressed="true"] { background: #E8742C; color: #fff; }
+    .cadre-rayon .bouton-filtres { width: auto; height: auto; border-radius: 999px; padding: 5px 12px; font-size: .82rem; font-weight: 700;
+      background: transparent; color: var(--encre); border: 1.5px solid var(--ligne-forte, var(--ligne)); }
+    .cadre-rayon .bouton-filtres[aria-expanded="true"] { background: var(--encre); color: var(--fond); border-color: var(--encre); }
+    .cadre-rayon .bouton-filtres b { font-weight: 700; color: #E8742C; }
+    .filtres-detail { display: none; flex-basis: 100%; flex-wrap: wrap; gap: 6px; order: 9; padding-top: 4px; }
+    .filtres-detail.ouvert { display: flex; }
+    .filtres-rayon { display: flex; flex-wrap: wrap; gap: 6px; margin-right: auto; flex: 1; }
+    .cadre-rayon .filtre-type { width: auto; height: auto; border-radius: 999px; padding: 4px 10px 4px 8px; font-size: .8rem; font-weight: 600;
+      background: transparent; color: var(--encre); border: 1.5px solid var(--ligne-forte); display: inline-flex; align-items: center; gap: 6px; }
+    .cadre-rayon .filtre-type i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .cadre-rayon .filtre-type b { font-weight: 600; opacity: .7; }
+    .cadre-rayon .filtre-type[aria-pressed="false"] { opacity: .45; text-decoration: line-through; }
+    .cadre-rayon .filtre-type[aria-pressed="false"] i { background: transparent !important; box-shadow: inset 0 0 0 1.5px currentColor; }
+    .cadre-rayon button { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--accent); background: var(--accent);
+      color: #fff; font-family: inherit; font-weight: 700; font-size: 20px; line-height: 1; cursor: pointer; }
+    .cadre-rayon button:disabled { opacity: .35; cursor: default; }
+    .cadre-rayon strong { min-width: 64px; text-align: center; font-size: 1.1rem; }
+    .bulle-carte { display: inline-flex; align-items: center; gap: 4px; text-decoration: none; color: #fff; }
+    .bulle-carte svg { width: 13px; height: 13px; }
+    .bulle-carte:hover, .bulle-carte:focus-visible { filter: brightness(1.12); text-decoration: underline; }
+    /* Sur téléphone, la maison était une cible de 14 px : impossible à toucher du doigt (Martin,
+       15 nov. 2026). Une pastille de 36 px, l'icône plus grande, sans déplacer la ligne. */
+    @media (max-width: 720px), (pointer: coarse) {
+      .lien-carte { align-items: center; justify-content: center; min-width: 36px; min-height: 36px;
+        margin: -8px 0; vertical-align: middle; border-radius: 50%; background: var(--accent-fond); }
+      .lien-carte svg { width: 20px; height: 20px; }
+      .bulle-carte { min-height: 32px; padding: 4px 12px; font-size: .8rem; margin: 2px 4px 2px 0; }
+      .bulle-carte svg { width: 16px; height: 16px; }
+    }
+  </style>
+  <script type="module">
+    // « Près de chez moi » à Fredericton (N.-B., 19 nov. 2026), copie de Vancouver. Ici le quartier a son conseiller ;
+    // la Ville ne publie ni permis ni chantiers (index.permis === false), donc pas de rayon.
+    // Vancouver (15 nov. 2026), même mécanique qu'à Québec et à Montréal : l'index des
+    // adresses vient de scrapers/pres-de-chez-moi.js, découpé par lettre ; permis et chantiers par quartier.
+    // Ce qui change : pas de district ni de conseiller — le quartier remplace le district, et le conseil
+    // entier, élu par toute la ville, remplace « votre élu ».
+    import { EN, tr } from './assets/langue.js';
+    const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    // La même normalisation que le scraper : la Ville écrit « W 6TH AV », les gens « West 6th Avenue ».
+    const cle = (nom) => String(nom ?? '').toUpperCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^A-Z0-9]+/g, ' ').trim()
+      .replace(/\bAVENUE\b/g, 'AV').replace(/\bAVE\b/g, 'AV').replace(/\bSTREET\b/g, 'ST').replace(/\bDRIVE\b/g, 'DR').replace(/\bROAD\b/g, 'RD')
+      .replace(/\bBOULEVARD\b/g, 'BLVD').replace(/\bPLACE\b/g, 'PL').replace(/\bCRESCENT\b/g, 'CRES').replace(/\bCOURT\b/g, 'CRT')
+      .replace(/\bHIGHWAY\b/g, 'HWY').replace(/\bWEST\b/g, 'W').replace(/\bEAST\b/g, 'E').replace(/\bNORTH\b/g, 'N').replace(/\bSOUTH\b/g, 'S')
+      .replace(/\s+/g, ' ');
+    const argent = (n) => (EN ? '$' : '') + new Intl.NumberFormat(EN ? 'en-CA' : 'fr-CA', { maximumFractionDigits: 0 }).format(n) + (EN ? '' : ' $');
+    const jour = (d) => (d ? new Date(d + 'T12:00').toLocaleDateString(EN ? 'en-CA' : 'fr-CA', { day: 'numeric', month: 'short', year: 'numeric' }) : '');
+    const MAISON = '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>';
+    const carte = (q) => `<a class="lien-carte" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(q)}" target="_blank" rel="noopener" title="${tr('Voir sur Google Maps', 'See on Google Maps')}">${MAISON}</a>`;
+    const carteCoord = (lat, lon) => (lat && lon ? carte(`${lat},${lon}`) : '');
+    // La bulle (« À venir », « Nouveau bâtiment »…) devient elle-même le lien vers la carte, avec la
+    // maison dedans (Martin, 15 nov. 2026) : une cible facile au doigt au lieu d'une icône de 15 px.
+    const bulle = (classe, libelle, lat, lon) => lat && lon
+      ? `<a class="genre-permis bulle-carte ${esc(classe)}" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(`${lat},${lon}`)}" target="_blank" rel="noopener" title="${tr('Voir sur Google Maps', 'See on Google Maps')}">${MAISON}${libelle}</a>`
+      : `<span class="genre-permis ${esc(classe)}">${libelle}</span>`;
+    const GENRE = { Construction: ['construction', tr('Nouveau bâtiment', 'New building')], Demolition: ['demolition', tr('Démolition', 'Demolition')], Alteration: ['alteration', tr('Transformation majeure', 'Major alteration')] };
+    const STATUT = { 'en-cours': tr('En cours', 'Under construction'), 'a-venir': tr('À venir', 'Upcoming'), fermeture: tr('Rue fermée', 'Road closure') };
+    const fichiers = new Map();
+    const lire = (f) => { if (!fichiers.has(f)) fichiers.set(f, fetch(`data/adresses/${f}`).then((r) => (r.ok ? r.json() : null)).catch(() => null)); return fichiers.get(f); };
+    let index = null;
+    const formulaire = document.getElementById('qui-represente');
+    formulaire.addEventListener('submit', (e) => { e.preventDefault(); chercher(document.getElementById('adresse').value); });
+    async function chercher(texte, apercu = false) {
+      const zone = document.getElementById('resultat-adresse');
+      zone.classList.toggle('apercu', apercu);
+      const m = texte.trim().match(/^(\d+)[A-Za-z]?\s*[,\- ]*\s*(.+)$/);
+      if (!m) { zone.innerHTML = tr('<p>Tapez le numéro puis la rue, par exemple « 397 Queen Street ».</p>', '<p>Type the number then the street, for example “397 Queen Street”.</p>'); return; }
+      const numero = Number(m[1]);
+      const voie = cle(m[2].replace(/,?\s*Fredericton.*$/i, ''));
+      if (!voie) return;
+      zone.textContent = tr('Recherche…', 'Searching…');
+      index ??= await lire('index.json');
+      if (!index) { zone.innerHTML = tr('<p><strong>Aucune donnée.</strong> Lancez <code>node scripts/refresh.js</code> dans le dossier <code>fredericton/</code>, puis rechargez la page.</p>', '<p><strong>No data.</strong> Run <code>node scripts/refresh.js</code> in the <code>fredericton/</code> folder, then reload this page.</p>'); return; }
+      const voies = (await lire(`${voie[0].replace(/[^A-Z0-9]/, '_')}.json`)) ?? {};
+      const exactes = Object.entries(voies).filter(([k]) => k === voie);
+      const candidates = exactes.length ? exactes : Object.entries(voies).filter(([k]) => k.startsWith(voie) || voie.startsWith(k));
+      const trouvees = [];
+      for (const [, [libelle, adresses]] of candidates) {
+        const exact = adresses.find((x) => numero >= x[0] && numero <= x[1]);
+        if (exact) { trouvees.push({ libelle, qi: exact[2], approx: null, lat: exact[3], lon: exact[4] }); continue; }
+        // Pas ce numéro exact : la plus proche sur la même rue, à moins de cent numéros — et on le dit.
+        const proche = adresses.reduce((b, x) => (Math.abs(x[0] - numero) < Math.abs((b?.[0] ?? Infinity) - numero) ? x : b), null);
+        if (proche && Math.abs(proche[0] - numero) <= 100) trouvees.push({ libelle, qi: proche[2], approx: proche[0], lat: proche[3], lon: proche[4] });
+      }
+      if (!trouvees.length) {
+        zone.innerHTML = tr('<p>Adresse introuvable. Vérifiez le numéro et le nom de la rue. La recherche couvre la Ville de Fredericton seulement.</p>', '<p>Address not found. Check the number and the street name. The search covers the City of Fredericton only.</p>');
+        return;
+      }
+      zone.innerHTML = trouvees.slice(0, 3).map((t) => `<section class="bloc-pres"><h3>${tr('Votre adresse', 'Your address')}</h3><strong>${numero} ${esc(t.libelle)}</strong> ${carte(`${numero} ${t.libelle}, Fredericton, NB`)}
+          ${t.approx ? `<p class="compte" style="margin:4px 0 0">${tr(`Le numéro ${numero} n’est pas dans la liste d’adresses de la Ville ; le plus proche est le ${t.approx}.`, `Number ${numero} is not in the City’s address list; the closest is ${t.approx}.`)}</p>` : ''}
+          <ul>
+            <li>${tr('Quartier', 'Ward')}&nbsp;: <strong>${esc(index.quartiers[t.qi] ?? '—')}</strong> (${tr('l’un des 12 quartiers de la Ville', 'one of the City’s 12 wards')})</li>
+            ${index.conseillers?.[t.qi] ? `<li>${tr('Votre conseiller ou conseillère', 'Your Councillor')}&nbsp;: <a href="fredericton-city-council"><strong>${esc(index.conseillers[t.qi])}</strong></a></li>` : ''}
+            <li>${tr('Le maire, Steve Hicks, est élu par toute la ville. <a href="fredericton-city-council">Les treize membres du conseil →</a>', 'The Mayor, Steve Hicks, is elected by the whole city. <a href="fredericton-city-council">The thirteen Council members →</a>')}</li>
+          </ul></section>`).join('');
+      // N.-B. : sans permis ni chantiers publiés, pas de rayon ; la page le dit.
+      if (index.permis === false) { zone.insertAdjacentHTML('beforeend', `<p class="compte" style="grid-column:1/-1">${tr('La Ville de Fredericton ne publie ni ses permis de construction ni ses chantiers en données ouvertes : il n’y a donc rien à montrer autour de votre adresse.', 'The City of Fredericton does not publish its building permits or its roadwork as open data, so there is nothing to show around your address.')}</p>`); return; }
+      const t = trouvees[0];
+      if (t.qi < 0) return;
+      // Le rayon (Martin, 15 nov. 2026) : « − 1 km + ». Selon la distance choisie, les chantiers et
+      // les permis de TOUS les quartiers à portée s'affichent, du plus proche au plus loin. Sans
+      // position (vieille donnée), on retombe sur le quartier, comme avant.
+      const [ch, ...tousPermis] = await Promise.all([
+        fetch('data/chantiers.json').then((r) => (r.ok ? r.json() : null)).catch(() => null),
+        ...index.quartiers.map((_, qi) => fetch(`data/permis/${qi}.json`).then((r) => (r.ok ? r.json() : [])).catch(() => [])),
+      ]);
+      const zoneRayon = document.createElement('div');
+      zoneRayon.className = 'zone-rayon';
+      zone.append(zoneRayon);
+      const rendre = () => rendreRayon(zoneRayon, t, ch, tousPermis);
+      rayonRendu = rendre;
+      rendre();
+    }
+    // ---------- Le rayon « − 1 km + » ----------
+    const RAYONS = [0.25, 0.5, 1, 2, 3, 5];   // km
+    let rayon = 1, rayonRendu = null;
+    let masques = new Set();
+    try { masques = new Set(JSON.parse(localStorage.getItem('fre:rayon:masques') ?? '[]')); } catch {}
+    // Un bouton par famille (Martin : « we need a roads button ») : Routes = tous les chantiers de la
+    // Ville, Permis = tous les permis. Il masque ou remontre d'un coup tous les types de sa famille.
+    // « Impact sur la circulation » : seules les fermetures de rue (Road Ahead « current road closures »)
+    // le disent dans les données de la Ville ; les permis n'en disent rien.
+    // Deux boutons seulement dans le cadre (Martin, 15 nov. 2026) : « Filtres », qui déplie les autres (Routes, Permis, les types), et « Impact sur la circulation ».
+    let filtresOuverts = false;
+    window.basculerFiltres = () => { filtresOuverts = !filtresOuverts; rayonRendu?.(); };
+    let seulementCirculation = false;
+    try { seulementCirculation = localStorage.getItem('fre:rayon:circulation') === '1'; } catch {}
+    window.basculerCirculation = () => { seulementCirculation = !seulementCirculation; try { localStorage.setItem('fre:rayon:circulation', seulementCirculation ? '1' : '0'); } catch {} rayonRendu?.(); };
+    window.basculerGroupe = (liste) => {
+      const classes = liste.split(',');
+      const tousMasques = classes.every((c) => masques.has(c));
+      for (const c of classes) tousMasques ? masques.delete(c) : masques.add(c);
+      try { localStorage.setItem('fre:rayon:masques', JSON.stringify([...masques])); } catch {}
+      rayonRendu?.();
+    };
+    window.basculerType = (classe) => { masques.has(classe) ? masques.delete(classe) : masques.add(classe); try { localStorage.setItem('fre:rayon:masques', JSON.stringify([...masques])); } catch {} rayonRendu?.(); };
+    try { const r = Number(localStorage.getItem('fre:rayon')); if (RAYONS.includes(r)) rayon = r; } catch {}
+    const distanceKm = (a, b, c, d) => {
+      const R = 6371, x = (c - a) * Math.PI / 180, y = (d - b) * Math.PI / 180;
+      const h = Math.sin(x / 2) ** 2 + Math.cos(a * Math.PI / 180) * Math.cos(c * Math.PI / 180) * Math.sin(y / 2) ** 2;
+      return 2 * R * Math.asin(Math.sqrt(h));
+    };
+    const texteKm = (k) => (k < 1 ? `${Math.round(k * 1000)} m` : `${k.toLocaleString(tr('fr-CA', 'en-CA'), { maximumFractionDigits: 1 })} km`);
+    function changerRayon(sens) {
+      const i = RAYONS.indexOf(rayon) + sens;
+      if (i < 0 || i >= RAYONS.length) return;
+      rayon = RAYONS[i];
+      try { localStorage.setItem('fre:rayon', String(rayon)); } catch {}
+      rayonRendu?.();
+    }
+    window.changerRayon = changerRayon;
+    function rendreRayon(el, t, ch, tousPermis) {
+      const avecPos = t.lat && t.lon;
+      const quartier = esc(index.quartiers[t.qi]);
+      let chantiers, permis;
+      if (avecPos) {
+        chantiers = Object.values(ch?.parQuartier ?? {}).flat()
+          .map((c) => ({ c, d: c[4] && c[5] ? distanceKm(t.lat, t.lon, c[4], c[5]) : Infinity }))
+          .filter((x) => x.d <= rayon).sort((a, b) => a.d - b.d);
+        permis = tousPermis.flat()
+          .map((p) => ({ p, d: p[4] && p[5] ? distanceKm(t.lat, t.lon, p[4], p[5]) : Infinity }))
+          .filter((x) => x.d <= rayon).sort((a, b) => a.d - b.d);
+      } else {
+        chantiers = (ch?.parQuartier?.[t.qi] ?? []).map((c) => ({ c, d: null }));
+        permis = (tousPermis[t.qi] ?? []).map((p) => ({ p, d: null }));
+      }
+      // Filtres par type (Martin, 15 nov. 2026) : une pastille par genre présent dans le rayon, de la
+      // couleur de sa bulle, avec son nombre ; un clic masque ou remontre ce type, liste et carte.
+      if (avecPos && seulementCirculation) { chantiers = chantiers.filter(({ c }) => c[1] === 'fermeture'); permis = []; }
+      const types = new Map();
+      for (const { c } of chantiers) { const t = types.get(c[1]) ?? { classe: c[1], libelle: STATUT[c[1]] ?? esc(c[1]), n: 0 }; t.n++; types.set(c[1], t); }
+      for (const { p } of permis) { const g = GENRE[p[2]] ?? ['alteration', p[2]]; const t = types.get(g[0]) ?? { classe: g[0], libelle: g[1], n: 0 }; t.n++; types.set(g[0], t); }
+      const etatGroupe = (cl) => (cl.every((c) => masques.has(c)) ? 'false' : cl.some((c) => masques.has(c)) ? 'mixed' : 'true');
+      const groupe = (libelle, cl) => (cl.length ? `<button type="button" class="filtre-groupe" aria-pressed="${etatGroupe(cl)}" onclick="basculerGroupe('${cl.join(',')}')">${libelle}</button>` : '');
+      const clRoutes = [...new Set(chantiers.map(({ c }) => c[1]))], clPermis = [...new Set(permis.map(({ p }) => (GENRE[p[2]] ?? ['alteration'])[0]))];
+      const circ = avecPos ? `<button type="button" class="filtre-circulation" aria-pressed="${seulementCirculation}" onclick="basculerCirculation()">🚧 ${tr('Impact sur la circulation', 'Traffic impact')}</button>` : '';
+      const groupes = (avecPos ? groupe(tr('Routes', 'Roads'), clRoutes) + groupe(tr('Permis', 'Permits'), clPermis) : '');
+      const detail = groupes + (avecPos ? [...types.values()].map((t) => `<button type="button" class="filtre-type" aria-pressed="${!masques.has(t.classe)}" onclick="basculerType('${esc(t.classe)}')"><i style="background:${couleurDe(t.classe)}"></i>${t.libelle} <b>${t.n}</b></button>`).join('') : '');
+      const nbMasques = [...types.keys()].filter((c) => masques.has(c)).length;
+      // Impact sur la circulation actif : seul ce bouton reste, les filtres disparaissent (Martin, 15 nov. 2026).
+      const filtres = avecPos && seulementCirculation ? circ : avecPos ? `<button type="button" class="bouton-filtres" aria-expanded="${filtresOuverts}" onclick="basculerFiltres()">${tr('Filtres', 'Filters')}${nbMasques ? ` <b>${nbMasques}</b>` : ''} ${filtresOuverts ? '▴' : '▾'}</button>${circ}<div class="filtres-detail${filtresOuverts ? ' ouvert' : ''}">${detail}</div>` : '';
+      chantiers = chantiers.filter(({ c }) => !masques.has(c[1]));
+      permis = permis.filter(({ p }) => !masques.has((GENRE[p[2]] ?? ['alteration'])[0]));
+      const loin = (d) => (d == null ? '' : ` <span class="compte">· ${texteKm(d)}</span>`);
+      const cadre = avecPos ? `<div class="cadre-rayon" role="group" aria-label="${tr('Distance autour de votre adresse', 'Distance around your address')}">
+          <span>${tr('Autour de votre adresse', 'Around your address')}</span>
+          <div class="filtres-rayon" role="group" aria-label="${tr('Montrer ou masquer un type', 'Show or hide a type')}">${filtres}</div>
+          <span class="rayon-pm"><button type="button" onclick="changerRayon(-1)" ${rayon === RAYONS[0] ? 'disabled' : ''} aria-label="${tr('Plus près', 'Closer')}">−</button>
+          <strong aria-live="polite">${texteKm(rayon)}</strong>
+          <button type="button" onclick="changerRayon(1)" ${rayon === RAYONS[RAYONS.length - 1] ? 'disabled' : ''} aria-label="${tr('Plus loin', 'Farther')}">+</button></span>
+        </div>` : '';
+      const ou = avecPos ? tr(`à moins de ${texteKm(rayon)}`, `within ${texteKm(rayon)}`) : tr(`dans ${quartier}`, `in ${quartier}`);
+      el.innerHTML = cadre + (avecPos ? '<div id="carte-pres" class="carte-pres" aria-label="' + tr('Carte des chantiers et des permis', 'Map of roadwork and permits') + '"></div>' : '') +
+        `<section class="bloc-pres"><h3>${tr(`Chantiers de la Ville ${ou}&nbsp;: ${chantiers.length}`, `City roadwork ${ou}: ${chantiers.length}`)}</h3>${chantiers.length ? `<ul>${
+          chantiers.slice(0, 25).map(({ c, d }) => `<li>${bulle(c[1], STATUT[c[1]] ?? esc(c[1]), c[4], c[5])} ${c[3] ? `<a href="${esc(c[3])}" target="_blank" rel="noopener">${esc(c[0])}</a>` : esc(c[0])}${c[6] ? ` <span class="compte">(${esc(c[6])})</span>` : ''}${loin(d)}${c[2] ? ` <span class="compte">— ${tr('prévu jusqu’au', 'planned to')} ${jour(c[2])}</span>` : ''}</li>`).join('')
+        }</ul>` : `<p class="compte">${tr('Aucun. Élargissez la distance avec le +.', 'None. Widen the distance with +.')}</p>`}${chantiers.length > 25 ? `<p class="compte">${tr('Les 25 plus proches.', 'The 25 closest.')}</p>` : ''}${ch ? `<p class="compte">${tr(`En date du ${new Date(ch.extraction).toLocaleDateString('fr-CA', { day: 'numeric', month: 'short', year: 'numeric' })}, d’après les données « Road Ahead » de la Ville.`, `As of ${new Date(ch.extraction).toLocaleDateString('en-CA', { day: 'numeric', month: 'short', year: 'numeric' })}, from the City’s “Road Ahead” data.`)}</p>` : ''}</section>` +
+        `<section class="bloc-pres"><h3>${tr(`Permis délivrés ${ou}, ces 12 derniers mois&nbsp;: ${permis.length}`, `Permits issued ${ou} in the last 12 months: ${permis.length}`)}</h3>${permis.length ? `<ul>${
+          permis.slice(0, 25).map(({ p, d }) => { const g = GENRE[p[2]] ?? ['alteration', p[2]]; return `<li>${bulle(g[0], g[1], p[4], p[5])} <span class="compte">${jour(p[0])}</span> ${esc(p[1])}${loin(d)}${p[6] ? ` <span class="compte">— ${argent(p[6])} ${tr('déclarés', 'declared')}</span>` : ''}</li>`; }).join('')
+        }</ul>` : `<p class="compte">${tr('Aucun. Élargissez la distance avec le +.', 'None. Widen the distance with +.')}</p>`}${permis.length > 25 ? `<p class="compte">${tr('Les 25 plus proches.', 'The 25 closest.')}</p>` : ''}<p class="compte">${tr('Nouveaux bâtiments, démolitions et transformations de 500 000 $ ou plus. D’après les données « Issued building permits » de la Ville.', 'New buildings, demolitions, and alterations of $500,000 or more. From the City’s “Issued building permits” data.')}</p></section>`;
+      if (avecPos) dessinerCarte(t, chantiers, permis);
+    }
+    // ---------- La carte (Martin, 15 nov. 2026) : l'adresse, le cercle du rayon, un marqueur par chantier
+    // et par permis, de la couleur de sa bulle. Leaflet et les tuiles d'OpenStreetMap, avec leur attribution.
+    let leaflet = null;
+    const chargerLeaflet = () => leaflet ??= new Promise((ok, non) => {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet'; css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      document.head.append(css);
+      const js = document.createElement('script');
+      js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      js.onload = () => ok(window.L); js.onerror = non;
+      document.head.append(js);
+    });
+    // Chaque marqueur prend la couleur de sa bulle dans la liste (Martin, 15 nov. 2026) : on la lit
+    // dans le CSS, donc le thème clair ou sombre suit tout seul.
+    const couleurs = {};
+    const couleurDe = (classe) => couleurs[classe] ??= (() => {
+      const e = document.createElement('span');
+      e.className = `genre-permis ${classe}`; e.style.display = 'none';
+      document.body.append(e);
+      const c = getComputedStyle(e).backgroundColor; e.remove(); return c;
+    })();
+    async function dessinerCarte(t, chantiers, permis) {
+      const boite = document.getElementById('carte-pres');
+      if (!boite) return;
+      let L;
+      try { L = await chargerLeaflet(); } catch { boite.remove(); return; }
+      if (!document.body.contains(boite)) return;
+      const carte = L.map(boite, { scrollWheelZoom: false }).setView([t.lat, t.lon], 15);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(carte);
+      const cercle = L.circle([t.lat, t.lon], { radius: rayon * 1000, color: '#1f4f8a', weight: 2, fillOpacity: 0.06 }).addTo(carte);
+      L.circleMarker([t.lat, t.lon], { radius: 9, color: '#fff', weight: 3, fillColor: '#1f4f8a', fillOpacity: 1 })
+        .addTo(carte).bindPopup(`<strong>${tr('Votre adresse', 'Your address')}</strong>`);
+      const point = (lat, lon, couleur, html) => L.circleMarker([lat, lon], { radius: 6, color: '#fff', weight: 1.5, fillColor: couleur, fillOpacity: 0.95 }).addTo(carte).bindPopup(html);
+      for (const { c, d } of chantiers) point(c[4], c[5], couleurDe(c[1]),
+        `<strong>${STATUT[c[1]] ?? esc(c[1])}</strong><br>${c[3] ? `<a href="${esc(c[3])}" target="_blank" rel="noopener">${esc(c[0])}</a>` : esc(c[0])}<br>${texteKm(d)}${c[2] ? ` · ${tr('prévu jusqu’au', 'planned to')} ${jour(c[2])}` : ''}`);
+      for (const { p, d } of permis) { const g = GENRE[p[2]] ?? ['alteration', p[2]]; point(p[4], p[5], couleurDe(g[0]),
+        `<strong>${g[1]}</strong><br>${esc(p[1])}<br>${jour(p[0])} · ${texteKm(d)}${p[6] ? `<br>${argent(p[6])} ${tr('déclarés', 'declared')}` : ''}`); }
+      carte.fitBounds(cercle.getBounds(), { padding: [12, 12] });
+    }
+    const lancer = () => { const v = decodeURIComponent(location.hash.slice(1)); if (v) { document.getElementById('adresse').value = v; chercher(v); } else chercher('397 Queen Street', true); };
+    window.addEventListener('hashchange', lancer);
+    lancer();
+  </script>
+  <h2 data-fr="Sources">Sources</h2>
+  <ul>
+    <li data-fr="Adresses civiques et limites des quartiers, avec le nom du conseiller : Ville de Fredericton, &lt;a href=&quot;https://data-fredericton.opendata.arcgis.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;portail de données ouvertes&lt;/a&gt;, sous l’&lt;a href=&quot;https://data-fredericton.opendata.arcgis.com/pages/open-data-license&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Open Government License – City of Fredericton&lt;/a&gt;. Contient de l’information visée par cette licence. Rien n’est envoyé à la Ville ni à personne quand vous cherchez : la recherche se fait dans votre navigateur, dans des fichiers préparés d’avance.">Civic addresses and ward boundaries, with the Councillor’s name: City of Fredericton, <a href="https://data-fredericton.opendata.arcgis.com/" target="_blank" rel="noopener">open data portal</a>, under the <a href="https://data-fredericton.opendata.arcgis.com/pages/open-data-license" target="_blank" rel="noopener">Open Government License – City of Fredericton</a>. Contains information licensed under the Open Government License – City of Fredericton. Nothing is sent to the City or to anyone else when you search: the lookup happens in your browser, in files prepared in advance.</li>
+  </ul>
+</main>
+<footer>
+  <div class="contenu">
+    <p data-fr="Site citoyen indépendant. Aucun lien avec la Ville de Fredericton, aucun caractère officiel. En cas d’écart, le registre de la Ville fait foi. &lt;a href=&quot;sources-of-the-fredericton-data&quot;&gt;Sources&lt;/a&gt;.">Independent citizen site. No connection with the City of Fredericton, no official status. If anything differs, the City’s record prevails. <a href="sources-of-the-fredericton-data">Sources</a>.</p>
+    <p data-fr="Source : procès-verbaux du conseil municipal de Fredericton, publiés par la Ville sur &lt;a href=&quot;https://pub-fredericton.escribemeetings.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;eSCRIBE&lt;/a&gt;. Ce site n’est pas celui de la Ville.">Source: minutes of Fredericton City Council, published by the City on <a href="https://pub-fredericton.escribemeetings.com/" target="_blank" rel="noopener">eSCRIBE</a>. This site is not the City’s.</p>
+    <p class="lien-dq-pied" data-fr="&lt;a href=&quot;/&quot;&gt;DossierNBrunswick — l’Assemblée législative du Nouveau-Brunswick en clair&lt;/a&gt; · &lt;a href=&quot;/regles&quot;&gt;Les règles du site&lt;/a&gt;"><a href="/">DossierNBrunswick — the Legislative Assembly of New Brunswick in plain language</a> · <a href="/regles">Rules of the site</a></p>
+  </div>
+</footer>
+<script type="module" src="assets/app.js"></script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script src="assets/avis-pause.js" defer></script>
+<script type="module" src="assets/langue.js"></script>
+</body>
+</html>

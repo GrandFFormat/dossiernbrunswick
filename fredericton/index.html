@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Consentement : par défaut, Google Analytics n'a PAS le droit de déposer de témoins.
+     La bannière (commun/consentement.js, celle de DossierNBrunswick) passe analytics_storage à « granted » après « Accepter ». -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: (function(){ try { return localStorage.getItem('dq:temoins') === 'oui' ? 'granted' : 'denied'; } catch (e) { return 'denied'; } })(), ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+</script>
+<!-- Google tag : la propriété de DossierNBrunswick (G-6CZX26581K), groupe de contenu « Fredericton ». -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6CZX26581K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6CZX26581K', { content_group: 'Fredericton' });
+</script>
+<script src="/commun/consentement.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-fr="Les décisions du conseil municipal de Fredericton, rendues lisibles | DossierNBrunswick">Fredericton City Council decisions, made readable | DossierNBrunswick</title>
+<meta name="description" content="Every resolution of Fredericton City Council, meeting by meeting: what was decided, who moved it, who seconded it and the result. Taken from the City’s minutes. Independent citizen site." data-fr-content="Chaque résolution du conseil municipal de Fredericton, séance par séance : ce qui a été décidé, qui l’a proposé, qui l’a appuyé et le résultat. Tiré des procès-verbaux de la Ville. Site citoyen indépendant.">
+<!-- MAQUETTE, NON ACTIVÉE (Martin, 15 nov. 2026) : noindex tant que la publication n'est pas décidée
+     (guide de reproduction, étape 2 : « noindex tant qu'on attend, sans Disallow »). À retirer de
+     chaque page le jour où le volet s'ouvre. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://dossiernbrunswick.ca/fredericton/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DossierNBrunswick">
+<meta property="og:locale" content="en_CA">
+<meta property="og:title" content="Fredericton City Council decisions, made readable | DossierNBrunswick">
+<meta property="og:description" content="Every resolution of Fredericton City Council, taken from the City’s minutes.">
+<meta property="og:url" content="https://dossiernbrunswick.ca/fredericton/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Archivo+Narrow:wght@400..700&display=swap" rel="stylesheet">
+<script>
+  /* Thème appliqué AVANT le premier rendu, comme à Montréal : sans ça, quelqu'un en mode sombre se
+     prend un éclair blanc à chaque changement de page. Choix explicite d'abord, système ensuite. */
+  (function () {
+    try {
+      var t = localStorage.getItem('dvq:theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair';
+      document.documentElement.dataset.theme = t;
+      var z = parseInt(localStorage.getItem('dvq:zoom'), 10);
+      if (z >= 80 && z <= 150) document.documentElement.style.zoom = z + '%';
+    } catch (e) {}
+  })();
+</script>
+<link rel="icon" href="/commun/nb.svg" type="image/svg+xml">
+<link rel="icon" href="/commun/nb-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/commun/nb-180.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "DossierNBrunswick", "item": "https://dossiernbrunswick.ca/" },
+    { "@type": "ListItem", "position": 2, "name": "City of Fredericton", "item": "https://dossiernbrunswick.ca/fredericton/" }
+  ]
+}
+</script>
+<script>
+  /* Français choisi (?lang=fr ou dvq:langue) : la page est cachée le temps que assets/langue.js la traduise. */
+  (function () { try { var l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('dvq:langue'); if (l === 'fr') { document.documentElement.lang = 'fr'; document.documentElement.classList.add('dvq-fr'); } } catch (e) {} })();
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="accueil" data-ville="fredericton">
+<header>
+  <div class="contenu">
+    <div class="titre-ligne">
+      <a href="./"><p class="logo-titre">Dossier<span class="marque">Fredericton</span></p></a><a class="lien-dq" href="/" title="DossierNBrunswick — the Legislative Assembly of New Brunswick in plain language" aria-label="DossierNBrunswick — the Legislative Assembly of New Brunswick in plain language" data-fr-title="DossierNBrunswick — l’Assemblée législative du Nouveau-Brunswick en clair" data-fr-aria-label="DossierNBrunswick — l’Assemblée législative du Nouveau-Brunswick en clair"></a>
+    </div>
+    <p class="sous-titre" data-fr="Les décisions du conseil municipal de Fredericton, rendues lisibles. Tirées telles quelles des procès-verbaux de la Ville.">Fredericton City Council decisions, made readable. Taken as is from the City’s minutes.</p>
+    <nav>
+      <a href="./" aria-current="page" data-fr="Accueil">Home</a>
+      <a href="decisions-of-fredericton-city-council" data-fr="Décisions">Decisions</a>
+      <a href="fredericton-city-council" data-fr="Conseil municipal">City Council</a>
+      <a href="near-me-in-fredericton" data-fr="Près de chez moi">Near me</a>
+      <a href="fredericton-capital-budget" data-fr="Budget">Budget</a>
+      <a href="fredericton-council-glossary" data-fr="Lexique">Glossary</a>
+      <div class="outils">
+        <div class="taille-texte" role="group" aria-label="Text size" data-fr-aria-label="Taille du texte">
+          <button type="button" id="texte-moins" aria-label="Smaller text" data-fr-aria-label="Réduire le texte">A−</button>
+          <span id="texte-pct" aria-live="polite">100%</span>
+          <button type="button" id="texte-plus" aria-label="Larger text" data-fr-aria-label="Agrandir le texte">A+</button>
+        </div>
+        <button type="button" id="bascule-theme" class="bascule-theme" aria-pressed="false"
+                title="Switch to dark theme" aria-label="Switch to dark theme"></button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="contenu">
+  <div id="chargement" class="avis" data-fr="Chargement des données…">Loading data…</div>
+  <h1 class="page" data-fr="Les décisions du conseil municipal de Fredericton">Fredericton City Council decisions</h1>
+  <p class="intro-ville" data-fr="Chaque résolution du conseil municipal de Fredericton, tirée des procès-verbaux de la Ville : ce qui a été décidé, qui l’a proposé, qui l’a appuyé, et le résultat.">Every resolution of Fredericton City Council, taken from the City’s minutes: what was decided, who moved it, who seconded it, and the result.</p>
+  <section class="avis commandite pub-ici">
+    <p class="pub-ici-titre" data-fr="Votre publicité ici">Your ad here</p>
+    <p data-fr="Cet espace est vu par les gens qui suivent leur conseil municipal. &lt;a href=&quot;/represente-ta-ville&quot;&gt;Réservez-le →&lt;/a&gt;">This space is seen by people who follow their city council. <a href="/represente-ta-ville">Book it →</a></p>
+  </section>
+  <details class="apres-vente">
+    <summary data-fr="En pause · Réactiver cette ville : 150 $">Paused · Reactivate this city: $150</summary>
+    <p data-fr="Cette ville est en pause. La réactiver coûte 150 $ : le rattrapage des deux derniers mois et le mois en cours. Ensuite, 50 $ par mois, avec votre nom ou anonymement.">This city is paused. Reactivating it costs $150: catching up on the last two months plus the current month. Then $50 a month, with your name or anonymously.</p>
+    <p class="av-boutons"><a class="av-bouton" href="https://promo.dafrsolution.com/payment-link/6af4eaec906a8b62055d5b71" rel="noopener" data-fr="Réactiver cette ville : 150 $">Reactivate this city: $150</a></p>
+    <p class="av-note" data-fr="Le nom affiché est celui du paiement. Contribution au service, sans reçu d’impôt.">The name shown is the one used for payment. Contribution to the service, no tax receipt.</p>
+  </details>
+  <!-- N.-B. : la période couverte, dite en clair. -->
+  <section class="avis">
+    <p data-fr="&lt;strong&gt;Période couverte.&lt;/strong&gt; Les décisions des séances du conseil du &lt;strong&gt;12 janvier au 24 août 2026&lt;/strong&gt;, tirées des procès-verbaux. Pour les séances suivantes, jusqu’au &lt;strong&gt;9 novembre 2026&lt;/strong&gt;, la Ville n’a publié que l’ordre du jour : ces points sont marqués « à l’ordre du jour »."><strong>Period covered.</strong> The decisions of Council meetings from <strong>January 12 to August 24, 2026</strong>, taken from the minutes. For the meetings after that, up to <strong>November 9, 2026</strong>, the City has published only the agenda: those items are marked “on the agenda”.</p>
+  </section>
+  <div class="chiffres" id="chiffres"></div>
+  <h2 class="page" id="titre-fil" data-fr="Récemment au conseil">Recently at Council</h2>
+  <div id="fil"></div>
+  <button class="plus" id="plus-fil" hidden data-fr="Afficher plus">Show more</button>
+  <p style="margin-top:14px" data-fr="&lt;a href=&quot;decisions-of-fredericton-city-council&quot;&gt;Toutes les décisions →&lt;/a&gt; &amp;nbsp;·&amp;nbsp; &lt;a href=&quot;fredericton-city-council&quot;&gt;Les treize membres →&lt;/a&gt;">
+    <a href="decisions-of-fredericton-city-council">All decisions →</a> &nbsp;·&nbsp;
+    <a href="fredericton-city-council">The thirteen members →</a>
+  </p>
+  <h2 class="page" data-fr="Ce que couvre ce site">What this site covers</h2>
+  <p data-fr="Après chaque séance, la Ville de Fredericton publie le procès-verbal en anglais et en français. C’est ce document que vous voyez ici, résolution par résolution : son titre, son texte, qui l’a proposée, qui l’a appuyée, et le résultat. Les séances sont celles du conseil au complet, ordinaires et extraordinaires.">After each meeting, the City of Fredericton publishes the minutes in English and in French. That document is what you see here, resolution by resolution: its title, its text, who moved it, who seconded it, and the result. The meetings are those of the full Council, regular and special.</p>
+  <p data-fr="Les procès-verbaux de Fredericton ne donnent pas de décompte des votes : une résolution y est « adoptée » ou « rejetée ». Quand le vote est divisé, ils nomment ceux qui ont voté contre, et la fiche les nomme aussi. Rien n’est inventé à la place du décompte. Les absences, elles, viennent de la liste des présents de chaque séance.">Fredericton’s minutes give no vote count: a resolution is “carried” or “defeated”. When the vote is divided, they name those who voted against, and so does the card. Nothing is made up in place of the count. Absences come from the list of members present at each meeting.</p>
+  <p data-fr="Le vocabulaire (rezoning, consent agenda, by-law, third reading) est expliqué dans le &lt;a href=&quot;fredericton-council-glossary&quot;&gt;lexique&lt;/a&gt;, avec le nombre de fois où chaque terme revient dans la période. La page &lt;a href=&quot;sources-of-the-fredericton-data&quot;&gt;Sources&lt;/a&gt; dit d’où vient chaque chiffre et ce qu’une machine peut manquer.">The vocabulary (rezoning, consent agenda, by-law, third reading) is explained in the <a href="fredericton-council-glossary">glossary</a>, with the number of times each term appears in the period. The <a href="sources-of-the-fredericton-data">Sources</a> page says where every number comes from and what a machine can miss.</p>
+  <h2 class="page" data-fr="Par où commencer">Where to start</h2>
+  <div class="cartes-liens">
+    <a class="lien-section" href="decisions-of-fredericton-city-council">
+      <h3 data-fr="Décisions">Decisions</h3>
+      <p data-fr="Chaque résolution, séance par séance, avec une recherche et des filtres par sujet et par type de séance.">Every resolution, meeting by meeting, with search and filters by subject and by meeting type.</p>
+    </a>
+    <a class="lien-section" href="fredericton-city-council">
+      <h3 data-fr="Conseil municipal">City Council</h3>
+      <p data-fr="Le maire et les douze conseillers de quartier, avec leurs coordonnées et leurs absences pendant la période.">The Mayor and the twelve Ward Councillors, with their contact details and their absences in the period.</p>
+    </a>
+    <a class="lien-section" href="fredericton-council-glossary">
+      <h3 data-fr="Lexique">Glossary</h3>
+      <p data-fr="Les mots d’une séance du conseil de Fredericton, en clair, comptés dans les vrais procès-verbaux.">The words of a Fredericton council meeting, in plain English, counted in the real minutes.</p>
+    </a>
+    <a class="lien-section" href="sources-of-the-fredericton-data">
+      <h3 data-fr="Sources">Sources</h3>
+      <p data-fr="D’où viennent les données, à quelles conditions, ce qu’elles ne contiennent pas, et ce qu’on a lu avant de les utiliser.">Where the data comes from, on what terms, what it does not contain, and what we read before using it.</p>
+    </a>
+  </div>
+  <!-- The emails: none while the section is paused (removed as on Laval). -->
+</main>
+<footer>
+  <div class="contenu">
+    <p data-fr="Site citoyen indépendant. Aucun lien avec la Ville de Fredericton, aucun caractère officiel. En cas d’écart, le registre de la Ville fait foi. &lt;a href=&quot;sources-of-the-fredericton-data&quot;&gt;Sources&lt;/a&gt;.">Independent citizen site. No connection with the City of Fredericton, no official status. If anything differs, the City’s record prevails. <a href="sources-of-the-fredericton-data">Sources</a>.</p>
+    <!-- L'attribution exigée par la licence, mot pour mot. -->
+    <p data-fr="Source : procès-verbaux du conseil municipal de Fredericton, publiés par la Ville sur &lt;a href=&quot;https://pub-fredericton.escribemeetings.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;eSCRIBE&lt;/a&gt;. Ce site n’est pas celui de la Ville.">Source: minutes of Fredericton City Council, published by the City on <a href="https://pub-fredericton.escribemeetings.com/" target="_blank" rel="noopener">eSCRIBE</a>. This site is not the City’s.</p>
+    <p class="lien-dq-pied" data-fr="&lt;a href=&quot;/&quot;&gt;DossierNBrunswick — l’Assemblée législative du Nouveau-Brunswick en clair&lt;/a&gt; · &lt;a href=&quot;/regles&quot;&gt;Les règles du site&lt;/a&gt; · &lt;a href=&quot;sources-of-the-fredericton-data&quot;&gt;Sources&lt;/a&gt; · &lt;a href=&quot;https://fredericton.ca/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Site de la Ville de Fredericton ↗&lt;/a&gt; · Une réalisation de &lt;a class=&quot;lien-dafr&quot; href=&quot;https://www.dafrsolution.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;DAFR Solution&lt;/a&gt;"><a href="/">DossierNBrunswick — the Legislative Assembly of New Brunswick in plain language</a> · <a href="/regles">Rules of the site</a> · <a href="sources-of-the-fredericton-data">Sources</a> · <a href="https://fredericton.ca/" target="_blank" rel="noopener">City of Fredericton site ↗</a> · Powered by <a class="lien-dafr" href="https://www.dafrsolution.com/en" target="_blank" rel="noopener">DAFR Solution</a></p>
+  </div>
+</footer>
+<script type="module" src="assets/app.js"></script>
+<!-- Vercel Web Analytics — sans cookie, sans donnée personnelle. En local le script n'existe pas (404 sans conséquence). -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script type="module" src="assets/langue.js"></script>
+<script src="assets/avis-pause.js" defer></script>
+</body>
+</html>

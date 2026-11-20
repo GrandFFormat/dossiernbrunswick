@@ -1,0 +1,16 @@
+{
+  "name": "dossiernbrunswick-fredericton",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Volet Fredericton de DossierNBrunswick : les résolutions du conseil municipal, lues dans les procès-verbaux de la Ville (PDF eSCRIBE téléchargés à la main).",
+  "type": "module",
+  "scripts": {
+    "refresh": "node scripts/refresh.js",
+    "scrape:votes": "node scrapers/votes.js",
+    "scrape:lexique": "node scrapers/lexique.js",
+    "serve": "node ../scripts/serveur-local.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

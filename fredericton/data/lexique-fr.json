@@ -1,0 +1,131 @@
+{
+ "generatedAt": "2026-11-20T03:27:33.003Z",
+ "avertissement": "Les définitions de ce lexique sont écrites par DossierNBrunswick — ce ne sont ni des textes de la Ville de Fredericton ni des définitions juridiques. Ce qui vient des procès-verbaux, c’est le nombre d’occurrences et l’exemple sous chaque terme.",
+ "categories": {
+  "instances": "Qui décide",
+  "vote": "Le vote et les résultats",
+  "documents": "Motions et règlements",
+  "urbanisme": "Zonage et aménagement",
+  "argent": "Argent et immeubles"
+ },
+ "entrees": {
+  "City Council": {
+   "equivalent": "conseil municipal",
+   "definition": "Le maire et douze conseillers, un par quartier, élus pour quatre ans. Le conseil décide par résolution : un membre la propose, un autre l’appuie, et le conseil l’adopte ou la rejette.",
+   "ouVousLeVoyez": "Le type de séance de chaque fiche."
+  },
+  "Regular meeting": {
+   "equivalent": "séance ordinaire",
+   "definition": "Une séance du conseil tenue selon le calendrier régulier, en général le lundi soir aux deux semaines.",
+   "ouVousLeVoyez": "La plupart des séances de la période."
+  },
+  "Special meeting": {
+   "equivalent": "séance extraordinaire",
+   "definition": "Une séance du conseil convoquée hors du calendrier régulier, pour un objet précis, comme l’assermentation d’un nouveau conseil.",
+   "ouVousLeVoyez": "Le procès-verbal s’ouvre sur l’objet de la séance."
+  },
+  "Deputy Mayor": {
+   "equivalent": "maire suppléant, mairesse suppléante",
+   "definition": "Un conseiller ou une conseillère que le conseil choisit pour remplacer le maire en son absence.",
+   "ouVousLeVoyez": "Le conseil nomme le maire suppléant par résolution."
+  },
+  "Closed Session": {
+   "equivalent": "séance à huis clos",
+   "definition": "Une partie de séance tenue sans le public, pour les sujets que la loi permet de garder privés, comme les transactions immobilières ou les avis juridiques. La décision est ensuite votée en public.",
+   "ouVousLeVoyez": "Les fiches marquées « From the … Closed Session »."
+  },
+  "Council-in-Committee": {
+   "equivalent": "comité plénier",
+   "definition": "Tous les membres du conseil siégeant en comité pour étudier une question avant que le conseil la tranche.",
+   "ouVousLeVoyez": "Sous « Rapports du comité plénier » dans le procès-verbal."
+  },
+  "Moved by / Seconded by": {
+   "equivalent": "proposé par / appuyé par",
+   "definition": "Le membre qui présente une résolution, et celui qui accepte qu’elle soit mise aux voix. Ni l’un ni l’autre ne dit comment les autres ont voté.",
+   "ouVousLeVoyez": "Sur chaque fiche."
+  },
+  "Carried": {
+   "equivalent": "adoptée",
+   "definition": "La résolution a été adoptée. Les procès-verbaux de Fredericton ne disent ni par combien de voix, ni qui a voté contre.",
+   "ouVousLeVoyez": "Le résultat de presque chaque fiche."
+  },
+  "Defeated": {
+   "equivalent": "rejetée",
+   "definition": "La résolution a été rejetée.",
+   "ouVousLeVoyez": "Le résultat d’une fiche, quand ça arrive."
+  },
+  "Conflict of interest": {
+   "equivalent": "conflit d’intérêts",
+   "definition": "Un membre qui a un intérêt personnel dans un point le déclare en début de séance et ne participe pas à ce point.",
+   "ouVousLeVoyez": "Sous « Déclaration de conflit d’intérêts » dans le procès-verbal."
+  },
+  "Motion to excuse": {
+   "equivalent": "motion excusant une absence",
+   "definition": "Une résolution par laquelle le conseil excuse l’absence d’un membre à une séance.",
+   "ouVousLeVoyez": "Vers la fin de certaines séances."
+  },
+  "Consent Agenda": {
+   "equivalent": "résolutions en bloc",
+   "definition": "Un groupe de points courants adoptés ensemble, en une seule résolution. Un membre peut demander qu’un point en soit retiré et voté à part.",
+   "ouVousLeVoyez": "Une fiche par séance, avec tous les points qu’elle couvre dans le texte."
+  },
+  "By-law": {
+   "equivalent": "arrêté municipal",
+   "definition": "Une loi municipale adoptée par le conseil. Chacun porte une lettre et un numéro : Z pour le zonage, T pour la circulation, etc.",
+   "ouVousLeVoyez": "Les fiches intitulées « By-law No. … »."
+  },
+  "First, second and third reading": {
+   "equivalent": "première, deuxième et troisième lecture",
+   "definition": "Un arrêté est lu trois fois avant d’entrer en vigueur. Le conseil donne souvent les deux premières lectures à une séance et la troisième à une séance suivante.",
+   "ouVousLeVoyez": "Le même arrêté revient sur plusieurs fiches, à quelques semaines d’intervalle."
+  },
+  "Reading by summary": {
+   "equivalent": "lecture par résumé",
+   "definition": "Au lieu de lire un arrêté au complet, le conseil en lit un résumé, comme la Loi sur la gouvernance locale le permet.",
+   "ouVousLeVoyez": "Une fiche juste avant la troisième lecture d’un arrêté."
+  },
+  "Approval of Agenda": {
+   "equivalent": "adoption de l’ordre du jour",
+   "definition": "La première résolution d’une séance : le conseil adopte son ordre du jour, parfois avec des points ajoutés.",
+   "ouVousLeVoyez": "La première fiche de chaque séance."
+  },
+  "Approval of Minutes": {
+   "equivalent": "adoption du procès-verbal",
+   "definition": "Le conseil adopte le procès-verbal d’une séance précédente. Il ne devient le compte rendu officiel qu’à ce moment.",
+   "ouVousLeVoyez": "Les fiches intitulées « Minutes of the … Meeting »."
+  },
+  "Rezoning": {
+   "equivalent": "rezonage",
+   "aussi": "Zone Amendment",
+   "definition": "Une modification de l’arrêté de zonage (Z-5), qui fixe ce qu’on peut construire sur un terrain.",
+   "ouVousLeVoyez": "Les fiches intitulées « By-law No. Z-5.… – Rezoning »."
+  },
+  "Public Hearing": {
+   "equivalent": "audience publique",
+   "definition": "Avant de décider d’un rezonage, le conseil entend toute personne qui veut s’exprimer. Le maire clôt ensuite l’audience et le conseil vote.",
+   "ouVousLeVoyez": "La deuxième lecture d’un arrêté de zonage."
+  },
+  "Terms and conditions": {
+   "equivalent": "modalités et conditions",
+   "aussi": "Section 59",
+   "definition": "Des conditions que le conseil impose à un rezonage en vertu de l’article 59 de la Loi sur l’urbanisme, et que le propriétaire doit respecter.",
+   "ouVousLeVoyez": "Une fiche de la série de chaque rezonage."
+  },
+  "PID": {
+   "equivalent": "NID",
+   "aussi": "Parcel identifier",
+   "definition": "Le numéro qui identifie un terrain au registre de Services Nouveau-Brunswick.",
+   "ouVousLeVoyez": "Les achats, ventes et échanges de terrains."
+  },
+  "Funding agreement": {
+   "equivalent": "entente de financement",
+   "definition": "Une entente par laquelle un autre gouvernement paie une partie d’un projet de la Ville.",
+   "ouVousLeVoyez": "Les fiches sur les subventions de la province ou d’Ottawa."
+  },
+  "Purchase and sale": {
+   "equivalent": "achat et vente",
+   "definition": "La Ville achète, vend ou échange un terrain. Le conseil autorise le maire et la greffière à signer les documents.",
+   "ouVousLeVoyez": "Les fiches sur les terrains et les immeubles."
+  }
+ }
+}

@@ -1,0 +1,441 @@
+{
+ "generatedAt": "2026-11-20T03:27:33.003Z",
+ "source": "https://pub-fredericton.escribemeetings.com/",
+ "avertissement": "The definitions in this glossary are written by DossierNBrunswick — they are not the City of Fredericton’s texts nor legal definitions. What comes from the minutes is the count of occurrences and the example under each term.",
+ "categories": {
+  "instances": "Who decides",
+  "vote": "Voting and results",
+  "documents": "Motions and by-laws",
+  "urbanisme": "Zoning and development",
+  "argent": "Money and property"
+ },
+ "parametres": {
+  "annee": "2026",
+  "depuis": "2026-01-12",
+  "jusqua": "2026-08-24",
+  "ordresDuJourJusqua": "2026-11-09"
+ },
+ "nombre": 23,
+ "entrees": [
+  {
+   "terme": "City Council",
+   "categorie": "instances",
+   "recherche": "City Council Meeting",
+   "definition": "The Mayor and twelve Councillors, one per ward, elected for four years. Council decides by resolution: a member moves it, another seconds it, and Council carries or defeats it.",
+   "ouVousLeVoyez": "The meeting type on every card.",
+   "occurrences": {
+    "seances": 21,
+    "points": 434,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-11-09-ODJ-10.2",
+    "objet": "Adoption of 2027 Budget",
+    "date": "2026-11-09",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Regular meeting",
+   "categorie": "instances",
+   "recherche": "^Regular City Council Meeting$",
+   "definition": "A Council meeting held on the regular schedule, usually on Monday evening every two weeks.",
+   "ouVousLeVoyez": "Most meetings in the period.",
+   "occurrences": {
+    "seances": 19,
+    "points": 414,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-11-09-ODJ-10.2",
+    "objet": "Adoption of 2027 Budget",
+    "date": "2026-11-09",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Special meeting",
+   "categorie": "instances",
+   "recherche": "^Special City Council Meeting$",
+   "definition": "A Council meeting called outside the regular schedule, for one stated purpose, such as the swearing-in of a new Council.",
+   "ouVousLeVoyez": "The minutes open with the purpose of the meeting.",
+   "occurrences": {
+    "seances": 2,
+    "points": 20,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-06-01-INF-08",
+    "objet": "Oaths Of Office",
+    "date": "2026-06-01",
+    "instance": "Special City Council Meeting"
+   }
+  },
+  {
+   "terme": "Deputy Mayor",
+   "categorie": "instances",
+   "recherche": "Deputy Mayor",
+   "definition": "A Councillor chosen by Council to act for the Mayor when the Mayor is away.",
+   "ouVousLeVoyez": "Council appoints the Deputy Mayor by resolution.",
+   "occurrences": {
+    "points": 7,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-08-24-INF-01",
+    "objet": "Governance & Civic Engagement Committee Update (August 13, 2026)",
+    "date": "2026-08-24",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Closed Session",
+   "categorie": "instances",
+   "recherche": "Closed Session",
+   "definition": "Part of a meeting held without the public, for matters the law allows to be kept private, such as land deals or legal advice. Any decision is then voted on in public.",
+   "ouVousLeVoyez": "Cards marked “From the … Closed Session”.",
+   "occurrences": {
+    "points": 15,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-11-09-ODJ-09.4",
+    "objet": "Specialized Police Services Agreements – City of Edmundston and Town of Woodstock (From the November 9, 2026 Closed Session)",
+    "date": "2026-11-09",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Council-in-Committee",
+   "categorie": "instances",
+   "recherche": "Council-in-Committee|Committee of the Whole",
+   "definition": "All members of Council sitting as a committee to study a matter before Council decides it.",
+   "ouVousLeVoyez": "Under “Council-in-Committee Reports” in the minutes.",
+   "occurrences": {
+    "points": 14,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-08-24-02",
+    "objet": "Consent Agenda",
+    "date": "2026-08-24",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Moved by / Seconded by",
+   "categorie": "vote",
+   "recherche": ".",
+   "definition": "The member who puts a resolution forward, and the member who supports putting it to a vote. Neither tells you how the others voted.",
+   "ouVousLeVoyez": "On every card.",
+   "occurrences": {
+    "points": 434,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-11-09-ODJ-10.2",
+    "objet": "Adoption of 2027 Budget",
+    "date": "2026-11-09",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Carried",
+   "categorie": "vote",
+   "recherche": "^Carried$",
+   "definition": "The resolution was adopted. Fredericton’s minutes do not say by how many votes, nor who voted against.",
+   "ouVousLeVoyez": "The result on almost every card.",
+   "occurrences": {
+    "points": 267,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-08-24-10",
+    "objet": "Adjournment",
+    "date": "2026-08-24",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Defeated",
+   "categorie": "vote",
+   "recherche": "^Defeated$",
+   "definition": "The resolution was rejected.",
+   "ouVousLeVoyez": "The result on a card, when it happens.",
+   "occurrences": {
+    "points": 2,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-05-10-02",
+    "objet": "Defers consideration of the Report of the Expropriations Advisory Officer received on May 8, 2026, and the…",
+    "date": "2026-05-10",
+    "instance": "Special City Council Meeting"
+   }
+  },
+  {
+   "terme": "Conflict of interest",
+   "categorie": "vote",
+   "recherche": "conflict of interest",
+   "definition": "A member with a personal interest in an item declares it at the start of the meeting and takes no part in that item.",
+   "ouVousLeVoyez": "Under “Conflict of Interest Declarations” in the minutes.",
+   "occurrences": {
+    "points": 2,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-07-13-INF-01",
+    "objet": "Conflict Of Interest Declarations",
+    "date": "2026-07-13",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Motion to excuse",
+   "categorie": "vote",
+   "recherche": "Excuse",
+   "definition": "A resolution by which Council excuses a member’s absence from a meeting.",
+   "ouVousLeVoyez": "Near the end of some meetings.",
+   "occurrences": {
+    "points": 6,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-08-10-07",
+    "objet": "Motion To Excuse",
+    "date": "2026-08-10",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Consent Agenda",
+   "categorie": "documents",
+   "recherche": "Consent Agenda",
+   "definition": "A group of routine items adopted together, in a single resolution. Any member can ask for an item to be taken out and voted on separately.",
+   "ouVousLeVoyez": "One card per meeting, with every item it covers in the text.",
+   "occurrences": {
+    "points": 13,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-08-24-02",
+    "objet": "Consent Agenda",
+    "date": "2026-08-24",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "By-law",
+   "categorie": "documents",
+   "recherche": "By-law",
+   "definition": "A municipal law adopted by Council. Each one has a letter and a number: Z for zoning, T for traffic, and so on.",
+   "ouVousLeVoyez": "Cards titled “By-law No. …”.",
+   "occurrences": {
+    "points": 223,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-11-09-ODJ-08.1",
+    "objet": "By-law No. Z-6.15 - Redesignate Land to permit the subdivision of an unserviced lot at 575 Highland Avenue- Municipal Plan Amendment",
+    "date": "2026-11-09",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "First, second and third reading",
+   "categorie": "documents",
+   "recherche": "(First|Second|Third) Reading",
+   "definition": "A by-law is read three times before it takes effect. Council often gives first and second reading at one meeting and third reading at a later one.",
+   "ouVousLeVoyez": "The same by-law comes back on several cards, a few weeks apart.",
+   "occurrences": {
+    "points": 118,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-11-09-ODJ-07.7",
+    "objet": "By-law No. Z-5.376 – 140-146 Wallace Avenue – Rezoning (Harvona Contracting Inc.)",
+    "date": "2026-11-09",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Reading by summary",
+   "categorie": "documents",
+   "recherche": "by summary",
+   "definition": "Instead of reading a by-law out in full, Council reads a summary of it, as the Local Governance Act allows.",
+   "ouVousLeVoyez": "A card just before the third reading of a by-law.",
+   "occurrences": {
+    "points": 60,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-09-28-ODJ-07.4",
+    "objet": "By-law No. Z-5.375 – 148-152 Clark Street– Rezoning (City of Fredericton)",
+    "date": "2026-09-28",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Approval of Agenda",
+   "categorie": "documents",
+   "recherche": "Approval of Agenda",
+   "definition": "The first resolution of a meeting: Council adopts its agenda, sometimes with items added.",
+   "ouVousLeVoyez": "The first card of each meeting.",
+   "occurrences": {
+    "points": 14,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-08-24-01",
+    "objet": "Approval Of Agenda",
+    "date": "2026-08-24",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Approval of Minutes",
+   "categorie": "documents",
+   "recherche": "^Minutes of",
+   "definition": "Council adopts the minutes of an earlier meeting. They become the official record only then.",
+   "ouVousLeVoyez": "Cards titled “Minutes of the … Meeting”.",
+   "occurrences": {
+    "points": 11,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-11-09-ODJ-06.1",
+    "objet": "Minutes of the Regular Meeting of City Council - August 24, 2026",
+    "date": "2026-11-09",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Rezoning",
+   "categorie": "urbanisme",
+   "aussi": "Zone Amendment",
+   "recherche": "Rezoning|Zone Amendment|Zoning By-law",
+   "definition": "A change to the zoning by-law (Z-5) that sets what can be built on a property.",
+   "ouVousLeVoyez": "Cards titled “By-law No. Z-5.… – Rezoning”.",
+   "occurrences": {
+    "points": 121,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-11-09-ODJ-07.7",
+    "objet": "By-law No. Z-5.376 – 140-146 Wallace Avenue – Rezoning (Harvona Contracting Inc.)",
+    "date": "2026-11-09",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Public Hearing",
+   "categorie": "urbanisme",
+   "recherche": "public hearing",
+   "definition": "Before deciding a rezoning, Council hears anyone who wishes to speak. The Mayor then closes the hearing and Council votes.",
+   "ouVousLeVoyez": "The second reading of a zoning by-law.",
+   "occurrences": {
+    "points": 22,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-10-26-ODJ-05.3",
+    "objet": "Public Hearing Date - 575 Highland Avenue (WSP)",
+    "date": "2026-10-26",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Terms and conditions",
+   "categorie": "urbanisme",
+   "aussi": "Section 59",
+   "recherche": "terms and conditions",
+   "definition": "Conditions Council attaches to a rezoning under section 59 of the Community Planning Act, which the owner must meet.",
+   "ouVousLeVoyez": "A card in the series of each rezoning.",
+   "occurrences": {
+    "points": 54,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-10-26-ODJ-07.1",
+    "objet": "Change to Terms and Conditions – 269 Two Nations Crossing (12 Neighbours Community Inc.) A change in Terms and Conditions, pertaining to By-law No. Z-5.241",
+    "date": "2026-10-26",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "PID",
+   "categorie": "urbanisme",
+   "aussi": "Parcel identifier",
+   "recherche": "PID",
+   "definition": "The number that identifies a piece of land in Service New Brunswick’s registry.",
+   "ouVousLeVoyez": "Land purchases, sales and exchanges.",
+   "occurrences": {
+    "points": 46,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-11-09-ODJ-05.2",
+    "objet": "447-449 Northumberland Street (PID 01440650) - Tentative Plan of Subdivision (Christopher Thomas)",
+    "date": "2026-11-09",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Funding agreement",
+   "categorie": "argent",
+   "recherche": "funding|contribution agreement",
+   "definition": "An agreement under which another government pays part of a City project.",
+   "ouVousLeVoyez": "Cards on grants from the province or from Ottawa.",
+   "occurrences": {
+    "points": 27,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-10-26-ODJ-05.6",
+    "objet": "Municipal Capital Borrowing Board Funding – Pumper Tanker, Fire Services (From the October 26, 2026 Closed Session)",
+    "date": "2026-10-26",
+    "instance": "Regular City Council Meeting"
+   }
+  },
+  {
+   "terme": "Purchase and sale",
+   "categorie": "argent",
+   "recherche": "Purchase and Sale|acquisition|disposal|conveyance",
+   "definition": "The City buys, sells or exchanges land. Council authorizes the Mayor and the City Clerk to sign the documents.",
+   "ouVousLeVoyez": "Cards on land and buildings.",
+   "occurrences": {
+    "points": 22,
+    "surTotal": 434,
+    "periode": "2026-01-12 → 2026-08-24"
+   },
+   "exemple": {
+    "numero": "2026-09-28-ODJ-05.7",
+    "objet": "Acquisition of Route 105 PID 75136788 by Donation",
+    "date": "2026-09-28",
+    "instance": "Regular City Council Meeting"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1124 @@
+{
+ "source": "https://www.fredericton.ca/sites/default/files/2025-05/2025%20Annual%20Budget-%20Final.pdf",
+ "pageBudgets": "https://www.fredericton.ca/node/517583",
+ "licence": "Document de la Ville de Fredericton (fredericton.ca), sans licence ouverte",
+ "attribution": "Source: City of Fredericton, 2025 Annual Budget.",
+ "extraction": "2026-11-20T02:30:51.994Z",
+ "immobilisations": {
+  "source": "https://www.fredericton.ca/sites/default/files/2025-05/2025%20Annual%20Budget-%20Final.pdf",
+  "jeu": "budget-2025",
+  "jeuModifieLe": null,
+  "annee": 2025,
+  "nombreProjets": 94,
+  "totalDepense": 27365500,
+  "totalOuvert": null,
+  "totalDemande": null,
+  "previsions": {},
+  "anneesPrecedentes": {
+   "2023": 25022849,
+   "2024": 26203195
+  },
+  "fondsGeneral": 180154363,
+  "fonctionnement": 145184855,
+  "serviceDette": 7604008,
+  "categories": [
+   {
+    "nom": "Mobility",
+    "depense": 15685000,
+    "ouvert": null,
+    "demande": null,
+    "previsions": {},
+    "sousCategories": [
+     {
+      "nom": "Renewal/Rebuild",
+      "depense": 10554000,
+      "projets": [
+       {
+        "nom": "Asphalt Resurfacing",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 2300000,
+        "previsions": {}
+       },
+       {
+        "nom": "Roadway Operations, Loader and Attachments (2)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 900000,
+        "previsions": {}
+       },
+       {
+        "nom": "Nashwaak Bridge Repair",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 640000,
+        "previsions": {}
+       },
+       {
+        "nom": "Curb & Gutter Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 625000,
+        "previsions": {}
+       },
+       {
+        "nom": "Sidewalk Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 625000,
+        "previsions": {}
+       },
+       {
+        "nom": "Lincoln Road Phase 3 (Wilsey to Trail Crossing)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 601000,
+        "previsions": {}
+       },
+       {
+        "nom": "Main Street Phase 2 (Brookside to Hillcourt)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 500000,
+        "previsions": {}
+       },
+       {
+        "nom": "Riverside Phase 3 (Hamilton and Bridgeview Courts)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 396000,
+        "previsions": {}
+       },
+       {
+        "nom": "Crocket Street Phase 1 (Mill to Long)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 384000,
+        "previsions": {}
+       },
+       {
+        "nom": "Northumberland Phase 2 (Brunswick to Saunders)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 350000,
+        "previsions": {}
+       },
+       {
+        "nom": "Road Rebuilding",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 300000,
+        "previsions": {}
+       },
+       {
+        "nom": "Roofing Various Buildings (Roof Re-Cap)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 300000,
+        "previsions": {}
+       },
+       {
+        "nom": "Nashwaaksis Area - Clearview",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 262000,
+        "previsions": {}
+       },
+       {
+        "nom": "Nashwaaksis Area - Pugh Street (Oak to Wallace)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 261000,
+        "previsions": {}
+       },
+       {
+        "nom": "Transportation Safety Improvements",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 250000,
+        "previsions": {}
+       },
+       {
+        "nom": "Roadway Operations, Loader Backhoe",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 220000,
+        "previsions": {}
+       },
+       {
+        "nom": "Roadway Operations, One-Ton Crew Cab Trucks (2)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 220000,
+        "previsions": {}
+       },
+       {
+        "nom": "Devon Area - Noble Street (Ashfield to Mcevoy)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 215000,
+        "previsions": {}
+       },
+       {
+        "nom": "Marysville Area - Wellington Court",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 177000,
+        "previsions": {}
+       },
+       {
+        "nom": "Roadway Operations, Paint Heavy Equipment and Trucks",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 155000,
+        "previsions": {}
+       },
+       {
+        "nom": "Trail Culvert Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 150000,
+        "previsions": {}
+       },
+       {
+        "nom": "Roadway Operations, Material Spreader Controls, Salt Trucks",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 150000,
+        "previsions": {}
+       },
+       {
+        "nom": "Devon Area - Dobie St",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 117000,
+        "previsions": {}
+       },
+       {
+        "nom": "Crosswalk & Trail Crossing Safety Improvements",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 100000,
+        "previsions": {}
+       },
+       {
+        "nom": "Trail & Pathway Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 100000,
+        "previsions": {}
+       },
+       {
+        "nom": "Traffic Controller Renewals",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 95000,
+        "previsions": {}
+       },
+       {
+        "nom": "George Street (Regent To Carleton)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 61000,
+        "previsions": {}
+       },
+       {
+        "nom": "Traffic Calming",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 50000,
+        "previsions": {}
+       },
+       {
+        "nom": "River Street Reconstruction",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 50000,
+        "previsions": {}
+       }
+      ]
+     },
+     {
+      "nom": "New/Extensions",
+      "depense": 2631000,
+      "projets": [
+       {
+        "nom": "Main Street Bridge/Culvert (Killarney Brook)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 1200000,
+        "previsions": {}
+       },
+       {
+        "nom": "Active Transportation System Implementation",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 526000,
+        "previsions": {}
+       },
+       {
+        "nom": "Public Realm Implementation",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 450000,
+        "previsions": {}
+       },
+       {
+        "nom": "Roadway Operations, Bucket Truck, Capacity for Department (Parks & …",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 300000,
+        "previsions": {}
+       },
+       {
+        "nom": "Active Transportation Parking",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 50000,
+        "previsions": {}
+       },
+       {
+        "nom": "Accessible Bus Stops and Shelters",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 50000,
+        "previsions": {}
+       },
+       {
+        "nom": "Court Upgrades",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 35000,
+        "previsions": {}
+       },
+       {
+        "nom": "Roadway Operations, Shoulder Attachment for Tandem Truck",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 20000,
+        "previsions": {}
+       }
+      ]
+     },
+     {
+      "nom": "Growth",
+      "depense": 2500000,
+      "projets": [
+       {
+        "nom": "Prospect West & Patience Roundabout",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 2500000,
+        "previsions": {}
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Livable Community",
+    "depense": 6915000,
+    "ouvert": null,
+    "demande": null,
+    "previsions": {},
+    "sousCategories": [
+     {
+      "nom": "New/Extensions",
+      "depense": 4230000,
+      "projets": [
+       {
+        "nom": "Garrison Multi-Plaza / Officers' Square",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 2000000,
+        "previsions": {}
+       },
+       {
+        "nom": "Park Plan Implementation",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 1000000,
+        "previsions": {}
+       },
+       {
+        "nom": "Outdoor Sport Court & Field",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 450000,
+        "previsions": {}
+       },
+       {
+        "nom": "Horticulture",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 430000,
+        "previsions": {}
+       },
+       {
+        "nom": "Parks & Trees, One-Ton Crew Cabs",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 220000,
+        "previsions": {}
+       },
+       {
+        "nom": "Parks & Trees, Light Vehicles",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 120000,
+        "previsions": {}
+       },
+       {
+        "nom": "Sea Can Storage For Recreation",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 10000,
+        "previsions": {}
+       }
+      ]
+     },
+     {
+      "nom": "Renewal/Rebuild",
+      "depense": 2685000,
+      "projets": [
+       {
+        "nom": "Outdoor Sport Court & Field Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 500000,
+        "previsions": {}
+       },
+       {
+        "nom": "Building Services, Ice Resurfacer (2)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 420000,
+        "previsions": {}
+       },
+       {
+        "nom": "Willie O'Ree Flooring Replacement (Tile Lobbies, Rubber Flooring Main Hallway)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 310000,
+        "previsions": {}
+       },
+       {
+        "nom": "Arboriculture Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 210000,
+        "previsions": {}
+       },
+       {
+        "nom": "Playground & Park Infrastructure Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 200000,
+        "previsions": {}
+       },
+       {
+        "nom": "Parks & Trees, 4X4 Plow Truck Extended Cab (2)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 190000,
+        "previsions": {}
+       },
+       {
+        "nom": "Parks & Trees, Mini Excavator",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 180000,
+        "previsions": {}
+       },
+       {
+        "nom": "Horticulture Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 150000,
+        "previsions": {}
+       },
+       {
+        "nom": "Emerald Ash Borer Action Plan (Treat, Remove, Replace)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 150000,
+        "previsions": {}
+       },
+       {
+        "nom": "Parks & Trees, One Ton Truck, Crew Cab 5500 Series (Haul Mini)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 120000,
+        "previsions": {}
+       },
+       {
+        "nom": "Old Burial Grounds Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 100000,
+        "previsions": {}
+       },
+       {
+        "nom": "Parks & Trees, 72\" Zero-Turn Mowers (3)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 90000,
+        "previsions": {}
+       },
+       {
+        "nom": "Parks & Trees, Float Trailer for Mini Excavator",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 35000,
+        "previsions": {}
+       },
+       {
+        "nom": "Park Culvert Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 30000,
+        "previsions": {}
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Public Safety",
+    "depense": 1629500,
+    "ouvert": null,
+    "demande": null,
+    "previsions": {},
+    "sousCategories": [
+     {
+      "nom": "Renewal/Rebuild",
+      "depense": 1267000,
+      "projets": [
+       {
+        "nom": "Police Station Back Parking Deck Refurbishment along with Security Gate",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 480000,
+        "previsions": {}
+       },
+       {
+        "nom": "Bunker Gear",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 205000,
+        "previsions": {}
+       },
+       {
+        "nom": "Firearms and Weapons",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 147000,
+        "previsions": {}
+       },
+       {
+        "nom": "Police Department, Pursuit Rated Half-Ton",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 100000,
+        "previsions": {}
+       },
+       {
+        "nom": "Fire Department, New Command Post (Shared with Police)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 75000,
+        "previsions": {}
+       },
+       {
+        "nom": "Royal Road Fire (Station Improvements, Kitchen, Living Area)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 75000,
+        "previsions": {}
+       },
+       {
+        "nom": "ERT Team Rebuild",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 70000,
+        "previsions": {}
+       },
+       {
+        "nom": "CPIC File Storage Requirements",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 35000,
+        "previsions": {}
+       },
+       {
+        "nom": "Police Department, K9 Fit-Up of Existing Half-Ton",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 30000,
+        "previsions": {}
+       },
+       {
+        "nom": "Thermal Imaging Cameras (3)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 21000,
+        "previsions": {}
+       },
+       {
+        "nom": "Public Safety Systems Renewal (Police/Fire/911)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 15000,
+        "previsions": {}
+       },
+       {
+        "nom": "Ident Fuming Chamber",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 14000,
+        "previsions": {}
+       }
+      ]
+     },
+     {
+      "nom": "New/Extensions",
+      "depense": 362500,
+      "projets": [
+       {
+        "nom": "Building Services, Portable Emergency Backup Generator",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 160000,
+        "previsions": {}
+       },
+       {
+        "nom": "Public Safety Cameras",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 100000,
+        "previsions": {}
+       },
+       {
+        "nom": "Tethered Tactical Monitor (Drone)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 59500,
+        "previsions": {}
+       },
+       {
+        "nom": "ARM Breaching Mechanism For ARV",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 43000,
+        "previsions": {}
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Environmental Stewardship",
+    "depense": 1605000,
+    "ouvert": null,
+    "demande": null,
+    "previsions": {},
+    "sousCategories": [
+     {
+      "nom": "Renewal/Rebuild",
+      "depense": 1305000,
+      "projets": [
+       {
+        "nom": "Replacement of Light Vehicles Across Organization (Hybrid or Electric)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 805000,
+        "previsions": {}
+       },
+       {
+        "nom": "Storm Sewers Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 500000,
+        "previsions": {}
+       }
+      ]
+     },
+     {
+      "nom": "New/Extensions",
+      "depense": 300000,
+      "projets": [
+       {
+        "nom": "Union Street Storm Sewer",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 250000,
+        "previsions": {}
+       },
+       {
+        "nom": "Refillable Water Fountains",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 50000,
+        "previsions": {}
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Corporate",
+    "depense": 1181000,
+    "ouvert": null,
+    "demande": null,
+    "previsions": {},
+    "sousCategories": [
+     {
+      "nom": "Renewal/Rebuild",
+      "depense": 1110000,
+      "projets": [
+       {
+        "nom": "Service Fredericton CRM System and Workorder System Upgrade",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 300000,
+        "previsions": {}
+       },
+       {
+        "nom": "Core Infrastructure Network Refresh",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 295000,
+        "previsions": {}
+       },
+       {
+        "nom": "Building Site Works",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 175000,
+        "previsions": {}
+       },
+       {
+        "nom": "Core Info System HR Enhancements - Recruiting, Scheduling, Training, Performance Management",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 75000,
+        "previsions": {}
+       },
+       {
+        "nom": "Core Info System ERP Enhancements - Oracle - Sourcing, Contracts, Budgeting and Forecasting Enhancements",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 75000,
+        "previsions": {}
+       },
+       {
+        "nom": "Business Intelligence - Centre of Excellence Use Case Development",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 75000,
+        "previsions": {}
+       },
+       {
+        "nom": "Enterprise Content Mgmt. Strategy and Information Governance",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 55000,
+        "previsions": {}
+       },
+       {
+        "nom": "Information Management Refresh - Policies and Procedures Library",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 35000,
+        "previsions": {}
+       },
+       {
+        "nom": "Core Info System Migration",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 25000,
+        "previsions": {}
+       }
+      ]
+     },
+     {
+      "nom": "New/Extensions",
+      "depense": 71000,
+      "projets": [
+       {
+        "nom": "New Business Applications / Boost Fredericton Innovation Program",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 31000,
+        "previsions": {}
+       },
+       {
+        "nom": "Emerging Technology Development",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 30000,
+        "previsions": {}
+       },
+       {
+        "nom": "Network Extensions",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 10000,
+        "previsions": {}
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Sustainable Infrastructure",
+    "depense": 197500,
+    "ouvert": null,
+    "demande": null,
+    "previsions": {},
+    "detailAbsent": true,
+    "sousCategories": []
+   },
+   {
+    "nom": "Governance and Civic Engagement",
+    "depense": 82500,
+    "ouvert": null,
+    "demande": null,
+    "previsions": {},
+    "sousCategories": [
+     {
+      "nom": "Renewal/Rebuild",
+      "depense": 82500,
+      "projets": [
+       {
+        "nom": "Council Chamber Audio/Video System Renewal",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 82500,
+        "previsions": {}
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "nom": "Economic Vitality",
+    "depense": 70000,
+    "ouvert": null,
+    "demande": null,
+    "previsions": {},
+    "sousCategories": [
+     {
+      "nom": "Renewal/Rebuild",
+      "depense": 50000,
+      "projets": [
+       {
+        "nom": "Parking Equipment Renewal (Meters and Pay Stations)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 50000,
+        "previsions": {}
+       }
+      ]
+     },
+     {
+      "nom": "New/Extensions",
+      "depense": 20000,
+      "projets": [
+       {
+        "nom": "Real Time Parking Technology (LPR Readers & Mobile Enforcement)",
+        "cat3": "",
+        "approuve": null,
+        "demande": null,
+        "ouvert": null,
+        "disponible": null,
+        "depense": 20000,
+        "previsions": {}
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "conseil": null
+}
