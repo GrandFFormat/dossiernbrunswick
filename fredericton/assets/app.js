@@ -27,6 +27,18 @@ import { EN, tr } from './langue.js';   // Fredericton : anglais par défaut, fr
 import { libelleEn, themeEn, libelleFr, themeFr, INSTANCES_FR } from './libelles-en.js';
 import { boutonImprimer, brancherImpression } from './imprimer-seance.js';   // Fredericton : copie locale de commun/imprimer-seance.js (DQ)
 
+// ─── CONFIGURATION DE LA VILLE (20 nov. 2026) ───────────────────────────────────────────────
+// Ce qui est propre à Fredericton : les adresses anglaises des pages. Le reste du fichier suit
+// montreal/assets/app.js (dépôt DossierQuébec), le modèle de tous les volets de ville.
+const VILLE = {
+  nom: 'Fredericton',
+  province: 'DossierNBrunswick',
+  pages: {
+    decisions: 'decisions-of-fredericton-city-council',
+    conseil: 'fredericton-city-council',
+  },
+};
+
 brancherImpression();
 // Les libellés qui viennent des données (type, instance, résultat, fonction, rôle) : traduits en
 // anglais, intacts en français. Les noms propres restent français dans les deux cas.
@@ -141,7 +153,7 @@ function parcoursDe(d) {
     const etiquette = `${dateFr(x.date)}, ${echapper(lib(x.instance ?? ''))}${double && x.numero ? ` (${echapper(x.numero)})` : ''}`;
     if (x === d) return `<strong>${etiquette} ${tr('(cette décision)', '(this decision)')}</strong>`;
     const cle = x.numero || x.id;
-    return `<a href="decisions-of-fredericton-city-council?q=${encodeURIComponent(cle)}">${etiquette}</a>`;
+    return `<a href="${VILLE.pages.decisions}?q=${encodeURIComponent(cle)}">${etiquette}</a>`;
   }).join(' → ');
 }
 function blocContexte(d) {
@@ -372,7 +384,7 @@ function actionsFiche(d) {
   if (!r?.puces?.length || r.sansContenuSubstantiel) return '';
   const cle = d.numero || d.objet || '';
   if (!cle) return '';
-  const lien = new URL(`decisions-of-fredericton-city-council?q=${encodeURIComponent(cle)}`, location.href).href;
+  const lien = new URL(`${VILLE.pages.decisions}?q=${encodeURIComponent(cle)}`, location.href).href;
   const coupe = (t, n) => (t.length > n ? t.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : t);
   const recap = coupe(r.puces[0], 200);
   const texteX = coupe(recap, 230);
@@ -784,7 +796,7 @@ function carteElu(m) {
         ${puce(v.sansVote, 'sans vote', 'no vote')}
       </div>
       <p class="compte" style="margin:6px 0 0">${v.absents ?? 0} ${tr(`absence${(v.absents ?? 0) > 1 ? 's' : ''} sur ${v.total ?? 0} séances`, `absence${(v.absents ?? 0) === 1 ? '' : 's'} out of ${v.total ?? 0} meetings`)}.   ${''/* N.-B. */}${
-        v.contre ? ` <a href="decisions-of-fredericton-city-council?q=${encodeURIComponent(m.nomComplet)}">${tr('Voir les points votés contre', 'See the motions they opposed')} →</a>` : ''
+        v.contre ? ` <a href="${VILLE.pages.decisions}?q=${encodeURIComponent(m.nomComplet)}">${tr('Voir les points votés contre', 'See the motions they opposed')} →</a>` : ''
       }</p>
     </div>
   </article>`;
@@ -1075,9 +1087,9 @@ function ligneEvenement(e) {
     const corps = `<p class="compte" style="margin:0">
         ${v.decomptePour ?? v.pour.length} ${tr('pour', 'for')}, ${v.decompteContre ?? v.contre.length} ${tr('contre', 'against')}${
           v.contre.length ? ' — ' + v.contre.map(echapper).join(', ') : ''
-        }. <a href="decisions-of-fredericton-city-council?q=${encodeURIComponent(v.numero ?? '')}">${tr('Voir le détail', 'See details')}</a>
+        }. <a href="${VILLE.pages.decisions}?q=${encodeURIComponent(v.numero ?? '')}">${tr('Voir le détail', 'See details')}</a>
       </p>`;
-    return carteRepliable(entete, corps);
+    return lienFil(entete);
   }
 
   const d = e.data;
@@ -1096,12 +1108,16 @@ function ligneEvenement(e) {
   const corps = `${blocResume(resumePour(d))}
     ${d.dissidences?.length ? `<p class="compte" style="margin:0 0 8px">${d.dissidences?.length ? `${tr('Contre', 'Against')}&nbsp;: ${d.dissidences.map(echapper).join(', ')}. ` : ''}</p>` : ''}
     ${d.lienSource ? `<a class="lien-pdf" href="${echapper(d.lienSource)}" target="_blank" rel="noopener">${tr('Procès-verbal officiel (PDF) ↗', 'Official minutes (PDF) ↗')}</a>` : ''}
-    <p class="compte" style="margin:6px 0 0"><a href="decisions-of-fredericton-city-council?q=${encodeURIComponent(d.numero ?? '')}">${tr('Voir la fiche et le vote complet', 'See the full card and vote')} →</a></p>
+    <p class="compte" style="margin:6px 0 0"><a href="${VILLE.pages.decisions}?q=${encodeURIComponent(d.numero ?? '')}">${tr('Voir la fiche et le vote complet', 'See the full card and vote')} →</a></p>
     ${d.pdf ? `<a class="lien-pdf" href="${echapper(d.pdf)}" target="_blank" rel="noopener">${tr('Document officiel (PDF) ↗', 'Official document (PDF, in French) ↗')}</a>` : ''}
     ${actionsFiche(d)}`;
-  // N.-B. (Martin, 19 nov. 2026) : sur l'accueil, la carte reste fermée et un clic n'importe où mène à la fiche.
-  void corps;
-  return `<a class="carte carte-lien" href="decisions-of-fredericton-city-council?q=${encodeURIComponent(d.numero ?? '')}">${entete}</a>`;
+  return lienFil(entete);
+}
+
+// 19 nov. 2026 (Martin) : sur l'accueil, « Ce qui a changé » montre des cartes fermées ; un clic
+// mène en haut de la page Décisions, sans filtrer.
+function lienFil(entete) {
+  return `<a class="carte pliante fil-lien" href="${VILLE.pages.decisions}">${entete}</a>`;
 }
 
 function rendreFil() {
@@ -1115,7 +1131,7 @@ function rendreFil() {
   // question — pas en travers du fil quand on veut juste lire.
   $('#titre-fil').textContent = mode === 'nouveautes' ? tr('Ce qui a changé', "What's new") : etat.parId.size ? tr('Activité récente', 'Recent activity') : tr('Récemment au conseil', 'Recently at Council');   // N.-B. : décisions et ordres du jour
   // La première carte du fil est toujours ouverte : elle montre ce qu'est un résumé (9 nov. 2026).
-  $('#fil').innerHTML = aMontrer.map((e, i) => ligneEvenement({ ...e, ouverte: i === 0 })).join('');
+  $('#fil').innerHTML = aMontrer.map(ligneEvenement).join('');
 
   // 9 nov. 2026 : 3 décisions, puis le bouton mène toujours à la page Décisions.
   if ($('#plus-fil')) {
@@ -1131,21 +1147,21 @@ function rendreAccueil() {
     // Les résolutions seules : les fiches de procès-verbaux et d'ordres du jour sont des
     // documents, pas des décisions (voir totalDecisions).
     const p = etat.decisions.parametres ?? {};   // Fredericton : la fenêtre, pas l'année
-    chiffres.push({ n: nombreFr(totalDecisions()), quoi: tr(`résolutions du ${dateFr(p.depuis)} au ${dateFr(p.jusqua)}`, `resolutions, ${dateFr(p.depuis)} to ${dateFr(p.jusqua)}`), lien: 'decisions-of-fredericton-city-council' });
-    if (etat.decisions.seancesLues != null) chiffres.push({ n: nombreFr(etat.decisions.seancesLues), quoi: tr('séances du conseil', 'Council meetings'), lien: 'decisions-of-fredericton-city-council' });
+    chiffres.push({ n: nombreFr(totalDecisions()), quoi: tr(`résolutions du ${dateFr(p.depuis)} au ${dateFr(p.jusqua)}`, `resolutions, ${dateFr(p.depuis)} to ${dateFr(p.jusqua)}`), lien: VILLE.pages.decisions });
+    if (etat.decisions.seancesLues != null) chiffres.push({ n: nombreFr(etat.decisions.seancesLues), quoi: tr('séances du conseil', 'Council meetings'), lien: VILLE.pages.decisions });
   }
   if (etat.votes) {
     // Fredericton : tout point est voté ; le chiffre qui dit quelque chose, c'est le nombre de points où le conseil s'est divisé.
     // N.-B. : pas de vote nominal ; le chiffre parlant, ce sont les arrêtés lus.
     const arretes = etat.votes.votes.filter((v) => /By-law No\./.test(v.objet ?? '')).length;
-    chiffres.push({ n: nombreFr(arretes), quoi: tr('résolutions sur un arrêté municipal', 'resolutions on a by-law'), lien: 'decisions-of-fredericton-city-council' });
+    chiffres.push({ n: nombreFr(arretes), quoi: tr('résolutions sur un arrêté municipal', 'resolutions on a by-law'), lien: VILLE.pages.decisions });
   }
   if (etat.resumes) {
     // Décisions qui affichent un résumé (procédure exclue, 9 nov. 2026), pas le total brut du fichier.
-    chiffres.push({ n: nombreFr(etat.decisions ? etat.decisions.decisions.filter((d) => resumePour(d)).length : etat.resumes.nombre), quoi: tr('décisions résumées en langage clair', 'decisions summarized in plain language'), lien: 'decisions-of-fredericton-city-council' });
+    chiffres.push({ n: nombreFr(etat.decisions ? etat.decisions.decisions.filter((d) => resumePour(d)).length : etat.resumes.nombre), quoi: tr('décisions résumées en langage clair', 'decisions summarized in plain language'), lien: VILLE.pages.decisions });
   }
   if (etat.elus) {
-    chiffres.push({ n: etat.elus.nombre, quoi: tr('membres du conseil municipal', 'members of City Council'), lien: 'fredericton-city-council' });
+    chiffres.push({ n: etat.elus.nombre, quoi: tr('membres du conseil municipal', 'members of City Council'), lien: VILLE.pages.conseil });
   }
   if ($('#chiffres')) {
     $('#chiffres').innerHTML = chiffres
@@ -1270,7 +1286,7 @@ async function init() {
       etat.projet = projet;
       $('#compte-decisions')?.insertAdjacentHTML(
         'beforebegin',
-        `<p class="compte" id="filtre-projet">${tr('Projet&nbsp;:', 'Project:')} <strong>${echapper(etat.decisions.projets[projet].titre)}</strong> — ${nombreFr(etat.decisions.projets[projet].n)} ${tr('décision(s)', 'decision(s)')}. <a href="decisions-of-fredericton-city-council">${tr('Voir toutes les décisions', 'See all decisions')}</a></p>`
+        `<p class="compte" id="filtre-projet">${tr('Projet&nbsp;:', 'Project:')} <strong>${echapper(etat.decisions.projets[projet].titre)}</strong> — ${nombreFr(etat.decisions.projets[projet].n)} ${tr('décision(s)', 'decision(s)')}. <a href="${VILLE.pages.decisions}">${tr('Voir toutes les décisions', 'See all decisions')}</a></p>`
       );
     }
     rendreDecisions();
@@ -1327,7 +1343,7 @@ if (existe('#plus-decisions')) {
 // L'accueil montre 3 décisions résumées ; le bouton mène à la page Décisions (9 nov. 2026).
 if (existe('#plus-fil')) {
   $('#plus-fil').addEventListener('click', () => {
-    location.href = 'decisions-of-fredericton-city-council';   // Fredericton : une seule langue, pas de ?lang
+    location.href = VILLE.pages.decisions;   // Fredericton : une seule langue, pas de ?lang
   });
 }
 if (existe('#plus-votes')) {
@@ -1477,7 +1493,13 @@ init();
   window.addEventListener('scroll', majVisible, { passive: true });
   window.addEventListener('resize', majVisible, { passive: true });
   majVisible();
-  bouton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  // La flèche s'envole vers le haut en même temps que la page remonte (Martin, 16 nov. 2026).
+  bouton.addEventListener('click', () => {
+    bouton.style.setProperty('--envol', `${-(window.innerHeight - 90)}px`);
+    bouton.classList.remove('envol'); void bouton.offsetWidth; bouton.classList.add('envol');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  bouton.addEventListener('animationend', () => bouton.classList.remove('envol'));
 })();
 
 // « Tout ouvrir » d'une séance (Martin, 9 nov. 2026) : déplie la séance et toutes ses fiches ;
