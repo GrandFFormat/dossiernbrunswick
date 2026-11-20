@@ -92,6 +92,7 @@
   <p data-fr="Tapez votre adresse : votre quartier et votre conseiller ou conseillère, tels que la Ville les définit. Tout vient des données ouvertes de la Ville de Fredericton.">
     Type your address: your ward and your Councillor, as the City defines them. Everything comes from the City of Fredericton’s open data.
   </p>
+  <p class="avis-donnees" data-fr="<strong>La Ville de Fredericton ne publie ni ses permis de construction ni ses chantiers.</strong> Cette page ne peut donc montrer que votre quartier et votre conseiller ou conseillère, pas ce qui se construit ou se répare près de chez vous."><strong>The City of Fredericton does not publish its building permits or its roadwork.</strong> This page can only show your ward and your Councillor, not what is being built or repaired near you.</p>
   <form class="qui-represente" id="qui-represente" autocomplete="off">
     <label for="adresse" data-fr="Votre adresse">Your address</label>
     <div class="ligne">
@@ -234,7 +235,7 @@
             <li>${tr('Le maire, Steve Hicks, est élu par toute la ville. <a href="fredericton-city-council">Les treize membres du conseil →</a>', 'The Mayor, Steve Hicks, is elected by the whole city. <a href="fredericton-city-council">The thirteen Council members →</a>')}</li>
           </ul></section>`).join('');
       // N.-B. : sans permis ni chantiers publiés, pas de rayon ; la page le dit.
-      if (index.permis === false) { zone.insertAdjacentHTML('beforeend', `<p class="compte" style="grid-column:1/-1">${tr('La Ville de Fredericton ne publie ni ses permis de construction ni ses chantiers en données ouvertes : il n’y a donc rien à montrer autour de votre adresse.', 'The City of Fredericton does not publish its building permits or its roadwork as open data, so there is nothing to show around your address.')}</p>`); return; }
+      if (index.permis === false) return;   // l'avis est en haut de la page (20 nov. 2026)
       const t = trouvees[0];
       if (t.qi < 0) return;
       // Le rayon (Martin, 15 nov. 2026) : « − 1 km + ». Selon la distance choisie, les chantiers et
