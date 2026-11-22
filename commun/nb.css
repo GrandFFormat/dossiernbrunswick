@@ -763,17 +763,18 @@ html[lang="en"]{
 }
 html[lang="en"][data-theme="dark"]{
   --nb-rouge-encre:#ff7a8a;
-  --paper:#262122;
-  --paper-2:#2e2829;
-  --card:#352e30;
-  --line-soft:#4a4143;
-  --slate:#aaa1a3;
+  --paper:#232425;
+  --paper-2:#2a2b2d;
+  --card:#323336;
+  --line-soft:#46484b;
+  --slate:#a6a8ab;
   --nb-filet:rgba(255,255,255,.18);
   --gold:#ff7a8a;
-  --gold-soft:#4a3d3e;
+  --gold-soft:#44464a;
   --gold-bg:#cf142b;
   --gold-hover:#a50f22;
-  --ink-bg:#3d0a10;
+  --ink-bg:#1c1d1f;
+  --nb-bleu-nuit:#1c1d1f;
   --red-soft:#5a1420;
 }
 html[lang="en"][data-theme="dark"] .band-yellow{--gold:#cf142b; --gold-soft:#fff4c2;}
@@ -797,9 +798,9 @@ html[lang="en"] #view-apercu .stat-cell span{color:#1d1f20;}
 /* Le bandeau d'état : jaune pâle, texte rouge foncé. */
 html[lang="en"] #view-apercu .calendar-box.nb-etat,
 html[lang="en"] #view-apercu .calendar-box.nb-etat .status{color:#8a0d1d;}
-html[lang="en"][data-theme="dark"] #view-apercu .calendar-box.nb-etat{background:#4a3d3e;}
+html[lang="en"][data-theme="dark"] #view-apercu .calendar-box.nb-etat{background:#44464a;}
 html[lang="en"][data-theme="dark"] #view-apercu .calendar-box.nb-etat,
-html[lang="en"][data-theme="dark"] #view-apercu .calendar-box.nb-etat .status{color:#f3e9e9;}
+html[lang="en"][data-theme="dark"] #view-apercu .calendar-box.nb-etat .status{color:#f0f0f1;}
 
 /* Les étapes des projets récents : pastille jaune pâle. */
 html[lang="en"] .nb-ligne-etape{background:#fff1b8; color:#6b4f00;}
