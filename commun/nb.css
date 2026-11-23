@@ -829,3 +829,13 @@ html[lang="en"] .brand .city-flip{height:32px; padding:0 16px; border-radius:16p
 html[lang="en"] .brand .city-flip::after{border-left-width:5px; border-right-width:5px; border-top-width:6px;}
 /* « Villes », en français : un peu plus d'air à gauche du mot (Martin). */
 html:not([lang="en"]) .brand .city-flip{padding-left:16px;}
+
+/* N.-B. : l'icône Reddit à gauche du A−, vers r/DossierCanada (Martin, 23 nov. 2026). */
+.header-ctrls > .lien-reddit{display:inline-flex; align-items:center; justify-content:center; width:var(--h-ctrl); flex:none; background:var(--card);}
+.header-ctrls > .lien-reddit:hover{background:var(--yellow);}
+.header-ctrls > .lien-reddit:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+/* Sur téléphone, le pourcentage cède sa place à l'icône : la rangée ne doit pas élargir la page. */
+@media (max-width:480px){
+  .font-size-ctrl #fontPct{display:none;}
+  .font-size-ctrl button{padding:6px 7px;}
+}
