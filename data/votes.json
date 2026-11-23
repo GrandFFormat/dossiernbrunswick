@@ -1,10 +1,13 @@
 {
  "legislature": 61,
  "source": "https://www.legnb.ca/en/house-business/journals",
- "scrapedAt": "2026-11-23T04:36:50.649Z",
+ "scrapedAt": "2026-11-23T23:04:06.030Z",
  "note": "Votes nominatifs lus dans les Journaux de l'Assemblée législative du Nouveau-Brunswick. La plupart des projets de loi y sont adoptés de vive voix : l'absence de vote nominatif ne veut pas dire « unanime ».",
- "journauxLus": 100,
- "journauxIllisibles": [],
+ "journauxLus": 101,
+ "journauxIllisibles": [
+  "11261105e.pdf",
+  "13261117e.pdf"
+ ],
  "votesNonPublies": [
   "07241128e.pdf : « Mr. Dawson » ne se rattache à personne (ou à plusieurs)",
   "11241212e.pdf : « Mr. Dawson » ne se rattache à personne (ou à plusieurs)",
