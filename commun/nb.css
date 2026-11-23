@@ -831,9 +831,9 @@ html[lang="en"] .brand .city-flip::after{border-left-width:5px; border-right-wid
 html:not([lang="en"]) .brand .city-flip{padding-left:16px;}
 
 /* N.-B. : l'icône Reddit à gauche du A−, vers r/DossierCanada (Martin, 23 nov. 2026). */
-.header-ctrls > .lien-reddit{display:inline-flex; align-items:center; justify-content:center; width:26px; flex:none; background:none; border:none;}
-.header-ctrls > .lien-reddit:hover{opacity:.8;}
-.header-ctrls > .lien-reddit:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+.header-ctrls > :is(.lien-reddit,.lien-benevoles){display:inline-flex; align-items:center; justify-content:center; width:26px; flex:none; background:none; border:none;}
+.header-ctrls > :is(.lien-reddit,.lien-benevoles):hover{opacity:.8;}
+.header-ctrls > :is(.lien-reddit,.lien-benevoles):focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
 /* Sur téléphone, le pourcentage cède sa place à l'icône : la rangée ne doit pas élargir la page. */
 @media (max-width:480px){
   .font-size-ctrl #fontPct{display:none;}
@@ -849,3 +849,15 @@ html:not([lang="en"]) .brand .city-flip{padding-left:16px;}
 @media (max-width:640px){
   #band-challenged #challengedList.ch-grid{grid-template-columns:1fr;}
 }
+
+/* N.-B. : la page des bénévoles (23 nov. 2026). */
+/* La main en V : pleine en thème clair, en contour blanc en thème sombre. */
+.lien-benevoles img{display:block;}
+.lien-benevoles .paix-sombre{display:none;}
+html[data-theme="dark"] .lien-benevoles .paix-clair{display:none;}
+html[data-theme="dark"] .lien-benevoles .paix-sombre{display:block;}
+.regle p a{color:inherit; font-weight:800; text-decoration:underline; text-underline-offset:3px;}
+.benevoles-action{margin:26px 0 0;}
+.benevoles-action a{display:inline-block; padding:12px 20px; background:var(--nb-rouge); color:#fff; font-weight:800; text-decoration:none;}
+.benevoles-action a:hover{background:var(--nb-rouge-fonce);}
+.benevoles-titre{margin:44px 0 0; font-family:var(--nb-titre); font-size:30px; line-height:1.1; text-transform:uppercase; color:var(--ink);}

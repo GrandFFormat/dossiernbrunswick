@@ -512,6 +512,21 @@ const translations = {
     'regles.8.p':"Plain-language summaries are made from the official text, and the full text is always one click away. If anything differs, the original document is the one that counts. The site is independent and has no official status.",
     'regles.9.h':"We explain what is missing",
     'regles.9.p':"When a source is absent or incomplete, the page says so and says why. An absence must never be read as silence from the party or the city.",
+    // N.-B. : la page des bénévoles (23 nov. 2026).
+    'fil.benevoles':"Volunteers",
+    'sujet.benevoles':"DossierNBrunswick's volunteers",
+    'benevoleshero.l1':"Volunteers,",
+    'benevoleshero.l2':"pick up a pen.",
+    'benevoleshero.sub':"Many bill summaries are still written by AI. The goal is to replace them, one bill at a time, with summaries <b>written and reviewed by people.</b>",
+    'benevoles.1.h':"Pick a bill",
+    'benevoles.1.p':"Choose a bill you care about from the <a href=\"/en/projets-de-loi\">list of bills</a> and read its official text.",
+    'benevoles.2.h':"Propose your summary",
+    'benevoles.2.p':"Post your summary or correction on <a href=\"https://www.reddit.com/r/DossierCanada/\" target=\"_blank\" rel=\"noopener\">r/DossierCanada</a> with a link to the bill. A few short bullet points are enough. Say what the bill changes and who it affects, without saying whether it is a good idea.",
+    'benevoles.3.h':"We check it, then publish it",
+    'benevoles.3.p':"Your text is compared with the official bill and reviewed by a person. It then replaces the AI summary on the site, with your username.",
+    'benevoles.cta':"Go to r/DossierCanada",
+    'benevoles.liste.h':"The volunteers",
+    'benevoles.liste.p':"No names yet. The first accepted summary will start this list. Volunteers write in their own name and do not speak for the site. You can have your name removed at any time.",
     'regles.suite':"These rules apply everywhere on the site. Follow what changes in the <a href=\"/sources\">site updates</a>. All the content on the site is free.",   // N.-B. : sans abonnement
     'fil.introuvable':"Page not found",
     'sujet.introuvable':"Page not found",
@@ -651,7 +666,7 @@ const PAGE_EN = /^\/en(\/|$)/.test(location.pathname);
 function cheminFr(){ return location.pathname.replace(/^\/en(?=\/|$)/, '') || '/'; }
 function aUneJumelle(chemin){
   const p = String(chemin).replace(/\.html$/, '').replace(/(.)\/$/, '$1') || '/';
-  return /^\/(ministres|projets-de-loi|votes|archives|represente-ta-ville|lexique|regles|sources)?$/.test(p) || /^\/(ministres|projets-de-loi|deputes)\/[^/]+$/.test(p);
+  return /^\/(ministres|projets-de-loi|votes|archives|represente-ta-ville|lexique|regles|benevoles|sources)?$/.test(p) || /^\/(ministres|projets-de-loi|deputes)\/[^/]+$/.test(p);
 }
 // L'adresse de cette page dans l'autre langue, ou null si elle n'a pas de jumelle.
 function adresseDansLaLangue(lang){
@@ -5691,8 +5706,8 @@ async function rtvEnvoyer(f){
   }
 }
 
-const VIEW_SLUGS = { apercu:'/', ministres:'/ministres', ministre:'/ministres', projets:'/projets-de-loi', votes:'/votes', archives:'/archives', ancien:'/archives', lexique:'/lexique', represente:'/represente-ta-ville', promesses:'/promesses', bd:'/sources', mondossier:'/mon-dossier', regles:'/regles', abonnement:'/abonnement' };
-const SLUG_VIEWS = { '':'apercu', 'ministres':'ministres', 'ministres/':'ministre', 'projets-de-loi':'projets', 'votes':'votes', 'archives':'archives', 'archives/':'ancien', 'deputes/':'ministre', 'lexique':'lexique', 'represente-ta-ville':'represente', 'promesses':'promesses', 'sources':'bd', 'mon-dossier':'mondossier', 'regles':'regles', 'abonnement':'abonnement' };
+const VIEW_SLUGS = { apercu:'/', ministres:'/ministres', ministre:'/ministres', projets:'/projets-de-loi', votes:'/votes', archives:'/archives', ancien:'/archives', lexique:'/lexique', represente:'/represente-ta-ville', promesses:'/promesses', bd:'/sources', mondossier:'/mon-dossier', regles:'/regles', benevoles:'/benevoles', abonnement:'/abonnement' };
+const SLUG_VIEWS = { '':'apercu', 'ministres':'ministres', 'ministres/':'ministre', 'projets-de-loi':'projets', 'votes':'votes', 'archives':'archives', 'archives/':'ancien', 'deputes/':'ministre', 'lexique':'lexique', 'represente-ta-ville':'represente', 'promesses':'promesses', 'sources':'bd', 'mon-dossier':'mondossier', 'regles':'regles', 'benevoles':'benevoles', 'abonnement':'abonnement' };
 // Titres ANGLAIS seulement : le français vient du <title> de la page (voir syncTitle).
 const PAGE_META = {
   bd:        { en:"Site updates — DossierNBrunswick" },
@@ -5711,6 +5726,7 @@ const PAGE_META = {
   mondossier:{ en:"My file — DossierNBrunswick" },
   introuvable:{ en:"Page not found (404) — DossierNBrunswick" },
   regles:    { en:"DossierNBrunswick's sourcing rules — DossierNBrunswick" },
+  benevoles: { en:"Volunteers: bill summaries — DossierNBrunswick" },   // N.-B.
   abonnement:{ en:"The optional subscription — DossierNBrunswick" },
 };
 function viewFromPath(){

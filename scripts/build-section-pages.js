@@ -274,6 +274,14 @@ const PAGES = [
     desc: "Les neuf règles de DossierNBrunswick sur ses sources : jamais de donnée inventée, sources primaires seulement, aucun média, citations mot pour mot, aucun verdict.",
     fil: 'Les règles', cle: 'fil.regles', frequence: 'monthly', priorite: '0.5',
   },
+  {
+    // N.-B. (Martin, 23 nov. 2026) : la page des bénévoles, ouverte par l'icône V de l'en-tête.
+    fichier: 'benevoles.html', vue: 'benevoles', onglet: null, url: '/benevoles',
+    donnees: [],
+    title: 'Bénévoles : résumés de projets de loi — DossierNBrunswick',
+    desc: "Aidez à remplacer les résumés IA des projets de loi du Nouveau-Brunswick par des résumés écrits et relus par des personnes, sur r/DossierCanada.",
+    fil: 'Bénévoles', cle: 'fil.benevoles', frequence: 'monthly', priorite: '0.4',
+  },
   // N.-B. (Martin, 7 nov. 2026) : pas de page /abonnement pour l'instant.
   {
     fichier: 'sources.html', vue: 'bd', onglet: null, url: '/sources',
@@ -818,6 +826,7 @@ const EN = {
   "/represente-ta-ville": ["Represent your city — DossierNBrunswick", "Put your city council’s decisions in plain language on DossierNBrunswick: how it works, what it costs, and the price for every New Brunswick city."],
   "/archives": ["Legislative Assembly archives — DossierNBrunswick", "Past legislatures of New Brunswick’s Legislative Assembly: their bills and recorded divisions, as they stood at the last sitting."],
   "/lexique": ["Legislative Assembly glossary — DossierNBrunswick", "First reading, royal assent, recorded division: the vocabulary of New Brunswick’s Legislative Assembly explained simply, with sources."],
+  "/benevoles": ["Volunteers: bill summaries — DossierNBrunswick", "Help replace AI summaries of New Brunswick bills with summaries written and reviewed by people, on r/DossierCanada."],
   "/regles": ["DossierNBrunswick’s sourcing rules — DossierNBrunswick", "DossierNBrunswick’s nine sourcing rules: never invented data, primary sources only, no media, word-for-word quotes, no verdict."],
   "/sources": ["Site updates — DossierNBrunswick", "What changes on DossierNBrunswick, an independent citizen site that makes New Brunswick’s Legislative Assembly readable, and who is behind it."],
 };
