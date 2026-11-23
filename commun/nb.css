@@ -831,11 +831,21 @@ html[lang="en"] .brand .city-flip::after{border-left-width:5px; border-right-wid
 html:not([lang="en"]) .brand .city-flip{padding-left:16px;}
 
 /* N.-B. : l'icône Reddit à gauche du A−, vers r/DossierCanada (Martin, 23 nov. 2026). */
-.header-ctrls > .lien-reddit{display:inline-flex; align-items:center; justify-content:center; width:var(--h-ctrl); flex:none; background:var(--card);}
-.header-ctrls > .lien-reddit:hover{background:var(--yellow);}
+.header-ctrls > .lien-reddit{display:inline-flex; align-items:center; justify-content:center; width:26px; flex:none; background:none; border:none;}
+.header-ctrls > .lien-reddit:hover{opacity:.8;}
 .header-ctrls > .lien-reddit:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
 /* Sur téléphone, le pourcentage cède sa place à l'icône : la rangée ne doit pas élargir la page. */
 @media (max-width:480px){
   .font-size-ctrl #fontPct{display:none;}
   .font-size-ctrl button{padding:6px 7px;}
+}
+/* Sur téléphone, les boutons de partage passent à la ligne et le menu des villes reste dans l'écran :
+   les deux élargissaient la page d'accueil (Martin, 23 nov. 2026). */
+@media (max-width:480px){
+  .ch-share{flex-wrap:wrap;}
+  #villesMenu > ul{left:auto; right:0;}
+}
+/* Les projets signalés : une colonne sur téléphone, au lieu de trois colonnes de 100 px. */
+@media (max-width:640px){
+  #band-challenged #challengedList.ch-grid{grid-template-columns:1fr;}
 }
