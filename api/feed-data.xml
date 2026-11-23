@@ -6,7 +6,14 @@
     <atom:link href="https://dossiernbrunswick.ca/api/feed-data.xml" rel="self" type="application/rss+xml"/>
     <description>Dépôts et sanctions de projets de loi, journées de votes nominatifs à l'Assemblée législative du Nouveau-Brunswick. Site citoyen indépendant, données publiques officielles.</description>
     <language>fr-CA</language>
-    <lastBuildDate>Sat, 07 Nov 2026 16:12:11 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 04:36:51 GMT</lastBuildDate>
+    <item>
+      <title>Dépôt du projet de loi n° 15 — Loi modifiant la Loi sur l’électricité</title>
+      <link>https://dossiernbrunswick.ca/projets-de-loi/15-61-3</link>
+      <guid isPermaLink="false">depot-15-2026-11-20</guid>
+      <pubDate>Fri, 20 Nov 2026 16:00:00 GMT</pubDate>
+      <description>Dépôt du projet de loi n° 15 — Loi modifiant la Loi sur l’électricité</description>
+    </item>
     <item>
       <title>Dépôt du projet de loi n° 14 — Loi concernant les mesures de réforme de l’impôt foncier</title>
       <link>https://dossiernbrunswick.ca/projets-de-loi/14-61-3</link>
@@ -50,6 +57,20 @@
       <description>Dépôt du projet de loi n° 10 — Loi modifiant la Loi sur l’éducation</description>
     </item>
     <item>
+      <title>Dépôt du projet de loi n° 9 — Loi modifiant la Loi sur l’électricité</title>
+      <link>https://dossiernbrunswick.ca/projets-de-loi/9-61-3</link>
+      <guid isPermaLink="false">depot-9-2026-10-27</guid>
+      <pubDate>Tue, 27 Oct 2026 16:00:00 GMT</pubDate>
+      <description>Dépôt du projet de loi n° 9 — Loi modifiant la Loi sur l’électricité</description>
+    </item>
+    <item>
+      <title>Dépôt du projet de loi n° 8 — Loi modifiant la Loi sur la réglementation des jeux</title>
+      <link>https://dossiernbrunswick.ca/projets-de-loi/8-61-3</link>
+      <guid isPermaLink="false">depot-8-2026-10-27</guid>
+      <pubDate>Tue, 27 Oct 2026 16:00:00 GMT</pubDate>
+      <description>Dépôt du projet de loi n° 8 — Loi modifiant la Loi sur la réglementation des jeux</description>
+    </item>
+    <item>
       <title>Dépôt du projet de loi n° 6 — Loi modifiant la Loi sur les normes d’emploi</title>
       <link>https://dossiernbrunswick.ca/projets-de-loi/6-61-3</link>
       <guid isPermaLink="false">depot-6-2026-10-27</guid>
@@ -69,20 +90,6 @@
       <guid isPermaLink="false">depot-4-2026-10-27</guid>
       <pubDate>Tue, 27 Oct 2026 16:00:00 GMT</pubDate>
       <description>Dépôt du projet de loi n° 4 — Loi modifiant la Loi sur la Cour provinciale</description>
-    </item>
-    <item>
-      <title>Dépôt du projet de loi n° 9 — Loi modifiant la Loi sur l’électricité</title>
-      <link>https://dossiernbrunswick.ca/projets-de-loi/9-61-3</link>
-      <guid isPermaLink="false">depot-9-2026-10-27</guid>
-      <pubDate>Tue, 27 Oct 2026 16:00:00 GMT</pubDate>
-      <description>Dépôt du projet de loi n° 9 — Loi modifiant la Loi sur l’électricité</description>
-    </item>
-    <item>
-      <title>Dépôt du projet de loi n° 8 — Loi modifiant la Loi sur la réglementation des jeux</title>
-      <link>https://dossiernbrunswick.ca/projets-de-loi/8-61-3</link>
-      <guid isPermaLink="false">depot-8-2026-10-27</guid>
-      <pubDate>Tue, 27 Oct 2026 16:00:00 GMT</pubDate>
-      <description>Dépôt du projet de loi n° 8 — Loi modifiant la Loi sur la réglementation des jeux</description>
     </item>
     <item>
       <title>Dépôt du projet de loi n° 7 — Loi modifiant la Loi sur les licences de brocanteurs</title>
@@ -559,13 +566,6 @@
       <guid isPermaLink="false">depot-26-2026-03-18</guid>
       <pubDate>Wed, 18 Mar 2026 16:00:00 GMT</pubDate>
       <description>Dépôt du projet de loi n° 26 — Loi modifiant la Loi sur les normes d’emploi</description>
-    </item>
-    <item>
-      <title>Dépôt du projet de loi n° 25 — Loi modifiant la Loi sur les sages-femmes</title>
-      <link>https://dossiernbrunswick.ca/projets-de-loi/25-61-2</link>
-      <guid isPermaLink="false">depot-25-2026-03-18</guid>
-      <pubDate>Wed, 18 Mar 2026 16:00:00 GMT</pubDate>
-      <description>Dépôt du projet de loi n° 25 — Loi modifiant la Loi sur les sages-femmes</description>
     </item>
   </channel>
 </rss>

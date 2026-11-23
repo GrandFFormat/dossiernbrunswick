@@ -13,7 +13,7 @@
 
 ## Assemblée législative du Nouveau-Brunswick
 
-- [Projets de loi](https://dossiernbrunswick.ca/projets-de-loi): les 101 projets de loi de la 61e législature, avec leur étape réelle, la date de chaque lecture et le lien vers le texte officiel.
+- [Projets de loi](https://dossiernbrunswick.ca/projets-de-loi): les 102 projets de loi de la 61e législature, avec leur étape réelle, la date de chaque lecture et le lien vers le texte officiel.
 - [Votes nominatifs](https://dossiernbrunswick.ca/votes): 32 votes par appel nominal, député·e par député·e, sans interprétation.
 - [Ministres et député·e·s](https://dossiernbrunswick.ca/ministres): les 19 membres du Conseil exécutif, les 49 député·e·s, leur circonscription et leur présence aux votes.
 - [Lexique](https://dossiernbrunswick.ca/lexique): le vocabulaire de l'Assemblée législative expliqué simplement.
@@ -24,7 +24,7 @@
 
 Chaque projet de loi a sa propre adresse : `/projets-de-loi/NUMÉRO-LÉGISLATURE-SESSION`. Le numéro seul ne suffit pas : il recommence à 1 à chaque session.
 
-- [Exemple : projet de loi n° 14](https://dossiernbrunswick.ca/projets-de-loi/14-61-3): Loi concernant les mesures de réforme de l’impôt foncier
+- [Exemple : projet de loi n° 15](https://dossiernbrunswick.ca/projets-de-loi/15-61-3): Loi modifiant la Loi sur l’électricité
 - [Plan du site](https://dossiernbrunswick.ca/sitemap.xml): la liste de toutes les pages, dont celle de chaque projet de loi.
 
 ## Optional
