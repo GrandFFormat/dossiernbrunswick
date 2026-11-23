@@ -15,10 +15,10 @@
 name: Rafraîchissement des données (une fois par jour)
 
 on:
-  # EN PAUSE jusqu'au 18 nov. 2026 (limite Vercel de Martin, 7 nov.) : remettre les lignes schedule et cron ci-dessous.
-  # schedule:
+  # Réactivé à la demande de Martin (22 nov. 2026).
+  schedule:
     # Le Nouveau-Brunswick est à UTC−4 (UTC−3 l'été). 12:00 UTC = 8 h ou 9 h à Fredericton.
-    # - cron: '0 12 * * *'
+    - cron: '0 12 * * *'
   workflow_dispatch: {} # permet aussi de lancer à la main (bouton « Run workflow »)
 
 # Nécessaire pour que le job puisse committer et pousser les données mises à jour.
