@@ -1,9 +1,9 @@
 {
  "legislature": 61,
  "source": "https://www.legnb.ca/en/house-business/journals",
- "scrapedAt": "2026-11-24T21:43:24.089Z",
+ "scrapedAt": "2026-11-25T20:50:42.494Z",
  "note": "Votes nominatifs lus dans les Journaux de l'Assemblée législative du Nouveau-Brunswick. La plupart des projets de loi y sont adoptés de vive voix : l'absence de vote nominatif ne veut pas dire « unanime ».",
- "journauxLus": 101,
+ "journauxLus": 102,
  "journauxIllisibles": [
   "11261105e.pdf",
   "13261117e.pdf"
