@@ -207,9 +207,31 @@ function main() {
       ? `${n} brief${n > 1 ? 's' : ''} submitted to the parliamentary committee. Who submitted them, with the link to each official brief: <span class="pastille-abonnes">reserved for subscribers</span>. <a href="/abonnement">See the subscription</a>.`
       : `${n} mémoire${n > 1 ? 's' : ''} déposé${n > 1 ? 's' : ''} à la commission parlementaire. Qui les a déposés, avec le lien vers chaque mémoire officiel : <span class="pastille-abonnes">réservé aux abonné·e·s</span>. <a href="/abonnement">Voir l’abonnement</a>.`}</p></div></details>`;
   };
+  // L'ÉTUDE EN COMITÉ (27 nov. 2026, version réduite voulue par Martin) : quel comité, quand, et le
+  // lien vers son rapport officiel (scrapers/comites.js). Rapprochement par législature, session et
+  // numéro : le numéro recommence à 1 à chaque session. Le résultat n'est écrit que si la formule du
+  // rapport a été reconnue ; sinon « a étudié », et le rapport fait foi.
+  const COM = existsSync('data/comites.json') ? JSON.parse(readFileSync('data/comites.json', 'utf-8')) : { comites: {}, rapports: {} };
+  const MOIS_FR = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+  const MOIS_EN = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const jour = (d, en) => { const [a, m, j] = d.split('-').map(Number); return en ? `${MOIS_EN[m - 1]} ${j}, ${a}` : `${j === 1 ? '1er' : j} ${MOIS_FR[m - 1]} ${a}`; };
+  const caseComite = (b, en) => {
+    const r = Object.entries(COM.rapports || {}).filter(([, x]) => x.legislature === Number(b.legislature) && x.session === Number(b.introSession) && x.projets.includes(Number(b.num)))
+      .sort((x, y) => (y[1].reunion || '').localeCompare(x[1].reunion || ''));
+    if (!r.length) return '';
+    return r.map(([url, x]) => {
+      const c = COM.comites[x.comite] || {};
+      const nom = echapper((en ? c.nomEn : c.nomFr) || c.nomEn || (en ? 'A committee' : 'Un comité'));
+      const quand = x.reunion ? (en ? ` on ${jour(x.reunion, true)}` : ` le ${jour(x.reunion, false)}`) : '';
+      const verbe = x.resultat === 'adopte' ? (en ? 'studied this bill and agreed to it' : 'a étudié ce projet et l’a accepté')
+        : x.resultat === 'amende' ? (en ? 'studied this bill and agreed to it with amendments' : 'a étudié ce projet et l’a accepté avec des amendements')
+        : (en ? 'studied this bill' : 'a étudié ce projet');
+      return `<p class="bill-comite"><b>${en ? 'In committee' : 'En comité'}</b> : ${en ? 'the' : 'le'} ${nom} ${verbe}${quand}. <a href="${echapper(url.startsWith('http') ? url : 'https://www.legnb.ca' + encodeURI(url))}" target="_blank" rel="noopener">${en ? 'The committee’s report (PDF, legnb.ca)' : 'Le rapport du comité (PDF, legnb.ca)'}</a></p>`;
+    }).join('');
+  };
   for (const b of bills) {
-    if (b.summary) resumes.fr[b.id] = b.summary + listeLois(b, false) + caseVotes(b, false) + caseMemoires(b, false);
-    if (b.summaryEn) resumes.en[b.id] = b.summaryEn + listeLois(b, true) + caseVotes(b, true) + caseMemoires(b, true);
+    if (b.summary) resumes.fr[b.id] = b.summary + caseComite(b, false) + listeLois(b, false) + caseVotes(b, false) + caseMemoires(b, false);
+    if (b.summaryEn) resumes.en[b.id] = b.summaryEn + caseComite(b, true) + listeLois(b, true) + caseVotes(b, true) + caseMemoires(b, true);
   }
   for (const [langue, map] of Object.entries(resumes)) {
     const chemin = `data/bills-resumes-${langue}.json`;

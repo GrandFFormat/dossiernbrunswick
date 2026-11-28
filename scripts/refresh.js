@@ -47,6 +47,8 @@ const SCRAPERS = [
   ['Scrape : projets de loi (legnb.ca)', ['scrapers/bills.js']],
   ['Scrape : votes nominatifs (Journaux, legnb.ca)', ['scrapers/votes.js']],
   ['Scrape : calendrier de la Chambre (legnb.ca)', ['scrapers/calendrier.js'], { soft: true }],
+  // Rapports de comité (27 nov. 2026) : nom du comité et lien du rapport sur chaque projet.
+  ['Scrape : rapports de comité (legnb.ca)', ['scrapers/comites.js'], { soft: true }],
 ];
 
 const failed = [];      // sources critiques → déclenchent l'alerte (run rouge)

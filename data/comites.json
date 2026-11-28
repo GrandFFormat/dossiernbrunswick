@@ -1,0 +1,157 @@
+{
+ "source": "https://www.legnb.ca/en/committees",
+ "luLe": "2026-11-28T04:35:33.645Z",
+ "comites": {
+  "3": {
+   "nomFr": "Comité permanent de la politique économique",
+   "nomEn": "Standing Committee on Economic Policy",
+   "url": "https://www.legnb.ca/en/committees/3/standing-committee-on-economic-policy"
+  },
+  "4": {
+   "nomFr": "Comité permanent des prévisions et de la politique budgétaires",
+   "nomEn": "Standing Committee on Estimates and Fiscal Policy",
+   "url": "https://www.legnb.ca/en/committees/4/standing-committee-on-estimates-and-fiscal-po"
+  },
+  "5": {
+   "nomFr": "Comité permanent de modification des lois",
+   "nomEn": "Standing Committee on Law Amendments",
+   "url": "https://www.legnb.ca/en/committees/5/standing-committee-on-law-amendments"
+  },
+  "6": {
+   "nomFr": "Comité d’administration de l’Assemblée législative",
+   "nomEn": "Legislative Administration Committee",
+   "url": "https://www.legnb.ca/en/committees/6/legislative-administration-committee"
+  },
+  "7": {
+   "nomFr": "Comité permanent des projets de loi d’intérêt privé",
+   "nomEn": "Standing Committee on Private Bills",
+   "url": "https://www.legnb.ca/en/committees/7/standing-committee-on-private-bills"
+  },
+  "8": {
+   "nomFr": "Comité permanent de la procédure, des privilèges et des hauts fonctionnaires de l’Assemblée",
+   "nomEn": "Standing Committee on Procedure, Privileges and Legislative Officers",
+   "url": "https://www.legnb.ca/en/committees/8/standing-committee-on-procedure-privileges-an"
+  },
+  "9": {
+   "nomFr": "Comité permanent des comptes publics",
+   "nomEn": "Standing Committee on Public Accounts",
+   "url": "https://www.legnb.ca/en/committees/9/standing-committee-on-public-accounts"
+  },
+  "10": {
+   "nomFr": "Comité permanent de la politique sociale",
+   "nomEn": "Standing Committee on Social Policy",
+   "url": "https://www.legnb.ca/en/committees/10/standing-committee-on-social-policy"
+  },
+  "12": {
+   "nomFr": "Comité spécial sur les changements climatiques",
+   "nomEn": "Select Committee on Climate Change",
+   "url": "https://www.legnb.ca/en/committees/12/select-committee-on-climate-change"
+  },
+  "13": {
+   "nomFr": "Comité spécial sur le cannabis",
+   "nomEn": "Select Committee on Cannabis",
+   "url": "https://www.legnb.ca/en/committees/13/select-committee-on-cannabis"
+  },
+  "14": {
+   "nomFr": "Comité spécial de la réforme parlementaire",
+   "nomEn": "Select Committee on Legislative Reform",
+   "url": "https://www.legnb.ca/en/committees/14/select-committee-on-legislative-reform"
+  },
+  "15": {
+   "nomFr": "Comité spécial sur les universités publiques",
+   "nomEn": "Select Committee on Public Universities",
+   "url": "https://www.legnb.ca/en/committees/15/select-committee-on-public-universities"
+  },
+  "16": {
+   "nomFr": "Comité spécial de Point Lepreau",
+   "nomEn": "Select Committee on Point Lepreau",
+   "url": "https://www.legnb.ca/en/committees/16/select-committee-on-point-lepreau"
+  },
+  "17": {
+   "nomFr": "Comité spécial de révision de la Loi sur les langues officielles",
+   "nomEn": "Select Committee on the Revision of the Official Languages Act",
+   "url": "https://www.legnb.ca/en/committees/17/select-committee-on-the-revision-of-the-offic"
+  },
+  "22": {
+   "nomFr": "Comité permanent des changements climatiques et de l’intendance de l’environnement",
+   "nomEn": "Standing Committee on Climate Change and Environmental Stewardship",
+   "url": "https://www.legnb.ca/en/committees/22/standing-committee-on-climate-change-and-envi"
+  },
+  "24": {
+   "nomFr": "Comité spécial sur l'accessibilité au Nouveau-Brunswick",
+   "nomEn": "Select Committee on Accessibility in New Brunswick",
+   "url": "https://www.legnb.ca/en/committees/24/select-committee-on-accessibility-in-new-brun"
+  },
+  "25": {
+   "nomFr": "Comité permanent des langues officielles",
+   "nomEn": "Standing Committee on Official Languages",
+   "url": "https://www.legnb.ca/en/committees/25/standing-committee-on-official-languages"
+  },
+  "31": {
+   "nomFr": "Comité spécial de modernisation du Règlement de l’Assemblée législative",
+   "nomEn": "Select Committee on the Modernization of the Standing Rules of the Legislative Assembly",
+   "url": "https://www.legnb.ca/en/committees/31/select-committee-on-the-modernization-of-the"
+  }
+ },
+ "rapports": {
+  "/content/committees/economic_policy/reports/61-3/20261119EconomicPolicy4.pdf": {
+   "comite": "3",
+   "legislature": 61,
+   "session": 3,
+   "reunion": "2026-11-18",
+   "projets": [
+    10,
+    14
+   ],
+   "resultat": "adopte",
+   "lu": "2026-11-28"
+  },
+  "/content/committees/economic_policy/reports/61-3/20261118EconomicPolicy3.pdf": {
+   "comite": "3",
+   "legislature": 61,
+   "session": 3,
+   "reunion": "2026-11-17",
+   "projets": [
+    8,
+    9
+   ],
+   "resultat": "adopte",
+   "lu": "2026-11-28"
+  },
+  "/content/committees/economic_policy/reports/61-3/20261117EconomicPolicy2.pdf": {
+   "comite": "3",
+   "legislature": 61,
+   "session": 3,
+   "reunion": "2026-11-06",
+   "projets": [
+    6
+   ],
+   "resultat": "amende",
+   "lu": "2026-11-28"
+  },
+  "/content/committees/economic_policy/reports/61-3/20261105EconomicPolicy1.pdf": {
+   "comite": "3",
+   "legislature": 61,
+   "session": 3,
+   "reunion": "2026-11-04",
+   "projets": [
+    2,
+    3,
+    4,
+    5,
+    13
+   ],
+   "resultat": "adopte",
+   "lu": "2026-11-28"
+  },
+  "/content/committees/offical_languages/reports/61-2/2021ReportReview.pdf": {
+   "comite": "25",
+   "legislature": 61,
+   "session": 2,
+   "reunion": null,
+   "projets": [],
+   "resultat": null,
+   "lu": "2026-11-28"
+  }
+ }
+}
